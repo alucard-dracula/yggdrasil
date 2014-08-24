@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<skill_anim_list>
+    <skill_anim id="6001">
+        <ani actid="9005" sframe="0" eframe="0" stime="0" etime="1330" spos="0" ppos="8" />
+        <ani actid="9006" sframe="0" eframe="0" stime="1330" etime="2660" spos="2" ppos="4" />
+    </skill_anim>
+    <skill_anim id="6002">
+        <ani actid="9001" sframe="0" eframe="0" stime="0" etime="2500" spos="8" ppos="0" />
+    </skill_anim>
+    <skill_anim id="6003">
+        <ani actid="9005" sframe="0" eframe="0" stime="0" etime="1330" spos="0" ppos="8" />
+        <ani actid="9006" sframe="0" eframe="0" stime="1330" etime="2660" spos="2" ppos="4" />
+        <ani actid="9001" sframe="0" eframe="0" stime="2660" etime="5210" spos="8" ppos="0" />
+    </skill_anim>
+</skill_anim_list>

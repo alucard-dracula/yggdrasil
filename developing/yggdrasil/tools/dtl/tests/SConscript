@@ -1,0 +1,11 @@
+import os
+import fnmatch
+
+Import(['env','find_files'])
+denv = env.Copy()
+
+denv.Append(LIBPATH=Dir('../lib'))
+denv.Append(CPPPATH=['../lib'])
+
+denv.Program('tests',find_files(denv),LIBS=['DTL',denv['odbc']])
+# If operator<<(datetime) is required ,'boost_date_time-gcc'])

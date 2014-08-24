@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="pyd_export" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="../Debug/pyst.so" prefix_auto="0" extension_auto="0" />
+				<Option object_output="Debug" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-D_DEBUG" />
+				</Compiler>
+				<Linker>
+					<Add library="/usr/lib/libpython3.3m.so" />
+					<Add library="/usr/local/lib/libboost_python-gcc47-mt-d-1_53.so" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="../Release/pyst.so" prefix_auto="0" extension_auto="0" />
+				<Option object_output="Release" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-D_NDEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="/usr/lib/libpython3.3m.so" />
+					<Add library="/usr/local/lib/libboost_python-gcc47-mt-1_53.so" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add option="-fPIC" />
+			<Add option="-DLINUX" />
+			<Add option="-DBUILD_DLL" />
+		</Compiler>
+		<Unit filename="pyd_export.cpp" />
+		<Unit filename="s_t.h" />
+		<Unit filename="s_t_ex.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="dtl" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="../../lib/libdtl-linux-d" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="Debug" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-D_DEBUG" />
+					<Add directory="./include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="../../lib/libdtl-linux.a" prefix_auto="1" extension_auto="0" />
+				<Option working_dir="" />
+				<Option object_output="Release" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-DNDEBUG" />
+					<Add directory="./include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add option="-DLINUX" />
+		</Compiler>
+		<Unit filename="include/BoundIO.h" />
+		<Unit filename="include/Callback.h" />
+		<Unit filename="include/CountedPtr.h" />
+		<Unit filename="include/DBConnection.h" />
+		<Unit filename="include/DBDefaults.h" />
+		<Unit filename="include/DBException.h" />
+		<Unit filename="include/DBIndex.h" />
+		<Unit filename="include/DBStmt.h" />
+		<Unit filename="include/DBView.h" />
+		<Unit filename="include/DB_Base.h" />
+		<Unit filename="include/DB_iterator.h" />
+		<Unit filename="include/DTL.h" />
+		<Unit filename="include/DynaDBView.h" />
+		<Unit filename="include/IndexedDBView.h" />
+		<Unit filename="include/LocalBCA.h" />
+		<Unit filename="include/RandomDBView.h" />
+		<Unit filename="include/RootException.h" />
+		<Unit filename="include/VariantException.h" />
+		<Unit filename="include/array_string.h" />
+		<Unit filename="include/bind_basics.h" />
+		<Unit filename="include/clib_fwd.h" />
+		<Unit filename="include/date_util.h" />
+		<Unit filename="include/delete_iterator.h" />
+		<Unit filename="include/dtl_algo.h" />
+		<Unit filename="include/dtl_base_types.h" />
+		<Unit filename="include/dtl_config.h" />
+		<Unit filename="include/dtl_date.h" />
+		<Unit filename="include/dtl_enum.h" />
+		<Unit filename="include/dtl_posix_time.h" />
+		<Unit filename="include/dtl_set.h" />
+		<Unit filename="include/dtl_time.h" />
+		<Unit filename="include/insert_iterator.h" />
+		<Unit filename="include/merant.h" />
+		<Unit filename="include/minimax.h" />
+		<Unit filename="include/nullable.h" />
+		<Unit filename="include/random_select_iterator.h" />
+		<Unit filename="include/random_select_update_iterator.h" />
+		<Unit filename="include/select_insert_iterator.h" />
+		<Unit filename="include/select_iterator.h" />
+		<Unit filename="include/select_update_iterator.h" />
+		<Unit filename="include/sql_iterator.h" />
+		<Unit filename="include/starit.h" />
+		<Unit filename="include/std_warn_off.h" />
+		<Unit filename="include/std_warn_on.h" />
+		<Unit filename="include/string_util.h" />
+		<Unit filename="include/table.h" />
+		<Unit filename="include/unix_tchar.h" />
+		<Unit filename="include/update_iterator.h" />
+		<Unit filename="include/validate.h" />
+		<Unit filename="include/variant_row.h" />
+		<Unit filename="include/vec_multiset.h" />
+		<Unit filename="src/BoundIO.cpp" />
+		<Unit filename="src/CountedPtr.cpp" />
+		<Unit filename="src/DBConnection.cpp" />
+		<Unit filename="src/DBException.cpp" />
+		<Unit filename="src/DBStmt.cpp" />
+		<Unit filename="src/DBView.cpp" />
+		<Unit filename="src/DB_Base.cpp" />
+		<Unit filename="src/LocalBCA.cpp" />
+		<Unit filename="src/RootException.cpp" />
+		<Unit filename="src/VariantException.cpp" />
+		<Unit filename="src/__dummyinst.cpp" />
+		<Unit filename="src/bind_basics.cpp" />
+		<Unit filename="src/clib_fwd.cpp" />
+		<Unit filename="src/date_util.cpp" />
+		<Unit filename="src/dtl_base_types.cpp" />
+		<Unit filename="src/string_util.cpp" />
+		<Unit filename="src/validate.cpp" />
+		<Unit filename="src/variant_row.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

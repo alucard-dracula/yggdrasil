@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="yggr_win64_lib_only">
+		<Project filename="compatibility/compatibility_win64.cbp" />
+		<Project filename="lib_compatibility/lib_compatibility_win64.cbp" />
+		<Project filename="yggr/yggr_win64.cbp" />
+		<Project filename="yggr_base/yggr_base_win64.cbp" active="1" />
+		<Project filename="yggr_time/yggr_time_win64.cbp" />
+		<Project filename="yggr_charset/yggr_charset_win64.cbp" />
+		<Project filename="yggr_ids/yggr_ids_win64.cbp" />
+		<Project filename="yggr_modules/yggr_modules_win64.cbp" />
+		<Project filename="yggr_nsql_database_system/yggr_nsql_database_system_win64.cbp" />
+		<Project filename="yggr_script_lua/yggr_script_lua_win64.cbp" />
+		<Project filename="yggr_script_python/yggr_script_python_win64.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>

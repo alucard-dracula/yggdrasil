@@ -1,0 +1,1863 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{d3288edb-4abf-422d-be52-d5d385cca594}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{c5a00ea7-0b31-4925-99a3-d9ee835562ee}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Header Files\base">
+      <UniqueIdentifier>{0be04174-cab8-44ba-93d9-3a32b18af388}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network">
+      <UniqueIdentifier>{f79cb274-6771-46b4-8f3d-cf411cb2e89c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\packet">
+      <UniqueIdentifier>{9e888bc5-650e-4bac-ab83-b11752e61cdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\client">
+      <UniqueIdentifier>{8feb7af3-1406-4a54-967b-a7594ad2c4bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\server">
+      <UniqueIdentifier>{e4a8dbb5-e62a-4dd1-a3b7-1266e647e5f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\thread">
+      <UniqueIdentifier>{7baf14b1-b872-4342-acba-b1f8c254228b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\adapter">
+      <UniqueIdentifier>{27fc311e-f3ce-44bb-a2d6-d428c47e4d05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\support">
+      <UniqueIdentifier>{6be2a118-2ade-4b98-b1f7-67b636cba74e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\file_system">
+      <UniqueIdentifier>{6ce3e275-5289-44ac-8c5a-fc6ccaadfc14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\archive">
+      <UniqueIdentifier>{3c762da2-0b27-4bd7-87ef-bc3b37655f47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\time">
+      <UniqueIdentifier>{a3abb037-851c-4d58-bd54-4c5bccf305d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\database_system">
+      <UniqueIdentifier>{8d4a7321-1e81-4d25-a431-d6ed09a89add}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\script">
+      <UniqueIdentifier>{52e4c8e2-afd5-4264-861b-00f7d9da4f5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\geometry">
+      <UniqueIdentifier>{fd0c5963-ed39-4f6a-9f05-93c44bf0cf38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\math">
+      <UniqueIdentifier>{ec72e3aa-7bf6-4bb8-a19e-8adcb8eb4a15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\encryption_tool">
+      <UniqueIdentifier>{877f3097-af90-42e8-bb07-92d25ee9e196}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dll_make">
+      <UniqueIdentifier>{31ce517c-e4f2-41f1-b254-14e2d23b75e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\nsql_database_system">
+      <UniqueIdentifier>{faa1aedc-4272-41fc-9440-54a3445e5a1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\modules">
+      <UniqueIdentifier>{f92f9188-3d99-4c51-af64-30182fec7e1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\plugins">
+      <UniqueIdentifier>{5eb3acc6-a667-4b85-acd2-acf5a620ec15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\log">
+      <UniqueIdentifier>{5cd702b3-24aa-4e79-a316-cadf0b073541}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\any_val">
+      <UniqueIdentifier>{a0746513-5e4e-4e7a-ab35-5994ed53ff6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\fuzzy">
+      <UniqueIdentifier>{9563498d-3340-479b-9017-f07a87a43fb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ptr_val">
+      <UniqueIdentifier>{e43ba54c-ea07-4d69-b437-c7f76016b7e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\flash_security">
+      <UniqueIdentifier>{aaa2a40d-b5c0-41b5-9e84-9e8181e4cfe8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\charset">
+      <UniqueIdentifier>{d85ff6f6-41eb-4747-991c-220298f19c61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\sync_system">
+      <UniqueIdentifier>{d9c0c642-2998-4397-8c79-6025a21ff687}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ids">
+      <UniqueIdentifier>{dc31f6f2-3a96-4e91-833a-41de21e8e780}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{c988e093-fd30-4e18-a2d7-dece3ddf1db3}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Header Files\helper">
+      <UniqueIdentifier>{130dc838-b404-4219-8d70-e770a6e33374}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\check_helper">
+      <UniqueIdentifier>{20ceb9c6-2492-46be-b7e1-f8aae376652c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\regular_parse">
+      <UniqueIdentifier>{79ca3ee4-acbb-43f3-97d9-f432d4932289}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\process">
+      <UniqueIdentifier>{74745d2e-3e97-48fb-a62c-b98b428e7a73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\proxy">
+      <UniqueIdentifier>{bf103862-db59-4ea0-a26d-52ede75103be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\seh">
+      <UniqueIdentifier>{6854963e-5acc-4707-ba00-81e12fe0d0b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\segment">
+      <UniqueIdentifier>{ced93c6b-e883-49fe-b4eb-6920ff9bfe56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\nonable">
+      <UniqueIdentifier>{bb15ca84-f9d4-4028-9835-82be7249ba04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ppex">
+      <UniqueIdentifier>{649fefe9-b625-404e-8d8c-9d4e31e65e69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ppex\detail">
+      <UniqueIdentifier>{8b23f0b7-ab86-4c2c-8ee6-6179825505f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\mplex">
+      <UniqueIdentifier>{13e2e916-b298-41db-922c-d4e756330c3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\container">
+      <UniqueIdentifier>{3c748349-ebfd-474c-b05c-6a899f3265f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\safe_container">
+      <UniqueIdentifier>{bfb4f9e7-094c-49d9-a6b5-0a406ebf7e41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\safe_container\detail">
+      <UniqueIdentifier>{d7adad4c-138d-40a1-bdb5-02dde1a2596f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\container\detail">
+      <UniqueIdentifier>{dd206c05-1a9c-4015-8a7e-f7c1b35a89d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\lua_wrap">
+      <UniqueIdentifier>{33425eaa-f99b-4fdf-b73a-548f82bd6fa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\serialization">
+      <UniqueIdentifier>{df454d2e-20af-4eaa-92f8-1b010a6bf4bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\serialization\detail">
+      <UniqueIdentifier>{8668212b-42d2-47eb-9301-22de81033bfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\archive\impl">
+      <UniqueIdentifier>{ebd6dcd5-dcc1-43ac-8930-a15d209c32ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\type_traits">
+      <UniqueIdentifier>{c52a9c3a-a8f7-4334-8a8a-49cf26735860}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\type_awareness">
+      <UniqueIdentifier>{600a8e82-6552-400b-b98e-88eb279731b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\struct_support">
+      <UniqueIdentifier>{9935a8f9-ea32-40a6-9d3a-480934344342}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network\start_data">
+      <UniqueIdentifier>{63051f27-4d6a-4963-a207-8f4e8fbd6766}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\task_center">
+      <UniqueIdentifier>{c6c01412-379c-4995-8c42-b43fb96fbf30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\task_center\support">
+      <UniqueIdentifier>{d18eb44c-e342-499c-a722-785db231e8d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network\adapter_helper">
+      <UniqueIdentifier>{d4b6c36e-fd8d-4091-a81f-2062355af463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network\type_traits">
+      <UniqueIdentifier>{42de0c70-5d99-4c07-9853-175e5f663d80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network\support">
+      <UniqueIdentifier>{d91d660d-417a-4fef-8bfb-198271654ba8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network\detail">
+      <UniqueIdentifier>{b645475a-ce03-441d-8f8e-06e3a5a2b143}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network\packets_support">
+      <UniqueIdentifier>{ae0baa40-2124-4a94-9393-fb2915cad440}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network\network_config">
+      <UniqueIdentifier>{65b8d3bc-cd3e-4927-80a7-50ffcd93bac7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\thread\type_traits">
+      <UniqueIdentifier>{39a42814-2138-42d3-8fee-352d2889ef3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\task_center\type_traits">
+      <UniqueIdentifier>{19baf50c-aeab-4b07-8aee-3d59414d28e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\server\start_mode">
+      <UniqueIdentifier>{71b7bc39-bce4-4d62-9a48-b61f447d1852}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network\session_helper">
+      <UniqueIdentifier>{7ae47d07-7af9-4e4e-af2a-59a01691b2de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\server\server_config">
+      <UniqueIdentifier>{1f72e239-4464-49fa-8e3d-f93293442a2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\client\start_mode">
+      <UniqueIdentifier>{b2b7b4c9-6123-4909-8e36-48c733390f06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\client\client_config">
+      <UniqueIdentifier>{0f7a0515-fa0d-4d83-8950-a388cfb2dcfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\proxy\adapter_helper">
+      <UniqueIdentifier>{466cfe3f-8b1c-4e8c-847d-10fd970ccbf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\thread\action_helper">
+      <UniqueIdentifier>{93044719-673c-432d-90bc-5f2efebad6c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\proxy\detail">
+      <UniqueIdentifier>{42e777b9-2b2f-48fa-a443-2b4ebb2ab19b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\proxy\proxy_msg">
+      <UniqueIdentifier>{894f4a18-dfea-4aa1-85d1-bae250904f96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\proxy\proxy_mode">
+      <UniqueIdentifier>{faf299c5-36d3-460c-a9ce-973d939d6458}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\proxy\proxy_ctrl">
+      <UniqueIdentifier>{e8338bbe-7605-403a-8996-dd6d07e8c7e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network\udp_ctrl_data">
+      <UniqueIdentifier>{5a493a1a-eac9-42df-a2c8-0b089fb3c3d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network\udp_helper">
+      <UniqueIdentifier>{3200ddfc-ee26-4c78-b298-f1df1be4600a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network\heart">
+      <UniqueIdentifier>{b4d29579-626a-483c-b5d6-22de8bf16562}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network\session_state">
+      <UniqueIdentifier>{24212d66-c244-4160-8ea1-017488c31bef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\compaction_tool">
+      <UniqueIdentifier>{78245b05-4be3-471f-b8eb-9ef4bd9d388a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\mapping">
+      <UniqueIdentifier>{0ea87026-ffba-4c8a-b417-72f5f4fbaae0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\handler_center">
+      <UniqueIdentifier>{13300fd0-72c9-4076-8989-41ba1d0cd10c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\mplex\detail">
+      <UniqueIdentifier>{08363ed1-3355-45d7-9c85-e4eb8eb0efaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\move">
+      <UniqueIdentifier>{3c0f4bff-8ac2-4bbd-97cc-aa14ea1cfd70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utility">
+      <UniqueIdentifier>{5d434dc5-51db-47e2-bc90-4e2c9549fe6d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base\ctrl_center.hpp">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\exception.hpp">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\exception_sort.hpp">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\interface_ptr.hpp">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\obj_creator.hpp">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\ptr_single.hpp">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\random.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\system_code.hpp">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\yggrdef.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="network\balance_io_service.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\balance_io_service_selector.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\flash_security_request_pak.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\io_service_pool.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\network_packet.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\non_strand_connection.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\normal_io_service_selector.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\tcp_linker.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\udp_linker.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\udp_packet_wrap.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\udp_packets_collecter.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\udp_pak_info.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="packet\packet.hpp">
+      <Filter>Header Files\packet</Filter>
+    </ClInclude>
+    <ClInclude Include="client\client.hpp">
+      <Filter>Header Files\client</Filter>
+    </ClInclude>
+    <ClInclude Include="server\server.hpp">
+      <Filter>Header Files\server</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\action_table.hpp">
+      <Filter>Header Files\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\boost_thread_config.hpp">
+      <Filter>Header Files\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\io_runner.hpp">
+      <Filter>Header Files\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\static_work_runner.hpp">
+      <Filter>Header Files\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\thread_config.hpp">
+      <Filter>Header Files\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\thread_mgr.hpp">
+      <Filter>Header Files\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\timer_runner.hpp">
+      <Filter>Header Files\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\work_thread.hpp">
+      <Filter>Header Files\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="adapter\adapter_mgr.hpp">
+      <Filter>Header Files\adapter</Filter>
+    </ClInclude>
+    <ClInclude Include="time\time.hpp">
+      <Filter>Header Files\time</Filter>
+    </ClInclude>
+    <ClInclude Include="time\timer.hpp">
+      <Filter>Header Files\time</Filter>
+    </ClInclude>
+    <ClInclude Include="time\timer_mgr.hpp">
+      <Filter>Header Files\time</Filter>
+    </ClInclude>
+    <ClInclude Include="database_system\database_calculater.hpp">
+      <Filter>Header Files\database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="database_system\database_check_operator.hpp">
+      <Filter>Header Files\database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="database_system\database_command.hpp">
+      <Filter>Header Files\database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="database_system\database_connect.hpp">
+      <Filter>Header Files\database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="database_system\database_connect_mt.hpp">
+      <Filter>Header Files\database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="database_system\database_connect_st.hpp">
+      <Filter>Header Files\database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="database_system\database_mgr.hpp">
+      <Filter>Header Files\database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="database_system\database_operator.hpp">
+      <Filter>Header Files\database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="database_system\database_operator_eins.hpp">
+      <Filter>Header Files\database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="database_system\database_operator_zwei.hpp">
+      <Filter>Header Files\database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="script\base_python_environment.hpp">
+      <Filter>Header Files\script</Filter>
+    </ClInclude>
+    <ClInclude Include="script\python_environment.hpp">
+      <Filter>Header Files\script</Filter>
+    </ClInclude>
+    <ClInclude Include="script\python_script.hpp">
+      <Filter>Header Files\script</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry\geo_line.hpp">
+      <Filter>Header Files\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry\geo_line_segment.hpp">
+      <Filter>Header Files\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry\geo_polygon.hpp">
+      <Filter>Header Files\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry\geo_rectangle.hpp">
+      <Filter>Header Files\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="math\sign.hpp">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="encryption_tool\blowfish_tool.hpp">
+      <Filter>Header Files\encryption_tool</Filter>
+    </ClInclude>
+    <ClInclude Include="encryption_tool\md5_tool.hpp">
+      <Filter>Header Files\encryption_tool</Filter>
+    </ClInclude>
+    <ClInclude Include="dll_make\dll_def_helper.hpp">
+      <Filter>Header Files\dll_make</Filter>
+    </ClInclude>
+    <ClInclude Include="dll_make\dll_imp_helper.hpp">
+      <Filter>Header Files\dll_make</Filter>
+    </ClInclude>
+    <ClInclude Include="dll_make\dll_mark_define.hpp">
+      <Filter>Header Files\dll_make</Filter>
+    </ClInclude>
+    <ClInclude Include="nsql_database_system\bson_data_type.hpp">
+      <Filter>Header Files\nsql_database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\defmodules.h">
+      <Filter>Header Files\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\module.hpp">
+      <Filter>Header Files\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\modules_accesser.hpp">
+      <Filter>Header Files\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\modules_mgr.hpp">
+      <Filter>Header Files\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="plugins\plugins_installer.hpp">
+      <Filter>Header Files\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="log\log_accesser.hpp">
+      <Filter>Header Files\log</Filter>
+    </ClInclude>
+    <ClInclude Include="log\log_file.hpp">
+      <Filter>Header Files\log</Filter>
+    </ClInclude>
+    <ClInclude Include="log\log_file_mgr.hpp">
+      <Filter>Header Files\log</Filter>
+    </ClInclude>
+    <ClInclude Include="log\log_file_op.hpp">
+      <Filter>Header Files\log</Filter>
+    </ClInclude>
+    <ClInclude Include="log\log_nsql_db_op.hpp">
+      <Filter>Header Files\log</Filter>
+    </ClInclude>
+    <ClInclude Include="log\log_op_def.hpp">
+      <Filter>Header Files\log</Filter>
+    </ClInclude>
+    <ClInclude Include="log\log_sql_db_op.hpp">
+      <Filter>Header Files\log</Filter>
+    </ClInclude>
+    <ClInclude Include="log\yggr_exception_log_accesser.hpp">
+      <Filter>Header Files\log</Filter>
+    </ClInclude>
+    <ClInclude Include="any_val\any_val_operator.hpp">
+      <Filter>Header Files\any_val</Filter>
+    </ClInclude>
+    <ClInclude Include="any_val\base_any_type_operator.hpp">
+      <Filter>Header Files\any_val</Filter>
+    </ClInclude>
+    <ClInclude Include="any_val\params.hpp">
+      <Filter>Header Files\any_val</Filter>
+    </ClInclude>
+    <ClInclude Include="regular_parse\regex_parse.hpp">
+      <Filter>Header Files\regular_parse</Filter>
+    </ClInclude>
+    <ClInclude Include="regular_parse\u32regex_parse.hpp">
+      <Filter>Header Files\regular_parse</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\fuzzy_string.hpp">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="ptr_val\ptr_val_operator.hpp">
+      <Filter>Header Files\ptr_val</Filter>
+    </ClInclude>
+    <ClInclude Include="flash_security\security_protocol.hpp">
+      <Filter>Header Files\flash_security</Filter>
+    </ClInclude>
+    <ClInclude Include="flash_security\security_protocol_def.h">
+      <Filter>Header Files\flash_security</Filter>
+    </ClInclude>
+    <ClInclude Include="sync_system\sync_container_mgr.hpp">
+      <Filter>Header Files\sync_system</Filter>
+    </ClInclude>
+    <ClInclude Include="sync_system\sync_default_config.hpp">
+      <Filter>Header Files\sync_system</Filter>
+    </ClInclude>
+    <ClInclude Include="sync_system\sync_helper.hpp">
+      <Filter>Header Files\sync_system</Filter>
+    </ClInclude>
+    <ClInclude Include="ids\base_ids_def.hpp">
+      <Filter>Header Files\ids</Filter>
+    </ClInclude>
+    <ClInclude Include="script\lua_environment.hpp">
+      <Filter>Header Files\script</Filter>
+    </ClInclude>
+    <ClInclude Include="script\lua_script.hpp">
+      <Filter>Header Files\script</Filter>
+    </ClInclude>
+    <ClInclude Include="script\script_mgr.hpp">
+      <Filter>Header Files\script</Filter>
+    </ClInclude>
+    <ClInclude Include="script\base_lua_environment.hpp">
+      <Filter>Header Files\script</Filter>
+    </ClInclude>
+    <ClInclude Include="check_helper\check_empty.hpp">
+      <Filter>Header Files\check_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="check_helper\check_half_t.hpp">
+      <Filter>Header Files\check_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="helper\handler_helper.hpp">
+      <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="ids\id_generator.hpp">
+      <Filter>Header Files\ids</Filter>
+    </ClInclude>
+    <ClInclude Include="ids\inner_process_id.hpp">
+      <Filter>Header Files\ids</Filter>
+    </ClInclude>
+    <ClInclude Include="ids\id_n.hpp">
+      <Filter>Header Files\ids</Filter>
+    </ClInclude>
+    <ClInclude Include="ids\uuid.hpp">
+      <Filter>Header Files\ids</Filter>
+    </ClInclude>
+    <ClInclude Include="encryption_tool\safe_packet_tool.hpp">
+      <Filter>Header Files\encryption_tool</Filter>
+    </ClInclude>
+    <ClInclude Include="base\inc_ver.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="network\timed_base_network_packet.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="nsql_database_system\mongodb_config.h">
+      <Filter>Header Files\nsql_database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="nsql_database_system\mongo_accesser.hpp">
+      <Filter>Header Files\nsql_database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="nsql_database_system\c_mongo_connection.hpp">
+      <Filter>Header Files\nsql_database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="network\socket_info.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="nsql_database_system\c_mongo_write_concern.hpp">
+      <Filter>Header Files\nsql_database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="nsql_database_system\c_bson.hpp">
+      <Filter>Header Files\nsql_database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="nsql_database_system\c_bson_err.hpp">
+      <Filter>Header Files\nsql_database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="time\runtime_speed_test.hpp">
+      <Filter>Header Files\time</Filter>
+    </ClInclude>
+    <ClInclude Include="nsql_database_system\mongodb_io_system.hpp">
+      <Filter>Header Files\nsql_database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="math\sqrt.hpp">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\value_miss_comparer.hpp">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\math.hpp">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry\geo_plane.hpp">
+      <Filter>Header Files\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matrix2d.hpp">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matrix3d.hpp">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\determinant.hpp">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\array_indexes_permutation_parity.hpp">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\vector2d.hpp">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\vector3d.hpp">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry\conversion_helper.hpp">
+      <Filter>Header Files\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry\algorithm_helper.hpp">
+      <Filter>Header Files\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\this_thread.hpp">
+      <Filter>Header Files\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\boost_this_thread.hpp">
+      <Filter>Header Files\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="log\log_thread_file.hpp">
+      <Filter>Header Files\log</Filter>
+    </ClInclude>
+    <ClInclude Include="process\this_process.hpp">
+      <Filter>Header Files\process</Filter>
+    </ClInclude>
+    <ClInclude Include="seh\linux_seh_env.hpp">
+      <Filter>Header Files\seh</Filter>
+    </ClInclude>
+    <ClInclude Include="seh\win_seh_env.hpp">
+      <Filter>Header Files\seh</Filter>
+    </ClInclude>
+    <ClInclude Include="seh\win_seh_helper.hpp">
+      <Filter>Header Files\seh</Filter>
+    </ClInclude>
+    <ClInclude Include="seh\win_seh.hpp">
+      <Filter>Header Files\seh</Filter>
+    </ClInclude>
+    <ClInclude Include="seh\seh.hpp">
+      <Filter>Header Files\seh</Filter>
+    </ClInclude>
+    <ClInclude Include="seh\linux_seh.hpp">
+      <Filter>Header Files\seh</Filter>
+    </ClInclude>
+    <ClInclude Include="seh\linux_seh_helper.hpp">
+      <Filter>Header Files\seh</Filter>
+    </ClInclude>
+    <ClInclude Include="seh\linux_seh_sys_codes.hpp">
+      <Filter>Header Files\seh</Filter>
+    </ClInclude>
+    <ClInclude Include="seh\win_seh_sys_codes.hpp">
+      <Filter>Header Files\seh</Filter>
+    </ClInclude>
+    <ClInclude Include="segment\segment_op_proxy.hpp">
+      <Filter>Header Files\segment</Filter>
+    </ClInclude>
+    <ClInclude Include="segment\shared_memory_object_op_proxy.hpp">
+      <Filter>Header Files\segment</Filter>
+    </ClInclude>
+    <ClInclude Include="segment\segment_container.hpp">
+      <Filter>Header Files\segment</Filter>
+    </ClInclude>
+    <ClInclude Include="segment\segment_mode.hpp">
+      <Filter>Header Files\segment</Filter>
+    </ClInclude>
+    <ClInclude Include="segment\segment_op.hpp">
+      <Filter>Header Files\segment</Filter>
+    </ClInclude>
+    <ClInclude Include="segment\segment_file_pos.hpp">
+      <Filter>Header Files\segment</Filter>
+    </ClInclude>
+    <ClInclude Include="segment\managed_shared_memory_op_proxy.hpp">
+      <Filter>Header Files\segment</Filter>
+    </ClInclude>
+    <ClInclude Include="segment\file_mapping_op_proxy.hpp">
+      <Filter>Header Files\segment</Filter>
+    </ClInclude>
+    <ClInclude Include="segment\segment_deleter.hpp">
+      <Filter>Header Files\segment</Filter>
+    </ClInclude>
+    <ClInclude Include="segment\managed_mapped_file_op_proxy.hpp">
+      <Filter>Header Files\segment</Filter>
+    </ClInclude>
+    <ClInclude Include="segment\anonymous_segment_container.hpp">
+      <Filter>Header Files\segment</Filter>
+    </ClInclude>
+    <ClInclude Include="segment\anonymous_segment_op_proxy.hpp">
+      <Filter>Header Files\segment</Filter>
+    </ClInclude>
+    <ClInclude Include="segment\anonymous_shared_memory.hpp">
+      <Filter>Header Files\segment</Filter>
+    </ClInclude>
+    <ClInclude Include="segment\anonymous_shared_memory_op_proxy.hpp">
+      <Filter>Header Files\segment</Filter>
+    </ClInclude>
+    <ClInclude Include="nonable\noncopyable.hpp">
+      <Filter>Header Files\nonable</Filter>
+    </ClInclude>
+    <ClInclude Include="nonable\noncreateable.hpp">
+      <Filter>Header Files\nonable</Filter>
+    </ClInclude>
+    <ClInclude Include="nonable\nonmoveable.hpp">
+      <Filter>Header Files\nonable</Filter>
+    </ClInclude>
+    <ClInclude Include="ppex\cast.hpp">
+      <Filter>Header Files\ppex</Filter>
+    </ClInclude>
+    <ClInclude Include="ppex\cast_to_string.hpp">
+      <Filter>Header Files\ppex</Filter>
+    </ClInclude>
+    <ClInclude Include="ppex\foo_params.hpp">
+      <Filter>Header Files\ppex</Filter>
+    </ClInclude>
+    <ClInclude Include="ppex\open.hpp">
+      <Filter>Header Files\ppex</Filter>
+    </ClInclude>
+    <ClInclude Include="ppex\pp_debug.hpp">
+      <Filter>Header Files\ppex</Filter>
+    </ClInclude>
+    <ClInclude Include="ppex\symbol_if.hpp">
+      <Filter>Header Files\ppex</Filter>
+    </ClInclude>
+    <ClInclude Include="ppex\symbols.hpp">
+      <Filter>Header Files\ppex</Filter>
+    </ClInclude>
+    <ClInclude Include="ppex\typedef.hpp">
+      <Filter>Header Files\ppex</Filter>
+    </ClInclude>
+    <ClInclude Include="mplex\pointer_to_value_t.hpp">
+      <Filter>Header Files\mplex</Filter>
+    </ClInclude>
+    <ClInclude Include="container\queue.hpp">
+      <Filter>Header Files\container</Filter>
+    </ClInclude>
+    <ClInclude Include="container\stack.hpp">
+      <Filter>Header Files\container</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\safe_buffered_object.hpp">
+      <Filter>Header Files\safe_container</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\safe_deque.hpp">
+      <Filter>Header Files\safe_container</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\safe_hash_map_queue.hpp">
+      <Filter>Header Files\safe_container</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\safe_list.hpp">
+      <Filter>Header Files\safe_container</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\safe_map.hpp">
+      <Filter>Header Files\safe_container</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\safe_multi_index_container.hpp">
+      <Filter>Header Files\safe_container</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\safe_queue.hpp">
+      <Filter>Header Files\safe_container</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\safe_set.hpp">
+      <Filter>Header Files\safe_container</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\safe_stack.hpp">
+      <Filter>Header Files\safe_container</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\safe_vector.hpp">
+      <Filter>Header Files\safe_container</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\safe_wrap.hpp">
+      <Filter>Header Files\safe_container</Filter>
+    </ClInclude>
+    <ClInclude Include="helper\mutex_def_helper.hpp">
+      <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\detail\swap_def.hpp">
+      <Filter>Header Files\safe_container\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="container\detail\swap_def.hpp">
+      <Filter>Header Files\container\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\safe_unordered_map.hpp">
+      <Filter>Header Files\safe_container</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\safe_unordered_set.hpp">
+      <Filter>Header Files\safe_container</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\detail\multi_index_method.hpp">
+      <Filter>Header Files\safe_container\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\detail\multi_index_method_of_hash_index.hpp">
+      <Filter>Header Files\safe_container\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="base\invoker.hpp">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mplex\foo_type_info.hpp">
+      <Filter>Header Files\mplex</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\detail\multi_index_method_of_ordered_index.hpp">
+      <Filter>Header Files\safe_container\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\detail\multi_index_method_of_sequenced_index.hpp">
+      <Filter>Header Files\safe_container\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\detail\multi_index_method_of_random_access_index.hpp">
+      <Filter>Header Files\safe_container\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\lua_export_wrap_iterator.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\lua_export_wrap_list.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\lua_export_wrap_map.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\lua_export_wrap_pair.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\lua_export_wrap_set.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\lua_export_wrap_vector.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\wrap_base_t.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\wrap_base_t_helper.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\wrap_hash_map.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\wrap_hash_set.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\wrap_iterator.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\wrap_list.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\wrap_map.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\wrap_pair.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\wrap_set.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\wrap_vector.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\lua_export_wrap_unordered_map.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\lua_export_wrap_unordered_set.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\wrap_allocator.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_wrap\lua_export_wrap_allocator.hpp">
+      <Filter>Header Files\lua_wrap</Filter>
+    </ClInclude>
+    <ClInclude Include="charset\utf8_string.hpp">
+      <Filter>Header Files\charset</Filter>
+    </ClInclude>
+    <ClInclude Include="charset\default_charset_config.hpp">
+      <Filter>Header Files\charset</Filter>
+    </ClInclude>
+    <ClInclude Include="charset\charset_converter.hpp">
+      <Filter>Header Files\charset</Filter>
+    </ClInclude>
+    <ClInclude Include="charset\utf8_string_impl.hpp">
+      <Filter>Header Files\charset</Filter>
+    </ClInclude>
+    <ClInclude Include="charset\utf8_char_impl.hpp">
+      <Filter>Header Files\charset</Filter>
+    </ClInclude>
+    <ClInclude Include="charset\utf8_foo.hpp">
+      <Filter>Header Files\charset</Filter>
+    </ClInclude>
+    <ClInclude Include="charset\charset_foo.hpp">
+      <Filter>Header Files\charset</Filter>
+    </ClInclude>
+    <ClInclude Include="charset\charset_base_foo.hpp">
+      <Filter>Header Files\charset</Filter>
+    </ClInclude>
+    <ClInclude Include="charset\string.hpp">
+      <Filter>Header Files\charset</Filter>
+    </ClInclude>
+    <ClInclude Include="charset\other_char.hpp">
+      <Filter>Header Files\charset</Filter>
+    </ClInclude>
+    <ClInclude Include="charset\str_wstr_converter.hpp">
+      <Filter>Header Files\charset</Filter>
+    </ClInclude>
+    <ClInclude Include="nonable\nonable.hpp">
+      <Filter>Header Files\nonable</Filter>
+    </ClInclude>
+    <ClInclude Include="mplex\iterator_to_value_t.hpp">
+      <Filter>Header Files\mplex</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\string.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\utf8_string.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\archive_partner_template.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\binary_archive_partner.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\bson_archive_helper.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\bson_archive_partner.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\bson_serialize_mark.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\net_iarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\net_iarchive_impl.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\net_oarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\net_oarchive_impl.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\network_archive_partner.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\string_archive_helper.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\text_archive_partner.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\xml_archive_helper.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\xml_archive_partner.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\basic_bson_oarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="nsql_database_system\bson_inside_type_access_proxy.hpp">
+      <Filter>Header Files\nsql_database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="nsql_database_system\bson_type_traits.hpp">
+      <Filter>Header Files\nsql_database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\basic_bson_iarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\bson_oarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\bson_iarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\bson_data_type.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\collections_save_imp.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\collection_size_type.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\nvp.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\collections_load_imp.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\liner_container.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\unliner_container.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\unliner_container_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\key_value_container.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\key_value_container_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\utility.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\utility_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\list.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\vector.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\unordered_key_value_container.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\unordered_key_value_container_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\unordered_unliner_container.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\unordered_unliner_container_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\unordered_collections_load_imp.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\unordered_collections_save_imp.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\detail\container_implementation_level_def.hpp">
+      <Filter>Header Files\serialization\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\vector_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\list_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\deque.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\deque_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\detail\type_traits.hpp">
+      <Filter>Header Files\serialization\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\set.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\set_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\map.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\map_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\unordered_set.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\unordered_set_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\unordered_map.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\unordered_map_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\multi_index_collections_load_imp.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\multi_index_collections_save_imp.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\collection_size_type_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\collections_save_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\collections_load_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\liner_container_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\string_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\utf8_string_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\unordered_collections_load_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\unordered_collections_save_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\multi_index_collections_save_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\multi_index_collections_load_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\multi_index_container_t.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\multi_index_container_t_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\multi_index_container.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\multi_index_container_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="container\multi_index_container.hpp">
+      <Filter>Header Files\container</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\binary_iarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\binary_iarchive_impl.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\binary_oarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\binary_oarchive_impl.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\binary_wiarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\binary_woarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\basic_binary_oarchive.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\basic_binary_oprimitive.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\basic_binary_iarchive.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\basic_binary_iprimitive.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\array_bson_save_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\array_bson_load_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\array.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\array_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\archive_serializer_map.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\basic_text_iarchive.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\basic_text_iprimitive.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\basic_text_oprimitive.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\basic_text_oarchive.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\basic_xml_iarchive.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\basic_xml_oarchive.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\codecvt_null.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\text_iarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\text_oarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\text_wiarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\text_woarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\text_iarchive_impl.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\text_oarchive_impl.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\text_wiarchive_impl.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\text_woarchive_impl.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\xml_iarchive_impl.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\xml_oarchive_impl.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\xml_wiarchive_impl.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\xml_woarchive_impl.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\xml_iarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\xml_oarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\xml_wiarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\xml_woarchive.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\buffer_real_value_def.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="charset\charset_type_traits.hpp">
+      <Filter>Header Files\charset</Filter>
+    </ClInclude>
+    <ClInclude Include="type_traits\upper_types.hpp">
+      <Filter>Header Files\type_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="type_traits\types_checker.hpp">
+      <Filter>Header Files\type_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="encryption_tool\packet_cypher_tool.hpp">
+      <Filter>Header Files\encryption_tool</Filter>
+    </ClInclude>
+    <ClInclude Include="encryption_tool\tool_type_check.hpp">
+      <Filter>Header Files\encryption_tool</Filter>
+    </ClInclude>
+    <ClInclude Include="mplex\args.hpp">
+      <Filter>Header Files\mplex</Filter>
+    </ClInclude>
+    <ClInclude Include="type_awareness\awareness_def.hpp">
+      <Filter>Header Files\type_awareness</Filter>
+    </ClInclude>
+    <ClInclude Include="type_awareness\typeids_def.hpp">
+      <Filter>Header Files\type_awareness</Filter>
+    </ClInclude>
+    <ClInclude Include="type_awareness\opids_def.hpp">
+      <Filter>Header Files\type_awareness</Filter>
+    </ClInclude>
+    <ClInclude Include="type_awareness\ops.hpp">
+      <Filter>Header Files\type_awareness</Filter>
+    </ClInclude>
+    <ClInclude Include="type_awareness\functional.hpp">
+      <Filter>Header Files\type_awareness</Filter>
+    </ClInclude>
+    <ClInclude Include="type_awareness\types.hpp">
+      <Filter>Header Files\type_awareness</Filter>
+    </ClInclude>
+    <ClInclude Include="struct_support\tuple.hpp">
+      <Filter>Header Files\struct_support</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\tuple.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\tuple_bson_impl.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="network\hn_conv.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="packet\packet_info.hpp">
+      <Filter>Header Files\packet</Filter>
+    </ClInclude>
+    <ClInclude Include="network\start_data\timed_pak_back_id.hpp">
+      <Filter>Header Files\network\start_data</Filter>
+    </ClInclude>
+    <ClInclude Include="network\start_data\pak_back_id.hpp">
+      <Filter>Header Files\network\start_data</Filter>
+    </ClInclude>
+    <ClInclude Include="network\start_data\pak_back_id.hpp">
+      <Filter>Header Files\network\start_data</Filter>
+    </ClInclude>
+    <ClInclude Include="network\start_data\timed_encryption_pak_back_id.hpp">
+      <Filter>Header Files\network\start_data</Filter>
+    </ClInclude>
+    <ClInclude Include="network\start_data\encryption_pak_back_id.hpp">
+      <Filter>Header Files\network\start_data</Filter>
+    </ClInclude>
+    <ClInclude Include="task_center\task.hpp">
+      <Filter>Header Files\task_center</Filter>
+    </ClInclude>
+    <ClInclude Include="task_center\task_info.hpp">
+      <Filter>Header Files\task_center</Filter>
+    </ClInclude>
+    <ClInclude Include="task_center\task_center.hpp">
+      <Filter>Header Files\task_center</Filter>
+    </ClInclude>
+    <ClInclude Include="task_center\task_store_op.hpp">
+      <Filter>Header Files\task_center</Filter>
+    </ClInclude>
+    <ClInclude Include="task_center\task_saver.hpp">
+      <Filter>Header Files\task_center</Filter>
+    </ClInclude>
+    <ClInclude Include="task_center\recver_handler_mgr.hpp">
+      <Filter>Header Files\task_center</Filter>
+    </ClInclude>
+    <ClInclude Include="adapter\adapter_parser_helper.hpp">
+      <Filter>Header Files\adapter</Filter>
+    </ClInclude>
+    <ClInclude Include="network\adapter_helper\io_converter.hpp">
+      <Filter>Header Files\network\adapter_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="support\ref.hpp">
+      <Filter>Header Files\support</Filter>
+    </ClInclude>
+    <ClInclude Include="network\type_traits\tags.hpp">
+      <Filter>Header Files\network\type_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="ids\ids_parsers.hpp">
+      <Filter>Header Files\ids</Filter>
+    </ClInclude>
+    <ClInclude Include="network\network_info.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="task_center\support\task_owner_info_parser.hpp">
+      <Filter>Header Files\task_center\support</Filter>
+    </ClInclude>
+    <ClInclude Include="task_center\support\task_data_info_parser.hpp">
+      <Filter>Header Files\task_center\support</Filter>
+    </ClInclude>
+    <ClInclude Include="task_center\task_data_id_def.hpp">
+      <Filter>Header Files\task_center</Filter>
+    </ClInclude>
+    <ClInclude Include="network\support\data_info_parser.hpp">
+      <Filter>Header Files\network\support</Filter>
+    </ClInclude>
+    <ClInclude Include="network\support\data_info_def.hpp">
+      <Filter>Header Files\network\support</Filter>
+    </ClInclude>
+    <ClInclude Include="network\detail\tcp_async_strand_io.hpp">
+      <Filter>Header Files\network\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="network\connection.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\network_config\network_tcp_config.hpp">
+      <Filter>Header Files\network\network_config</Filter>
+    </ClInclude>
+    <ClInclude Include="network\network_config\network_udp_config.hpp">
+      <Filter>Header Files\network\network_config</Filter>
+    </ClInclude>
+    <ClInclude Include="network\network_config\network_balance_tcp_config.hpp">
+      <Filter>Header Files\network\network_config</Filter>
+    </ClInclude>
+    <ClInclude Include="network\network_config\network_config_template.hpp">
+      <Filter>Header Files\network\network_config</Filter>
+    </ClInclude>
+    <ClInclude Include="task_center\work_runner_saver.hpp">
+      <Filter>Header Files\task_center</Filter>
+    </ClInclude>
+    <ClInclude Include="network\packets_support\packets_queue.hpp">
+      <Filter>Header Files\network\packets_support</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\dynamic_work_runner.hpp">
+      <Filter>Header Files\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\type_traits\tags.hpp">
+      <Filter>Header Files\thread\type_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="task_center\type_traits\tags.hpp">
+      <Filter>Header Files\task_center\type_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="network\basic_network_packet.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_mgr.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_helper\session_killer.hpp">
+      <Filter>Header Files\network\session_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="server\server_config\server_config_template.hpp">
+      <Filter>Header Files\server\server_config</Filter>
+    </ClInclude>
+    <ClInclude Include="server\server_config\server_tcp_config.hpp">
+      <Filter>Header Files\server\server_config</Filter>
+    </ClInclude>
+    <ClInclude Include="server\server_config\server_udp_config.hpp">
+      <Filter>Header Files\server\server_config</Filter>
+    </ClInclude>
+    <ClInclude Include="network\packets_support\packets_checker.hpp">
+      <Filter>Header Files\network\packets_support</Filter>
+    </ClInclude>
+    <ClInclude Include="network\packets_support\packets_crypher.hpp">
+      <Filter>Header Files\network\packets_support</Filter>
+    </ClInclude>
+    <ClInclude Include="network\start_data\start_data_generator.hpp">
+      <Filter>Header Files\network\start_data</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_helper\session_creator.hpp">
+      <Filter>Header Files\network\session_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_helper\session_checker_creator.hpp">
+      <Filter>Header Files\network\session_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_helper\session_crypher_creator.hpp">
+      <Filter>Header Files\network\session_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_helper\owner_generator.hpp">
+      <Filter>Header Files\network\session_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="server\start_mode\server_active_start_mode.hpp">
+      <Filter>Header Files\server\start_mode</Filter>
+    </ClInclude>
+    <ClInclude Include="server\start_mode\server_passive_start_mode.hpp">
+      <Filter>Header Files\server\start_mode</Filter>
+    </ClInclude>
+    <ClInclude Include="client\client_config\client_config_template.hpp">
+      <Filter>Header Files\client\client_config</Filter>
+    </ClInclude>
+    <ClInclude Include="client\client_config\client_tcp_config.hpp">
+      <Filter>Header Files\client\client_config</Filter>
+    </ClInclude>
+    <ClInclude Include="client\client_config\client_udp_config.hpp">
+      <Filter>Header Files\client\client_config</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_helper\first_action.hpp">
+      <Filter>Header Files\network\session_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_helper\basic_tcp_connect_handler.hpp">
+      <Filter>Header Files\network\session_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_helper\tcp_connect_handler.hpp">
+      <Filter>Header Files\network\session_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_helper\connect_backup.hpp">
+      <Filter>Header Files\network\session_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="mplex\conv_to_tuple.hpp">
+      <Filter>Header Files\mplex</Filter>
+    </ClInclude>
+    <ClInclude Include="task_center\task_creator.hpp">
+      <Filter>Header Files\task_center</Filter>
+    </ClInclude>
+    <ClInclude Include="task_center\task_info_def.hpp">
+      <Filter>Header Files\task_center</Filter>
+    </ClInclude>
+    <ClInclude Include="network\service_handler.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\network_handler.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_task_creator.hpp">
+      <Filter>Header Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\adapter_helper\proxy_io_converter.hpp">
+      <Filter>Header Files\proxy\adapter_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="task_center\support\task_real_data_getter.hpp">
+      <Filter>Header Files\task_center\support</Filter>
+    </ClInclude>
+    <ClInclude Include="network\size_container.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\action_helper\action_id_parser.hpp">
+      <Filter>Header Files\thread\action_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\action_helper\make_reg_id_parser.hpp">
+      <Filter>Header Files\thread\action_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_router.hpp">
+      <Filter>Header Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_repeater.hpp">
+      <Filter>Header Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\detail\basic_repeater.hpp">
+      <Filter>Header Files\proxy\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_dispatcher.hpp">
+      <Filter>Header Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="mplex\get_container_value_t.hpp">
+      <Filter>Header Files\mplex</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_mode\proxy_mode_def.hpp">
+      <Filter>Header Files\proxy\proxy_mode</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_mode\proxy_modes.hpp">
+      <Filter>Header Files\proxy\proxy_mode</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_mode\basic_proxy_mode.hpp">
+      <Filter>Header Files\proxy\proxy_mode</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_mode\proxy_mode_creator.hpp">
+      <Filter>Header Files\proxy\proxy_mode</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_mode\proxy_mode_tactics.hpp">
+      <Filter>Header Files\proxy\proxy_mode</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_msg\proxy_register_msg.hpp">
+      <Filter>Header Files\proxy\proxy_msg</Filter>
+    </ClInclude>
+    <ClInclude Include="base\error.hpp">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\error_make.hpp">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_msg\proxy_netdata_def.hpp">
+      <Filter>Header Files\proxy\proxy_msg</Filter>
+    </ClInclude>
+    <ClInclude Include="network\start_data\start_data_def.hpp">
+      <Filter>Header Files\network\start_data</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_msg\proxy_register_back_msg.hpp">
+      <Filter>Header Files\proxy\proxy_msg</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_msg\proxy_unregister_back_msg.hpp">
+      <Filter>Header Files\proxy\proxy_msg</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_msg\proxy_unregister_msg.hpp">
+      <Filter>Header Files\proxy\proxy_msg</Filter>
+    </ClInclude>
+    <ClInclude Include="adapter\adapter_register_type_def.hpp">
+      <Filter>Header Files\adapter</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_fix_state_def.hpp">
+      <Filter>Header Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="network\network_config\network_direct_def.hpp">
+      <Filter>Header Files\network\network_config</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_msg\proxy_mode_change_back_msg.hpp">
+      <Filter>Header Files\proxy\proxy_msg</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_msg\proxy_mode_change_msg.hpp">
+      <Filter>Header Files\proxy\proxy_msg</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\proxy_ctrl\basic_proxy_msg_fixer.hpp">
+      <Filter>Header Files\proxy\proxy_ctrl</Filter>
+    </ClInclude>
+    <ClInclude Include="network\detail\tcp_sync_io.hpp">
+      <Filter>Header Files\network\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_helper\tcp_async_acceptor_handler.hpp">
+      <Filter>Header Files\network\session_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="network\detail\udp_async_strand_io.hpp">
+      <Filter>Header Files\network\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_helper\udp_async_acceptor_handler.hpp">
+      <Filter>Header Files\network\session_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="container\data_range.hpp">
+      <Filter>Header Files\container</Filter>
+    </ClInclude>
+    <ClInclude Include="network\ex_linker.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\network_config\network_balance_udp_config.hpp">
+      <Filter>Header Files\network\network_config</Filter>
+    </ClInclude>
+    <ClInclude Include="server\basic_svr_handler.hpp">
+      <Filter>Header Files\server</Filter>
+    </ClInclude>
+    <ClInclude Include="network\udp_ctrl_data\udp_conn_checker.hpp">
+      <Filter>Header Files\network\udp_ctrl_data</Filter>
+    </ClInclude>
+    <ClInclude Include="network\type_traits\socket_type_checker.hpp">
+      <Filter>Header Files\network\type_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_helper\udp_connect_handler.hpp">
+      <Filter>Header Files\network\session_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_helper\basic_udp_connect_handler.hpp">
+      <Filter>Header Files\network\session_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="client\start_mode\client_active_start_mode.hpp">
+      <Filter>Header Files\client\start_mode</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_helper\session_tcp_curer.hpp">
+      <Filter>Header Files\network\session_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_helper\session_udp_curer.hpp">
+      <Filter>Header Files\network\session_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="client\start_mode\client_passive_tcp_start_mode.hpp">
+      <Filter>Header Files\client\start_mode</Filter>
+    </ClInclude>
+    <ClInclude Include="client\start_mode\client_passive_udp_start_mode.hpp">
+      <Filter>Header Files\client\start_mode</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\safe_backup_device.hpp">
+      <Filter>Header Files\safe_container</Filter>
+    </ClInclude>
+    <ClInclude Include="network\udp_helper\udp_socket_pool.hpp">
+      <Filter>Header Files\network\udp_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="network\udp_helper\udp_socket_container.hpp">
+      <Filter>Header Files\network\udp_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="network\udp_helper\udp_socket_mgr.hpp">
+      <Filter>Header Files\network\udp_helper</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_state\session_state_def.hpp">
+      <Filter>Header Files\network\session_state</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_state\session_state_fixer.hpp">
+      <Filter>Header Files\network\session_state</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_state\session_state_checker.hpp">
+      <Filter>Header Files\network\session_state</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_state\default_checker.hpp">
+      <Filter>Header Files\network\session_state</Filter>
+    </ClInclude>
+    <ClInclude Include="network\session_state\default_fixer.hpp">
+      <Filter>Header Files\network\session_state</Filter>
+    </ClInclude>
+    <ClInclude Include="network\heart\heart_data.hpp">
+      <Filter>Header Files\network\heart</Filter>
+    </ClInclude>
+    <ClInclude Include="network\heart\heart_checker.hpp">
+      <Filter>Header Files\network\heart</Filter>
+    </ClInclude>
+    <ClInclude Include="network\heart\heart_packet_def.hpp">
+      <Filter>Header Files\network\heart</Filter>
+    </ClInclude>
+    <ClInclude Include="network\heart\heart_timer_task_pak.hpp">
+      <Filter>Header Files\network\heart</Filter>
+    </ClInclude>
+    <ClInclude Include="network\heart\heart_dst_fixer.hpp">
+      <Filter>Header Files\network\heart</Filter>
+    </ClInclude>
+    <ClInclude Include="client\basic_clt_handler.hpp">
+      <Filter>Header Files\client</Filter>
+    </ClInclude>
+    <ClInclude Include="network\heart\heart_src_fixer.hpp">
+      <Filter>Header Files\network\heart</Filter>
+    </ClInclude>
+    <ClInclude Include="time\timer_task_state.hpp">
+      <Filter>Header Files\time</Filter>
+    </ClInclude>
+    <ClInclude Include="network\network_mixer_handler.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="struct_support\bind.hpp">
+      <Filter>Header Files\struct_support</Filter>
+    </ClInclude>
+    <ClInclude Include="ppex\range_checker.hpp">
+      <Filter>Header Files\ppex</Filter>
+    </ClInclude>
+    <ClInclude Include="network\heart\heart_timer_task_mixer_pak.hpp">
+      <Filter>Header Files\network\heart</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_container\safe_call.hpp">
+      <Filter>Header Files\safe_container</Filter>
+    </ClInclude>
+    <ClInclude Include="base\ref_count_info.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mplex\strict_sizeof.hpp">
+      <Filter>Header Files\mplex</Filter>
+    </ClInclude>
+    <ClInclude Include="database_system\database_pak_id_def.hpp">
+      <Filter>Header Files\database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="compaction_tool\lzma_props.hpp">
+      <Filter>Header Files\compaction_tool</Filter>
+    </ClInclude>
+    <ClInclude Include="compaction_tool\lzma_foo.hpp">
+      <Filter>Header Files\compaction_tool</Filter>
+    </ClInclude>
+    <ClInclude Include="compaction_tool\lzma_data.hpp">
+      <Filter>Header Files\compaction_tool</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\shared_ptr.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\oserializer_bson_impl.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\iserializer_bson_impl.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="compaction_tool\lzma_tool.hpp">
+      <Filter>Header Files\compaction_tool</Filter>
+    </ClInclude>
+    <ClInclude Include="database_system\dtl_include_helper.hpp">
+      <Filter>Header Files\database_system</Filter>
+    </ClInclude>
+    <ClInclude Include="compaction_tool\lzam_include_helper.hpp">
+      <Filter>Header Files\compaction_tool</Filter>
+    </ClInclude>
+    <ClInclude Include="file_system\base_file_mgr.hpp">
+      <Filter>Header Files\file_system</Filter>
+    </ClInclude>
+    <ClInclude Include="file_system\basic_local_file_operator.hpp">
+      <Filter>Header Files\file_system</Filter>
+    </ClInclude>
+    <ClInclude Include="file_system\boost_fstream_config.hpp">
+      <Filter>Header Files\file_system</Filter>
+    </ClInclude>
+    <ClInclude Include="file_system\file_header.hpp">
+      <Filter>Header Files\file_system</Filter>
+    </ClInclude>
+    <ClInclude Include="file_system\file_object.hpp">
+      <Filter>Header Files\file_system</Filter>
+    </ClInclude>
+    <ClInclude Include="file_system\fstream_config.hpp">
+      <Filter>Header Files\file_system</Filter>
+    </ClInclude>
+    <ClInclude Include="file_system\ifile_mgr.hpp">
+      <Filter>Header Files\file_system</Filter>
+    </ClInclude>
+    <ClInclude Include="file_system\local_file_operator.hpp">
+      <Filter>Header Files\file_system</Filter>
+    </ClInclude>
+    <ClInclude Include="file_system\ofile_mgr.hpp">
+      <Filter>Header Files\file_system</Filter>
+    </ClInclude>
+    <ClInclude Include="file_system\stl_fstream_config.hpp">
+      <Filter>Header Files\file_system</Filter>
+    </ClInclude>
+    <ClInclude Include="math\elo_rating.hpp">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="network\network_sender.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="mapping\unique_mapping.hpp">
+      <Filter>Header Files\mapping</Filter>
+    </ClInclude>
+    <ClInclude Include="mapping\non_mapping.hpp">
+      <Filter>Header Files\mapping</Filter>
+    </ClInclude>
+    <ClInclude Include="handler_center\handler_center.hpp">
+      <Filter>Header Files\handler_center</Filter>
+    </ClInclude>
+    <ClInclude Include="mplex\reference_to_value_t.hpp">
+      <Filter>Header Files\mplex</Filter>
+    </ClInclude>
+    <ClInclude Include="mplex\pointer_checker.hpp">
+      <Filter>Header Files\mplex</Filter>
+    </ClInclude>
+    <ClInclude Include="mplex\reference_checker.hpp">
+      <Filter>Header Files\mplex</Filter>
+    </ClInclude>
+    <ClInclude Include="mplex\detail\pointer_checker_of_wrapper.hpp">
+      <Filter>Header Files\mplex\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="mplex\detail\pointer_to_value_t_of_wrapper.hpp">
+      <Filter>Header Files\mplex\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="network\network_data_id_def.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="ppex\swap_this_def.hpp">
+      <Filter>Header Files\ppex</Filter>
+    </ClInclude>
+    <ClInclude Include="ppex\concat.hpp">
+      <Filter>Header Files\ppex</Filter>
+    </ClInclude>
+    <ClInclude Include="move\move.hpp">
+      <Filter>Header Files\move</Filter>
+    </ClInclude>
+    <ClInclude Include="move\config.hpp">
+      <Filter>Header Files\move</Filter>
+    </ClInclude>
+    <ClInclude Include="network\socket_conflict_fixer.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\swap.hpp">
+      <Filter>Header Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="type_traits\traits.hpp">
+      <Filter>Header Files\type_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="ppex\friend.hpp">
+      <Filter>Header Files\ppex</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\buffer_real_value_type_traits.hpp">
+      <Filter>Header Files\archive</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\detail\bson_impl_reinclue.hpp">
+      <Filter>Header Files\serialization\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="archive\impl\utf8_codecvt_facet.hpp">
+      <Filter>Header Files\archive\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="support\boost_ver_include.hpp">
+      <Filter>Header Files\support</Filter>
+    </ClInclude>
+    <ClInclude Include="network\service_handler_shared_wrap.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="support\log_op_general_foo.ipp">
+      <Filter>Header Files\support</Filter>
+    </None>
+    <None Include="support\max_min_undef.ipp">
+      <Filter>Header Files\support</Filter>
+    </None>
+    <None Include="dll_make\dll_main.ipp">
+      <Filter>Header Files\dll_make</Filter>
+    </None>
+    <None Include="dll_make\dll_make_begin.ipp">
+      <Filter>Header Files\dll_make</Filter>
+    </None>
+    <None Include="dll_make\dll_make_end.ipp">
+      <Filter>Header Files\dll_make</Filter>
+    </None>
+    <None Include="ppex\detail\empty_file.ipp">
+      <Filter>Header Files\ppex\detail</Filter>
+    </None>
+    <None Include="ppex\detail\nonempty_file.ipp">
+      <Filter>Header Files\ppex\detail</Filter>
+    </None>
+    <None Include="task_center\support\task_import.hpp">
+      <Filter>Header Files\task_center\support</Filter>
+    </None>
+    <None Include="proxy\proxy_container.hpp">
+      <Filter>Header Files\proxy</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,302 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D296A07D198C753600FA3ABF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296A07C198C753600FA3ABF /* Foundation.framework */; };
+		D296A0A5198C75E800FA3ABF /* inner_process_id.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D296A0A3198C75E800FA3ABF /* inner_process_id.cpp */; };
+		D296A0A6198C75E800FA3ABF /* uuid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D296A0A4198C75E800FA3ABF /* uuid.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D296A077198C753600FA3ABF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D296A079198C753600FA3ABF /* libyggr_ids-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libyggr_ids-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D296A07C198C753600FA3ABF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D296A08A198C753600FA3ABF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D296A08D198C753600FA3ABF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		D296A0A3198C75E800FA3ABF /* inner_process_id.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = inner_process_id.cpp; sourceTree = "<group>"; };
+		D296A0A4198C75E800FA3ABF /* uuid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = uuid.cpp; sourceTree = "<group>"; };
+		D296A0A7198C75F100FA3ABF /* yggr_ids-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "yggr_ids-ios-Prefix.pch"; path = "yggr_ids-ios/yggr_ids-ios-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D296A076198C753600FA3ABF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D296A07D198C753600FA3ABF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D296A070198C753600FA3ABF = {
+			isa = PBXGroup;
+			children = (
+				D296A0A7198C75F100FA3ABF /* yggr_ids-ios-Prefix.pch */,
+				D296A0A2198C75C300FA3ABF /* yggr_ids-ios */,
+				D296A07B198C753600FA3ABF /* Frameworks */,
+				D296A07A198C753600FA3ABF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D296A07A198C753600FA3ABF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D296A079198C753600FA3ABF /* libyggr_ids-ios.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D296A07B198C753600FA3ABF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D296A07C198C753600FA3ABF /* Foundation.framework */,
+				D296A08A198C753600FA3ABF /* XCTest.framework */,
+				D296A08D198C753600FA3ABF /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D296A0A2198C75C300FA3ABF /* yggr_ids-ios */ = {
+			isa = PBXGroup;
+			children = (
+				D296A0A3198C75E800FA3ABF /* inner_process_id.cpp */,
+				D296A0A4198C75E800FA3ABF /* uuid.cpp */,
+			);
+			name = "yggr_ids-ios";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D296A078198C753600FA3ABF /* yggr_ids-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D296A09C198C753600FA3ABF /* Build configuration list for PBXNativeTarget "yggr_ids-ios" */;
+			buildPhases = (
+				D296A075198C753600FA3ABF /* Sources */,
+				D296A076198C753600FA3ABF /* Frameworks */,
+				D296A077198C753600FA3ABF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "yggr_ids-ios";
+			productName = "yggr_ids-ios";
+			productReference = D296A079198C753600FA3ABF /* libyggr_ids-ios.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D296A071198C753600FA3ABF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = yggdrasil;
+			};
+			buildConfigurationList = D296A074198C753600FA3ABF /* Build configuration list for PBXProject "yggr_ids-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D296A070198C753600FA3ABF;
+			productRefGroup = D296A07A198C753600FA3ABF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D296A078198C753600FA3ABF /* yggr_ids-ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D296A075198C753600FA3ABF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D296A0A6198C75E800FA3ABF /* uuid.cpp in Sources */,
+				D296A0A5198C75E800FA3ABF /* inner_process_id.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D296A09A198C753600FA3ABF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../third_part/boost/include,
+					../,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-D_DEBUG",
+					"-fexceptions",
+					"-fdata-sections",
+					"-ffunction-sections",
+					"-fno-strict-aliasing",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D296A09B198C753600FA3ABF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../third_part/boost/include,
+					../,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+					"-fexceptions",
+					"-fdata-sections",
+					"-ffunction-sections",
+					"-fno-strict-aliasing",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D296A09D198C753600FA3ABF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/yggr_ids_ios.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "yggr_ids-ios/yggr_ids-ios-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D296A09E198C753600FA3ABF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/yggr_ids_ios.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "yggr_ids-ios/yggr_ids-ios-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D296A074198C753600FA3ABF /* Build configuration list for PBXProject "yggr_ids-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D296A09A198C753600FA3ABF /* Debug */,
+				D296A09B198C753600FA3ABF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D296A09C198C753600FA3ABF /* Build configuration list for PBXNativeTarget "yggr_ids-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D296A09D198C753600FA3ABF /* Debug */,
+				D296A09E198C753600FA3ABF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D296A071198C753600FA3ABF /* Project object */;
+}

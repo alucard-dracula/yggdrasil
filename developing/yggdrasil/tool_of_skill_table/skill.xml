@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<skill_list>
+    <skill id="3001">
+        <skill_rule id="0">
+            <skill_rule act="6001" dact="6002" />
+        </skill_rule>
+        <skill_rule id="1">
+            <skill_rule act="6002" dact="6003" />
+        </skill_rule>
+    </skill>
+    <skill id="3002">
+        <skill_rule id="0">
+            <skill_rule act="6002" dact="6003" />
+        </skill_rule>
+        <skill_rule id="1">
+            <skill_rule act="6002" dact="6003" />
+        </skill_rule>
+    </skill>
+    <skill id="3003">
+        <skill_rule id="0">
+            <skill_rule act="6002" dact="6003" />
+        </skill_rule>
+        <skill_rule id="1">
+            <skill_rule act="6002" dact="6003" />
+        </skill_rule>
+    </skill>
+    <skill id="3004">
+        <skill_rule id="0">
+            <skill_rule act="6002" dact="6003" />
+        </skill_rule>
+        <skill_rule id="1">
+            <skill_rule act="6002" dact="6003" />
+        </skill_rule>
+    </skill>
+    <skill id="3005">
+        <skill_rule id="0">
+            <skill_rule act="6001" dact="6002" />
+        </skill_rule>
+        <skill_rule id="1">
+            <skill_rule act="6002" dact="6003" />
+        </skill_rule>
+    </skill>
+    <skill id="3006">
+        <skill_rule id="0">
+            <skill_rule act="6001" dact="6002" />
+        </skill_rule>
+        <skill_rule id="1">
+            <skill_rule act="6002" dact="6003" />
+        </skill_rule>
+    </skill>
+</skill_list>

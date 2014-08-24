@@ -1,0 +1,45 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: tests - Win32 Unicode Debug STLPort--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPDAC.tmp" with contents
+[
+/nologo /MLd /Gm /GR /GX /ZI /Od /I "../lib" /I "C:\stlport" /I "C:\stlport\old_hp" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /D "_UNICODE" /D "UNICODE" /D "__STL_USE_OWN_NAMESPACE" /D "__STL_USE_NAMESPACES" /D "__STL_USE_NEW_C_HEADERS" /FR"tests___Win32_Unicode_Debug_STLPort/" /Fp"tests___Win32_Unicode_Debug_STLPort/tests.pch" /YX /Fo"tests___Win32_Unicode_Debug_STLPort/" /Fd"tests___Win32_Unicode_Debug_STLPort/" /FD /GZ /Zm400 /c 
+"C:\dtl_cvs\dtl\tests\test_iterators.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPDAC.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPDAD.tmp" with contents
+[
+../lib/DTL___Win32_Unicode_Debug_STLPort/DTL.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"tests___Win32_Unicode_Debug_STLPort/tests.pdb" /debug /machine:I386 /out:"tests___Win32_Unicode_Debug_STLPort/tests.exe" /pdbtype:sept 
+.\tests___Win32_Unicode_Debug_STLPort\Example.obj
+.\tests___Win32_Unicode_Debug_STLPort\IterSemanticsTest.obj
+.\tests___Win32_Unicode_Debug_STLPort\JoinExample.obj
+.\tests___Win32_Unicode_Debug_STLPort\main.obj
+.\tests___Win32_Unicode_Debug_STLPort\print_util.obj
+.\tests___Win32_Unicode_Debug_STLPort\test_dtl_posix_time.obj
+.\tests___Win32_Unicode_Debug_STLPort\test_join.obj
+.\tests___Win32_Unicode_Debug_STLPort\test_nullable.obj
+.\tests___Win32_Unicode_Debug_STLPort\TestExceptions.obj
+.\tests___Win32_Unicode_Debug_STLPort\tests.obj
+.\tests___Win32_Unicode_Debug_STLPort\test_dtl_date.obj
+.\tests___Win32_Unicode_Debug_STLPort\test_dtl_time.obj
+.\tests___Win32_Unicode_Debug_STLPort\test_iterators.obj
+\dtl_cvs\dtl\lib\DTL___Win32_Unicode_Debug_STLPort\DTL.lib
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPDAD.tmp"
+<h3>Output Window</h3>
+Compiling...
+test_iterators.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+tests.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

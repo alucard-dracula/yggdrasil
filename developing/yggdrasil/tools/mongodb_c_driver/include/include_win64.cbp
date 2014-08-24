@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="include" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug64">
+				<Option type="4" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="Release64">
+				<Option type="4" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="..\mongoc" />
+			<Add directory=".\" />
+		</Compiler>
+		<Unit filename="bcon.h" />
+		<Unit filename="bson.h" />
+		<Unit filename="bson_t.h" />
+		<Unit filename="encoding.h" />
+		<Unit filename="env.h" />
+		<Unit filename="gridfs.h" />
+		<Unit filename="md5.h" />
+		<Unit filename="mongo.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

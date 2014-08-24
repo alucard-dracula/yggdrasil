@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D2F8CD02198C78EC00A860E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F8CD01198C78EC00A860E4 /* Foundation.framework */; };
+		D2F8CD2B198C795400A860E4 /* module.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2F8CD28198C795400A860E4 /* module.cpp */; };
+		D2F8CD2C198C795400A860E4 /* modules_mgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2F8CD29198C795400A860E4 /* modules_mgr.cpp */; };
+		D2F8CD2D198C795400A860E4 /* modules_accesser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2F8CD2A198C795400A860E4 /* modules_accesser.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D2F8CCFC198C78EC00A860E4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D2F8CCFE198C78EC00A860E4 /* libyggr_modules-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libyggr_modules-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2F8CD01198C78EC00A860E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D2F8CD0F198C78EC00A860E4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D2F8CD12198C78EC00A860E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		D2F8CD28198C795400A860E4 /* module.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = module.cpp; sourceTree = "<group>"; };
+		D2F8CD29198C795400A860E4 /* modules_mgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = modules_mgr.cpp; sourceTree = "<group>"; };
+		D2F8CD2A198C795400A860E4 /* modules_accesser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = modules_accesser.cpp; sourceTree = "<group>"; };
+		D2F8CD2E198C795F00A860E4 /* yggr_modules-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "yggr_modules-ios-Prefix.pch"; path = "yggr_modules-ios/yggr_modules-ios-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2F8CCFB198C78EC00A860E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2F8CD02198C78EC00A860E4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D2F8CCF5198C78EC00A860E4 = {
+			isa = PBXGroup;
+			children = (
+				D2F8CD2E198C795F00A860E4 /* yggr_modules-ios-Prefix.pch */,
+				D2F8CD27198C793600A860E4 /* yggr_modules-ios */,
+				D2F8CD00198C78EC00A860E4 /* Frameworks */,
+				D2F8CCFF198C78EC00A860E4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D2F8CCFF198C78EC00A860E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2F8CCFE198C78EC00A860E4 /* libyggr_modules-ios.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D2F8CD00198C78EC00A860E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2F8CD01198C78EC00A860E4 /* Foundation.framework */,
+				D2F8CD0F198C78EC00A860E4 /* XCTest.framework */,
+				D2F8CD12198C78EC00A860E4 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2F8CD27198C793600A860E4 /* yggr_modules-ios */ = {
+			isa = PBXGroup;
+			children = (
+				D2F8CD28198C795400A860E4 /* module.cpp */,
+				D2F8CD29198C795400A860E4 /* modules_mgr.cpp */,
+				D2F8CD2A198C795400A860E4 /* modules_accesser.cpp */,
+			);
+			name = "yggr_modules-ios";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D2F8CCFD198C78EC00A860E4 /* yggr_modules-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2F8CD21198C78EC00A860E4 /* Build configuration list for PBXNativeTarget "yggr_modules-ios" */;
+			buildPhases = (
+				D2F8CCFA198C78EC00A860E4 /* Sources */,
+				D2F8CCFB198C78EC00A860E4 /* Frameworks */,
+				D2F8CCFC198C78EC00A860E4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "yggr_modules-ios";
+			productName = "yggr_modules-ios";
+			productReference = D2F8CCFE198C78EC00A860E4 /* libyggr_modules-ios.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D2F8CCF6198C78EC00A860E4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = yggdrasil;
+			};
+			buildConfigurationList = D2F8CCF9198C78EC00A860E4 /* Build configuration list for PBXProject "yggr_modules-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D2F8CCF5198C78EC00A860E4;
+			productRefGroup = D2F8CCFF198C78EC00A860E4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2F8CCFD198C78EC00A860E4 /* yggr_modules-ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2F8CCFA198C78EC00A860E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2F8CD2C198C795400A860E4 /* modules_mgr.cpp in Sources */,
+				D2F8CD2B198C795400A860E4 /* module.cpp in Sources */,
+				D2F8CD2D198C795400A860E4 /* modules_accesser.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D2F8CD1F198C78EC00A860E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../third_part/boost/include,
+					../,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-D_DEBUG",
+					"-DYGGR_AT_MAC",
+					"-fexceptions",
+					"-fdata-sections",
+					"-ffunction-sections",
+					"-fno-strict-aliasing",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D2F8CD20198C78EC00A860E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../third_part/boost/include,
+					../,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+					"-DYGGR_AT_MAC",
+					"-fexceptions",
+					"-fdata-sections",
+					"-ffunction-sections",
+					"-fno-strict-aliasing",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D2F8CD22198C78EC00A860E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/yggr_modules_ios.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "yggr_modules-ios/yggr_modules-ios-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D2F8CD23198C78EC00A860E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/yggr_modules_ios.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "yggr_modules-ios/yggr_modules-ios-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D2F8CCF9198C78EC00A860E4 /* Build configuration list for PBXProject "yggr_modules-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2F8CD1F198C78EC00A860E4 /* Debug */,
+				D2F8CD20198C78EC00A860E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2F8CD21198C78EC00A860E4 /* Build configuration list for PBXNativeTarget "yggr_modules-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2F8CD22198C78EC00A860E4 /* Debug */,
+				D2F8CD23198C78EC00A860E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D2F8CCF6198C78EC00A860E4 /* Project object */;
+}

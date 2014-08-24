@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{24886B32-2282-4E09-95BA-F15148CD528E}</ProjectGuid>
+    <RootNamespace>base</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../lib\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">../lib64\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">./Release64\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../lib\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">../lib64\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">./Debug64\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <TypeLibraryName>.\Release/base.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <TypeLibraryName>.\Release/base.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <TypeLibraryName>.\Debug/base.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <TypeLibraryName>.\Debug/base.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="adapter\adapter_parser_helper.hpp" />
+    <ClInclude Include="adapter\adapter_register_type_def.hpp" />
+    <ClInclude Include="archive\archive_partner_template.hpp" />
+    <ClInclude Include="archive\basic_bson_iarchive.hpp" />
+    <ClInclude Include="archive\basic_bson_oarchive.hpp" />
+    <ClInclude Include="archive\binary_archive_partner.hpp" />
+    <ClInclude Include="archive\binary_iarchive.hpp" />
+    <ClInclude Include="archive\binary_iarchive_impl.hpp" />
+    <ClInclude Include="archive\binary_oarchive.hpp" />
+    <ClInclude Include="archive\binary_oarchive_impl.hpp" />
+    <ClInclude Include="archive\binary_wiarchive.hpp" />
+    <ClInclude Include="archive\binary_woarchive.hpp" />
+    <ClInclude Include="archive\bson_archive_helper.hpp" />
+    <ClInclude Include="archive\bson_archive_partner.hpp" />
+    <ClInclude Include="archive\bson_serialize_mark.hpp" />
+    <ClInclude Include="archive\bson_iarchive.hpp" />
+    <ClInclude Include="archive\bson_oarchive.hpp" />
+    <ClInclude Include="archive\buffer_real_value_def.hpp" />
+    <ClInclude Include="archive\buffer_real_value_type_traits.hpp" />
+    <ClInclude Include="archive\impl\archive_serializer_map.hpp" />
+    <ClInclude Include="archive\impl\basic_text_oarchive.hpp" />
+    <ClInclude Include="archive\impl\basic_binary_iarchive.hpp" />
+    <ClInclude Include="archive\impl\basic_binary_iprimitive.hpp" />
+    <ClInclude Include="archive\impl\basic_binary_oarchive.hpp" />
+    <ClInclude Include="archive\impl\basic_binary_oprimitive.hpp" />
+    <ClInclude Include="archive\impl\basic_text_iarchive.hpp" />
+    <ClInclude Include="archive\impl\basic_text_iprimitive.hpp" />
+    <ClInclude Include="archive\impl\basic_text_oprimitive.hpp" />
+    <ClInclude Include="archive\impl\basic_xml_iarchive.hpp" />
+    <ClInclude Include="archive\impl\basic_xml_oarchive.hpp" />
+    <ClInclude Include="archive\impl\codecvt_null.hpp" />
+    <ClInclude Include="archive\impl\iserializer_bson_impl.hpp" />
+    <ClInclude Include="archive\impl\oserializer_bson_impl.hpp" />
+    <ClInclude Include="archive\impl\text_iarchive_impl.hpp" />
+    <ClInclude Include="archive\impl\text_oarchive_impl.hpp" />
+    <ClInclude Include="archive\impl\text_wiarchive_impl.hpp" />
+    <ClInclude Include="archive\impl\text_woarchive_impl.hpp" />
+    <ClInclude Include="archive\impl\utf8_codecvt_facet.hpp" />
+    <ClInclude Include="archive\impl\xml_iarchive_impl.hpp" />
+    <ClInclude Include="archive\impl\xml_oarchive_impl.hpp" />
+    <ClInclude Include="archive\impl\xml_wiarchive_impl.hpp" />
+    <ClInclude Include="archive\impl\xml_woarchive_impl.hpp" />
+    <ClInclude Include="archive\network_archive_partner.hpp" />
+    <ClInclude Include="archive\net_iarchive.hpp" />
+    <ClInclude Include="archive\net_iarchive_impl.hpp" />
+    <ClInclude Include="archive\net_oarchive.hpp" />
+    <ClInclude Include="archive\net_oarchive_impl.hpp" />
+    <ClInclude Include="archive\string_archive_helper.hpp" />
+    <ClInclude Include="archive\text_archive_partner.hpp" />
+    <ClInclude Include="archive\text_iarchive.hpp" />
+    <ClInclude Include="archive\text_oarchive.hpp" />
+    <ClInclude Include="archive\text_wiarchive.hpp" />
+    <ClInclude Include="archive\text_woarchive.hpp" />
+    <ClInclude Include="archive\xml_archive_helper.hpp" />
+    <ClInclude Include="archive\xml_archive_partner.hpp" />
+    <ClInclude Include="archive\xml_iarchive.hpp" />
+    <ClInclude Include="archive\xml_oarchive.hpp" />
+    <ClInclude Include="archive\xml_wiarchive.hpp" />
+    <ClInclude Include="archive\xml_woarchive.hpp" />
+    <ClInclude Include="base\ctrl_center.hpp" />
+    <ClInclude Include="base\error.hpp" />
+    <ClInclude Include="base\error_make.hpp" />
+    <ClInclude Include="base\exception.hpp" />
+    <ClInclude Include="base\exception_sort.hpp" />
+    <ClInclude Include="base\inc_ver.h" />
+    <ClInclude Include="base\interface_ptr.hpp" />
+    <ClInclude Include="base\invoker.hpp" />
+    <ClInclude Include="base\obj_creator.hpp" />
+    <ClInclude Include="base\ptr_single.hpp" />
+    <ClInclude Include="base\random.h" />
+    <ClInclude Include="base\ref_count_info.h" />
+    <ClInclude Include="base\system_code.hpp" />
+    <ClInclude Include="base\yggrdef.h" />
+    <ClInclude Include="charset\charset_base_foo.hpp" />
+    <ClInclude Include="charset\charset_type_traits.hpp" />
+    <ClInclude Include="charset\other_char.hpp" />
+    <ClInclude Include="charset\string.hpp" />
+    <ClInclude Include="charset\utf8_char_impl.hpp" />
+    <ClInclude Include="charset\utf8_foo.hpp" />
+    <ClInclude Include="charset\utf8_string_impl.hpp" />
+    <ClInclude Include="check_helper\check_empty.hpp" />
+    <ClInclude Include="check_helper\check_half_t.hpp" />
+    <ClInclude Include="client\client_config\client_config_template.hpp" />
+    <ClInclude Include="client\client_config\client_tcp_config.hpp" />
+    <ClInclude Include="client\client_config\client_udp_config.hpp" />
+    <ClInclude Include="client\start_mode\client_active_start_mode.hpp" />
+    <ClInclude Include="client\start_mode\client_passive_tcp_start_mode.hpp" />
+    <ClInclude Include="client\start_mode\client_passive_udp_start_mode.hpp" />
+    <ClInclude Include="client\basic_clt_handler.hpp" />
+    <ClInclude Include="compaction_tool\lzam_include_helper.hpp" />
+    <ClInclude Include="compaction_tool\lzma_data.hpp" />
+    <ClInclude Include="compaction_tool\lzma_props.hpp" />
+    <ClInclude Include="compaction_tool\lzma_foo.hpp" />
+    <ClInclude Include="compaction_tool\lzma_tool.hpp" />
+    <ClInclude Include="container\data_range.hpp" />
+    <ClInclude Include="container\detail\swap_def.hpp" />
+    <ClInclude Include="container\multi_index_container.hpp" />
+    <ClInclude Include="container\queue.hpp" />
+    <ClInclude Include="container\stack.hpp" />
+    <ClInclude Include="database_system\database_pak_id_def.hpp" />
+    <ClInclude Include="database_system\dtl_include_helper.hpp" />
+    <ClInclude Include="encryption_tool\packet_cypher_tool.hpp" />
+    <ClInclude Include="encryption_tool\safe_packet_tool.hpp" />
+    <ClInclude Include="encryption_tool\tool_type_check.hpp" />
+    <ClInclude Include="file_system\base_file_mgr.hpp" />
+    <ClInclude Include="file_system\basic_local_file_operator.hpp" />
+    <ClInclude Include="file_system\boost_fstream_config.hpp" />
+    <ClInclude Include="file_system\file_header.hpp" />
+    <ClInclude Include="file_system\file_object.hpp" />
+    <ClInclude Include="file_system\fstream_config.hpp" />
+    <ClInclude Include="file_system\ifile_mgr.hpp" />
+    <ClInclude Include="file_system\local_file_operator.hpp" />
+    <ClInclude Include="file_system\ofile_mgr.hpp" />
+    <ClInclude Include="file_system\stl_fstream_config.hpp" />
+    <ClInclude Include="geometry\algorithm_helper.hpp" />
+    <ClInclude Include="geometry\conversion_helper.hpp" />
+    <ClInclude Include="geometry\geo_plane.hpp" />
+    <ClInclude Include="handler_center\handler_center.hpp" />
+    <ClInclude Include="helper\handler_helper.hpp" />
+    <ClInclude Include="helper\mutex_def_helper.hpp" />
+    <ClInclude Include="ids\ids_parsers.hpp" />
+    <ClInclude Include="ids\id_n.hpp" />
+    <ClInclude Include="ids\id_generator.hpp" />
+    <ClInclude Include="ids\inner_process_id.hpp" />
+    <ClInclude Include="ids\uuid.hpp" />
+    <ClInclude Include="log\log_thread_file.hpp" />
+    <ClInclude Include="lua_wrap\lua_export_wrap_allocator.hpp" />
+    <ClInclude Include="lua_wrap\lua_export_wrap_unordered_map.hpp" />
+    <ClInclude Include="lua_wrap\lua_export_wrap_unordered_set.hpp" />
+    <ClInclude Include="lua_wrap\lua_export_wrap_iterator.hpp" />
+    <ClInclude Include="lua_wrap\lua_export_wrap_list.hpp" />
+    <ClInclude Include="lua_wrap\lua_export_wrap_map.hpp" />
+    <ClInclude Include="lua_wrap\lua_export_wrap_pair.hpp" />
+    <ClInclude Include="lua_wrap\lua_export_wrap_set.hpp" />
+    <ClInclude Include="lua_wrap\lua_export_wrap_vector.hpp" />
+    <ClInclude Include="lua_wrap\wrap_allocator.hpp" />
+    <ClInclude Include="lua_wrap\wrap_base_t.hpp" />
+    <ClInclude Include="lua_wrap\wrap_base_t_helper.hpp" />
+    <ClInclude Include="lua_wrap\wrap_hash_map.hpp" />
+    <ClInclude Include="lua_wrap\wrap_hash_set.hpp" />
+    <ClInclude Include="lua_wrap\wrap_iterator.hpp" />
+    <ClInclude Include="lua_wrap\wrap_list.hpp" />
+    <ClInclude Include="lua_wrap\wrap_map.hpp" />
+    <ClInclude Include="lua_wrap\wrap_pair.hpp" />
+    <ClInclude Include="lua_wrap\wrap_set.hpp" />
+    <ClInclude Include="lua_wrap\wrap_vector.hpp" />
+    <ClInclude Include="mapping\non_mapping.hpp" />
+    <ClInclude Include="mapping\unique_mapping.hpp" />
+    <ClInclude Include="math\determinant.hpp" />
+    <ClInclude Include="math\elo_rating.hpp" />
+    <ClInclude Include="math\math.hpp" />
+    <ClInclude Include="math\matrix2d.hpp" />
+    <ClInclude Include="math\matrix3d.hpp" />
+    <ClInclude Include="math\array_indexes_permutation_parity.hpp" />
+    <ClInclude Include="math\sqrt.hpp" />
+    <ClInclude Include="math\value_miss_comparer.hpp" />
+    <ClInclude Include="math\vector2d.hpp" />
+    <ClInclude Include="math\vector3d.hpp" />
+    <ClInclude Include="move\config.hpp" />
+    <ClInclude Include="move\move.hpp" />
+    <ClInclude Include="mplex\args.hpp" />
+    <ClInclude Include="mplex\detail\pointer_checker_of_wrapper.hpp" />
+    <ClInclude Include="mplex\detail\pointer_to_value_t_of_wrapper.hpp" />
+    <ClInclude Include="mplex\foo_type_info.hpp" />
+    <ClInclude Include="mplex\get_container_value_t.hpp" />
+    <ClInclude Include="mplex\iterator_to_value_t.hpp" />
+    <ClInclude Include="mplex\pointer_checker.hpp" />
+    <ClInclude Include="mplex\pointer_to_value_t.hpp" />
+    <ClInclude Include="mplex\reference_checker.hpp" />
+    <ClInclude Include="mplex\reference_to_value_t.hpp" />
+    <ClInclude Include="mplex\conv_to_tuple.hpp" />
+    <ClInclude Include="mplex\strict_sizeof.hpp" />
+    <ClInclude Include="network\adapter_helper\io_converter.hpp" />
+    <ClInclude Include="network\balance_io_service.hpp" />
+    <ClInclude Include="network\balance_io_service_selector.hpp" />
+    <ClInclude Include="network\detail\tcp_sync_io.hpp" />
+    <ClInclude Include="network\detail\udp_async_strand_io.hpp" />
+    <ClInclude Include="network\heart\heart_checker.hpp" />
+    <ClInclude Include="network\heart\heart_dst_fixer.hpp" />
+    <ClInclude Include="network\heart\heart_src_fixer.hpp" />
+    <ClInclude Include="network\heart\heart_data.hpp" />
+    <ClInclude Include="network\heart\heart_packet_def.hpp" />
+    <ClInclude Include="network\heart\heart_timer_task_mixer_pak.hpp" />
+    <ClInclude Include="network\heart\heart_timer_task_pak.hpp" />
+    <ClInclude Include="network\network_mixer_handler.hpp" />
+    <ClInclude Include="network\network_config\network_balance_udp_config.hpp" />
+    <ClInclude Include="network\network_config\network_direct_def.hpp" />
+    <ClInclude Include="network\network_handler.hpp" />
+    <ClInclude Include="network\network_data_id_def.hpp" />
+    <ClInclude Include="network\network_sender.hpp" />
+    <ClInclude Include="network\service_handler_shared_wrap.hpp" />
+    <ClInclude Include="network\socket_conflict_fixer.hpp" />
+    <ClInclude Include="network\packets_support\packets_checker.hpp" />
+    <ClInclude Include="network\packets_support\packets_crypher.hpp" />
+    <ClInclude Include="network\service_handler.hpp" />
+    <ClInclude Include="network\session.hpp" />
+    <ClInclude Include="network\detail\tcp_async_strand_io.hpp" />
+    <ClInclude Include="network\hn_conv.hpp" />
+    <ClInclude Include="network\network_config\network_balance_tcp_config.hpp" />
+    <ClInclude Include="network\network_config\network_config_template.hpp" />
+    <ClInclude Include="network\network_config\network_tcp_config.hpp" />
+    <ClInclude Include="network\network_config\network_udp_config.hpp" />
+    <ClInclude Include="network\network_info.hpp" />
+    <ClInclude Include="network\basic_network_packet.hpp" />
+    <ClInclude Include="network\packets_support\packets_queue.hpp" />
+    <ClInclude Include="network\session_helper\basic_tcp_connect_handler.hpp" />
+    <ClInclude Include="network\session_helper\basic_udp_connect_handler.hpp" />
+    <ClInclude Include="network\session_helper\connect_backup.hpp" />
+    <ClInclude Include="network\session_helper\first_action.hpp" />
+    <ClInclude Include="network\session_helper\owner_generator.hpp" />
+    <ClInclude Include="network\session_helper\session_checker_creator.hpp" />
+    <ClInclude Include="network\session_helper\session_crypher_creator.hpp" />
+    <ClInclude Include="network\session_helper\session_creator.hpp" />
+    <ClInclude Include="network\session_helper\session_tcp_curer.hpp" />
+    <ClInclude Include="network\session_helper\session_killer.hpp" />
+    <ClInclude Include="network\session_helper\session_udp_curer.hpp" />
+    <ClInclude Include="network\session_helper\tcp_async_acceptor_handler.hpp" />
+    <ClInclude Include="network\session_helper\tcp_connect_handler.hpp" />
+    <ClInclude Include="network\session_helper\udp_async_acceptor_handler.hpp" />
+    <ClInclude Include="network\session_helper\udp_connect_handler.hpp" />
+    <ClInclude Include="network\session_mgr.hpp" />
+    <ClInclude Include="network\session_state\session_state_checker.hpp" />
+    <ClInclude Include="network\session_state\session_state_def.hpp" />
+    <ClInclude Include="network\session_state\default_checker.hpp" />
+    <ClInclude Include="network\session_state\default_fixer.hpp" />
+    <ClInclude Include="network\session_state\session_state_fixer.hpp" />
+    <ClInclude Include="network\size_container.hpp" />
+    <ClInclude Include="network\socket_info.hpp" />
+    <ClInclude Include="network\start_data\encryption_pak_back_id.hpp" />
+    <ClInclude Include="network\start_data\pak_back_id.hpp" />
+    <ClInclude Include="network\start_data\start_data_def.hpp" />
+    <ClInclude Include="network\start_data\start_data_generator.hpp" />
+    <ClInclude Include="network\start_data\timed_encryption_pak_back_id.hpp" />
+    <ClInclude Include="network\start_data\timed_pak_back_id.hpp" />
+    <ClInclude Include="network\flash_security_request_pak.hpp" />
+    <ClInclude Include="network\io_service_pool.hpp" />
+    <ClInclude Include="network\network_packet.hpp" />
+    <ClInclude Include="network\non_strand_connection.hpp" />
+    <ClInclude Include="network\normal_io_service_selector.hpp" />
+    <ClInclude Include="network\connection.hpp" />
+    <ClInclude Include="network\support\data_info_def.hpp" />
+    <ClInclude Include="network\support\data_info_parser.hpp" />
+    <ClInclude Include="network\ex_linker.hpp" />
+    <ClInclude Include="network\tcp_linker.hpp" />
+    <ClInclude Include="network\timed_base_network_packet.hpp" />
+    <ClInclude Include="network\type_traits\socket_type_checker.hpp" />
+    <ClInclude Include="network\type_traits\tags.hpp" />
+    <ClInclude Include="network\udp_ctrl_data\udp_conn_checker.hpp" />
+    <ClInclude Include="network\udp_helper\udp_socket_container.hpp" />
+    <ClInclude Include="network\udp_helper\udp_socket_mgr.hpp" />
+    <ClInclude Include="network\udp_helper\udp_socket_pool.hpp" />
+    <ClInclude Include="network\udp_linker.hpp" />
+    <ClInclude Include="network\udp_packet_wrap.hpp" />
+    <ClInclude Include="network\udp_packets_collecter.hpp" />
+    <ClInclude Include="network\udp_pak_info.hpp" />
+    <ClInclude Include="nonable\nonable.hpp" />
+    <ClInclude Include="nonable\noncopyable.hpp" />
+    <ClInclude Include="nonable\noncreateable.hpp" />
+    <ClInclude Include="nonable\nonmoveable.hpp" />
+    <ClInclude Include="nsql_database_system\bson_type_traits.hpp" />
+    <ClInclude Include="nsql_database_system\c_bson_err.hpp" />
+    <ClInclude Include="nsql_database_system\c_mongo_connection.hpp" />
+    <ClInclude Include="nsql_database_system\c_mongo_write_concern.hpp" />
+    <ClInclude Include="nsql_database_system\bson_inside_type_access_proxy.hpp" />
+    <ClInclude Include="nsql_database_system\mongodb_config.h" />
+    <ClInclude Include="nsql_database_system\mongodb_io_system.hpp" />
+    <ClInclude Include="nsql_database_system\mongo_accesser.hpp" />
+    <ClInclude Include="packet\packet.hpp" />
+    <ClInclude Include="client\client.hpp" />
+    <ClInclude Include="packet\packet_info.hpp" />
+    <ClInclude Include="ppex\cast.hpp" />
+    <ClInclude Include="ppex\cast_to_string.hpp" />
+    <ClInclude Include="ppex\concat.hpp" />
+    <ClInclude Include="ppex\foo_params.hpp" />
+    <ClInclude Include="ppex\friend.hpp" />
+    <ClInclude Include="ppex\open.hpp" />
+    <ClInclude Include="ppex\pp_debug.hpp" />
+    <ClInclude Include="ppex\range_checker.hpp" />
+    <ClInclude Include="ppex\swap_this_def.hpp" />
+    <ClInclude Include="ppex\symbols.hpp" />
+    <ClInclude Include="ppex\symbol_if.hpp" />
+    <ClInclude Include="ppex\typedef.hpp" />
+    <ClInclude Include="process\this_process.hpp" />
+    <ClInclude Include="proxy\adapter_helper\proxy_io_converter.hpp" />
+    <ClInclude Include="proxy\detail\basic_repeater.hpp" />
+    <ClInclude Include="proxy\proxy_ctrl\basic_proxy_msg_fixer.hpp" />
+    <ClInclude Include="proxy\proxy_fix_state_def.hpp" />
+    <ClInclude Include="proxy\proxy_dispatcher.hpp" />
+    <ClInclude Include="proxy\proxy_mode\basic_proxy_mode.hpp" />
+    <ClInclude Include="proxy\proxy_mode\proxy_modes.hpp" />
+    <ClInclude Include="proxy\proxy_mode\proxy_mode_creator.hpp" />
+    <ClInclude Include="proxy\proxy_mode\proxy_mode_def.hpp" />
+    <ClInclude Include="proxy\proxy_mode\proxy_mode_tactics.hpp" />
+    <ClInclude Include="proxy\proxy_msg\proxy_mode_change_back_msg.hpp" />
+    <ClInclude Include="proxy\proxy_msg\proxy_mode_change_msg.hpp" />
+    <ClInclude Include="proxy\proxy_msg\proxy_netdata_def.hpp" />
+    <ClInclude Include="proxy\proxy_msg\proxy_register_back_msg.hpp" />
+    <ClInclude Include="proxy\proxy_msg\proxy_register_msg.hpp" />
+    <ClInclude Include="proxy\proxy_msg\proxy_unregister_back_msg.hpp" />
+    <ClInclude Include="proxy\proxy_msg\proxy_unregister_msg.hpp" />
+    <ClInclude Include="proxy\proxy_repeater.hpp" />
+    <ClInclude Include="proxy\proxy_router.hpp" />
+    <ClInclude Include="proxy\proxy_task_creator.hpp" />
+    <ClInclude Include="safe_container\detail\multi_index_method.hpp" />
+    <ClInclude Include="safe_container\detail\multi_index_method_of_hash_index.hpp" />
+    <ClInclude Include="safe_container\detail\multi_index_method_of_ordered_index.hpp" />
+    <ClInclude Include="safe_container\detail\multi_index_method_of_random_access_index.hpp" />
+    <ClInclude Include="safe_container\detail\multi_index_method_of_sequenced_index.hpp" />
+    <ClInclude Include="safe_container\detail\swap_def.hpp" />
+    <ClInclude Include="safe_container\safe_backup_device.hpp" />
+    <ClInclude Include="safe_container\safe_buffered_object.hpp" />
+    <ClInclude Include="safe_container\safe_call.hpp" />
+    <ClInclude Include="safe_container\safe_deque.hpp" />
+    <ClInclude Include="safe_container\safe_unordered_map.hpp" />
+    <ClInclude Include="safe_container\safe_hash_map_queue.hpp" />
+    <ClInclude Include="safe_container\safe_unordered_set.hpp" />
+    <ClInclude Include="safe_container\safe_list.hpp" />
+    <ClInclude Include="safe_container\safe_map.hpp" />
+    <ClInclude Include="safe_container\safe_multi_index_container.hpp" />
+    <ClInclude Include="safe_container\safe_queue.hpp" />
+    <ClInclude Include="safe_container\safe_set.hpp" />
+    <ClInclude Include="safe_container\safe_stack.hpp" />
+    <ClInclude Include="safe_container\safe_vector.hpp" />
+    <ClInclude Include="safe_container\safe_wrap.hpp" />
+    <ClInclude Include="script\base_lua_environment.hpp" />
+    <ClInclude Include="script\lua_environment.hpp" />
+    <ClInclude Include="script\lua_script.hpp" />
+    <ClInclude Include="script\script_mgr.hpp" />
+    <ClInclude Include="segment\anonymous_segment_container.hpp" />
+    <ClInclude Include="segment\anonymous_segment_op_proxy.hpp" />
+    <ClInclude Include="segment\anonymous_shared_memory.hpp" />
+    <ClInclude Include="segment\anonymous_shared_memory_op_proxy.hpp" />
+    <ClInclude Include="segment\managed_mapped_file_op_proxy.hpp" />
+    <ClInclude Include="segment\segment_deleter.hpp" />
+    <ClInclude Include="segment\file_mapping_op_proxy.hpp" />
+    <ClInclude Include="segment\managed_shared_memory_op_proxy.hpp" />
+    <ClInclude Include="segment\segment_container.hpp" />
+    <ClInclude Include="segment\segment_file_pos.hpp" />
+    <ClInclude Include="segment\segment_mode.hpp" />
+    <ClInclude Include="segment\segment_op.hpp" />
+    <ClInclude Include="segment\segment_op_proxy.hpp" />
+    <ClInclude Include="segment\shared_memory_object_op_proxy.hpp" />
+    <ClInclude Include="seh\linux_seh.hpp" />
+    <ClInclude Include="seh\linux_seh_env.hpp" />
+    <ClInclude Include="seh\linux_seh_helper.hpp" />
+    <ClInclude Include="seh\linux_seh_sys_codes.hpp" />
+    <ClInclude Include="seh\seh.hpp" />
+    <ClInclude Include="seh\win_seh.hpp" />
+    <ClInclude Include="seh\win_seh_env.hpp" />
+    <ClInclude Include="seh\win_seh_helper.hpp" />
+    <ClInclude Include="seh\win_seh_sys_codes.hpp" />
+    <ClInclude Include="serialization\array.hpp" />
+    <ClInclude Include="serialization\array_bson_impl.hpp" />
+    <ClInclude Include="serialization\array_bson_load_impl.hpp" />
+    <ClInclude Include="serialization\array_bson_save_impl.hpp" />
+    <ClInclude Include="serialization\bson_data_type.hpp" />
+    <ClInclude Include="serialization\collections_load_bson_impl.hpp" />
+    <ClInclude Include="serialization\collections_load_imp.hpp" />
+    <ClInclude Include="serialization\collections_save_bson_impl.hpp" />
+    <ClInclude Include="serialization\collections_save_imp.hpp" />
+    <ClInclude Include="serialization\collection_size_type.hpp" />
+    <ClInclude Include="serialization\collection_size_type_bson_impl.hpp" />
+    <ClInclude Include="serialization\deque.hpp" />
+    <ClInclude Include="serialization\deque_bson_impl.hpp" />
+    <ClInclude Include="serialization\detail\bson_impl_reinclue.hpp" />
+    <ClInclude Include="serialization\detail\container_implementation_level_def.hpp" />
+    <ClInclude Include="serialization\detail\type_traits.hpp" />
+    <ClInclude Include="serialization\liner_container_bson_impl.hpp" />
+    <ClInclude Include="serialization\list_bson_impl.hpp" />
+    <ClInclude Include="serialization\map.hpp" />
+    <ClInclude Include="serialization\map_bson_impl.hpp" />
+    <ClInclude Include="serialization\multi_index_container.hpp" />
+    <ClInclude Include="serialization\multi_index_container_bson_impl.hpp" />
+    <ClInclude Include="serialization\multi_index_collections_load_bson_impl.hpp" />
+    <ClInclude Include="serialization\multi_index_collections_load_imp.hpp" />
+    <ClInclude Include="serialization\multi_index_collections_save_bson_impl.hpp" />
+    <ClInclude Include="serialization\multi_index_collections_save_imp.hpp" />
+    <ClInclude Include="serialization\multi_index_container_t.hpp" />
+    <ClInclude Include="serialization\multi_index_container_t_bson_impl.hpp" />
+    <ClInclude Include="serialization\set.hpp" />
+    <ClInclude Include="serialization\set_bson_impl.hpp" />
+    <ClInclude Include="serialization\shared_ptr.hpp" />
+    <ClInclude Include="serialization\string_bson_impl.hpp" />
+    <ClInclude Include="serialization\tuple.hpp" />
+    <ClInclude Include="serialization\tuple_bson_impl.hpp" />
+    <ClInclude Include="serialization\unordered_collections_load_bson_impl.hpp" />
+    <ClInclude Include="serialization\unordered_collections_load_imp.hpp" />
+    <ClInclude Include="serialization\unordered_collections_save_bson_impl.hpp" />
+    <ClInclude Include="serialization\unordered_collections_save_imp.hpp" />
+    <ClInclude Include="serialization\key_value_container.hpp" />
+    <ClInclude Include="serialization\key_value_container_bson_impl.hpp" />
+    <ClInclude Include="serialization\list.hpp" />
+    <ClInclude Include="serialization\nvp.hpp" />
+    <ClInclude Include="serialization\string.hpp" />
+    <ClInclude Include="serialization\unliner_container.hpp" />
+    <ClInclude Include="serialization\unliner_container_bson_impl.hpp" />
+    <ClInclude Include="serialization\unordered_key_value_container.hpp" />
+    <ClInclude Include="serialization\unordered_key_value_container_bson_impl.hpp" />
+    <ClInclude Include="serialization\unordered_map.hpp" />
+    <ClInclude Include="serialization\unordered_map_bson_impl.hpp" />
+    <ClInclude Include="serialization\unordered_set.hpp" />
+    <ClInclude Include="serialization\unordered_set_bson_impl.hpp" />
+    <ClInclude Include="serialization\unordered_unliner_container.hpp" />
+    <ClInclude Include="serialization\unordered_unliner_container_bson_impl.hpp" />
+    <ClInclude Include="serialization\utf8_string.hpp" />
+    <ClInclude Include="serialization\liner_container.hpp" />
+    <ClInclude Include="serialization\utf8_string_bson_impl.hpp" />
+    <ClInclude Include="serialization\utility.hpp" />
+    <ClInclude Include="serialization\utility_bson_impl.hpp" />
+    <ClInclude Include="serialization\vector.hpp" />
+    <ClInclude Include="serialization\vector_bson_impl.hpp" />
+    <ClInclude Include="server\server_config\server_config_template.hpp" />
+    <ClInclude Include="server\server_config\server_tcp_config.hpp" />
+    <ClInclude Include="server\server_config\server_udp_config.hpp" />
+    <ClInclude Include="server\start_mode\server_active_start_mode.hpp" />
+    <ClInclude Include="server\start_mode\server_passive_start_mode.hpp" />
+    <ClInclude Include="server\basic_svr_handler.hpp" />
+    <ClInclude Include="server\server.hpp" />
+    <ClInclude Include="struct_support\bind.hpp" />
+    <ClInclude Include="struct_support\tuple.hpp" />
+    <ClInclude Include="support\boost_ver_include.hpp" />
+    <ClInclude Include="support\ref.hpp" />
+    <ClInclude Include="task_center\support\task_data_info_parser.hpp" />
+    <ClInclude Include="task_center\support\task_owner_info_parser.hpp" />
+    <ClInclude Include="task_center\support\task_real_data_getter.hpp" />
+    <ClInclude Include="task_center\task_center.hpp" />
+    <ClInclude Include="task_center\task_creator.hpp" />
+    <ClInclude Include="task_center\task_data_id_def.hpp" />
+    <ClInclude Include="task_center\task_info_def.hpp" />
+    <ClInclude Include="task_center\task_saver.hpp" />
+    <ClInclude Include="task_center\recver_handler_mgr.hpp" />
+    <ClInclude Include="task_center\task.hpp" />
+    <ClInclude Include="task_center\task_info.hpp" />
+    <ClInclude Include="task_center\task_store_op.hpp" />
+    <ClInclude Include="task_center\type_traits\tags.hpp" />
+    <ClInclude Include="task_center\work_runner_saver.hpp" />
+    <ClInclude Include="thread\action_helper\action_id_parser.hpp" />
+    <ClInclude Include="thread\action_helper\make_reg_id_parser.hpp" />
+    <ClInclude Include="thread\action_table.hpp" />
+    <ClInclude Include="thread\boost_thread_config.hpp" />
+    <ClInclude Include="thread\io_runner.hpp" />
+    <ClInclude Include="thread\static_work_runner.hpp" />
+    <ClInclude Include="thread\boost_this_thread.hpp" />
+    <ClInclude Include="thread\this_thread.hpp" />
+    <ClInclude Include="thread\thread_config.hpp" />
+    <ClInclude Include="thread\thread_mgr.hpp" />
+    <ClInclude Include="thread\timer_runner.hpp" />
+    <ClInclude Include="thread\dynamic_work_runner.hpp" />
+    <ClInclude Include="thread\type_traits\tags.hpp" />
+    <ClInclude Include="thread\work_thread.hpp" />
+    <ClInclude Include="adapter\adapter_mgr.hpp" />
+    <ClInclude Include="time\runtime_speed_test.hpp" />
+    <ClInclude Include="time\time.hpp" />
+    <ClInclude Include="time\timer.hpp" />
+    <ClInclude Include="time\timer_mgr.hpp" />
+    <ClInclude Include="database_system\database_calculater.hpp" />
+    <ClInclude Include="database_system\database_check_operator.hpp" />
+    <ClInclude Include="database_system\database_command.hpp" />
+    <ClInclude Include="database_system\database_connect.hpp" />
+    <ClInclude Include="database_system\database_connect_mt.hpp" />
+    <ClInclude Include="database_system\database_connect_st.hpp" />
+    <ClInclude Include="database_system\database_mgr.hpp" />
+    <ClInclude Include="database_system\database_operator.hpp" />
+    <ClInclude Include="database_system\database_operator_eins.hpp" />
+    <ClInclude Include="database_system\database_operator_zwei.hpp" />
+    <ClInclude Include="script\base_python_environment.hpp" />
+    <ClInclude Include="script\python_environment.hpp" />
+    <ClInclude Include="script\python_script.hpp" />
+    <ClInclude Include="geometry\geo_line.hpp" />
+    <ClInclude Include="geometry\geo_line_segment.hpp" />
+    <ClInclude Include="geometry\geo_polygon.hpp" />
+    <ClInclude Include="geometry\geo_rectangle.hpp" />
+    <ClInclude Include="math\sign.hpp" />
+    <ClInclude Include="encryption_tool\blowfish_tool.hpp" />
+    <ClInclude Include="encryption_tool\md5_tool.hpp" />
+    <ClInclude Include="dll_make\dll_def_helper.hpp" />
+    <ClInclude Include="dll_make\dll_imp_helper.hpp" />
+    <ClInclude Include="dll_make\dll_mark_define.hpp" />
+    <ClInclude Include="nsql_database_system\bson_data_type.hpp" />
+    <ClInclude Include="nsql_database_system\c_bson.hpp" />
+    <ClInclude Include="modules\defmodules.h" />
+    <ClInclude Include="modules\module.hpp" />
+    <ClInclude Include="modules\modules_accesser.hpp" />
+    <ClInclude Include="modules\modules_mgr.hpp" />
+    <ClInclude Include="plugins\plugins_installer.hpp" />
+    <ClInclude Include="log\log_accesser.hpp" />
+    <ClInclude Include="log\log_file.hpp" />
+    <ClInclude Include="log\log_file_mgr.hpp" />
+    <ClInclude Include="log\log_file_op.hpp" />
+    <ClInclude Include="log\log_nsql_db_op.hpp" />
+    <ClInclude Include="log\log_op_def.hpp" />
+    <ClInclude Include="log\log_sql_db_op.hpp" />
+    <ClInclude Include="log\yggr_exception_log_accesser.hpp" />
+    <ClInclude Include="any_val\any_val_operator.hpp" />
+    <ClInclude Include="any_val\base_any_type_operator.hpp" />
+    <ClInclude Include="any_val\params.hpp" />
+    <ClInclude Include="regular_parse\regex_parse.hpp" />
+    <ClInclude Include="regular_parse\u32regex_parse.hpp" />
+    <ClInclude Include="fuzzy\fuzzy_string.hpp" />
+    <ClInclude Include="ptr_val\ptr_val_operator.hpp" />
+    <ClInclude Include="flash_security\security_protocol.hpp" />
+    <ClInclude Include="flash_security\security_protocol_def.h" />
+    <ClInclude Include="charset\charset_converter.hpp" />
+    <ClInclude Include="charset\charset_foo.hpp" />
+    <ClInclude Include="charset\default_charset_config.hpp" />
+    <ClInclude Include="charset\str_wstr_converter.hpp" />
+    <ClInclude Include="charset\utf8_string.hpp" />
+    <ClInclude Include="sync_system\sync_container_mgr.hpp" />
+    <ClInclude Include="sync_system\sync_default_config.hpp" />
+    <ClInclude Include="sync_system\sync_helper.hpp" />
+    <ClInclude Include="ids\base_ids_def.hpp" />
+    <ClInclude Include="time\timer_task_state.hpp" />
+    <ClInclude Include="type_awareness\awareness_def.hpp" />
+    <ClInclude Include="type_awareness\functional.hpp" />
+    <ClInclude Include="type_awareness\opids_def.hpp" />
+    <ClInclude Include="type_awareness\ops.hpp" />
+    <ClInclude Include="type_awareness\typeids_def.hpp" />
+    <ClInclude Include="type_awareness\types.hpp" />
+    <ClInclude Include="type_traits\traits.hpp" />
+    <ClInclude Include="type_traits\types_checker.hpp" />
+    <ClInclude Include="type_traits\upper_types.hpp" />
+    <ClInclude Include="utility\swap.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ppex\detail\empty_file.ipp" />
+    <None Include="ppex\detail\nonempty_file.ipp" />
+    <None Include="proxy\proxy_container.hpp" />
+    <None Include="support\log_op_general_foo.ipp" />
+    <None Include="support\max_min_undef.ipp" />
+    <None Include="dll_make\dll_main.ipp" />
+    <None Include="dll_make\dll_make_begin.ipp" />
+    <None Include="dll_make\dll_make_end.ipp" />
+    <None Include="task_center\support\task_import.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

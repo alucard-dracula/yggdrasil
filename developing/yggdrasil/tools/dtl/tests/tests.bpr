@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="tests.exe"/>
+    <OBJFILES value="main.obj Example.obj IterSemanticsTest.obj JoinExample.obj print_util.obj 
+      TestExceptions.obj"/>
+    <RESFILES value="tests.res"/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value="..\lib\dtl.lib &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\odbc32.lib&quot;"/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value=""/>
+    <PACKAGES value="vcl.bpi rtl.bpi dbrtl.bpi adortl.bpi vcldb.bpi vclx.bpi bdertl.bpi 
+      vcldbx.bpi ibxpress.bpi dsnap.bpi cds.bpi bdecds.bpi qrpt.bpi teeui.bpi 
+      teedb.bpi tee.bpi dss.bpi teeqr.bpi visualclx.bpi visualdbclx.bpi 
+      dsnapcrba.bpi dsnapcon.bpi bcbsmp.bpi vclie.bpi xmlrtl.bpi inet.bpi 
+      inetdbbde.bpi inetdbxpress.bpi inetdb.bpi nmfast.bpi webdsnap.bpi 
+      bcbie.bpi websnap.bpi soaprtl.bpi dclocx.bpi dbexpress.bpi dbxcds.bpi 
+      indy.bpi bcb2kaxserver.bpi"/>
+    <PATHCPP value=".;"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value="_DEBUG;WIN32"/>
+    <SYSDEFINES value="NO_STRICT;_NO_VCL;USEPACKAGES"/>
+    <MAINSOURCE value="tests.bpf"/>
+    <INCLUDEPATH value=".;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\include\stlport;..\lib"/>
+    <LIBPATH value="..\lib;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-I. -I$(BCB)\include -I$(BCB)\include\vcl -I$(BCB)\include\stlport 
+      -I..\lib -src_suffix cpp -D_DEBUG -DWIN32 -boa"/>
+    <CFLAG1 value="-Od -P -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -tWC -tWM- -c"/>
+    <PFLAGS value="-$YD -$W -$O- -$A8 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zi"/>
+    <LFLAGS value="-D&quot;&quot; -ap -Tpe -GD -x -Gn -v"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0x32.obj $(PACKAGES) $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cw32.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="tests.res" FORMNAME="" UNITNAME="tests.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="tests.bpf" FORMNAME="" UNITNAME="tests" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="main.cpp" FORMNAME="" UNITNAME="main" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Example.cpp" FORMNAME="" UNITNAME="Example.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="IterSemanticsTest.cpp" FORMNAME="" UNITNAME="IterSemanticsTest.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="JoinExample.cpp" FORMNAME="" UNITNAME="JoinExample.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="print_util.cpp" FORMNAME="" UNITNAME="print_util.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TestExceptions.cpp" FORMNAME="" UNITNAME="TestExceptions.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\lib\dtl.lib" FORMNAME="" UNITNAME="dtl.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\odbc32.lib" FORMNAME="" UNITNAME="odbc32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=7
+Item0=.;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\include\stlport;..\lib
+Item1=C:\dtl325_bug\dtl_future\dtl\tests;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\include\stlport;..\lib
+Item2=C:\dtl325_bug\dtl_future\dtl\tests;$(BCB)\include;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\include\stlport;..\lib
+Item3=C:\dtl325_bug\dtl_future\dtl\tests;$(BCB)\include;$(BCB)\include\stlport;..\lib
+Item4=C:\dtl325_bug\dtl_future\dtl\tests;$(BCB)\include;$(BCB)\include\vcl;..\lib;C:\Program Files\Borland\CBuilder6\Include\Stlport
+Item5=C:\dtl325_bug\dtl_future\dtl\tests;$(BCB)\include;$(BCB)\include\vcl;..\lib
+Item6=C:\dtl325_bug\dtl_future\dtl\tests;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=2
+Item0=..\lib;$(BCB)\lib\obj;$(BCB)\lib
+Item1=C:\dtl325_bug\dtl_future\dtl\tests;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=2
+Item0=_DEBUG;WIN32
+Item1=_DEBUG
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=DSN=exampleA;UID=example;PWD=example
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=1
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+</PROJECT>

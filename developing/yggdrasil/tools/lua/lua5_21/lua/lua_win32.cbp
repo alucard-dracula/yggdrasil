@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="lua" />
+		<Option pch_mode="2" />
+		<Option compiler="gnu_gcc32_compiler" />
+		<Build>
+			<Target title="Debug">
+				<Option output="..\Debug\lua" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="..\Debug" />
+				<Option object_output=".\Debug" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc32_compiler" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-D_DEBUG" />
+				</Compiler>
+				<Linker>
+					<Add library="..\Debug\liblua521-mgw47-d.dll.a" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="..\Release\lua" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="..\Release" />
+				<Option object_output=".\Release" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc32_compiler" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-DNDEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="..\Release\liblua521-mgw47.dll.a" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-DWIN32" />
+			<Add option="-DLUA_COMPAT_ALL" />
+			<Add directory="..\include" />
+		</Compiler>
+		<Unit filename="lua.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

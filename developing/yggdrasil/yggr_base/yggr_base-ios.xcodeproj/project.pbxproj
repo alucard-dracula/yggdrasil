@@ -1,0 +1,328 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D2969EF4198C3F3400FA3ABF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2969EF3198C3F3400FA3ABF /* Foundation.framework */; };
+		D2969F28198C436E00FA3ABF /* random.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2969F24198C436E00FA3ABF /* random.cpp */; };
+		D2969F29198C436E00FA3ABF /* error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2969F25198C436E00FA3ABF /* error.cpp */; };
+		D2969F2A198C436E00FA3ABF /* exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2969F26198C436E00FA3ABF /* exception.cpp */; };
+		D2969F2B198C436E00FA3ABF /* ctrl_center.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2969F27198C436E00FA3ABF /* ctrl_center.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D2969EEE198C3F3400FA3ABF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D2969EF0198C3F3400FA3ABF /* libyggr_base-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libyggr_base-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2969EF3198C3F3400FA3ABF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D2969F01198C3F3400FA3ABF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D2969F04198C3F3400FA3ABF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		D2969F21198C402500FA3ABF /* yggr_base-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "yggr_base-ios-Prefix.pch"; path = "yggr_base-ios/yggr_base-ios-Prefix.pch"; sourceTree = "<group>"; };
+		D2969F24198C436E00FA3ABF /* random.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = random.cpp; sourceTree = "<group>"; };
+		D2969F25198C436E00FA3ABF /* error.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = error.cpp; sourceTree = "<group>"; };
+		D2969F26198C436E00FA3ABF /* exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = exception.cpp; sourceTree = "<group>"; };
+		D2969F27198C436E00FA3ABF /* ctrl_center.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ctrl_center.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2969EED198C3F3400FA3ABF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2969EF4198C3F3400FA3ABF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D2969EE7198C3F3400FA3ABF = {
+			isa = PBXGroup;
+			children = (
+				D2969F21198C402500FA3ABF /* yggr_base-ios-Prefix.pch */,
+				D2969F23198C435200FA3ABF /* yggr_base-ios */,
+				D2969EF2198C3F3400FA3ABF /* Frameworks */,
+				D2969EF1198C3F3400FA3ABF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D2969EF1198C3F3400FA3ABF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2969EF0198C3F3400FA3ABF /* libyggr_base-ios.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D2969EF2198C3F3400FA3ABF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2969EF3198C3F3400FA3ABF /* Foundation.framework */,
+				D2969F01198C3F3400FA3ABF /* XCTest.framework */,
+				D2969F04198C3F3400FA3ABF /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2969F23198C435200FA3ABF /* yggr_base-ios */ = {
+			isa = PBXGroup;
+			children = (
+				D2969F24198C436E00FA3ABF /* random.cpp */,
+				D2969F25198C436E00FA3ABF /* error.cpp */,
+				D2969F26198C436E00FA3ABF /* exception.cpp */,
+				D2969F27198C436E00FA3ABF /* ctrl_center.cpp */,
+			);
+			name = "yggr_base-ios";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D2969EEF198C3F3400FA3ABF /* yggr_base-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2969F13198C3F3400FA3ABF /* Build configuration list for PBXNativeTarget "yggr_base-ios" */;
+			buildPhases = (
+				D2969EEC198C3F3400FA3ABF /* Sources */,
+				D2969EED198C3F3400FA3ABF /* Frameworks */,
+				D2969EEE198C3F3400FA3ABF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "yggr_base-ios";
+			productName = "yggr_base-ios";
+			productReference = D2969EF0198C3F3400FA3ABF /* libyggr_base-ios.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D2969EE8198C3F3400FA3ABF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = yggdrasil;
+			};
+			buildConfigurationList = D2969EEB198C3F3400FA3ABF /* Build configuration list for PBXProject "yggr_base-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D2969EE7198C3F3400FA3ABF;
+			productRefGroup = D2969EF1198C3F3400FA3ABF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2969EEF198C3F3400FA3ABF /* yggr_base-ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2969EEC198C3F3400FA3ABF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2969F29198C436E00FA3ABF /* error.cpp in Sources */,
+				D2969F2B198C436E00FA3ABF /* ctrl_center.cpp in Sources */,
+				D2969F28198C436E00FA3ABF /* random.cpp in Sources */,
+				D2969F2A198C436E00FA3ABF /* exception.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D2969F11198C3F3400FA3ABF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = YES;
+				GCC_WARN_ABOUT_POINTER_SIGNEDNESS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../third_part/boost/include,
+					../,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-D_DEBUG",
+					"-fexceptions",
+					"-fdata-sections",
+					"-ffunction-sections",
+					"-fno-strict-aliasing",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s i386";
+			};
+			name = Debug;
+		};
+		D2969F12198C3F3400FA3ABF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = YES;
+				GCC_WARN_ABOUT_POINTER_SIGNEDNESS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../third_part/boost/include,
+					../,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+					"-fexceptions",
+					"-fdata-sections",
+					"-ffunction-sections",
+					"-fno-strict-aliasing",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s i386";
+			};
+			name = Release;
+		};
+		D2969F14198C3F3400FA3ABF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/yggr_base_ios.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "yggr_base-ios/yggr_base-ios-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D2969F15198C3F3400FA3ABF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/yggr_base_ios.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "yggr_base-ios/yggr_base-ios-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D2969EEB198C3F3400FA3ABF /* Build configuration list for PBXProject "yggr_base-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2969F11198C3F3400FA3ABF /* Debug */,
+				D2969F12198C3F3400FA3ABF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2969F13198C3F3400FA3ABF /* Build configuration list for PBXNativeTarget "yggr_base-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2969F14198C3F3400FA3ABF /* Debug */,
+				D2969F15198C3F3400FA3ABF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D2969EE8198C3F3400FA3ABF /* Project object */;
+}

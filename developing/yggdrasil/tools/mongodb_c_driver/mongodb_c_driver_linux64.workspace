@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="mongodb_c_driver_linux64">
+		<Project filename="bson/bson_linux64.cbp" />
+		<Project filename="mongoc/mongoc_linux64.cbp">
+			<Depends filename="bson/bson_linux64.cbp" />
+		</Project>
+		<Project filename="include/include_linux64.cbp" />
+		<Project filename="mongoc/mongoc_linux64.so.cbp" />
+		<Project filename="bson/bson_linux64.so.cbp" />
+		<Project filename="bcon/bcon_linux64.cbp" />
+		<Project filename="bcon/bcon_linux64.so.cbp" active="1" />
+	</Workspace>
+</CodeBlocks_workspace_file>

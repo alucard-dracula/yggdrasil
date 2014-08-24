@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="luac" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug64">
+				<Option output="../Debug64/luac" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../Debug64" />
+				<Option object_output="./Debug64" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-D_DEBUG" />
+				</Compiler>
+			</Target>
+			<Target title="Release64">
+				<Option output="../Release64/luac" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../Release64" />
+				<Option object_output="./Release64" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-DNDEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-ansi" />
+			<Add option="-DLINUX64" />
+			<Add option="-DLUA_USE_LINUX" />
+			<Add option="-DLUA_COMPAT_ALL" />
+			<Add directory="../include" />
+		</Compiler>
+		<Linker>
+			<Add option="-ldl" />
+			<Add option="-lreadline" />
+		</Linker>
+		<Unit filename="lapi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lauxlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lbaselib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lcode.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ldblib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ldebug.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ldo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ldump.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lfunc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lgc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="linit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="liolib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="llex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lmathlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lmem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="loadlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lobject.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lopcodes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="loslib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lparser.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lstate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lstring.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lstrlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ltable.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ltablib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ltm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="luac.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lundump.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lvm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lzio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="print.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

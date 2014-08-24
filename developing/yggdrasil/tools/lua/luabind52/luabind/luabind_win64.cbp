@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="luabind" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug64">
+				<Option output="..\Debug64\luabind09-mgw47-d" prefix_auto="1" extension_auto="1" />
+				<Option object_output=".\Debug64" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-D_DEBUG" />
+				</Compiler>
+				<Linker>
+					<Add library="D:\lua\lib64\liblua521-mgw47-d.dll.a" />
+				</Linker>
+			</Target>
+			<Target title="Release64">
+				<Option output="..\Release64\luabind09-mgw47" prefix_auto="1" extension_auto="1" />
+				<Option object_output=".\Release64" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-DNDEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="D:\lua\lib64\liblua521-mgw47.dll.a" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-DWIN32" />
+			<Add option="-DWIN64" />
+			<Add option="-DLUA_COMPAT_ALL" />
+			<Add option="-DLUABIND_DYNAMIC_LINK" />
+			<Add directory="..\include" />
+		</Compiler>
+		<Unit filename="class.cpp" />
+		<Unit filename="class_info.cpp" />
+		<Unit filename="class_registry.cpp" />
+		<Unit filename="class_rep.cpp" />
+		<Unit filename="create_class.cpp" />
+		<Unit filename="error.cpp" />
+		<Unit filename="exception_handler.cpp" />
+		<Unit filename="function.cpp" />
+		<Unit filename="inheritance.cpp" />
+		<Unit filename="link_compatibility.cpp" />
+		<Unit filename="object_rep.cpp" />
+		<Unit filename="open.cpp" />
+		<Unit filename="pcall.cpp" />
+		<Unit filename="scope.cpp" />
+		<Unit filename="stack_content_by_name.cpp" />
+		<Unit filename="weak_ref.cpp" />
+		<Unit filename="wrapper_base.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

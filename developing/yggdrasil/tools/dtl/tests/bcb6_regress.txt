@@ -1,0 +1,1919 @@
+true false
+true false
+Driver: Microsoft SQL Server Version: 08.00.0760
+!!!!!!!!!!!!!!!!!!!!! Begin Example Premature UpdateData() !!!!!!!!!!!!!!!!!!!! 
+9 rows updated!
+5 rows updated!
+deleted / changed items:
+Example(3, "Join Example", 333, 333, NOV-11-1999)
+Example(6, "Find Me", 22.22, 22, JAN-01-2000)
+Example(6, "Jordan", 1000.1, 1, NOV-11-1999)
+Example(10, "Find Me", 34.44, 41, JAN-01-2000)
+Example(10, "Settled", 100.11, -1, NOV-11-1999)
+Example(11, "Example", 0, 0, OCT-31-2001)
+Example(17, "To find", 213, 34, NOV-11-1999)
+Example(20, "To find", 2020.2, 2, NOV-11-1999)
+Example(22, "To find", 443.33, 32, DEC-04-1998)
+Example(23, "To find", 54.21, 9, FEB-13-1988)
+Example(28, "To find", 1.11, 1, FEB-13-1988)
+Example(28, "To find", 11.11, 38, DEC-04-1998)
+Example(29, "Prayer", 912.22, -3, NOV-11-1999)
+Example(30, "The Reliable, Red Caminus Bouncy Ball", 1000.11, 10, NOV-11-1999)
+inserted / changed items:
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestBadVariantInsert() !!!!!!!!!!!!!!!!!!!! 
+Attempting to insert invalid variant_row (uninitialized date) ...
+*** Should see invalid date exception ***
+Exception type: VariantException
+Method: DefaultInsValidate<variant_row>()
+Error Message: Uninitialized date field 'EXAMPLE_DATE' in variant_row!
+
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestInsertDynamicFromStatic() !!!!!!!!!!!!!!!!!!!! 
+deleted / changed items:
+inserted / changed items:
+Example(911, "Emergency", 9.11, 911, SEP-11-2001)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestAVeryLongString() !!!!!!!!!!!!!!!!!!!! 
+long string test successful!
+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdef
+MNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqr
+ghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKL
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestNoStringParams() !!!!!!!!!!!!!!!!!!!! 
+Initial Examples ...
+ExampleCharred(1, "Example", 3, 56, JAN-01-2000)
+ExampleCharred(1, "Find Me", 44.44, 44, JAN-01-2000)
+ExampleCharred(2, "Foozle", 7.7, 12, DEC-04-1998)
+ExampleCharred(3, "Bedazzled", 12, 99, JAN-01-2000)
+ExampleCharred(3, "Find Me", 88.88, 88, JAN-01-2000)
+ExampleCharred(3, "Join Example", 33, 33, JAN-01-2000)
+ExampleCharred(3, "Join Example", 333, 333, NOV-11-1999)
+ExampleCharred(4, "Example", 11.11, 44, FEB-28-1999)
+ExampleCharred(6, "Find Me", 22.22, 22, JAN-01-2000)
+ExampleCharred(6, "Jordan", 1000.1, 1, NOV-11-1999)
+ExampleCharred(7, "Example", 21.11, 21, JAN-01-2000)
+ExampleCharred(8, "Corwin", 99.99, 100, JAN-01-2000)
+ExampleCharred(10, "Find Me", 34.44, 41, JAN-01-2000)
+ExampleCharred(10, "Settled", 100.11, -1, NOV-11-1999)
+ExampleCharred(11, "Example", 0, 0, OCT-31-2001)
+ExampleCharred(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+ExampleCharred(15, "Find Me", 11, 25, DEC-04-1998)
+ExampleCharred(17, "To find", 213, 34, NOV-11-1999)
+ExampleCharred(18, "Duped", -12.22, -99, FEB-13-1988)
+ExampleCharred(19, "Mike", -43334, 2122, FEB-13-1988)
+ExampleCharred(20, "To find", 2020.2, 2, NOV-11-1999)
+ExampleCharred(21, "Do not find", 22, 22, FEB-13-1988)
+ExampleCharred(22, "To find", 443.33, 32, DEC-04-1998)
+ExampleCharred(23, "To find", 54.21, 9, FEB-13-1988)
+ExampleCharred(23, "Who?", 0, 0, FEB-13-1988)
+ExampleCharred(28, "To find", 1.11, 1, FEB-13-1988)
+ExampleCharred(28, "To find", 11.11, 38, DEC-04-1998)
+ExampleCharred(29, "Prayer", 912.22, -3, NOV-11-1999)
+ExampleCharred(30, "The Reliable, Red Caminus Bouncy Ball", 1000.11, 10, NOV-11-1999)
+ExampleCharred(31, "To find", 0, 110, FEB-13-1988)
+ExampleCharred(32, "Example", 1, 109, FEB-13-1988)
+ExampleCharred(77, "Blah", 3.21, 2, JUL-07-2000)
+As DBView ...
+ExampleCharred(2, "Foozle", 7.7, 12, DEC-04-1998)
+ExampleCharred(4, "Example", 11.11, 44, FEB-28-1999)
+ExampleCharred(7, "Example", 21.11, 21, JAN-01-2000)
+ExampleCharred(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+ExampleCharred(15, "Find Me", 11, 25, DEC-04-1998)
+ExampleCharred(18, "Duped", -12.22, -99, FEB-13-1988)
+ExampleCharred(19, "Mike", -43334, 2122, FEB-13-1988)
+ExampleCharred(21, "Do not find", 22, 22, FEB-13-1988)
+ExampleCharred(22, "To find", 443.33, 32, DEC-04-1998)
+ExampleCharred(23, "To find", 54.21, 9, FEB-13-1988)
+ExampleCharred(23, "Who?", 0, 0, FEB-13-1988)
+ExampleCharred(28, "To find", 1.11, 1, FEB-13-1988)
+ExampleCharred(28, "To find", 11.11, 38, DEC-04-1998)
+ExampleCharred(31, "To find", 0, 110, FEB-13-1988)
+ExampleCharred(32, "Example", 1, 109, FEB-13-1988)
+Attempting to insert into DBView ...
+As IndexedDBView ... 
+ExampleCharred(19, "Mike", -43334, 2122, FEB-13-1988)
+ExampleCharred(23, "Who?", 0, 0, FEB-13-1988)
+ExampleCharred(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+ExampleCharred(4, "Example", 11.11, 44, FEB-28-1999)
+ExampleCharred(32, "Example", 1, 109, FEB-13-1988)
+ExampleCharred(7, "Example", 21.11, 21, JAN-01-2000)
+ExampleCharred(6, "Example", 45.32, 12, DEC-15-2000)
+ExampleCharred(18, "Duped", -12.22, -99, FEB-13-1988)
+ExampleCharred(15, "Find Me", 11, 25, DEC-04-1998)
+ExampleCharred(21, "Do not find", 22, 22, FEB-13-1988)
+ExampleCharred(2, "Foozle", 7.7, 12, DEC-04-1998)
+ExampleCharred(22, "To find", 443.33, 32, DEC-04-1998)
+ExampleCharred(31, "To find", 0, 110, FEB-13-1988)
+ExampleCharred(28, "To find", 11.11, 38, DEC-04-1998)
+ExampleCharred(28, "To find", 1.11, 1, FEB-13-1988)
+ExampleCharred(23, "To find", 54.21, 9, FEB-13-1988)
+Examples after TestNoStringParams() ...
+ExampleCharred(1, "Example", 3, 56, JAN-01-2000)
+ExampleCharred(1, "Find Me", 44.44, 44, JAN-01-2000)
+ExampleCharred(2, "Foozle", 7.7, 12, DEC-04-1998)
+ExampleCharred(3, "Bedazzled", 12, 99, JAN-01-2000)
+ExampleCharred(3, "Find Me", 88.88, 88, JAN-01-2000)
+ExampleCharred(3, "Join Example", 33, 33, JAN-01-2000)
+ExampleCharred(3, "Join Example", 333, 333, NOV-11-1999)
+ExampleCharred(4, "Example", 11.11, 44, FEB-28-1999)
+ExampleCharred(5, "Example", 96.54, 23, DEC-15-2000)
+ExampleCharred(6, "Example", 45.32, 12, DEC-15-2000)
+ExampleCharred(6, "Find Me", 22.22, 22, JAN-01-2000)
+ExampleCharred(6, "Jordan", 1000.1, 1, NOV-11-1999)
+ExampleCharred(7, "Example", 21.11, 21, JAN-01-2000)
+ExampleCharred(8, "Corwin", 99.99, 100, JAN-01-2000)
+ExampleCharred(10, "Find Me", 34.44, 41, JAN-01-2000)
+ExampleCharred(10, "Settled", 100.11, -1, NOV-11-1999)
+ExampleCharred(11, "Example", 0, 0, OCT-31-2001)
+ExampleCharred(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+ExampleCharred(15, "Find Me", 11, 25, DEC-04-1998)
+ExampleCharred(17, "To find", 213, 8484, NOV-11-1999)
+ExampleCharred(18, "Duped", -12.22, -99, FEB-13-1988)
+ExampleCharred(19, "Mike", -43334, 2122, FEB-13-1988)
+ExampleCharred(20, "To find", 2020.2, 8484, NOV-11-1999)
+ExampleCharred(21, "Do not find", 22, 22, FEB-13-1988)
+ExampleCharred(22, "To find", 443.33, 8484, DEC-04-1998)
+ExampleCharred(23, "To find", 54.21, 8484, FEB-13-1988)
+ExampleCharred(23, "Who?", 0, 0, FEB-13-1988)
+ExampleCharred(28, "To find", 1.11, 8484, FEB-13-1988)
+ExampleCharred(28, "To find", 11.11, 8484, DEC-04-1998)
+ExampleCharred(29, "Prayer", 912.22, -3, NOV-11-1999)
+ExampleCharred(30, "The Reliable, Red Caminus Bouncy Ball", 1000.11, 10, NOV-11-1999)
+ExampleCharred(31, "To find", 0, 8484, FEB-13-1988)
+ExampleCharred(32, "Example", 1, 109, FEB-13-1988)
+ExampleCharred(77, "Blah", 3.21, 2, JUL-07-2000)
+deleted / changed items:
+ExampleCharred(17, "To find", 213, 34, NOV-11-1999)
+ExampleCharred(20, "To find", 2020.2, 2, NOV-11-1999)
+ExampleCharred(22, "To find", 443.33, 32, DEC-04-1998)
+ExampleCharred(23, "To find", 54.21, 9, FEB-13-1988)
+ExampleCharred(28, "To find", 1.11, 1, FEB-13-1988)
+ExampleCharred(28, "To find", 11.11, 38, DEC-04-1998)
+ExampleCharred(31, "To find", 0, 110, FEB-13-1988)
+inserted / changed items:
+ExampleCharred(5, "Example", 96.54, 23, DEC-15-2000)
+ExampleCharred(6, "Example", 45.32, 12, DEC-15-2000)
+ExampleCharred(17, "To find", 213, 8484, NOV-11-1999)
+ExampleCharred(20, "To find", 2020.2, 8484, NOV-11-1999)
+ExampleCharred(22, "To find", 443.33, 8484, DEC-04-1998)
+ExampleCharred(23, "To find", 54.21, 8484, FEB-13-1988)
+ExampleCharred(28, "To find", 1.11, 8484, FEB-13-1988)
+ExampleCharred(28, "To find", 11.11, 8484, DEC-04-1998)
+ExampleCharred(31, "To find", 0, 8484, FEB-13-1988)
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestNoStringParams-IndexView() !!!!!!!!!!!!!!!!!!!! 
+Initial Examples ...
+ExampleCharred(30, "The Reliable, Red Caminus Bouncy Ball", 1000.11, 10, NOV-11-1999)
+ExampleCharred(19, "Mike", -43334, 2122, FEB-13-1988)
+ExampleCharred(23, "Who?", 0, 0, FEB-13-1988)
+ExampleCharred(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+ExampleCharred(1, "Example", 3, 56, JAN-01-2000)
+ExampleCharred(32, "Example", 1, 109, FEB-13-1988)
+ExampleCharred(11, "Example", 0, 0, OCT-31-2001)
+ExampleCharred(7, "Example", 21.11, 21, JAN-01-2000)
+ExampleCharred(4, "Example", 11.11, 44, FEB-28-1999)
+ExampleCharred(10, "Settled", 100.11, -1, NOV-11-1999)
+ExampleCharred(6, "Jordan", 1000.1, 1, NOV-11-1999)
+ExampleCharred(18, "Duped", -12.22, -99, FEB-13-1988)
+ExampleCharred(3, "Join Example", 33, 33, JAN-01-2000)
+ExampleCharred(3, "Join Example", 333, 333, NOV-11-1999)
+ExampleCharred(1, "Find Me", 44.44, 44, JAN-01-2000)
+ExampleCharred(15, "Find Me", 11, 25, DEC-04-1998)
+ExampleCharred(10, "Find Me", 34.44, 41, JAN-01-2000)
+ExampleCharred(6, "Find Me", 22.22, 22, JAN-01-2000)
+ExampleCharred(3, "Find Me", 88.88, 88, JAN-01-2000)
+ExampleCharred(8, "Corwin", 99.99, 100, JAN-01-2000)
+ExampleCharred(77, "Blah", 3.21, 2, JUL-07-2000)
+ExampleCharred(21, "Do not find", 22, 22, FEB-13-1988)
+ExampleCharred(2, "Foozle", 7.7, 12, DEC-04-1998)
+ExampleCharred(29, "Prayer", 912.22, -3, NOV-11-1999)
+ExampleCharred(17, "To find", 213, 34, NOV-11-1999)
+ExampleCharred(31, "To find", 0, 110, FEB-13-1988)
+ExampleCharred(28, "To find", 11.11, 38, DEC-04-1998)
+ExampleCharred(28, "To find", 1.11, 1, FEB-13-1988)
+ExampleCharred(23, "To find", 54.21, 9, FEB-13-1988)
+ExampleCharred(22, "To find", 443.33, 32, DEC-04-1998)
+ExampleCharred(20, "To find", 2020.2, 2, NOV-11-1999)
+ExampleCharred(3, "Bedazzled", 12, 99, JAN-01-2000)
+As DBView ...
+ExampleCharred(2, "Foozle", 7.7, 12, DEC-04-1998)
+ExampleCharred(4, "Example", 11.11, 44, FEB-28-1999)
+ExampleCharred(7, "Example", 21.11, 21, JAN-01-2000)
+ExampleCharred(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+ExampleCharred(15, "Find Me", 11, 25, DEC-04-1998)
+ExampleCharred(18, "Duped", -12.22, -99, FEB-13-1988)
+ExampleCharred(19, "Mike", -43334, 2122, FEB-13-1988)
+ExampleCharred(21, "Do not find", 22, 22, FEB-13-1988)
+ExampleCharred(22, "To find", 443.33, 32, DEC-04-1998)
+ExampleCharred(23, "To find", 54.21, 9, FEB-13-1988)
+ExampleCharred(23, "Who?", 0, 0, FEB-13-1988)
+ExampleCharred(28, "To find", 1.11, 1, FEB-13-1988)
+ExampleCharred(28, "To find", 11.11, 38, DEC-04-1998)
+ExampleCharred(31, "To find", 0, 110, FEB-13-1988)
+ExampleCharred(32, "Example", 1, 109, FEB-13-1988)
+Attempting to insert into DBView ...
+As IndexedDBView ... 
+ExampleCharred(19, "Mike", -43334, 2122, FEB-13-1988)
+ExampleCharred(23, "Who?", 0, 0, FEB-13-1988)
+ExampleCharred(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+ExampleCharred(4, "Example", 11.11, 44, FEB-28-1999)
+ExampleCharred(32, "Example", 1, 109, FEB-13-1988)
+ExampleCharred(7, "Example", 21.11, 21, JAN-01-2000)
+ExampleCharred(6, "Example", 45.32, 12, DEC-15-2000)
+ExampleCharred(18, "Duped", -12.22, -99, FEB-13-1988)
+ExampleCharred(15, "Find Me", 11, 25, DEC-04-1998)
+ExampleCharred(21, "Do not find", 22, 22, FEB-13-1988)
+ExampleCharred(2, "Foozle", 7.7, 12, DEC-04-1998)
+ExampleCharred(22, "To find", 443.33, 32, DEC-04-1998)
+ExampleCharred(31, "To find", 0, 110, FEB-13-1988)
+ExampleCharred(28, "To find", 11.11, 38, DEC-04-1998)
+ExampleCharred(28, "To find", 1.11, 1, FEB-13-1988)
+ExampleCharred(23, "To find", 54.21, 9, FEB-13-1988)
+Examples after TestNoStringParams() ...
+ExampleCharred(30, "The Reliable, Red Caminus Bouncy Ball", 1000.11, 10, NOV-11-1999)
+ExampleCharred(19, "Mike", -43334, 2122, FEB-13-1988)
+ExampleCharred(23, "Who?", 0, 0, FEB-13-1988)
+ExampleCharred(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+ExampleCharred(1, "Example", 3, 56, JAN-01-2000)
+ExampleCharred(32, "Example", 1, 109, FEB-13-1988)
+ExampleCharred(11, "Example", 0, 0, OCT-31-2001)
+ExampleCharred(7, "Example", 21.11, 21, JAN-01-2000)
+ExampleCharred(6, "Example", 45.32, 12, DEC-15-2000)
+ExampleCharred(5, "Example", 96.54, 23, DEC-15-2000)
+ExampleCharred(4, "Example", 11.11, 44, FEB-28-1999)
+ExampleCharred(10, "Settled", 100.11, -1, NOV-11-1999)
+ExampleCharred(6, "Jordan", 1000.1, 1, NOV-11-1999)
+ExampleCharred(18, "Duped", -12.22, -99, FEB-13-1988)
+ExampleCharred(3, "Join Example", 33, 33, JAN-01-2000)
+ExampleCharred(3, "Join Example", 333, 333, NOV-11-1999)
+ExampleCharred(1, "Find Me", 44.44, 44, JAN-01-2000)
+ExampleCharred(15, "Find Me", 11, 25, DEC-04-1998)
+ExampleCharred(10, "Find Me", 34.44, 41, JAN-01-2000)
+ExampleCharred(6, "Find Me", 22.22, 22, JAN-01-2000)
+ExampleCharred(3, "Find Me", 88.88, 88, JAN-01-2000)
+ExampleCharred(8, "Corwin", 99.99, 100, JAN-01-2000)
+ExampleCharred(77, "Blah", 3.21, 2, JUL-07-2000)
+ExampleCharred(21, "Do not find", 22, 22, FEB-13-1988)
+ExampleCharred(2, "Foozle", 7.7, 12, DEC-04-1998)
+ExampleCharred(29, "Prayer", 912.22, -3, NOV-11-1999)
+ExampleCharred(17, "To find", 213, 8484, NOV-11-1999)
+ExampleCharred(31, "To find", 0, 8484, FEB-13-1988)
+ExampleCharred(28, "To find", 11.11, 8484, DEC-04-1998)
+ExampleCharred(28, "To find", 1.11, 8484, FEB-13-1988)
+ExampleCharred(23, "To find", 54.21, 8484, FEB-13-1988)
+ExampleCharred(22, "To find", 443.33, 8484, DEC-04-1998)
+ExampleCharred(20, "To find", 2020.2, 8484, NOV-11-1999)
+ExampleCharred(3, "Bedazzled", 12, 99, JAN-01-2000)
+deleted / changed items:
+ExampleCharred(17, "To find", 213, 34, NOV-11-1999)
+ExampleCharred(20, "To find", 2020.2, 2, NOV-11-1999)
+ExampleCharred(22, "To find", 443.33, 32, DEC-04-1998)
+ExampleCharred(23, "To find", 54.21, 9, FEB-13-1988)
+ExampleCharred(28, "To find", 1.11, 1, FEB-13-1988)
+ExampleCharred(28, "To find", 11.11, 38, DEC-04-1998)
+ExampleCharred(31, "To find", 0, 110, FEB-13-1988)
+inserted / changed items:
+ExampleCharred(5, "Example", 96.54, 23, DEC-15-2000)
+ExampleCharred(6, "Example", 45.32, 12, DEC-15-2000)
+ExampleCharred(17, "To find", 213, 8484, NOV-11-1999)
+ExampleCharred(20, "To find", 2020.2, 8484, NOV-11-1999)
+ExampleCharred(22, "To find", 443.33, 8484, DEC-04-1998)
+ExampleCharred(23, "To find", 54.21, 8484, FEB-13-1988)
+ExampleCharred(28, "To find", 1.11, 8484, FEB-13-1988)
+ExampleCharred(28, "To find", 11.11, 8484, DEC-04-1998)
+ExampleCharred(31, "To find", 0, 8484, FEB-13-1988)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example IndexedViewExampleVariantParamObj() !!!!!!!!!!!!!!!!!!!! 
+Reading element #1
+read_it->exampleInt = 2
+read_it->exampleStr = Foozle
+Reading element #2
+read_it->exampleInt = 3
+read_it->exampleStr = Join Example
+Reading element #3
+read_it->exampleInt = 4
+read_it->exampleStr = Example
+Reading element #4
+read_it->exampleInt = 6
+read_it->exampleStr = Jordan
+Reading element #5
+read_it->exampleInt = 7
+read_it->exampleStr = Example
+Reading element #6
+read_it->exampleInt = 10
+read_it->exampleStr = Settled
+Reading element #7
+read_it->exampleInt = 12
+read_it->exampleStr = Mirror Image
+Reading element #8
+read_it->exampleInt = 15
+read_it->exampleStr = Find Me
+Reading element #9
+read_it->exampleInt = 17
+read_it->exampleStr = To find
+Reading element #10
+read_it->exampleInt = 18
+read_it->exampleStr = Duped
+Reading element #11
+read_it->exampleInt = 19
+read_it->exampleStr = Mike
+Reading element #12
+read_it->exampleInt = 20
+read_it->exampleStr = To find
+Reading element #13
+read_it->exampleInt = 21
+read_it->exampleStr = Do not find
+Reading element #14
+read_it->exampleInt = 22
+read_it->exampleStr = To find
+Reading element #15
+read_it->exampleInt = 23
+read_it->exampleStr = To find
+Reading element #16
+read_it->exampleInt = 23
+read_it->exampleStr = Who?
+Reading element #17
+read_it->exampleInt = 28
+read_it->exampleStr = To find
+Reading element #18
+read_it->exampleInt = 28
+read_it->exampleStr = To find
+Reading element #19
+read_it->exampleInt = 29
+read_it->exampleStr = Prayer
+Reading element #20
+read_it->exampleInt = 30
+read_it->exampleStr = The Reliable, Red Caminus Bouncy Ball
+Reading element #21
+read_it->exampleInt = 31
+read_it->exampleStr = To find
+Reading element #22
+read_it->exampleInt = 32
+read_it->exampleStr = Example
+Changes after operating on dynamic indexed view:
+Reading element #1
+read_it->exampleInt = 2
+read_it->exampleStr = Foozle
+Reading element #2
+read_it->exampleInt = 3
+read_it->exampleStr = Join Example
+Reading element #3
+read_it->exampleInt = 4
+read_it->exampleStr = Example
+Reading element #4
+read_it->exampleInt = 6
+read_it->exampleStr = Jordan
+Reading element #5
+read_it->exampleInt = 7
+read_it->exampleStr = Example
+Reading element #6
+read_it->exampleInt = 10
+read_it->exampleStr = Settled
+Reading element #7
+read_it->exampleInt = 12
+read_it->exampleStr = Mirror Image
+Reading element #8
+read_it->exampleInt = 15
+read_it->exampleStr = Find Me
+Reading element #9
+read_it->exampleInt = 17
+read_it->exampleStr = To find
+Reading element #10
+read_it->exampleInt = 18
+read_it->exampleStr = Duped
+Reading element #11
+read_it->exampleInt = 19
+read_it->exampleStr = Mike
+Reading element #12
+read_it->exampleInt = 20
+read_it->exampleStr = To find
+Reading element #13
+read_it->exampleInt = 21
+read_it->exampleStr = Do not find
+Reading element #14
+read_it->exampleInt = 22
+read_it->exampleStr = To find
+Reading element #15
+read_it->exampleInt = 23
+read_it->exampleStr = To find
+Reading element #16
+read_it->exampleInt = 23
+read_it->exampleStr = Who?
+Reading element #17
+read_it->exampleInt = 28
+read_it->exampleStr = To find
+Reading element #18
+read_it->exampleInt = 28
+read_it->exampleStr = To find
+Reading element #19
+read_it->exampleInt = 29
+read_it->exampleStr = Prayer
+Reading element #20
+read_it->exampleInt = 30
+read_it->exampleStr = The Reliable, Red Caminus Bouncy Ball
+Reading element #21
+read_it->exampleInt = 31
+read_it->exampleStr = To find
+Reading element #22
+read_it->exampleInt = 32
+read_it->exampleStr = Example
+deleted / changed items:
+inserted / changed items:
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example DynamicIndexedViewExampleVariantParamObj() !!!!!!!!!!!!!!!!!!!! 
+1 Example 3 56 JAN-01-2000  
+*** Size before erase calls: 31 ***
+*** Size after erase calls: 30 ***
+insertion succeded = true
+Changes after operating on dynamic indexed view:
+deleted / changed items:
+2 Foozle 7.7 12 DEC-04-1998  
+3 Join Example 33 33 JAN-01-2000  
+12 Mirror Image 31.13 22 DEC-04-1998  
+inserted / changed items:
+2 Fizzle 7.7 12 MAR-03-2003  
+12 Alice in Wonderland 31.13 22 DEC-04-1998  
+459 Unique String  #1 3.5 0 JAN-01-2000  
+
+********************************
+
+Example(1, "Example", 3, 56, JAN-01-2000)
+Example(1, "Find Me", 44.44, 44, JAN-01-2000)
+Example(2, "Foozle", 7.7, 12, DEC-04-1998)
+Example(3, "Bedazzled", 12, 99, JAN-01-2000)
+Example(3, "Find Me", 88.88, 88, JAN-01-2000)
+Example(3, "Join Example", 33, 33, JAN-01-2000)
+Example(3, "Join Example", 333, 333, NOV-11-1999)
+Example(4, "Example", 11.11, 44, FEB-28-1999)
+Example(6, "Find Me", 22.22, 22, JAN-01-2000)
+Example(6, "Jordan", 1000.1, 1, NOV-11-1999)
+Example(7, "Example", 21.11, 21, JAN-01-2000)
+Example(8, "Corwin", 99.99, 100, JAN-01-2000)
+Example(10, "Find Me", 34.44, 41, JAN-01-2000)
+Example(10, "Settled", 100.11, -1, NOV-11-1999)
+Example(11, "Example", 0, 0, OCT-31-2001)
+Example(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+Example(15, "Find Me", 11, 25, DEC-04-1998)
+Example(17, "To find", 213, 34, NOV-11-1999)
+Example(18, "Duped", -12.22, -99, FEB-13-1988)
+Example(19, "Mike", -43334, 2122, FEB-13-1988)
+Example(20, "To find", 2020.2, 2, NOV-11-1999)
+Example(21, "Do not find", 22, 22, FEB-13-1988)
+Example(22, "To find", 443.33, 32, DEC-04-1998)
+Example(23, "To find", 54.21, 9, FEB-13-1988)
+Example(23, "Who?", 0, 0, FEB-13-1988)
+Example(28, "To find", 1.11, 1, FEB-13-1988)
+Example(28, "To find", 11.11, 38, DEC-04-1998)
+Example(29, "Prayer", 912.22, -3, NOV-11-1999)
+Example(30, "The Reliable, Red Caminus Bouncy Ball", 1000.11, 10, NOV-11-1999)
+Example(31, "To find", 0, 110, FEB-13-1988)
+Example(32, "Example", 1, 109, FEB-13-1988)
+Example(77, "Blah", 3.21, 2, JUL-07-2000)
+INT_VALUE STRING_VALUE DOUBLE_VALUE EXAMPLE_LONG EXAMPLE_DATE 
+1 Example 3 56 JAN-01-2000  
+1 Find Me 44.44 44 JAN-01-2000  
+2 Foozle 7.7 12 DEC-04-1998  
+3 Bedazzled 12 99 JAN-01-2000  
+3 Find Me 88.88 88 JAN-01-2000  
+3 Join Example 33 33 JAN-01-2000  
+3 Join Example 333 333 NOV-11-1999  
+4 Example 11.11 44 FEB-28-1999  
+6 Find Me 22.22 22 JAN-01-2000  
+6 Jordan 1000.1 1 NOV-11-1999  
+7 Example 21.11 21 JAN-01-2000  
+8 Corwin 99.99 100 JAN-01-2000  
+10 Find Me 34.44 41 JAN-01-2000  
+10 Settled 100.11 -1 NOV-11-1999  
+11 Example 0 0 OCT-31-2001  
+12 Mirror Image 31.13 22 DEC-04-1998  
+15 Find Me 11 25 DEC-04-1998  
+17 To find 213 34 NOV-11-1999  
+18 Duped -12.22 -99 FEB-13-1988  
+19 Mike -43334 2122 FEB-13-1988  
+20 To find 2020.2 2 NOV-11-1999  
+21 Do not find 22 22 FEB-13-1988  
+22 To find 443.33 32 DEC-04-1998  
+23 To find 54.21 9 FEB-13-1988  
+23 Who? 0 0 FEB-13-1988  
+28 To find 1.11 1 FEB-13-1988  
+28 To find 11.11 38 DEC-04-1998  
+29 Prayer 912.22 -3 NOV-11-1999  
+30 The Reliable, Red Caminus Bouncy Ball 1000.11 10 NOV-11-1999  
+31 To find 0 110 FEB-13-1988  
+32 Example 1 109 FEB-13-1988  
+77 Blah 3.21 2 JUL-07-2000  
+30, The Reliable, Red Caminus Bouncy Ball, 1000.11, 10, NOV-11-1999
+19, Mike, -43334, 2122, FEB-13-1988
+23, Who?, 0, 0, FEB-13-1988
+12, Mirror Image, 31.13, 22, DEC-04-1998
+1, Example, 3, 56, JAN-01-2000
+32, Example, 1, 109, FEB-13-1988
+11, Example, 0, 0, OCT-31-2001
+7, Example, 21.11, 21, JAN-01-2000
+4, Example, 11.11, 44, FEB-28-1999
+10, Settled, 100.11, -1, NOV-11-1999
+6, Jordan, 1000.1, 1, NOV-11-1999
+18, Duped, -12.22, -99, FEB-13-1988
+3, Join Example, 33, 33, JAN-01-2000
+3, Join Example, 333, 333, NOV-11-1999
+1, Find Me, 44.44, 44, JAN-01-2000
+15, Find Me, 11, 25, DEC-04-1998
+10, Find Me, 34.44, 41, JAN-01-2000
+6, Find Me, 22.22, 22, JAN-01-2000
+3, Find Me, 88.88, 88, JAN-01-2000
+8, Corwin, 99.99, 100, JAN-01-2000
+77, Blah, 3.21, 2, JUL-07-2000
+21, Do not find, 22, 22, FEB-13-1988
+2, Foozle, 7.7, 12, DEC-04-1998
+29, Prayer, 912.22, -3, NOV-11-1999
+17, To find, 213, 34, NOV-11-1999
+31, To find, 0, 110, FEB-13-1988
+28, To find, 11.11, 38, DEC-04-1998
+28, To find, 1.11, 1, FEB-13-1988
+23, To find, 54.21, 9, FEB-13-1988
+22, To find, 443.33, 32, DEC-04-1998
+20, To find, 2020.2, 2, NOV-11-1999
+3, Bedazzled, 12, 99, JAN-01-2000
+
+INT_VALUE STRING_VALUE DOUBLE_VALUE EXAMPLE_LONG EXAMPLE_DATE 
+30 The Reliable, Red Caminus Bouncy Ball 1000.11 10 NOV-11-1999 
+19 Mike -43334 2122 FEB-13-1988 
+23 Who? 0 0 FEB-13-1988 
+12 Mirror Image 31.13 22 DEC-04-1998 
+1 Example 3 56 JAN-01-2000 
+32 Example 1 109 FEB-13-1988 
+11 Example 0 0 OCT-31-2001 
+7 Example 21.11 21 JAN-01-2000 
+4 Example 11.11 44 FEB-28-1999 
+10 Settled 100.11 -1 NOV-11-1999 
+6 Jordan 1000.1 1 NOV-11-1999 
+18 Duped -12.22 -99 FEB-13-1988 
+3 Join Example 33 33 JAN-01-2000 
+3 Join Example 333 333 NOV-11-1999 
+1 Find Me 44.44 44 JAN-01-2000 
+15 Find Me 11 25 DEC-04-1998 
+10 Find Me 34.44 41 JAN-01-2000 
+6 Find Me 22.22 22 JAN-01-2000 
+3 Find Me 88.88 88 JAN-01-2000 
+8 Corwin 99.99 100 JAN-01-2000 
+77 Blah 3.21 2 JUL-07-2000 
+21 Do not find 22 22 FEB-13-1988 
+2 Foozle 7.7 12 DEC-04-1998 
+29 Prayer 912.22 -3 NOV-11-1999 
+17 To find 213 34 NOV-11-1999 
+31 To find 0 110 FEB-13-1988 
+28 To find 11.11 38 DEC-04-1998 
+28 To find 1.11 1 FEB-13-1988 
+23 To find 54.21 9 FEB-13-1988 
+22 To find 443.33 32 DEC-04-1998 
+20 To find 2020.2 2 NOV-11-1999 
+3 Bedazzled 12 99 JAN-01-2000 
+Replacing: 
+2 Foozle 7.7 12 DEC-04-1998  
+with: 
+2 Fizzle 44.5 12 DEC-04-1998  
+*** Size before erase calls: 32 ***
+*** Size after erase calls: 31 ***
+insertion succeded = true
+Reading element #1
+read_it->exampleInt = 2
+read_it->exampleStr = Fizzle
+Reading element #2
+read_it->exampleInt = 3
+read_it->exampleStr = Join Example
+Reading element #3
+read_it->exampleInt = 4
+read_it->exampleStr = Example
+Reading element #4
+read_it->exampleInt = 6
+read_it->exampleStr = Jordan
+Reading element #5
+read_it->exampleInt = 7
+read_it->exampleStr = Example
+Reading element #6
+read_it->exampleInt = 10
+read_it->exampleStr = Settled
+Reading element #7
+read_it->exampleInt = 12
+read_it->exampleStr = Mirror Image
+Reading element #8
+read_it->exampleInt = 15
+read_it->exampleStr = Find Me
+Reading element #9
+read_it->exampleInt = 17
+read_it->exampleStr = To find
+Reading element #10
+read_it->exampleInt = 18
+read_it->exampleStr = Duped
+Reading element #11
+read_it->exampleInt = 19
+read_it->exampleStr = Mike
+Reading element #12
+read_it->exampleInt = 20
+read_it->exampleStr = To find
+Reading element #13
+read_it->exampleInt = 21
+read_it->exampleStr = Do not find
+Reading element #14
+read_it->exampleInt = 22
+read_it->exampleStr = To find
+Reading element #15
+read_it->exampleInt = 23
+read_it->exampleStr = To find
+Reading element #16
+read_it->exampleInt = 23
+read_it->exampleStr = Who?
+Reading element #17
+read_it->exampleInt = 28
+read_it->exampleStr = To find
+Reading element #18
+read_it->exampleInt = 28
+read_it->exampleStr = To find
+Reading element #19
+read_it->exampleInt = 29
+read_it->exampleStr = Prayer
+Reading element #20
+read_it->exampleInt = 30
+read_it->exampleStr = The Reliable, Red Caminus Bouncy Ball
+Reading element #21
+read_it->exampleInt = 31
+read_it->exampleStr = To find
+Reading element #22
+read_it->exampleInt = 32
+read_it->exampleStr = Example
+*** Size before erase calls: 31 ***
+*** Size after erase calls: 31 ***
+insertion succeded = false
+*** IndexedDBView says size is: 30 ***
+*** Results say size is: 30 ***
+indexed_view == indexed_view true
+indexed_view != indexed_view false
+!!!!!!!!!!!!!!!!!!!!! Begin Example ReadDataFromHashedIndexedView() !!!!!!!!!!!!!!!!!!!! 
+*** IndexedDBView says size is: 30 ***
+*** Results say size is: 30 ***
+indexed_view == indexed_view true
+indexed_view != indexed_view false
+Example(30, "The Reliable, Red Caminus Bouncy Ball", 1000.11, 10, NOV-11-1999)
+Example(19, "Mike", -43334, 2122, FEB-13-1988)
+Example(23, "Who?", 0, 0, FEB-13-1988)
+Example(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+Example(1, "Example", 3, 56, JAN-01-2000)
+Example(32, "Example", 1, 109, FEB-13-1988)
+Example(7, "Example", 21.11, 21, JAN-01-2000)
+Example(4, "Example", 11.11, 44, FEB-28-1999)
+Example(10, "Settled", 100.11, -1, NOV-11-1999)
+Example(6, "Jordan", 1000.1, 1, NOV-11-1999)
+Example(18, "Duped", -12.22, -99, FEB-13-1988)
+Example(3, "Join Example", 333, 333, NOV-11-1999)
+Example(1, "Find Me", 44.44, 44, JAN-01-2000)
+Example(15, "Find Me", 11, 25, DEC-04-1998)
+Example(10, "Find Me", 34.44, 41, JAN-01-2000)
+Example(6, "Find Me", 22.22, 22, JAN-01-2000)
+Example(3, "Find Me", 88.88, 88, JAN-01-2000)
+Example(8, "Corwin", 99.99, 100, JAN-01-2000)
+Example(2, "Fizzle", 44.5, 12, DEC-04-1998)
+Example(21, "Do not find", 22, 22, FEB-13-1988)
+Example(29, "Prayer", 912.22, -3, NOV-11-1999)
+Example(459, "Unique String #1", 3.5, 1, JAN-01-2000)
+Example(17, "To find", 213, 34, NOV-11-1999)
+Example(31, "To find", 0, 110, FEB-13-1988)
+Example(28, "To find", 11.11, 38, DEC-04-1998)
+Example(28, "To find", 1.11, 1, FEB-13-1988)
+Example(23, "To find", 54.21, 9, FEB-13-1988)
+Example(22, "To find", 443.33, 32, DEC-04-1998)
+Example(20, "To find", 2020.2, 2, NOV-11-1999)
+Example(3, "Bedazzled", 12, 99, JAN-01-2000)
+
+********************************
+
+Iterator integrity satisfied!
+Swap test!
+Iterator integrity satisfied!
+Swap test successful!!!!
+4 results found!
+Iterator integrity satisfied!
+4 results found!
+Iterator integrity satisfied!
+4 results found!
+Iterator integrity satisfied!
+4 results found!
+*** Size before inserts: 30 ***
+insertion result = true
+insertion result = true
+insertion result = false
+insertion result = true
+*** Size after inserts: 33 ***
+*** Size after refetching: 30 ***
+*** Size before erase calls: 30 ***
+*** Size after erase calls: 26 ***
+*** Size after refetching: 30 ***
+*** Size before inserts: 30 ***
+insertion result = true
+insertion result = true
+insertion result = true
+insertion result = true
+*** Size after inserts: 34 ***
+*** Size after refetching: 34 ***
+The Reliable, Red Caminus Bouncy Ball, Mike, Who?, Mirror Image, Example, Example, Example, Example, Example, Example, Settled, Jordan, Duped, Join Example, Find Me, Find Me, Find Me, Find Me, Find Me, Corwin, Fizzle, Unique String #3, Do not find, Prayer, Unique String #2, Unique String #1, Unique String #1, To find, To find, To find, To find, To find, To find, To find, Bedazzled, 
+Iterator integrity satisfied!
+2 results found!
+Iterator integrity satisfied!
+2 results found!
+Iterator integrity satisfied!
+2 results found!
+Iterator integrity satisfied!
+2 results found!
+Writing element #2
+Writing element #3
+Writing element #4
+Reading element #1
+read_it->exampleInt = 2
+read_it->exampleStr = Fizzle
+Reading element #2
+read_it->exampleInt = 3
+read_it->exampleStr = Join Example
+Reading element #3
+read_it->exampleInt = 4
+read_it->exampleStr = Example
+Reading element #4
+read_it->exampleInt = 5
+read_it->exampleStr = Example
+Reading element #5
+read_it->exampleInt = 6
+read_it->exampleStr = Jordan
+Reading element #6
+read_it->exampleInt = 7
+read_it->exampleStr = Example
+Reading element #7
+read_it->exampleInt = 10
+read_it->exampleStr = Settled
+Reading element #8
+read_it->exampleInt = 12
+read_it->exampleStr = Mirror Image
+Reading element #9
+read_it->exampleInt = 15
+read_it->exampleStr = Find Me
+Reading element #10
+read_it->exampleInt = 17
+read_it->exampleStr = To find
+Reading element #11
+read_it->exampleInt = 18
+read_it->exampleStr = Duped
+Reading element #12
+read_it->exampleInt = 19
+read_it->exampleStr = Mike
+Reading element #13
+read_it->exampleInt = 20
+read_it->exampleStr = To find
+Reading element #14
+read_it->exampleInt = 21
+read_it->exampleStr = Do not find
+Reading element #15
+read_it->exampleInt = 22
+read_it->exampleStr = To find
+Reading element #16
+read_it->exampleInt = 23
+read_it->exampleStr = To find
+Reading element #17
+read_it->exampleInt = 23
+read_it->exampleStr = Who?
+Reading element #18
+read_it->exampleInt = 28
+read_it->exampleStr = To find
+Reading element #19
+read_it->exampleInt = 28
+read_it->exampleStr = To find
+Reading element #20
+read_it->exampleInt = 29
+read_it->exampleStr = Prayer
+Reading element #21
+read_it->exampleInt = 30
+read_it->exampleStr = The Reliable, Red Caminus Bouncy Ball
+Reading element #22
+read_it->exampleInt = 31
+read_it->exampleStr = To find
+Reading element #23
+read_it->exampleInt = 32
+read_it->exampleStr = Example
+Reading element #24
+read_it->exampleInt = 34
+read_it->exampleStr = New Record
+Reading element #25
+read_it->exampleInt = 411
+read_it->exampleStr = Unique String #3
+Reading element #26
+read_it->exampleInt = 444
+read_it->exampleStr = Unique String #2
+Reading element #27
+read_it->exampleInt = 459
+read_it->exampleStr = Unique String #1
+Reading element #28
+read_it->exampleInt = 1111
+read_it->exampleStr = Ascension
+Reading element #29
+read_it->exampleInt = 1323
+read_it->exampleStr = Example
+9 rows updated!
+5 rows updated!
+Reading element #1
+read_it->exampleInt = 2
+read_it->exampleStr = Fizzle
+Reading element #2
+read_it->exampleInt = 4
+read_it->exampleStr = Example
+Reading element #3
+read_it->exampleInt = 5
+read_it->exampleStr = Example
+Reading element #4
+read_it->exampleInt = 7
+read_it->exampleStr = Example
+Reading element #5
+read_it->exampleInt = 12
+read_it->exampleStr = Mirror Image
+Reading element #6
+read_it->exampleInt = 15
+read_it->exampleStr = Find Me
+Reading element #7
+read_it->exampleInt = 18
+read_it->exampleStr = Duped
+Reading element #8
+read_it->exampleInt = 19
+read_it->exampleStr = Mike
+Reading element #9
+read_it->exampleInt = 21
+read_it->exampleStr = Do not find
+Reading element #10
+read_it->exampleInt = 23
+read_it->exampleStr = Who?
+Reading element #11
+read_it->exampleInt = 31
+read_it->exampleStr = To find
+Reading element #12
+read_it->exampleInt = 32
+read_it->exampleStr = Example
+Reading element #13
+read_it->exampleInt = 34
+read_it->exampleStr = New Record
+Reading element #14
+read_it->exampleInt = 411
+read_it->exampleStr = Unique String #3
+Reading element #15
+read_it->exampleInt = 444
+read_it->exampleStr = Unique String #2
+Reading element #16
+read_it->exampleInt = 459
+read_it->exampleStr = Unique String #1
+Reading element #17
+read_it->exampleInt = 1111
+read_it->exampleStr = Ascension
+Reading element #18
+read_it->exampleInt = 1323
+read_it->exampleStr = Example
+2 rows deleted!
+4 rows deleted!
+Reading element #1
+read_it->exampleInt = 2
+read_it->exampleStr = Fizzle
+Reading element #2
+read_it->exampleInt = 4
+read_it->exampleStr = Example
+Reading element #3
+read_it->exampleInt = 5
+read_it->exampleStr = Example
+Reading element #4
+read_it->exampleInt = 12
+read_it->exampleStr = Mirror Image
+Reading element #5
+read_it->exampleInt = 19
+read_it->exampleStr = Mike
+Reading element #6
+read_it->exampleInt = 21
+read_it->exampleStr = Do not find
+Reading element #7
+read_it->exampleInt = 23
+read_it->exampleStr = Who?
+Reading element #8
+read_it->exampleInt = 31
+read_it->exampleStr = To find
+Reading element #9
+read_it->exampleInt = 32
+read_it->exampleStr = Example
+Reading element #10
+read_it->exampleInt = 34
+read_it->exampleStr = New Record
+Reading element #11
+read_it->exampleInt = 411
+read_it->exampleStr = Unique String #3
+Reading element #12
+read_it->exampleInt = 444
+read_it->exampleStr = Unique String #2
+Reading element #13
+read_it->exampleInt = 459
+read_it->exampleStr = Unique String #1
+Reading element #14
+read_it->exampleInt = 1111
+read_it->exampleStr = Ascension
+Reading element #15
+read_it->exampleInt = 1323
+read_it->exampleStr = Example
+goodbit == goodbit? true
+!!!!!!!!!!!!!!!!!!!!! Begin Example SanityCheck() !!!!!!!!!!!!!!!!!!!! 
+Example(6, "6", 6, 6, DEC-23-2012)
+Example(2, "Fizzle", 44.5, 12, DEC-04-1998)
+Example(3, "Frazzle", 12, 48, JAN-01-2000)
+Example(4, "Example", 11.11, 44, FEB-28-1999)
+Example(7, "7", 7, 7, DEC-23-2012)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(8, "Corwin", 99.99, 100, JAN-01-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(19, "Mike", -43334, 2122, FEB-13-1988)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(21, "Do not find", 22, 22, FEB-13-1988)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(23, "Who?", 0, 0, FEB-13-1988)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(31, "To find", 0, 110, FEB-13-1988)
+Example(32, "Example", 1, 109, FEB-13-1988)
+Example(459, "Unique String #1", 3.5, 1, JAN-01-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(77, "Blah", 3.21, 2, JUL-07-2000)
+Example(459, "Unique String #1", 3.4, 1, FEB-28-1993)
+Example(444, "Unique String #2", 23.45, 4554, JUL-31-1995)
+Example(411, "Unique String #3", 98.76, 888, JUL-31-1995)
+Example(1323, "Example", 2.22, 1116, FEB-28-1993)
+Example(5, "Example", 54.32, 45, SEP-29-1999)
+Example(34, "New Record", 333.333, 99, SEP-29-1999)
+Example(1111, "Ascension", 234.33, 12, SEP-29-1999)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example SanityCheck() !!!!!!!!!!!!!!!!!!!! 
+Example(6, "6", 6, 6, DEC-23-2012)
+Example(2, "Fizzle", 44.5, 12, DEC-04-1998)
+Example(3, "Frazzle", 12, 48, JAN-01-2000)
+Example(4, "Example", 11.11, 44, FEB-28-1999)
+Example(7, "7", 7, 7, DEC-23-2012)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(8, "Corwin", 99.99, 100, JAN-01-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(19, "Mike", -43334, 2122, FEB-13-1988)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(21, "Do not find", 22, 22, FEB-13-1988)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(23, "Who?", 0, 0, FEB-13-1988)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(31, "To find", 0, 110, FEB-13-1988)
+Example(32, "Example", 1, 109, FEB-13-1988)
+Example(459, "Unique String #1", 3.5, 1, JAN-01-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(77, "Blah", 3.21, 2, JUL-07-2000)
+Example(459, "Unique String #1", 3.4, 1, FEB-28-1993)
+Example(444, "Unique String #2", 23.45, 4554, JUL-31-1995)
+Example(411, "Unique String #3", 98.76, 888, JUL-31-1995)
+Example(1323, "Example", 2.22, 1116, FEB-28-1993)
+Example(5, "Example", 54.32, 45, SEP-29-1999)
+Example(34, "New Record", 333.333, 99, SEP-29-1999)
+Example(1111, "Ascension", 234.33, 12, SEP-29-1999)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestBadBCASelect() !!!!!!!!!!!!!!!!!!!! 
+Error msg = Exception type: DBException
+Method: DBStmt::ParamData()
+Error Message: SQLParamData() call failed in statement "SELECT DOUBLE_VALUE, EXAMPLE_DATE, EXAMPLE_FOO, INT_VALUE, STRING_VALUE FROM DB_EXAMPLE WHERE INT_VALUE BETWEEN (?) AND (?) AND STRING_VALUE = (?) OR EXAMPLE_DATE < (?) ORDER BY INT_VALUE, STRING_VALUE, DOUBLE_VALUE, EXAMPLE_LONG, EXAMPLE_DATE"!  
+(You may want to double-check that you have numbered your parameters correctly - depending on the SQL error you are getting.)SQL Errors: 
+(0) SQL Error! SQLSTATE = 42S22 Native err = 207 msg = [Microsoft][ODBC SQL Server Driver][SQL Server]Invalid column name 'EXAMPLE_FOO'.
+
+(1) SQL Error! SQLSTATE = 42000 Native err = 16945 msg = [Microsoft][ODBC SQL Server Driver][SQL Server]The cursor was not declared.
+
+
+Example = Example(0, "", 0, 0, JUN-06-2000 13:13:00)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example SanityCheck() !!!!!!!!!!!!!!!!!!!! 
+Example(6, "6", 6, 6, DEC-23-2012)
+Example(2, "Fizzle", 44.5, 12, DEC-04-1998)
+Example(3, "Frazzle", 12, 48, JAN-01-2000)
+Example(4, "Example", 11.11, 44, FEB-28-1999)
+Example(7, "7", 7, 7, DEC-23-2012)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(8, "Corwin", 99.99, 100, JAN-01-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(19, "Mike", -43334, 2122, FEB-13-1988)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(21, "Do not find", 22, 22, FEB-13-1988)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(23, "Who?", 0, 0, FEB-13-1988)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(31, "To find", 0, 110, FEB-13-1988)
+Example(32, "Example", 1, 109, FEB-13-1988)
+Example(459, "Unique String #1", 3.5, 1, JAN-01-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(77, "Blah", 3.21, 2, JUL-07-2000)
+Example(459, "Unique String #1", 3.4, 1, FEB-28-1993)
+Example(444, "Unique String #2", 23.45, 4554, JUL-31-1995)
+Example(411, "Unique String #3", 98.76, 888, JUL-31-1995)
+Example(1323, "Example", 2.22, 1116, FEB-28-1993)
+Example(5, "Example", 54.32, 45, SEP-29-1999)
+Example(34, "New Record", 333.333, 99, SEP-29-1999)
+Example(1111, "Ascension", 234.33, 12, SEP-29-1999)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestBadBPASelect() !!!!!!!!!!!!!!!!!!!! 
+Error msg = Exception type: DBException
+Method: DB_iterator::ValidateParams()
+Error Message: Invalid parameter numbering in BPA!
+
+Example = Example(0, "", 0, 0, JUN-06-2000 13:13:00)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example SanityCheck() !!!!!!!!!!!!!!!!!!!! 
+Example(6, "6", 6, 6, DEC-23-2012)
+Example(2, "Fizzle", 44.5, 12, DEC-04-1998)
+Example(3, "Frazzle", 12, 48, JAN-01-2000)
+Example(4, "Example", 11.11, 44, FEB-28-1999)
+Example(7, "7", 7, 7, DEC-23-2012)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(8, "Corwin", 99.99, 100, JAN-01-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(19, "Mike", -43334, 2122, FEB-13-1988)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(21, "Do not find", 22, 22, FEB-13-1988)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(23, "Who?", 0, 0, FEB-13-1988)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(31, "To find", 0, 110, FEB-13-1988)
+Example(32, "Example", 1, 109, FEB-13-1988)
+Example(459, "Unique String #1", 3.5, 1, JAN-01-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(77, "Blah", 3.21, 2, JUL-07-2000)
+Example(459, "Unique String #1", 3.4, 1, FEB-28-1993)
+Example(444, "Unique String #2", 23.45, 4554, JUL-31-1995)
+Example(411, "Unique String #3", 98.76, 888, JUL-31-1995)
+Example(1323, "Example", 2.22, 1116, FEB-28-1993)
+Example(5, "Example", 54.32, 45, SEP-29-1999)
+Example(34, "New Record", 333.333, 99, SEP-29-1999)
+Example(1111, "Ascension", 234.33, 12, SEP-29-1999)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestBadSelValidate() !!!!!!!!!!!!!!!!!!!! 
+Reading element #1
+read_it->exampleInt = 2
+read_it->exampleStr = Fizzle
+Reading element #2
+read_it->exampleInt = 4
+read_it->exampleStr = Example
+Reading element #3
+read_it->exampleInt = 5
+read_it->exampleStr = Example
+Reading element #4
+read_it->exampleInt = 12
+read_it->exampleStr = Mirror Image
+Reading element #5
+read_it->exampleInt = 19
+read_it->exampleStr = Mike
+Reading element #7
+read_it->exampleInt = 23
+read_it->exampleStr = Who?
+Reading element #9
+read_it->exampleInt = 32
+read_it->exampleStr = Example
+Reading element #10
+read_it->exampleInt = 34
+read_it->exampleStr = New Record
+Reading element #12
+read_it->exampleInt = 444
+read_it->exampleStr = Unique String #2
+Reading element #13
+read_it->exampleInt = 459
+read_it->exampleStr = Unique String #1
+Reading element #15
+read_it->exampleInt = 1323
+read_it->exampleStr = Example
+Error msg = Exception type: DBException
+Method: DBView::select_iterator::operator++()
+Error Message: SelValidate() failed on statement "SELECT DOUBLE_VALUE, EXAMPLE_DATE, EXAMPLE_LONG, INT_VALUE, STRING_VALUE FROM DB_EXAMPLE WHERE INT_VALUE BETWEEN (?) AND (?) AND STRING_VALUE = (?) OR EXAMPLE_DATE < (?) ORDER BY INT_VALUE, STRING_VALUE, DOUBLE_VALUE, EXAMPLE_LONG, EXAMPLE_DATE"!
+
+Example = Example(21, "Do not find", 22, 22, FEB-13-1988)
+Error msg = Exception type: DBException
+Method: DBView::select_iterator::operator++()
+Error Message: SelValidate() failed on statement "SELECT DOUBLE_VALUE, EXAMPLE_DATE, EXAMPLE_LONG, INT_VALUE, STRING_VALUE FROM DB_EXAMPLE WHERE INT_VALUE BETWEEN (?) AND (?) AND STRING_VALUE = (?) OR EXAMPLE_DATE < (?) ORDER BY INT_VALUE, STRING_VALUE, DOUBLE_VALUE, EXAMPLE_LONG, EXAMPLE_DATE"!
+
+Example = Example(31, "To find", 0, 110, FEB-13-1988)
+Error msg = Exception type: DBException
+Method: DBView::select_iterator::operator++()
+Error Message: SelValidate() failed on statement "SELECT DOUBLE_VALUE, EXAMPLE_DATE, EXAMPLE_LONG, INT_VALUE, STRING_VALUE FROM DB_EXAMPLE WHERE INT_VALUE BETWEEN (?) AND (?) AND STRING_VALUE = (?) OR EXAMPLE_DATE < (?) ORDER BY INT_VALUE, STRING_VALUE, DOUBLE_VALUE, EXAMPLE_LONG, EXAMPLE_DATE"!
+
+Example = Example(411, "Unique String #3", 98.76, 888, JUL-31-1995)
+Error msg = Exception type: DBException
+Method: DBView::select_iterator::operator++()
+Error Message: SelValidate() failed on statement "SELECT DOUBLE_VALUE, EXAMPLE_DATE, EXAMPLE_LONG, INT_VALUE, STRING_VALUE FROM DB_EXAMPLE WHERE INT_VALUE BETWEEN (?) AND (?) AND STRING_VALUE = (?) OR EXAMPLE_DATE < (?) ORDER BY INT_VALUE, STRING_VALUE, DOUBLE_VALUE, EXAMPLE_LONG, EXAMPLE_DATE"!
+
+Example = Example(1111, "Ascension", 234.33, 12, SEP-29-1999)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestBadBCAInsert() !!!!!!!!!!!!!!!!!!!! 
+Writing element #1
+Writing element #1
+Writing element #1
+Error msg = Exception type: DBException
+Method: DBStmt::Execute()
+Error Message: Unable to execute statement "INSERT INTO DB_EXAMPLE (DOUBLE_VALUE, EXAMPLE_DATE, EXAMPLE_FOO, INT_VALUE, STRING_VALUE) VALUES ((?), (?), (?), (?), (?))"
+SQL Errors: 
+(0) SQL Error! SQLSTATE = 42S22 Native err = 207 msg = [Microsoft][ODBC SQL Server Driver][SQL Server]Invalid column name 'EXAMPLE_FOO'.
+
+(1) SQL Error! SQLSTATE = 42000 Native err = 8180 msg = [Microsoft][ODBC SQL Server Driver][SQL Server]Statement(s) could not be prepared.
+
+
+Example = Example(7, "Seven", 7.777, 77, JUL-04-1999)
+Error msg = Exception type: DBException
+Method: DBView::insert_iterator::operator=(const DataObj &)
+Error Message: iterator tested bad!
+
+Example = Example(7, "Seven", 7.777, 77, JUL-04-1999)
+Error msg = Exception type: DBException
+Method: DBView::insert_iterator::operator=(const DataObj &)
+Error Message: iterator tested bad!
+
+Example = Example(7, "Seven", 7.777, 77, JUL-04-1999)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestBadInsValidate() !!!!!!!!!!!!!!!!!!!! 
+Writing element #1
+Writing element #2
+Writing element #3
+Error msg = Exception type: DBException
+Method: DBView::insert_iterator::WriteCurrentRow()
+Error Message: InsValidate() failed on statement INSERT INTO DB_EXAMPLE (DOUBLE_VALUE, EXAMPLE_DATE, EXAMPLE_LONG, INT_VALUE, STRING_VALUE) VALUES ((?), (?), (?), (?), (?))
+
+Example = Example(7, "Seven", 7.777, 77, JUL-04-1999)
+
+********************************
+
+0 rows updated!
+0 rows updated!
+Error msg = Exception type: DBException
+Method: DBStmt::Execute()
+Error Message: Unable to execute statement "UPDATE DB_EXAMPLE SET DOUBLE_VALUE = (?) , EXAMPLE_DATE = (?) , EXAMPLE_FOO = (?) , INT_VALUE = (?) , STRING_VALUE = (?)  WHERE INT_VALUE BETWEEN (?) AND (?) AND STRING_VALUE = (?) OR EXAMPLE_DATE = (?)"
+SQL Errors: 
+(0) SQL Error! SQLSTATE = 42S22 Native err = 207 msg = [Microsoft][ODBC SQL Server Driver][SQL Server]Invalid column name 'EXAMPLE_FOO'.
+
+(1) SQL Error! SQLSTATE = 42000 Native err = 8180 msg = [Microsoft][ODBC SQL Server Driver][SQL Server]Statement(s) could not be prepared.
+
+
+Example = Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Error msg = Exception type: ValidityException
+Method: ValidatedObject::validate()
+Error Message: Cannot operate on invalidated object of type dtl::DBStmt!  
+objType: dtl::DBStmt
+
+Example = Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestBadUpdateValidate() !!!!!!!!!!!!!!!!!!!! 
+0 rows updated!
+3 rows updated!
+Error msg = Exception type: DBException
+Method: DBView::update_iterator::ExecUpdate()
+Error Message: InsValidate() call failed on statement UPDATE DB_EXAMPLE SET DOUBLE_VALUE = (?) , EXAMPLE_DATE = (?) , EXAMPLE_LONG = (?) , INT_VALUE = (?) , STRING_VALUE = (?)  WHERE INT_VALUE BETWEEN (?) AND (?) AND STRING_VALUE = (?) OR EXAMPLE_DATE = (?)
+
+Example = Example(7, "Rejected", 99.99, 25, SEP-29-2000)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestBadBCADelete() !!!!!!!!!!!!!!!!!!!! 
+Exception caught!
+Exception type: DBException
+Method: DBStmt::Execute()
+Error Message: Unable to execute statement "DELETE FROM DB_EXAMPLE WHERE EXAMPLE_DATE_BAD = (?)  AND STRING_VALUE = (?)  OR STRING_VALUE = (?) OR INT_VALUE = (?)"
+SQL Errors: 
+(0) SQL Error! SQLSTATE = 42S22 Native err = 207 msg = [Microsoft][ODBC SQL Server Driver][SQL Server]Invalid column name 'EXAMPLE_DATE_BAD'.
+
+(1) SQL Error! SQLSTATE = 42000 Native err = 8180 msg = [Microsoft][ODBC SQL Server Driver][SQL Server]Statement(s) could not be prepared.
+
+
+Exception caught!
+Exception type: DBException
+Method: DBView::delete_iterator::ExecDelete()
+Error Message: iterator tested bad!
+
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestBadBPADelete() !!!!!!!!!!!!!!!!!!!! 
+0 rows deleted!
+0 rows deleted!
+Error msg = Exception type: DBException
+Method: DB_iterator::ValidateParams()
+Error Message: Invalid parameter numbering in BPA!
+
+Example = Example(0, "", 0, 0, JUN-06-2000 13:13:00)
+Error msg = Exception type: DBException
+Method: DBStmt::Execute()
+Error Message: Unable to execute statement "DELETE FROM DB_EXAMPLE WHERE EXAMPLE_DATE = (?)  AND STRING_VALUE = (?)  OR STRING_VALUE = (?) OR INT_VALUE = (?)"
+SQL Errors: 
+(0) SQL Error! SQLSTATE = 07002 Native err = 0 msg = [Microsoft][ODBC SQL Server Driver]COUNT field incorrect or syntax error
+
+
+Example = Example(0, "", 0, 0, JUN-06-2000 13:13:00)
+Error msg = Exception type: DBException
+Method: DBView::delete_iterator::ExecDelete()
+Error Message: iterator tested bad!
+
+Example = Example(0, "", 0, 0, JUN-06-2000 13:13:00)
+Error msg = Exception type: ValidityException
+Method: ValidatedObject::validate()
+Error Message: Cannot operate on invalidated object of type dtl::DBStmt!  
+objType: dtl::DBStmt
+
+Example = Example(0, "", 0, 0, JUN-06-2000 13:13:00)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example SanityCheck() !!!!!!!!!!!!!!!!!!!! 
+Example(6, "6", 6, 6, DEC-23-2012)
+Example(2, "Fizzle", 44.5, 12, DEC-04-1998)
+Example(3, "Frazzle", 12, 48, JAN-01-2000)
+Example(4, "Example", 11.11, 44, FEB-28-1999)
+Example(7, "7", 7, 7, DEC-23-2012)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(8, "Corwin", 99.99, 100, JAN-01-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(6, "Six", 6.666, 66, JAN-01-2000)
+Example(19, "Mike", -43334, 2122, FEB-13-1988)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(21, "Do not find", 22, 22, FEB-13-1988)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(23, "Who?", 0, 0, FEB-13-1988)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(31, "To find", 0, 110, FEB-13-1988)
+Example(2222, "Accepted", 0.11111, 66, SEP-30-2000)
+Example(459, "Unique String #1", 3.5, 1, JAN-01-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(5, "Five", 5.555, 55, DEC-25-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(77, "Blah", 3.21, 2, JUL-07-2000)
+Example(459, "Unique String #1", 3.4, 1, FEB-28-1993)
+Example(2222, "Accepted", 0.11111, 66, SEP-30-2000)
+Example(2222, "Accepted", 0.11111, 66, SEP-30-2000)
+Example(1323, "Example", 2.22, 1116, FEB-28-1993)
+Example(5, "Example", 54.32, 45, SEP-29-1999)
+Example(34, "New Record", 333.333, 99, SEP-29-1999)
+Example(1111, "Ascension", 234.33, 12, SEP-29-1999)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestVariantRowConstness() !!!!!!!!!!!!!!!!!!!! 
+2, Fizzle, 44.5, 12, DEC-04-1998
+3, Frazzle, 12, 48, JAN-01-2000
+4, Example, 11.11, 44, FEB-28-1999
+5, Example, 54.32, 45, SEP-29-1999
+5, Five, 5.555, 55, DEC-25-2000
+6, 6, 6, 6, DEC-23-2012
+6, Six, 6.666, 66, JAN-01-2000
+7, 7, 7, 7, DEC-23-2012
+8, Corwin, 99.99, 100, JAN-01-2000
+12, Mirror Image, 31.13, 22, DEC-04-1998
+19, Mike, -43334, 2122, FEB-13-1988
+21, Do not find, 22, 22, FEB-13-1988
+23, Who?, 0, 0, FEB-13-1988
+31, To find, 0, 110, FEB-13-1988
+34, New Record, 333.333, 99, SEP-29-1999
+77, Blah, 3.21, 2, JUL-07-2000
+459, Unique String #1, 3.4, 1, FEB-28-1993
+459, Unique String #1, 3.5, 1, JAN-01-2000
+1111, Ascension, 234.33, 12, SEP-29-1999
+1323, Example, 2.22, 1116, FEB-28-1993
+2121, Dereferenced, 99.99, 25, SEP-29-2000
+2121, Dereferenced, 99.99, 25, SEP-29-2000
+2121, Dereferenced, 99.99, 25, SEP-29-2000
+2121, Dereferenced, 99.99, 25, SEP-29-2000
+2121, Dereferenced, 99.99, 25, SEP-29-2000
+2121, Dereferenced, 99.99, 25, SEP-29-2000
+2121, Dereferenced, 99.99, 25, SEP-29-2000
+2121, Dereferenced, 99.99, 25, SEP-29-2000
+2121, Dereferenced, 99.99, 25, SEP-29-2000
+2222, Accepted, 0.11111, 66, SEP-30-2000
+2222, Accepted, 0.11111, 66, SEP-30-2000
+2222, Accepted, 0.11111, 66, SEP-30-2000
+2222, Second Update, 0.11111, 66, SEP-30-2000
+2222, Second Update, 0.11111, 66, SEP-30-2000
+2222, Second Update, 0.11111, 66, SEP-30-2000
+2222, Second Update, 0.11111, 66, SEP-30-2000
+2222, Second Update, 0.11111, 66, SEP-30-2000
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestDistinctness() !!!!!!!!!!!!!!!!!!!! 
+Printing out unique STRING_VALUE's from DB_EXAMPLE
+Second Update
+Mike
+6
+7
+Who?
+Accepted
+Mirror Image
+Example
+Frazzle
+Dereferenced
+Corwin
+Fizzle
+Blah
+Ascension
+Five
+Do not find
+New Record
+Unique String #1
+Six
+To find
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestParamsBeforeOpen() !!!!!!!!!!!!!!!!!!!! 
+Example(2, "Fizzle", 44.5, 12, DEC-04-1998)
+Example(4, "Example", 11.11, 44, FEB-28-1999)
+Example(5, "Example", 54.32, 45, SEP-29-1999)
+Example(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+Example(19, "Mike", -43334, 2122, FEB-13-1988)
+Example(21, "Do not find", 22, 22, FEB-13-1988)
+Example(23, "Who?", 0, 0, FEB-13-1988)
+Example(31, "To find", 0, 110, FEB-13-1988)
+Example(34, "New Record", 333.333, 99, SEP-29-1999)
+Example(459, "Unique String #1", 3.4, 1, FEB-28-1993)
+Example(1111, "Ascension", 234.33, 12, SEP-29-1999)
+Example(1323, "Example", 2.22, 1116, FEB-28-1993)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestIterEffectsOnOtherIter() !!!!!!!!!!!!!!!!!!!! 
+Example(2, "Fizzle", 44.5, 12, DEC-04-1998)
+Example(4, "Example", 11.11, 44, FEB-28-1999)
+Example(5, "Example", 54.32, 45, SEP-29-1999)
+Example(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+Example(19, "Mike", -43334, 2122, FEB-13-1988)
+Example(21, "Do not find", 22, 22, FEB-13-1988)
+Example(23, "Who?", 0, 0, FEB-13-1988)
+Example(31, "To find", 0, 110, FEB-13-1988)
+Example(34, "New Record", 333.333, 99, SEP-29-1999)
+Example(459, "Unique String #1", 3.4, 1, FEB-28-1993)
+Example(1111, "Ascension", 234.33, 12, SEP-29-1999)
+Example(1323, "Example", 2.22, 1116, FEB-28-1993)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestIterCopy() !!!!!!!!!!!!!!!!!!!! 
+2 8 Example JAN-01-2000  
+2 8 Example JAN-01-2000  
+Example(2, "Fizzle", 44.5, 12, DEC-04-1998)
+Example(4, "Example", 11.11, 44, FEB-28-1999)
+Example(5, "Example", 54.32, 45, SEP-29-1999)
+Example(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+Example(19, "Mike", -43334, 2122, FEB-13-1988)
+Example(21, "Do not find", 22, 22, FEB-13-1988)
+Example(23, "Who?", 0, 0, FEB-13-1988)
+Example(31, "To find", 0, 110, FEB-13-1988)
+Example(34, "New Record", 333.333, 99, SEP-29-1999)
+Example(459, "Unique String #1", 3.4, 1, FEB-28-1993)
+Example(1111, "Ascension", 234.33, 12, SEP-29-1999)
+Example(1323, "Example", 2.22, 1116, FEB-28-1993)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestIterCopyIncrDest() !!!!!!!!!!!!!!!!!!!! 
+dummy  = Example(2, "Fizzle", 44.5, 12, DEC-04-1998)
+dummy2 = Example(2, "Fizzle", 44.5, 12, DEC-04-1998)
+Test Successful
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestSelectIteratorInvariants() !!!!!!!!!!!!!!!!!!!! 
+i = view.begin(); j = view.begin(); 
+i == j? true
+&*i == &*j? false
+++i; j = i;
+i == j? true
+&*i == &*j? true
+++j; ++i
+i == j? false
+&*i == &*j? false
+i = view.begin(); j = view.begin();
+i == j? true
+&*i == &*j? false
+++i; ++j; i = j;
+i == j? true
+&*i == &*j? true
+i = view.begin(); j = i;
+i == j? true
+&*i == &*j? false
+++j; i = j;
+i == j? true
+&*i == &*j? true
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestSelectIteratorAssignment() !!!!!!!!!!!!!!!!!!!! 
+Should see 2 records more in results_1 than results_2!
+results_1.size() = 39
+results_2.size() = 37
+deleted / changed items:
+Example(2, "Fizzle", 44.5, 12, DEC-04-1998)
+Example(3, "Frazzle", 12, 48, JAN-01-2000)
+inserted / changed items:
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestCopyOfIndexedView() !!!!!!!!!!!!!!!!!!!! 
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(19, "Mike", -43334, 2122, FEB-13-1988)
+Example(6, "6", 6, 6, DEC-23-2012)
+Example(7, "7", 7, 7, DEC-23-2012)
+Example(23, "Who?", 0, 0, FEB-13-1988)
+Example(2222, "Accepted", 0.11111, 66, SEP-30-2000)
+Example(2222, "Accepted", 0.11111, 66, SEP-30-2000)
+Example(2222, "Accepted", 0.11111, 66, SEP-30-2000)
+Example(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+Example(4, "Example", 11.11, 44, FEB-28-1999)
+Example(1323, "Example", 2.22, 1116, FEB-28-1993)
+Example(5, "Example", 54.32, 45, SEP-29-1999)
+Example(3, "Frazzle", 12, 48, JAN-01-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(8, "Corwin", 99.99, 100, JAN-01-2000)
+Example(2, "Fizzle", 44.5, 12, DEC-04-1998)
+Example(77, "Blah", 3.21, 2, JUL-07-2000)
+Example(1111, "Ascension", 234.33, 12, SEP-29-1999)
+Example(5, "Five", 5.555, 55, DEC-25-2000)
+Example(21, "Do not find", 22, 22, FEB-13-1988)
+Example(34, "New Record", 333.333, 99, SEP-29-1999)
+Example(459, "Unique String #1", 3.4, 1, FEB-28-1993)
+Example(459, "Unique String #1", 3.5, 1, JAN-01-2000)
+Example(6, "Six", 6.666, 66, JAN-01-2000)
+Example(31, "To find", 0, 110, FEB-13-1988)
+
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(19, "Mike", -43334, 2122, FEB-13-1988)
+Example(6, "6", 6, 6, DEC-23-2012)
+Example(7, "7", 7, 7, DEC-23-2012)
+Example(23, "Who?", 0, 0, FEB-13-1988)
+Example(2222, "Accepted", 0.11111, 66, SEP-30-2000)
+Example(2222, "Accepted", 0.11111, 66, SEP-30-2000)
+Example(2222, "Accepted", 0.11111, 66, SEP-30-2000)
+Example(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+Example(4, "Example", 11.11, 44, FEB-28-1999)
+Example(1323, "Example", 2.22, 1116, FEB-28-1993)
+Example(5, "Example", 54.32, 45, SEP-29-1999)
+Example(3, "Frazzle", 12, 48, JAN-01-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(8, "Corwin", 99.99, 100, JAN-01-2000)
+Example(2, "Fizzle", 44.5, 12, DEC-04-1998)
+Example(77, "Blah", 3.21, 2, JUL-07-2000)
+Example(1111, "Ascension", 234.33, 12, SEP-29-1999)
+Example(5, "Five", 5.555, 55, DEC-25-2000)
+Example(21, "Do not find", 22, 22, FEB-13-1988)
+Example(34, "New Record", 333.333, 99, SEP-29-1999)
+Example(459, "Unique String #1", 3.4, 1, FEB-28-1993)
+Example(459, "Unique String #1", 3.5, 1, JAN-01-2000)
+Example(6, "Six", 6.666, 66, JAN-01-2000)
+Example(31, "To find", 0, 110, FEB-13-1988)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestLocalBCAs() !!!!!!!!!!!!!!!!!!!! 
+Example(1323, "Example", 2.22, 1116, FEB-28-1993)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2121, "Dereferenced", 99.99, 25, SEP-29-2000)
+Example(2222, "Accepted", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Second Update", 0.11111, 66, SEP-30-2000)
+Example(2222, "Accepted", 0.11111, 66, SEP-30-2000)
+Example(2222, "Accepted", 0.11111, 66, SEP-30-2000)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestLocalBCASingleField() !!!!!!!!!!!!!!!!!!!! 
+DEC-23-2012 
+FEB-28-1993 
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestCharArrays() !!!!!!!!!!!!!!!!!!!! 
+<<< Objects with string set to "Unique String #1" >>>
+---
+StringsTest(2222, "Second Update")
+StringsTest(2222, "Second Update")
+StringsTest(2222, "Second Update")
+StringsTest(2222, "Second Update")
+StringsTest(2222, "Second Update")
+StringsTest(19, "Mike")
+StringsTest(6, "6")
+StringsTest(7, "7")
+StringsTest(23, "Who?")
+StringsTest(2222, "Accepted")
+StringsTest(2222, "Accepted")
+StringsTest(2222, "Accepted")
+StringsTest(12, "Mirror Image")
+StringsTest(4, "Example")
+StringsTest(1323, "Example")
+StringsTest(5, "Example")
+StringsTest(3, "Frazzle")
+StringsTest(2121, "Dereferenced")
+StringsTest(2121, "Dereferenced")
+StringsTest(2121, "Dereferenced")
+StringsTest(2121, "Dereferenced")
+StringsTest(2121, "Dereferenced")
+StringsTest(2121, "Dereferenced")
+StringsTest(2121, "Dereferenced")
+StringsTest(2121, "Dereferenced")
+StringsTest(2121, "Dereferenced")
+StringsTest(8, "Corwin")
+StringsTest(2, "Fizzle")
+StringsTest(77, "Blah")
+StringsTest(5, "Five")
+StringsTest(21, "Do not find")
+StringsTest(34, "New Record")
+StringsTest(459, "Unique String #1")
+StringsTest(459, "Unique String #1")
+StringsTest(6, "Six")
+StringsTest(31, "To find")
+
+********************************
+
+***** Resetting Tables! ***** 
+!!!!!!!!!!!!!!!!!!!!! Begin Example ReadAndUpdateData() !!!!!!!!!!!!!!!!!!!! 
+Example(1, "Fizzle", 0.5, 44, JAN-01-2000)
+Example(1, "Fizzle", 0.5, 56, JAN-01-2000)
+Example(2, "Fizzle", 0.5, 12, DEC-04-1998)
+Example(3, "Fizzle", 0.5, 88, JAN-01-2000)
+Example(3, "Fizzle", 0.5, 99, JAN-01-2000)
+Example(3, "Join Example", 33, 33, JAN-01-2000)
+Example(3, "Join Example", 333, 333, NOV-11-1999)
+Example(4, "Example", 11.11, 44, FEB-28-1999)
+Example(6, "Find Me", 22.22, 22, JAN-01-2000)
+Example(6, "Jordan", 1000.1, 1, NOV-11-1999)
+Example(7, "Example", 21.11, 21, JAN-01-2000)
+Example(8, "Corwin", 99.99, 100, JAN-01-2000)
+Example(10, "Find Me", 34.44, 41, JAN-01-2000)
+Example(10, "Settled", 100.11, -1, NOV-11-1999)
+Example(11, "Example", 0, 0, OCT-31-2001)
+Example(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+Example(15, "Find Me", 11, 25, DEC-04-1998)
+Example(17, "To find", 213, 34, NOV-11-1999)
+Example(18, "Duped", -12.22, -99, FEB-13-1988)
+Example(19, "Mike", -43334, 2122, FEB-13-1988)
+Example(20, "To find", 2020.2, 2, NOV-11-1999)
+Example(21, "Do not find", 22, 22, FEB-13-1988)
+Example(22, "To find", 443.33, 32, DEC-04-1998)
+Example(23, "To find", 54.21, 9, FEB-13-1988)
+Example(23, "Who?", 0, 0, FEB-13-1988)
+Example(28, "To find", 1.11, 1, FEB-13-1988)
+Example(28, "To find", 11.11, 38, DEC-04-1998)
+Example(29, "Prayer", 912.22, -3, NOV-11-1999)
+Example(30, "The Reliable, Red Caminus Bouncy Ball", 1000.11, 10, NOV-11-1999)
+Example(31, "To find", 0, 110, FEB-13-1988)
+Example(32, "Example", 1, 109, FEB-13-1988)
+Example(77, "Blah", 3.21, 2, JUL-07-2000)
+deleted / changed items:
+Example(1, "Example", 3, 56, JAN-01-2000)
+Example(1, "Find Me", 44.44, 44, JAN-01-2000)
+Example(2, "Foozle", 7.7, 12, DEC-04-1998)
+Example(3, "Bedazzled", 12, 99, JAN-01-2000)
+Example(3, "Find Me", 88.88, 88, JAN-01-2000)
+inserted / changed items:
+Example(1, "Fizzle", 0.5, 44, JAN-01-2000)
+Example(1, "Fizzle", 0.5, 56, JAN-01-2000)
+Example(2, "Fizzle", 0.5, 12, DEC-04-1998)
+Example(3, "Fizzle", 0.5, 88, JAN-01-2000)
+Example(3, "Fizzle", 0.5, 99, JAN-01-2000)
+
+********************************
+
+***** Resetting Tables! ***** 
+!!!!!!!!!!!!!!!!!!!!! Begin Example DynamicReadAndUpdateData() !!!!!!!!!!!!!!!!!!!! 
+INT_VALUE STRING_VALUE DOUBLE_VALUE EXAMPLE_LONG EXAMPLE_DATE 
+1 Example 3 56 JAN-01-2000  
+1 Find Me 44.44 44 JAN-01-2000  
+2 Foozle 7.7 12 DEC-04-1998  
+3 Bedazzled 12 99 JAN-01-2000  
+3 Find Me 88.88 88 JAN-01-2000  
+3 Join Example 33 33 JAN-01-2000  
+3 Join Example 333 333 NOV-11-1999  
+4 Example 11.11 44 FEB-28-1999  
+6 Find Me 22.22 22 JAN-01-2000  
+6 Jordan 1000.1 1 NOV-11-1999  
+7 Example 21.11 21 JAN-01-2000  
+8 Corwin 99.99 100 JAN-01-2000  
+10 Find Me 34.44 41 JAN-01-2000  
+10 Settled 100.11 -1 NOV-11-1999  
+11 Example 0 0 OCT-31-2001  
+12 Mirror Image 31.13 22 DEC-04-1998  
+15 Find Me 11 25 DEC-04-1998  
+17 To find 213 34 NOV-11-1999  
+18 Duped -12.22 -99 FEB-13-1988  
+19 Mike -43334 2122 FEB-13-1988  
+20 To find 2020.2 2 NOV-11-1999  
+21 Do not find 22 22 FEB-13-1988  
+22 To find 443.33 32 DEC-04-1998  
+23 To find 54.21 9 FEB-13-1988  
+23 Who? 0 0 FEB-13-1988  
+28 To find 1.11 1 FEB-13-1988  
+28 To find 11.11 38 DEC-04-1998  
+29 Prayer 912.22 -3 NOV-11-1999  
+30 The Reliable, Red Caminus Bouncy Ball 1000.11 10 NOV-11-1999  
+31 To find 0 110 FEB-13-1988  
+32 Example 1 109 FEB-13-1988  
+77 Blah 3.21 2 JUL-07-2000  
+view.begin() == read_it? true
+1 Fizzle 0.5 44 JAN-01-2000  
+1 Fizzle 0.5 56 JAN-01-2000  
+2 Fizzle 0.5 12 DEC-04-1998  
+3 Fizzle 0.5 88 JAN-01-2000  
+3 Fizzle 0.5 99 JAN-01-2000  
+3 Join Example 33 33 JAN-01-2000  
+3 Join Example 333 333 NOV-11-1999  
+4 Example 11.11 44 FEB-28-1999  
+6 Find Me 22.22 22 JAN-01-2000  
+6 Jordan 1000.1 1 NOV-11-1999  
+7 Example 21.11 21 JAN-01-2000  
+8 Corwin 99.99 100 JAN-01-2000  
+10 Find Me 34.44 41 JAN-01-2000  
+10 Settled 100.11 -1 NOV-11-1999  
+11 Example 0 0 OCT-31-2001  
+12 Mirror Image 31.13 22 DEC-04-1998  
+15 Find Me 11 25 DEC-04-1998  
+17 To find 213 34 NOV-11-1999  
+18 Duped -12.22 -99 FEB-13-1988  
+19 Mike -43334 2122 FEB-13-1988  
+20 To find 2020.2 2 NOV-11-1999  
+21 Do not find 22 22 FEB-13-1988  
+22 To find 443.33 32 DEC-04-1998  
+23 To find 54.21 9 FEB-13-1988  
+23 Who? 0 0 FEB-13-1988  
+28 To find 1.11 1 FEB-13-1988  
+28 To find 11.11 38 DEC-04-1998  
+29 Prayer 912.22 -3 NOV-11-1999  
+30 The Reliable, Red Caminus Bouncy Ball 1000.11 10 NOV-11-1999  
+31 To find 0 110 FEB-13-1988  
+32 Example 1 109 FEB-13-1988  
+77 Blah 3.21 2 JUL-07-2000  
+deleted / changed items:
+1 Example 3 56 JAN-01-2000  
+1 Find Me 44.44 44 JAN-01-2000  
+2 Foozle 7.7 12 DEC-04-1998  
+3 Bedazzled 12 99 JAN-01-2000  
+3 Find Me 88.88 88 JAN-01-2000  
+inserted / changed items:
+1 Fizzle 0.5 44 JAN-01-2000  
+1 Fizzle 0.5 56 JAN-01-2000  
+2 Fizzle 0.5 12 DEC-04-1998  
+3 Fizzle 0.5 88 JAN-01-2000  
+3 Fizzle 0.5 99 JAN-01-2000  
+
+********************************
+
+***** Resetting Tables! ***** 
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestTransformSelectUpdate() !!!!!!!!!!!!!!!!!!!! 
+<<< Original table data >>>
+Example(1, "Example", 3, 56, JAN-01-2000)
+Example(2, "Foozle", 7.7, 12, DEC-04-1998)
+Example(3, "Bedazzled", 12, 99, JAN-01-2000)
+Example(4, "Example", 11.11, 44, FEB-28-1999)
+Example(7, "Example", 21.11, 21, JAN-01-2000)
+Example(10, "Settled", 100.11, -1, NOV-11-1999)
+Example(11, "Example", 0, 0, OCT-31-2001)
+Example(12, "Mirror Image", 31.13, 22, DEC-04-1998)
+Example(6, "Find Me", 22.22, 22, JAN-01-2000)
+Example(10, "Find Me", 34.44, 41, JAN-01-2000)
+Example(6, "Jordan", 1000.1, 1, NOV-11-1999)
+Example(8, "Corwin", 99.99, 100, JAN-01-2000)
+Example(17, "To find", 213, 34, NOV-11-1999)
+Example(18, "Duped", -12.22, -99, FEB-13-1988)
+Example(19, "Mike", -43334, 2122, FEB-13-1988)
+Example(20, "To find", 2020.2, 2, NOV-11-1999)
+Example(21, "Do not find", 22, 22, FEB-13-1988)
+Example(22, "To find", 443.33, 32, DEC-04-1998)
+Example(23, "Who?", 0, 0, FEB-13-1988)
+Example(28, "To find", 11.11, 38, DEC-04-1998)
+Example(29, "Prayer", 912.22, -3, NOV-11-1999)
+Example(30, "The Reliable, Red Caminus Bouncy Ball", 1000.11, 10, NOV-11-1999)
+Example(31, "To find", 0, 110, FEB-13-1988)
+Example(32, "Example", 1, 109, FEB-13-1988)
+Example(3, "Join Example", 33, 33, JAN-01-2000)
+Example(3, "Join Example", 333, 333, NOV-11-1999)
+Example(1, "Find Me", 44.44, 44, JAN-01-2000)
+Example(15, "Find Me", 11, 25, DEC-04-1998)
+Example(3, "Find Me", 88.88, 88, JAN-01-2000)
+Example(23, "To find", 54.21, 9, FEB-13-1988)
+Example(28, "To find", 1.11, 1, FEB-13-1988)
+Example(77, "Blah", 3.21, 2, JUL-07-2000)
+<<< Transformed table data ... exampleLong++ >>>
+Example(1, "Example", 3, 57, JAN-01-2000)
+Example(2, "Foozle", 7.7, 13, DEC-04-1998)
+Example(3, "Bedazzled", 12, 100, JAN-01-2000)
+Example(4, "Example", 11.11, 45, FEB-28-1999)
+Example(7, "Example", 21.11, 22, JAN-01-2000)
+Example(10, "Settled", 100.11, 0, NOV-11-1999)
+Example(11, "Example", 0, 1, OCT-31-2001)
+Example(12, "Mirror Image", 31.13, 23, DEC-04-1998)
+Example(6, "Find Me", 22.22, 23, JAN-01-2000)
+Example(10, "Find Me", 34.44, 42, JAN-01-2000)
+Example(6, "Jordan", 1000.1, 2, NOV-11-1999)
+Example(8, "Corwin", 99.99, 101, JAN-01-2000)
+Example(17, "To find", 213, 35, NOV-11-1999)
+Example(18, "Duped", -12.22, -98, FEB-13-1988)
+Example(19, "Mike", -43334, 2123, FEB-13-1988)
+Example(20, "To find", 2020.2, 3, NOV-11-1999)
+Example(21, "Do not find", 22, 23, FEB-13-1988)
+Example(22, "To find", 443.33, 33, DEC-04-1998)
+Example(23, "Who?", 0, 1, FEB-13-1988)
+Example(28, "To find", 11.11, 39, DEC-04-1998)
+Example(29, "Prayer", 912.22, -2, NOV-11-1999)
+Example(30, "The Reliable, Red Caminus Bouncy Ball", 1000.11, 11, NOV-11-1999)
+Example(31, "To find", 0, 111, FEB-13-1988)
+Example(32, "Example", 1, 110, FEB-13-1988)
+Example(3, "Join Example", 33, 34, JAN-01-2000)
+Example(3, "Join Example", 333, 334, NOV-11-1999)
+Example(1, "Find Me", 44.44, 45, JAN-01-2000)
+Example(15, "Find Me", 11, 26, DEC-04-1998)
+Example(3, "Find Me", 88.88, 89, JAN-01-2000)
+Example(23, "To find", 54.21, 10, FEB-13-1988)
+Example(28, "To find", 1.11, 2, FEB-13-1988)
+Example(77, "Blah", 3.21, 3, JUL-07-2000)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestPKs() !!!!!!!!!!!!!!!!!!!! 
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestOuterInner() !!!!!!!!!!!!!!!!!!!! 
+OuterStruct(3, InnerStruct(1, 56, "Example"), JAN-01-2000 )
+OuterStruct(44.44, InnerStruct(1, 44, "Find Me"), JAN-01-2000 )
+OuterStruct(7.7, InnerStruct(2, 12, "Foozle"), DEC-04-1998 )
+OuterStruct(12, InnerStruct(3, 99, "Bedazzled"), JAN-01-2000 )
+OuterStruct(88.88, InnerStruct(3, 88, "Find Me"), JAN-01-2000 )
+OuterStruct(33, InnerStruct(3, 33, "Join Example"), JAN-01-2000 )
+OuterStruct(333, InnerStruct(3, 333, "Join Example"), NOV-11-1999 )
+OuterStruct(11.11, InnerStruct(4, 44, "Example"), FEB-28-1999 )
+OuterStruct(22.22, InnerStruct(6, 22, "Find Me"), JAN-01-2000 )
+OuterStruct(1000.1, InnerStruct(6, 1, "Jordan"), NOV-11-1999 )
+OuterStruct(21.11, InnerStruct(7, 21, "Example"), JAN-01-2000 )
+OuterStruct(99.99, InnerStruct(8, 100, "Corwin"), JAN-01-2000 )
+OuterStruct(34.44, InnerStruct(10, 41, "Find Me"), JAN-01-2000 )
+OuterStruct(100.11, InnerStruct(10, -1, "Settled"), NOV-11-1999 )
+OuterStruct(0, InnerStruct(11, 0, "Example"), OCT-31-2001 )
+OuterStruct(31.13, InnerStruct(12, 22, "Mirror Image"), DEC-04-1998 )
+OuterStruct(11, InnerStruct(15, 25, "Find Me"), DEC-04-1998 )
+OuterStruct(213, InnerStruct(17, 34, "To find"), NOV-11-1999 )
+OuterStruct(-12.22, InnerStruct(18, -99, "Duped"), FEB-13-1988 )
+OuterStruct(-43334, InnerStruct(19, 2122, "Mike"), FEB-13-1988 )
+OuterStruct(2020.2, InnerStruct(20, 2, "To find"), NOV-11-1999 )
+OuterStruct(22, InnerStruct(21, 22, "Do not find"), FEB-13-1988 )
+OuterStruct(443.33, InnerStruct(22, 32, "To find"), DEC-04-1998 )
+OuterStruct(54.21, InnerStruct(23, 9, "To find"), FEB-13-1988 )
+OuterStruct(0, InnerStruct(23, 0, "Who?"), FEB-13-1988 )
+OuterStruct(1.11, InnerStruct(28, 1, "To find"), FEB-13-1988 )
+OuterStruct(11.11, InnerStruct(28, 38, "To find"), DEC-04-1998 )
+OuterStruct(912.22, InnerStruct(29, -3, "Prayer"), NOV-11-1999 )
+OuterStruct(1000.11, InnerStruct(30, 10, "The Reliable, Red Caminus Bouncy Ball"), NOV-11-1999 )
+OuterStruct(0, InnerStruct(31, 110, "To find"), FEB-13-1988 )
+OuterStruct(1, InnerStruct(32, 109, "Example"), FEB-13-1988 )
+OuterStruct(3.21, InnerStruct(77, 2, "Blah"), JUL-07-2000 )
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example IndexedViewExampleCharred() !!!!!!!!!!!!!!!!!!!! 
+*** Size before erase calls: 24 ***
+*** Size after erase calls: 23 ***
+insertion succeded = true
+deleted / changed items:
+Example(2, "Foozle", 7.7, 12, DEC-04-1998)
+Example(3, "Join Example", 33, 33, JAN-01-2000)
+inserted / changed items:
+Example(2, "Fizzle", 7.7, 12, DEC-04-1998)
+Example(459, "Unique String #1", 3.4, 1, JAN-01-2000)
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example SimpleBlobTest() !!!!!!!!!!!!!!!!!!!! 
+Binary read/write succesful.
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestNullable() !!!!!!!!!!!!!!!!!!!! 
+Initial value: 1, NULL
+Value after first update: 1, 5
+Value after second update: 1, NULL
+
+********************************
+
+!!!!!!!!!!!!!!!!!!!!! Begin Example TestJoin() !!!!!!!!!!!!!!!!!!!! 

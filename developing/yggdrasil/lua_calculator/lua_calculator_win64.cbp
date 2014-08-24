@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="lua_calculator" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug64">
+				<Option output="..\Debug64\lua_calculator.dll" prefix_auto="0" extension_auto="0" />
+				<Option object_output=".\Debug64\" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-D_DEBUG" />
+				</Compiler>
+				<Linker>
+					<Add library="..\lib64\libyggr_script_lua-mgw47-d.a" />
+					<Add library="..\lib64\libyggr_base-mgw47-d.a" />
+					<Add library="..\lib64\libyggr_time-mgw47-d.a" />
+					<Add library="d:\boost\lib64\libboost_system-mgw47-mt-d-1_53.dll.a" />
+					<Add library="d:\boost\lib64\libboost_thread-mgw47-mt-d-1_53.dll.a" />
+					<Add library="d:\boost\lib64\libboost_filesystem-mgw47-mt-d-1_53.dll.a" />
+					<Add library="d:\boost\lib64\libboost_serialization-mgw47-mt-d-1_53.dll.a" />
+					<Add library="d:\luabind\lib64\libluabind09-mgw47-d.dll.a" />
+					<Add library="d:\lua\lib64\liblua521-mgw47-d.dll.a" />
+				</Linker>
+			</Target>
+			<Target title="Release64">
+				<Option output="..\Release64\lua_calculator" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Release64" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-DNDEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="..\lib64\libyggr_script_lua-mgw47.a" />
+					<Add library="..\lib64\libyggr_base-mgw47.a" />
+					<Add library="..\lib64\libyggr_time-mgw47.a" />
+					<Add library="d:\boost\lib64\libboost_system-mgw47-mt-1_53.dll.a" />
+					<Add library="d:\boost\lib64\libboost_thread-mgw47-mt-1_53.dll.a" />
+					<Add library="d:\boost\lib64\libboost_serialization-mgw47-mt-1_53.dll.a" />
+					<Add library="d:\boost\lib64\libboost_filesystem-mgw47-mt-1_53.dll.a" />
+					<Add library="d:\luabind\lib64\libluabind09-mgw47.dll.a" />
+					<Add library="d:\lua\lib64\liblua521-mgw47.dll.a" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-DBUILD_DLL" />
+			<Add option="-DYGGR_DLL_DEF" />
+			<Add option="-DWIN32" />
+			<Add option="-DWIN64" />
+			<Add option="-DYGGR_SYSTEM_64" />
+			<Add directory="..\" />
+			<Add directory="..\dll_param_test" />
+			<Add directory="..\compatibility" />
+			<Add directory="..\lua_calculator" />
+			<Add directory="..\cal_svr_procotol" />
+		</Compiler>
+		<Linker>
+			<Add library="D:\MinGW64\x86_64-w64-mingw32\lib\libuser32.a" />
+			<Add library="D:\MinGW64\x86_64-w64-mingw32\lib\libws2_32.a" />
+		</Linker>
+		<Unit filename="lua_calculator.cpp" />
+		<Unit filename="lua_calculator.hpp" />
+		<Unit filename="lua_calculator_impl.hpp" />
+		<Unit filename="lua_dll_param.hpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

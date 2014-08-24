@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="mongodb_c_driver_win64">
+		<Project filename="include/include_win64.cbp" />
+		<Project filename="bson/bson_win64.cbp">
+			<Depends filename="include/include_win64.cbp" />
+		</Project>
+		<Project filename="mongoc/mongoc_win64.cbp" />
+		<Project filename="bcon/bcon_win64.cbp" active="1">
+			<Depends filename="include/include_win64.cbp" />
+		</Project>
+	</Workspace>
+</CodeBlocks_workspace_file>
