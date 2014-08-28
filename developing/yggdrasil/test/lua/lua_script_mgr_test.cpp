@@ -27,7 +27,7 @@ void exec_test()
 
 	mgr.append_module(script_mgr_type::E_lib_all);
 
-	std::string code("./test.lua");
+	std::string code("./lua/test.lua");
 
 	std::string code2(
 					"require \"yggr_lua_base_type\"\r\n"
@@ -48,7 +48,7 @@ void exec_test()
 
     try
 	{
-		//mgr.insert("test", "calculate", script_mgr_type::file_code_type(code));
+		mgr.insert("test", "calculate", script_mgr_type::file_code_type(code));
 		mgr.insert("test2","calculate", script_mgr_type::string_code_type(code2));
     }
     catch(const compatibility::stl_exception& e)
@@ -60,8 +60,8 @@ void exec_test()
 	lua_u64_type a(na);
 
 	lua_u64_type ra;
-	//mgr.execute_rule("test", a, ra);
-	//std::cout << ra.n << std::endl;
+	mgr.execute_rule("test", a, ra);
+	std::cout << ra << std::endl;
 
 	mgr.execute_rule("test2", a, ra);
 	std::cout << ra << std::endl;

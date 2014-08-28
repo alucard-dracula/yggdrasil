@@ -254,6 +254,11 @@ public:
 		return base_type::max_size();
 	}
 
+	void resize(const wrap_size_type& size)
+	{
+		base_type::resize(size);
+	}
+
 	bool empty(void) const
 	{
 		return base_type::empty();
@@ -372,10 +377,10 @@ public:
 		base_type::swap(right);
 	}
 
-	void resize(const size_type& size)
-	{
-		base_type::resize(size);
-	}
+	//void resize(const size_type& size)
+	//{
+	//	base_type::resize(size);
+	//}
 
 	void clear(void)
 	{

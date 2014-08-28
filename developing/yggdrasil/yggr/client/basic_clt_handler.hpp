@@ -425,6 +425,43 @@ public:
 		return smgr.access(key, handler);
 	}
 
+	template<typename Handler>
+	typename Handler::result_type access(const Handler& handler) const
+	{
+		session_mgr_ptr_type ptr = _session_mgr_wrap.get_shared_ptr();
+		if(!ptr)
+		{
+			return false;
+		}
+		const session_mgr_type& smgr = *ptr;
+		return smgr.access(handler);
+	}
+
+	template<typename Handler>
+	void access_of_all(const Handler& handler)
+	{
+		session_mgr_ptr_type ptr = _session_mgr_wrap.get_shared_ptr();
+		if(!ptr)
+		{
+			return false;
+		}
+
+		session_mgr_type& smgr = *ptr;
+		smgr.access(handler);
+	}
+
+	template<typename Handler>
+	void access_of_all(const Handler& handler) const
+	{
+		session_mgr_ptr_type ptr = _session_mgr_wrap.get_shared_ptr();
+		if(!ptr)
+		{
+			return false;
+		}
+		const session_mgr_type& smgr = *ptr;
+		smgr.access(handler);
+	}
+
 protected:
 	service_handler_type& _service_handler;
 	session_mgr_wrap_type _session_mgr_wrap;

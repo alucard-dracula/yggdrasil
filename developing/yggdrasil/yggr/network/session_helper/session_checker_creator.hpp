@@ -1,4 +1,4 @@
-//register_session_checket_creator.hpp
+//session_checket_creator.hpp
 
 /****************************************************************************
 Copyright (c) 2014-2018 yggdrasil

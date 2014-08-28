@@ -49,7 +49,7 @@ void export_d32_s32_list(lua_State* L)
 		[
 			luabind::namespace_(YGGR_PP_CAST_TO_STRING(lua))
 			[
-				EXPORT_WRAP_LIST_TO_LUA(u32_list_type, u32_list)
+				EXPORT_WRAP_LIST_TO_LUA(s32_list_type, s32_list)
 			]
 		]
 	];

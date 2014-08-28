@@ -31,6 +31,7 @@ THE SOFTWARE.
 #include <sstream>
 #include <utility>
 
+#include <boost/asio.hpp>
 #include <boost/tuple/tuple.hpp>
 #include <boost/serialization/access.hpp>
 #include <yggr/move/move.hpp>
@@ -1088,7 +1089,7 @@ private:
 	template<
 				u32 i = 0, u32 isize = boost::mpl::size<params_type>::value
 			>
-	struct access_op
+	struct access_op_eins
 	{
 		typedef params_type t_conts_type;
 
@@ -1104,9 +1105,9 @@ private:
 			cont_ptr_type pcont = boost::get<i>(*pval);
 			assert(pcont);
 
-			access_op<i + 1, isize> op;
+			access_op_eins<i + 1, isize> op;
 
-			return pcont->use_handler(boost::bind(&access_op::handler_op
+			return pcont->use_handler(boost::bind(&access_op_eins::handler_op
 													<
 														cont_type,
 														key_type,
@@ -1137,7 +1138,7 @@ private:
 
 			for(iter_type i = base.begin(), isize = base.end(); i != isize; ++i)
 			{
-				if((*i) && ((*i)->access<key_type, handler_type>(key, *phandler)))
+				if((*i) && ((*i)->template access<key_type, handler_type>(key, *phandler)))
 				{
 					return true;
 				}
@@ -1147,7 +1148,7 @@ private:
 	};
 
 	template<u32 i>
-	struct access_op< i, i >
+	struct access_op_eins< i, i >
 	{
 		template<typename Key, typename Handler>
 		inline bool operator()(const Key& key, const Handler& handler, value_ptr_type pval) const
@@ -1168,7 +1169,7 @@ public:
 			return false;
 		}
 
-		access_op<> op;
+		access_op_eins<> op;
 		return op(key, handler, pval);
 	}
 	
@@ -1182,8 +1183,218 @@ public:
 			return false;
 		}
 
-		access_op<> op;
+		access_op_eins<> op;
 		return op(key, handler, pval);
+	}
+
+private:
+	template<
+				u32 i = 0, u32 isize = boost::mpl::size<params_type>::value
+			>
+	struct access_op_zwei
+	{
+		typedef params_type t_conts_type;
+
+		template<typename Handler>
+		typename Handler::result_type operator()(const Handler& handler, value_ptr_type pval) const
+		{
+			typedef typename boost::mpl::at_c<t_conts_type, i>::type cont_ptr_type;
+			typedef typename yggr::mplex::pointer_to_value_t<cont_ptr_type>::type cont_type;
+			typedef Handler handler_type;
+			typedef typename handler_type::result_type ret_type;
+
+			assert(pval);
+			cont_ptr_type pcont = boost::get<i>(*pval);
+			assert(pcont);
+
+			access_op_zwei<i + 1, isize> op;
+
+			ret_type ret = pcont->use_handler(boost::bind(&access_op_zwei::handler_op
+													<
+														cont_type,
+														handler_type
+													>,
+													this, _1,
+													boost::any(handler)));
+
+			if(!ret)
+			{
+				return op(key, handler, pval);
+			}
+
+			return ret;
+		}
+
+	private:
+		template<typename Container, typename Handler>
+		typename Handler::result_type handler_op(typename Container::base_type& base, const boost::any& handler_wrap) const
+		{
+			typedef Container cont_type;
+			typedef typename cont_type::iterator iter_type;
+			typedef Handler handler_type;
+			typedef typename handler_type::result_type ret_type;
+
+			const handler_type* phandler = boost::any_cast<handler_type>(&handler_wrap);
+
+			if(!phandler)
+			{
+				return ret_type();
+			}
+
+			ret_type ret(ret_type());
+			for(iter_type i = base.begin(), isize = base.end(); i != isize; ++i)
+			{
+				if((*i) && (ret = ((*i)->template access<handler_type>(*phandler))))
+				{
+					return ret;
+				}
+			}
+			return ret_type();
+		}
+	};
+
+	template<u32 i>
+	struct access_op_zwei< i, i >
+	{
+		template<typename Handler>
+		inline typename Handler::result_type operator()(const Handler& handler, value_ptr_type pval) const
+		{
+			typedef Handler::result_type ret_type;
+			assert(pval);
+			return ret_type();
+		}
+	};
+
+public:
+	template<typename Handler>
+	typename Handler::result_type access(const Handler& handler)
+	{
+		typedef Handler handler_type;
+		typedef typename handler_type::result_type ret_type;
+
+		value_ptr_type pval = _value_wrap.get_shared_ptr();
+		assert(pval);
+		if(!pval)
+		{
+			return ret_type();
+		}
+
+		access_op_zwei<> op;
+		return op(handler, pval);
+	}
+	
+	template<typename Handler>
+	typename Handler::result_type access(const Handler& handler) const
+	{
+		typedef Handler handler_type;
+		typedef typename handler_type::result_type ret_type;
+
+		value_ptr_type pval = _value_wrap.get_shared_ptr();
+		assert(pval);
+		if(!pval)
+		{
+			return ret_type;
+		}
+
+		access_op_zwei<> op;
+		return op(handler, pval);
+	}
+
+private:
+	template<
+				u32 i = 0, u32 isize = boost::mpl::size<params_type>::value
+			>
+	struct access_of_all_op
+	{
+		typedef params_type t_conts_type;
+
+		template<typename Handler>
+		void operator()(const Handler& handler, value_ptr_type pval) const
+		{
+			typedef typename boost::mpl::at_c<t_conts_type, i>::type cont_ptr_type;
+			typedef typename yggr::mplex::pointer_to_value_t<cont_ptr_type>::type cont_type;
+			typedef Handler handler_type;
+			typedef typename handler_type::result_type ret_type;
+
+			assert(pval);
+			cont_ptr_type pcont = boost::get<i>(*pval);
+			assert(pcont);
+
+			ret_type ret = pcont->use_handler(boost::bind(&access_of_all_op::handler_op
+													<
+														cont_type,
+														handler_type
+													>,
+													this, _1,
+													boost::any(handler)));
+			access_of_all_op<i + 1, isize> op;
+			op(key, handler, pval);
+		
+		}
+
+	private:
+		template<typename Container, typename Handler>
+		typename Handler::result_type handler_op(typename Container::base_type& base, const boost::any& handler_wrap) const
+		{
+			typedef Container cont_type;
+			typedef typename cont_type::iterator iter_type;
+			typedef Handler handler_type;
+
+			const handler_type* phandler = boost::any_cast<handler_type>(&handler_wrap);
+
+			if(!phandler)
+			{
+				return;
+			}
+
+			ret_type ret(ret_type());
+			for(iter_type i = base.begin(), isize = base.end(); i != isize; ++i)
+			{
+				if((*i))
+				{
+					(*i)->template access_of_all<handler_type>(*phandler);
+				}
+			}
+		}
+	};
+
+	template<u32 i>
+	struct access_of_all_op< i, i >
+	{
+		template<typename Handler>
+		inline void operator()(const Handler& handler, value_ptr_type pval) const
+		{
+			assert(pval);
+		}
+	};
+
+public:
+	template<typename Handler>
+	void access_of_all(const Handler& handler)
+	{
+		value_ptr_type pval = _value_wrap.get_shared_ptr();
+		assert(pval);
+		if(!pval)
+		{
+			return;
+		}
+
+		access_of_all_op<> op;
+		op(handler, pval);
+	}
+	
+	template<typename Handler>
+	void access_of_all(const Handler& handler) const
+	{
+		value_ptr_type pval = _value_wrap.get_shared_ptr();
+		assert(pval);
+		if(!pval)
+		{
+			return;
+		}
+
+		access_of_all_op<> op;
+		op(handler, pval);
 	}
 
 //private:

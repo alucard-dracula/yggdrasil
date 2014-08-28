@@ -1,5 +1,5 @@
 
-require "lua_hello_dll"
+require "yggr_lua_base_type"
 function calculate(param)
 	b = param + 100
 	param = param + 200

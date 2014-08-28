@@ -29,7 +29,7 @@ THE SOFTWARE.
 
 #include <yggr/lua_wrap/lua_export_wrap_iterator.hpp>
 #include <yggr/lua_wrap/lua_export_wrap_allocator.hpp>
-#include <yggr/lua_wrap/wrap_vector.hpp>
+#include <yggr/lua_wrap/wrap_list.hpp>
 #include <boost/preprocessor/cat.hpp>
 #include <yggr/ppex/cast_to_string.hpp>
 
@@ -72,6 +72,7 @@ THE SOFTWARE.
 		.def( "empty", &__cpp_list_type__::empty ) \
 		.def( "size", &__cpp_list_type__::size ) \
 		.def( "max_size", &__cpp_list_type__::max_size ) \
+		.def( "resize", &__cpp_list_type__::resize ) \
 		.def( "front", ( __cpp_list_type__::wrap_val_type& ( __cpp_list_type__::* )( void ) )&__cpp_list_type__::front ) \
 		.def( "front", ( const __cpp_list_type__::wrap_val_type& ( __cpp_list_type__::* )( void ) const )&__cpp_list_type__::front ) \
 		.def( "back", ( __cpp_list_type__::wrap_val_type& ( __cpp_list_type__::* )( void ) )&__cpp_list_type__::back ) \
@@ -95,7 +96,6 @@ THE SOFTWARE.
 		.def( "erase", ( __cpp_list_type__::wrap_iterator_type ( __cpp_list_type__::* )( const __cpp_list_type__::wrap_iterator_type& ) )&__cpp_list_type__::erase ) \
 		.def( "erase", (  __cpp_list_type__::wrap_iterator_type ( __cpp_list_type__::* )( const __cpp_list_type__::wrap_iterator_type&, const __cpp_list_type__::wrap_iterator_type& ) )&__cpp_list_type__::erase ) \
 		.def( "swap", &__cpp_list_type__::swap ) \
-		.def( "resize", &__cpp_list_type__::resize ) \
 		.def( "clear", &__cpp_list_type__::clear ) \
 		.def( "splice", ( void ( __cpp_list_type__::* )( const __cpp_list_type__::wrap_iterator_type&, __cpp_list_type__& ) )&__cpp_list_type__::splice ) \
 		.def( "splice", ( void ( __cpp_list_type__::* )( const __cpp_list_type__::wrap_iterator_type&, __cpp_list_type__&, const __cpp_list_type__::wrap_iterator_type& ) )&__cpp_list_type__::splice ) \

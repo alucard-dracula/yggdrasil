@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="safe_container\safe_multi_index_container_base_test.cpp">
+    <ClCompile Include="lua\lua_base_type_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

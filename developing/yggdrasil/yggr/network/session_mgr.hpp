@@ -443,13 +443,25 @@ public:
 	template<typename Handler>
 	typename Handler::result_type access(const Handler& handler)
 	{
-		return _smap.use_handler_of_all(handler);
+		return _smap.use_handler(handler);
 	}
 
 	template<typename Handler>
 	typename Handler::result_type access(const Handler& handler) const
 	{
-		return _smap.use_handler_of_all(handler);
+		return _smap.use_handler(handler);
+	}
+
+	template<typename Handler>
+	void access_of_all(const Handler& handler)
+	{
+		_smap.use_handler_of_all(handler);
+	}
+
+	template<typename Handler>
+	void access_of_all(const Handler& handler) const
+	{
+		_smap.use_handler_of_all(handler);
 	}
 
 	adapter_mgr_ptr_type get_adapter_mgr_ptr(void) const
