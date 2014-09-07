@@ -28,6 +28,7 @@ THE SOFTWARE.
 //#define __YGGR_SERIALIZATION_LIST_BSON_IMPL_HPP__
 
 #if ( defined(YGGR_HAS_BSON_OARCHIVE) || defined(YGGR_HAS_BSON_IARCHIVE) )
+#   define __YGGR_SERIALIZATION_LIST_BSON_IMPL_HPP__
 
 #include <yggr/nsql_database_system/bson_type_traits.hpp>
 

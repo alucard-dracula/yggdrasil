@@ -12,7 +12,7 @@ namespace network
 {
 
 template<typename Service_Handler>
-class service_handler_wrap
+class service_handler_shared_wrap
 {
 public:
 	typedef Service_Handler service_handler_type;
@@ -24,35 +24,35 @@ public:
 	typedef typename service_handler_type::io_service_pool_type io_service_pool_type;
 	
 private:
-	typedef service_handler_wrap this_type;
+	typedef service_handler_shared_wrap this_type;
 	BOOST_COPYABLE_AND_MOVABLE(this_type)
 
 public:
-	service_handler_wrap(const service_handler_ptr_type& psh)
+	service_handler_shared_wrap(const service_handler_ptr_type& psh)
 		: _psh(psh)
 	{
 		assert(_psh);
 	}
 
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
-	service_handler_wrap(BOOST_RV_REF(this_type) right)
+	service_handler_shared_wrap(BOOST_RV_REF(this_type) right)
 		: _psh(boost::forward<service_handler_ptr_type>(right._psh))
 	{
 	}
 #else
-	service_handler_wrap(BOOST_RV_REF(this_type) right)
+	service_handler_shared_wrap(BOOST_RV_REF(this_type) right)
 	{
 		this_type& right_ref = right;
 		_psh.swap(righr_ref._psh);
 	}
 #endif // YGGR_NO_CXX11_RVALUE_REFERENCES
 
-	service_handler_wrap(const this_type& right)
+	service_handler_shared_wrap(const this_type& right)
 		: _psh(right._psh)
 	{
 	}
 
-	~service_handler_wrap(void)
+	~service_handler_shared_wrap(void)
 	{
 	}
 

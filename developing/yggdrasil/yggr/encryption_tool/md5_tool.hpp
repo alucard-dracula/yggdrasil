@@ -184,7 +184,8 @@ public:
 		typedef typename buf_type::value_type buf_val_type;
 
 		sig_type sig = {0};
-		md5_buffer((const char*)&buf[0], buf.size() * sizeof(buf_val_type), &sig[0]);
+		//md5_buffer((const char*)&buf[0], buf.size() * sizeof(buf_val_type), &sig[0]);
+		md5_buffer(reinterpret_cast<const char*>(&buf[0]), buf.size() * sizeof(buf_val_type), &sig[0]);
 		return sig;
 	}
 };

@@ -426,12 +426,30 @@ public:
 	}
 
 	template<typename Handler>
-	typename Handler::result_type access(const Handler& handler) const
+	typename Handler::result_type access(const Handler& handler)
 	{
+		typedef Handler handler_type;
+		typedef typename handler_type::result_type ret_type;
+
 		session_mgr_ptr_type ptr = _session_mgr_wrap.get_shared_ptr();
 		if(!ptr)
 		{
-			return false;
+			return ret_type();
+		}
+		const session_mgr_type& smgr = *ptr;
+		return smgr.access(handler);
+	}
+
+	template<typename Handler>
+	typename Handler::result_type access(const Handler& handler) const
+	{
+		typedef Handler handler_type;
+		typedef typename handler_type::result_type ret_type;
+
+		session_mgr_ptr_type ptr = _session_mgr_wrap.get_shared_ptr();
+		if(!ptr)
+		{
+			return ret_type();
 		}
 		const session_mgr_type& smgr = *ptr;
 		return smgr.access(handler);
@@ -443,7 +461,7 @@ public:
 		session_mgr_ptr_type ptr = _session_mgr_wrap.get_shared_ptr();
 		if(!ptr)
 		{
-			return false;
+			return;
 		}
 
 		session_mgr_type& smgr = *ptr;
@@ -456,7 +474,7 @@ public:
 		session_mgr_ptr_type ptr = _session_mgr_wrap.get_shared_ptr();
 		if(!ptr)
 		{
-			return false;
+			return;
 		}
 		const session_mgr_type& smgr = *ptr;
 		smgr.access(handler);

@@ -1219,7 +1219,7 @@ private:
 
 			if(!ret)
 			{
-				return op(key, handler, pval);
+				return op(handler, pval);
 			}
 
 			return ret;
@@ -1241,7 +1241,7 @@ private:
 				return ret_type();
 			}
 
-			ret_type ret(ret_type());
+			ret_type ret = ret_type();
 			for(iter_type i = base.begin(), isize = base.end(); i != isize; ++i)
 			{
 				if((*i) && (ret = ((*i)->template access<handler_type>(*phandler))))
@@ -1328,7 +1328,7 @@ private:
 													this, _1,
 													boost::any(handler)));
 			access_of_all_op<i + 1, isize> op;
-			op(key, handler, pval);
+			op(handler, pval);
 		
 		}
 

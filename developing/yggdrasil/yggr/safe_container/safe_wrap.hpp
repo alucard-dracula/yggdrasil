@@ -227,13 +227,11 @@ public:
 		write_lock_type lk(_mutex);
 		if(_ptr)
 		{
-			//boost::swap(*_ptr, boost::forward<value_type>(val));
 			boost::swap(*_ptr, val);
 			return;
 		}
 		base_type tmp(new value_type(boost::forward<value_type>(val)));
 		value_type val_tmp;
-		//boost::swap(val_tmp, boost::forward<value_type>(val));
 		boost::swap(val_tmp, val);
 		_ptr.swap(tmp);
 	}
@@ -261,6 +259,17 @@ public:
 	{
 		write_lock_type lk(_mutex);
 		_ptr.swap(base);
+	}
+
+	void swap(this_type& right)
+	{
+		if(this == &right)
+		{
+			return;
+		}
+		write_lock_type lk(_mutex);
+		base_type& base = _ptr;
+		right.swap(base);
 	}
 
 	template<typename Handler>
