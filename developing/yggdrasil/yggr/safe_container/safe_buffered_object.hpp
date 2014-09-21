@@ -35,12 +35,13 @@ THE SOFTWARE.
 
 #include <boost/thread/mutex.hpp>
 #include <boost/ref.hpp>
+#include <boost/container/deque.hpp>
 #include <yggr/move/move.hpp>
 
 #include <yggr/base/yggrdef.h>
 #include <yggr/nonable/noncopyable.hpp>
 #include <yggr/nonable/nonmoveable.hpp>
-#include <yggr/container/queue.hpp>
+//#include <yggr/container/queue.hpp>
 #include <yggr/helper/mutex_def_helper.hpp>
 
 namespace yggr
@@ -57,11 +58,15 @@ public:
 	typedef Obj_Init obj_init_type;
 	typedef boost::shared_ptr<obj_type> obj_ptr_type;
 private:
-	typedef yggr::container::queue<obj_ptr_type> obj_ptr_queue_type;
+	//typedef yggr::container::queue<obj_ptr_type> obj_ptr_queue_type;
+	typedef boost::container::deque<obj_ptr_type> obj_ptr_queue_type;
+	typedef typename obj_ptr_queue_type::iterator obj_ptr_queue_iter_type;
+	typedef typename obj_ptr_queue_type::const_iterator obj_ptr_queue_citer_type;
 
 	typedef Mutex mutex_type;
 	typedef typename helper::mutex_def_helper<mutex_type>::lock_type lock_type;
 
+private:
 	typedef safe_buffered_object this_type;
 
 public:
@@ -156,11 +161,28 @@ public:
 			}
 		}
 		ptr.swap(_queue.front());
-		_queue.pop();
+		_queue.pop_front();
 		--_now_size;
 
 		assert(ptr);
 		return ptr;
+	}
+
+	template<typename Cmp>
+	yggr::size_type remove(const Cmp& cmp)
+	{
+		yggr::size_type size = 0;
+		lock_type lk(_mutex);
+
+		for(obj_ptr_queue_iter_type i = _queue.begin(), isize = _queue.end(); i != isize; ++i)
+		{
+			if(*i)
+			{
+				size += (*i)->remove(cmp);
+			}
+		}
+
+		return size;
 	}
 
 	void back(const obj_ptr_type& ptr)
@@ -171,7 +193,7 @@ public:
 			return;
 		}
 
-		_queue.push(ptr);
+		_queue.push_back(ptr);
 		++_now_size;
 	}
 
@@ -195,7 +217,7 @@ public:
 				}
 			}
 			ptr.swap(_queue.front());
-			_queue.pop();
+			_queue.pop_front();
 		}
 
 		assert(ptr);
@@ -212,7 +234,7 @@ public:
 
 		{
 			lock_type lk(_mutex);
-			_queue.push(ptr);
+			_queue.push_back(ptr);
 		}
 
 		return true;
@@ -238,7 +260,7 @@ public:
 				}
 			}
 			ptr.swap(_queue.front());
-			_queue.pop();
+			_queue.pop_front();
 		}
 
 		assert(ptr);
@@ -255,7 +277,7 @@ public:
 
 		{
 			lock_type lk(_mutex);
-			_queue.push(ptr);
+			_queue.push_back(ptr);
 		}
 
 		return true;
@@ -276,7 +298,7 @@ private:
 			return false;
 		}
 
-		_queue.push(ptr);
+		_queue.push_back(ptr);
 		++_now_size;
 		return true;
 	}
@@ -299,7 +321,10 @@ public:
 	typedef boost::shared_ptr<obj_type> obj_ptr_type;
 
 private:
-	typedef yggr::container::queue<obj_ptr_type> obj_ptr_queue_type;
+	//typedef yggr::container::queue<obj_ptr_type> obj_ptr_queue_type;
+	typedef boost::container::deque<obj_ptr_type> obj_ptr_queue_type;
+	typedef typename obj_ptr_queue_type::iterator obj_ptr_queue_iter_type;
+	typedef typename obj_ptr_queue_type::const_iterator obj_ptr_queue_citer_type;
 
 	typedef safe_buffered_object this_type;
 
@@ -351,11 +376,28 @@ public:
 			}
 		}
 		ptr.swap(_queue.front());
-		_queue.pop();
+		_queue.pop_front();
 		--_now_size;
 
 		assert(ptr);
 		return ptr;
+	}
+
+	template<typename Cmp>
+	yggr::size_type remove(const Cmp& cmp)
+	{
+		yggr::size_type size = 0;
+		lock_type lk(_mutex);
+
+		for(obj_ptr_queue_iter_type i = _queue.begin(), isize = _queue.end(); i != isize; ++i)
+		{
+			if(*i)
+			{
+				size += (*i)->remove(cmp);
+			}
+		}
+
+		return size;
 	}
 
 	void back(const obj_ptr_type& ptr)
@@ -365,7 +407,7 @@ public:
 		{
 			return;
 		}
-		_queue.push(ptr);
+		_queue.push_back(ptr);
 		++_now_size;
 	}
 
@@ -403,7 +445,7 @@ public:
 				}
 			}
 			ptr.swap(_queue.front());
-			_queue.pop();
+			_queue.pop_front();
 		}
 
 		assert(ptr);
@@ -420,7 +462,7 @@ public:
 
 		{
 			lock_type lk(_mutex);
-			_queue.push(ptr);
+			_queue.push_back(ptr);
 		}
 
 		return true;
@@ -446,7 +488,7 @@ public:
 				}
 			}
 			ptr.swap(_queue.front());
-			_queue.pop();
+			_queue.pop_front();
 		}
 
 		assert(ptr);
@@ -463,7 +505,7 @@ public:
 
 		{
 			lock_type lk(_mutex);
-			_queue.push(ptr);
+			_queue.push_back(ptr);
 		}
 
 		return true;
@@ -485,7 +527,7 @@ private:
 			return false;
 		}
 
-		_queue.push(ptr);
+		_queue.push_back(ptr);
 		++_now_size;
 		return true;
 	}

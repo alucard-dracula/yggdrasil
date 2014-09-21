@@ -233,11 +233,11 @@ typedef yggr::network::service_handler<
 											yggr::network::balance_io_service_selector
 										> service_handler_type; // 定义服务执行器类型
 
-typedef yggr::network::service_handler_wrap<service_handler_type> service_handler_wrap_type;
-typedef service_handler_wrap_type::service_handler_ptr_type service_handler_ptr_type;
+typedef yggr::network::service_handler_shared_wrap<service_handler_type> service_handler_shared_wrap_type;
+typedef service_handler_shared_wrap_type::service_handler_ptr_type service_handler_ptr_type;
 
 typedef yggr::server::basic_svr_handler< yggr::server::server_config::server_tcp_config_type,
-										service_handler_wrap_type, //use wrap type
+										service_handler_shared_wrap_type, //use wrap type
 										session_mgr_type
 									> tcp_svr_handler_type; // 定义TCP 服务器执行器类型
 

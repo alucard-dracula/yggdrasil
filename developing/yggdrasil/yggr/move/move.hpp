@@ -69,6 +69,31 @@ struct move_helper
 		return *static_cast< ::boost::rv<value_type>* >(&t);
 	}
 
+//	YGGR_PP_BASE_TYPE_FORCE_MOVE(bool)
+//	YGGR_PP_BASE_TYPE_FORCE_MOVE(char)
+//	YGGR_PP_BASE_TYPE_FORCE_MOVE(wchar_t)
+//	YGGR_PP_BASE_TYPE_FORCE_MOVE(s8)
+//	YGGR_PP_BASE_TYPE_FORCE_MOVE(u8)
+//	YGGR_PP_BASE_TYPE_FORCE_MOVE(s16)
+//	YGGR_PP_BASE_TYPE_FORCE_MOVE(u16)
+//	YGGR_PP_BASE_TYPE_FORCE_MOVE(s32)
+//	YGGR_PP_BASE_TYPE_FORCE_MOVE(u32)
+//#	ifdef __ANDROID__
+//		YGGR_PP_BASE_TYPE_FORCE_MOVE(long int)
+//		YGGR_PP_BASE_TYPE_FORCE_MOVE(unsigned long int)
+//#	endif // __ANDROID__
+//	YGGR_PP_BASE_TYPE_FORCE_MOVE(s64)
+//	YGGR_PP_BASE_TYPE_FORCE_MOVE(u64)
+//	YGGR_PP_BASE_TYPE_FORCE_MOVE(f32)
+//	YGGR_PP_BASE_TYPE_FORCE_MOVE(f64)
+
+	template<typename T>
+	static T*& forced_move(T*& t)
+	{
+		return t;
+	}
+#endif // YGGR_NO_CXX11_RVALUE_REFERENCES
+
 	YGGR_PP_BASE_TYPE_FORCE_MOVE(bool)
 	YGGR_PP_BASE_TYPE_FORCE_MOVE(char)
 	YGGR_PP_BASE_TYPE_FORCE_MOVE(wchar_t)
@@ -86,14 +111,6 @@ struct move_helper
 	YGGR_PP_BASE_TYPE_FORCE_MOVE(u64)
 	YGGR_PP_BASE_TYPE_FORCE_MOVE(f32)
 	YGGR_PP_BASE_TYPE_FORCE_MOVE(f64)
-
-	template<typename T>
-	static T*& forced_move(T*& t)
-	{
-		return t;
-	}
-#endif // YGGR_NO_CXX11_RVALUE_REFERENCES
-
 
 };
 

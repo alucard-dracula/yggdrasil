@@ -1044,7 +1044,7 @@ private:
 
 public:
 	template<typename Key, typename NetInfo, typename Data, typename Handler>
-	bool send(const Key& key, const NetInfo& netinfo, const Data& data, const Handler& handler)
+	bool send_packet(const Key& key, const NetInfo& netinfo, const Data& data, const Handler& handler)
 	{
 		value_ptr_type pval = _value_wrap.get_shared_ptr();
 		assert(pval);
@@ -1058,7 +1058,7 @@ public:
 	}
 
 	template<typename Key, typename Pak, typename Handler>
-	bool send(const Key& key, Pak& pak, const Handler& handler)
+	bool send_packet(const Key& key, Pak& pak, const Handler& handler)
 	{
 		value_ptr_type pval = _value_wrap.get_shared_ptr();
 		assert(pval);
@@ -1072,7 +1072,7 @@ public:
 	}
 
 	template<typename Key, typename Pak>
-	bool send(const Key& key, Pak& pak)
+	bool send_packet(const Key& key, Pak& pak)
 	{
 		value_ptr_type pval = _value_wrap.get_shared_ptr();
 		assert(pval);

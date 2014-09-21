@@ -42,7 +42,7 @@ namespace time
 time::time(void)
 {
 	base_type& base = *this;
-	boost::xtime_get(&base, boost::TIME_UTC_); //OldVer append TIME_UTC_ defined
+	boost::xtime_get(&base, boost::TIME_UTC_); //please defined TIME_UTC_ at boost old ver, i forgot this bug's boost version
 }
 
 time::time(const time::xtime_sec_t& sec)

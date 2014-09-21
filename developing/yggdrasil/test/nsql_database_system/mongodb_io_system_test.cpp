@@ -1,5 +1,6 @@
 //mongodb_io_system_test.cpp
 
+#include <cassert>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -416,16 +417,23 @@ public:
 	std::vector<type_test> _vt;
 };
 
-void out(const base_database_container::load_data& ld)
+void out(bool bright, const base_database_container::load_data& ld)
 {
+	if(!bright)
+	{
+		return;
+	}
 	for(int i = 0, isize = ld.vt.size(); i != isize; ++i)
 	{
 		std::cout << ld.vt[i] << std::endl;
 	}
 }
 
-void save_out(const base_database_container::save_back_data& sd)
+void save_out(bool bright, const base_database_container::save_back_data& sd)
 {
+	if(!bright)
+	{
+	}
 	std::cout << "--------------------saved-------------------------" << std::endl;
 }
 
@@ -443,20 +451,26 @@ int main(int argc, char* argv[])
 	for(int i = 0, isize = 100; i != isize; ++i)
 	{
 		type_test t;
-		io_sys.save<base_database_container::save_back_data>(
+		bool bright = io_sys.save<base_database_container::save_back_data>(
 																base_database_container::type_id(),
 																base_database_container::save_data(t),
-																boost::bind(&save_out, _1));
+																boost::bind(&save_out, _1, _2));
+		assert(bright);	
 	}
 
+	//{
+	//	// wait save end // use wait commit all item
+	//	char cc = 0;
+	//	std::cin >>cc;
+	//}
 	io_sys.commit(base_database_container::type_id());
 
 	yggr::nsql_database_system::c_bson b1, b2;
 	io_sys.load<base_database_container::load_data>(base_database_container::type_id(),
 														base_database_container::load_cdt(b1, b2),
-														boost::bind(&out, _1));
+														boost::bind(&out, _1, _2));
 
-	io_sys.load<base_database_container::load_data>(base_database_container::type_id(), boost::bind(&out, _1));
+	io_sys.load<base_database_container::load_data>(base_database_container::type_id(), boost::bind(&out, _1, _2));
 
 	char cc = 0;
 	std::cin >> cc;

@@ -224,7 +224,7 @@ private:
 	void init_obj(void);
 
 private:
-    bool _brun;
+    volatile bool _brun;
     time_type _tm_step;
 	err_queue_type _err_queue;
 	thread_group_type _trd_group;

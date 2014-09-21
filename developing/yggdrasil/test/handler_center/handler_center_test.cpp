@@ -89,6 +89,7 @@ void test_call(void)
 	{
 		int n = 100;
 		int m = 200;
+		// use reference
 		bool b = ptr->call(YGGR_PP_HANDLER_NAME(get_drei), boost::cref(n), boost::ref(m));
 		assert(b);
 		assert(m == 300);

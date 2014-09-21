@@ -139,6 +139,65 @@ public:
 		}
 	}
 
+//#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
+//
+//#define BOOST_PP_LOCAL_MACRO( __n__ ) \
+//	template<typename Mark, YGGR_PP_FOO_TYPES_DEF(__n__) \
+//				YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) typename Obj> \
+//	void send( YGGR_PP_FOO_PARAMS_DEF(__n__, YGGR_PP_FOO_REAL_CREF_PARAMS ) \
+//				YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) const Obj& obj) { \
+//		typedef typename saver_switch<Mark>::type saver_type; \
+//		task_type task(boost::move(_task_creator(YGGR_PP_FOO_PARAMS_OP(__n__, YGGR_PP_SYMBOL_COMMA) \
+//													YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) obj))); \
+//		if(task.empty()) { return; } \
+//		saver_type::push(yggr::move::move_helper::forced_move(task)); } \
+//	\
+//	template<typename Mark, YGGR_PP_FOO_TYPES_DEF(__n__) \
+//				YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) typename Obj> \
+//	void send( YGGR_PP_FOO_PARAMS_DEF(__n__, YGGR_PP_FOO_REAL_CREF_PARAMS ) \
+//				YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) Obj& obj) { \
+//		typedef typename saver_switch<Mark>::type saver_type; \
+//		task_type task(boost::move(_task_creator(YGGR_PP_FOO_PARAMS_OP(__n__, YGGR_PP_SYMBOL_COMMA) \
+//													YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) obj))); \
+//		if(task.empty()) { return; } \
+//		saver_type::push(yggr::move::move_helper::forced_move(task)); }
+//
+//#define YGGR_PP_FOO_ARG_NAME(  ) init_arg
+//#define BOOST_PP_LOCAL_LIMITS ( 1, YGGR_PP_FOO_DEFAULT_PARAMS_LEN )
+//#include BOOST_PP_LOCAL_ITERATE(  )
+//#undef YGGR_PP_FOO_ARG_NAME
+//
+//#else
+//
+//#define BOOST_PP_LOCAL_MACRO( __n__ ) \
+//	template<typename Mark, YGGR_PP_FOO_TYPES_DEF(__n__) \
+//				YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) typename Obj> \
+//	void send( YGGR_PP_FOO_PARAMS_DEF(__n__, YGGR_PP_FOO_REAL_CREF_PARAMS ) \
+//				YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) const Obj& obj) { \
+//		typedef typename saver_switch<Mark>::type saver_type; \
+//		task_type task(_task_creator(YGGR_PP_FOO_PARAMS_OP(__n__, YGGR_PP_SYMBOL_COMMA) \
+//													YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) obj)); \
+//		if(task.empty()) { return; } \
+//		saver_type::push(yggr::move::move_helper::forced_move(task)); } \
+//	\
+//	template<typename Mark, YGGR_PP_FOO_TYPES_DEF(__n__) \
+//				YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) typename Obj> \
+//	void send( YGGR_PP_FOO_PARAMS_DEF(__n__, YGGR_PP_FOO_REAL_CREF_PARAMS ) \
+//				YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) Obj& obj) { \
+//		typedef typename saver_switch<Mark>::type saver_type; \
+//		task_type task(_task_creator(YGGR_PP_FOO_PARAMS_OP(__n__, YGGR_PP_SYMBOL_COMMA) \
+//													YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) obj)); \
+//		if(task.empty()) { return; } \
+//		saver_type::push(yggr::move::move_helper::forced_move(task)); }
+//
+//#define YGGR_PP_FOO_ARG_NAME(  ) init_arg
+//#define BOOST_PP_LOCAL_LIMITS ( 1, YGGR_PP_FOO_DEFAULT_PARAMS_LEN )
+//#include BOOST_PP_LOCAL_ITERATE(  )
+//#undef YGGR_PP_FOO_ARG_NAME
+//
+//#endif // YGGR_NO_CXX11_RVALUE_REFERENCES
+
+
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
 
 #define BOOST_PP_LOCAL_MACRO( __n__ ) \
@@ -147,7 +206,7 @@ public:
 	void send( YGGR_PP_FOO_PARAMS_DEF(__n__, YGGR_PP_FOO_REAL_CREF_PARAMS ) \
 				YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) const Obj& obj) { \
 		typedef typename saver_switch<Mark>::type saver_type; \
-		task_type task(boost::move(_task_creator(YGGR_PP_FOO_PARAMS_OP(__n__, YGGR_PP_SYMBOL_COMMA) \
+		task_type task(boost::move(task_creator_type()(YGGR_PP_FOO_PARAMS_OP(__n__, YGGR_PP_SYMBOL_COMMA) \
 													YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) obj))); \
 		if(task.empty()) { return; } \
 		saver_type::push(yggr::move::move_helper::forced_move(task)); } \
@@ -157,7 +216,7 @@ public:
 	void send( YGGR_PP_FOO_PARAMS_DEF(__n__, YGGR_PP_FOO_REAL_CREF_PARAMS ) \
 				YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) Obj& obj) { \
 		typedef typename saver_switch<Mark>::type saver_type; \
-		task_type task(boost::move(_task_creator(YGGR_PP_FOO_PARAMS_OP(__n__, YGGR_PP_SYMBOL_COMMA) \
+		task_type task(boost::move(task_creator_type()(YGGR_PP_FOO_PARAMS_OP(__n__, YGGR_PP_SYMBOL_COMMA) \
 													YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) obj))); \
 		if(task.empty()) { return; } \
 		saver_type::push(yggr::move::move_helper::forced_move(task)); }
@@ -175,7 +234,7 @@ public:
 	void send( YGGR_PP_FOO_PARAMS_DEF(__n__, YGGR_PP_FOO_REAL_CREF_PARAMS ) \
 				YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) const Obj& obj) { \
 		typedef typename saver_switch<Mark>::type saver_type; \
-		task_type task(_task_creator(YGGR_PP_FOO_PARAMS_OP(__n__, YGGR_PP_SYMBOL_COMMA) \
+		task_type task(task_creator_type()(YGGR_PP_FOO_PARAMS_OP(__n__, YGGR_PP_SYMBOL_COMMA) \
 													YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) obj)); \
 		if(task.empty()) { return; } \
 		saver_type::push(yggr::move::move_helper::forced_move(task)); } \
@@ -185,7 +244,7 @@ public:
 	void send( YGGR_PP_FOO_PARAMS_DEF(__n__, YGGR_PP_FOO_REAL_CREF_PARAMS ) \
 				YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) Obj& obj) { \
 		typedef typename saver_switch<Mark>::type saver_type; \
-		task_type task(_task_creator(YGGR_PP_FOO_PARAMS_OP(__n__, YGGR_PP_SYMBOL_COMMA) \
+		task_type task(task_creator_type()(YGGR_PP_FOO_PARAMS_OP(__n__, YGGR_PP_SYMBOL_COMMA) \
 													YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) obj)); \
 		if(task.empty()) { return; } \
 		saver_type::push(yggr::move::move_helper::forced_move(task)); }
@@ -197,12 +256,26 @@ public:
 
 #endif // YGGR_NO_CXX11_RVALUE_REFERENCES
 
+	//template<typename Mark>
+	//void send(task_type& task)
+	//{
+	//	typedef typename saver_switch<Mark>::type saver_type;
+
+	//	task_type& ref_task = _task_creator(task);
+	//	if(ref_task.empty())
+	//	{
+	//		return;
+	//	}
+
+	//	saver_type::push(ref_task);
+	//}
+
 	template<typename Mark>
 	void send(task_type& task)
 	{
 		typedef typename saver_switch<Mark>::type saver_type;
 
-		task_type& ref_task = _task_creator(task);
+		task_type& ref_task = task_creator_type()(task);
 		if(ref_task.empty())
 		{
 			return;
@@ -261,8 +334,8 @@ public:
 		cdt_saver_type::clear();
 		rst_saver_type::clear();
 	}
-private:
-	task_creator_type _task_creator;
+//private:
+//	task_creator_type _task_creator;
 };
 
 } // namespace task_center

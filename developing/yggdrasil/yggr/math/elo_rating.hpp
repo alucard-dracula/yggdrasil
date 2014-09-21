@@ -83,7 +83,7 @@ public:
 	{
 		// this foo k = 16
 		typedef typename upper_signed<T>::value_type val_type;
-		val_type ret = 16 + (rb - ra) * 4 / 100;
+		val_type ret = 16 + (val_type(rb) - val_type(ra)) * 4 / 100;
 		return ret > 31? 31 : ret < 1? 0 : ret;
 	}
 
@@ -167,7 +167,7 @@ private:
 		s_elo(const T& ra, const T& rb)
 	{
 		typedef typename upper_float<T>::value_type value_type;
-		value_type elo_param = value_type(rb - ra) / value_type(400);
+		value_type elo_param = (value_type(rb) - value_type(ra)) / value_type(400);
 		return value_type(1) / (value_type(1) + std::pow(value_type(10), elo_param));
 	}
 

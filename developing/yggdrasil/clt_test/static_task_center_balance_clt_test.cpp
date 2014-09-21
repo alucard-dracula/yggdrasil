@@ -288,7 +288,7 @@ public:
 				handler, boost::bind(&Calculator::cal_test_pak_type<owner_info_type,
 																	runner_type,
 																	recv_handler_type>,
-									shared_from_this(), _1, _2, _3, _4));
+										shared_from_this(), _1, _2, _3, _4));
 	}
 
 	template<typename Action_Table>

@@ -85,13 +85,13 @@ public:
 
 public:
 	io_service_pool(void)
-		: _saver(1), _selector(_saver), _brun(false)
+		: _brun(false), _saver(1), _selector(_saver) 
 	{
 		init();
 	}
 
 	explicit io_service_pool(size_type size)
-		: _saver(size? size : 1), _selector(_saver), _brun(false)
+		:  _brun(false), _saver(size? size : 1), _selector(_saver)
 	{
 		init();
 	}
@@ -387,11 +387,11 @@ private:
 	}
 
 private:
+	volatile bool _brun;
 	saver_type _saver;
 	work_saver_type _work_saver;
 	thread_group_type _trd_group;
 	selector_type _selector;
-	bool _brun;
 };
 
 } // namespace network

@@ -4,16 +4,18 @@
 #include <string>
 #include <vector>
 
+#include <yggr/ids/base_ids_def.hpp>
+
 #include <yggr/nsql_database_system/mongodb_config.h>
 #include <yggr/nsql_database_system/c_bson.hpp>
+
 #include <yggr/nsql_database_system/c_mongo_connection.hpp>
 #include <yggr/nsql_database_system/mongo_accesser.hpp>
+#include <yggr/nsql_database_system/mongodb_io_system.hpp>
 
 #include <yggr/packet/packet.hpp>
 #include <yggr/archive/network_archive_partner.hpp>
 #include <yggr/archive/bson_archive_partner.hpp>
-
-#include <yggr/nsql_database_system/mongodb_io_system.hpp>
 
 #include <yggr/sync_system/sync_default_config.hpp>
 #include <yggr/sync_system/sync_helper.hpp>
@@ -31,16 +33,23 @@
 #include <yggr/serialization/utf8_string.hpp>
 #include <yggr/serialization/string.hpp>
 
+
 #ifdef _MSC_VER
 #   include <vld.h>
 #endif //_MSC_VER
+
 
 typedef yggr::sync_system::default_params_type params_type;
 typedef yggr::sync_system::default_sync_helper_type helper_type;
 typedef yggr::sync_system::default_container_mgr_type container_mgr_type;
 
 typedef yggr::nsql_database_system::c_mongo_connection conn_type;
-typedef yggr::nsql_database_system::mongodb_io_system<conn_type, container_mgr_type> mongodb_io_system_type;
+typedef yggr::nsql_database_system::mongodb_io_system<conn_type, 
+														container_mgr_type,
+														boost::mutex,
+														yggr::thread::boost_thread_config_type,
+														yggr::nsql_database_system::mongo_accesser,
+														yggr::ids::id64_type> mongodb_io_system_type;
 
 typedef yggr::packet::packet<yggr::archive::archive_partner::network_oarchive_partner> opacket_type;
 typedef yggr::packet::packet<yggr::archive::archive_partner::network_iarchive_partner> ipacket_type;
@@ -180,6 +189,7 @@ std::ostream& operator<<(std::ostream& os, const type_test& val)
 	return os;
 }
 
+template<int n>
 class base_database_container
 {
 public:
@@ -310,6 +320,12 @@ public:
 	};
 
 	template<typename Tuple>
+	base_database_container(const std::string& db_name, const std::string& coln_name)
+		:db(db_name), coln(coln_name)
+	{
+	}
+
+	template<typename Tuple>
 	base_database_container(const Tuple& tuple)
 		:db(boost::get<0>(tuple)), coln(boost::get<1>(tuple))
 	{
@@ -335,8 +351,10 @@ public:
 		{
 			Saver saver(_vt);
 
-			yggr::nsql_database_system::c_bson *pb1 = helper.result().template get_val_ptr<yggr::nsql_database_system::c_bson>("bson1"),
-												*pb2 = helper.result().template get_val_ptr<yggr::nsql_database_system::c_bson>("bson2");
+			//yggr::nsql_database_system::c_bson *pb1 = helper.result().template get_val_ptr<yggr::nsql_database_system::c_bson>("bson1"),
+			//									*pb2 = helper.result().template get_val_ptr<yggr::nsql_database_system::c_bson>("bson2");
+			yggr::nsql_database_system::c_bson *pb1 = helper.condition().template get_val_ptr<yggr::nsql_database_system::c_bson>("bson1"),
+												*pb2 = helper.condition().template get_val_ptr<yggr::nsql_database_system::c_bson>("bson2");
 
 			if(pb1 && pb2)
 			{
@@ -399,7 +417,9 @@ public:
 
 	static std::string type_id(void)
 	{
-		return std::string("test");
+		std::stringstream ss;
+		ss << "test" << n;
+		return ss.str();
 	}
 
 	std::string db;
@@ -407,120 +427,84 @@ public:
 	std::vector<type_test> _vt;
 };
 
-void out(bool bright, const base_database_container::load_data& ld)
+template<typename BaseContainer>
+void out(bool bright, const typename BaseContainer::load_data& ld)
 {
 	if(!bright)
 	{
 		return;
 	}
-
 	for(int i = 0, isize = ld.vt.size(); i != isize; ++i)
 	{
 		std::cout << ld.vt[i] << std::endl;
 	}
 }
 
-void save_out(bool bright, const base_database_container::save_back_data& sd)
+template<typename BaseContainer>
+void save_out(bool bright, const typename BaseContainer::save_back_data& sd)
 {
 	if(!bright)
 	{
-		return;
 	}
-
 	std::cout << "--------------------saved-------------------------" << std::endl;
 }
 
-bool brun = false;
-
-void save_test(mongodb_io_system_type& io_sys)
+typedef base_database_container<1> base_database_container1_type;
+typedef base_database_container<2> base_database_container2_type;
+int main(int argc, char* argv[])
 {
-	for(;brun;)
-	{
-		type_test t;
-		io_sys.save<base_database_container::save_back_data>(base_database_container::type_id(), base_database_container::save_data(t), boost::bind(&save_out, _1, _2));
-		//io_sys.commit(base_database_container::type_id());
-	}
-}
-
-void load_test(mongodb_io_system_type& io_sys)
-{
-	for(;brun;)
-	{
-		yggr::nsql_database_system::c_bson b1, b2;
-		io_sys.load<base_database_container::load_data>(base_database_container::type_id(), base_database_container::load_cdt(b1, b2), boost::bind(&out, _1, _2));
-	}
-}
-
-void test1(void)
-{
-	mongodb_io_system_type io_sys("127.0.0.1:10098", 5);
+	//mongodb_io_system_type io_sys;
+	mongodb_io_system_type io_sys(std::string("127.0.0.1:10098"));
 	//mongodb_io_system_type io_sys("127.0.0.1:10098", "xy", "123456", 5);
 
 	io_sys.start();
 
-	io_sys.reg_container<base_database_container>(boost::make_tuple(std::string("test"), std::string("foo")));
-	//base_database_container::test_vt_type vt;
+	yggr::ids::id64_type id1(10);
+	yggr::ids::id64_type id2(20);
+	mongodb_io_system_type::delegate_ptr_type pgate1 = io_sys.get_delegate(id1);
+	//mongodb_io_system_type::delegate_ptr_type pgate2 = io_sys.get_delegate(id2);
+
+	assert(pgate1 /*&& pgate2*/);
+
+	bool bright = true;
+	bright = bright && pgate1->reg_container<base_database_container1_type>(boost::make_tuple(std::string("test"), std::string("foo1")));
+	//bright = bright && pgate2->reg_container<base_database_container2_type>(boost::make_tuple(std::string("test"), std::string("foo2")));
+	assert(bright);
 
 	for(int i = 0, isize = 100; i != isize; ++i)
 	{
 		type_test t;
+		pgate1->save<base_database_container1_type::save_back_data>(
+																base_database_container1_type::type_id(),
+																base_database_container1_type::save_data(t),
+																boost::bind(&save_out<base_database_container1_type>, _1, _2));
 
-		io_sys.save<base_database_container::save_back_data>(base_database_container::type_id(),
-																base_database_container::save_data(t),
-																boost::bind(&save_out, _1, _2));
+		//pgate2->save<base_database_container2_type::save_back_data>(
+		//														base_database_container2_type::type_id(),
+		//														base_database_container2_type::save_data(t),
+		//														boost::bind(&save_out<base_database_container2_type>, _1, _2));
 	}
 
-	io_sys.commit(base_database_container::type_id());
+	pgate1->commit(base_database_container1_type::type_id());
+	//pgate2->commit(base_database_container2_type::type_id());
 
 	yggr::nsql_database_system::c_bson b1, b2;
-	io_sys.load<base_database_container::load_data>(base_database_container::type_id(), 
-														base_database_container::load_cdt(b1, b2), 
-														boost::bind(&out, _1, _2));
 
-	io_sys.load<base_database_container::load_data>(base_database_container::type_id(), boost::bind(&out, _1, _2));
+	pgate1->load<base_database_container1_type::load_data>(base_database_container1_type::type_id(),
+															base_database_container1_type::load_cdt(b1, b2),
+															boost::bind(&out<base_database_container1_type>, _1, _2));
+
+	//pgate2->load<base_database_container2_type::load_data>(base_database_container2_type::type_id(),
+	//														base_database_container2_type::load_cdt(b1, b2),
+	//														boost::bind(&out<base_database_container2_type>, _1, _2));
 
 	char cc = 0;
 	std::cin >> cc;
-	io_sys.stop();
-}
 
-void test2(void)
-{
-	typedef boost::thread_group thread_group_type;
-
-	mongodb_io_system_type io_sys("127.0.0.1:10098", 5);
-	//mongodb_io_system_type io_sys("127.0.0.1:10098", "xy", "123456", 5);
-
-	io_sys.start();
-
-	io_sys.reg_container<base_database_container>(boost::make_tuple(std::string("test"), std::string("foo")));
-
-	brun = true;
-	thread_group_type trd_group;
-	trd_group.create_thread(boost::bind(&save_test, boost::ref(io_sys)));
-	trd_group.create_thread(boost::bind(&save_test, boost::ref(io_sys)));
-	trd_group.create_thread(boost::bind(&save_test, boost::ref(io_sys)));
-	trd_group.create_thread(boost::bind(&save_test, boost::ref(io_sys)));
-	trd_group.create_thread(boost::bind(&save_test, boost::ref(io_sys)));
-	trd_group.create_thread(boost::bind(&load_test, boost::ref(io_sys)));
-	trd_group.create_thread(boost::bind(&load_test, boost::ref(io_sys)));
-	trd_group.create_thread(boost::bind(&load_test, boost::ref(io_sys)));
-	trd_group.create_thread(boost::bind(&load_test, boost::ref(io_sys)));
-	trd_group.create_thread(boost::bind(&load_test, boost::ref(io_sys)));
-
-	trd_group.join_all();
-
-	brun = false;
+	pgate1->clear();
+	//pgate2->clear();
 
 	io_sys.stop();
 
-}
-
-int main(int argc, char* argv[])
-{
-	test1();
-	test2();
-	char cc = 0;
-	std::cin >> cc;
 	return 0;
 }

@@ -68,7 +68,14 @@ public:
 	}
 
 	template<typename Child>
-	Child* child_cast(void) const
+	const Child* child_cast(void) const
+	{
+		ptr_type tmp = base_type::get();
+		return dynamic_cast<Child*>(tmp);
+	}
+
+	template<typename Child>
+	Child* child_cast(void)
 	{
 		ptr_type tmp = base_type::get();
 		return dynamic_cast<Child*>(tmp);
