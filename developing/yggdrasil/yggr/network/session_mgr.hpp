@@ -638,11 +638,11 @@ private:
 		return iter->second;
 	}
 
-	void handler_clear_session(typename smap_type::base_type& base)
+	void handler_clear_sessions(typename smap_type::base_type& base)
 	{
 		try
 		{
-			_adp_mgr_wrap.use_handler(boost::bind(&adapter_mgr_type::drop_all_users, _1));
+			_adp_mgr_wrap.use_handler(boost::bind(&adapter_mgr_type::drop_all_tasks, _1));
 		}
 		catch(const adapter_mgr_wrap_error_type& e)
 		{

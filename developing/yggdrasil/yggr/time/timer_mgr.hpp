@@ -50,13 +50,14 @@ namespace time
 
 template<typename Task_ID, 
 			typename Thread_Config = yggr::thread::boost_thread_config_type,
-			 typename Inner_Process_ID = void>
+			 typename Inner_Process_ID = void, int nid = 0>
 class timer_mgr;
 
 // ------------------------inner shared enable version-----------------------------
 template<typename Task_ID, 
 			typename Thread_Config,
-			typename Inner_Process_ID>
+			typename Inner_Process_ID,
+			int nid>
 class timer_mgr
 	: private nonable::noncopyable
 {
@@ -306,15 +307,9 @@ private:
 		void exit_task(const task_id_type& id)
 		{
 			_task_queue.remove(boost::bind(&parent_type::handler_equal_id_of_task, 
-												_pparent, _1, boost::cref(id)));
+												&_parent, _1, boost::cref(id)));
 			_rm_task_id_queue.remove(boost::bind(&parent_type::handler_equal_id_of_task_id,
-													_pparent, _1, boost::cref(id)));
-			assert(_pparent);
-			if(!_pparent)
-			{
-				return;
-			}
-
+													&_parent, _1, boost::cref(id)));
 			_parent.exit_task(id);
 		}
 
@@ -618,8 +613,9 @@ private:
 
 // ------------------------------------------normal version-------------------------------------------
 template<typename Task_ID, 
-			typename Thread_Config>
-class timer_mgr<Task_ID, Thread_Config, void>
+			typename Thread_Config, 
+			int nid>
+class timer_mgr<Task_ID, Thread_Config, void, nid>
 	: private nonable::noncopyable
 {
 public:

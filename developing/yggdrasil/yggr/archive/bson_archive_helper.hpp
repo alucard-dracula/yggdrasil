@@ -68,7 +68,7 @@ public:
 
 	static void buf_copy(buf_type& buf1, const buf_type& buf2)
 	{
-		if(&buf == &buf2)
+		if(&buf1 == &buf2)
 		{
 			return;
 		}

@@ -323,10 +323,10 @@ public:
 		saver_type::drop_task(ids, key_getter);
 	}
 
-	void drop_all(void)
+	void drop_all_tasks(void)
 	{
-		cdt_saver_type::clear();
-		rst_saver_type::clear();
+		cdt_saver_type::clear_tasks();
+		rst_saver_type::clear_tasks();
 	}
 
 	void clear(void)

@@ -206,6 +206,18 @@ public:
 		return _op_handler.access(key, handler);
 	}
 
+	template<typename Handler>
+	typename Handler::result_type access(const Handler& handler)
+	{
+		return _op_handler.access(handler);
+	}
+
+	template<typename Handler>
+	typename Handler::result_type access(const Handler& handler) const
+	{
+		return _op_handler.access(handler);
+	}
+
 private:
 
 	friend class yggr::system_controller::ctrl_center;

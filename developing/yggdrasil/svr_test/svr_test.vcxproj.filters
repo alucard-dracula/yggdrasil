@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="service_handler_shared_wrap_test.cpp">
+    <ClCompile Include="static_task_center_balance_async_svr_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

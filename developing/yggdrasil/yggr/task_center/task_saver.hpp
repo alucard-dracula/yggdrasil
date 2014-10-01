@@ -141,6 +141,11 @@ public:
 		op.remove(_buf, ids, key_getter);
 	}
 
+	void clear_tasks(void)
+	{
+		_buf.clear();
+	}
+
 	void clear(void)
 	{
 		_buf.clear();

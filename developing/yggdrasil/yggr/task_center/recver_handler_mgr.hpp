@@ -225,6 +225,10 @@ public:
 	{
 	}
 
+	void clear_tasks(void)
+	{
+	}
+
 	void clear(void)
 	{
 		_handler_map.clear();

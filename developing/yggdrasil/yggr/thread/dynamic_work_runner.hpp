@@ -283,7 +283,15 @@ public:
 		clear();
 	}
 
-	void clear()
+	void clear_tasks(void)
+	{
+		_task_list.clear();
+		_kill_task_id_queue.clear();
+		_kill_task_owner_info_queue.clear();
+		_kill_task_data_info_queue.clear();
+	}
+
+	void clear(void)
 	{
 	    shared_info_ptr_type tmp;
 		_p_shared_info.swap(tmp);

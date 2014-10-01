@@ -129,15 +129,25 @@ public:
 		return this_type::prv_append(val);
 	}
 
+	bool must_append(const value_type& val)
+	{
+		return prv_must_append(val);
+	}
+
 #define BOOST_PP_LOCAL_MACRO( __n__ ) \
 	template< YGGR_PP_FOO_TYPES_DEF( __n__ ) > \
 	bool append(YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_CREF_PARAMS ) ) { \
-		return this_type::prv_append(value_type(YGGR_PP_FOO_PARAMS_OP( __n__, YGGR_PP_SYMBOL_COMMA ))); }
+		return this_type::prv_append(value_type(YGGR_PP_FOO_PARAMS_OP( __n__, YGGR_PP_SYMBOL_COMMA ))); } \
+	\
+	template< YGGR_PP_FOO_TYPES_DEF( __n__ ) > \
+	bool must_append(YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_CREF_PARAMS ) ) { \
+		return this_type::prv_must_append(value_type(YGGR_PP_FOO_PARAMS_OP( __n__, YGGR_PP_SYMBOL_COMMA ))); }
 
 #define YGGR_PP_FOO_ARG_NAME(  ) arg_name
 #define BOOST_PP_LOCAL_LIMITS ( 1, YGGR_PP_FOO_DEFAULT_PARAMS_LEN )
 #include BOOST_PP_LOCAL_ITERATE(  )
 #undef YGGR_PP_FOO_ARG_NAME
+
 
 	template<typename Tag>
 	bool remove(const typename Tag::type& key)
@@ -293,7 +303,7 @@ public:
 				YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, size_type mod) > \
 	bool modify(const typename value_type::template arg<find>::type& find_key \
 					YGGR_PP_SYMBOL_IF(__n__, YGGR_PP_SYMBOL_COMMA) \
-					YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_CUSTOM_CREF_PARAMS )) { \
+					YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_CUSTOM_REAL_CREF_PARAMS )) { \
 		typedef typename value_type::template arg<find> tag_find_type; \
 		value_type tmp; \
 		return _cont \
@@ -372,6 +382,35 @@ private:
 													value_type::E_length).push_back(val));
 	}
 
+	bool prv_must_append(const value_type& val)
+	{
+		return _cont.use_handler(boost::bind(&this_type::handler_prv_must_append,
+												this, _1, boost::cref(val)));
+	}
+
+	bool handler_prv_must_append(typename midx_cont_type::base_type& base,
+									const value_type& val)
+	{
+		typedef typename midx_cont_type::base_type midx_cont;
+		typedef typename boost::multi_index::nth_index<midx_cont, 0>::type cont_type;
+		typedef typename cont_type::iterator cont_iter_type;
+
+		cont_type& cont = base.get<0>();
+		cont_iter_type iter = cont.find(val.get<0>());
+
+		if(iter == cont.end())
+		{
+			return cont.insert(val).second;
+		}
+
+		value_type tmp;
+		return cont.modify(iter, 
+							boost::bind(&this_type::handler_modifier_of_value,
+											this, _1, boost::cref(val), boost::ref(tmp)),
+							boost::bind(&this_type::handler_rollback, 
+											this, _1, boost::cref(tmp)));
+	}
+
 	//template<typename TagMod>
 	//void handler_modifier(value_type& val, const typename TagMod::type& mod, value_type& tmp)
 	//{
@@ -404,6 +443,12 @@ private:
 #undef _YGGR_TMP_PP_TEP_VALUE
 #undef YGGR_PP_FOO_ARG_TYPE
 #undef _YGGR_TMP_PP_TEP_SUB_OP
+
+	void handler_modifier_of_value(value_type& src, const value_type& mod, value_type& bak)
+	{
+		bak = src;
+		src = mod;
+	}
 
 	void handler_rollback(value_type& val, const value_type& tmp)
 	{

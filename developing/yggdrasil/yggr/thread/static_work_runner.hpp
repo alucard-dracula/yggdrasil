@@ -216,6 +216,10 @@ public:
 		return true;
 	}
 
+	inline void clear_tasks(void)
+	{
+	}
+
 	void clear(void)
 	{
 	    {

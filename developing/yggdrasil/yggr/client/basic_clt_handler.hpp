@@ -436,7 +436,7 @@ public:
 		{
 			return ret_type();
 		}
-		const session_mgr_type& smgr = *ptr;
+		session_mgr_type& smgr = *ptr;
 		return smgr.access(handler);
 	}
 

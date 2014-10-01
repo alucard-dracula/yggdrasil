@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="nsql_database_system\innprocess_mongodb_io_system_test.cpp">
+    <ClCompile Include="nsql_database_system\mongo_connect_5_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -611,13 +611,13 @@ public:
 
 	void drop_all_tasks(void)
 	{
-		_src.drop_all();
+		_src.drop_all_tasks();
 	}
 
 	void clear(void)
 	{
 		_adapter_map.clear();
-		_src.drop_all();
+		_src.clear();
 	}
 
 protected:

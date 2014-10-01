@@ -59,7 +59,8 @@ template<typename Connect, typename Sync_Mgr,
 		typename Mutex = boost::mutex,
 		typename Thread_Config = thread::boost_thread_config_type,
 		template<typename _Connect, typename _Mutex> class Mongodb_Accesser = mongo_accesser,
-		typename Inner_Process_ID = void >
+		typename Inner_Process_ID = void,
+		int nid = 0>
 class mongodb_io_system;
 
 //--------------------shared mongodb_io_system------------------------------
@@ -68,7 +69,7 @@ template<typename Connect, typename Sync_Mgr,
 			typename Mutex,
 			typename Thread_Config,
 			template<typename _Connect, typename _Mutex> class Mongodb_Accesser,
-			typename Inner_Process_ID>
+			typename Inner_Process_ID, int nid>
 class mongodb_io_system
 	: protected Sync_Mgr//, private nonable::noncopyable
 {
@@ -456,6 +457,11 @@ private:
 
 		~mongodb_io_system_delegate(void)
 		{
+		}
+
+		bool is_running(void) const
+		{
+			return _parent.is_running();
 		}
 
 		template<typename Base_Container>
@@ -956,6 +962,11 @@ public:
 		join();
 	}
 
+	bool is_running(void) const
+	{
+		return _brun.load();
+	}
+
 	mongodb_io_system_delegate_ptr_type get_delegate(const inner_process_id_type& id)
 	{
 		return _delegate_map.use_handler(boost::bind(&this_type::handler_get_delegate, 
@@ -1279,8 +1290,9 @@ private:
 template<typename Connect, typename Sync_Mgr,
 			typename Mutex,
 			typename Thread_Config,
-			template<typename _Connect, typename _Mutex> class Mongodb_Accesser>
-class mongodb_io_system<Connect, Sync_Mgr, Mutex, Thread_Config, Mongodb_Accesser, void>
+			template<typename _Connect, typename _Mutex> class Mongodb_Accesser,
+			int nid>
+class mongodb_io_system<Connect, Sync_Mgr, Mutex, Thread_Config, Mongodb_Accesser, void, nid>
 	: protected Sync_Mgr//, private nonable::noncopyable
 {
 private:
@@ -1786,6 +1798,11 @@ public:
 		}
 
 		join();
+	}
+
+	bool is_running(void) const
+	{
+		return _brun.load();
 	}
 
 	template<typename Base_Container>

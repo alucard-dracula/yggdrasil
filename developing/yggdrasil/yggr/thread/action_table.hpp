@@ -407,59 +407,6 @@ public:
 	}
 
 private:
-
-	//template<typename Real_Data_Type, typename Tuple_Handler>
-	//bool register_calculator_helper(const Tuple_Handler& handler)
-	//{
-	//	typedef Real_Data_Type now_real_data_type;
-	//	typedef Tuple_Handler now_handler_type;
-	//	typedef calculator<now_real_data_type,
-	//						now_handler_type,
-	//						boost::tuples::length<now_handler_type>::value> now_calculator_type;
-
-	//	//class_name_getter_type name_getter;
-	//	return reg_map.insert(id_parser_type::template get_reg_id<now_real_data_type>(),
-	//							calculator_contaniner_type(new now_calculator_type(handler))
-	//						);
-	//}
-
-	//template<typename Real_Data_Type, typename Container, typename Tuple_Handler>
-	//bool register_calculator_of_container_helper(const Tuple_Handler& handler)
-	//{
-	//	typedef Real_Data_Type now_real_data_type;
-	//	typedef Container now_container_type;
-	//	typedef Tuple_Handler now_handler_type;
-	//	typedef calculator<now_container_type,
-	//						now_handler_type,
-	//						boost::tuples::length<now_handler_type>::value> now_calculator_type;
-
-	//	////class_name_getter_type name_getter;
-	//	//return reg_map.insert(id_parser_type::template get_reg_id<now_real_data_type>(),
-	//	//						calculator_contaniner_type(new now_calculator_type(handler))
-	//	//);
-
-	//	//boost::get<0>(handler);
-	//	//new now_calculator_type(boost::any(handler));
-	//	return false;
-	//}
-
-	//template<typename Container, typename Tuple_Handler>
-	//bool register_calculator_helper(const calculator_id_type& id, const Tuple_Handler& handler)
-	//{
-	//	//typedef Container now_container_type;
-	//	//typedef Tuple_Handler now_handler_type;
-	//	//typedef calculator<now_container_type,
-	//	//					now_handler_type,
-	//	//					boost::tuples::length<now_handler_type>::value> now_calculator_type;
-
-	//	//return reg_map.insert(id,
-	//	//						calculator_contaniner_type(new now_calculator_type(handler))
-	//	//					);
-
-	//	// 处理到这里 把所有的calcolator中的所有的HANDLER 都分开来 不要用TUPLE否则会OUT_OF_HEAP的
-	//	return false;
-	//}
-
 	calculator_contaniner_type
 		handler_find_calculator(const typename reg_map_type::base_type& base,
 									const calculator_id_type& cmp) const

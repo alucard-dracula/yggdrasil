@@ -109,6 +109,12 @@ public:
 		//empty op
 	}
 
+	void clear_tasks(void)
+	{
+		//empty op
+		base_type::clear_tasks();
+	}
+
 	void clear(void)
 	{
 		//empty op
