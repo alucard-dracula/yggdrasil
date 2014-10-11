@@ -325,7 +325,8 @@ void find(void)
 	//yggr::nsql_database_system::c_bson b1, b2;
 
 	Saver saver(vt);
-	accesser.find(saver, std::string("test"), std::string("foo"), b1, b2, 0, 1000);
+	//accesser.find(saver, std::string("test"), std::string("foo"), b1, b2, 0, 1000);
+	accesser.find(saver, std::string("test"), std::string("foo"), b1, b2, 1, 0);
 
 	for(int i = 0, isize = vt.size(); i != isize; ++i)
 	{
@@ -333,7 +334,7 @@ void find(void)
 	}
 
 	std::cout << vt.size() << std::endl;
-	assert(vt.size() == 2000);
+	assert(vt.size() == 1);
 }
 
 int main(int argc, char* argv[])

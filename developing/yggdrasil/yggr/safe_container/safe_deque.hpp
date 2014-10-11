@@ -531,6 +531,13 @@ public:
 		base_type::swap(tmp);
 	}
 
+	void copy_to_base(base_type& out) const
+	{
+		read_lock_type lk(_mutex);
+		const base_type& base = *this;
+		out = base;
+	}
+
 	bool is_exists(const val_type& val) const
 	{
 		read_lock_type lk(_mutex);

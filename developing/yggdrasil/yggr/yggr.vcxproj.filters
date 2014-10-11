@@ -1830,6 +1830,9 @@
     <ClInclude Include="network\service_handler_shared_wrap.hpp">
       <Filter>Header Files\network</Filter>
     </ClInclude>
+    <ClInclude Include="math\range_value.hpp">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="support\log_op_general_foo.ipp">

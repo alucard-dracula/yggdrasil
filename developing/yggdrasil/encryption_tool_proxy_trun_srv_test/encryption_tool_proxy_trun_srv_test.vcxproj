@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>proxy_trun_svr_test</ProjectName>
-    <ProjectGuid>{A6DE2210-806C-4723-8AA9-17D321279EB6}</ProjectGuid>
-    <RootNamespace>proxy_trun_svr_test</RootNamespace>
+    <ProjectName>encryption_tool_proxy_trun_svr_test</ProjectName>
+    <ProjectGuid>{C70A6CF4-1A96-46FF-9F75-F5B47C7CBD4E}</ProjectGuid>
+    <RootNamespace>encryption_tool_proxy_trun_svr_test</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -118,11 +118,11 @@
       <Culture>0x0804</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>libyggr_base-vc100.lib;libyggr_time-vc100.lib;libyggr_ids-vc100.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)proxy_trun_svr_test.exe</OutputFile>
+      <AdditionalDependencies>libyggr_base-vc100.lib;libyggr_time-vc100.lib;libyggr_ids-vc100.lib;libblowfish-vc100.lib;libmd5-vc100.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)encryption_tool_proxy_trun_svr_test.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>../lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ProgramDatabaseFile>.\Release/proxy_trun_srv_test.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>.\Release/encryption_proxy_trun_srv_test.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
@@ -163,11 +163,11 @@
       <Culture>0x0804</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>libyggr_base-vc100.lib;libyggr_time-vc100.lib;libyggr_ids-vc100.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)proxy_trun_svr_test.exe</OutputFile>
+      <AdditionalDependencies>libyggr_base-vc100.lib;libyggr_time-vc100.lib;libyggr_ids-vc100.lib;libblowfish-vc100.lib;libmd5-vc100.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)encryption_tool_proxy_trun_svr_test.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>../lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ProgramDatabaseFile>.\Release64/proxy_trun_srv_test.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>.\Release64/encryption_proxy_trun_srv_test.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <LinkTimeCodeGeneration>
       </LinkTimeCodeGeneration>
@@ -208,12 +208,12 @@
       <Culture>0x0804</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>libyggr_base-vc100-d.lib;libyggr_time-vc100-d.lib;libyggr_ids-vc100-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)proxy_trun_svr_test.exe</OutputFile>
+      <AdditionalDependencies>libyggr_base-vc100-d.lib;libyggr_time-vc100-d.lib;libyggr_ids-vc100-d.lib;libblowfish-vc100-d.lib;libmd5-vc100-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)encryption_tool_proxy_trun_svr_test.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>../lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>.\Debug/proxy_trun_srv_test.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>.\Debug/encryption_proxy_trun_srv_test.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
@@ -253,12 +253,12 @@
       <Culture>0x0804</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>libyggr_base-vc100-d.lib;libyggr_time-vc100-d.lib;libyggr_ids-vc100-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)proxy_trun_svr_test.exe</OutputFile>
+      <AdditionalDependencies>libyggr_base-vc100-d.lib;libyggr_time-vc100-d.lib;libyggr_ids-vc100-d.lib;libblowfish-vc100-d.lib;libmd5-vc100-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)encryption_tool_proxy_trun_svr_test.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>../lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>.\Debug64/proxy_trun_srv_test.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>.\Debug64/encryption_proxy_trun_srv_test.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
@@ -277,7 +277,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="proxy_trun_tcp_svr_fix_proxy_data_test.cpp" />
+    <ClCompile Include="encryption_tool_proxy_trun_tcp_svr_fix_proxy_data_test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

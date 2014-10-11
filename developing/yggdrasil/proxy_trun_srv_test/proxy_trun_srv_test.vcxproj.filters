@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="proxy_trun_tcp_svr_test.cpp">
+    <ClCompile Include="proxy_trun_tcp_svr_fix_proxy_data_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

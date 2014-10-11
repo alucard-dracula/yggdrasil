@@ -500,6 +500,23 @@ protected:
 			cont.insert(owner_info_type(*i));
 		}
 	}
+
+	template<typename Runner, typename Handler>
+	void route(const owner_info_type& owner,
+					const net_ipak_type& proxy_data,
+					Runner* prunner,
+					const Handler& handler,
+					u32 cal_type)
+	{
+		proxy_router_ptr_type proute = _router_wrap.get_shared_ptr();
+
+		if(!proute)
+		{
+			return;
+		}
+
+		proute->route(owner, proxy_data, prunner, handler, cal_type);
+	}
 protected:
 	proxy_repeater_wrap_type _repeater_wrap;
 	proxy_router_wrap_type _router_wrap;

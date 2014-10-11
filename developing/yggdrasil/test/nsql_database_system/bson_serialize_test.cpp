@@ -10,6 +10,9 @@
 #include <yggr/packet/packet.hpp>
 #include <yggr/archive/network_archive_partner.hpp>
 
+//#include <yggr/archive/bson_oarchive.hpp>
+//#include <yggr/archive/bson_iarchive.hpp>
+
 #include <boost/serialization/shared_ptr.hpp>
 #include <yggr/serialization/bson_data_type.hpp>
 #include <yggr/serialization/array.hpp>
@@ -401,26 +404,26 @@ void test1(void)
 	std::cout << test2 << std::endl;
 }
 
-void test2(void)
-{
-	type_test test;
-	yggr::nsql_database_system::c_bson buf;
-
-	oar_type oar(buf);
-	oar & YGGR_SERIALIZE_NAME_NVP(typeid(type_test).name(), test);
-	buf.finish();
-
-	type_test test2(10);
-	iar_type iar(buf);
-
-	iar & YGGR_SERIALIZE_NAME_NVP(typeid(type_test).name(), test2);;
-	std::cout << test2 << std::endl;
-}
+//void test2(void)
+//{
+//	type_test test;
+//	yggr::nsql_database_system::c_bson buf;
+//
+//	oar_type oar(buf);
+//	oar & YGGR_SERIALIZE_NAME_NVP(typeid(type_test).name(), test);
+//	buf.finish();
+//
+//	type_test test2(10);
+//	iar_type iar(buf);
+//
+//	iar & YGGR_SERIALIZE_NAME_NVP(typeid(type_test).name(), test2);;
+//	std::cout << test2 << std::endl;
+//}
 
 int main(int argc, char* argv[])
 {
 	test1();
-	test2();
+	//test2();
 	char cc = 0;
 	std::cin >> cc;
 	return 0;

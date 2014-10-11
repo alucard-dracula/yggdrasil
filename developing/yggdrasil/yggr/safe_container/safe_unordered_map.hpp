@@ -654,6 +654,13 @@ public:
 		return base_type::find(key) != base_type::end();
 	}
 
+	void copy_to_base(base_type& out) const
+	{
+		read_lock_type lk(_mutex);
+		const base_type& base = *this;
+		out = base;
+	}
+
 	// use_handler
 	template<typename Handler>
 	bool use_handler(const key_type& key, const Handler& handler)
@@ -1324,6 +1331,13 @@ public:
 	{
 		read_lock_type lk(_mutex);
 		return base_type::find(key) != base_type::end();
+	}
+
+	void copy_to_base(base_type& out) const
+	{
+		read_lock_type lk(_mutex);
+		const base_type& base = *this;
+		out = base;
 	}
 
 	// use_handler

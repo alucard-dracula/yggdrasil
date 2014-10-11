@@ -60,7 +60,7 @@ enum
 #ifndef YGGR_SYSTEM_64
 #	if (E__pointer_byte_size__ == 8)
 #		define YGGR_SYSTEM_64
-#	endif // (sizeof(int*) == 8)
+#	endif // (E__pointer_byte_size__ == 8)
 #endif // YGGR_SYSTEM_64
 
 namespace yggr
@@ -106,8 +106,6 @@ typedef double f64; //64-bit float type
 #else
 	typedef u32 ser_size_type;
 #endif //YGGR_SERIALIZE_SIZE32
-
-
 
 } // namespace yggr
 

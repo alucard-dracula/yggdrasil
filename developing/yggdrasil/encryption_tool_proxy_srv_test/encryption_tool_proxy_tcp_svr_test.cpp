@@ -1,4 +1,4 @@
-//static_task_center_balance_clt_test.cpp
+//proxy_tcp_svr_test.cpp
 
 #include <iostream>
 
@@ -62,11 +62,15 @@
 #include <yggr/network/session_state/session_state_fixer.hpp>
 #include <yggr/network/session_state/session_state_checker.hpp>
 
-#include <yggr/network/heart/heart_data.hpp>
-#include <yggr/network/heart/heart_dst_fixer.hpp>
+#include <yggr/proxy/proxy_msg/proxy_register_msg.hpp>
+#include <yggr/proxy/proxy_msg/proxy_register_back_msg.hpp>
+#include <yggr/proxy/proxy_msg/proxy_mode_change_back_msg.hpp>
+#include <yggr/proxy/proxy_msg/proxy_mode_change_msg.hpp>
+#include <yggr/proxy/proxy_msg/proxy_unregister_msg.hpp>
+#include <yggr/proxy/proxy_msg/proxy_unregister_back_msg.hpp>
 
-#include <yggr/network/heart/heart_data.hpp>
-#include <yggr/network/heart/heart_dst_fixer.hpp>
+#include <yggr/proxy/proxy_mode/proxy_mode_def.hpp>
+#include <yggr/proxy/proxy_fix_state_def.hpp>
 
 #include <yggr/client/client_config/client_tcp_config.hpp>
 #include <yggr/client/start_mode/client_passive_tcp_start_mode.hpp>
@@ -87,7 +91,6 @@
 
 
 //----------------------------------------------------------------------------------
-
 typedef yggr::encryption_tool::blowfish_tool<> blowfish_tool_type;
 typedef yggr::encryption_tool::md5_tool md5_tool_type;
 typedef yggr::encryption_tool::safe_packet_tool<blowfish_tool_type, md5_tool_type> safe_packet_tool_type;
@@ -194,9 +197,20 @@ typedef yggr::adapter::adapter_mgr<task_center_type,
 									adaper_id_parser_def_type,
 									yggr::network::adapter_helper::io_converter> adapter_mgr_type;
 
+typedef adapter_mgr_type::reg_def_type adapter_mgr_reg_def_type;
+
 typedef yggr::network::ex_linker<yggr::network::network_config::balance_tcpv4_config> linker_type;
 
 typedef yggr::network::connection<linker_type, net_opak_type, net_ipak_type> conn_type;
+
+//typedef yggr::network::packets_support::packets_checker<network_info_type> packets_checker_type;
+//YGGR_PP_REGISTER_SESSION_CHECKER_CREATOR_BEGIN(test_pak_type, test_pak, packets_checker_type)
+//	test_pak.id()
+//YGGR_PP_REGISTER_SESSION_CHECKER_CREATOR_END()
+//
+//typedef yggr::network::packets_support::packets_crypher<void> packets_crypher_type;
+//YGGR_PP_REGISTER_SESSION_CRYPHER_CREATOR_BEGIN(test_pak_type, test_pak, packets_crypher_type)
+//YGGR_PP_REGISTER_SESSION_CRYPHER_CREATOR_END()
 
 //encryption def
 typedef yggr::network::packets_support::packets_checker<network_info_type, 1000> packets_checker_type;
@@ -211,23 +225,13 @@ YGGR_PP_REGISTER_SESSION_CRYPHER_CREATOR_END()
 
 typedef yggr::network::session_helper::first_action first_action_type;
 
-typedef yggr::network::heart::heart_data<> heart_data_type;
-typedef yggr::network::session_state::session_state_fixer
-		<
-			yggr::network::session_state::session_state_def
-			<
-				yggr::network::session_state::tag_def::E_session_state_online
-			>,
-			yggr::network::heart::heart_dst_fixer<heart_data_type>
-		> session_state_fixer_type;
-
 typedef yggr::network::session<yggr::network::type_traits::tag_client,
 								conn_type,
 								adapter_mgr_type,
 								packets_checker_type,
 								packets_crypher_type,
 								first_action_type,
-								session_state_fixer_type
+								yggr::network::session_state::default_session_state_fixer_type
 							> session_type;
 
 typedef yggr::network::start_data::start_data_loader<test_pak_type> start_data_loader_type;
@@ -275,9 +279,23 @@ typedef clt_ptr_single_type::obj_ptr_type clt_ptr_type;
 //-------------------------------------------------------------------
 
 static yggr::u32 send_count = 0;
+static yggr::u32 now_state = 0;
+static yggr::u32 chg_state = 0;
+
+typedef yggr::proxy::proxy_msg::proxy_register_msg<> proxy_register_msg_type;
+typedef yggr::proxy::proxy_msg::proxy_register_back_msg<> proxy_register_back_msg_type;
+typedef yggr::proxy::proxy_msg::proxy_mode_change_msg<> proxy_mode_change_msg_type;
+typedef yggr::proxy::proxy_msg::proxy_mode_change_back_msg<> proxy_mode_change_back_msg_type;
+typedef yggr::proxy::proxy_msg::proxy_unregister_msg<> proxy_unregister_msg_type;
+typedef yggr::proxy::proxy_msg::proxy_unregister_back_msg<> proxy_unregister_back_msg_type;
+
+typedef yggr::proxy::proxy_mode::proxy_mode_def proxy_mode_def_type;
+typedef yggr::proxy::proxy_fix_state_def proxy_fix_state_def_type;
 
 struct Calculator : public boost::enable_shared_from_this<Calculator>
 {
+private:
+	typedef Calculator this_type;
 public:
 	ERROR_MAKER_BEGIN("Clt_Calculator")
 		ERROR_CODE_DEF_NON_CODE_BEGIN()
@@ -293,7 +311,6 @@ public:
 
 	typedef boost::unordered_multiset<owner_info_type> owner_info_container_type;
 
-
 	template<typename Runner, typename Action_Table, typename Recv_Handler>
 	void register_cal_object(Action_Table& at, const Recv_Handler& handler)
 	{
@@ -306,43 +323,177 @@ public:
 		typedef Recv_Handler recv_handler_type;
 
 		at.template register_calculator<test_pak_type, Recv_Handler>(
-				handler, boost::bind(&Calculator::cal_test_pak_type<owner_info_type,
+				handler, boost::bind(&this_type::cal_test_pak_type<owner_info_type,
 																	runner_type,
 																	recv_handler_type>,
 									shared_from_this(), _1, _2, _3, _4));
-	}
 
-	template<typename Action_Table>
-	void unregister_cal_object(Action_Table& at)
-	{
-		at.template unregister_calculator<test_pak_type>();
+		at.template register_calculator<proxy_register_back_msg_type, Recv_Handler>(
+				handler, boost::bind(&this_type::cal_register_back_msg_type<owner_info_type,
+																				runner_type,
+																				recv_handler_type>,
+									shared_from_this(), _1, _2, _3, _4));
+
+		at.template register_calculator<proxy_mode_change_back_msg_type, Recv_Handler>(
+				handler, boost::bind(&this_type::cal_mode_change_back_msg_type<owner_info_type,
+																				runner_type,
+																				recv_handler_type>,
+									shared_from_this(), _1, _2, _3, _4));
+
+		at.template register_calculator<proxy_unregister_back_msg_type, Recv_Handler>(
+				handler, boost::bind(&this_type::cal_proxy_unregister_back_msg_type<owner_info_type,
+																				runner_type,
+																				recv_handler_type>,
+									shared_from_this(), _1, _2, _3, _4));
 	}
 
 
 	template<typename Owner, typename Runner, typename Handler>
 	void cal_test_pak_type(const Owner& owner, const test_pak_type& cdt, Runner* prunner, const Handler& handler)
 	{
-		static int count = 0;
+		//static int count = 0;
 		static int i = 0;
 
-		++i;
-		std::cout << "-------------calculate " << i << "-----------------------"<< std::endl;
-		std::cout << "id = " << cdt.id() << ", key = " << cdt.key() << std::endl;
-
-
-		if(i < send_count)
+		if(owner.size() == 1)
 		{
+			proxy_register_msg_type msg;
+			/*msg.add_reg_data(test_pak_type::s_data_info(),
+								proxy_mode_def_type::E_proxy_mode_monopolize,
+								test_pak_type::s_cal_type());*/
+
+			msg.add_reg_data(test_pak_type::s_data_info(),
+								now_state,
+								test_pak_type::s_cal_type());
 
 			owner_info_container_type owners;
 			owners.insert(owner);
 			YGGR_PP_TASK_CENTER_BACK_TASK(handler, prunner, error_maker_type::make_error(0),
 											yggr::task_center::runtime_task_type::E_CAL_RESULT,
-											owners, cdt);
+											owners, msg);
+			return;
+
 		}
+
+		++i;
+		std::cout << "-------------calculate " << i << "-----------------------"<< std::endl;
+		std::cout << "id = " << cdt.id() << std::endl;
+
+		owner_info_container_type owners;
+		owners.insert(owner);
+		YGGR_PP_TASK_CENTER_BACK_TASK(handler, prunner, error_maker_type::make_error(0),
+										yggr::task_center::runtime_task_type::E_CAL_RESULT,
+										owners, cdt);
 
 		return;
 	}
+
+	template<typename Owner, typename Runner, typename Handler>
+	void cal_register_back_msg_type(const Owner& owner,
+										const proxy_register_back_msg_type& cdt,
+										Runner* prunner,
+										const Handler& handler)
+	{
+		typedef proxy_register_back_msg_type::reg_back_map_type reg_back_map_type;
+		typedef reg_back_map_type::const_iterator citer_type;
+
+		const reg_back_map_type& ref_back = cdt.reg_back_map();
+
+		//Debug Code S
+		bool bend = false;
+		//Debug Code E
+
+		for(citer_type i = ref_back.begin(), isize = ref_back.end(); i != isize; ++i)
+		{
+			std::cout << "register result id = " << i->first
+						<< ", now_mode = " << i->second.first
+						<< ", state = " << i->second.second << std::endl;
+
+			//Debug Code S
+			if(i->second.first == chg_state || i->second.second == 4)
+			{
+				bend = true;
+			}
+			//Debug Code E
+		}
+
+		//Debug code S
+		if(now_state == chg_state || bend)
+		{
+			return;
+		}
+
+		proxy_mode_change_msg_type chg_msg;
+		chg_msg.add_chg_data(test_pak_type::s_data_info(), chg_state);
+
+		owner_info_container_type owners;
+		owners.insert(owner);
+		YGGR_PP_TASK_CENTER_BACK_TASK(handler, prunner, error_maker_type::make_error(0),
+										yggr::task_center::runtime_task_type::E_CAL_RESULT,
+										owners, chg_msg);
+		//Debug code E
+	}
+
+	template<typename Owner, typename Runner, typename Handler>
+	void cal_mode_change_back_msg_type(const Owner& owner,
+										const proxy_mode_change_back_msg_type& cdt,
+										Runner* prunner,
+										const Handler& handler)
+	{
+		std::cout << "proxy server mode changed data_info = "
+					<< cdt.now_data_info()
+					<< " now mode is "
+					<< cdt.now_mode() << std::endl;
+
+		if(now_state == chg_state)
+		{
+			return;
+		}
+
+		proxy_unregister_msg_type unreg_msg;
+		unreg_msg.add_unreg_data(test_pak_type::s_data_info());
+
+		owner_info_container_type owners;
+		owners.insert(owner);
+		YGGR_PP_TASK_CENTER_BACK_TASK(handler, prunner, error_maker_type::make_error(0),
+										yggr::task_center::runtime_task_type::E_CAL_RESULT,
+										owners, unreg_msg);
+	}
+
+	template<typename Owner, typename Runner, typename Handler>
+	void cal_proxy_unregister_back_msg_type(const Owner& owner,
+										const proxy_unregister_back_msg_type& cdt,
+										Runner* prunner,
+										const Handler& handler)
+	{
+		typedef proxy_unregister_back_msg_type::unreg_back_map_type unreg_back_map_type;
+		typedef unreg_back_map_type::const_iterator unreg_back_map_citer_type;
+		const unreg_back_map_type& unreg_back_map = cdt.unreg_back_map();
+
+		for(unreg_back_map_citer_type i = unreg_back_map.begin(), isize = unreg_back_map.end(); i != isize; ++i)
+		{
+			std::cout << "unreg data = "
+						<< i->first
+						<< " is right "
+						<< (i->second? "true" : "false") << std::endl;
+		}
+
+	}
 };
+
+void out_input_menu(void)
+{
+	/*
+	E_proxy_mode_monopolize,
+		E_proxy_mode_source_hash,
+		E_proxy_mode_blanace,
+		E_proxy_mode_all,
+	*/
+	std::cout << "proxy_state:\n"
+				<< "1: mode_monopolize\n"
+				<< "2: mode_source_hash\n"
+				<< "3: mode_blance\n"
+				<< "4: mode_all" << std::endl;
+}
 
 int main(int argc, char* argv[])
 {
@@ -351,19 +502,24 @@ int main(int argc, char* argv[])
 	typedef yggr::ptr_single<ctrl_center_type> ctrl_center_single;
 	typedef yggr::ptr_single<yggr::log::yggr_exception_log_accesser_type> log_accesser_single;
 
-	std::cout << "please input num" << std::endl;
-	std::cin >> send_count;
+	//std::cout << "please input num" << std::endl;
+	//std::cin >> send_count;
+
+	out_input_menu();
+	std::cout << "please input now_state and chg_state" << std::endl;
+	std::cin >> now_state >> chg_state;
 
 	yggr::log::yggr_exception_log_accesser_type::init_type log_init; //memd to BOOST_PP_LOCAL_MACRO
 	log_init.push_back("clt_nt_log_eins");
 	log_init.push_back("clt_nt_log_zwei");
 
-	log_accesser_single::init_ins(log_init);
+	//log_accesser_single::init_ins(log_init);
 
 	yggr::log::yggr_exception_log_accesser_type::data_creator_type dc1("clt_nt_log_eins");
 	yggr::log::yggr_exception_log_accesser_type::data_creator_type dc2("clt_nt_log_zwei");
-	log_accesser_single::get_ins()->register_msg(10061, dc1);
-	log_accesser_single::get_ins()->register_msg(10057, dc2);
+
+	//log_accesser_single::get_ins()->register_msg(10061, dc1);
+	//log_accesser_single::get_ins()->register_msg(10057, dc2);
 
 	ctrl_center_single::init_ins();
 	yggr::ptr_single<yggr::exception::exception>::init_ins();
@@ -380,9 +536,10 @@ int main(int argc, char* argv[])
 
 	task_center_single::init_ins(shared_info_ptr, task_center_type::rst_saver_init_type());
 
-	//{
-	//	shared_info_ptr.swap(runner_shared_info_ptr_type());
-	//}
+	{
+	    runner_shared_info_ptr_type tmp;
+		shared_info_ptr.swap(tmp);
+	}
 
 	clt_ptr_single_type::init_ins(1,
 									tcp_clt_handler_type::init_type(*(task_center_single::get_ins()),
@@ -392,7 +549,14 @@ int main(int argc, char* argv[])
 
 	ctrl_center_single::obj_ptr_type pctrl = ctrl_center_single::get_ins();
 
+	// register network protocol
 	pclt->register_network_protocol<test_pak_type>();
+	pclt->register_network_protocol<proxy_register_msg_type>(yggr::network::network_direct_def_type::E_send_enable);
+	pclt->register_network_protocol<proxy_register_back_msg_type>(yggr::network::network_direct_def_type::E_recv_enable);
+	pclt->register_network_protocol<proxy_mode_change_msg_type>(yggr::network::network_direct_def_type::E_send_enable);
+	pclt->register_network_protocol<proxy_mode_change_back_msg_type>(yggr::network::network_direct_def_type::E_recv_enable);
+	pclt->register_network_protocol<proxy_unregister_msg_type>(yggr::network::network_direct_def_type::E_send_enable);
+	pclt->register_network_protocol<proxy_unregister_back_msg_type>(yggr::network::network_direct_def_type::E_recv_enable);
 
 	if(pctrl)
 	{
@@ -426,14 +590,8 @@ int main(int argc, char* argv[])
 		std::cerr << e.message() << std::endl;
 	}
 
-	shared_info_ptr->unregister_calculator(*my_cal);
-	{
-	    runner_shared_info_ptr_type tmp;
-		shared_info_ptr.swap(tmp);
-	}
-
 	pclt->stop();
-	yggr::ptr_single<yggr::exception::exception>::get_ins()->stop();
+	//yggr::ptr_single<yggr::exception::exception>::get_ins()->stop();
 	{
 	    clt_ptr_type tmp;
 		pclt.swap(tmp);

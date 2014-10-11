@@ -1009,7 +1009,7 @@ public:
 
 	this_type& assign(const this_type& right)
 	{
-		base_type::append(right);
+		base_type::assign(right);
 		_utf8_size = right._utf8_size;
 		return *this;
 	}

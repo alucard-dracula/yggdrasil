@@ -259,6 +259,7 @@
     <ClInclude Include="math\matrix2d.hpp" />
     <ClInclude Include="math\matrix3d.hpp" />
     <ClInclude Include="math\array_indexes_permutation_parity.hpp" />
+    <ClInclude Include="math\range_value.hpp" />
     <ClInclude Include="math\sqrt.hpp" />
     <ClInclude Include="math\value_miss_comparer.hpp" />
     <ClInclude Include="math\vector2d.hpp" />

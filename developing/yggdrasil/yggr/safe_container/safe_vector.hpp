@@ -487,6 +487,13 @@ public:
 		return std::find(base_type::begin(), base_type::end(), val) != base_type::end();
 	}
 
+	void copy_to_base(base_type& out) const
+	{
+		read_lock_type lk(_mutex);
+		const base_type& base = *this;
+		out = base;
+	}
+
 	// use handler:
 	template<typename Handler>
 	typename Handler::result_type use_handler(const Handler& handler)

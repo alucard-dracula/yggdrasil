@@ -28,6 +28,7 @@ THE SOFTWARE.
 #define __YGGR_MATH_MATH_HPP__
 
 #include <complex>
+#include <yggr/math/range_value.hpp>
 #include <yggr/math/sign.hpp>
 #include <yggr/math/sqrt.hpp>
 #include <yggr/math/value_miss_comparer.hpp>
