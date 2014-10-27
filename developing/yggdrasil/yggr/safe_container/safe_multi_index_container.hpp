@@ -137,7 +137,6 @@ public:
 	{
 	}
 
-
 	~safe_multi_index_container(void)
 	{
 	}

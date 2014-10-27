@@ -69,6 +69,12 @@ public:
 	{
 		return now_ver();
 	}
+
+	operator u32(void) const
+	{
+		return _ver;
+	}
+
 private:
 	ver_type _ver;
 };

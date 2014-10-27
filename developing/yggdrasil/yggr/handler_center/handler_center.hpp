@@ -517,6 +517,9 @@ private:
 #define YGGR_PP_HANDLER_NAME( __foo__ ) \
 	YGGR_PP_CAST( __foo__, YGGR_PP_CAST_TO_STRING )
 
+#define YGGR_PP_HANDLER_NAME_T( __type__, __foo__ ) \
+	__type__( YGGR_PP_CAST( __foo__, YGGR_PP_CAST_TO_STRING ) )
+
 #define YGGR_PP_MEM_HANDLER_NAME(__class__, __foo__) \
 	YGGR_PP_CAST(BOOST_PP_CAT(__class__, BOOST_PP_CAT(YGGR_PP_SYMBOL_AREA(), __foo__)), YGGR_PP_CAST_TO_STRING )
 

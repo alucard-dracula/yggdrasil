@@ -1833,6 +1833,12 @@
     <ClInclude Include="math\range_value.hpp">
       <Filter>Header Files\math</Filter>
     </ClInclude>
+    <ClInclude Include="mapping\static_index_mapping.hpp">
+      <Filter>Header Files\mapping</Filter>
+    </ClInclude>
+    <ClInclude Include="struct_support\pair.hpp">
+      <Filter>Header Files\struct_support</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="support\log_op_general_foo.ipp">

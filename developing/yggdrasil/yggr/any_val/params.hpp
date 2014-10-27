@@ -106,18 +106,11 @@ public:
 	{
 	}
 
-#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
-	params(BOOST_RV_REF(this_type) right)
-		: base_type(boost::forward<base_type>(right))
-	{
-	}
-#else
 	params(BOOST_RV_REF(this_type) right)
 	{
 		this_type& right_ref = right;
 		base_type::swap(right_ref);
 	}
-#endif // YGGR_NO_CXX11_RVALUE_REFERENCES
 
 	params(const this_type& right)
 		: base_type(right)
@@ -191,12 +184,8 @@ public:
 
 	this_type& copy_from(BOOST_RV_REF(this_type) right)
 	{
-#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
-		base_type::operator=(boost::forward<base_type>(right));
-#else
 		base_type& right_ref = right;
 		base_type::swap(right_ref);
-#endif // YGGR_NO_CXX11_RVALUE_REFERENCES
 		return *this;
 	}
 

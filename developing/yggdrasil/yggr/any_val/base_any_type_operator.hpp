@@ -86,7 +86,8 @@ THE SOFTWARE.
 	if(__any__.type() == typeid(__type__)) { \
 		const __type__ *p2 = boost::any_cast<__type__>(&__any__); \
 		if(!p2) { return;} \
-		__foo__(*p1, *p2); }
+		__foo__(*p1, *p2); \
+		return; }
 
 #define ANY_MATH_NRET_CHECK_CAL_2_END } 
 

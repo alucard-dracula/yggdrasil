@@ -67,6 +67,24 @@ public:
 		return base_type::get();
 	}
 
+
+	// thank you for qq [C++/ObjC/Java]ZERO
+	// call: child_type *p = interface_ptr return 0 is failed
+	template<typename Child>
+	operator Child*(void)
+	{
+		ptr_type tmp = base_type::get();
+		return dynamic_cast<Child*>(tmp);
+	}
+
+	// thank you for qq [C++/ObjC/Java]ZERO
+	template<typename Child>
+	operator const Child*(void) const
+	{
+		ptr_type tmp = base_type::get();
+		return dynamic_cast<Child*>(tmp);
+	}
+
 	template<typename Child>
 	const Child* child_cast(void) const
 	{

@@ -1318,6 +1318,7 @@ int main(int argc, char* argv[])
 	test_modify();
 	test_string_operations();
 	non_member_foo_test();
+
 #	ifdef TEST_IO
 	test_io();
 #	endif // TEST_IO

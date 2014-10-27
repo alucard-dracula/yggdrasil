@@ -252,6 +252,7 @@
     <ClInclude Include="lua_wrap\wrap_set.hpp" />
     <ClInclude Include="lua_wrap\wrap_vector.hpp" />
     <ClInclude Include="mapping\non_mapping.hpp" />
+    <ClInclude Include="mapping\static_index_mapping.hpp" />
     <ClInclude Include="mapping\unique_mapping.hpp" />
     <ClInclude Include="math\determinant.hpp" />
     <ClInclude Include="math\elo_rating.hpp" />
@@ -525,6 +526,7 @@
     <ClInclude Include="server\basic_svr_handler.hpp" />
     <ClInclude Include="server\server.hpp" />
     <ClInclude Include="struct_support\bind.hpp" />
+    <ClInclude Include="struct_support\pair.hpp" />
     <ClInclude Include="struct_support\tuple.hpp" />
     <ClInclude Include="support\boost_ver_include.hpp" />
     <ClInclude Include="support\ref.hpp" />

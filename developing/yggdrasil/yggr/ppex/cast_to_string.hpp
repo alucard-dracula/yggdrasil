@@ -27,6 +27,8 @@ THE SOFTWARE.
 #ifndef __YGGR_PPEX_CAST_TO_STRING_HPP__
 #define __YGGR_PPEX_CAST_TO_STRING_HPP__
 
+#include <boost/preprocessor/cat.hpp>
+
 #define YGGR_PP_CAST_TO_STRING( __x__ ) #__x__
 #define YGGR_PP_CAST_TO_WSTRING( __x__ ) BOOST_PP_CAT(L, #__x__)
 

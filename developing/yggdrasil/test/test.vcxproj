@@ -303,7 +303,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="nsql_database_system\mongo_find_test_ret_skip.cpp" />
+    <ClCompile Include="any_val\params_test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -445,12 +445,12 @@ private:
 	BOOST_COPYABLE_AND_MOVABLE(this_type)
 public:
 	utf8_string_impl(void)
-		: _utf8_size(0)
+		: _utf8_size(size_type())
 	{
 	}
 
 	explicit utf8_string_impl(const alloc_type& alloc)
-		: base_type(alloc), _utf8_size(0)
+		: base_type(alloc), _utf8_size(size_type())
 	{
 	}
 
@@ -458,14 +458,14 @@ public:
 	utf8_string_impl(const Char* src,
 						const string& src_charset_name = charset_name_t<Char>(),
 						const alloc_type& alloc = alloc_type())
-		: base_type(alloc), _utf8_size(0)
+		: base_type(alloc), _utf8_size(size_type())
 	{
 		this_type::assign(src, src_charset_name);
 	}
 
 	template<typename Char>
 	utf8_string_impl(const Char* src, const alloc_type& alloc)
-		: base_type(alloc), _utf8_size(0)
+		: base_type(alloc), _utf8_size(size_type())
 	{
 		this_type::assign(src);
 	}
@@ -477,7 +477,7 @@ public:
 	utf8_string_impl(const Basic_String<Char, Traits, Alloc>& src,
 						const string& src_charset_name = charset_name_t<Char>(),
 						const alloc_type& alloc = alloc_type())
-		: base_type(alloc), _utf8_size(0)
+		: base_type(alloc), _utf8_size(size_type())
 	{
 		this_type::assign<Char, Traits, Alloc, Basic_String>(src, src_charset_name);
 	}
@@ -487,7 +487,7 @@ public:
 				class Basic_String >
 	utf8_string_impl(const Basic_String<Char, Traits, Alloc>& src,
 						const alloc_type& alloc)
-		: base_type(alloc), _utf8_size(0)
+		: base_type(alloc), _utf8_size(size_type())
 	{
 		this_type::assign<Char, Traits, Alloc, Basic_String>(src);
 	}
@@ -496,7 +496,7 @@ public:
 	utf8_string_impl(InputIter start, InputIter last,
 					const string& src_charset_name = charset_name_t<typename mplex::iterator_to_value_t<InputIter>::type>(),
 					const alloc_type& alloc = alloc_type())
-		: base_type(alloc), _utf8_size(0)
+		: base_type(alloc), _utf8_size(size_type())
 	{
 		this_type::assign(start, last, src_charset_name);
 	}
@@ -504,7 +504,7 @@ public:
 	template<typename InputIter>
 	utf8_string_impl(InputIter start, InputIter last,
 					const alloc_type& alloc)
-		: base_type(alloc), _utf8_size(0)
+		: base_type(alloc), _utf8_size(size_type())
 	{
 		this_type::assign(start, last);
 	}
@@ -520,7 +520,7 @@ public:
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
 	utf8_string_impl(BOOST_RV_REF(this_type) right)
 		: base_type(boost::forward<base_type>(right)),
-		_utf8_size(boost::forward<size_type>(right._utf8_size))
+		_utf8_size(right._utf8_size)
 	{
 	}
 #else
@@ -529,7 +529,7 @@ public:
 	{
 		base_type& right_ref = right;
 		base_type::swap(right_ref);
-		std::swap(_utf8_size, right._utf8_size);
+		_utf8_size = right._utf8_size;
 	}
 #endif // YGGR_NO_CXX11_RVALUE_REFERENCES
 
@@ -998,11 +998,11 @@ public:
 	{
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
 		base_type::assign(boost::forward<base_type>(right));
-		_utf8_size = boost::forward<size_type>(right._utf8_size);
+		_utf8_size =right._utf8_size;
 #else
 		base_type& right_ref = right;
 		base_type::swap(right_ref);
-		std::swap(_utf8_size, right._utf8_size);
+		_utf8_size = right._utf8_size;;
 #endif // YGGR_NO_CXX11_RVALUE_REFERENCES
 		return *this;
 	}
@@ -1498,7 +1498,7 @@ public:
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
 		//base_type::swap(boost::forward<base_type>(right));
 		base_type::swap(right);
-		std::swap(_utf8_size, boost::forward<size_type>(right._utf8_size));
+		std::swap(_utf8_size, right._utf8_size);
 #else
 		this_type& right_ref = right;
 		base_type::swap(right_ref);

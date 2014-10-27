@@ -28,7 +28,7 @@
 		<Project filename="clt_test/clt_test_win64.cbp" />
 		<Project filename="udp_svr_test/udp_svr_test_win64.cbp" />
 		<Project filename="udp_clt_test/udp_clt_test_win64.cbp" />
-		<Project filename="dll_cal_test/dll_cal_test_win64.cbp">
+		<Project filename="dll_cal_test/dll_cal_test_win64.cbp" active="1">
 			<Depends filename="yggr_base/yggr_base_win64.cbp" />
 			<Depends filename="yggr_time/yggr_time_win64.cbp" />
 			<Depends filename="yggr_ids/yggr_ids_win64.cbp" />
@@ -48,6 +48,6 @@
 		<Project filename="udp_proxy_trun_srv_test/udp_proxy_trun_srv_test_win64.cbp" />
 		<Project filename="udp_proxy_svr_test/udp_proxy_svr_test_win64.cbp" />
 		<Project filename="mixer_svr_test/mixer_svr_test_win64.cbp" />
-		<Project filename="proxy_trun_mixer_srv_test/proxy_trun_mixer_srv_test_win64.cbp" active="1" />
+		<Project filename="proxy_trun_mixer_srv_test/proxy_trun_mixer_srv_test_win64.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>
