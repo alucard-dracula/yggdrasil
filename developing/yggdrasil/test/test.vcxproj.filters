@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="any_val\params_test.cpp">
+    <ClCompile Include="math\matrix_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

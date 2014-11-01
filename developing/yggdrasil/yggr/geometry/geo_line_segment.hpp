@@ -31,23 +31,23 @@ THE SOFTWARE.
 #	include <yggr/support/max_min_undef.ipp>
 #endif // _MSC_VER
 
-#include <yggr/base/yggrdef.h>
-#include <yggr/math/sqrt.hpp>
-#include <yggr/geometry/geo_line.hpp>
 #include <complex>
 #include <utility>
 #include <functional>
-#include <boost/array.hpp>
 #include <cassert>
 
+#include <boost/array.hpp>
 #include <boost/mpl/size_t.hpp>
 #include <boost/mpl/comparison.hpp>
-
 #include <boost/mpl/equal_to.hpp>
-
 #include <boost/serialization/access.hpp>
-#include <yggr/serialization/array.hpp>
 
+#include <yggr/base/yggrdef.h>
+#include <yggr/move/move.hpp>
+#include <yggr/math/sqrt.hpp>
+#include <yggr/geometry/geo_line.hpp>
+
+#include <yggr/serialization/array.hpp>
 
 namespace yggr
 {
@@ -85,6 +85,7 @@ private:
 
 	typedef geo_line<pos_type, Array> base_type;
 	typedef geo_line_segment this_type;
+	BOOST_COPYABLE_AND_MOVABLE(this_type)
 
 public:
 
@@ -113,6 +114,11 @@ public:
 												boost::mpl::size_t<OPos::E_LENGTH> >));
 	}
 
+	geo_line_segment(BOOST_RV_REF(this_type) right)
+		: base_type(boost::forward<base_type>(right))
+	{
+	}
+
 	geo_line_segment(const this_type& right)
 		: base_type(right)
 	{
@@ -138,13 +144,30 @@ public:
 	}
 
 	template<typename OPos>
-	geo_line_segment& operator=(const geo_line_segment<OPos, Array, Base>& right)
+	this_type& operator=(const geo_line_segment<OPos, Array, Base>& right)
 	{
 		BOOST_MPL_ASSERT((boost::mpl::equal_to<boost::mpl::size_t<pos_type::E_LENGTH>,
 												boost::mpl::size_t<OPos::E_LENGTH> >));
 		base_type::src_pos = right.src_pos;
 		base_type::dst_pos = right.dst_pos;
 		return *this;
+	}
+
+	this_type& operator=(BOOST_RV_REF(this_type) right)
+	{
+		base_type::operator=(boost::forward<base_type>(right));
+		return *this;
+	}
+
+	this_type& operator=(const this_type& right)
+	{
+		base_type::operator=(right);
+		return *this;
+	}
+
+	void swap(this_type& right)
+	{
+		base_type::swap(right);
 	}
 
 	template<typename OPos>
@@ -373,5 +396,19 @@ private:
 };
 } // namespace geometry
 } // namespace yggr
+
+namespace std
+{
+template<typename Position,
+	template<typename _Val, std::size_t> class Array,
+	template<typename _Val,
+				template<typename __Val, std::size_t> class _Base> class Base>
+void swap(yggr::geometry::geo_line_segment<Position, Array, Base>& l, 
+			yggr::geometry::geo_line_segment<Position, Array, Base>& r)
+{
+	l.swap(r);
+}
+
+} // namespace std
 
 #endif //__YGGR_GEOMETRY_GEOMETRY_LINE_SEGMENT_HPP__

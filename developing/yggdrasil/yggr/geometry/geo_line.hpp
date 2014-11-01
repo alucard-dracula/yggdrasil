@@ -27,18 +27,21 @@ THE SOFTWARE.
 #ifndef __YGGR_GEOMETRY_GEOMETRY_LINE_HPP__
 #define __YGGR_GEOMETRY_GEOMETRY_LINE_HPP__
 
-#include <yggr/base/yggrdef.h>
 #include <complex>
 #include <utility>
 #include <vector>
-#include <yggr/math/sign.hpp>
-#include <boost/array.hpp>
 
+#include <boost/array.hpp>
 #include <boost/mpl/size_t.hpp>
 #include <boost/mpl/comparison.hpp>
 #include <boost/mpl/equal_to.hpp>
 
 #include <boost/serialization/access.hpp>
+
+#include <yggr/base/yggrdef.h>
+#include <yggr/move/move.hpp>
+#include <yggr/math/sign.hpp>
+
 #include <yggr/serialization/array.hpp>
 
 namespace yggr
@@ -77,6 +80,7 @@ private:
 
 	typedef Base<pos_type, E_LENGTH> base_type;
 	typedef geo_line this_type;
+	BOOST_COPYABLE_AND_MOVABLE(this_type)
 
 public:
 
@@ -111,6 +115,11 @@ public:
 		(*this) = right;
 	}
 
+	geo_line(BOOST_RV_REF(this_type) right)
+		: base_type(right), src_pos(base_type::operator[](0)), dst_pos(base_type::operator[](1))
+	{
+	}
+
 	geo_line(const this_type& right)
 		: base_type(right), src_pos(base_type::operator[](0)), dst_pos(base_type::operator[](1))
 	{
@@ -136,13 +145,48 @@ public:
 	}
 
 	template<typename OPos>
-	geo_line& operator=(const geo_line<OPos, Base>& right)
+	this_type& operator=(const geo_line<OPos, Base>& right)
 	{
 		BOOST_MPL_ASSERT((boost::mpl::equal_to<boost::mpl::size_t<pos_type::E_LENGTH>,
 												boost::mpl::size_t<OPos::E_LENGTH> >));
 		src_pos = right.src_pos;
 		dst_pos = right.dst_pos;
 		return *this;
+	}
+
+	this_type& operator=(BOOST_RV_REF(this_type) right)
+	{
+		if(this == &right)
+		{
+			return *this;
+		}
+
+		src_pos = right.src_pos;
+		dst_pos = right.dst_pos;
+		return *this;
+	}
+
+	this_type& operator=(const this_type& right)
+	{
+		if(this == &right)
+		{
+			return *this;
+		}
+
+		src_pos = right.src_pos;
+		dst_pos = right.dst_pos;
+		return *this;
+	}
+
+	void swap(this_type& right)
+	{
+		if(this == &right)
+		{
+			return;
+		}
+
+		src_pos.swap(right.src_pos);
+		dst_pos.swap(right.dst_pos);
 	}
 
 	template<typename OPos>
@@ -745,6 +789,18 @@ public:
 
 } // namespace geometry
 } // namespace yggr
+
+namespace std
+{
+
+template<typename Val,
+			template <typename _Val, std::size_t> class Base>
+void swap(yggr::geometry::geo_line<Val, Base>& l, yggr::geometry::geo_line<Val, Base>& r)
+{
+	l.swap(r);
+}
+
+} // namespace std
 
 #include <yggr/geometry/geo_plane.hpp>
 

@@ -27,14 +27,15 @@ THE SOFTWARE.
 #ifndef __YGGR_MATH_MATRIX2D_HPP__
 #define __YGGR_MATH_MATRIX2D_HPP__
 
-#include <yggr/base/yggrdef.h>
 #include <algorithm>
+#include <boost/array.hpp>
+#include <boost/serialization/access.hpp>
+
+#include <yggr/base/yggrdef.h>
+#include <yggr/move/move.hpp>
 #include <yggr/type_traits/upper_types.hpp>
 #include <yggr/math/determinant.hpp>
-#include <boost/array.hpp>
 #include <yggr/math/math.hpp>
-
-#include <boost/serialization/access.hpp>
 #include <yggr/serialization/array.hpp>
 
 #ifdef _MSC_VER
@@ -79,9 +80,11 @@ public:
 	typedef Val val_type;
 	typedef Array<val_type, E_COL_LENGTH> row_type;
 
-private:
 	typedef Base<val_type, E_ROW_LENGTH, E_COL_LENGTH, Array> base_type;
+
+private:
 	typedef matrix2d this_type;
+	BOOST_COPYABLE_AND_MOVABLE(this_type)
 
 public:
 	matrix2d(void)
@@ -119,6 +122,11 @@ public:
 
 	matrix2d(const base_type& right)
 		: base_type(right)
+	{
+	}
+
+	matrix2d(BOOST_RV_REF(this_type) right)
+		: base_type(boost::forward<base_type>(right))
 	{
 	}
 
@@ -350,7 +358,24 @@ public:
 	{
 		base_type& base = *this;
 		base = right;
+		return *this;
+	}
 
+	this_type& operator=(BOOST_RV_REF(this_type) right)
+	{
+		base_type::operator=(boost::forward<base_type>(right));
+		return *this;
+	}
+
+	this_type& operator=(const this_type& right)
+	{
+		base_type::operator=(right);
+		return *this;
+	}
+
+	void swap(this_type& right)
+	{
+		base_type::swap(right);
 		return *this;
 	}
 
@@ -610,7 +635,8 @@ private:
 		// e + o == o == (e - 1) + (o - 1)
 		// => sign(idxi + 1, idxj + 1) == sign(idxi, idxj) == sign(idxi - 1, idxj - 1)
 
-		return (i + j) % 2 == val_type(0)? val_type(1) : val_type(-1);
+		typedef typename upper_signed<val_type>::value_type sigend_val_type;
+		return (i + j) % 2 == size_type(0)? sigend_val_type(1) : sigend_val_type(-1);
 	}
 
 #endif // _DEBUG
@@ -656,6 +682,30 @@ struct upper_signed< math::matrix2d< Val, Array, Base > >
 
 
 } // namespace yggr
+
+template<typename ValL, typename ValR,
+		template<typename _Val, std::size_t> class Array,
+		template<typename _Val, std::size_t, std::size_t,
+					template<typename __Val, std::size_t> class _Base> class Base>
+yggr::math::matrix2d<ValR, Array, Base> operator*(const ValL& l, const yggr::math::matrix2d<ValR, Array, Base>& r)
+{
+	return r * l;
+}
+
+namespace std
+{
+
+template<typename Val,
+	template<typename _Val, std::size_t> class Array,
+	template<typename _Val, std::size_t, std::size_t,
+				template<typename __Val, std::size_t> class _Base> class Base>
+void swap(yggr::math::matrix2d<Val, Array, Base>& l, 
+			yggr::math::matrix2d<Val, Array, Base>& r)
+{
+	l.swap(r);
+}
+
+} // namespace std
 
 template<typename Char, typename Traits, typename Val,
 			template<typename _Val, std::size_t> class Array,

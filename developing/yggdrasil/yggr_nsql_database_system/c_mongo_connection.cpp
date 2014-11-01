@@ -26,6 +26,11 @@ THE SOFTWARE.
 
 #include <yggr/nsql_database_system/c_mongo_connection.hpp>
 
+#ifdef _MSC_VER
+#	include <vld.h>
+#endif // _MSC_VER
+
+
 namespace yggr
 {
 namespace nsql_database_system

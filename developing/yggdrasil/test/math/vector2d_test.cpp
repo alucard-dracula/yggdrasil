@@ -200,6 +200,9 @@ int main(int argc, char* argv[])
 	{
 		vec_type vec1(10, 20);
 		vec1 = vec1 * 100;
+		vec_type vec2 = 100 * vec1;
+
+		assert((vec1 * 100) == vec2);
 
 		std::cout << vec1.x << ", " <<vec1.y << ", " << vec1.w << std::endl;
 		std::cout << vec1[0] << ", " << vec1[1] << ", " << vec1[2] << std::endl;
@@ -417,6 +420,21 @@ int main(int argc, char* argv[])
 		vec_d_type vec2(30, 20);
 		std::cout << vec1.cross(vec2) << std::endl;
 		std::cout << "------------ cross_test_2_end------------------------------" << std::endl;
+	}
+
+	{
+		vec_type vec1(10, 20);
+		vec_type vec2(10, 20);
+
+		vec_type vec3(100, 200);
+		vec_type vec4(100, 200);
+
+		vec1.swap(vec3);
+		boost::swap(vec2, vec4);
+
+		assert(vec1 == vec2);
+		assert(vec3 == vec4);
+		std::cout << "------------ swap_test_end------------------------------" << std::endl;
 	}
 
 	char cc = 0;

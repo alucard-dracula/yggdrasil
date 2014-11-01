@@ -27,16 +27,17 @@ THE SOFTWARE.
 #ifndef __YGGR_MATH_MATRIX3D_HPP__
 #define __YGGR_MATH_MATRIX3D_HPP__
 
-#include <yggr/base/yggrdef.h>
 #include <algorithm>
+#include <boost/array.hpp>
+#include <boost/serialization/access.hpp>
+
+#include <yggr/base/yggrdef.h>
+#include <yggr/move/move.hpp>
 #include <yggr/type_traits/upper_types.hpp>
 #include <yggr/math/determinant.hpp>
-#include <boost/array.hpp>
 #include <yggr/math/math.hpp>
-
 #include <yggr/geometry/geo_plane.hpp>
 
-#include <boost/serialization/access.hpp>
 #include <yggr/serialization/array.hpp>
 
 #ifdef _MSC_VER
@@ -75,6 +76,7 @@ class matrix3d;
 
 namespace math
 {
+
 template<typename Val,
 	template<typename _Val, std::size_t> class Array = boost::array,
 	template<typename _Val, std::size_t, std::size_t,
@@ -93,9 +95,11 @@ public:
 	typedef Val val_type;
 	typedef Array<val_type, E_COL_LENGTH> row_type;
 
-private:
 	typedef Base<val_type, E_ROW_LENGTH, E_COL_LENGTH, Array> base_type;
+
+private:	
 	typedef matrix3d this_type;
+	BOOST_COPYABLE_AND_MOVABLE(this_type)
 
 public:
 	matrix3d(void)
@@ -133,6 +137,11 @@ public:
 
 	matrix3d(const base_type& right)
 		: base_type(right)
+	{
+	}
+
+	matrix3d(BOOST_RV_REF(this_type) right)
+		: base_type(boost::forward<base_type>(right))
 	{
 	}
 
@@ -368,6 +377,23 @@ public:
 		base = right;
 
 		return *this;
+	}
+
+	this_type& operator=(BOOST_RV_REF(this_type) right)
+	{
+		base_type::operator=(boost::forward<base_type>(right));
+		return *this;
+	}
+
+	this_type& operator=(const this_type& right)
+	{
+		base_type::operator=(right);
+		return *this;
+	}
+
+	void swap(this_type& right)
+	{
+		base_type::swap(right);
 	}
 
 	template<typename OVal>
@@ -832,6 +858,30 @@ struct upper_signed< math::matrix3d< Val, Array, Base > >
 
 
 } // namespace yggr
+
+template<typename ValL, typename ValR,
+		template<typename _Val, std::size_t> class Array,
+		template<typename _Val, std::size_t, std::size_t,
+					template<typename __Val, std::size_t> class _Base> class Base>
+yggr::math::matrix3d<ValR, Array, Base> operator*(const ValL& l, const yggr::math::matrix3d<ValR, Array, Base>& r)
+{
+	return r * l;
+}
+
+namespace std
+{
+
+template<typename Val,
+	template<typename _Val, std::size_t> class Array,
+	template<typename _Val, std::size_t, std::size_t,
+				template<typename __Val, std::size_t> class _Base> class Base>
+void swap(yggr::math::matrix3d<Val, Array, Base>& l, 
+			yggr::math::matrix3d<Val, Array, Base>& r)
+{
+	l.swap(r);
+}
+
+} // namespace std
 
 template<typename Char, typename Traits, typename Val,
 			template<typename _Val, std::size_t> class Array,

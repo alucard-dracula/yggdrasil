@@ -254,8 +254,10 @@
     <ClInclude Include="mapping\non_mapping.hpp" />
     <ClInclude Include="mapping\static_index_mapping.hpp" />
     <ClInclude Include="mapping\unique_mapping.hpp" />
+    <ClInclude Include="math\const_var.hpp" />
     <ClInclude Include="math\determinant.hpp" />
     <ClInclude Include="math\elo_rating.hpp" />
+    <ClInclude Include="math\gcd_lcm.hpp" />
     <ClInclude Include="math\math.hpp" />
     <ClInclude Include="math\matrix2d.hpp" />
     <ClInclude Include="math\matrix3d.hpp" />
@@ -630,6 +632,8 @@
     <ClInclude Include="type_traits\types_checker.hpp" />
     <ClInclude Include="type_traits\upper_types.hpp" />
     <ClInclude Include="utility\swap.hpp" />
+    <ClInclude Include="utility\value_copy.hpp" />
+    <ClInclude Include="utility\value_swap.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ppex\detail\empty_file.ipp" />

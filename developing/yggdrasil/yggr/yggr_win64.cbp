@@ -222,13 +222,17 @@
 		<Unit filename="lua_wrap\wrap_set.hpp" />
 		<Unit filename="lua_wrap\wrap_vector.hpp" />
 		<Unit filename="mapping\non_mapping.hpp" />
+		<Unit filename="mapping\static_index_mapping.hpp" />
 		<Unit filename="mapping\unique_mapping.hpp" />
 		<Unit filename="math\array_indexes_permutation_parity.hpp" />
+		<Unit filename="math\const_var.hpp" />
 		<Unit filename="math\determinant.hpp" />
 		<Unit filename="math\elo_rating.hpp" />
+		<Unit filename="math\gcd_lcm.hpp" />
 		<Unit filename="math\math.hpp" />
 		<Unit filename="math\matrix2d.hpp" />
 		<Unit filename="math\matrix3d.hpp" />
+		<Unit filename="math\range_value.hpp" />
 		<Unit filename="math\sign.hpp" />
 		<Unit filename="math\sqrt.hpp" />
 		<Unit filename="math\value_miss_comparer.hpp" />
@@ -514,6 +518,7 @@
 		<Unit filename="server\start_mode\server_active_start_mode.hpp" />
 		<Unit filename="server\start_mode\server_passive_start_mode.hpp" />
 		<Unit filename="struct_support\bind.hpp" />
+		<Unit filename="struct_support\pair.hpp" />
 		<Unit filename="struct_support\tuple.hpp" />
 		<Unit filename="support\boost_ver_include.hpp" />
 		<Unit filename="support\log_op_general_foo.ipp" />
@@ -544,7 +549,6 @@
 		<Unit filename="thread\boost_thread_config.hpp" />
 		<Unit filename="thread\dynamic_work_runner.hpp" />
 		<Unit filename="thread\io_runner.hpp" />
-		<Unit filename="thread\pipe_runner.hpp" />
 		<Unit filename="thread\static_work_runner.hpp" />
 		<Unit filename="thread\this_thread.hpp" />
 		<Unit filename="thread\thread_config.hpp" />
@@ -568,6 +572,8 @@
 		<Unit filename="type_traits\types_checker.hpp" />
 		<Unit filename="type_traits\upper_types.hpp" />
 		<Unit filename="utility\swap.hpp" />
+		<Unit filename="utility\value_copy.hpp" />
+		<Unit filename="utility\value_swap.hpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

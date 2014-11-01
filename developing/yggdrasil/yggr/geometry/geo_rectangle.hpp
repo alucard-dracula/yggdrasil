@@ -27,21 +27,20 @@ THE SOFTWARE.
 #ifndef __YGGR_GEOMETRY_RECTANGLE_HPP__
 #define __YGGR_GEOMETRY_RECTANGLE_HPP__
 
-//#include <yggr/geometry/geo_vector.hpp>
-//#include <yggr/geometry/geo_line_segment.hpp>
-#include <boost/array.hpp>
-#include <yggr/math/value_miss_comparer.hpp>
 #include <cassert>
-#include <boost/mpl/assert.hpp>
 
+#include <boost/array.hpp>
+#include <boost/mpl/assert.hpp>
 #include <boost/mpl/size_t.hpp>
 #include <boost/mpl/comparison.hpp>
-
 #include <boost/mpl/equal_to.hpp>
 #include <boost/mpl/greater_equal.hpp>
 #include <boost/mpl/less.hpp>
 
 #include <boost/serialization/access.hpp>
+
+#include <yggr/move/move.hpp>
+#include <yggr/math/value_miss_comparer.hpp>
 #include <yggr/serialization/array.hpp>
 
 namespace yggr
@@ -76,6 +75,7 @@ private:
 
 	typedef Base<pos_type, E_LENGTH> base_type;
 	typedef geo_rectangle this_type;
+	BOOST_COPYABLE_AND_MOVABLE(this_type)
 
 public:
 	geo_rectangle(void)
@@ -143,50 +143,17 @@ public:
 		max_pos = max;
 	}
 
-//	template<typename Alloc,
-//				template<typename _Val, typename _Alloc> class Container>
-//	geo_rectangle(const Container<pos_type, Alloc>& right)
-//		: min_pos(base_type::operator[](0)), max_pos(base_type::operator[](1))
-//	{
-//		typedef Container<pos_type, Alloc> continer_type;
-//		typedef container_type::const_iterator container_citer_type;
-//
-//		if(right.size() < 2)
-//		{
-//			return;
-//		}
-//
-//		container_citer_type i = right.begin();
-//
-//		pos_type min = *i, max = *i;
-//		++i;
-//		for(container_citer_type isize = right.end(); i != isize; ++i)
-//		{
-//			for(size_type j = 0, jsize = pos_type::s_size(); j != jsize; ++j)
-//			{
-//				if((*i)[j] < min[j])
-//				{
-//					min[j] = (*i)[j];
-//					continue;
-//				}
-//
-//				if((*i)[j] > max[j])
-//				{
-//					max[j] = (*i)[j];
-//				}
-//			}
-//		}
-//
-//		min_pos = min;
-//		max_pos = max;
-//	}
-
 	template<typename OPos>
 	geo_rectangle(const geo_rectangle<OPos, Base>& right)
 		: min_pos(base_type::operator[](0)), max_pos(base_type::operator[](1))
 	{
 		min_pos = right.min_pos;
 		max_pos = right.max_pos;
+	}
+
+	geo_rectangle(BOOST_RV_REF(this_type) right)
+		: base_type(right), min_pos(base_type::operator[](0)), max_pos(base_type::operator[](1))
+	{
 	}
 
 	geo_rectangle(const this_type& right)
@@ -196,6 +163,36 @@ public:
 
 	~geo_rectangle(void)
 	{
+	}
+
+	this_type& operator=(BOOST_RV_REF(this_type) right)
+	{
+		min_pos = right.min_pos;
+		max_pos = right.max_pos;
+		return *this;
+	}
+
+	this_type& operator=(const this_type& right)
+	{
+		if(this == &right)
+		{
+			return *this;
+		}
+
+		min_pos = right.min_pos;
+		max_pos = right.max_pos;
+		return *this;
+	}
+
+	void swap(this_type& right)
+	{
+		if(this == &right)
+		{
+			return;
+		}
+
+		min_pos.swap(right.min_pos);
+		max_pos.swap(right.max_pos);
 	}
 
 	inline const size_type size(void) const
@@ -223,6 +220,12 @@ public:
 		return max_pos - min_pos;
 	}
 
+	/*
+		0, 0 ------- 1, 0
+			 |	   |
+			 |	   |
+		0, 1 ------- 1, 1
+	*/
 	template<size_type X, size_type Y>
 	const pos_type vertex(void) const
 	{
@@ -468,5 +471,18 @@ public:
 
 } // namespace geometry
 } // namespace yggr
+
+namespace std
+{
+
+template<typename Position,
+			template<typename _Val, std::size_t> class Base>
+void swap(yggr::geometry::geo_rectangle<Position, Base>& l,
+				yggr::geometry::geo_rectangle<Position, Base>& r)
+{
+	l.swap(r);
+}
+
+} // namespace std
 
 #endif // __YGGR_GEOMETRY_RECTANGLE_HPP__

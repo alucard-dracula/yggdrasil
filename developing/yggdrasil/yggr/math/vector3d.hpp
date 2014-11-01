@@ -32,8 +32,12 @@ THE SOFTWARE.
 #include <boost/serialization/access.hpp>
 
 #include <yggr/base/yggrdef.h>
+#include <yggr/move/move.hpp>
 #include <yggr/type_traits/upper_types.hpp>
 #include <yggr/math/math.hpp>
+#include <yggr/utility/value_swap.hpp>
+#include <yggr/utility/value_copy.hpp>
+
 #include <yggr/serialization/array.hpp>
 
 #ifdef _MSC_VER
@@ -80,9 +84,11 @@ public:
 		E_compile_u32 = 0xffffffff
 	};
 
-private:
 	typedef Base<val_type, E_ARRAY_LENGTH> base_type;
+
+private:
 	typedef vector3d this_type;
+	BOOST_COPYABLE_AND_MOVABLE(this_type)
 
 public:
 	vector3d(void)
@@ -133,6 +139,13 @@ public:
 		(*this)[1] = static_cast<val_type>(right[1]);
 		(*this)[2] = static_cast<val_type>(right[2]);
 		(*this)[3] = static_cast<val_type>(right[3]);
+	}
+
+	vector3d(BOOST_RV_REF(this_type) right)
+		: base_type(right),
+			x(base_type::operator[](0)), y(base_type::operator[](1)),
+			z(base_type::operator[](2)), w(base_type::operator[](3))
+	{
 	}
 
 	vector3d(const this_type& right)
@@ -394,12 +407,89 @@ public:
 		return *this;
 	}
 
+	this_type& operator=(const base_type& right)
+	{
+		base_type& base = *this;
+		if(&base == &right) {return *this;}
+
+#ifdef _DEBUG
+		value_type* p = &base[0];
+#endif //_DEBUG
+
+		utility::value_copy<base_type>(base, right);
+
+#ifdef _DEBUG
+		assert((p == &base[0]));
+#endif //_DEBUG
+		return *this;
+	}
+
+	this_type& operator=(BOOST_RV_REF(this_type) right)
+	{
+		if(this == &right) {return *this;}
+		base_type& base = *this;
+		this_type& right_ref = right;
+
+#ifdef _DEBUG
+		value_type* p = &base[0];
+#endif //_DEBUG
+
+		utility::value_copy<base_type>(base, right_ref);
+
+#ifdef _DEBUG
+		assert((p == &base[0]));
+#endif //_DEBUG
+		return *this;
+	}
+
 	this_type& operator=(const this_type& right)
 	{
 		if(this == &right) {return *this;}
 		base_type& base = *this;
-		base = right;
+
+#ifdef _DEBUG
+		value_type* p = &base[0];
+#endif //_DEBUG
+
+		utility::value_copy<base_type>(base, right);
+
+#ifdef _DEBUG
+		assert((p == &base[0]));
+#endif //_DEBUG
 		return *this;
+	}
+
+	void swap(base_type& base)
+	{
+		base_type& base = *this;
+		if(&base == &right) {return;}
+
+#ifdef _DEBUG
+		value_type* p = &base[0];
+#endif //_DEBUG
+		
+		utility::value_swap<base_type>(base, right);
+
+#ifdef _DEBUG
+		assert((p == &base[0]));
+#endif //_DEBUG
+	}
+
+	void swap(this_type& right)
+	{
+		if(this == &right) { return; }
+		base_type& base =*this;
+
+#ifdef _DEBUG
+		value_type* p = &base[0];
+#endif //_DEBUG
+		
+		utility::value_swap<base_type>(base, right);
+
+#ifdef _DEBUG
+		assert((p == &base[0]));
+#endif //_DEBUG
+
 	}
 
 	template<typename OVal>
@@ -591,7 +681,7 @@ const vector3d<typename upper_float<Val>::value_type, Base> sign(const vector3d<
 
 template<typename Val,
 			template <typename _Val, std::size_t>
-			class Base >
+				class Base >
 struct upper_float< math::vector3d<Val, Base> >
 {
 	typedef typename math::vector3d< typename upper_float<Val>::value_type, Base > value_type;
@@ -599,13 +689,21 @@ struct upper_float< math::vector3d<Val, Base> >
 
 template<typename Val,
 			template <typename _Val, std::size_t>
-			class Base >
+				class Base >
 struct upper_signed< math::vector3d<Val, Base> >
 {
 	typedef typename math::vector3d< typename upper_signed< Val >::value_type, Base > value_type;
 };
 
 } // namespace yggr
+
+template<typename ValL, typename ValR,
+			template<typename _Val, std::size_t>
+				class Base>
+yggr::math::vector3d<ValR, Base> operator*(const ValL& l, const yggr::math::vector3d<ValR, Base>& r)
+{
+	return r * l;
+}
 
 namespace std
 {
@@ -615,6 +713,21 @@ template<typename Val,
 typename yggr::upper_float<Val>::value_type abs(const yggr::math::vector3d<Val, Base>& x)
 {
 	return x.length();
+}
+
+template<typename Val,
+			template<typename _Val, std::size_t> class Base>
+void swap(yggr::math::vector3d<Val, Base>& l, yggr::math::vector3d<Val, Base>& r)
+{
+	l.swap(r);
+}
+
+template<typename Val,
+			template<typename _Val, std::size_t> class Base>
+void swap(typename yggr::math::vector3d<Val, Base>::base_type& l, 
+			yggr::math::vector3d<Val, Base>& r)
+{
+	r.swap(l);
 }
 
 } // namespace std

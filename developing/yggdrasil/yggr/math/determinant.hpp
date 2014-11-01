@@ -27,14 +27,16 @@ THE SOFTWARE.
 #ifndef __YGGR_MATH_DETERMINANT_HPP__
 #define __YGGR_MATH_DETERMINANT_HPP__
 
-#include <yggr/base/yggrdef.h>
-#include <yggr/type_traits/upper_types.hpp>
 #include <boost/array.hpp>
-#include <yggr/math/array_indexes_permutation_parity.hpp>
-
 #include <boost/serialization/access.hpp>
-#include <yggr/serialization/array.hpp>
+
+#include <yggr/base/yggrdef.h>
+#include <yggr/move/move.hpp>
+#include <yggr/type_traits/upper_types.hpp>
+#include <yggr/math/array_indexes_permutation_parity.hpp>
 #include <yggr/math/value_miss_comparer.hpp>
+
+#include <yggr/serialization/array.hpp>
 
 #ifdef _MSC_VER
 #	pragma warning (push)
@@ -76,11 +78,12 @@ private:
 
 	typedef Base< row_type, E_ROW_LENGTH> base_type;
 	typedef determinant this_type;
+	BOOST_COPYABLE_AND_MOVABLE(this_type)
 
 public:
 	determinant(void)
 	{
-		base_type::zero();
+		this_type::zero();
 	}
 
 	template<typename OVal>
@@ -104,6 +107,20 @@ public:
 	{
 		(*this) = right;
 	}
+
+#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
+	determinant(BOOST_RV_REF(this_type) right)
+		: base_type(boost::forward<base_type>(right))
+	{
+	}
+#else
+	determinant(BOOST_RV_REF(this_type) right)
+	{
+		this_type::zero();
+		this_type& right_ref =right;
+		base_type::swap(right_ref);
+	}
+#endif // YGGR_NO_CXX11_RVALUE_REFERENCES
 
 	determinant(const this_type& right)
 		: base_type(right)
@@ -217,12 +234,29 @@ public:
 		return *this;
 	}
 
+	this_type& operator=(BOOST_RV_REF(this_type) right)
+	{
+#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
+		base_type::operator=(boost::forward<base_type>(right));
+#else
+		this_type& right_ref = right;
+		base_type::swap(right_ref);
+#endif// YGGR_NO_CXX11_RVALUE_REFERENCES
+
+		return *this;
+	}
+
 	this_type& operator=(const this_type& right)
 	{
 		if(this == &right) {return *this;}
-		base_type& base = *this;
-		base = right;
+		base_type::operator=(right);
 		return *this;
+	}
+
+	void swap(this_type& right)
+	{
+		if(this == &right) {return;}
+		base_type::swap(right);
 	}
 
 	val_type det(void) const
@@ -398,6 +432,7 @@ private:
 
 	typedef Base< row_type, E_ROW_LENGTH> base_type;
 	typedef determinant this_type;
+	BOOST_COPYABLE_AND_MOVABLE(this_type)
 
 public:
 	determinant(void)
@@ -426,6 +461,20 @@ public:
 	{
 		(*this) = right;
 	}
+
+#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
+	determinant(BOOST_RV_REF(this_type) right)
+		: base_type(boost::forward<base_type>(right))
+	{
+	}
+#else
+	determinant(BOOST_RV_REF(this_type) right)
+	{
+		base_type::zero();
+		this_type& right_ref =right;
+		base_type::swap(right_ref);
+	}
+#endif // YGGR_NO_CXX11_RVALUE_REFERENCES
 
 	determinant(const this_type& right)
 		: base_type(right)
@@ -506,12 +555,29 @@ public:
 		return *this;
 	}
 
+	this_type& operator=(BOOST_RV_REF(this_type) right)
+	{
+#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
+		base_type::operator=(boost::forward<base_type>(right));
+#else
+		this_type& right_ref = right;
+		base_type::swap(right_ref);
+#endif// YGGR_NO_CXX11_RVALUE_REFERENCES
+
+		return *this;
+	}
+
 	this_type& operator=(const this_type& right)
 	{
 		if(this == &right) {return *this;}
-		base_type& base = *this;
-		base = right;
+		base_type::operator=(right);
 		return *this;
+	}
+
+	void swap(this_type& right)
+	{
+		if(this == &right) {return;}
+		base_type::swap(right);
 	}
 
 protected:
@@ -551,6 +617,7 @@ private:
 
 	typedef Base< row_type, E_ROW_LENGTH> base_type;
 	typedef determinant this_type;
+	BOOST_COPYABLE_AND_MOVABLE(this_type)
 
 public:
 	determinant(void)
@@ -579,6 +646,20 @@ public:
 	{
 		(*this) = right;
 	}
+
+#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
+	determinant(BOOST_RV_REF(this_type) right)
+		: base_type(boost::forward<base_type>(right))
+	{
+	}
+#else
+	determinant(BOOST_RV_REF(this_type) right)
+	{
+		base_type::zero();
+		this_type& right_ref =right;
+		base_type::swap(right_ref);
+	}
+#endif // YGGR_NO_CXX11_RVALUE_REFERENCES
 
 	determinant(const this_type& right)
 		: base_type(right)
@@ -691,12 +772,29 @@ public:
 		return *this;
 	}
 
+	this_type& operator=(BOOST_RV_REF(this_type) right)
+	{
+#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
+		base_type::operator=(boost::forward<base_type>(right));
+#else
+		this_type& right_ref = right;
+		base_type::swap(right_ref);
+#endif// YGGR_NO_CXX11_RVALUE_REFERENCES
+
+		return *this;
+	}
+
 	this_type& operator=(const this_type& right)
 	{
 		if(this == &right) {return *this;}
-		base_type& base = *this;
-		base = right;
+		base_type::operator=(right);
 		return *this;
+	}
+
+	void swap(this_type& right)
+	{
+		if(this == &right) {return;}
+		base_type::swap(right);
 	}
 
 protected:
@@ -736,6 +834,7 @@ private:
 
 	typedef Base< row_type, E_ROW_LENGTH> base_type;
 	typedef determinant this_type;
+	BOOST_COPYABLE_AND_MOVABLE(this_type)
 
 public:
 	determinant(void)
@@ -764,6 +863,20 @@ public:
 	{
 		(*this) = right;
 	}
+
+#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
+	determinant(BOOST_RV_REF(this_type) right)
+		: base_type(boost::forward<base_type>(right))
+	{
+	}
+#else
+	determinant(BOOST_RV_REF(this_type) right)
+	{
+		base_type::zero();
+		this_type& right_ref =right;
+		base_type::swap(right_ref);
+	}
+#endif // YGGR_NO_CXX11_RVALUE_REFERENCES
 
 	determinant(const this_type& right)
 		: base_type(right)
@@ -906,12 +1019,29 @@ public:
 		return *this;
 	}
 
+	this_type& operator=(BOOST_RV_REF(this_type) right)
+	{
+#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
+		base_type::operator=(boost::forward<base_type>(right));
+#else
+		this_type& right_ref = right;
+		base_type::swap(right_ref);
+#endif// YGGR_NO_CXX11_RVALUE_REFERENCES
+
+		return *this;
+	}
+
 	this_type& operator=(const this_type& right)
 	{
 		if(this == &right) {return *this;}
-		base_type& base = *this;
-		base = right;
+		base_type::operator=(right);
 		return *this;
+	}
+
+	void swap(this_type& right)
+	{
+		if(this == &right) {return;}
+		base_type::swap(right);
 	}
 
 protected:
@@ -960,6 +1090,14 @@ const yggr::math::determinant<Val, ROW, COL, Base>
 	abs(const yggr::math::determinant<Val, ROW, COL, Base>& x)
 {
 	return x.det();
+}
+
+template<typename Val, std::size_t ROW, std::size_t COL,
+			template<typename _Val, std::size_t> class Base>
+void swap(yggr::math::determinant<Val, ROW, COL, Base>& l,
+			yggr::math::determinant<Val, ROW, COL, Base>& r)
+{
+	l.swap(r);
 }
 
 } // namespace std

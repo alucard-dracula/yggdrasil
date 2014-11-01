@@ -31,9 +31,7 @@ THE SOFTWARE.
 #	include <yggr/support/max_min_undef.ipp>
 #endif // _MSC_VER
 
-#include <yggr/base/yggrdef.h>
-#include <yggr/type_traits/upper_types.hpp>
-#include <yggr/math/math.hpp>
+#include <cassert>
 
 #include <vector>
 #include <memory>
@@ -42,13 +40,16 @@ THE SOFTWARE.
 #include <complex>
 
 #include <boost/tuple/tuple.hpp>
-#include <boost/serialization/vector.hpp>
-
 #include <boost/mpl/size_t.hpp>
 #include <boost/mpl/comparison.hpp>
 #include <boost/mpl/equal_to.hpp>
 
-#include <cassert>
+#include <yggr/base/yggrdef.h>
+#include <yggr/move/move.hpp>
+#include <yggr/type_traits/upper_types.hpp>
+#include <yggr/math/math.hpp>
+
+#include <yggr/serialization/vector.hpp>
 
 namespace yggr
 {
@@ -79,6 +80,7 @@ public:
 private:
 	typedef Base<pos_type, Alloc<pos_type> > base_type;
 	typedef geo_polygon this_type;
+	BOOST_COPYABLE_AND_MOVABLE(this_type)
 
 public:
 	geo_polygon(void)
@@ -156,6 +158,20 @@ public:
 		gen_polygon_type();
 	}
 
+#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
+	geo_polygon(BOOST_RV_REF(this_type) right)
+		: base_type(boost::forward<base_type>(right)), _prop(right._prop)
+	{
+	}
+#else
+	geo_polygon(BOOST_RV_REF(this_type) right)
+		: _prop(right._prop)
+	{
+		this_type& right_ref = *this;
+		base_type::swap(right_ref);
+	}
+#endif // YGGR_NO_CXX11_RVALUE_REFERENCES
+
 	geo_polygon(const this_type& right)
 		: base_type(right), _prop(right._prop)
 	{
@@ -203,6 +219,18 @@ public:
 		return *this;
 	}
 
+	this_type& operator=(BOOST_RV_REF(this_type) right)
+	{
+#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
+		base_type::operator=(boost::forward<base_type>(right));
+		_prop = right._prop;
+#else
+		this_type& right_ref = right;
+		base_type::swap(right_ref);
+#endif // YGGR_NO_CXX11_RVALUE_REFERENCES
+		return *this;
+	}
+
 	this_type& operator=(const this_type& right)
 	{
 		if(this == &right) {return *this;}
@@ -210,6 +238,15 @@ public:
 		base = right;
 		_prop = right._prop;
 		return *this;
+	}
+
+	void swap(this_type& right)
+	{
+		if(this == &right) {return;}
+
+		base_type& base = *this;
+		base.swap(right);
+		std::swap(_prop, right._prop);
 	}
 
 	template<typename OPos>
@@ -510,5 +547,20 @@ private:
 
 } // namespace geometry
 } // namespace yggr
+
+
+namespace std
+{
+
+template<typename Position,
+			template<typename _Val> class Alloc,
+			template<typename _Val, typename _Alloc> class Base>
+void swap(yggr::geometry::geo_polygon<Position, Alloc, Base>& l, 
+			yggr::geometry::geo_polygon<Position, Alloc, Base>& r)
+{
+	l.swap(r);
+}
+
+} // namespace std
 
 #endif // __YGGR_GEOMETRY_GEO_POLYGON_HPP__

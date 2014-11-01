@@ -1839,6 +1839,18 @@
     <ClInclude Include="struct_support\pair.hpp">
       <Filter>Header Files\struct_support</Filter>
     </ClInclude>
+    <ClInclude Include="math\gcd_lcm.hpp">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\const_var.hpp">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\value_swap.hpp">
+      <Filter>Header Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\value_copy.hpp">
+      <Filter>Header Files\utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="support\log_op_general_foo.ipp">

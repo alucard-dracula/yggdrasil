@@ -27,6 +27,11 @@ THE SOFTWARE.
 #include <algorithm>
 #include <yggr/nsql_database_system/c_mongo_write_concern.hpp>
 
+#ifdef _MSC_VER
+#	include <vld.h>
+#endif // _MSC_VER
+
+
 namespace yggr
 {
 namespace nsql_database_system

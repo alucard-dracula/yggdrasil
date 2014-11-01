@@ -27,9 +27,11 @@ THE SOFTWARE.
 #ifndef __YGGR_GEOMETRY_GEO_PLANE_HPP__
 #define __YGGR_GEOMETRY_GEO_PLANE_HPP__
 
-#include <yggr/base/yggrdef.h>
-#include <yggr/type_traits/upper_types.hpp>
 #include <boost/any.hpp>
+
+#include <yggr/base/yggrdef.h>
+#include <yggr/move/move.hpp>
+#include <yggr/type_traits/upper_types.hpp>
 #include <yggr/math/math.hpp>
 
 namespace yggr
@@ -68,17 +70,20 @@ private:
 
 	typedef Base<val_type, E_LENGTH> base_type;
 	typedef geo_plane this_type;
+	BOOST_COPYABLE_AND_MOVABLE(this_type)
 
 public:
 	geo_plane(void)
-		: a((*this)[0]), b((*this)[1]), c((*this)[2]), d((*this)[3])
+		: a(base_type::operator[](0)), b(base_type::operator[](1)), 
+			c(base_type::operator[](2)), d(base_type::operator[](3))
 	{
 	}
 
 	
 	template<typename OVal>
 	geo_plane(const math::vector3d<OVal, Base>& pos, const math::vector3d<OVal, Base>& vec)
-		: a((*this)[0]), b((*this)[1]), c((*this)[2]), d((*this)[3])
+		: a(base_type::operator[](0)), b(base_type::operator[](1)), 
+			c(base_type::operator[](2)), d(base_type::operator[](3))
 	{
 		a = static_cast<val_type>(vec.x);
 		b = static_cast<val_type>(vec.y);
@@ -87,7 +92,8 @@ public:
 	}
 
 	geo_plane(const math::vector3d<val_type, Base>& pos, const math::vector3d<val_type, Base>& vec)
-		: a((*this)[0]), b((*this)[1]), c((*this)[2]), d((*this)[3])
+		: a(base_type::operator[](0)), b(base_type::operator[](1)), 
+			c(base_type::operator[](2)), d(base_type::operator[](3))
 	{
 		a = vec.x;
 		b = vec.y;
@@ -101,7 +107,8 @@ public:
 	geo_plane(const math::vector3d<OVal, Base>& pos1,
 				const math::vector3d<OVal, Base>& pos2, 
 				const math::vector3d<OVal, Base>& pos3)
-		: a((*this)[0]), b((*this)[1]), c((*this)[2]), d((*this)[3])
+		: a(base_type::operator[](0)), b(base_type::operator[](1)),
+			c(base_type::operator[](2)), d(base_type::operator[](3))
 	{
 		typedef math::vector3d<val_type, Base> vec_type;
 		vec_type vec1(pos2 - pos1);
@@ -118,7 +125,8 @@ public:
 	geo_plane(const math::vector3d<val_type, Base>& pos1, 
 				const math::vector3d<val_type, Base>& pos2,
 				const math::vector3d<val_type, Base>& pos3)
-		: a((*this)[0]), b((*this)[1]), c((*this)[2]), d((*this)[3])
+		: a(base_type::operator[](0)), b(base_type::operator[](1)), 
+			c(base_type::operator[](2)), d(base_type::operator[](3))
 	{
 
 		typedef math::vector3d<val_type, Base> vec_type;
@@ -133,13 +141,16 @@ public:
 	}
 
 	geo_plane(const base_type& right)
-		: base_type(right), a((*this)[0]), b((*this)[1]), c((*this)[2]), d((*this)[3])
+		: base_type(right),
+			a(base_type::operator[](0)), b(base_type::operator[](1)),
+			c(base_type::operator[](2)), d(base_type::operator[](3))
 	{
 	}
 
 	template<typename OVal>
 	geo_plane(const geo_plane<OVal, Base>& right)
-		: a((*this)[0]), b((*this)[1]), c((*this)[2]), d((*this)[3])
+		: a(base_type::operator[](0)), b(base_type::operator[](1)), 
+			c(base_type::operator[](2)), d(base_type::operator[](3))
 	{
 		(*this)[0] = static_cast<val_type>(right[0]);
 		(*this)[1] = static_cast<val_type>(right[1]);
@@ -147,13 +158,67 @@ public:
 		(*this)[3] = static_cast<val_type>(right[3]);
 	}
 
+	geo_plane(BOOST_RV_REF(this_type) right)
+		: base_type(right), 
+			a(base_type::operator[](0)), b(base_type::operator[](1)), 
+			c(base_type::operator[](2)), d(base_type::operator[](3))
+	{
+	}
+
 	geo_plane(const this_type& right)
-		: base_type(right), a((*this)[0]), b((*this)[1]), c((*this)[2]), d((*this)[3])
+		: base_type(right), 
+			a(base_type::operator[](0)), b(base_type::operator[](1)), 
+			c(base_type::operator[](2)), d(base_type::operator[](3))
 	{
 	}
 
 	~geo_plane(void)
 	{
+	}
+
+	template<typename OVal>
+	this_type& operator=(const geo_plane<OVal, Base>& right)
+	{
+		a = static_cast<val_type>(right.a);
+		b = static_cast<val_type>(right.b);
+		c = static_cast<val_type>(right.c);
+		d = static_cast<val_type>(right.d);
+		return *this;
+	}
+
+	this_type& operator=(BOOST_RV_REF(this_type) right)
+	{
+		a = right.a;
+		b = right.b;
+		c = right.c;
+		d = right.d;
+		return *this;
+	}
+
+	this_type& operator=(const this_type& right)
+	{
+		if(this == &right)
+		{
+			return *this;
+		}
+		a = right.a;
+		b = right.b;
+		c = right.c;
+		d = right.d;
+		return *this;
+	}
+
+	void swap(this_type& right)
+	{
+		if(this == &right)
+		{
+			return;
+		}
+
+		std::swap(a, right.a);
+		std::swap(b, right.b);
+		std::swap(c, right.c);
+		std::swap(d, right.d);
 	}
 
 	inline const size_type size(void) const
@@ -259,7 +324,20 @@ public:
 	val_type& c;
 	val_type& d;
 };
+
 } // geometry
 } // namespace yggr
+
+namespace std
+{
+
+template<typename Val, 
+		template <typename _Val, std::size_t> class Base>
+void swap(yggr::geometry::geo_plane<Val, Base>& l, yggr::geometry::geo_plane<Val, Base>& r)
+{
+	l.swap(r);
+}
+
+} // namespace std
 
 #endif //__YGGR_GEOMETRY_GEO_PLANE_HPP__

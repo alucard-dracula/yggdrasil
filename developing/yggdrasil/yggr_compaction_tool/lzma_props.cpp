@@ -26,6 +26,11 @@ THE SOFTWARE.
 
 #include <yggr/compaction_tool/lzma_props.hpp>
 
+#ifdef _MSC_VER
+#	include <vld.h>
+#endif // _MSC_VER
+
+
 namespace yggr
 {
 namespace compaction_tool

@@ -26,6 +26,10 @@ THE SOFTWARE.
 
 #include <yggr/base/error.hpp>
 
+#ifdef _MSC_VER
+#	include <vld.h>
+#endif // _MSC_VER
+
 namespace yggr
 {
 

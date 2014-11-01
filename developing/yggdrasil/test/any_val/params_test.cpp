@@ -65,7 +65,7 @@ int main(int argc, char* argv[])
 	param3.copy_from(param1 + param2);
 	param3.copy_from(param1 += param2);
 
-	/*param3.copy_from(param1 * param2);
+	param3.copy_from(param1 * param2);
 	param3.copy_from(param1 *= param2);
 
 	param3.copy_from(param1 / param2);
@@ -92,7 +92,7 @@ int main(int argc, char* argv[])
 	param4["ccc"] = ANY_SET(yggr::f32, 12.5f);
 
 	std::cout << param3["aaa"].type().name() << std::endl;
-	std::cout << param3["bbb"].type().name() << std::endl;*/
+	std::cout << param3["bbb"].type().name() << std::endl;
 
 	const yggr::u32 *pu32 = 0;
 	const std::string* pstr = 0;

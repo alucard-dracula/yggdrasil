@@ -12,8 +12,16 @@
 
 void foo2(void)
 {
-    int* p = 0;
-    *p = 100;
+	for(int i = 0, isize = 10; i != isize; ++i)
+	{
+		std::cout << i << std::endl;
+
+		if(i == 5)
+		{
+			int* p = 0;
+			*p = 100;
+		}
+	}
 }
 
 void foo1(void)

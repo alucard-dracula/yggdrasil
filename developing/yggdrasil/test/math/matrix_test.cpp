@@ -159,6 +159,7 @@ void matrix2d_test(void)
 	mat = mat_type::make_translate(10, 20);
 	std::cout << mat << std::endl;
 	std::cout << pos * mat << std::endl;
+	std::cout << 10 * mat << std::endl;
 
 	std::cout << mat_type::make_reflect(pos_type(-10, 0), pos_type(10, 0)) << std::endl;
 	std::cout << mat_type::make_reflect(pos_type(1, 1), pos_type(2, 2)) << std::endl;
@@ -206,6 +207,7 @@ void matrix3d_test(void)
 	mat = mat_type::make_translate(10, 20, 30);
 	std::cout << mat << std::endl;
 	std::cout << pos * mat << std::endl;
+	std::cout << 10 * mat << std::endl;
 
 	std::cout << mat_type::make_reflect(pos_type(0, 0, 0), pos_type(0, 1, 0), pos_type(0, 2, 0)) << std::endl; //pyz
 	std::cout << mat_type::make_reflect(pos_type(-10, 0, 0), pos_type(10, 0, 0), pos_type(0, 0, 1000)) << std::endl; // pxz
