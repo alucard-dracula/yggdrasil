@@ -230,18 +230,18 @@ public:
 		return _val;
 	}
 
-	const this_type operator-(void) const
+	this_type operator-(void) const
 	{
 		return this_type(-_val);
 	}
 
 	template<typename T>
-	const this_type operator+(const T& right) const
+	this_type operator+(const T& right) const
 	{
 		return this_type((val_type)(_val + right));
 	}
 
-	const this_type operator+(const this_type& right) const
+	this_type operator+(const this_type& right) const
 	{
 		return this_type(_val + right._val);
 	}
@@ -265,7 +265,7 @@ public:
 		return _val;
 	}
 
-	const this_type operator++(int)
+	this_type operator++(int)
 	{
 		this_type ret(_val);
 		_val += val_type(1);
@@ -273,12 +273,12 @@ public:
 	}
 
 	template<typename T>
-	const this_type operator-(const T& right) const
+	this_type operator-(const T& right) const
 	{
 		return this_type(_val - (val_type)right);
 	}
 
-	const this_type operator-(const this_type& right) const
+	this_type operator-(const this_type& right) const
 	{
 		return this_type(_val - right._val);
 	}
@@ -303,7 +303,7 @@ public:
 		return _val;
 	}
 
-	const this_type operator--(int)
+	this_type operator--(int)
 	{
 		this_type ret(_val);
 		_val -= val_type(1);
@@ -311,12 +311,12 @@ public:
 	}
 
 	template<typename T>
-	const this_type operator*(const T& right) const
+	this_type operator*(const T& right) const
 	{
 		return this_type(val_type(_val * right));
 	}
 
-	const this_type operator*(const this_type& right) const
+	this_type operator*(const this_type& right) const
 	{
 		return this_type(_val * right._val);
 	}
@@ -335,12 +335,12 @@ public:
 	}
 
 	template<typename T>
-	const this_type operator/(const T& right) const
+	this_type operator/(const T& right) const
 	{
 		return this_type((val_type)(_val / right));
 	}
 
-	const this_type operator/(const this_type& right) const
+	this_type operator/(const this_type& right) const
 	{
 		return this_type(_val / right._val);
 	}
@@ -359,12 +359,12 @@ public:
 	}
 
 	template<typename T>
-	const this_type operator%(const T& right) const
+	this_type operator%(const T& right) const
 	{
 		return this_type(mod<val_type>()(_val, right));
 	}
 
-	const this_type operator%(const this_type& right) const
+	this_type operator%(const this_type& right) const
 	{
 		return this_type(mod<val_type>()(_val, right._val));
 	}
@@ -490,13 +490,13 @@ public:
 	}
 
 	template<typename T>
-	const this_type operator<<(const T& right) const
+	this_type operator<<(const T& right) const
 	{
 		val_type val = _val << right;
 		return this_type(val);
 	}
 
-	const this_type operator<<(const this_type& right) const
+	this_type operator<<(const this_type& right) const
 	{
 		val_type val = _val << right._val;
 		return this_type(val);
@@ -516,13 +516,13 @@ public:
 	}
 
 	template<typename T>
-	const this_type operator>>(const T& right) const
+	this_type operator>>(const T& right) const
 	{
 		val_type val = _val >> right;
 		return this_type(val);
 	}
 
-	const this_type operator>>(const this_type& right) const
+	this_type operator>>(const this_type& right) const
 	{
 		val_type val = _val >> right;
 		return this_type(val);
@@ -541,19 +541,19 @@ public:
 		return *this;
 	}
 
-	const this_type operator~(void) const
+	this_type operator~(void) const
 	{
 		return this_type(~_val);
 	}
 
 	template<typename T>
-	const this_type operator&(const T& right) const
+	this_type operator&(const T& right) const
 	{
 		val_type val(right);
 		return this_type(_val & val);
 	}
 
-	const this_type operator&(const this_type& right) const
+	this_type operator&(const this_type& right) const
 	{
 		return this_type(_val & right._val);
 	}
@@ -573,13 +573,13 @@ public:
 	}
 
 	template<typename T>
-	const this_type operator|(const T& right) const
+	this_type operator|(const T& right) const
 	{
 		val_type val(right);
 		return this_type(_val | val);
 	}
 
-	const this_type operator|(const this_type& right) const
+	this_type operator|(const this_type& right) const
 	{
 		return this_type(_val | right._val);
 	}

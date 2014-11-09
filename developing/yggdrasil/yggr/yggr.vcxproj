@@ -107,6 +107,7 @@
   <ItemGroup>
     <ClInclude Include="adapter\adapter_parser_helper.hpp" />
     <ClInclude Include="adapter\adapter_register_type_def.hpp" />
+    <ClInclude Include="archive\archive_data_wrap_traits.hpp" />
     <ClInclude Include="archive\archive_partner_template.hpp" />
     <ClInclude Include="archive\basic_bson_iarchive.hpp" />
     <ClInclude Include="archive\basic_bson_oarchive.hpp" />
@@ -221,7 +222,11 @@
     <ClInclude Include="file_system\stl_fstream_config.hpp" />
     <ClInclude Include="geometry\algorithm_helper.hpp" />
     <ClInclude Include="geometry\conversion_helper.hpp" />
+    <ClInclude Include="geometry\geo_line_segment_t.hpp" />
+    <ClInclude Include="geometry\geo_line_t.hpp" />
     <ClInclude Include="geometry\geo_plane.hpp" />
+    <ClInclude Include="geometry\geo_polygon_t.hpp" />
+    <ClInclude Include="geometry\geo_rectangle_t.hpp" />
     <ClInclude Include="handler_center\handler_center.hpp" />
     <ClInclude Include="helper\handler_helper.hpp" />
     <ClInclude Include="helper\mutex_def_helper.hpp" />
@@ -260,13 +265,17 @@
     <ClInclude Include="math\gcd_lcm.hpp" />
     <ClInclude Include="math\math.hpp" />
     <ClInclude Include="math\matrix2d.hpp" />
+    <ClInclude Include="math\matrix2d_t.hpp" />
     <ClInclude Include="math\matrix3d.hpp" />
     <ClInclude Include="math\array_indexes_permutation_parity.hpp" />
+    <ClInclude Include="math\matrix3d_t.hpp" />
     <ClInclude Include="math\range_value.hpp" />
     <ClInclude Include="math\sqrt.hpp" />
     <ClInclude Include="math\value_miss_comparer.hpp" />
     <ClInclude Include="math\vector2d.hpp" />
+    <ClInclude Include="math\vector2d_t.hpp" />
     <ClInclude Include="math\vector3d.hpp" />
+    <ClInclude Include="math\vector3d_t.hpp" />
     <ClInclude Include="move\config.hpp" />
     <ClInclude Include="move\move.hpp" />
     <ClInclude Include="mplex\args.hpp" />

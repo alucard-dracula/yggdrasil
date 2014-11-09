@@ -33,13 +33,48 @@ void algorithm_helper_test(void)
 	{
 		std::cout << *i << std::endl;
 	}
+}
 
+void test_line_segment_2d_mul_matrix(void)
+{
+	typedef yggr::math::vector2d<yggr::f32> pos_type;
+	typedef yggr::geometry::geo_line_segment<pos_type> line_seg_type;
+	typedef yggr::math::matrix2d<yggr::s32> mat_type;
 
+	line_seg_type line(pos_type(100, 200), pos_type(200, 100));
+	line_seg_type rst_line = line * mat_type::make_translate(100, 100);
+
+	std::cout << rst_line.src_pos << "," << rst_line.dst_pos << std::endl;
+
+	line_seg_type line2(pos_type(100, 200), pos_type(200, 100));
+	line2 *= mat_type::make_translate(100, 100);
+
+	assert(rst_line == line2);
+}
+
+void test_line_segment_3d_mul_matrix(void)
+{
+	typedef yggr::math::vector3d<yggr::s32> pos_type;
+	typedef yggr::geometry::geo_line_segment<pos_type> line_seg_type;
+	typedef yggr::math::matrix3d<yggr::s32> mat_type;
+
+	line_seg_type line(pos_type(100, 200, 300), pos_type(200, 100, 100));
+	line_seg_type rst_line = line * mat_type::make_translate(100, 100, 100);
+
+	std::cout << rst_line.src_pos << "," << rst_line.dst_pos << std::endl;
+
+	line_seg_type line2(pos_type(100, 200, 300), pos_type(200, 100, 100));
+	line2 *= mat_type::make_translate(100, 100, 100);
+
+	assert(rst_line == line2);
 }
 
 int main(int argc, char* argv[])
 {
 	algorithm_helper_test();
+
+	test_line_segment_2d_mul_matrix();
+	test_line_segment_3d_mul_matrix();
 
 	char cc = 0;
 	std::cin >> cc;

@@ -211,12 +211,12 @@ bool time::operator>= (const time::this_type& right) const
 	return !operator<(right);
 }
 
-const time::this_type time::operator-(const time::xtime_sec_t& sec) const
+time::this_type time::operator-(const time::xtime_sec_t& sec) const
 {
 	return operator-(this_type(sec));
 }
 
-const time::this_type time::operator-(const time::this_type& right) const
+time::this_type time::operator-(const time::this_type& right) const
 {
 	xtime_sec_t tsec = sec;
 	xtime_nsec_t tnsec = nsec;
@@ -251,12 +251,12 @@ time::this_type& time::operator-=(const time::this_type& right)
 	return *this;
 }
 
-const time::this_type time::operator+(const time::xtime_sec_t& sec) const
+time::this_type time::operator+(const time::xtime_sec_t& sec) const
 {
 	return operator+(this_type(sec));
 }
 
-const time::this_type time::operator+(const time::this_type& right) const
+time::this_type time::operator+(const time::this_type& right) const
 {
 	return this_type(sec + right.sec + ((nsec + right.nsec) / E_NS_TO_S), (nsec + right.nsec) % E_NS_TO_S);
 }

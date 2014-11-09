@@ -73,4 +73,24 @@ const typename struct_support::detail::pair_getter<T1, T2, idx>::result_type&
 
 } // namespace yggr
 
+//namespace boost_swap_impl
+//{
+//	template<typename T1, typename T2>
+//	void swap_impl(std::pair<T1, T2>& l, std::pair<T1, T2>& r)
+//	{
+//		::boost_swap_impl::swap_impl(l.first, r.first);
+//		::boost_swap_impl::swap_impl(l.second, r.second);
+//	}
+//}
+
+//namespace boost
+//{
+//	template<typename T1, typename T2>
+//	void swap_impl(std::pair<T1, T2>& l, std::pair<T1, T2>& r)
+//	{
+//		boost::swap(l.first, r.first);
+//		boost::swap(l.second, r.second);
+//	}
+//} // namespace boost
+
 #endif // __YGGR_STRUCT_SUPPORT_PAIR_HPP__

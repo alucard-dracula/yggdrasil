@@ -35,6 +35,7 @@ THE SOFTWARE.
 #include <yggr/archive/impl/xml_oarchive_impl.hpp>
 
 #include <yggr/serialization/collection_size_type.hpp>
+#include <yggr/archive/archive_data_wrap_traits.hpp>
 
 
 #ifdef BOOST_MSVC

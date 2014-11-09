@@ -1172,7 +1172,7 @@ public:
 		access_op_eins<> op;
 		return op(key, handler, pval);
 	}
-	
+
 	template<typename Key, typename Handler>
 	bool access(const Key& key, const Handler& handler) const
 	{
@@ -1259,7 +1259,7 @@ private:
 		template<typename Handler>
 		inline typename Handler::result_type operator()(const Handler& handler, value_ptr_type pval) const
 		{
-			typedef Handler::result_type ret_type;
+			typedef typename Handler::result_type ret_type;
 			assert(pval);
 			return ret_type();
 		}
@@ -1282,7 +1282,7 @@ public:
 		access_op_zwei<> op;
 		return op(handler, pval);
 	}
-	
+
 	template<typename Handler>
 	typename Handler::result_type access(const Handler& handler) const
 	{
@@ -1293,7 +1293,7 @@ public:
 		assert(pval);
 		if(!pval)
 		{
-			return ret_type;
+			return ret_type();
 		}
 
 		access_op_zwei<> op;
@@ -1329,7 +1329,7 @@ private:
 													boost::any(handler)));
 			access_of_all_op<i + 1, isize> op;
 			op(handler, pval);
-		
+
 		}
 
 	private:
@@ -1347,7 +1347,6 @@ private:
 				return;
 			}
 
-			ret_type ret(ret_type());
 			for(iter_type i = base.begin(), isize = base.end(); i != isize; ++i)
 			{
 				if((*i))
@@ -1382,7 +1381,7 @@ public:
 		access_of_all_op<> op;
 		op(handler, pval);
 	}
-	
+
 	template<typename Handler>
 	void access_of_all(const Handler& handler) const
 	{
@@ -1502,7 +1501,6 @@ private:
 			typedef typename yggr::mplex::pointer_to_value_t<cont_ptr_type>::type cont_type;
 
 			typedef Handler handler_type;
-			typedef Ret_Handler ret_handler_type;
 
 			assert(pval);
 			cont_ptr_type pcont = boost::get<i>(*pval);
@@ -1547,7 +1545,7 @@ private:
 
 	private:
 		template<typename Container, typename Handler>
-		bool handler_op_of_non_ret(typename Container::base_type& base, 
+		bool handler_op_of_non_ret(typename Container::base_type& base,
 									const boost::any& handler_wrap) const
 		{
 			typedef Container cont_type;
@@ -1574,8 +1572,8 @@ private:
 		}
 
 		template<typename Container, typename Handler, typename Ret_Handler>
-		bool handler_op_of_ret(typename Container::base_type& base, 
-							const boost::any& handler_wrap, 
+		bool handler_op_of_ret(typename Container::base_type& base,
+							const boost::any& handler_wrap,
 							const boost::any& ret_handler_wrap) const
 		{
 			typedef Container cont_type;

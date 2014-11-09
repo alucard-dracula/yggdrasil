@@ -12,6 +12,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++0x" />
 					<Add option="-g" />
 					<Add option="-D_DEBUG" />
 				</Compiler>
@@ -24,7 +25,7 @@
 					<Add option="-lyggr_ids-mgw47-d" />
 					<Add option="-lluabind09-mgw47.dll" />
 					<Add option="-lboost_filesystem-mgw47-mt-d-1_53.dll" />
-					<Add option="-lboost_regex-mgw47-mt-d-1_53.dll" />
+					<Add option="-lboost_regex-mgw47-mt-1_53.dll" />
 					<Add option="-lboost_system-mgw47-mt-d-1_53.dll" />
 					<Add option="-lboost_thread-mgw47-mt-d-1_53.dll" />
 					<Add option="-ldtl-mgw47-d" />
@@ -34,7 +35,7 @@
 					<Add option="-lblowfish-mgw47-d" />
 					<Add option="-lmd5-mgw47-d" />
 					<Add option="-lodbc32" />
-					<Add library="d:\boost\lib64\libboost_serialization-mgw47-mt-d-1_53.dll.a" />
+					<Add library="D:\boost\lib64\libboost_serialization-mgw47-mt-d-1_53.a" />
 				</Linker>
 			</Target>
 			<Target title="Release64">
@@ -98,7 +99,7 @@
 			<Add library="D:\libiconv-1.13.1\lib\libiconv.a" />
 			<Add directory="..\lib64" />
 		</Linker>
-		<Unit filename="packet\binary_archive_test.cpp" />
+		<Unit filename="laughing_bugs\boost_tuple_plus_multi_index_bug_answer_of_vs2010.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

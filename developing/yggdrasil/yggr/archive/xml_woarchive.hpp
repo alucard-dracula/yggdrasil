@@ -37,6 +37,7 @@ THE SOFTWARE.
 #include <yggr/archive/impl/utf8_codecvt_facet.hpp>
 
 #include <yggr/serialization/collection_size_type.hpp>
+#include <yggr/archive/archive_data_wrap_traits.hpp>
 
 #ifdef BOOST_MSVC
 #  pragma warning(push)

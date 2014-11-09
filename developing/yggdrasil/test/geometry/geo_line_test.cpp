@@ -275,6 +275,40 @@ void cross_point_line_3d_test(void)
 	std::cout << std::abs(v2) << std::endl;
 }
 
+void test_line_2d_mul_matrix(void)
+{
+	typedef yggr::math::vector2d<yggr::f32> pos_type;
+	typedef yggr::geometry::geo_line<pos_type> line_type;
+	typedef yggr::math::matrix2d<yggr::s32> mat_type;
+
+	line_type line(pos_type(100, 200), pos_type(200, 100));
+	line_type rst_line = line * mat_type::make_translate(100, 100);
+
+	std::cout << rst_line.src_pos << "," << rst_line.dst_pos << std::endl;
+
+	line_type line2(pos_type(100, 200), pos_type(200, 100));
+	line2 *= mat_type::make_translate(100, 100);
+
+	assert(rst_line == line2);
+}
+
+void test_line_3d_mul_matrix(void)
+{
+	typedef yggr::math::vector3d<yggr::s32> pos_type;
+	typedef yggr::geometry::geo_line<pos_type> line_type;
+	typedef yggr::math::matrix3d<yggr::s32> mat_type;
+
+	line_type line(pos_type(100, 200, 300), pos_type(200, 100, 100));
+	line_type rst_line = line * mat_type::make_translate(100, 100, 100);
+
+	std::cout << rst_line.src_pos << "," << rst_line.dst_pos << std::endl;
+
+	line_type line2(pos_type(100, 200, 300), pos_type(200, 100, 100));
+	line2 *= mat_type::make_translate(100, 100, 100);
+
+	assert(rst_line == line2);
+}
+
 int main(int argc, char* argv[])
 {
 	is_parallel_line_2d_test();
@@ -294,6 +328,9 @@ int main(int argc, char* argv[])
 
 	cross_point_line_2d_test();
 	cross_point_line_3d_test();
+
+	test_line_2d_mul_matrix();
+	test_line_3d_mul_matrix();
 
 	char cc = 0;
 	std::cin >> cc;

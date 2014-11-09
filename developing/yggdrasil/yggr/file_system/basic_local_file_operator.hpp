@@ -43,7 +43,7 @@ THE SOFTWARE.
 
 #ifdef __GNUC__
 #   define BOOST_NO_CXX11_SCOPED_ENUMS
-#endif // __MINGW32__
+#endif // __GNUC__
 
 #include <boost/filesystem/operations.hpp>
 #include <boost/filesystem/path.hpp>

@@ -38,6 +38,7 @@ THE SOFTWARE.
 #include <boost/serialization/item_version_type.hpp>
 #include <yggr/serialization/collection_size_type.hpp>
 #include <yggr/serialization/bson_data_type.hpp>
+#include <yggr/archive/archive_data_wrap_traits.hpp>
 
 #include <boost/archive/detail/abi_prefix.hpp> // must be the last header
 
@@ -251,6 +252,12 @@ public:
 // required by export
 BOOST_SERIALIZATION_REGISTER_ARCHIVE(yggr::archive::bson_iarchive<true>)
 BOOST_SERIALIZATION_REGISTER_ARCHIVE(yggr::archive::bson_iarchive<false>)
+
+YGGR_PP_ARCHIVE_BINARY_DATA_WRAP_TRAITS_DEF(bson_iarchive<true>, yggr::nsql_database_system::c_bson_u8_binary_buffer)
+YGGR_PP_ARCHIVE_BINARY_DATA_WRAP_TRAITS_DEF(bson_iarchive<false>, yggr::nsql_database_system::c_bson_u8_binary_buffer)
+
+YGGR_PP_ARCHIVE_BINARY_DATA_WRAP_TRAITS_DEF(naked_bson_iarchive<true>, yggr::nsql_database_system::c_bson_u8_binary_buffer)
+YGGR_PP_ARCHIVE_BINARY_DATA_WRAP_TRAITS_DEF(naked_bson_iarchive<false>, yggr::nsql_database_system::c_bson_u8_binary_buffer)
 
 #ifdef BOOST_MSVC
 #pragma warning(pop)

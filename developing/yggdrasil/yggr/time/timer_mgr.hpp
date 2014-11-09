@@ -48,13 +48,13 @@ namespace yggr
 namespace time
 {
 
-template<typename Task_ID, 
+template<typename Task_ID,
 			typename Thread_Config = yggr::thread::boost_thread_config_type,
 			 typename Inner_Process_ID = void, int nid = 0>
 class timer_mgr;
 
 // ------------------------inner shared enable version-----------------------------
-template<typename Task_ID, 
+template<typename Task_ID,
 			typename Thread_Config,
 			typename Inner_Process_ID,
 			int nid>
@@ -253,7 +253,7 @@ private:
 
 	class timer_mgr_delegate
 	{
-		YGGR_PP_FRIEND_DEDUCED_TYPENAME(this_type);
+		YGGR_PP_FRIEND_TYPENAME(this_type);
 	private:
 		typedef timer_mgr parent_type;
 		typedef yggr::safe_container::safe_unordered_set<task_id_type> task_id_set_type;
@@ -306,7 +306,7 @@ private:
 
 		void exit_task(const task_id_type& id)
 		{
-			_task_queue.remove(boost::bind(&parent_type::handler_equal_id_of_task, 
+			_task_queue.remove(boost::bind(&parent_type::handler_equal_id_of_task,
 												&_parent, _1, boost::cref(id)));
 			_rm_task_id_queue.remove(boost::bind(&parent_type::handler_equal_id_of_task_id,
 													&_parent, _1, boost::cref(id)));
@@ -357,9 +357,9 @@ public:
 	typedef boost::shared_ptr<timer_mgr_delegate_type> timer_mgr_delegate_ptr_type;
 	typedef timer_mgr_delegate_type delegate_type;
 	typedef timer_mgr_delegate_ptr_type delegate_ptr_type;
-	
+
 private:
-	typedef yggr::safe_container::safe_unordered_map<inner_process_id_type, 
+	typedef yggr::safe_container::safe_unordered_map<inner_process_id_type,
 														timer_mgr_delegate_ptr_type> delegate_map_type;
 	typedef typename delegate_map_type::iterator delegate_map_iter_type;
 	typedef typename delegate_map_type::const_iterator delegate_map_citer_type;
@@ -409,12 +409,12 @@ public:
 
 	timer_mgr_delegate_ptr_type get_delegate(const inner_process_id_type& id)
 	{
-		return _delegate_map.use_handler(boost::bind(&this_type::handler_get_delegate, 
+		return _delegate_map.use_handler(boost::bind(&this_type::handler_get_delegate,
 														this, _1, boost::cref(id)));
 	}
 
 private:
-	timer_mgr_delegate_ptr_type handler_get_delegate(typename delegate_map_type::base_type& base, 
+	timer_mgr_delegate_ptr_type handler_get_delegate(typename delegate_map_type::base_type& base,
 														const inner_process_id_type& id)
 	{
 		delegate_map_iter_type iter = base.find(id);
@@ -612,8 +612,8 @@ private:
 };
 
 // ------------------------------------------normal version-------------------------------------------
-template<typename Task_ID, 
-			typename Thread_Config, 
+template<typename Task_ID,
+			typename Thread_Config,
 			int nid>
 class timer_mgr<Task_ID, Thread_Config, void, nid>
 	: private nonable::noncopyable
@@ -870,7 +870,7 @@ public:
 
 	void exit_task(const task_id_type& id)
 	{
-		_task_queue.remove(boost::bind(&this_type::handler_equal_id_of_task, 
+		_task_queue.remove(boost::bind(&this_type::handler_equal_id_of_task,
 											this, _1, boost::cref(id)));
 		_rm_task_id_queue.remove(boost::bind(&this_type::handler_equal_id_of_task_id,
 												this, _1, boost::cref(id)));

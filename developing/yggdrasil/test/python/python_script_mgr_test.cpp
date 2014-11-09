@@ -88,11 +88,13 @@ void exec_test()
 	mgr.execute_rule("test", st, rst);
 	std::cout << rst.i << std::endl;
 
+	mgr.clear();
+
 }
 
 int main(int argc, char *argv[])
 {
-	//Py_Initialize();
+	Py_Initialize();
 
 	bool error_expected = false;
 
@@ -118,7 +120,7 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	//Py_Finalize();
+	Py_Finalize();
 	char cc = 0;
 	std::cin >> cc;
 	return boost::report_errors();

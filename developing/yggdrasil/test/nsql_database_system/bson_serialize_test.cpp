@@ -140,45 +140,45 @@ private:
 	template<typename Archive>
 	void serialize(Archive & ar, yggr::u32 version)
 	{
-		ar & YGGR_SERIALIZE_NVP(_s8);
-		ar & YGGR_SERIALIZE_NVP(_u8);
-		ar & YGGR_SERIALIZE_NVP(_s16);
-		ar & YGGR_SERIALIZE_NVP(_u16);
-		ar & YGGR_SERIALIZE_NVP(_s32);
-		ar & YGGR_SERIALIZE_NVP(_u32);
-		ar & YGGR_SERIALIZE_NVP(_s64);
-		ar & YGGR_SERIALIZE_NVP(_u64);
+		//ar & YGGR_SERIALIZE_NVP(_s8);
+		//ar & YGGR_SERIALIZE_NVP(_u8);
+		//ar & YGGR_SERIALIZE_NVP(_s16);
+		//ar & YGGR_SERIALIZE_NVP(_u16);
+		//ar & YGGR_SERIALIZE_NVP(_s32);
+		//ar & YGGR_SERIALIZE_NVP(_u32);
+		//ar & YGGR_SERIALIZE_NVP(_s64);
+		//ar & YGGR_SERIALIZE_NVP(_u64);
 
-		ar & YGGR_SERIALIZE_NVP(_f32);
-		ar & YGGR_SERIALIZE_NVP(_f64);
+		//ar & YGGR_SERIALIZE_NVP(_f32);
+		//ar & YGGR_SERIALIZE_NVP(_f64);
 
-		ar & YGGR_SERIALIZE_NVP(_str);
-		ar & YGGR_SERIALIZE_NVP(_date);
-		ar & YGGR_SERIALIZE_NVP(_time);
-		ar & YGGR_SERIALIZE_NVP(_oid);
+		//ar & YGGR_SERIALIZE_NVP(_str);
+		//ar & YGGR_SERIALIZE_NVP(_date);
+		//ar & YGGR_SERIALIZE_NVP(_time);
+		//ar & YGGR_SERIALIZE_NVP(_oid);
 
 
-        YGGR_SERIALIZE_WRAP_NVP_AR(ar, yggr::nsql_database_system::c_bson_u8_binary_buffer, _buf);
+  //      YGGR_SERIALIZE_WRAP_NVP_AR(ar, yggr::nsql_database_system::c_bson_u8_binary_buffer, _buf);
 
-		YGGR_SERIALIZE_WRAP_NVP_AR(ar, yggr::nsql_database_system::c_bson_bpak_binary_buffer, _pak_buf);
+		//YGGR_SERIALIZE_WRAP_NVP_AR(ar, yggr::nsql_database_system::c_bson_bpak_binary_buffer, _pak_buf);
 
-		ar & YGGR_SERIALIZE_NVP(ivt);
+		//ar & YGGR_SERIALIZE_NVP(ivt);
 
-		ar & YGGR_SERIALIZE_NVP(ilist);
+		//ar & YGGR_SERIALIZE_NVP(ilist);
 
-		ar & YGGR_SERIALIZE_NVP(iset);
-		ar & YGGR_SERIALIZE_NVP(imset);
-		ar & YGGR_SERIALIZE_NVP(ipair);
-		ar & YGGR_SERIALIZE_NVP(imap);
-		ar & YGGR_SERIALIZE_NVP(immap);
+		//ar & YGGR_SERIALIZE_NVP(iset);
+		//ar & YGGR_SERIALIZE_NVP(imset);
+		//ar & YGGR_SERIALIZE_NVP(ipair);
+		//ar & YGGR_SERIALIZE_NVP(imap);
+		//ar & YGGR_SERIALIZE_NVP(immap);
 
-		ar & YGGR_SERIALIZE_NVP(ihset);
-		ar & YGGR_SERIALIZE_NVP(imhset);
+		//ar & YGGR_SERIALIZE_NVP(ihset);
+		//ar & YGGR_SERIALIZE_NVP(imhset);
 
-		ar & YGGR_SERIALIZE_NVP(ihmap);
-		ar & YGGR_SERIALIZE_NVP(imhmap);
+		//ar & YGGR_SERIALIZE_NVP(ihmap);
+		//ar & YGGR_SERIALIZE_NVP(imhmap);
 
-		ar & YGGR_SERIALIZE_NVP(ivtvt);
+		//ar & YGGR_SERIALIZE_NVP(ivtvt);
 
 		ar & YGGR_SERIALIZE_NVP(cptr);
 	}

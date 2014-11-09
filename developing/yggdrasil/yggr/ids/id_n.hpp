@@ -31,6 +31,8 @@ THE SOFTWARE.
 #include <memory>
 #include <algorithm>
 
+#include <boost/mpl/if.hpp>
+
 #include <boost/functional/hash/hash.hpp>
 #include <boost/serialization/access.hpp>
 #include <yggr/move/move.hpp>
@@ -39,6 +41,8 @@ THE SOFTWARE.
 #include <yggr/nonable/noncreateable.hpp>
 #include <yggr/ids/base_ids_def.hpp>
 #include <yggr/charset/string.hpp>
+
+#include <yggr/archive/archive_data_wrap_traits.hpp>
 
 #include <yggr/serialization/nvp.hpp>
 
@@ -302,12 +306,14 @@ public:
 
 	virtual std::size_t hash(void) const
 	{
-		boost::hash<string_type> hasher;
-		return hasher(_data);
+		//boost::hash<string_type> hasher;
+		//return hasher(_data);
+		assert(_data.size() == this_type::E_length);
+		return boost::hash_range(_data.begin(), _data.end());
 	}
 
 public:
-	static size_type s_size(void)
+	inline static size_type s_size(void)
 	{
 		return this_type::E_length;
 	}
@@ -318,7 +324,24 @@ private:
 	template<typename Archive>
 	void serialize(Archive& ar, const u32 version)
 	{
+		typedef Archive archive_type;
+		typedef YGGR_PP_ARCHIVE_NEED_BINARY_DATA_WRAP_TRAITS_T(archive_type) bool_type;
+		typedef bool_type* bool_ptr_type;
+		serialize_detail(ar, version, bool_ptr_type(0));
+	}
+
+	template<typename Archive>
+	void serialize_detail(Archive& ar, const u32 version, boost::mpl::false_*) // other
+	{
 		ar & YGGR_SERIALIZE_NVP(_data);
+	}
+
+	template<typename Archive>
+	void serialize_detail(Archive& ar, const u32 version, boost::mpl::true_*) // mongodb
+	{
+		typedef Archive archive_type;
+		typedef typename YGGR_PP_ARCHIVE_BINARY_DATA_WRAP_TRAITS(archive_type) buffer_wrap_type;
+		YGGR_SERIALIZE_WRAP_NVP_AR(ar, buffer_wrap_type, _data)
 	}
 
 protected:

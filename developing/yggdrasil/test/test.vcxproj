@@ -303,7 +303,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="math\matrix_test.cpp" />
+    <ClCompile Include="laughing_bugs\boost_tuple_plus_multi_index_bug_question_of_vs2010.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -35,6 +35,7 @@ THE SOFTWARE.
 #include <yggr/archive/impl/text_woarchive_impl.hpp>
 #include <yggr/archive/impl/codecvt_null.hpp>
 #include <yggr/archive/impl/utf8_codecvt_facet.hpp>
+#include <yggr/archive/archive_data_wrap_traits.hpp>
 
 #include <yggr/serialization/collection_size_type.hpp>
 

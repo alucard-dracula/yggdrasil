@@ -31,6 +31,7 @@ THE SOFTWARE.
 #include <boost/config.hpp>
 #include <yggr/archive/net_iarchive_impl.hpp>
 #include <boost/archive/detail/register_archive.hpp>
+#include <yggr/archive/archive_data_wrap_traits.hpp>
 
 #ifdef BOOST_MSVC
 #  pragma warning(push)

@@ -38,6 +38,7 @@ THE SOFTWARE.
 #include <yggr/archive/impl/codecvt_null.hpp>
 #include <yggr/archive/impl/utf8_codecvt_facet.hpp>
 #include <boost/archive/detail/register_archive.hpp>
+#include <yggr/archive/archive_data_wrap_traits.hpp>
 
 namespace yggr 
 { 

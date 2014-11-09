@@ -144,13 +144,13 @@ public:
 	{
 		return _reg_map.insert(ins_val_type(data_info, ref_info)).second;
 	}
-	
+
 	template<typename T>
 	bool add_reg_data(u32 mode)
 	{
 		typedef T data_type;
-		return _reg_map.insert(ins_val_type(data_type::s_data_info(), 
-												reg_info_type(mode, data::s_cal_type()))).second;
+		return _reg_map.insert(ins_val_type(data_type::s_data_info(),
+												reg_info_type(mode, data_type::s_cal_type()))).second;
 	}
 
 	bool rm_reg_data(const data_info_type& data_info)

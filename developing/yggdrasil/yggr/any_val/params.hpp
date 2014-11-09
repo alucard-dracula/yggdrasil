@@ -39,7 +39,7 @@ THE SOFTWARE.
 
 
 #define __PARAMS_THIS_TYPE_RET_OP2_CONST(__op__, __op_foo__) \
-	const this_type operator __op__ (const this_type& right) const { \
+	this_type operator __op__ (const this_type& right) const { \
 		this_type rst; \
 		base_c_iter_type isize = base_type::end(); \
 		base_c_iter_type re = right.end(); \
@@ -137,7 +137,7 @@ public:
 	}
 
 	template<typename Handler>
-	const this_type operator()(const Handler& handler) const
+	this_type operator()(const Handler& handler) const
 	{
 		return handler(boost::cref(*this));
 	}

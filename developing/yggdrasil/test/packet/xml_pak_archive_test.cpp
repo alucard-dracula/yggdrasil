@@ -2,8 +2,8 @@
 
 #include <iostream>
 #include <yggr/base/yggrdef.h>
-#include <yggr/packet/packet.hpp>
 #include <yggr/archive/xml_archive_partner.hpp>
+#include <yggr/packet/packet.hpp>
 #include <yggr/serialization/nvp.hpp>
 
 #include <yggr/charset/utf8_string.hpp>
@@ -13,6 +13,7 @@
 
 #include <yggr/file_system/local_file_operator.hpp>
 
+// warning: mingw use libboost_serialization-mgw47-mt-1_53.a //fix xml_gamma_error
 
 #ifdef _MSC_VER
 #   include <vld.h>

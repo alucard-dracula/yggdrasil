@@ -29,6 +29,7 @@ THE SOFTWARE.
 
 #include <istream>
 #include <yggr/archive/binary_iarchive_impl.hpp>
+#include <yggr/archive/archive_data_wrap_traits.hpp>
 #include <boost/archive/detail/register_archive.hpp>
 
 #ifdef BOOST_MSVC

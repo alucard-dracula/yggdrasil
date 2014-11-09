@@ -27,9 +27,9 @@ THE SOFTWARE.
 #ifndef __YGGR_ARCHIVE_XML_IARCHIVE_HPP__
 #define __YGGR_ARCHIVE_XML_IARCHIVE_HPP__
 
-#ifdef __ANDROID__
-#	include <yggr/archive/android_support/wchar_t_compile_fixer.hpp>
-#endif // __ANDROID__
+//#ifdef __ANDROID__
+//#	include <yggr/archive/android_support/wchar_t_compile_fixer.hpp>
+//#endif // __ANDROID__
 
 #include <boost/archive/xml_iarchive.hpp>
 #include <boost/archive/impl/basic_xml_grammar.hpp>
@@ -41,14 +41,12 @@ THE SOFTWARE.
 #include <yggr/archive/impl/xml_iarchive_impl.hpp>
 
 #include <yggr/serialization/collection_size_type.hpp>
+#include <yggr/archive/archive_data_wrap_traits.hpp>
 
 #ifdef BOOST_MSVC
 #  pragma warning(push)
 #  pragma warning(disable : 4511 4512)
 #endif
-
-
-
 
 namespace yggr
 {

@@ -33,6 +33,7 @@ THE SOFTWARE.
 #include <yggr/archive/impl/basic_text_oarchive.hpp>
 #include <yggr/archive/impl/archive_serializer_map.hpp>
 #include <yggr/archive/impl/text_oarchive_impl.hpp>
+#include <yggr/archive/archive_data_wrap_traits.hpp>
 
 #include <yggr/serialization/collection_size_type.hpp>
 

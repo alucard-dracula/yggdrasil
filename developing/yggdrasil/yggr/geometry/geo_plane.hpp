@@ -340,4 +340,16 @@ void swap(yggr::geometry::geo_plane<Val, Base>& l, yggr::geometry::geo_plane<Val
 
 } // namespace std
 
+namespace boost
+{
+
+template<typename Val, 
+		template <typename _Val, std::size_t> class Base>
+void swap(yggr::geometry::geo_plane<Val, Base>& l, yggr::geometry::geo_plane<Val, Base>& r)
+{
+	l.swap(r);
+}
+
+} // namespace boost
+
 #endif //__YGGR_GEOMETRY_GEO_PLANE_HPP__

@@ -187,14 +187,14 @@ public:
 	bool operator>= (const base_type& right) const;
 	bool operator>= (const this_type& right) const;
 
-	const this_type operator-(const xtime_sec_t& sec) const;
-	const this_type operator-(const this_type& right) const;
+	this_type operator-(const xtime_sec_t& sec) const;
+	this_type operator-(const this_type& right) const;
 
 	this_type& operator-=(const xtime_sec_t& sec);
 	this_type& operator-=(const this_type& right);
 
-	const this_type operator+(const xtime_sec_t& sec) const;
-	const this_type operator+(const this_type& right) const;
+	this_type operator+(const xtime_sec_t& sec) const;
+	this_type operator+(const this_type& right) const;
 
 	this_type& operator+=(const xtime_sec_t& sec);
 	this_type& operator+=(const this_type& right);

@@ -441,7 +441,7 @@ private:
 
 	class mongodb_io_system_delegate
 	{
-		YGGR_PP_FRIEND_DEDUCED_TYPENAME(this_type);
+		YGGR_PP_FRIEND_TYPENAME(this_type);
 	private:
 		typedef mongodb_io_system parent_type;
 		typedef typename parent_type::base_type parent_base_type;

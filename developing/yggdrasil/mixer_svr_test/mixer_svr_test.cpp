@@ -625,8 +625,7 @@ int main(int argc, char* argv[])
 	{
 		psvr->run();
 		timer_mgr.start();
-		psvr->
-			template use_method<tcp_svr_handler_type>(
+		psvr->use_method<tcp_svr_handler_type>(
 				boost::bind(&tcp_svr_handler_type::online_size, _1),
 				boost::bind(&out_online_size, _1) );
 		//psvr->append<udp_svr_handler_type>(udp_svr_handler_type::link_handler_init_type(6), port + 100); // test run after ok

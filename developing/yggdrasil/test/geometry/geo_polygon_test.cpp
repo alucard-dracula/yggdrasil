@@ -181,6 +181,11 @@ void test_polygon_2d_6(void)
 	{
 		std::cout << *i << std::endl;
 	}
+
+	polygon_type polygon2(pos_type(0, 0), pos_type(100, 0), pos_type(0, 100));
+	polygon2 = polygon2 * mat_type::make_translate(100, 100);
+
+	assert(polygon == polygon2);
 }
 
 void test_polygon_3d_6(void)
@@ -198,6 +203,11 @@ void test_polygon_3d_6(void)
 	{
 		std::cout << *i << std::endl;
 	}
+
+	polygon_type polygon2(pos_type(0, 0, 0), pos_type(100, 0, 0), pos_type(0, 100, 0));
+	polygon2 = polygon2 * mat_type::make_translate(100, 100, 100);
+
+	assert(polygon == polygon2);
 }
 
 int main(int argc, char* argv[])

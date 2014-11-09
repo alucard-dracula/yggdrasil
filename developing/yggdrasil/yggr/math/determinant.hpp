@@ -1102,6 +1102,19 @@ void swap(yggr::math::determinant<Val, ROW, COL, Base>& l,
 
 } // namespace std
 
+namespace boost
+{
+
+template<typename Val, std::size_t ROW, std::size_t COL,
+			template<typename _Val, std::size_t> class Base>
+void swap(yggr::math::determinant<Val, ROW, COL, Base>& l,
+			yggr::math::determinant<Val, ROW, COL, Base>& r)
+{
+	l.swap(r);
+}
+
+} // namespace boost
+
 template<typename Char, typename Traits,
 			typename Val, std::size_t ROW, std::size_t COL,
 			template<typename _Val, std::size_t> class Base>

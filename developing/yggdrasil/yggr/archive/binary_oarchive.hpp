@@ -31,6 +31,7 @@ THE SOFTWARE.
 #include <ostream>
 #include <boost/config.hpp>
 #include <yggr/archive/binary_oarchive_impl.hpp>
+#include <yggr/archive/archive_data_wrap_traits.hpp>
 #include <boost/archive/detail/register_archive.hpp>
 
 #ifdef BOOST_MSVC

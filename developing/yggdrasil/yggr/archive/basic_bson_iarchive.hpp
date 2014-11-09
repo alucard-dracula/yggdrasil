@@ -48,7 +48,6 @@ THE SOFTWARE.
 
 #include <yggr/nsql_database_system/c_bson.hpp>
 
-
 #include <boost/archive/detail/abi_prefix.hpp> // must be the last header
 
 #ifdef BOOST_MSVC

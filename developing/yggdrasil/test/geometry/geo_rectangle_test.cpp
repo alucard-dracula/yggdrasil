@@ -97,10 +97,14 @@ void test_rect_2d_mul_matrix(void)
 	typedef yggr::math::matrix2d<yggr::s32> mat_type;
 
 	rect_type rect(pos_type(100, 200), pos_type(200, 100));
-
 	rect_type rst_rect = rect * mat_type::make_translate(100, 100);
 
 	std::cout << rst_rect.min_pos << "," << rst_rect.max_pos << std::endl;
+
+	rect_type rect2(pos_type(100, 200), pos_type(200, 100));
+	rect2 *= mat_type::make_translate(100, 100);
+
+	assert(rst_rect == rect2);
 
 }
 
@@ -111,10 +115,13 @@ void test_rect_3d_mul_matrix(void)
 	typedef yggr::math::matrix3d<yggr::s32> mat_type;
 
 	rect_type rect(pos_type(100, 200, 300), pos_type(200, 100, 100));
-
 	rect_type rst_rect = rect * mat_type::make_translate(100, 100, 100);
 
 	std::cout << rst_rect.min_pos << "," << rst_rect.max_pos << std::endl;
+
+	rect_type rect2(pos_type(100, 200, 300), pos_type(200, 100, 100));
+	rect2 *= mat_type::make_translate(100, 100, 100);
+	assert(rst_rect == rect2);
 }
 
 #include <vector>
