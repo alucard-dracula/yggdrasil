@@ -107,6 +107,7 @@ public:
 
 #else
 	explicit id_n(BOOST_RV_REF(this_type) right)
+		: _data(this_type::E_length, 0)
 	{
 		this_type& right_ref = right;
 		_data.swap(right_ref._data);
@@ -185,7 +186,7 @@ public:
 	template<typename Other>
 	void swap(Other& right)
 	{
-		 std::swap_ranges(&_data[0], &_data[0] + E_length, &right[0]);
+		std::swap_ranges(&_data[0], &_data[0] + E_length, &right[0]);
 	}
 
 	void swap(BOOST_RV_REF(this_type) right)

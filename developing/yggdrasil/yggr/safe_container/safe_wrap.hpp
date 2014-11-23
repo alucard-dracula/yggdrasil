@@ -272,6 +272,24 @@ public:
 		right.swap(base);
 	}
 
+	template<typename Src, typename Dst>
+	bool compare_exchange_strong(const Src& src, const Dst& dst)
+	{
+		write_lock_type lk(_mutex);
+		if(!_ptr)
+		{
+			throw error_maker_type::make_error(error_maker_type::E_empty_wrap);
+		}
+
+		if(*_ptr == src)
+		{
+			*_ptr = dst;
+			return true;
+		}
+
+		return false;
+	}
+
 	template<typename Handler>
 	typename Handler::result_type
 		use_handler(const Handler& handler)

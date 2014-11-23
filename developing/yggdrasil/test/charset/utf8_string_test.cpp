@@ -1055,6 +1055,11 @@ void non_member_foo_test(void)
 		std::cout << "utf8×Ö·û" + str + yggr::string("aaa") << std::endl;
 		std::cout << L"utf8×Ö·û" + str + yggr::wstring(L"bbb") << std::endl;
 
+		std::cout << yggr::utf8_string("utf8×Ö·û") + str << std::endl;
+		const yggr::utf8_string& cref_str = str;
+		std::cout << yggr::utf8_string("utf8×Ö·û") + cref_str << std::endl;
+
+
 		std::cout << yggr::utf8_string("utf8×Ö·û") + str + yggr::string("aaa") << std::endl;
 		std::cout << yggr::utf8_string(L"utf8×Ö·û") + str + yggr::wstring(L"bbb") << std::endl;
 #else

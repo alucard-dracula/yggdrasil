@@ -242,7 +242,7 @@ public:
 
 	bool reconnect(void)
 	{
-		prv_reconnect(_pconn->now_ver());
+		return prv_reconnect(_pconn->now_ver());
 	}
 
 	template<typename Packet>

@@ -27,10 +27,25 @@ THE SOFTWARE.
 #ifndef __YGGR_ARCHIVE_BUFFER_REAL_VALUE_DEF_HPP__
 #define __YGGR_ARCHIVE_BUFFER_REAL_VALUE_DEF_HPP__
 
+#include <boost/mpl/if.hpp>
 #include <yggr/archive/buffer_real_value_type_traits.hpp>
 #include <yggr/base/yggrdef.h>
 
 YGGR_ARCHIVE_BUFFER_REAL_VALUE_DEF(char, yggr::u8);
-YGGR_ARCHIVE_BUFFER_REAL_VALUE_DEF(wchar_t, yggr::u16)
+
+namespace yggr
+{
+namespace archive
+{
+namespace detail
+{
+	typedef boost::mpl::if_c<(sizeof(wchar_t) == 2),
+								yggr::u16,
+								yggr::u32 >::type wchar_value_type;
+} //namespace detail;
+} // namespace archive
+} // namespace yggr
+
+YGGR_ARCHIVE_BUFFER_REAL_VALUE_DEF(wchar_t, yggr::archive::detail::wchar_value_type)
 
 #endif // __YGGR_ARCHIVE_BUFFER_REAL_VALUE_DEF_HPP__

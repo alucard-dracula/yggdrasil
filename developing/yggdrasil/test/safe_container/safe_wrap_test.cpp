@@ -33,6 +33,11 @@ struct A
 		return *this;
 	}
 
+	bool operator==(const this_type& right) const
+	{
+		return n == right.n;
+	}
+
 	void foo(void) const
 	{
 		std::cout << "run foo " << n << std::endl;
@@ -110,6 +115,18 @@ void test_get_set(void)
 	safe_a_wrap_type::value_ptr_type pa = awrap.get_shared_ptr();
 	assert(pa);
 	assert(pa->n == 200);
+
+	assert(!awrap.compare_exchange_strong(A(300), A(200)));
+	assert(awrap.compare_exchange_strong(A(200), A(300)));
+
+	try
+	{
+		assert(awrap.get_value() == A(300));
+	}
+	catch(const safe_a_wrap_type::error_type&)
+	{
+		assert(false);
+	}
 
 	std::cout << "test_get_set end" << std::endl;
 }

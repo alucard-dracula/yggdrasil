@@ -72,17 +72,39 @@ private:
 	template<>
 	struct regex_string<char>
 	{
-		static const char* space;
-		static const char* fmt;
-		static const char* str_re;
+		inline static const char* space(void)
+		{
+			return " ";
+		}
+		
+		inline static const char* fmt(void)
+		{
+			return "(?1.*)";
+		}
+		
+		inline static const char* str_re(void)
+		{
+			return "(\\W+)";
+		}
 	};
 
 	template<>
 	struct regex_string<wchar_t>
 	{
-		static const wchar_t* space;
-		static const wchar_t* fmt;
-		static const wchar_t* str_re;
+		inline static const wchar_t* space(void)
+		{
+			return L" ";
+		}
+		
+		inline static const wchar_t* fmt(void)
+		{
+			return L"(?1.*)";
+		}
+		
+		inline static const wchar_t* str_re(void)
+		{
+			return L"(\\W+)";
+		}
 	};
 
 public:
@@ -96,9 +118,9 @@ public:
 	{
 		typedef Basic_String<Char, Traits, Alloc> string_type;
 		BOOST_MPL_ASSERT((charset::is_not_utf8_string<string_type>));
-		string_type tstr(typename regex_string<Char>::space + str + typename regex_string<Char>::space);
-		string_type fmt(typename regex_string<Char>::fmt);
-		string_type str_re(typename regex_string<Char>::str_re);
+		string_type tstr(regex_string<Char>::space() + str + regex_string<Char>::space());
+		string_type fmt(regex_string<Char>::fmt());
+		string_type str_re(regex_string<Char>::str_re());
 
 		return  yggr::regular_parse::regex_parse::replace(tstr, str_re, fmt);
 	}
@@ -125,7 +147,7 @@ public:
 		typedef Basic_String<Char, Traits, Alloc> string_type;
 		BOOST_MPL_ASSERT((charset::is_not_utf8_string<string_type>));
 
-		string_type tstr(typename regex_string<Char>::space + str + typename regex_string<Char>::space);
+		string_type tstr(regex_string<Char>::space() + str + regex_string<Char>::space());
 		string_type fmt(nre);
 		string_type str_re(nfmt);
 		return  yggr::regular_parse::regex_parse::replace(tstr, str_re, fmt);
@@ -152,10 +174,10 @@ public:
 		make_u32_fuzzy_string(const Basic_String<Char, Traits, Alloc>& str)
 	{
 		typedef charset::utf8_string string_type;
-		string_type fmt(typename regex_string<Char>::fmt);
-		string_type str_re(typename regex_string<Char>::str_re);
+		string_type fmt(regex_string<Char>::fmt());
+		string_type str_re(regex_string<Char>::str_re());
 		string_type tstr(str);
-		tstr = typename regex_string<Char>::space + tstr + regex_string<Char>::space;
+		tstr = regex_string<Char>::space() + tstr + regex_string<Char>::space();
 
 		return yggr::regular_parse::u32regex_parse::replace(tstr, str_re, fmt);
 	}
@@ -186,7 +208,7 @@ public:
 		string_type fmt(nfmt);
 		string_type str_re(nre);
 		string_type tstr(str);
-		tstr = typename regex_string<Char>::space + tstr + regex_string<Char>::space;
+		tstr = regex_string<Char>::space() + tstr + regex_string<Char>::space();
 
 		return yggr::regular_parse::u32regex_parse::replace(tstr, str_re, fmt);
 	}
@@ -209,13 +231,13 @@ public:
 
 };
 
-const char* fuzzy_string::regex_string<char>::space = " ";
-const char* fuzzy_string::regex_string<char>::fmt = "(?1.*)";
-const char* fuzzy_string::regex_string<char>::str_re = "(\\W+)";
-
-const wchar_t* fuzzy_string::regex_string<wchar_t>::space = L" ";
-const wchar_t* fuzzy_string::regex_string<wchar_t>::fmt = L"(?1.*)";
-const wchar_t* fuzzy_string::regex_string<wchar_t>::str_re = L"(\\W+)";
+//const char* fuzzy_string::regex_string<char>::space = " ";
+//const char* fuzzy_string::regex_string<char>::fmt = "(?1.*)";
+//const char* fuzzy_string::regex_string<char>::str_re = "(\\W+)";
+//
+//const wchar_t* fuzzy_string::regex_string<wchar_t>::space = L" ";
+//const wchar_t* fuzzy_string::regex_string<wchar_t>::fmt = L"(?1.*)";
+//const wchar_t* fuzzy_string::regex_string<wchar_t>::str_re = L"(\\W+)";
 
 
 } // namespace fuzzy

@@ -33,8 +33,12 @@ THE SOFTWARE.
 #include <yggr/archive/text_iarchive.hpp>
 #include <yggr/archive/text_oarchive.hpp>
 
+#ifndef __ANDROID__
+
 #include <yggr/archive/text_wiarchive.hpp>
 #include <yggr/archive/text_woarchive.hpp>
+
+#endif // __ANDROID__
 
 namespace yggr
 {
@@ -53,6 +57,7 @@ namespace archive_partner
 										archive_partner_t::E_Mode_Text
 									> text_oarchive_partner;
 
+#ifndef __ANDROID__
 	typedef archive_partner_template<	yggr::archive::text_wiarchive, 
 										archive_helper::string_archive_helper<yggr::archive::text_wiarchive>, 
 										archive_partner_t::E_Mode_Text
@@ -62,6 +67,8 @@ namespace archive_partner
 										archive_helper::string_archive_helper<yggr::archive::text_woarchive>, 
 										archive_partner_t::E_Mode_Text
 									> text_woarchive_partner;
+
+#endif // __ANDROID__
 
 } // namespace archive_partner
 } // namespace archive

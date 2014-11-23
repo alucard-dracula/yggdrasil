@@ -395,8 +395,8 @@ private:
 		typedef typename boost::multi_index::nth_index<midx_cont, 0>::type cont_type;
 		typedef typename cont_type::iterator cont_iter_type;
 
-		cont_type& cont = base.get<0>();
-		cont_iter_type iter = cont.find(val.get<0>());
+		cont_type& cont = base.template get<0>();
+		cont_iter_type iter = cont.find(val.template get<0>());
 
 		if(iter == cont.end())
 		{
@@ -404,10 +404,10 @@ private:
 		}
 
 		value_type tmp;
-		return cont.modify(iter, 
+		return cont.modify(iter,
 							boost::bind(&this_type::handler_modifier_of_value,
 											this, _1, boost::cref(val), boost::ref(tmp)),
-							boost::bind(&this_type::handler_rollback, 
+							boost::bind(&this_type::handler_rollback,
 											this, _1, boost::cref(tmp)));
 	}
 

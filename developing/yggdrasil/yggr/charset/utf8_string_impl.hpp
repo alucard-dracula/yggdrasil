@@ -853,7 +853,8 @@ public:
 
 	this_type& append(const this_type& right)
 	{
-		base_type::append(right);
+		const base_type& rbase = right;
+		base_type::append(rbase);
 		_utf8_size += right._utf8_size;
 		return *this;
 	}

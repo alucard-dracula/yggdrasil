@@ -386,8 +386,19 @@ public:
 		return *this;
 	}
 
+	// warning !!!! android conflict const rv<this_type>
+	//template<typename TVal>
+	//this_type& operator=(const TVal& right)
+	//{
+	//	for(size_type i = 0; i != E_LENGTH; ++i)
+	//	{
+	//		(*this)[i] = static_cast<val_type>(right);
+	//	}
+	//	return *this;
+	//}
+
 	template<typename TVal>
-	this_type& operator=(const TVal& right)
+	this_type& set(const TVal& right)
 	{
 		for(size_type i = 0; i != E_LENGTH; ++i)
 		{

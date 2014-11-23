@@ -79,7 +79,7 @@ int main(int argc, char* argv[])
 
 	{
 		vec_type vec1(10, 20);
-		vec1 = vec1 + 100;
+		vec1 = vec1 * 100;
 
 		std::cout << vec1.x << ", " <<vec1.y << ", " << vec1.w << std::endl;
 		std::cout << vec1[0] << ", " << vec1[1] << ", " << vec1[2] << std::endl;
@@ -139,7 +139,7 @@ int main(int argc, char* argv[])
 
 	{
 		vec_type vec1(10, 20);
-		vec1 = vec1 - 100;
+		vec1 = vec1 / 100;
 
 		std::cout << vec1.x << ", " <<vec1.y << ", " << vec1.w << std::endl;
 		std::cout << vec1[0] << ", " << vec1[1] << ", " << vec1[2] << std::endl;
