@@ -47,6 +47,19 @@ struct mapping_values;
 	yggr::mapping::mapping_indexes< __tag__ >
 
 // values def
+#define YGGR_PP_STATIC_MAPPING_VALUES_DECLEAR( __tag__, __val_type__ ) \
+	namespace yggr { namespace mapping { \
+	template<> struct mapping_values < __tag__ > { \
+	public: \
+		typedef __tag__ tag_type; \
+		typedef __val_type__ value_type; \
+	public: \
+		static const value_type values[]; };
+
+#define YGGR_PP_STATIC_MAPPING_VALUES_BEGIN_IMPL(__tag__) \
+	namespace yggr { namespace mapping { \
+	const mapping_values< __tag__ >::value_type mapping_values< __tag__ >::values[] = {
+
 #define YGGR_PP_STATIC_MAPPING_VALUES_BEGIN( __tag__, __val_type__ ) \
 	namespace yggr { namespace mapping { \
 	template<> struct mapping_values < __tag__ > { \

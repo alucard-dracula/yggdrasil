@@ -1,5 +1,7 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
 
+#error "the example is oldder"
+
 #include "lua_calculator.hpp"
 
 #include <yggr/base/ptr_single.hpp>

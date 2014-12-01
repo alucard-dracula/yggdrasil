@@ -37,10 +37,14 @@ THE SOFTWARE.
 #include <sstream>
 #include <boost/config.hpp>
 
+#include  <boost/type_traits/remove_reference.hpp>
+#include  <boost/type_traits/remove_const.hpp>
+
 #include <yggr/ppex/friend.hpp>
 
 #include <boost/archive/detail/auto_link_archive.hpp>
 #include <boost/serialization/nvp.hpp>
+#include <yggr/archive/impl/archive_serializer_map.hpp>
 #include <yggr/archive/basic_bson_oarchive.hpp>
 #include <boost/archive/detail/register_archive.hpp>
 #include <boost/serialization/item_version_type.hpp>

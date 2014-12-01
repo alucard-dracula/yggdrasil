@@ -117,7 +117,7 @@ public:
 		if(_start == _end) return;
 
 		u32 tmp = 0;
-		proxy_type::load(_start, "boost_ar_obj_ref_id", tmp);
+		proxy_type::load(_start, "boost_ar_obj_id_ref", tmp);
 		++_start;
 
 		t = boost::archive::object_reference_type(boost::archive::object_id_type(tmp));
@@ -143,22 +143,25 @@ public:
 
 	void load_override(boost::archive::class_id_type& t, int) // u16 // xml archive don't need check it
 	{
-		if(_start == _end) return;
-		u16 tmp = 0;
-		proxy_type::load(_start, "boost_ar_class_id", tmp);
-		//++_start;
+		if(_start == _end || _start.key() != "boost_ar_class_id") return;
+		//u16 tmp = 0;
+		//proxy_type::load(_start, "boost_ar_class_id", tmp);
+		++_start;
 
-		t = boost::archive::class_id_type(tmp);
+		//t = boost::archive::class_id_type(tmp);
 	}
 
 	void load_override(boost::archive::class_id_optional_type& t, int n) //based class_id_type // u16 //1
 	{
-		//must be use boost::archive::class_id_type foo
-		if(_start == _end) return;
-		boost::archive::class_id_type tmp;
-		this_type::load_override(tmp, n);
+		////must be use boost::archive::class_id_type foo
+		//skip it
+		if(_start == _end || _start.key() != "boost_ar_class_id") return;
+		//boost::archive::class_id_type tmp;
+		//this_type::load_override(tmp, n);
+		//u16 tmp = 0;
+		//proxy_type::load(_start, "boost_ar_class_id", tmp);
 		++_start;
-		t = boost::archive::class_id_optional_type(tmp);
+		//t = boost::archive::class_id_optional_type(boost::archive::class_id_type(tmp));
 	}
 
 	void load_override(boost::archive::class_id_reference_type& t, int n) //based class_id_type // u16
@@ -168,14 +171,23 @@ public:
 		boost::archive::class_id_type tmp;
 		this_type::load_override(tmp, n);
 		++_start;
+		proxy_type::load(_start, "boost_ar_class_id_ref", tmp);
 		t = boost::archive::class_id_reference_type(tmp);
 	}
 
 	void load_override(boost::archive::class_name_type& t, int) // const char*
 	{
-		assert(false);
 		if(_start == _end) return;
-		++_start; // skip it
+		std::string tmp;
+		proxy_type::load(_start, "boost_ar_class_name", tmp);
+		++_start;
+		if(tmp.empty() || tmp.size() >= BOOST_SERIALIZATION_MAX_KEY_SIZE)
+		{
+			return;
+		}
+
+		memcpy(t.t, &tmp[0], tmp.size());
+		t.t[tmp.size()] = 0;
 	}
 
 	void load_override(boost::archive::tracking_type& t, int) // bool  //1

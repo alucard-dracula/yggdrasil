@@ -67,7 +67,6 @@ public:
 		return base_type::get();
 	}
 
-
 	// thank you for qq [C++/ObjC/Java]ZERO
 	// call: child_type *p = interface_ptr return 0 is failed
 	template<typename Child>

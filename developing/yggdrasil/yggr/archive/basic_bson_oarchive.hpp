@@ -110,7 +110,9 @@ public:
 		}
 		// must be use object_id_type foo
 		const boost::archive::object_id_type& tmp = t;
-		this_type::save_override(tmp, n);
+		const u32 tmp_zwei = tmp;
+		proxy_type::save(_buf, "boost_ar_obj_id_ref", tmp_zwei);
+		//this_type::save_override(tmp, n);
 	}
 
 	void save_override(const boost::archive::version_type& t, int) // u16
@@ -162,7 +164,8 @@ public:
 		}
 		//  must be use class_id_type foo
 		const boost::archive::class_id_type& tmp = t;
-		this_type::save_override(tmp, n);
+		const u16& tmp_zwei = tmp;
+		proxy_type::save(_buf, "boost_ar_class_id_ref", tmp_zwei);
 	}
 
     void save_override(const boost::archive::class_name_type& t, int) // const char*
@@ -171,7 +174,7 @@ public:
 		{
 			return;
 		}
-		assert(false);
+		//assert(false);
 		const char* tmp = t;
 		proxy_type::save(_buf, "boost_ar_class_name", std::string(tmp));
 	}

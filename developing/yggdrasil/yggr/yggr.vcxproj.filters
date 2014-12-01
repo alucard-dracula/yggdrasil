@@ -259,6 +259,9 @@
     <Filter Include="Header Files\utility">
       <UniqueIdentifier>{5d434dc5-51db-47e2-bc90-4e2c9549fe6d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\struct_conv">
+      <UniqueIdentifier>{68ab9f77-ad97-47e2-8b3a-9d744e160dfb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base\ctrl_center.hpp">
@@ -1877,6 +1880,24 @@
     </ClInclude>
     <ClInclude Include="geometry\geo_rectangle_t.hpp">
       <Filter>Header Files\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="struct_conv\conv_params_and_packet_info.hpp">
+      <Filter>Header Files\struct_conv</Filter>
+    </ClInclude>
+    <ClInclude Include="any_val\params_io_wrap.hpp">
+      <Filter>Header Files\any_val</Filter>
+    </ClInclude>
+    <ClInclude Include="any_val\any.hpp">
+      <Filter>Header Files\any_val</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\any.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="any_val\non_any_type_operator.hpp">
+      <Filter>Header Files\any_val</Filter>
+    </ClInclude>
+    <ClInclude Include="any_val\any_set.hpp">
+      <Filter>Header Files\any_val</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

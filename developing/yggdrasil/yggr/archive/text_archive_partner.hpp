@@ -57,7 +57,7 @@ namespace archive_partner
 										archive_partner_t::E_Mode_Text
 									> text_oarchive_partner;
 
-#ifndef __ANDROID__
+#if !(defined(__ANDROID__) || defined(__MINGW32__))
 	typedef archive_partner_template<	yggr::archive::text_wiarchive, 
 										archive_helper::string_archive_helper<yggr::archive::text_wiarchive>, 
 										archive_partner_t::E_Mode_Text
@@ -68,7 +68,7 @@ namespace archive_partner
 										archive_partner_t::E_Mode_Text
 									> text_woarchive_partner;
 
-#endif // __ANDROID__
+#endif // (defined(__ANDROID__) || defined(__MINGW32__))
 
 } // namespace archive_partner
 } // namespace archive

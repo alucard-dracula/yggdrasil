@@ -40,7 +40,6 @@ public:
 	typedef typename base_type::any_type any_type;
 	typedef any_val_operator<base_type> this_type;
 
-
 public:
 
 	template<typename L>
@@ -89,7 +88,7 @@ public:
 	{
 		any_type tl(l);
 		base_type::set(tl, r);
-		L *p = boost::any_cast<L>(&tl);
+		L *p = yggr::any_cast<L>(&tl);
 
 		if(!p)
 		{
@@ -122,7 +121,7 @@ public:
 	{
 		any_type tl(l);
 		any_type rst = base_type::plus(tl, r);
-		L *p = boost::any_cast<L>(&rst);
+		L *p = yggr::any_cast<L>(&rst);
 
 		if(!p)
 		{
@@ -155,7 +154,7 @@ public:
 	{
 		any_type tl(l);
 		base_type::plus_set(tl, r);
-		L *p = boost::any_cast<L>(&tl);
+		L *p = yggr::any_cast<L>(&tl);
 
 		if(!p)
 		{
@@ -189,7 +188,7 @@ public:
 		any_type tl(l);
 		any_type rst = base_type::minus(tl, r);
 
-		L *p = boost::any_cast<L>(&tl);
+		L *p = yggr::any_cast<L>(&tl);
 
 		if(!p)
 		{
@@ -222,7 +221,7 @@ public:
 	{
 		any_type tl(l);
 		base_type::minus_set(tl, r);
-		L *p = boost::any_cast<L>(&tl);
+		L *p = yggr::any_cast<L>(&tl);
 
 		if(!p)
 		{
@@ -256,7 +255,7 @@ public:
 		any_type tl(l);
 		any_type rst = base_type::multiplies(tl, r);
 
-		L *p = boost::any_cast<L>(&tl);
+		L *p = yggr::any_cast<L>(&tl);
 
 		if(!p)
 		{
@@ -289,7 +288,7 @@ public:
 	{
 		any_type tl(l);
 		base_type::multiplies_set(tl, r);
-		L *p = boost::any_cast<L>(&tl);
+		L *p = yggr::any_cast<L>(&tl);
 
 		if(!p)
 		{
@@ -323,7 +322,7 @@ public:
 		any_type tl(l);
 		any_type rst = base_type::divides(tl, r);
 
-		L *p = boost::any_cast<L>(&tl);
+		L *p = yggr::any_cast<L>(&tl);
 
 		if(!p)
 		{
@@ -357,7 +356,7 @@ public:
 	{
 		any_type tl(l);
 		base_type::divides_set(tl, r);
-		L *p = boost::any_cast<L>(&tl);
+		L *p = yggr::any_cast<L>(&tl);
 
 		if(!p)
 		{
@@ -391,7 +390,7 @@ public:
 		any_type tl(l);
 		any_type rst = base_type::modulus(tl, r);
 
-		L *p = boost::any_cast<L>(&tl);
+		L *p = yggr::any_cast<L>(&tl);
 
 		if(!p)
 		{
@@ -424,7 +423,7 @@ public:
 	{
 		any_type tl(l);
 		base_type::modulus_set(tl, r);
-		L *p = boost::any_cast<L>(&tl);
+		L *p = yggr::any_cast<L>(&tl);
 
 		if(!p)
 		{
@@ -514,7 +513,7 @@ public:
 		any_type tl(l);
 		any_type rst = base_type::bit_and(tl, r);
 
-		L *p = boost::any_cast<L>(&rst);
+		L *p = yggr::any_cast<L>(&rst);
 
 		if(!p)
 		{
@@ -549,7 +548,7 @@ public:
 		any_type tl(l);
 		base_type::bit_and_set(tl, r);
 
-		L *p = boost::any_cast<L>(&tl);
+		L *p = yggr::any_cast<L>(&tl);
 
 		if(!p)
 		{
@@ -583,7 +582,7 @@ public:
 		any_type tl(l);
 		any_type rst = base_type::bit_or(tl, r);
 
-		L *p = boost::any_cast<L>(&rst);
+		L *p = yggr::any_cast<L>(&rst);
 
 		if(!p)
 		{
@@ -617,7 +616,7 @@ public:
 		any_type tl(l);
 		base_type::bit_or_set(tl, r);
 
-		L *p = boost::any_cast<L>(&tl);
+		L *p = yggr::any_cast<L>(&tl);
 
 		if(!p)
 		{
@@ -651,7 +650,7 @@ public:
 		any_type tl(l);
 		any_type rst = base_type::bit_xor(tl, r);
 
-		L *p = boost::any_cast<L>(&rst);
+		L *p = yggr::any_cast<L>(&rst);
 
 		if(!p)
 		{
@@ -685,7 +684,7 @@ public:
 		any_type tl(l);
 		base_type::bit_xor_set(tl, r);
 
-		L *p = boost::any_cast<L>(&tl);
+		L *p = yggr::any_cast<L>(&tl);
 
 		if(!p)
 		{
@@ -719,7 +718,7 @@ public:
 		any_type tl(l);
 		any_type rst = base_type::bit_left_trans(tl, r);
 
-		L *p = boost::any_cast<L>(&rst);
+		L *p = yggr::any_cast<L>(&rst);
 
 		if(!p)
 		{
@@ -753,7 +752,7 @@ public:
 		any_type tl(l);
 		base_type::bit_left_trans_set(tl, r);
 
-		L *p = boost::any_cast<L>(&tl);
+		L *p = yggr::any_cast<L>(&tl);
 
 		if(!p)
 		{
@@ -788,7 +787,7 @@ public:
 		any_type tl(l);
 		any_type rst = base_type::bit_right_trans(tl, r);
 
-		L *p = boost::any_cast<L>(&rst);
+		L *p = yggr::any_cast<L>(&rst);
 
 		if(!p)
 		{
@@ -822,7 +821,7 @@ public:
 		any_type tl(l);
 		base_type::bit_right_trans_set(tl, r);
 
-		L *p = boost::any_cast<L>(&tl);
+		L *p = yggr::any_cast<L>(&tl);
 
 		if(!p)
 		{

@@ -35,7 +35,7 @@
 					<Add option="-lblowfish-mgw47-d" />
 					<Add option="-lmd5-mgw47-d" />
 					<Add option="-lodbc32" />
-					<Add library="D:\boost\lib64\libboost_serialization-mgw47-mt-d-1_53.a" />
+					<Add library="D:\boost\lib64\libboost_serialization-mgw47-d-1_53.a" />
 				</Linker>
 			</Target>
 			<Target title="Release64">
@@ -67,12 +67,11 @@
 					<Add option="-lblowfish-mgw47" />
 					<Add option="-lmd5-mgw47" />
 					<Add option="-lodbc32" />
-					<Add library="d:\boost\lib64\libboost_serialization-mgw47-mt-1_53.dll.a" />
+					<Add library="d:\boost\lib64\libboost_serialization-mgw47-mt-1_53.a" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
-			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 			<Add option="-fdata-sections" />
 			<Add option="-ffunction-sections" />
@@ -99,7 +98,7 @@
 			<Add library="D:\libiconv-1.13.1\lib\libiconv.a" />
 			<Add directory="..\lib64" />
 		</Linker>
-		<Unit filename="laughing_bugs\boost_tuple_plus_multi_index_bug_answer_of_vs2010.cpp" />
+		<Unit filename="any_val\params_bson_serialize_test.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

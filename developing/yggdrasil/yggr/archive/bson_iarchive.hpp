@@ -33,6 +33,7 @@ THE SOFTWARE.
 #endif // YGGR_HAS_BSON_IARCHIVE
 
 #include <boost/archive/detail/auto_link_archive.hpp>
+#include <yggr/archive/impl/archive_serializer_map.hpp>
 #include <yggr/archive/basic_bson_iarchive.hpp>
 #include <boost/archive/detail/register_archive.hpp>
 #include <boost/serialization/item_version_type.hpp>

@@ -1,5 +1,7 @@
 //lua_clt_test.cpp
 
+#error "the example is oldder"
+
 #include <boost/system/system_error.hpp>
 #include <iostream>
 

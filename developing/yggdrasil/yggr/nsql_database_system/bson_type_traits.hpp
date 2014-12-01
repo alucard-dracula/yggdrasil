@@ -110,7 +110,8 @@ struct bson_value_mark
 
 #define YGGR_PP_BSON_VALUE_TYPE_ID(__type__, __id__) \
 namespace yggr { namespace nsql_database_system { \
-template<> struct bson_value_typeid< __type__ > { enum { value = __id__ }; };}}
+template<> struct bson_value_typeid< __type__ > { enum { value = __id__ }; }; \
+template<> struct bson_value_typeid< const __type__ > { enum { value = __id__ }; }; }}
 
 #define YGGR_PP_CONTAINER_BSON_VALUE_TYPE_ID( __template_n__, __type__, __id__ ) \
 namespace yggr { namespace nsql_database_system { \
@@ -122,11 +123,19 @@ YGGR_PP_BSON_VALUE_TYPE_ID(bool, bson_value_type::E_BSON_TYPE_BOOL)
 
 YGGR_PP_BSON_VALUE_TYPE_ID(s8, bson_value_type::E_BSON_TYPE_INT)
 YGGR_PP_BSON_VALUE_TYPE_ID(char, bson_value_type::E_BSON_TYPE_INT)
+
+#if !((defined _MSC_VER) && (_MSC_VER < 1300))
+	YGGR_PP_BSON_VALUE_TYPE_ID(wchar_t, bson_value_type::E_BSON_TYPE_INT)
+#endif // (defined _MSC_VER) && (_MSC_VER < 1300)
+
 YGGR_PP_BSON_VALUE_TYPE_ID(u8, bson_value_type::E_BSON_TYPE_INT)
 YGGR_PP_BSON_VALUE_TYPE_ID(s16, bson_value_type::E_BSON_TYPE_INT)
 YGGR_PP_BSON_VALUE_TYPE_ID(u16, bson_value_type::E_BSON_TYPE_INT)
 YGGR_PP_BSON_VALUE_TYPE_ID(s32, bson_value_type::E_BSON_TYPE_INT)
 YGGR_PP_BSON_VALUE_TYPE_ID(u32, bson_value_type::E_BSON_TYPE_INT)
+
+//YGGR_PP_BSON_VALUE_TYPE_ID(sint, bson_value_type::E_BSON_TYPE_INT)
+//YGGR_PP_BSON_VALUE_TYPE_ID(uint, bson_value_type::E_BSON_TYPE_INT)
 
 YGGR_PP_BSON_VALUE_TYPE_ID(s64, bson_value_type::E_BSON_TYPE_LONG)
 YGGR_PP_BSON_VALUE_TYPE_ID(u64, bson_value_type::E_BSON_TYPE_LONG)

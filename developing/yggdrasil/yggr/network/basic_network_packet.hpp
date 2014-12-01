@@ -28,6 +28,8 @@ THE SOFTWARE.
 #define __YGGR_NETWORK_BASIC_NETWORK_PACKET_HPP__
 
 #include <boost/serialization/access.hpp>
+#include <boost/serialization/base_object.hpp>
+
 #include <boost/mpl/if.hpp>
 #include <boost/mpl/bool.hpp>
 #include <boost/mpl/assert.hpp>

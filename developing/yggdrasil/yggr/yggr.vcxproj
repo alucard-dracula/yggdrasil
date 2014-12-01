@@ -107,6 +107,10 @@
   <ItemGroup>
     <ClInclude Include="adapter\adapter_parser_helper.hpp" />
     <ClInclude Include="adapter\adapter_register_type_def.hpp" />
+    <ClInclude Include="any_val\any.hpp" />
+    <ClInclude Include="any_val\any_set.hpp" />
+    <ClInclude Include="any_val\non_any_type_operator.hpp" />
+    <ClInclude Include="any_val\params_io_wrap.hpp" />
     <ClInclude Include="archive\archive_data_wrap_traits.hpp" />
     <ClInclude Include="archive\archive_partner_template.hpp" />
     <ClInclude Include="archive\basic_bson_iarchive.hpp" />
@@ -469,6 +473,7 @@
     <ClInclude Include="seh\win_seh_env.hpp" />
     <ClInclude Include="seh\win_seh_helper.hpp" />
     <ClInclude Include="seh\win_seh_sys_codes.hpp" />
+    <ClInclude Include="serialization\any.hpp" />
     <ClInclude Include="serialization\array.hpp" />
     <ClInclude Include="serialization\array_bson_impl.hpp" />
     <ClInclude Include="serialization\array_bson_load_impl.hpp" />
@@ -536,6 +541,7 @@
     <ClInclude Include="server\start_mode\server_passive_start_mode.hpp" />
     <ClInclude Include="server\basic_svr_handler.hpp" />
     <ClInclude Include="server\server.hpp" />
+    <ClInclude Include="struct_conv\conv_params_and_packet_info.hpp" />
     <ClInclude Include="struct_support\bind.hpp" />
     <ClInclude Include="struct_support\pair.hpp" />
     <ClInclude Include="struct_support\tuple.hpp" />

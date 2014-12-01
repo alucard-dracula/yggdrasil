@@ -94,10 +94,11 @@ HN_CONV_32(u32)
 	HN_CONV_32(long int)
 	HN_CONV_32(unsigned long int)
 #endif // __ANDROID__
-    
-HN_CONV_32(f32)
+ 
 HN_CONV_64(s64)
 HN_CONV_64(u64)
+
+HN_CONV_32(f32)
 HN_CONV_64(f64)
 
 template<typename T>

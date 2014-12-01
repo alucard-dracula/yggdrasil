@@ -1,5 +1,6 @@
 //lua_active_svr_test.cpp
 
+#error "the example is oldder"
 
 #include <iostream>
 #include <lua_calculator_impl.hpp>

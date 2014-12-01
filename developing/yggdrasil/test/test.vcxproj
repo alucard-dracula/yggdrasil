@@ -303,7 +303,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ids\uuid_bson_serialize_test.cpp" />
+    <ClCompile Include="any_val\params_bson_serialize_test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

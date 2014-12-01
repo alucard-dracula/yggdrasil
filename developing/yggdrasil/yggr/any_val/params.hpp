@@ -31,11 +31,16 @@ THE SOFTWARE.
 #include <map>
 #include <cassert>
 
-#include <boost/any.hpp>
+#include <boost/serialization/access.hpp>
 #include <boost/bind.hpp>
+
+#include <yggr/any_val/any.hpp>
 #include <yggr/move/move.hpp>
 #include <yggr/base/exception_sort.hpp>
 #include <yggr/base/error_make.hpp>
+
+#include <yggr/serialization/any.hpp>
+#include <yggr/serialization/map.hpp>
 
 
 #define __PARAMS_THIS_TYPE_RET_OP2_CONST(__op__, __op_foo__) \
@@ -64,13 +69,13 @@ namespace yggr
 namespace any_val
 {
 
-template<class Key, typename Op,
-			class Cmp = std::less<Key>,
-			class Alloc = std::allocator<std::pair<const Key, boost::any> >,
+template<typename Key, typename Op,
+			typename Cmp = std::less<Key>,
+			typename Alloc = std::allocator<std::pair<const Key, yggr::any> >,
 			template<typename _Key, typename _Val, typename _Cmp, typename _Alloc> class Map = std::map
 		>
 class params
-	: private Map<Key, boost::any, Cmp, Alloc>
+	: private Map<Key, yggr::any, Cmp, Alloc>
 {
 public:
 	ERROR_MAKER_BEGIN("parmas")
@@ -84,7 +89,7 @@ public:
 	ERROR_MAKER_END()
 public:
 	typedef Key key_type;
-	typedef boost::any val_type;
+	typedef yggr::any val_type;
 	typedef Cmp cmp_type;
 	typedef Alloc alloc_type;
 
@@ -231,7 +236,7 @@ public:
 	//	}
 
 	//	const val_type& val = iter->second;
-	//	const rst_val_type *p = boost::any_cast<rst_val_type>(&val);
+	//	const rst_val_type *p = yggr::any_cast<rst_val_type>(&val);
 	//	if(!p)
 	//	{
 	//		return rst_type(T(), false);
@@ -265,7 +270,7 @@ public:
 		}
 
 		const val_type& val = iter->second;
-		return boost::any_cast<const T>(&val);
+		return yggr::any_cast<const T>(&val);
 	}
 
 	template<typename T>
@@ -280,7 +285,7 @@ public:
 		}
 
 		val_type& val = iter->second;
-		return boost::any_cast<T>(&val);
+		return yggr::any_cast<T>(&val);
 	}
 
 	template<typename T>
@@ -393,6 +398,11 @@ public:
 		return false;
 	}
 
+	yggr::size_type size(void) const
+	{
+		return base_type::size();
+	}
+
 	//bool is_exists(const key_type& key) const
 	//{
 	//	return base_type::find(key) != base_type::end();
@@ -430,6 +440,14 @@ public:
 	__PARAMS_THIS_TYPE_RET_OP2_CONST(>>, bit_right_trans)
 	__PARAMS_THIS_TYPE_REF_RET_OP2(>>=, bit_right_trans_set)
 
+
+private:
+	friend class boost::serialization::access;
+	template<typename Archive>
+	void serialize(Archive& ar, const u32 version) 
+	{
+		ar & YGGR_SERIALIZE_NAME_NVP("base", boost::serialization::base_object< base_type >(*this));
+	}
 };
 
 } // namespace any_val

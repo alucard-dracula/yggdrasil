@@ -205,6 +205,16 @@ void c_bson_const_iterator::load(const std::string& name, char& val) const
 	val = static_cast<char>(bson_iterator_int(this));
 }
 
+void c_bson_const_iterator::load(const std::string& name, wchar_t& val) const
+{
+	assert(this_type::load_check(bson_value_typeid<wchar_t>::value, name));
+	if(!this_type::load_check(bson_value_typeid<wchar_t>::value, name))
+	{
+		return;
+	}
+	val = static_cast<wchar_t>(bson_iterator_int(this));
+}
+
 void c_bson_const_iterator::load(const std::string& name, u8& val) const
 {
 	assert(this_type::load_check(bson_value_typeid<u8>::value, name));
@@ -365,6 +375,11 @@ void c_bson_const_iterator::load_value(s8& val) const
 void c_bson_const_iterator::load_value(char& val) const
 {
 	val = static_cast<char>(bson_iterator_int(this));
+}
+
+void c_bson_const_iterator::load_value(wchar_t& val) const
+{
+	val = static_cast<wchar_t>(bson_iterator_int(this));
 }
 
 void c_bson_const_iterator::load_value(u8& val) const
@@ -720,6 +735,11 @@ bool c_bson::save(const std::string& name, char val)
 	return !bson_append_int(this, name.c_str(), s32(val));
 }
 
+bool c_bson::save(const std::string& name, wchar_t val)
+{
+	return !bson_append_int(this, name.c_str(), s32(val));
+}
+
 bool c_bson::save(const std::string& name, u8 val)
 {
 	return !bson_append_int(this, name.c_str(), s32(val));
@@ -904,6 +924,20 @@ bool c_bson::save_value(char val)
 {
 #ifdef _DEBUG
 	assert(check_save_name(base_type::cur, static_cast<char>(save_name_check_num)));
+#endif //_DEBUG
+	if(bson_ensure_space(this, 4) == BSON_ERROR)
+	{
+		return false;
+    }
+	s32 tmp = val;
+	bson_append32(this, &tmp);
+	return true;
+}
+
+bool c_bson::save_value(wchar_t val)
+{
+#ifdef _DEBUG
+	assert(check_save_name(base_type::cur, static_cast<wchar_t>(save_name_check_num)));
 #endif //_DEBUG
 	if(bson_ensure_space(this, 4) == BSON_ERROR)
 	{

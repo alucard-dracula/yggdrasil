@@ -239,6 +239,7 @@ public:
 
 	void load(const std::string& name, s8& val) const;
 	void load(const std::string& name, char& val) const;
+	void load(const std::string& name, wchar_t& val) const;
 	void load(const std::string& name, u8& val) const;
 	void load(const std::string& name, s16& val) const;
 	void load(const std::string& name, u16& val) const;
@@ -316,6 +317,7 @@ protected:
 
 	void load_value(s8& val) const;
 	void load_value(char& val) const;
+	void load_value(wchar_t& val) const;
 	void load_value(u8& val) const;
 	void load_value(s16& val) const;
 	void load_value(u16& val) const;
@@ -584,6 +586,7 @@ public:
 
 	bool save(const std::string& name, s8 val);
 	bool save(const std::string& name, char val);
+	bool save(const std::string& name, wchar_t val);
 	bool save(const std::string& name, u8 val);
 	bool save(const std::string& name, s16 val);
 	bool save(const std::string& name, u16 val);
@@ -668,6 +671,7 @@ protected:
 
 	bool save_value(s8 val);
 	bool save_value(char val);
+	bool save_value(wchar_t val);
 	bool save_value(u8 val);
 	bool save_value(s16 val);
 	bool save_value(u16 val);

@@ -230,8 +230,8 @@ private:
 	template<typename Archive>
 	void serialize(Archive& ar, const u32 version)
 	{
-		ar & YGGR_SERIALIZE_NVP(base_type::sec);
-		ar & YGGR_SERIALIZE_NVP(base_type::nsec);
+		ar & YGGR_SERIALIZE_NAME_NVP("sec", base_type::sec);
+		ar & YGGR_SERIALIZE_NAME_NVP("nsec", base_type::nsec);
 	}
 };
 

@@ -32,7 +32,8 @@ THE SOFTWARE.
 #include <yggr/base/yggrdef.h>
 #include <yggr/charset/string.hpp>
 #include <yggr/charset/utf8_string.hpp>
-#include <boost/any.hpp>
+#include <yggr/any_val/any.hpp>
+#include <yggr/any_val/any_set.hpp> // ANY_SET
 #include <yggr/nonable/noncreateable.hpp>
 
 #ifdef _MSC_VER
@@ -49,29 +50,29 @@ THE SOFTWARE.
 //-------------------------math_1---------------------------------------------
 #define ANY_MATH_CONST_RET_CONST_CHECK_CAL_1(__type__, __foo__, __any__) \
 	if(__any__.type() == typeid(__type__)) { \
-		const __type__ *p = boost::any_cast<__type__>(&__any__); \
+		const __type__ *p = yggr::any_cast<__type__>(&__any__); \
 		return p? any_type(__foo__(*p)) : any_type(); }
 
 #define ANY_MATH_RET_CHECK_CAL_1(__type__, __foo__, __any__) \
 	if(__any__.type() == typeid(__type__)) { \
-		__type__ *p = boost::any_cast<__type__>(&__any__); \
+		__type__ *p = yggr::any_cast<__type__>(&__any__); \
 		if(p){ __foo__(*p); } \
 		return __any__; } 
 
 #define ANY_MATH_CONST_RET_CHECK_CAL_1(__type__, __foo__, __any__) \
 	if(__any__.type() == typeid(__type__)) { \
-		__type__ *p = boost::any_cast<__type__>(&__any__); \
+		__type__ *p = yggr::any_cast<__type__>(&__any__); \
 		return p? any_type(__foo__(*p)) : any_type(); }
 
 //------------------------------math_2----------------------------------------
 #define ANY_MATH_CONST_RET_CONST_CHECK_CAL_2_START(__type__, __any__) \
 	if(__any__.type() == typeid(__type__)) { \
-		const __type__ *p1 = boost::any_cast<__type__>(&__any__); \
+		const __type__ *p1 = yggr::any_cast<__type__>(&__any__); \
 		if(!p1) { return __any__; } 
 
 #define ANY_MATH_CONST_RET_CONST_CHECK_CAL_2(__type__, __foo__, __any__) \
 	if(__any__.type() == typeid(__type__)) { \
-		const __type__ *p2 = boost::any_cast<__type__>(&__any__); \
+		const __type__ *p2 = yggr::any_cast<__type__>(&__any__); \
 		if(!p2) { return any_type(*p1);} \
 		return any_type(__foo__(*p1, *p2)); }
 
@@ -79,12 +80,12 @@ THE SOFTWARE.
 
 #define ANY_MATH_NRET_CHECK_CAL_2_START(__type__, __any__) \
 	if(__any__.type() == typeid(__type__)) { \
-		__type__ *p1 = boost::any_cast<__type__>(&__any__); \
+		__type__ *p1 = yggr::any_cast<__type__>(&__any__); \
 		if(!p1) { return; } 
 
 #define ANY_MATH_NRET_CHECK_CAL_2(__type__, __foo__, __any__) \
 	if(__any__.type() == typeid(__type__)) { \
-		const __type__ *p2 = boost::any_cast<__type__>(&__any__); \
+		const __type__ *p2 = yggr::any_cast<__type__>(&__any__); \
 		if(!p2) { return;} \
 		__foo__(*p1, *p2); \
 		return; }
@@ -95,7 +96,7 @@ THE SOFTWARE.
 
 #define ANY_LOGIC_RET_PARSE_CONST_CHECK_CAL(__type__, __bool__, __any__) \
 	if(__any__.type() == typeid(__type__)) { \
-		const __type__ *p = boost::any_cast<__type__>(&__any__); \
+		const __type__ *p = yggr::any_cast<__type__>(&__any__); \
 		if(!p) { return false;} \
 		__bool__ = *p; }
 
@@ -103,12 +104,12 @@ THE SOFTWARE.
 
 #define ANY_LOGIC_RET_CONST_CHECK_CAL_2_START(__type__, __any__) \
 	if(__any__.type() == typeid(__type__)) { \
-		const __type__ *p1 = boost::any_cast<__type__>(&__any__); \
+		const __type__ *p1 = yggr::any_cast<__type__>(&__any__); \
 		if(!p1) { return false; } 
 
 #define ANY_LOGIC_RET_CONST_CHECK_CAL_2(__type__, __foo__, __any__) \
 	if(__any__.type() == typeid(__type__)) { \
-		const __type__ *p2 = boost::any_cast<__type__>(&__any__); \
+		const __type__ *p2 = yggr::any_cast<__type__>(&__any__); \
 		if(!p2) { return false;} \
 		return __foo__(*p1, *p2); }
 
@@ -116,7 +117,7 @@ THE SOFTWARE.
 
 //----------------------any_init-----------------------------------
 
-#define ANY_SET(__type__, __val__) static_cast<__type__>(__val__)
+//#define ANY_SET(__type__, __val__) static_cast<__type__>(__val__)
 
 
 //-------------------------------------------------------------------------
@@ -130,7 +131,7 @@ class base_any_type_operator : private nonable::noncreateable
 {
 public:
 
-	typedef boost::any any_type;
+	typedef yggr::any any_type;
 	typedef base_any_type_operator this_type;
 	
 public:

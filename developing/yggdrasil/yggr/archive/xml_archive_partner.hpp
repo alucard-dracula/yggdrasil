@@ -33,12 +33,12 @@ THE SOFTWARE.
 #include <yggr/archive/xml_oarchive.hpp>
 #include <yggr/archive/xml_iarchive.hpp>
 
-#ifndef __ANDROID__
+#if !(defined(__ANDROID__) || defined(__MINGW32__))
 
 #include <yggr/archive/xml_woarchive.hpp>
 #include <yggr/archive/xml_wiarchive.hpp>
 
-#endif // __ANDROID__
+#endif // !(defined(__ANDROID__) || defined(__MINGW32__))
 
 namespace yggr
 {
@@ -46,28 +46,28 @@ namespace archive
 {
 namespace archive_partner
 {
-	
-	typedef archive_partner_template<	yggr::archive::xml_iarchive, 
-										archive_helper::xml_archive_helper<yggr::archive::xml_iarchive>, 
+
+	typedef archive_partner_template<	yggr::archive::xml_iarchive,
+										archive_helper::xml_archive_helper<yggr::archive::xml_iarchive>,
 										archive_partner_t::E_Mode_XML
 									> xml_iarchive_partner;
 
-	typedef archive_partner_template<	yggr::archive::xml_oarchive, 
-										archive_helper::xml_archive_helper<yggr::archive::xml_oarchive>, 
+	typedef archive_partner_template<	yggr::archive::xml_oarchive,
+										archive_helper::xml_archive_helper<yggr::archive::xml_oarchive>,
 										archive_partner_t::E_Mode_XML
 									> xml_oarchive_partner;
 
-#ifndef __ANDROID__
-	typedef archive_partner_template<	yggr::archive::xml_wiarchive, 
-										archive_helper::xml_archive_helper<yggr::archive::xml_wiarchive>, 
+#if !(defined(__ANDROID__) || defined(__MINGW32__))
+	typedef archive_partner_template<	yggr::archive::xml_wiarchive,
+										archive_helper::xml_archive_helper<yggr::archive::xml_wiarchive>,
 										archive_partner_t::E_Mode_XML
 									> xml_wiarchive_partner;
 
-	typedef archive_partner_template<	yggr::archive::xml_woarchive, 
-										archive_helper::xml_archive_helper<yggr::archive::xml_woarchive>, 
+	typedef archive_partner_template<	yggr::archive::xml_woarchive,
+										archive_helper::xml_archive_helper<yggr::archive::xml_woarchive>,
 										archive_partner_t::E_Mode_XML
 									> xml_woarchive_partner;
-#endif //__ANDROID__
+#endif // !(defined(__ANDROID__) || defined(__MINGW32__))
 
 } // namespace archive_partner
 } // namespace archive
