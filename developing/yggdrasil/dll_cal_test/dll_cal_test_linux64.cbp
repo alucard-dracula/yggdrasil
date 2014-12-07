@@ -18,9 +18,11 @@
 					<Add option="-D_DEBUG" />
 				</Compiler>
 				<Linker>
-					<Add library="/usr/local/lib64/libboost_system-gcc47-d-1_53.so" />
-					<Add library="/usr/local/lib64/libboost_thread-gcc47-mt-d-1_53.so" />
-					<Add library="../lib64/libyggr_base-linux-d.so" />
+					<Add option="-lyggr_base-gcc47-d" />
+					<Add option="-lyggr_ids-gcc47-d" />
+					<Add option="-lcompatibility-gcc47-d" />
+					<Add option="-lboost_system-gcc47-d-1_53" />
+					<Add option="-lboost_thread-gcc47-mt-d-1_53" />
 					<Add directory="/usr/local/lib64" />
 				</Linker>
 			</Target>
@@ -37,19 +39,24 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="/usr/local/lib64/libboost_system-gcc47-1_53.so" />
-					<Add library="/usr/local/lib64/libboost_thread-gcc47-mt-1_53.so" />
-					<Add library="../lib64/libyggr_base-linux.so" />
+					<Add option="-lyggr_base-gcc47-d" />
+					<Add option="-lcompatibility-gcc47" />
+					<Add option="-lboost_system-gcc47-d-1_53" />
+					<Add option="-lboost_thread-gcc47-mt-d-1_53" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add option="-fdata-sections" />
+			<Add option="-ffunction-sections" />
+			<Add option="-fno-strict-aliasing" />
 			<Add option="-fPIC" />
 			<Add option="-zdef" />
 			<Add option="-DBUILD_DLL" />
 			<Add option="-DLINUX" />
+			<Add option="-DYGGR_AT_LINUX" />
 			<Add option="-DYGGR_SYSTEM_64" />
 			<Add option="-DYGGR_DLL_DEF" />
 			<Add directory="../" />
@@ -58,6 +65,7 @@
 		</Compiler>
 		<Linker>
 			<Add option="-lpthread" />
+			<Add directory="../lib64" />
 		</Linker>
 		<Unit filename="dll_cal_test.hpp" />
 		<Unit filename="dll_cal_test_imp.hpp" />

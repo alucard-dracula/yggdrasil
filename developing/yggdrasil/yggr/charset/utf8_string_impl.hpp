@@ -303,8 +303,6 @@ public:
 #			error "please input your suppor string code"
 #		endif // YGGR_USE_STL_STRING
 
-
-
 		const_iterator(const base_type& base)
 			: base_type(base)
 		{
@@ -2389,7 +2387,7 @@ private:
 						const string& src_charset_name = charset_name_t<Char>()) const
 	{
 		base_type tmp(YGGR_PP_CHARSET_FOO_XCHG(base_type, src, src_charset_name, IN_CHARSET_NAME));
-		this_type this_tmp(boost::move(tmp), IN_CHARSET_NAME);
+		this_type this_tmp(tmp, IN_CHARSET_NAME);
 
 		for(this_type::const_iterator i = this_tmp.begin(), isize = this_tmp.end(); i != isize; ++i)
 		{

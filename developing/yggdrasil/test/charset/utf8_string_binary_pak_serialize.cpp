@@ -1,5 +1,9 @@
 //utf8_string_pak_serialize.cpp
 
+#ifndef _MSC_VER
+#	error "this file test msvc only !!!!"
+#endif // _MSC_VER
+
 //#define YGGR_USE_STL_STRING
 
 #include <iostream>
@@ -50,7 +54,7 @@ struct A
 	}
 
 	A(int n)
-		:a(n), f(123.5f), str("ÊÀ½çHello")
+		:a(n), f(123.5f), str("ï¿½ï¿½ï¿½Hello")
 	{
 	}
 

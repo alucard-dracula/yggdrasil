@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #   include <vld.h>
-#endif //_WIN32
+#endif //_MSC_VER
 //#pragma comment(lib, "vld.lib")
 
 #include <yggr/any_val/base_any_type_operator.hpp>

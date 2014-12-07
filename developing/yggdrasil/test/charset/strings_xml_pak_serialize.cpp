@@ -1,5 +1,9 @@
 //utf8_string_pak_serialize.cpp
 
+#ifndef _MSC_VER
+#	error "this file test msvc only !!!!"
+#endif // _MSC_VER
+
 //#define YGGR_USE_STL_STRING
 
 #include <iostream>

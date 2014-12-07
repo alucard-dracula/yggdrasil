@@ -173,7 +173,7 @@ void c_bson_const_iterator::swap(c_bson_const_iterator& right)
 
 bool c_bson_const_iterator::load_check(u32 type_id, const std::string& name) const
 {
-	u32 now_id = this_type::typeid_of_value();
+	//u32 now_id = this_type::typeid_of_value();
 	std::string now_name = this_type::key();
 	return (this_type::typeid_of_value() == type_id) && (name == this_type::key());
 }

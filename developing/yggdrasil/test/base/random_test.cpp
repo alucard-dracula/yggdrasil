@@ -105,9 +105,9 @@ void test4(void)
 int main(int argc, char* argv[])
 {
 	yggr::random::init();
-	//test1();
-	//test2();
-	//test3();
+	test1();
+	test2();
+	test3();
 
 	test4();
 

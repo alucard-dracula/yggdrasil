@@ -108,7 +108,7 @@ private:
         dst_type operator()(const src_type& src) const
         {
             size_type byte_size = src.size() * sizeof(src_char_type);
-            size_type dst_size = byte_size / sizeof(dst_char_type);
+            size_type dst_size = (byte_size + sizeof(dst_char_type) - 1) / sizeof(dst_char_type);
             dst_type dst(dst_size, 0);
             memcpy(&dst[0], &src[0], byte_size);
             return dst;

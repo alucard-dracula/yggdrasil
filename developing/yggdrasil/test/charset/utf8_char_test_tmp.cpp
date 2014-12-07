@@ -1,5 +1,9 @@
 //utf8_char_test.cpp
 
+#ifndef _MSC_VER
+#	error "this file test msvc only !!!!"
+#endif // _MSC_VER
+
 #include <iostream>
 
 #include <boost/interprocess/shared_memory_object.hpp>

@@ -43,7 +43,6 @@
 #	pragma comment(lib, "icudt.lib")
 #endif // _MSC_VER
 
-
 namespace yggr
 {
 namespace regular_parse
@@ -70,15 +69,16 @@ private:
 	template<typename Container>
 	struct org_begin
 	{
-		typedef typename Container::iterator iter_type;
-		typedef typename Container::const_iterator citer_type;
-		
-		iter_type operator()(Container& cont) const
+		typedef Container cont_type;
+		typedef typename cont_type::iterator iter_type;
+		typedef typename cont_type::const_iterator citer_type;
+
+		iter_type operator()(cont_type& cont) const
 		{
 			return cont.begin();
 		}
 
-		citer_type operator()(const Container& cont) const
+		citer_type operator()(const cont_type& cont) const
 		{
 			return cont.begin();
 		}
@@ -87,15 +87,16 @@ private:
 	template<typename Container>
 	struct org_end
 	{
-		typedef typename Container::iterator iter_type;
-		typedef typename Container::const_iterator citer_type;
-		
-		iter_type operator()(Container& cont) const
+		typedef Container cont_type;
+		typedef typename cont_type::iterator iter_type;
+		typedef typename cont_type::const_iterator citer_type;
+
+		iter_type operator()(cont_type& cont) const
 		{
 			return cont.end();
 		}
 
-		citer_type operator()(const Container& cont) const
+		citer_type operator()(const cont_type& cont) const
 		{
 			return cont.end();
 		}
@@ -111,12 +112,14 @@ private:
 
 		iter_type operator()(cont_type& cont) const
 		{
-			return cont.base_type::begin();
+			cont_base_type& base = cont;
+			return base.begin();
 		}
 
 		citer_type operator()(const cont_type& cont) const
 		{
-			return cont.base_type::begin();
+			const cont_base_type& base = cont;
+			return base.begin();
 		}
 	};
 
@@ -130,12 +133,14 @@ private:
 
 		iter_type operator()(cont_type& cont) const
 		{
-			return cont.base_type::end();
+			cont_base_type& base = cont;
+			return base.end();
 		}
 
 		citer_type operator()(const cont_type& cont) const
 		{
-			return cont.base_type::end();
+			const cont_base_type& base = cont;
+			return base.end();
 		}
 	};
 
@@ -144,7 +149,7 @@ public:
 //--------------------match----------------------------
 	template<typename Target,
 				typename Char, typename Traits, typename Alloc>
-	static bool match(const Target& target, 
+	static bool match(const Target& target,
 						const charset::utf8_string_impl<Char, Traits, Alloc>& str_regex,
 						regex_flag_type re_flag = regex_base_type::normal,
 						match_flag_type mth_flag = boost::match_default)
@@ -157,28 +162,28 @@ public:
 
 		BOOST_MPL_ASSERT((boost::is_same<target_value_type, Char>));
 
-	
+
 		regex_type re(boost::make_u32regex(str_regex.c_str(), re_flag));
 		boost::match_results<target_citer_type> m;
 
 		return boost::re_detail::do_regex_match(org_begin<target_type>()(target),
 													org_end<target_type>()(target),
-													m, re, mth_flag, 
+													m, re, mth_flag,
 													static_cast<
 														boost::mpl::int_<
 															sizeof(*(org_begin<target_type>()(target)))> const*>(0));
-	
+
 	}
 
 	template<typename Char, typename Traits, typename Alloc>
-	static bool match(const charset::utf8_string_impl<Char, Traits, Alloc>& target, 
+	static bool match(const charset::utf8_string_impl<Char, Traits, Alloc>& target,
 						const charset::utf8_string_impl<Char, Traits, Alloc>& str_regex,
 						regex_flag_type re_flag = regex_base_type::normal,
 						match_flag_type mth_flag = boost::match_default)
 	{
 		typedef charset::utf8_string_impl<Char, Traits, Alloc> string_type;
 
-		
+
 		regex_type re(boost::make_u32regex(str_regex.c_str(), re_flag));
 		return boost::u32regex_match(target.c_str(), re, mth_flag);
 
@@ -200,13 +205,13 @@ public:
 
 		BOOST_MPL_ASSERT((boost::is_same<target_value_type, Char>));
 
-	
+
 		regex_type re(boost::make_u32regex(str_regex.c_str(), re_flag));
 		boost::match_results<target_citer_type> m;
 
 		bool bret = boost::re_detail::do_regex_match(org_begin<target_type>()(target),
 														org_end<target_type>()(target),
-														m, re, mth_flag, 
+														m, re, mth_flag,
 														static_cast<
 															boost::mpl::int_<
 																sizeof(*(org_begin<target_type>()(target)))> const*>(0));
@@ -226,12 +231,12 @@ public:
 		typedef typename string_base_type::const_iterator string_citer_type;
 		typedef boost::match_results<string_citer_type> match_rst_type;
 
-		
+
 		regex_type re(boost::make_u32regex(str_regex.c_str(), re_flag));
 		match_rst_type m;
 
 		bool bret = boost::re_detail::do_regex_match(org_begin<string_type>()(target),
-														org_end<string_type>()(target), 
+														org_end<string_type>()(target),
 														m, re, mth_flag,
 														static_cast<boost::mpl::int_<sizeof(Char)> const*>(0));
 		return handler(bret, m);
@@ -240,9 +245,9 @@ public:
 //---------------------------------replace--------------------------------------
 
 	template<typename Char, typename Traits, typename Alloc>
-	static charset::utf8_string_impl<Char, Traits, Alloc> 
-		replace(const charset::utf8_string_impl<Char, Traits, Alloc>& text, 
-					const charset::utf8_string_impl<Char, Traits, Alloc>& str_regex, 
+	static charset::utf8_string_impl<Char, Traits, Alloc>
+		replace(const charset::utf8_string_impl<Char, Traits, Alloc>& text,
+					const charset::utf8_string_impl<Char, Traits, Alloc>& str_regex,
 					const charset::utf8_string_impl<Char, Traits, Alloc>& str_fmt,
 					regex_flag_type re_flag = regex_base_type::normal,
 					replace_flag_type rl_flag = boost::match_default | boost::format_all)
@@ -250,25 +255,24 @@ public:
 		typedef charset::utf8_string_impl<Char, Traits, Alloc> string_type;
 		typedef typename string_type::base_type base_type;
 
-		
 		regex_type re(boost::make_u32regex(str_regex.c_str(), re_flag));
 
 		string_type result;
-			
+
 		base_type& ref_base = result;
 		boost::re_detail::string_out_iterator<base_type> i(ref_base);
 		boost::u32regex_replace(i, org_begin<string_type>()(text),
-									org_end<string_type>()(text),
-									re, str_fmt.c_str(), rl_flag);
+														org_end<string_type>()(text),
+														re, str_fmt.c_str(), rl_flag);
 		result.recount_size();
 		return result;
 	}
 
-	template<typename Char, typename Traits, typename Alloc, 
+	template<typename Char, typename Traits, typename Alloc,
 				typename Handler>
 	static charset::utf8_string_impl<Char, Traits, Alloc>
-		replace(const charset::utf8_string_impl<Char, Traits, Alloc>& text, 
-				const charset::utf8_string_impl<Char, Traits, Alloc>& str_regex, 
+		replace(const charset::utf8_string_impl<Char, Traits, Alloc>& text,
+				const charset::utf8_string_impl<Char, Traits, Alloc>& str_regex,
 				const charset::utf8_string_impl<Char, Traits, Alloc>& str_fmt,
 				regex_flag_type re_flag, replace_flag_type rl_flag, const Handler& handler)
 	{
@@ -278,8 +282,8 @@ public:
 
 	template<typename Out,
 				typename Char, typename Traits, typename Alloc>
-	static Out& replace(Out& out, 
-							const charset::utf8_string_impl<Char, Traits, Alloc>& target, 
+	static Out& replace(Out& out,
+							const charset::utf8_string_impl<Char, Traits, Alloc>& target,
 							const charset::utf8_string_impl<Char, Traits, Alloc>& str_regex,
 							const charset::utf8_string_impl<Char, Traits, Alloc>& str_fmt,
 							regex_flag_type re_flag = regex_type::normal,
@@ -292,11 +296,11 @@ public:
 
 		out_iter_type oi(out);
 
-		
+
 		regex_type re(boost::make_u32regex(str_regex.c_str(), re_flag));
-		boost::u32regex_replace(oi, 
-								org_begin<string_type>()(target), 
-								org_end<string_type>()(target), 
+		boost::u32regex_replace(oi,
+								org_begin<string_type>()(target),
+								org_end<string_type>()(target),
 								re, str_fmt.c_str(), rl_flag);
 		return out;
 	}
@@ -304,8 +308,8 @@ public:
 	template<typename Out,
 				typename Char, typename Traits, typename Alloc,
 				typename Handler>
-	static Out& replace(Out& out, const charset::utf8_string_impl<Char, Traits, Alloc>& target, 
-							const charset::utf8_string_impl<Char, Traits, Alloc>& str_regex, 
+	static Out& replace(Out& out, const charset::utf8_string_impl<Char, Traits, Alloc>& target,
+							const charset::utf8_string_impl<Char, Traits, Alloc>& str_regex,
 							const charset::utf8_string_impl<Char, Traits, Alloc>& str_fmt,
 							regex_flag_type re_flag, replace_flag_type rl_flag, const Handler& handler)
 	{
@@ -316,7 +320,7 @@ public:
 
 	template<typename Target,
 				typename Char, typename Traits, typename Alloc>
-	static bool search(const Target& target, 
+	static bool search(const Target& target,
 						const charset::utf8_string_impl<Char, Traits, Alloc>& str_regex,
 						regex_flag_type re_flag = regex_base_type::normal,
 						match_flag_type mth_flag = boost::match_default)
@@ -329,17 +333,17 @@ public:
 
 		BOOST_MPL_ASSERT((boost::is_same<target_value_type, Char>));
 
-	
+
 		match_rst_type m;
 		regex_type re(boost::make_u32regex(str_regex.c_str(), re_flag));
 
-		return boost::u32regex_search(org_begin<target_type>()(target), 
-										org_end<target_type>()(target), 
+		return boost::u32regex_search(org_begin<target_type>()(target),
+										org_end<target_type>()(target),
 										m, re, mth_flag);
 	}
 
 	template<typename Char, typename Traits, typename Alloc>
-	static bool search(const charset::utf8_string_impl<Char, Traits, Alloc>& target, 
+	static bool search(const charset::utf8_string_impl<Char, Traits, Alloc>& target,
 						const charset::utf8_string_impl<Char, Traits, Alloc>& str_regex,
 						regex_flag_type re_flag = regex_base_type::normal,
 						match_flag_type mth_flag = boost::match_default)
@@ -353,15 +357,15 @@ public:
 		match_rst_type m;
 		regex_type re(boost::make_u32regex(str_regex.c_str(), re_flag));
 
-		return boost::u32regex_search(org_begin<string_type>()(target), 
-										org_end<string_type>()(target), 
+		return boost::u32regex_search(org_begin<string_type>()(target),
+										org_end<string_type>()(target),
 										m, re, mth_flag);
 	}
 
 	template<typename Target,
 				typename Char, typename Traits, typename Alloc,
 				typename Handler>
-	static bool search(const Target& target, 
+	static bool search(const Target& target,
 						const charset::utf8_string_impl<Char, Traits, Alloc>& str_regex,
 						regex_flag_type re_flag, match_flag_type mth_flag,
 						const Handler& handler)
@@ -377,14 +381,14 @@ public:
 		regex_type re(boost::make_u32regex(str_regex.c_str(), re_flag));
 		match_rst_type m;
 		bool bret = boost::u32regex_search(org_begin<target_type>()(target),
-											org_end<target_type>()(target), 
+											org_end<target_type>()(target),
 											m, re, mth_flag);
 		return handler(bret, m);
 	}
 
 	template<typename Char, typename Traits, typename Alloc,
 				typename Handler>
-	static bool search(const charset::utf8_string_impl<Char, Traits, Alloc>& target, 
+	static bool search(const charset::utf8_string_impl<Char, Traits, Alloc>& target,
 						const charset::utf8_string_impl<Char, Traits, Alloc>& str_regex,
 						regex_flag_type re_flag, match_flag_type mth_flag,
 						const Handler& handler)
@@ -398,7 +402,7 @@ public:
 		regex_type re(boost::make_u32regex(str_regex.c_str(), re_flag));
 		match_rst_type m;
 		bool bret = boost::u32regex_search(org_begin<string_type>()(target),
-											org_end<string_type>()(target), 
+											org_end<string_type>()(target),
 											m, re, mth_flag);
 		return handler(bret, m);
 	}

@@ -27,6 +27,8 @@ typedef yggr::packet::packet<yggr::archive::archive_partner::network_iarchive_pa
 typedef yggr::any_val::any_val_operator<yggr::any_val::base_any_type_operator> any_val_op_type;
 typedef yggr::any_val::params<std::string, any_val_op_type> params_type;
 
+YGGR_ANY_EXPORT(int)
+YGGR_ANY_EXPORT(float)
 
 void test_foo1(void)
 {
@@ -52,6 +54,8 @@ void test_foo1(void)
 int main(int argc, char* argv[])
 {
 	test_foo1();
+
+	std::cout << "complete" << std::endl;
 
 	char cc = 0;
 	std::cin >> cc;

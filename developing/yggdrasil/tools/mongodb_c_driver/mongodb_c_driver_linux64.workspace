@@ -8,7 +8,7 @@
 		<Project filename="include/include_linux64.cbp" />
 		<Project filename="mongoc/mongoc_linux64.so.cbp" />
 		<Project filename="bson/bson_linux64.so.cbp" />
-		<Project filename="bcon/bcon_linux64.cbp" />
-		<Project filename="bcon/bcon_linux64.so.cbp" active="1" />
+		<Project filename="bcon/bcon_linux64.cbp" active="1" />
+		<Project filename="bcon/bcon_linux64.so.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>

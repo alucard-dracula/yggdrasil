@@ -7,6 +7,10 @@
 #include <yggr/ids/base_ids_def.hpp>
 #include <yggr/ids/id_generator.hpp>
 
+#ifdef _MSC_VER
+#include <vld.h>
+#endif // _MSC_VER
+
 struct task_pak
 {
 	typedef yggr::time::time time_type;

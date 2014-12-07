@@ -27,10 +27,11 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add option="-DLINUX" />
+			<Add option="-DYGGR_AT_LINUX" />
 			<Add option="-DYGGR_SYSTEM_64" />
 		</Compiler>
 		<Unit filename="stl_exception.hpp" />
+		<Unit filename="stl_switch.hpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

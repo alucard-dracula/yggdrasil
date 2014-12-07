@@ -27,41 +27,43 @@ THE SOFTWARE.
 #ifndef __YGGR_DLL_DEF_HELPER_HPP__
 #define __YGGR_DLL_DEF_HELPER_HPP__
 
+#include <yggr/dll_make/dll_mark_define.hpp>
+
 #define YGGR_DLL_MAKE_API_0(__ret_type__, __foo_name__) \
-	YGGR_DLL_API __ret_type__ __stdcall __foo_name__(void)
+	YGGR_DLL_API __ret_type__ YGGR_MODULE_CALL_T() __foo_name__(void)
 
 #define YGGR_DLL_MAKE_API_1(__ret_type__, __foo_name__, __param_1__) \
-	YGGR_DLL_API __ret_type__ __stdcall __foo_name__(__param_1__)
+	YGGR_DLL_API __ret_type__ YGGR_MODULE_CALL_T() __foo_name__(__param_1__)
 
 #define YGGR_DLL_MAKE_API_2(__ret_type__, __foo_name__, __param_1__, __param_2__) \
-	YGGR_DLL_API __ret_type__ __stdcall __foo_name__(__param_1__, __param_2__)
+	YGGR_DLL_API __ret_type__ YGGR_MODULE_CALL_T() __foo_name__(__param_1__, __param_2__)
 
 #define YGGR_DLL_MAKE_API_3(__ret_type__, __foo_name__, __param_1__, __param_2__, __param_3__) \
-	YGGR_DLL_API __ret_type__ __stdcall __foo_name__(__param_1__, __param_2__, __param_3__)
+	YGGR_DLL_API __ret_type__ YGGR_MODULE_CALL_T() __foo_name__(__param_1__, __param_2__, __param_3__)
 
 #define YGGR_DLL_MAKE_API_4(__ret_type__, __foo_name__, __param_1__, __param_2__, __param_3__, __param_4__) \
-	YGGR_DLL_API __ret_type__ __stdcall __foo_name__(__param_1__, __param_2__, __param_3__, __param_4__)
+	YGGR_DLL_API __ret_type__ YGGR_MODULE_CALL_T() __foo_name__(__param_1__, __param_2__, __param_3__, __param_4__)
 
 #define YGGR_DLL_MAKE_API_5(__ret_type__, __foo_name__, __param_1__, __param_2__, __param_3__, __param_4__, __param_5__) \
-	YGGR_DLL_API __ret_type__ __stdcall __foo_name__(__param_1__, __param_2__, __param_3__, __param_4__, __param_5__)
+	YGGR_DLL_API __ret_type__ YGGR_MODULE_CALL_T() __foo_name__(__param_1__, __param_2__, __param_3__, __param_4__, __param_5__)
 
 #define YGGR_DLL_MAKE_API_6(__ret_type__, __foo_name__, __param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__) \
-	YGGR_DLL_API __ret_type__ __stdcall __foo_name__(__param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__)
+	YGGR_DLL_API __ret_type__ YGGR_MODULE_CALL_T() __foo_name__(__param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__)
 
 #define YGGR_DLL_MAKE_API_7(__ret_type__, __foo_name__, __param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__, __param_7__) \
-	YGGR_DLL_API __ret_type__ __stdcall __foo_name__(__param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__, __param_7__)
+	YGGR_DLL_API __ret_type__ YGGR_MODULE_CALL_T() __foo_name__(__param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__, __param_7__)
 
 #define YGGR_DLL_MAKE_API_8(__ret_type__, __foo_name__, __param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__, __param_7__, __param_8__) \
-	YGGR_DLL_API __ret_type__ __stdcall __foo_name__(__param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__, __param_7__, __param_8__)
+	YGGR_DLL_API __ret_type__ YGGR_MODULE_CALL_T() __foo_name__(__param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__, __param_7__, __param_8__)
 
 #define YGGR_DLL_MAKE_API_9(__ret_type__, __foo_name__, __param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__, __param_7__, __param_8__, __param_9__) \
-	YGGR_DLL_API __ret_type__ __stdcall __foo_name__(__param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__, __param_7__, __param_8__, __param_9__)
+	YGGR_DLL_API __ret_type__ YGGR_MODULE_CALL_T() __foo_name__(__param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__, __param_7__, __param_8__, __param_9__)
 
 #define YGGR_DLL_MAKE_API_10(__ret_type__, __foo_name__, __param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__, __param_7__, __param_8__, __param_9__, __param_10__) \
-	YGGR_DLL_API __ret_type__ __stdcall __foo_name__(__param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__, __param_7__, __param_8__, __param_9__, __param_10__)
+	YGGR_DLL_API __ret_type__ YGGR_MODULE_CALL_T() __foo_name__(__param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__, __param_7__, __param_8__, __param_9__, __param_10__)
 
 #define YGGR_DLL_MAKE_API_11(__ret_type__, __foo_name__, __param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__, __param_7__, __param_8__, __param_9__, __param_10__, __param_11__) \
-	YGGR_DLL_API __ret_type__ __stdcall __foo_name__(__param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__, __param_7__, __param_8__, __param_9__, __param_10__, __param_11__)
+	YGGR_DLL_API __ret_type__ YGGR_MODULE_CALL_T() __foo_name__(__param_1__, __param_2__, __param_3__, __param_4__, __param_5__, __param_6__, __param_7__, __param_8__, __param_9__, __param_10__, __param_11__)
 
 namespace yggr
 {

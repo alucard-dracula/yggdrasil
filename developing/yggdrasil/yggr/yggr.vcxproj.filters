@@ -1899,6 +1899,9 @@
     <ClInclude Include="any_val\any_set.hpp">
       <Filter>Header Files\any_val</Filter>
     </ClInclude>
+    <ClInclude Include="serialization\export.hpp">
+      <Filter>Header Files\serialization</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="support\log_op_general_foo.ipp">

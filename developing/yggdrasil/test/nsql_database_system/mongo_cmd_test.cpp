@@ -63,6 +63,8 @@ int main(int argc, char* argv[])
 	yggr::nsql_database_system::c_bson out2;
 	accesser.drop_index("test", "foo", "b", -1, out2);
 
+	std::cout << "completed" << std::endl;
+
 	char cc = 0;
 	std::cin >> cc;
 

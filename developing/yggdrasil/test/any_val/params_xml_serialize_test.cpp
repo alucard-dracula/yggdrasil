@@ -27,6 +27,11 @@ typedef yggr::packet::packet<yggr::archive::archive_partner::xml_iarchive_partne
 typedef yggr::any_val::any_val_operator<yggr::any_val::base_any_type_operator> any_val_op_type;
 typedef yggr::any_val::params<std::string, any_val_op_type> params_type;
 
+//YGGR_ANY_EXPORT(int)
+YGGR_ANY_EXPORT_DECLEAR(int)
+YGGR_ANY_EXPORT_IMPL(int)
+
+YGGR_ANY_EXPORT(float)
 
 void test_foo1(void)
 {

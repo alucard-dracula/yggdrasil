@@ -207,7 +207,7 @@ public:
 
 typedef yggr::ptr_single<Calculator> cal_sig_type;
 
-YGGR_DLL_API void __stdcall reg_cal_enter(runner_shared_info_ptr_type ptr, single_container_type& singles)
+YGGR_DLL_API void YGGR_MODULE_CALL_T() reg_cal_enter(runner_shared_info_ptr_type ptr, single_container_type& singles)
 {
 	inner_process_id_gen_type gen;
 	inner_process_id_single_type::init_ins(gen());
@@ -222,7 +222,7 @@ YGGR_DLL_API void __stdcall reg_cal_enter(runner_shared_info_ptr_type ptr, singl
 	svr_ptr_single_type::get_ins()->register_network_protocol<test_pak_type>();
 }
 
-YGGR_DLL_API void __stdcall unreg_cal_enter(runner_shared_info_ptr_type ptr)
+YGGR_DLL_API void YGGR_MODULE_CALL_T() unreg_cal_enter(runner_shared_info_ptr_type ptr)
 {
 	if(!ptr)
 	{
@@ -234,10 +234,10 @@ YGGR_DLL_API void __stdcall unreg_cal_enter(runner_shared_info_ptr_type ptr)
 	ctrl_center_single_type::get_ins()->unregister_dispatchers(*cal_sig_type::get_ins());
 
 	cal_sig_type::get_ins()->join();
-
 	cal_sig_type::uninstall();
-	single_container_type::uninstall();
+
 	inner_process_id_single_type::uninstall();
+	single_container_type::uninstall();
 }
 
 #include <yggr/dll_make/dll_main.ipp>

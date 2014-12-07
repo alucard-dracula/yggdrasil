@@ -12,10 +12,9 @@
 
 #include <yggr/regular_parse/regex_parse.hpp>
 
-#ifdef WIN32
+#ifdef _MSC_VER
 #   include <vld.h> //max min at this include defined
-#   pragma comment(lib, "vld.lib")
-#endif //_WIN32
+#endif //_MSC_VER
 
 #include <yggr/support/max_min_undef.ipp>
 

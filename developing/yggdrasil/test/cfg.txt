@@ -1,2 +1,0 @@
-cfg_key = cfg_key_pak
-cfg_val = cfg_val_wpe

@@ -178,6 +178,7 @@ int main(int argc, char* argv[])
 	test2();
 	test3();
 
+	std::cout << "completed" << std::endl;
 	char cc = 0;
 	std::cin >> cc;
 	return 0;

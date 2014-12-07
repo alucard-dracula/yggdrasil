@@ -1,5 +1,9 @@
 //bson_pak_test.cpp
 
+#ifndef _MSC_VER
+#	error "this file test msvc only !!!!"
+#endif // _MSC_VER
+
 #include <iostream>
 
 #include <yggr/nsql_database_system/mongodb_config.h>

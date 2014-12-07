@@ -1,5 +1,9 @@
 //fuzzy_string_test.cpp
 
+#ifndef _MSC_VER
+#	error "this file test only msvc !!!"
+#endif  //_MSC_VER
+
 #define BOOST_HAS_ICU
 
 #include <iostream>

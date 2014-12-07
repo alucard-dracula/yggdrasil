@@ -490,6 +490,7 @@
     <ClInclude Include="serialization\detail\bson_impl_reinclue.hpp" />
     <ClInclude Include="serialization\detail\container_implementation_level_def.hpp" />
     <ClInclude Include="serialization\detail\type_traits.hpp" />
+    <ClInclude Include="serialization\export.hpp" />
     <ClInclude Include="serialization\liner_container_bson_impl.hpp" />
     <ClInclude Include="serialization\list_bson_impl.hpp" />
     <ClInclude Include="serialization\map.hpp" />

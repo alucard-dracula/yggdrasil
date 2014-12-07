@@ -4,9 +4,9 @@
 #include<iostream>
 #include<ctime>
 
-#ifdef _DEBUG
+#ifdef _MSC_VER
 #include <vld.h>
-#endif //_DEBUG
+#endif //_MSC_VER
 
 #include <yggr/time/time.hpp>
 

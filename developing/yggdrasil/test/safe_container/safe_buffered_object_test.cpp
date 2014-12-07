@@ -1,8 +1,8 @@
 //safe_buffered_object_test.cpp
 
-#ifdef _DEBUG
+#ifdef _MSC_VER
 #   include <vld.h>
-#endif //_DEBUG
+#endif //_MSC_VER
 #include <iostream>
 #include <vector>
 #include <yggr/safe_container/safe_buffered_object.hpp>
@@ -25,7 +25,7 @@ public:
 	{
 		_int_vt.clear();
 	}
-	
+
 	void insert(int n)
 	{
 		_int_vt.push_back(n);
@@ -85,7 +85,7 @@ int main(int argc, char* argv[])
 	sbv.get(boost::bind(&out_it, _1, 3));
 
 	std::cout << "-------------------------1" << std::endl;
-	
+
 	for(int i = 0; i < 10; ++i)
 	{
 		sbv.insert(i + 1);

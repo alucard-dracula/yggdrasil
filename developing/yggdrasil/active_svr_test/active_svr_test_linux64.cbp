@@ -16,13 +16,14 @@
 					<Add option="-D_DEBUG" />
 				</Compiler>
 				<Linker>
-					<Add library="../lib64/libyggr_base-linux-d.a" />
-					<Add library="../lib64/libyggr_time-linux-d.a" />
-					<Add library="../lib64/libyggr_modules-linux-d.a" />
-					<Add library="/usr/local/lib64/libboost_serialization-gcc47-mt-d-1_53.a" />
-					<Add library="/usr/local/lib64/libboost_system-gcc47-mt-d-1_53.a" />
-					<Add library="/usr/local/lib64/libboost_thread-gcc47-mt-d-1_53.a" />
-					<Add library="/usr/local/lib64/libboost_filesystem-gcc47-mt-d-1_53.a" />
+					<Add option="-lyggr_base-gcc47-d" />
+					<Add option="-lyggr_time-gcc47-d" />
+					<Add option="-lyggr_ids-gcc47-d" />
+					<Add option="-lyggr_modules-gcc47-d" />
+					<Add option="-lcompatibility-gcc47-d" />
+					<Add option="-lboost_thread-gcc47-mt-d-1_53" />
+					<Add option="-lboost_serialization-gcc47-mt-d-1_53" />
+					<Add option="-lboost_filesystem-gcc47-mt-d-1_53" />
 				</Linker>
 			</Target>
 			<Target title="Release64">
@@ -36,31 +37,36 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="../lib64/libyggr_base-linux.a" />
-					<Add library="../lib64/libyggr_time-linux-d.a" />
-					<Add library="../lib64/libyggr_modules-linux.a" />
-					<Add library="/usr/local/lib64/libboost_serialization-gcc47-mt-1_53.a" />
-					<Add library="/usr/local/lib64/libboost_system-gcc47-mt-1_53.a" />
-					<Add library="/usr/local/lib64/libboost_thread-gcc47-mt-1_53.a" />
-					<Add library="/usr/local/lib64/libboost_filesystem-gcc47-mt-1_53.a" />
+					<Add option="-lyggr_base-gcc47" />
+					<Add option="-lyggr_time-gcc47" />
+					<Add option="-lyggr_ids-gcc47" />
+					<Add option="-lyggr_modules-gcc47" />
+					<Add option="-lcompatibility-gcc47" />
+					<Add option="-lboost_thread-gcc47-mt-1_53" />
+					<Add option="-lboost_serialization-gcc47-mt-1_53" />
+					<Add option="-lboost_filesystem-gcc47-mt-1_53" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add option="-fdata-sections" />
+			<Add option="-ffunction-sections" />
+			<Add option="-fno-strict-aliasing" />
 			<Add option="-DLINUX" />
+			<Add option="-DYGGR_AT_LINUX" />
 			<Add option="-DYGGR_SYSTEM_64" />
 			<Add directory="../" />
 			<Add directory="../dll_cal_test" />
 			<Add directory="../dll_param_test" />
 			<Add directory="../compatibility" />
-			<Add directory="../tools/vld/include" />
 		</Compiler>
 		<Linker>
 			<Add option="-ldl" />
 			<Add option="-lpthread" />
 			<Add option="-lrt" />
+			<Add directory="../lib64" />
 		</Linker>
 		<Unit filename="active_balance_svr_test.cpp" />
 		<Extensions>

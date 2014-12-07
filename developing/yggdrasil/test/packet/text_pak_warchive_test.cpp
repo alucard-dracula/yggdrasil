@@ -17,7 +17,7 @@
 #include <yggr/serialization/utf8_string.hpp>
 #include <yggr/serialization/vector.hpp>
 
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 #   include <vld.h>
 #endif //_MSC_VER
 
@@ -150,10 +150,10 @@ void test_foo0(void)
 	opak o;
 	o.save(arr1);
 
-#ifndef __MINGW32__
+#ifndef __GNUC__
 	std::wcout.imbue(std::locale("chs"));
 	std::wcout << L"buf = " << o.org_buf() << std::endl;
-#endif //__MINGW32__
+#endif //__GNUC__
 
 	ipak i(o);
 	boost::array<int, 10> arr2;
@@ -168,10 +168,10 @@ void test_foo1(void)
 	opak o;
 	o.save(c1);
 
-#ifndef __MINGW32__
+#ifndef __GNUC__
 	std::wcout.imbue(std::locale("chs"));
 	std::wcout << L"buf = " << o.org_buf() << std::endl;
-#endif //__MINGW32__
+#endif //__GNUC__
 
 	ipak i(o);
 	C c2;
@@ -187,10 +187,10 @@ void test_foo2(void)
 	opak o;
 	o.save(c1);
 
-#ifndef __MINGW32__
+#ifndef __GNUC__
 	std::wcout.imbue(std::locale("chs"));
 	std::wcout << L"buf = " << o.org_buf() << std::endl;
-#endif //__MINGW32__
+#endif //__GNUC__
 
 	ipak i(o);
 	int c2 = 0;
@@ -206,10 +206,10 @@ void test_foo3(void)
 	opak o;
 	o.save(c1);
 
-#ifndef __MINGW32__
+#ifndef __GNUC__
 	std::wcout.imbue(std::locale("chs"));
 	std::wcout << L"buf = " << o.org_buf() << std::endl;
-#endif //__MINGW32__
+#endif //__GNUC__
 
 	ipak i(o);
 	B c2 = 0;
@@ -224,10 +224,10 @@ void test_foo4(void)
 	opak o;
 	o.save(c1);
 
-#ifndef __MINGW32__
+#ifndef __GNUC__
 	std::wcout.imbue(std::locale("chs"));
 	std::wcout << L"buf = " << o.org_buf() << std::endl;
-#endif //__MINGW32__
+#endif //__GNUC__
 
 	ipak i(o);
 	D c2;

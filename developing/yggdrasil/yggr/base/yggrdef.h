@@ -54,11 +54,13 @@ YGGR_USE_CXX11							yggr use c++11
 
 enum
 {
-	E__pointer_byte_size__ = sizeof(int*)
+	E__pointer_byte4 = 4,
+	E__pointer_btye8 = 8,
+	E__pointer_byte_size = sizeof(int*)
 };
 //static const int __pointer_byte_size__ = sizeof(int*);
 #ifndef YGGR_SYSTEM_64
-#	if (E__pointer_byte_size__ == 8)
+#	if (E__pointer_byte_size == E__pointer_btye8)
 #		define YGGR_SYSTEM_64
 #	endif // (E__pointer_byte_size__ == 8)
 #endif // YGGR_SYSTEM_64

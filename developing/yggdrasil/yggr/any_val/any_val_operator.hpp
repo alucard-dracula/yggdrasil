@@ -27,6 +27,8 @@ THE SOFTWARE.
 #ifndef __YGGR_ANY_VAL_ANY_VAL_OPERATOR_HPP__
 #define __YGGR_ANY_VAL_ANY_VAL_OPERATOR_HPP__
 
+#include <yggr/any_val/any.hpp>
+
 namespace yggr
 {
 namespace any_val

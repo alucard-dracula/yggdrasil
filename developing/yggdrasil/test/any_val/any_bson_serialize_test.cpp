@@ -24,6 +24,8 @@
 typedef yggr::packet::packet<yggr::archive::archive_partner::bson_oarchive_partner> opak;
 typedef yggr::packet::packet<yggr::archive::archive_partner::bson_iarchive_partner> ipak;
 
+YGGR_ANY_EXPORT(int)
+
 void test_foo1(void)
 {
 	yggr::any any1(10);

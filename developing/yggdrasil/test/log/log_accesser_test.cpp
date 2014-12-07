@@ -135,6 +135,8 @@ int main(int argc, char* argv[])
 	acc.append(a2);
 	acc.append(a3);
 
+	std::cout << "compileted" << std::endl;
+
 	char cc = 0;
 	std::cin >> cc;
 	return 0;

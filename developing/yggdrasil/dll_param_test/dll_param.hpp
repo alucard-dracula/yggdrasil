@@ -299,22 +299,24 @@ public:
 	template<typename Calculator>
 	void register_calculator(Calculator& cal)
 	{
-		if(!(pctrl && psvr))
-		{
-			return;
-		}
-
-		//pctrl->register_dispatchers(*cal_sig_type::get_ins());
-        pctrl->register_dispatchers(cal);
+//		if(!(pctrl && psvr))
+//		{
+//			return;
+//		}
+//
+//		//pctrl->register_dispatchers(*cal_sig_type::get_ins());
+//        pctrl->register_dispatchers(cal);
 
 	}
 
 	static void uninstall(void)
 	{
+#ifndef YGGR_AT_LINUX
 		ctrl_center_single_type::uninstall();
 		exception_single_type::uninstall();
 		log_accesser_single_type::uninstall();
 		svr_ptr_single_type::uninstall();
+#endif // YGGR_AT_LINUX
 	}
 
 	pctrl_type pctrl;

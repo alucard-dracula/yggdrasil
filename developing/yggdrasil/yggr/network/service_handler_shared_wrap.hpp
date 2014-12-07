@@ -43,7 +43,7 @@ public:
 	service_handler_shared_wrap(BOOST_RV_REF(this_type) right)
 	{
 		this_type& right_ref = right;
-		_psh.swap(righr_ref._psh);
+		_psh.swap(right_ref._psh);
 	}
 #endif // YGGR_NO_CXX11_RVALUE_REFERENCES
 

@@ -169,30 +169,43 @@ int main(int argc, char* argv[])
 		std::cerr << e.message() << std::endl;
 	}
 
+	if(!exception_single_type::get_ins())
+	{
+		int nnn = 0;
+	}
 	pis_ptr->uninstall<Leave_Handler>(module_name, LEAVE_NAME,
 										boost::bind(&plugin_uninstall_handler,
 														shared_info_ptr, _1));
+
+	{
+			plugins_install_single_type::obj_ptr_type tmp;
+			pis_ptr.swap(tmp);
+	}
 	{
 	    runner_shared_info_ptr_type tmp;
 		shared_info_ptr.swap(tmp);
 	}
 
 	psvr->stop();
-	exception_single_type::get_ins()->stop();
 	{
 	    svr_ptr_type tmp;
 		psvr.swap(tmp);
 	}
-	plugins_install_single_type::uninstall();
-	ctrl_center_single_type::uninstall();
-	svr_ptr_single_type::uninstall();
-	task_center_single_type::uninstall();
 
-	std::cout << "stop end" << std::endl;
-	exception_single_type::uninstall();
+	exception_single_type::get_ins()->stop();
 
 	plugins_install_single_type::uninstall();
 	inner_process_id_single_type::uninstall();
+	ctrl_center_single_type::uninstall();
+	task_center_single_type::uninstall();
+	svr_ptr_single_type::uninstall();
 
+	log_accesser_single_type::uninstall();
+
+	std::cout << "stop end" << std::endl;
+
+
+
+	exception_single_type::uninstall();
 	return 0;
 }

@@ -12,7 +12,7 @@ struct network_data_def
 {
 	enum
 	{
-		E_user_id_start = 0x1000000,
+		E_user_id_start = 0x10000000,
 		E_compile_u32 = 0xffffffff
 	};
 };

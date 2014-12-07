@@ -70,9 +70,9 @@
 
 #include <cassert>
 
-#ifdef _DEBUG
+#ifdef _MSC_VER
 #	include <vld.h>
-#endif //_DEBUG
+#endif //_MSC_VER
 
 
 //----------------------------------------------------------------------------------

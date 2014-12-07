@@ -1,5 +1,7 @@
 //make_ipp.cpp
 
+#error "this files is not example it mend open source info use it!!!!!"
+
 #include <iostream>
 #include <cctype>
 #include <string>
@@ -26,7 +28,7 @@ void create_ipp(const std::string& dir, const Container& cont)
 
 void write_ipp(const std::string& wfpath, const std::string& org_full_name)
 {
-	std::string comment = 
+	std::string comment =
 "/****************************************************************************\n \
 Copyright (c) 2014-2018 yggdrasil\n \
 author: yang xu\n \
@@ -81,7 +83,7 @@ THE SOFTWARE.\n \
 		<< comment
 		//<< tital_maroc_if << wtital << "\n"
 		//<< tital_maroc_def << wtital << "\n\n"
-		<< need_include << "\n" 
+		<< need_include << "\n"
 		<< tital_include << include_maroc << "\n\n"
 		//<< tital_maroc_endif << wtital << "\n"
 		;

@@ -1,5 +1,9 @@
 //win_process_foo_test.cpp
 
+#ifndef _MSC_VER
+#	error "this file test at msvc only !!!"
+#endif //_MSC_VER
+
 #include <yggr/base/yggrdef.h>
 #include <iostream>
 #include <yggr/process/this_process.hpp>
@@ -12,8 +16,10 @@
 #define YGGR_SEH_INCLUDE
 #include <yggr/seh/win_seh_helper.hpp>
 
+#ifdef _MSC_VER
 #include <vld.h>
-int filter(unsigned int code, struct _EXCEPTION_POINTERS *ep) 
+#endif // _MSC_VER
+int filter(unsigned int code, struct _EXCEPTION_POINTERS *ep)
 {
    if(code == EXCEPTION_ACCESS_VIOLATION)
    {
@@ -23,7 +29,7 @@ int filter(unsigned int code, struct _EXCEPTION_POINTERS *ep)
 	   yggr::file_system::local_file_operator_type::write_file_of_binary("dump.txt", yggr::seh::win_seh_helper::format_dump_call_stack_msg(call_stack));
        return EXCEPTION_EXECUTE_HANDLER;
    }
-   else 
+   else
    {
        return EXCEPTION_CONTINUE_SEARCH;
    };

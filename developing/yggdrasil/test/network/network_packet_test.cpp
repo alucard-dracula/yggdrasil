@@ -164,6 +164,7 @@ int main(int argc, char* argv[])
 	test1_2();
 	test1_3();
 
+	std::cout << "completed" << std::endl;
 	char cc = 0;
 	std::cin >> cc;
 	return 0;

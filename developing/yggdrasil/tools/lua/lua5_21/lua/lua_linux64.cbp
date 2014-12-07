@@ -17,7 +17,7 @@
 					<Add option="-D_DEBUG" />
 				</Compiler>
 				<Linker>
-					<Add option="-llua521-linux-d" />
+					<Add option="-llua521-gcc47-d" />
 					<Add directory="../Debug64" />
 				</Linker>
 			</Target>
@@ -33,7 +33,7 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add option="-llua521-linux" />
+					<Add option="-llua521-gcc47" />
 					<Add directory="../Release64" />
 				</Linker>
 			</Target>

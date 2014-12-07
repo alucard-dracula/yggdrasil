@@ -39,6 +39,14 @@ THE SOFTWARE.
 #	error "dll_mark_define.hpp now only support win32 dll and linux so!!"
 #endif // defined(WIN32) || defined(WIN64) || defined(WINDOWS)
 
+#ifndef YGGR_MODULE_CALL_T
+#	if defined(WIN32) || defined(WIN64) || defined(WINDOWS)
+#		define YGGR_MODULE_CALL_T() __stdcall
+#	else
+#		define YGGR_MODULE_CALL_T()
+#	endif // WIN32
+#endif  //YGGR_MODULE_CALL_T
+
 namespace yggr
 {
 namespace dll_make

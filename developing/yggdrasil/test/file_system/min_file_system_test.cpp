@@ -9,9 +9,9 @@
 #include <yggr/archive/binary_archive_partner.hpp>
 #include <sstream>
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #   include <vld.h>
-#endif //_WIN32
+#endif //_MSC_VER
 
 #pragma comment(lib, "vld.lib")
 

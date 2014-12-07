@@ -66,41 +66,41 @@ public:
 private:
 	typedef fuzzy_string this_type;
 private:
-	template<typename Char>
+	template<typename Char, typename Nil = void>
 	struct regex_string;
 
-	template<>
-	struct regex_string<char>
+	template<typename  Nil>
+	struct regex_string<char, Nil>
 	{
 		inline static const char* space(void)
 		{
 			return " ";
 		}
-		
+
 		inline static const char* fmt(void)
 		{
 			return "(?1.*)";
 		}
-		
+
 		inline static const char* str_re(void)
 		{
 			return "(\\W+)";
 		}
 	};
 
-	template<>
-	struct regex_string<wchar_t>
+	template<typename Nil>
+	struct regex_string<wchar_t,  Nil>
 	{
 		inline static const wchar_t* space(void)
 		{
 			return L" ";
 		}
-		
+
 		inline static const wchar_t* fmt(void)
 		{
 			return L"(?1.*)";
 		}
-		
+
 		inline static const wchar_t* str_re(void)
 		{
 			return L"(\\W+)";
@@ -113,7 +113,7 @@ public:
 	template<typename Char, typename Traits, typename Alloc,
 				template<typename _Char, typename _Traits, typename _Alloc>
 				class Basic_String>
-	static Basic_String<Char, Traits, Alloc> 
+	static Basic_String<Char, Traits, Alloc>
 		make_fuzzy_string(const Basic_String<Char, Traits, Alloc>& str)
 	{
 		typedef Basic_String<Char, Traits, Alloc> string_type;
@@ -129,8 +129,8 @@ public:
 	static std::basic_string<Char> make_fuzzy_string(const Char* str)
 	{
 		typedef std::basic_string<Char> string_type;
-		return this_type::make_fuzzy_string<Char, 
-												std::char_traits<Char>, 
+		return this_type::make_fuzzy_string<Char,
+												std::char_traits<Char>,
 												std::allocator<Char>,
 												std::basic_string>
 											(string_type(str));
@@ -139,9 +139,9 @@ public:
 	template<typename Char, typename Traits, typename Alloc,
 				template<typename _Char, typename _Traits, typename _Alloc>
 				class Basic_String >
-	static Basic_String<Char, Traits, Alloc> 
-		make_fuzzy_string(const Basic_String<Char, Traits, Alloc>& str, 
-							const Basic_String<Char, Traits, Alloc>& nre, 
+	static Basic_String<Char, Traits, Alloc>
+		make_fuzzy_string(const Basic_String<Char, Traits, Alloc>& str,
+							const Basic_String<Char, Traits, Alloc>& nre,
 							const Basic_String<Char, Traits, Alloc>& nfmt)
 	{
 		typedef Basic_String<Char, Traits, Alloc> string_type;
@@ -154,14 +154,14 @@ public:
 	}
 
 	template<typename Char>
-	static std::basic_string<Char> 
+	static std::basic_string<Char>
 		make_fuzzy_string(const Char* str, const Char* nre, const Char* nfmt)
 	{
 		typedef std::basic_string<Char> string_type;
-		return this_type::make_fuzzy_string<Char, 
+		return this_type::make_fuzzy_string<Char,
 											std::char_traits<Char>,
 											std::allocator<Char>,
-											std::basdic_string>
+											std::basic_string>
 											(string_type(str), string_type(nre), string_type(nfmt));
 	}
 
@@ -200,15 +200,15 @@ public:
 				template<typename _Char, typename _Traits, typename _Alloc>
 				class Basic_String>
 	static charset::utf8_string
-		make_u32_fuzzy_string(const Basic_String<Char1, Traits1, Alloc1>& str, 
-								const Basic_String<Char2, Traits2, Alloc2>& nre, 
-								const Basic_String<Char3, Traits3, Alloc3>& nfmt)
+		make_u32_fuzzy_string(const Basic_String<Char1, Traits1, Alloc1>& str,
+													const Basic_String<Char2, Traits2, Alloc2>& nre,
+													const Basic_String<Char3, Traits3, Alloc3>& nfmt)
 	{
 		typedef charset::utf8_string string_type;
 		string_type fmt(nfmt);
 		string_type str_re(nre);
 		string_type tstr(str);
-		tstr = regex_string<Char>::space() + tstr + regex_string<Char>::space();
+		tstr = regex_string<Char1>::space() + tstr + regex_string<Char1>::space();
 
 		return yggr::regular_parse::u32regex_parse::replace(tstr, str_re, fmt);
 	}

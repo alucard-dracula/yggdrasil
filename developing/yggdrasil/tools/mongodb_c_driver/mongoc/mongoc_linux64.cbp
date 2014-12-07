@@ -7,7 +7,7 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Release64">
-				<Option output="../Release64/libmongoc-linux" prefix_auto="1" extension_auto="1" />
+				<Option output="../Release64/libmongoc-gcc47" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
 				<Option object_output="Release64" />
 				<Option type="2" />
@@ -23,7 +23,7 @@
 				</Linker>
 			</Target>
 			<Target title="Debug64">
-				<Option output="../Debug64/libmongoc-linux-d" prefix_auto="1" extension_auto="1" />
+				<Option output="../Debug64/libmongoc-gcc47-d" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
 				<Option object_output="Debug64" />
 				<Option type="2" />
@@ -41,6 +41,7 @@
 			<Add option="-Wall" />
 			<Add option="-DLINUX" />
 			<Add option="-D_LIB" />
+			<Add option="-DMONGODB_DRIVER_INCLUDED_YGGR_VER" />
 			<Add directory="./" />
 			<Add directory="../include" />
 		</Compiler>

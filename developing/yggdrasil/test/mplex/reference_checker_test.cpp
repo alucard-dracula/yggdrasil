@@ -5,7 +5,7 @@
 #include <boost/mpl/assert.hpp>
 #include <yggr/mplex/reference_checker.hpp>
 
-#ifndef _MSC_VER
+#ifdef _MSC_VER
 #	include <vld.h>
 #endif // _MSC_VER
 

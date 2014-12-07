@@ -1,5 +1,9 @@
 //utf8_char_test.cpp
 
+#ifndef _MSC_VER
+#	error "this file test msvc only !!!!"
+#endif // _MSC_VER
+
 #ifdef _MSC_VER
 #	include <vld.h>
 #endif // _MSC_VER
@@ -32,36 +36,36 @@ void test_constructor(void)
 	//yggr::utf8_char c2("abc"); // assert fail
 	std::cout << c2 << std::endl;
 
-	yggr::utf8_char c3("Äã");
+	yggr::utf8_char c3("ï¿½ï¿½");
 	std::cout << c3 << std::endl;
 
-	yggr::utf8_char c4(std::string("ºÃ"));
-	//yggr::utf8_char c4(yggr::string("ºÃa")); // assert fail
+	yggr::utf8_char c4(std::string("ï¿½ï¿½"));
+	//yggr::utf8_char c4(yggr::string("ï¿½ï¿½a")); // assert fail
 	std::cout << c4<< std::endl;
 
 #ifndef __MINGW32__
-	yggr::utf8_char c5(L"¿í");
+	yggr::utf8_char c5(L"ï¿½ï¿½");
 #else
-    yggr::utf8_char c5("¿í");
+    yggr::utf8_char c5("ï¿½ï¿½");
 #endif //__MINGE32__
 	std::cout << c5 << std::endl;
 
 #ifndef __MINGW32__
-	yggr::utf8_char c6(yggr::wstring(L"×Ö"));
+	yggr::utf8_char c6(yggr::wstring(L"ï¿½ï¿½"));
 #else
-    yggr::utf8_char c6(yggr::string("×Ö"));
+    yggr::utf8_char c6(yggr::string("ï¿½ï¿½"));
 #endif // __MINGE32__
-	//yggr::utf8_char c4(yggr::string("ºÃa")); // assert fail
+	//yggr::utf8_char c4(yggr::string("ï¿½ï¿½a")); // assert fail
 	std::cout << c6<< std::endl;
 
 	yggr::utf8_char c7(c5.begin(), c5.end(), UTF8_CHARSET_NAME);
-	//yggr::utf8_char c4(yggr::string("ºÃa")); // assert fail
+	//yggr::utf8_char c4(yggr::string("ï¿½ï¿½a")); // assert fail
 	std::cout << c7 << std::endl;
 
 #ifndef __MINGW32__
-	std::wstring c6_2(L"×Ö");
+	std::wstring c6_2(L"ï¿½ï¿½");
 #else
-    std::string c6_2("×Ö");
+    std::string c6_2("ï¿½ï¿½");
 #endif //__MINGW32__
 	yggr::utf8_char c8(c6_2.begin(), c6_2.end());
 	std::cout << c8 << std::endl;
@@ -78,7 +82,7 @@ void test_constructor(void)
 
 void test_operator_equal(void)
 {
-	yggr::utf8_char c1 = "Äã";
+	yggr::utf8_char c1 = "ï¿½ï¿½";
 	std::cout << c1 << std::endl;
 
 	c1 = 'a';
@@ -87,9 +91,9 @@ void test_operator_equal(void)
 	//c1 = "abc"; // assert fail
 
 #ifndef __MINGW32__
-	c1 = L"ºÃ";
+	c1 = L"ï¿½ï¿½";
 #else
-    c1 = "ºÃ";
+    c1 = "ï¿½ï¿½";
 #endif //__MINGW32__
 	std::cout << c1 << std::endl;
 
@@ -114,8 +118,8 @@ void test_operator_equal(void)
 void test_operator_compare(void)
 {
 	{
-		yggr::utf8_char uchar = "ºÃ";
-		std::string str = "ºÃ";
+		yggr::utf8_char uchar = "ï¿½ï¿½";
+		std::string str = "ï¿½ï¿½";
 		assert(uchar == str);
 		assert(uchar == str.c_str());
 		assert(!(uchar != str));
@@ -123,11 +127,11 @@ void test_operator_compare(void)
 	}
 
 	{
-		yggr::utf8_char uchar = "ºÃ";
+		yggr::utf8_char uchar = "ï¿½ï¿½";
 #ifndef __MINGW32__
-		std::wstring str = L"ºÃ";
+		std::wstring str = L"ï¿½ï¿½";
 #else
-        std::string str = "ºÃ";
+        std::string str = "ï¿½ï¿½";
 #endif // __MINGW32__
 		assert(uchar == str);
 		assert(uchar == str.c_str());
@@ -136,8 +140,8 @@ void test_operator_compare(void)
 	}
 
 	{
-		yggr::utf8_char uchar = "ºÃ";
-		boost::container::string str = "²»";
+		yggr::utf8_char uchar = "ï¿½ï¿½";
+		boost::container::string str = "ï¿½ï¿½";
 		assert(uchar != str);
 		assert(uchar != str.c_str());
 		assert(!(uchar == str));
@@ -145,11 +149,11 @@ void test_operator_compare(void)
 	}
 
 	{
-		yggr::utf8_char uchar = "ºÃ";
+		yggr::utf8_char uchar = "ï¿½ï¿½";
 #ifndef __MINGW32__
-		boost::container::wstring str = L"²»";
+		boost::container::wstring str = L"ï¿½ï¿½";
 #else
-        boost::container::string str = "²»";
+        boost::container::string str = "ï¿½ï¿½";
 #endif // __MINGW32__
 		assert(uchar != str);
 		assert(uchar != str.c_str());
@@ -158,11 +162,11 @@ void test_operator_compare(void)
 	}
 
 	{
-		yggr::utf8_char uchar = "ºÃ";
+		yggr::utf8_char uchar = "ï¿½ï¿½";
 #ifndef __MINGW32__
-		yggr::utf8_char str = L"²»";
+		yggr::utf8_char str = L"ï¿½ï¿½";
 #else
-        yggr::utf8_char str = "²»";
+        yggr::utf8_char str = "ï¿½ï¿½";
 #endif // __MINGW32__
 		assert(uchar != str);
 		assert(!(uchar == str));
@@ -174,8 +178,8 @@ void test_operator_compare(void)
 
 void swap_test(void)
 {
-	yggr::utf8_char c1 = "Äã";
-	yggr::utf8_char c2 = "ºÃ";
+	yggr::utf8_char c1 = "ï¿½ï¿½";
+	yggr::utf8_char c2 = "ï¿½ï¿½";
 
 	yggr::utf8_char c3 = c1;
 	yggr::utf8_char c4 = c2;
@@ -200,7 +204,7 @@ void swap_test(void)
 
 void utf8_string_to_char_test(void)
 {
-	yggr::utf8_string str("ÄãºÃbcdefÂð");
+	yggr::utf8_string str("ï¿½ï¿½ï¿½bcdefï¿½ï¿½");
 	yggr::utf8_char uc1(str.begin(), str.begin() + 1);
 	std::cout << uc1 << std::endl;
 

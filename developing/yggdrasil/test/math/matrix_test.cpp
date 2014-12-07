@@ -219,10 +219,10 @@ void matrix3d_test(void)
 	std::cout << mat_type::make_reflect(pos_type(-10, 0, 0), pos_type(10, 0, 0), pos_type(0, 0, 1000)) << std::endl; // pxz
 	std::cout << mat_type::make_reflect(pos_type(0, 0, 0), pos_type(1, 1, 1), pos_type(1, 0, 1)) << std::endl;
 
-#ifndef __MINGW32__
+#ifndef __GNUC__
 	std::wcout.imbue(std::locale("chs"));
 	std::wcout << mat_type::make_reflect(pos_type(0, 0, 0), pos_type(1, 1, 1), pos_type(1, 0, 1)) << std::endl;
-#endif // __MINGE32__
+#endif // __GNUC__
 }
 
 int main(int argc, char* argv[])

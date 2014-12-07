@@ -81,11 +81,11 @@ void base_test2(void)
 	std::vector<int> vt(arr, arr + 10);
 	yggr::encryption_tool::md5_tool tool;
 
-#ifndef __MINGW32__
+#ifndef __GNUC__
 	std::wcout.imbue(std::locale("chs"));
 	std::wcout << tool.sig_to_code<std::wstring>(tool.encrypt(vt)) << std::endl;
 	std::wcout << tool.sig_to_code<boost::container::wstring>(tool.encrypt(vt)) << std::endl;
-#endif // __MINGW32__
+#endif // __GNUC__
 }
 
 void md5_tool_test(void)

@@ -23,6 +23,8 @@
 typedef yggr::packet::packet<yggr::archive::archive_partner::network_oarchive_partner> opak;
 typedef yggr::packet::packet<yggr::archive::archive_partner::network_iarchive_partner> ipak;
 
+YGGR_ANY_EXPORT(int)
+
 void test_foo1(void)
 {
 	yggr::any any1(10);
@@ -43,6 +45,7 @@ void test_foo1(void)
 int main(int argc, char* argv[])
 {
 	test_foo1();
+	std::cout << "compilete" << std::endl;
 
 	char cc = 0;
 	std::cin >> cc;

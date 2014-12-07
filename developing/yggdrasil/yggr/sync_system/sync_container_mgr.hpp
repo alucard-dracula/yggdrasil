@@ -400,7 +400,8 @@ public:
 
 	bool execute(const key_type& key) const
 	{
-		return execute(key, helper_type(), helper_type());
+		helper_type rst;
+		return execute(key, helper_type(), rst);
 	}
 
 	//bool const_execute(const key_type& key) const
@@ -559,12 +560,15 @@ protected:
 	size_type send_all(helper_type& helper)
 	{
 		size_type send_size = 0;
-		_reg_map.use_handler(boost::bind((void (this_type::*)(typename reg_map_type::base_type&, helper_type&, size_type&))
-											&this_type::handler_send_all, this, _1, boost::ref(helper), boost::ref(send_size)));
+//		_reg_map.use_handler(boost::bind((void (this_type::*)(typename reg_map_type::base_type&, helper_type&, size_type&))
+//											&this_type::handler_send_all, this, _1, boost::ref(helper), boost::ref(send_size)));
+
+		_reg_map.use_handler(boost::bind(&this_type::handler_send_all_of_non_const, this, _1, boost::ref(helper), boost::ref(send_size)));
+
 		return send_size;
 	}
 
-	void handler_send_all(typename reg_map_type::base_type& base, helper_type& helper, size_type& size)
+	void handler_send_all_of_non_const(typename reg_map_type::base_type& base, helper_type& helper, size_type& size)
 	{
 		size_type send_size = 0;
 		bool bret = false;
@@ -584,13 +588,14 @@ protected:
 	size_type send_all(helper_type& helper) const
 	{
 		size_type send_size = 0;
-		_reg_map.use_handler(boost::bind((void (this_type::*)( const typename reg_map_type::base_type& base,
-																helper_type&, size_type&) const)
-											&this_type::handler_send_all, this, _1, boost::ref(helper), boost::ref(send_size)));
+//		_reg_map.use_handler(boost::bind((void (this_type::*)( const typename reg_map_type::base_type& base,
+//																helper_type&, size_type&) const)
+//											&this_type::handler_send_all, this, _1, boost::ref(helper), boost::ref(send_size)));
+		_reg_map.use_handler(boost::bind(&this_type::handler_send_all_of_const, this, _1, boost::ref(helper), boost::ref(send_size)));
 		return send_size;
 	}
 
-	void handler_send_all(const typename reg_map_type::base_type& base, helper_type& helper, size_type& size) const
+	void handler_send_all_of_const(const typename reg_map_type::base_type& base, helper_type& helper, size_type& size) const
 	{
 		size_type send_size = 0;
 		bool bret = false;
@@ -654,13 +659,15 @@ protected:
 	{
 		typedef Map map_type;
 		size_type recv_size = 0;
-		_reg_map.use_handler(boost::bind((void (this_type::*)(typename reg_map_type::base_type&, map_type&, size_type&))
-											&this_type::handler_recv_all<map_type>, this, _1, boost::ref(helpers), boost::ref(recv_size)));
+//		_reg_map.use_handler(boost::bind((void (this_type::*)(typename reg_map_type::base_type&, map_type&, size_type&))
+//											&this_type::handler_recv_all<map_type>, this, _1, boost::ref(helpers), boost::ref(recv_size)));
+		_reg_map.use_handler(boost::bind(&this_type::handler_recv_all_of_non_const<map_type>,
+																			this, _1, boost::ref(helpers), boost::ref(recv_size)));
 		return recv_size;
 	}
 
 	template<typename Map>
-	void handler_recv_all(typename reg_map_type::base_type& base, Map& helpers, size_type& size)
+	void handler_recv_all_of_non_const(typename reg_map_type::base_type& base, Map& helpers, size_type& size)
 	{
 		size_type recv_size = 0;
 		bool bret = false;
@@ -687,14 +694,15 @@ protected:
 	{
 		typedef Map map_type;
 		size_type recv_size = 0;
-		_reg_map.use_handler(boost::bind(((void (this_type::*)( const typename reg_map_type::base_type&,
-																helper_type&, size_type&) const)
-											&this_type::handler_recv_all<map_type>), this, _1, boost::ref(helpers), boost::ref(recv_size)));
+//		_reg_map.use_handler(boost::bind(((void (this_type::*)( const typename reg_map_type::base_type&,
+//																helper_type&, size_type&) const)
+//											&this_type::handler_recv_all<map_type>), this, _1, boost::ref(helpers), boost::ref(recv_size)));
+		_reg_map.use_handler(boost::bind(&this_type::handler_recv_all_of_const<map_type>, this, _1, boost::ref(helpers), boost::ref(recv_size)));
 		return recv_size;
 	}
 
 	template<typename Map>
-	void handler_recv_all(const typename reg_map_type::base_type& base, Map& helpers, size_type& size) const
+	void handler_recv_all_of_const(const typename reg_map_type::base_type& base, Map& helpers, size_type& size) const
 	{
 		size_type recv_size = 0;
 		for(reg_map_citer_type i = base.begin(), isize = base.end(); i != isize; ++i)

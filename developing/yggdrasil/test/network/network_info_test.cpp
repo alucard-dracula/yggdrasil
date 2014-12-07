@@ -19,6 +19,8 @@ int main(int argc, char* argv[])
 	netinfo_type info3(boost::move(str));
 	assert(info3.owner_id() == 20);
 
+	std::cout << "completed" << std::endl;
+
 	char cc = 0;
 	std::cin >> cc;
 	return 0;

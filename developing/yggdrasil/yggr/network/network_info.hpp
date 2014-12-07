@@ -174,12 +174,13 @@ public:
 		return *this;
 	}
 
-	template<typename Buffer>
-	this_type& operator=(const Buffer& buf)
-	{
-		_buf.assign(buf.begin(), buf.end());
-		return *this;
-	}
+//  this foo gcc rv_ref<this_type> collision
+//	template<typename Buffer>
+//	this_type& operator=(const Buffer& buf)
+//	{
+//		_buf.assign(buf.begin(), buf.end());
+//		return *this;
+//	}
 
 	this_type& operator=(BOOST_RV_REF(this_type) right)
 	{

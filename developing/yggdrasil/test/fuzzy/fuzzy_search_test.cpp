@@ -1,7 +1,14 @@
 //fuzzy_search_test.cpp
 
+#ifndef _MSC_VER
+#error "this file test only msvc !!!"
+#endif  //  _MSC_VER
 
 #define BOOST_HAS_ICU
+
+#ifndef _MSC_VER
+#	error "this file test only msvc"
+#endif // _MSC_VER
 
 #include <iostream>
 #include <yggr/charset/string.hpp>
@@ -14,7 +21,7 @@
 
 #include <set>
 
-#ifndef _MSC_VER
+#ifdef _MSC_VER
 #	include <vld.h>
 #endif // _MSC_VER
 
@@ -26,7 +33,7 @@ void string_fuzzy_match(void) // not support chs
 	//std::set<char> str(init_str, init_str + strlen(init_str)); //ok
 	std::string str("abcd efg");
 	std::string strf1;
-	
+
 	try
 	{
 		strf1 = yggr::fuzzy::fuzzy_string::make_fuzzy_string(" b,ef ");

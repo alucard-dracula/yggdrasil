@@ -48,7 +48,7 @@ THE SOFTWARE.
 			return data_ver_type(__data_ver__); } \
 		\
 		inline static data_info_type data_info(void) { \
-		return data_info_type(__data_id__, __data_ver__); } }; } } }
+		return data_info_type( data_id_type( __data_id__ ), __data_ver__); } }; } } }
 
 
 namespace yggr

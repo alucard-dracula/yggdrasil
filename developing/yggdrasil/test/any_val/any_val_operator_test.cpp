@@ -1,7 +1,7 @@
 //base_any_type_operator_test.cpp
 
 
-//#error "!!!! now test must modify base_any_type_operator class member function to public!!!1"
+#error "!!!! now test must modify base_any_type_operator class member function to public!!!1"
 
 #include <iostream>
 

@@ -7,7 +7,7 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug64">
-				<Option output="../../lib64/libdtl-linux-d" prefix_auto="1" extension_auto="1" />
+				<Option output="./lib64/libdtl-gcc47-d" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
 				<Option object_output="Debug64" />
 				<Option type="2" />
@@ -20,7 +20,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release64">
-				<Option output="../../lib64/libdtl-linux.a" prefix_auto="1" extension_auto="0" />
+				<Option output="./lib64/libdtl-gcc47.a" prefix_auto="1" extension_auto="0" />
 				<Option working_dir="" />
 				<Option object_output="Release64" />
 				<Option type="2" />
@@ -39,7 +39,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
-			<Add option="-DLINUX" />
+			<Add option="-fPIC" />
+			<Add option="-DYGGR_AT_LINUX" />
 		</Compiler>
 		<Unit filename="include/BoundIO.h" />
 		<Unit filename="include/Callback.h" />

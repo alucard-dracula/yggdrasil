@@ -107,7 +107,7 @@ typedef yggr::any_val::params_io_wrap< params_io_container_type::params_type, pa
 typedef yggr::any_val::params_io_wrap< params_io_container_type::params_type, packet_info4_type > params_io_wrap4_type;
 
 
-BOOST_CLASS_EXPORT(YGGR_PP_CONCAT(yggr::packet::packet_info<int_pair_type, int_pair_type>))
+BOOST_CLASS_EXPORT(params_io_wrap2_type)
 BOOST_CLASS_EXPORT(params_io_wrap3_type)
 BOOST_CLASS_EXPORT(params_io_wrap4_type)
 

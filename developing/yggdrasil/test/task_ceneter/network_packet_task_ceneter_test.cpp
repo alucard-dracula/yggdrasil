@@ -178,7 +178,7 @@ void test1(void)
 		( boost::bind(&handler_fix_task<task_center_type>,
 						boost::ref(task_center), _1) ); // empty_task_center_test
 
-	task_center.drop_all();
+	task_center.clear();
 
 }
 

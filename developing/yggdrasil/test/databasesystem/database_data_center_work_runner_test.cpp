@@ -17,7 +17,7 @@
 #include <yggr/database_system/database_connect.hpp>
 #include <yggr/database_system/database_operator.hpp>
 #include <yggr/database_system/database_command.hpp>
-#include <yggr/database_system/database_calculater.hpp>
+#include <yggr/database_system/database_calculator.hpp>
 
 #include <yggr/thread/boost_thread_config.hpp>
 #include <yggr/thread/dynamic_work_runner.hpp>
@@ -94,7 +94,7 @@ typedef yggr::thread::thread_mgr<work_thread_type> trd_mgr_type;
 typedef dtl::DBConnection real_conn_type;
 typedef yggr::database_system::database_connect<real_conn_type> conn_type;
 typedef yggr::database_system::database_operator<conn_type> db_op_type;
-typedef yggr::database_system::database_calculater<network_info_type, database_command_type, db_op_type> database_calculater_type;
+typedef yggr::database_system::database_calculator<network_info_type, database_command_type, db_op_type> database_calculator_type;
 
 
 class t_s
@@ -243,15 +243,15 @@ void select_t_s_test(void)
 	//work_runner_type::init_slow_runner(2);
 	runner_shared_info_ptr_type shared_info_ptr(work_runner_type::create_work_runner_shared_info(2));
 
-	database_calculater_type::register_select_view<t_s>("select", boost::bind(out_result_t_s, _1, _2));
-	database_calculater_type::register_insert_view<t_s>("insert", boost::bind(get_insert_rows, _1));
-	database_calculater_type::register_update_view<t_s>("update", boost::bind(get_update_rows, _1));
-	database_calculater_type::register_select_view<t_s2>("select", boost::bind(out_result_t_s2, _1, _2));
-	database_calculater_type::register_delete_view<t_s>("delete", boost::bind(get_delete_rows, _1));
-	database_calculater_type::register_select_view<t_s2>("select", boost::bind(out_result_t_s2, _1, _2));
+	database_calculator_type::register_select_view<t_s>("select", boost::bind(out_result_t_s, _1, _2));
+	database_calculator_type::register_insert_view<t_s>("insert", boost::bind(get_insert_rows, _1));
+	database_calculator_type::register_update_view<t_s>("update", boost::bind(get_update_rows, _1));
+	database_calculator_type::register_select_view<t_s2>("select", boost::bind(out_result_t_s2, _1, _2));
+	database_calculator_type::register_delete_view<t_s>("delete", boost::bind(get_delete_rows, _1));
+	database_calculator_type::register_select_view<t_s2>("select", boost::bind(out_result_t_s2, _1, _2));
 
-	boost::shared_ptr<database_calculater_type> my_cal(new database_calculater_type(cstr));
-	shared_info_ptr->register_calculater(*my_cal);
+	boost::shared_ptr<database_calculator_type> my_cal(new database_calculator_type(cstr));
+	shared_info_ptr->register_calculator(*my_cal);
 
 
 	trd_mgr_type trd_mgr;

@@ -183,7 +183,7 @@ public:
             now_signal_map_iter_type iter = _now_sig_map.find(tid);
             if(iter == _now_sig_map.end())
             {
-                filter(seh_sys_codes_type::E_unknow);
+                filter(int(seh_sys_codes_type::E_unknow));
             }
             else
             {

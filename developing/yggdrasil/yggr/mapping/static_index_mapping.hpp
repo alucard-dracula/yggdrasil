@@ -54,7 +54,7 @@ struct mapping_values;
 		typedef __tag__ tag_type; \
 		typedef __val_type__ value_type; \
 	public: \
-		static const value_type values[]; };
+		static const value_type values[]; }; } }
 
 #define YGGR_PP_STATIC_MAPPING_VALUES_BEGIN_IMPL(__tag__) \
 	namespace yggr { namespace mapping { \

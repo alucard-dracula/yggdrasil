@@ -1,6 +1,6 @@
 // Emacs, this is -*- c++ -*- code.
 
-/* Copyright © 2000 
+/* Copyright ?2000 
 Michael Gradman and Corwin Joy 
 
 Permission to use, copy, modify, distribute and sell this software and 

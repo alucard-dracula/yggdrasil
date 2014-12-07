@@ -36,6 +36,13 @@ THE SOFTWARE.
 #	pragma warning (disable : 4624)
 #endif //_MSC_VER
 
+enum
+{
+	E__wchar_2 =  2,
+	E__wchar_4 =  4,
+	E__wchar_t_byte_size =  sizeof(wchar_t)
+};
+
 #define IN_CHARSET_NAME "utf-8"
 #define UTF8_CHARSET_NAME IN_CHARSET_NAME
 
@@ -45,7 +52,11 @@ THE SOFTWARE.
 
 #if !defined (YGGR_SYS_DEFAULT_WSTRING_CHARSET)
 #	if _LIBICONV_VERSION < 0x010D
-#		define YGGR_SYS_DEFAULT_WSTRING_CHARSET "ucs-2le"
+#		if  ( E__wchar_t_byte_size ==  E__wchar_4 )
+#			define YGGR_SYS_DEFAULT_WSTRING_CHARSET "ucs-4le"
+#		else
+#			define YGGR_SYS_DEFAULT_WSTRING_CHARSET "ucs-2le"
+#		endif // sizeof(wchar_t) == 4
 #	else
 #		define YGGR_SYS_DEFAULT_WSTRING_CHARSET "wchar_t"
 #	endif //  _LIBICONV_VERSION < 0x010D

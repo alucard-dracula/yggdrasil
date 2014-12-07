@@ -14,33 +14,27 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add option="-D_DEBUG" />
-					<Add option="-DYGGR_SYSTEM_64" />
 				</Compiler>
 				<Linker>
-					<Add library="../lib64/libdtl-linux-d.a" />
-					<Add library="../lib64/libyggr_charset-linux-d.a" />
-					<Add library="../lib64/libyggr_nsql_database_system-linux-d.a" />
-					<Add library="../lib64/libyggr_script_lua-linux-d.a" />
-					<Add library="../lib64/libyggr_script_python-linux-d.a" />
-					<Add library="../lib64/libyggr_encryption_tool-linux-d.a" />
-					<Add library="../lib64/libyggr_regular_parse-linux-d.a" />
-					<Add library="../lib64/libyggr_ids-linux-d.a" />
-					<Add library="../lib64/libyggr_base-linux-d.a" />
-					<Add library="/usr/local/lib64/libboost_system-gcc47-mt-d-1_53.a" />
-					<Add library="/usr/local/lib64/libboost_serialization-gcc47-mt-d-1_53.a" />
-					<Add library="/usr/local/lib64/libboost_regex-gcc47-mt-d-1_53.a" />
-					<Add library="/usr/local/lib64/libboost_filesystem-gcc47-mt-d-1_53.a" />
-					<Add library="/usr/local/lib64/libboost_python-gcc47-mt-d-1_53.a" />
-					<Add library="/usr/lib64/libodbc.so" />
-					<Add library="/usr/local/lib64/mongodbc/libbson-linux-d.a" />
-					<Add library="/usr/local/lib64/mongodbc/libmongoc-linux-d.a" />
-					<Add library="/usr/lib64/libicui18n.so" />
-					<Add library="/usr/lib64/libpython3.3m.so" />
-					<Add library="../lib64/libmd5-linux-d.a" />
-					<Add library="/usr/local/lib64/luabind/libluabind09-linux-d.so" />
-					<Add library="/usr/lib64/liblua521-linux-d.so" />
-					<Add library="/usr/local/lib64/libboost_thread-gcc47-mt-d-1_53.a" />
-					<Add library="../lib64/libyggr_time-linux-d.a" />
+					<Add option="-lyggr_nsql_database_system-gcc47-d" />
+					<Add option="-lyggr_script_lua-gcc47-d" />
+					<Add option="-lyggr_base-gcc47-d" />
+					<Add option="-lyggr_charset-gcc47-d" />
+					<Add option="-lyggr_time-gcc47-d" />
+					<Add option="-lyggr_ids-gcc47-d" />
+					<Add option="-lcompatibility-gcc47-d" />
+					<Add option="-lboost_thread-gcc47-mt-d-1_53" />
+					<Add option="-lboost_serialization-gcc47-mt-d-1_53" />
+					<Add option="-lboost_regex-gcc47-d-1_53" />
+					<Add option="-lboost_wserialization-gcc47-mt-d-1_53" />
+					<Add option="-lboost_filesystem-gcc47-mt-d-1_53" />
+					<Add option="-lbson-gcc47-d" />
+					<Add option="-lmongoc-gcc47-d" />
+					<Add option="-ldtl-gcc47-d" />
+					<Add option="-lodbc" />
+					<Add option="-lblowfish-gcc47-d" />
+					<Add option="-lmd5-gcc47-d" />
+					<Add option="-lluabind09-gcc47-d" />
 				</Linker>
 			</Target>
 			<Target title="Release64">
@@ -54,51 +48,46 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="../lib64/libdtl-linux.a" />
-					<Add library="../lib64/libyggr_charset-linux.a" />
-					<Add library="../lib64/libyggr_nsql_database_system-linux.a" />
-					<Add library="../lib64/libyggr_base-linux.a" />
-					<Add library="../lib64/libyggr_time-linux.a" />
-					<Add library="../lib64/libyggr_encryption_tool-linux.a" />
-					<Add library="../lib64/libyggr_regular_parse-linux.a" />
-					<Add library="../lib64/libyggr_script_lua-linux.a" />
-					<Add library="../lib64/libyggr_script_python-linux.a" />
-					<Add library="../lib64/libyggr_ids-linux.a" />
-					<Add library="/usr/local/lib64/libboost_system-gcc47-mt-1_53.a" />
-					<Add library="/usr/local/lib64/libboost_serialization-gcc47-mt-1_53.a" />
-					<Add library="/usr/local/lib64/libboost_thread-gcc47-mt-1_53.a" />
-					<Add library="/usr/local/lib64/libboost_regex-gcc47-mt-1_53.a" />
-					<Add library="/usr/local/lib64/libboost_filesystem-gcc47-mt-1_53.a" />
-					<Add library="/usr/local/lib64/libboost_python-gcc47-mt-1_53.a" />
-					<Add library="/usr/lib64/libodbc.so" />
-					<Add library="/usr/local/lib64/mongodbc/libbson-linux.a" />
-					<Add library="/usr/local/lib64/mongodbc/libmongoc-linux.a" />
-					<Add library="/usr/lib64/libicui18n.so" />
-					<Add library="/usr/lib64/libpython3.3m.so" />
-					<Add library="../lib64/libmd5-linux.a" />
-					<Add library="/usr/local/lib64/luabind/libluabind09-linux.so" />
-					<Add library="/usr/lib64/liblua521-linux.so" />
+					<Add option="-lyggr_nsql_database_system-gcc47" />
+					<Add option="-lyggr_script_lua-gcc47" />
+					<Add option="-lyggr_base-gcc47" />
+					<Add option="-lyggr_charset-gcc47" />
+					<Add option="-lyggr_time-gcc47" />
+					<Add option="-lyggr_ids-gcc47" />
+					<Add option="-lcompatibility-gcc47" />
+					<Add option="-lboost_thread-gcc47-mt-1_53" />
+					<Add option="-lboost_serialization-gcc47-mt-1_53" />
+					<Add option="-lboost_regex-gcc47-1_53" />
+					<Add option="-lboost_wserialization-gcc47-mt-1_53" />
+					<Add option="-lboost_filesystem-gcc47-mt-1_53" />
+					<Add option="-lbson-gcc47" />
+					<Add option="-lmongoc-gcc47" />
+					<Add option="-ldtl-gcc47" />
+					<Add option="-lodbc" />
+					<Add option="-lblowfish-gcc47" />
+					<Add option="-lmd5-gcc47" />
+					<Add option="-lluabind09-gcc47" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-w" />
 			<Add option="-fexceptions" />
-			<Add option="-fpermissive" />
+			<Add option="-DYGGR_AT_LINUX" />
+			<Add option="-DYGGR_SYSTEM_64" />
 			<Add option="-DLINUX" />
+			<Add option="-DMONGODB_DRIVER_INCLUDED_YGGR_VER" />
 			<Add directory="../" />
 			<Add directory="../compatibility" />
-			<Add directory="../tools/dtl/include" />
-			<Add directory="../tools/md5" />
-			<Add directory="../game" />
-			<Add directory="../game_guild" />
 		</Compiler>
 		<Linker>
 			<Add option="-lpthread" />
 			<Add option="-lrt" />
 			<Add option="-rdynamic" />
+			<Add option="-liconv" />
+			<Add directory="../lib64" />
 		</Linker>
-		<Unit filename="linux_seh_test.cpp" />
+		<Unit filename="any_val/any_bson_serialize_test.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

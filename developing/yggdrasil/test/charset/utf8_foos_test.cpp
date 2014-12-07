@@ -1,5 +1,9 @@
 // utf8_foo_test.cpp
 
+#ifndef _MSC_VER
+#	error "this file test msvc only !!!!"
+#endif // _MSC_VER
+
 #ifdef _MSC_VER
 #	include <vld.h>
 #endif // _MSC_VER
@@ -27,15 +31,15 @@ void test_default_charset_config(void)
 
 void test_charset_base_foo(void)
 {
-	std::string std_str("abcÄãºÃ");
-	boost::container::string boost_str("abcÄãºÃ");
+	std::string std_str("abcï¿½ï¿½ï¿½");
+	boost::container::string boost_str("abcï¿½ï¿½ï¿½");
 
 #ifndef __MINGW32__
-	std::wstring std_wstr(L"abcÄãºÃ");
-	boost::container::wstring boost_wstr(L"abcÄãºÃ");
+	std::wstring std_wstr(L"abcï¿½ï¿½ï¿½");
+	boost::container::wstring boost_wstr(L"abcï¿½ï¿½ï¿½");
 #else
-    std::string std_wstr("abcÄãºÃ");
-	boost::container::string boost_wstr("abcÄãºÃ");
+    std::string std_wstr("abcï¿½ï¿½ï¿½");
+	boost::container::string boost_wstr("abcï¿½ï¿½ï¿½");
 #endif // __MINGW32__
 
 	assert(yggr::charset::charset_base_foo::xchglen(std_str.c_str()) == std_str.size() * 4);
@@ -74,7 +78,7 @@ void test_charset_converter(void)
 	yggr::charset::charset_converter conv(yggr::charset::default_charset_config::get_default_string_charset_name<char>(),
 											yggr::charset::default_charset_config::get_default_string_charset_name<wchar_t>());
 
-	std::string std_str("abcÄãºÃ");
+	std::string std_str("abcï¿½ï¿½ï¿½");
 	std::wstring std_wstr;
 	conv(std_str, std_wstr);
 #ifndef __MINGW32__
@@ -82,7 +86,7 @@ void test_charset_converter(void)
 	std::wcout << std_wstr << std::endl;
 #endif // __MINGW32__
 
-	boost::container::string boost_str("abcÄãºÃ");
+	boost::container::string boost_str("abcï¿½ï¿½ï¿½");
 	boost::container::wstring boost_wstr;
 	conv(boost_str, boost_wstr);
 #ifndef __MINGW32__
@@ -102,9 +106,9 @@ void test_charset_converter(void)
 											yggr::charset::default_charset_config::get_default_string_charset_name<char>());
 
 #ifndef __MINGW32__
-	std::wstring std_wstr3(L"abc_ÄãºÃ_wchar_t");
+	std::wstring std_wstr3(L"abc_ï¿½ï¿½ï¿½_wchar_t");
 #else
-    std::string std_wstr3("abc_ÄãºÃ_wchar_t");
+    std::string std_wstr3("abc_ï¿½ï¿½ï¿½_wchar_t");
 #endif // __MINGW32__
 	std::string std_str3;
 	conv3(std_wstr3, std_str3);
@@ -117,7 +121,7 @@ void test_charset_foo(void)
 {
 	// char to char same
 	{
-		std::string str("abc1ÄãºÃ");
+		std::string str("abc1ï¿½ï¿½ï¿½");
 
 		const std::string& cref_str = yggr::charset::charset_foo::xchg<std::string>(str); // return cref
 
@@ -131,7 +135,7 @@ void test_charset_foo(void)
 
 	// char to char diff
 	{
-		std::string str("abc2ÄãºÃ");
+		std::string str("abc2ï¿½ï¿½ï¿½");
 
 		//boost::container::string boost_str = yggr::charset::charset_foo::xchg<boost::container::string>(str); //return diff_type
 		boost::container::string tmp(yggr::charset::charset_foo::xchg<boost::container::string>(str));
@@ -146,9 +150,9 @@ void test_charset_foo(void)
 	//	wchar to wchar same
 	{
 #ifndef __MINGW32__
-		std::wstring str(L"abcw1ÄãºÃ");
+		std::wstring str(L"abcw1ï¿½ï¿½ï¿½");
 #else
-        std::string str("abcw1ÄãºÃ");
+        std::string str("abcw1ï¿½ï¿½ï¿½");
 #endif // __MINGW32__
 		const std::wstring& cref_str = yggr::charset::charset_foo::xchg<std::wstring>(str); //return cref
 
@@ -168,9 +172,9 @@ void test_charset_foo(void)
 	// wchar to wchar diff
 	{
 #ifndef __MINGW32__
-		std::wstring str(L"abcw2ÄãºÃ");
+		std::wstring str(L"abcw2ï¿½ï¿½ï¿½");
 #else
-        std::string str("abcw2ÄãºÃ");
+        std::string str("abcw2ï¿½ï¿½ï¿½");
 #endif // __MINGW32__
 
 		//boost::container::wstring boost_str = yggr::charset::charset_foo::xchg<boost::container::wstring>(str);
@@ -190,7 +194,7 @@ void test_charset_foo(void)
 
 	// char to wchar diff
 	{
-		std::string str("abc3ÄãºÃ");
+		std::string str("abc3ï¿½ï¿½ï¿½");
 
         boost::container::wstring tmp(yggr::charset::charset_foo::xchg<boost::container::wstring>(str));
 		boost::container::wstring boost_str(boost::move(tmp)); //change string store type to wstring store type
@@ -207,7 +211,7 @@ void test_charset_foo(void)
 	// wchar to char diff
 	{
 #ifndef __MINGW32__
-		std::wstring str(L"abcw3ÄãºÃ");
+		std::wstring str(L"abcw3ï¿½ï¿½ï¿½");
 
         boost::container::string tmp(yggr::charset::charset_foo::xchg<boost::container::string>(str));
 		boost::container::string boost_str(boost::move(tmp)); //change wstring store type to string store type
@@ -227,7 +231,7 @@ void test_charset_foo(void)
 
 	// string to wstring diff
 	{
-		std::string str("abc4 ÄãºÃ");
+		std::string str("abc4 ï¿½ï¿½ï¿½");
 
 		boost::container::wstring tmp(yggr::charset::charset_foo::xchg<boost::container::wstring>(str, "gbk", "wchar_t"));
 		boost::container::wstring boost_str(boost::move(tmp));
@@ -241,9 +245,9 @@ void test_charset_foo(void)
 
 	{
 #ifndef __MINGW32__
-		std::wstring str(L"abcw4 ÄãºÃ");
+		std::wstring str(L"abcw4 ï¿½ï¿½ï¿½");
 #else
-        std::string str("abcw4 ÄãºÃ");
+        std::string str("abcw4 ï¿½ï¿½ï¿½");
 #endif // __MINGW32__
 
         boost::container::string tmp(yggr::charset::charset_foo::xchg<boost::container::string>(str, "wchar_t", "gbk"));
@@ -273,7 +277,7 @@ void test_charset_foo(void)
 void test_str_wstr_converter_test(void)
 {
 	{
-		std::string str("abcÄãcdºÃ");
+		std::string str("abcï¿½ï¿½cdï¿½ï¿½");
 		std::wstring wstr(yggr::charset::str_wstr_converter::exchange(str));
 		std::string str2(yggr::charset::str_wstr_converter::exchange(wstr));
 
@@ -287,10 +291,10 @@ void test_str_wstr_converter_test(void)
 
 	{
 #ifndef __MINGW32__
-		std::wstring wstr(L"abcw1ÄãcdºÃ");
+		std::wstring wstr(L"abcw1ï¿½ï¿½cdï¿½ï¿½");
 		std::string str(yggr::charset::str_wstr_converter::exchange(wstr));
 #else
-        std::string wstr("abcw1ÄãcdºÃ");
+        std::string wstr("abcw1ï¿½ï¿½cdï¿½ï¿½");
         std::string str(wstr);
 #endif // __MINGW32__
 		std::wstring wstr2(yggr::charset::str_wstr_converter::exchange(str));
@@ -304,7 +308,7 @@ void test_str_wstr_converter_test(void)
 	}
 
 	{
-		yggr::string str("abc2ÄãcdºÃ");
+		yggr::string str("abc2ï¿½ï¿½cdï¿½ï¿½");
 		yggr::wstring wstr(yggr::charset::str_wstr_converter::exchange(str));
 		yggr::string str2(yggr::charset::str_wstr_converter::exchange(wstr));
 
@@ -318,10 +322,10 @@ void test_str_wstr_converter_test(void)
 
 	{
 #ifndef __MINGW32__
-		yggr::wstring wstr(L"abcw2ÄãcdºÃ");
+		yggr::wstring wstr(L"abcw2ï¿½ï¿½cdï¿½ï¿½");
 		yggr::string str(yggr::charset::str_wstr_converter::exchange(wstr));
 #else
-        yggr::string wstr("abcw2ÄãcdºÃ");
+        yggr::string wstr("abcw2ï¿½ï¿½cdï¿½ï¿½");
 		yggr::string str(wstr);
 #endif // __MINGW32__
 		yggr::wstring wstr2(yggr::charset::str_wstr_converter::exchange(str));

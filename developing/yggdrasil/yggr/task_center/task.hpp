@@ -93,7 +93,7 @@ public:
 	struct owner_info_getter
 	{
 		typedef const owner_info_type& result_type;
-		const owner_info_type& operator()(const task& right) const
+		const owner_info_type operator()(const task& right) const
 		{
 			return right.owner_info();
 		}
@@ -101,8 +101,8 @@ public:
 
 	struct owner_id_getter
 	{
-		typedef const owner_id_type& result_type;
-		const owner_id_type& operator()(const task& right) const
+		typedef const owner_id_type result_type;
+		const owner_id_type operator()(const task& right) const
 		{
 			return right.owner_id();
 		}
@@ -368,7 +368,8 @@ public:
 			return;
 		}
 		boost::swap(_id, right._id);
-		_owner_info.swap(right._owner_info);
+		//_owner_info.swap(right._owner_info);
+		boost::swap(_owner_info, right._owner_info);
 		boost::swap(_data_info, right._data_info);
 		boost::swap(_cal_type, right._cal_type);
 		_data_cont.swap(right._data_cont);

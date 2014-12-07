@@ -55,7 +55,7 @@ typedef yggr::packet::packet<yggr::archive::archive_partner::bson_iarchive_partn
 struct type_test
 {
 	type_test(void)
-		: _utf8_str("ÄãºÃ, Hello")
+		: _utf8_str("hello, Hello")
 	{
 		_s8 = 100;
 		_u8 = 200;

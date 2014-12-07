@@ -44,6 +44,8 @@ int main(int argc, char* argv[])
 	TEST_STRICT_SIZEF(A*);
 	TEST_STRICT_SIZEF(B*);
 
+	std::cout << "completed" << std::endl;
+
 	char cc = 0;
 	std::cin >> cc;
 

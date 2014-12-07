@@ -1,5 +1,9 @@
 //utf8_string_pak_serialize.cpp
 
+#ifndef _MSC_VER
+#	error "this file test msvc only !!!!"
+#endif // _MSC_VER
+
 #define YGGR_USE_STL_STRING
 
 #include <iostream>
@@ -26,7 +30,7 @@ typedef yggr::packet::packet<yggr::archive::archive_partner::text_iarchive_partn
 
 void test_stl_string(void)
 {
-	std::string a("ÄãºÃabc");
+	std::string a("ï¿½ï¿½ï¿½abc");
 
 	std::cout << a << std::endl;
 	opak o;
@@ -47,7 +51,7 @@ void test_stl_string(void)
 
 void test_boost_string(void)
 {
-	boost::container::string a("ÄãºÃabc");
+	boost::container::string a("ï¿½ï¿½ï¿½abc");
 
 	std::cout << a << std::endl;
 	opak o;
@@ -68,7 +72,7 @@ void test_boost_string(void)
 
 void test_utf8_string(void)
 {
-	yggr::utf8_string a("ÄãºÃabc");
+	yggr::utf8_string a("ï¿½ï¿½ï¿½abc");
 
 	std::cout << a << std::endl;
 	opak o;

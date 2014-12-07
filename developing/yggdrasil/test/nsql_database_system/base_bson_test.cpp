@@ -23,6 +23,8 @@ int main(int argc, char* argv[])
 	//bson_destroy(&b1); // b1 is empty don't need destory
 	bson_destroy(&b2);
 
+	std::cout << "completed" << std::endl;
+
 	char cc = 0;
 	std::cin >> cc;
 	return 0;

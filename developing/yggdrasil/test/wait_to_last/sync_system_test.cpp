@@ -396,8 +396,6 @@ void test2(void)
 
 	mgr.execute_all();
 
-	mgr.const_execute_all();
-
 	C::drei drei;
 	//mgr.const_recv_all(drei);
 	mgr.recv_all(drei);
@@ -405,7 +403,7 @@ void test2(void)
 
 	drei.out();
 
-	mgr.const_execute_all();
+	mgr.execute_all();
 
 }
 
