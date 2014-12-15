@@ -39,6 +39,8 @@ THE SOFTWARE.
 #include <yggr/charset/string.hpp>
 #include <yggr/charset/utf8_string.hpp>
 
+#include <yggr/encryption_tool/tool_buf_size.hpp>
+
 namespace yggr
 {
 namespace encryption_tool
@@ -193,5 +195,7 @@ public:
 
 } // namespace encryption_tool
 } // namespace yggr
+
+YGGR_ENCRYPTION_TOOL_DEFED_TOOL_BUF_SIZE(md5_tool, E_MD5_SIZE)
 
 #endif //__YGGR_ENCRYPTION_TOOL_MD5_TOOL_HPP__

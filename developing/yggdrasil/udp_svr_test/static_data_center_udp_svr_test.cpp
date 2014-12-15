@@ -470,7 +470,7 @@ int main(int argc, char* argv[])
 	typedef yggr::ptr_single<ctrl_center_type> ctrl_center_single;
 	typedef yggr::ptr_single<yggr::log::yggr_exception_log_accesser_type> log_accesser_single;
 
-	yggr::u32 port = 9000;
+	yggr::u32 port = 9100;
 	std::cout << "please input port:" << std::endl;
 	std::cin >> port;
 

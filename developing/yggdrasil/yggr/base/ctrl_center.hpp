@@ -524,6 +524,7 @@ private:
 	};
 
 	typedef boost::shared_ptr<controller_group> controller_group_ptr_type;
+	typedef std::list<controller_group_ptr_type> controller_group_ptr_list_type;
 
 	typedef boost::tuple<modules_id_type, ctrl_id_type> midx_container_id_type;
 	struct midx_container
@@ -1175,8 +1176,10 @@ private:
 										const modules_id_type& mid);
 
 private:
-	void handler_ctrl_of_void(const ctrl_cont_type::base_type& base, const ctrl_id_type& cid) const;
-	void handler_ctrl_of_params(const ctrl_cont_type::base_type& base, const ctrl_id_type& cid, const param_type& param) const;
+	//void handler_ctrl_of_void(const ctrl_cont_type::base_type& base, const ctrl_id_type& cid) const;
+	//void handler_ctrl_of_params(const ctrl_cont_type::base_type& base, const ctrl_id_type& cid, const param_type& param) const;
+
+	controller_group_ptr_list_type handler_get_controller(const ctrl_cont_type::base_type& base, const ctrl_id_type& cid) const;
 
 private:
 	midx_container_id_type create_midx_cont_id(const modules_id_type& mid, const ctrl_id_type& cid) const;

@@ -218,94 +218,182 @@ ctrl_center& ctrl_center::unregister_module(void)
 	return *this;
 }
 
+//void ctrl_center::ctrl(const code_type& code, const code_type& class_code) const
+//{
+//	ctrl_id_type id(create_ctrl_id(code, class_code));
+//
+//	_ctrl_cont.use_handler(
+//						boost::bind(
+//										&this_type::handler_ctrl_of_void,
+//										this,
+//										_1,
+//										boost::cref(id)
+//									)
+//							);
+//
+//}
+//
+//void ctrl_center::ctrl(const code_type& code, const code_type& class_code, const param_type& param) const
+//{
+//	ctrl_id_type id(create_ctrl_id(code, class_code));
+//
+//	_ctrl_cont.use_handler(
+//							boost::bind(
+//											&this_type::handler_ctrl_of_params,
+//											this,
+//											_1,
+//											boost::cref(id),
+//											boost::cref(param)
+//										)
+//							);
+//}
+
 void ctrl_center::ctrl(const code_type& code, const code_type& class_code) const
 {
+	typedef controller_group_ptr_list_type::const_iterator citer_type;
+
 	ctrl_id_type id(create_ctrl_id(code, class_code));
 
-	_ctrl_cont.use_handler(
-						boost::bind(
-										&this_type::handler_ctrl_of_void,
-										this,
-										_1,
-										boost::cref(id)
-									)
-							);
+	controller_group_ptr_list_type list(_ctrl_cont.use_handler(
+														boost::bind(
+															&this_type::handler_get_controller,
+															this,
+															_1,
+															boost::cref(id) )));
+
+	{
+		for(citer_type i = list.begin(), isize = list.end(); i != isize; ++i)
+		{
+			if(*i)
+			{
+				(*i)->ctrl();
+			}
+		}
+	}
+
+	{
+		for(citer_type i = list.begin(), isize = list.end(); i != isize; ++i)
+		{
+			if(*i)
+			{
+				(*i)->dispatch();
+			}
+		}
+	}
+
 
 }
 
 void ctrl_center::ctrl(const code_type& code, const code_type& class_code, const param_type& param) const
 {
+	typedef controller_group_ptr_list_type::const_iterator citer_type;
+
 	ctrl_id_type id(create_ctrl_id(code, class_code));
 
-	_ctrl_cont.use_handler(
-							boost::bind(
-											&this_type::handler_ctrl_of_params,
-											this,
-											_1,
-											boost::cref(id),
-											boost::cref(param)
-										)
-							);
+	controller_group_ptr_list_type list(_ctrl_cont.use_handler(
+														boost::bind(
+															&this_type::handler_get_controller,
+															this,
+															_1,
+															boost::cref(id) )));
+
+	{
+		for(citer_type i = list.begin(), isize = list.end(); i != isize; ++i)
+		{
+			if(*i)
+			{
+				(*i)->ctrl(param);
+			}
+		}
+	}
+
+	{
+		for(citer_type i = list.begin(), isize = list.end(); i != isize; ++i)
+		{
+			if(*i)
+			{
+				(*i)->dispatch(param);
+			}
+		}
+	}
 }
 
-void ctrl_center::handler_ctrl_of_void(const ctrl_cont_type::base_type& base,
-											const ctrl_id_type& cid) const
+ctrl_center::controller_group_ptr_list_type ctrl_center::handler_get_controller(const ctrl_cont_type::base_type& base, const ctrl_id_type& cid) const
 {
 	typedef ctrl_cont_type::base_type cont_type;
 	typedef boost::multi_index::nth_index_const_iterator<cont_type, 2>::type iter_type;
 	typedef std::pair<iter_type, iter_type> rst_type;
 
-	rst_type rst = base.get<2>().equal_range(cid);
-
-	controller_group_ptr_type ptr;
-	for(iter_type i = rst.first, isize = rst.second; i != isize; ++i)
-	{
-		ptr = (*i).get_group();
-		if(ptr)
-		{
-			ptr->ctrl();
-		}
-	}
-
-	for(iter_type i = rst.first, isize = rst.second; i != isize; ++i)
-	{
-		ptr = (*i).get_group();
-		if(ptr)
-		{
-			ptr->dispatch();
-		}
-	}
-}
-
-void ctrl_center::handler_ctrl_of_params(const ctrl_cont_type::base_type& base,
-											const ctrl_id_type& cid,
-											const param_type& param) const
-{
-	typedef ctrl_cont_type::base_type cont_type;
-	typedef boost::multi_index::nth_index_const_iterator<cont_type, 2>::type iter_type;
-	typedef std::pair<iter_type, iter_type> rst_type;
+	controller_group_ptr_list_type list;
 
 	rst_type rst = base.get<2>().equal_range(cid);
 
-	controller_group_ptr_type ptr;
 	for(iter_type i = rst.first, isize = rst.second; i != isize; ++i)
 	{
-		ptr = (*i).get_group();
-		if(ptr)
-		{
-			ptr->ctrl(param);
-		}
+		list.push_back((*i).get_group());
 	}
 
-	for(iter_type i = rst.first, isize = rst.second; i != isize; ++i)
-	{
-		ptr = (*i).get_group();
-		if(ptr)
-		{
-			ptr->dispatch(param);
-		}
-	}
+	return list;
 }
+
+//void ctrl_center::handler_ctrl_of_void(const ctrl_cont_type::base_type& base,
+//											const ctrl_id_type& cid) const
+//{
+//	typedef ctrl_cont_type::base_type cont_type;
+//	typedef boost::multi_index::nth_index_const_iterator<cont_type, 2>::type iter_type;
+//	typedef std::pair<iter_type, iter_type> rst_type;
+//
+//	rst_type rst = base.get<2>().equal_range(cid);
+//
+//	controller_group_ptr_type ptr;
+//	for(iter_type i = rst.first, isize = rst.second; i != isize; ++i)
+//	{
+//		ptr = (*i).get_group();
+//		if(ptr)
+//		{
+//			ptr->ctrl();
+//		}
+//	}
+//
+//	for(iter_type i = rst.first, isize = rst.second; i != isize; ++i)
+//	{
+//		ptr = (*i).get_group();
+//		if(ptr)
+//		{
+//			ptr->dispatch();
+//		}
+//	}
+//}
+
+//void ctrl_center::handler_ctrl_of_params(const ctrl_cont_type::base_type& base,
+//											const ctrl_id_type& cid,
+//											const param_type& param) const
+//{
+//	typedef ctrl_cont_type::base_type cont_type;
+//	typedef boost::multi_index::nth_index_const_iterator<cont_type, 2>::type iter_type;
+//	typedef std::pair<iter_type, iter_type> rst_type;
+//
+//	rst_type rst = base.get<2>().equal_range(cid);
+//
+//	controller_group_ptr_type ptr;
+//	for(iter_type i = rst.first, isize = rst.second; i != isize; ++i)
+//	{
+//		ptr = (*i).get_group();
+//		if(ptr)
+//		{
+//			ptr->ctrl(param);
+//		}
+//	}
+//
+//	for(iter_type i = rst.first, isize = rst.second; i != isize; ++i)
+//	{
+//		ptr = (*i).get_group();
+//		if(ptr)
+//		{
+//			ptr->dispatch(param);
+//		}
+//	}
+//}
 
 void ctrl_center::clear(void)
 {

@@ -45,17 +45,21 @@ THE SOFTWARE.
 
 #include <yggr/network/type_traits/tags.hpp>
 
+#include <yggr/encryption_tool/md5_tool.hpp>
+
 //-------------------udp_packet-------------------------
 namespace yggr
 {
 namespace network
 {
 
-template<typename Buffer>
+template<typename Buffer, typename Verify = encryption_tool::md5_tool>
 class udp_packet
 {
 public:
 	typedef Buffer data_buf_type;
+	typedef Verify verify_type;
+	typedef typename verify_type::check_type check_type;
 	typedef udp_pak_id pak_id_type;
 	typedef pak_id_type::id_type id_type;
 	typedef udp_pak_header pak_header_type;
@@ -64,7 +68,8 @@ public:
 	enum
 	{
 		E_INFO_SIZE = pak_id_type::E_LENGTH + pak_header_type::E_LENGTH,
-		E_MAX_DATA_LENGTH = 1024 - pak_id_type::E_LENGTH - pak_header_type::E_LENGTH,
+		E_VERIFY_SIZE = encryption_tool::tool_buf_size<verify_type>::size,
+		E_MAX_DATA_LENGTH = 1024 - pak_id_type::E_LENGTH - pak_header_type::E_LENGTH - E_VERIFY_SIZE,
 		E_MAX_LENGTH = 1024,
 		E_compile_u32_of_size = 0xffffffff
 	};
@@ -113,17 +118,25 @@ public:
 
 	udp_packet(BOOST_RV_REF(data_buf_type) buf)
 	{
-		from_buffer(boost::forward<data_buf_type>(buf));
+		bool bright = from_buffer(boost::forward<data_buf_type>(buf));
+		if(!bright)
+		{
+			_buf.clear();
+		}
 	}
 
 	udp_packet(const data_buf_type& buf)
 	{
-		from_buffer(buf);
+		bool bright = from_buffer(buf);
+		if(!bright)
+		{
+			_buf.clear();
+		}
 	}
 
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
 	udp_packet(BOOST_RV_REF(this_type) right)
-		: _id(boost::forward<pak_id_type>(right._id)),
+		: _id(right._id),
 			_header(boost::forward<pak_header_type>(right._header)),
 			_buf(boost::forward<data_buf_type>(right._buf))
 	{
@@ -152,7 +165,7 @@ public:
 	this_type& operator=(BOOST_RV_REF(this_type) right)
 	{
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
-		_id = boost::forward<pak_id_type>(right._id);
+		_id = right._id;
 		_header = boost::forward<pak_header_type>(right._header);
 		_buf = boost::forward<data_buf_type>(right._buf);
 #else
@@ -166,6 +179,11 @@ public:
 
 	this_type& operator=(const this_type& right)
 	{
+		if(this == &right)
+		{
+			return *this;
+		}
+
 		_id = right._id;
 		_header = right._header;
 		_buf = right._buf;
@@ -266,25 +284,23 @@ public:
 		data_buf_type h_buf;
 		_header.to_buffer(h_buf);
 
-		buf.resize(id_buf.size() + h_buf.size() + _buf.size());
-		memcpy(&buf[0], &id_buf[0], pak_id_type::E_LENGTH);
-		memcpy(&buf[pak_id_type::E_LENGTH], &h_buf[0], pak_header_type::E_LENGTH);
-		memcpy(&buf[pak_id_type::E_LENGTH + pak_header_type::E_LENGTH], &_buf[0], _buf.size());
+		data_buf_type tmp_buf(id_buf.size() + h_buf.size() + _buf.size(), 0);
+		memcpy(&tmp_buf[0], &id_buf[0], pak_id_type::E_LENGTH);
+		memcpy(&tmp_buf[pak_id_type::E_LENGTH], &h_buf[0], pak_header_type::E_LENGTH);
+		memcpy(&tmp_buf[pak_id_type::E_LENGTH + pak_header_type::E_LENGTH], &_buf[0], _buf.size());
+
+		verify_type tool;
+		check_type chk = tool.encrypt(tmp_buf);
+
+		buf.resize(tmp_buf.size() + this_type::E_VERIFY_SIZE);
+		memcpy(&buf[0], &tmp_buf[0], tmp_buf.size());
+		memcpy(&buf[tmp_buf.size()], &chk[0], this_type::E_VERIFY_SIZE);
 	}
 
 	data_buf_type to_buffer(void) const
 	{
-		data_buf_type id_buf;
-		_id.to_buffer(id_buf);
-
-		data_buf_type h_buf;
-		_header.to_buffer(h_buf);
-
-		data_buf_type buf(id_buf.size() + h_buf.size() + _buf.size(), 0);
-		memcpy(&buf[0], &id_buf[0], pak_id_type::E_LENGTH);
-		memcpy(&buf[pak_id_type::E_LENGTH], &h_buf[0], pak_header_type::E_LENGTH);
-		memcpy(&buf[pak_id_type::E_LENGTH + pak_header_type::E_LENGTH], &_buf[0], _buf.size());
-
+		data_buf_type buf;
+		this_type::to_buffer(buf);
 		return buf;
 	}
 
@@ -297,6 +313,11 @@ public:
 		}
 
 		if(!_id.from_buffer(&buf[0], (&buf[0]) + pak_id_type::E_LENGTH))
+		{
+			return false;
+		}
+
+		if(_id == pak_id_type())
 		{
 			return false;
 		}
@@ -317,24 +338,25 @@ public:
 		{
 			return false;
 		}
+
+		data_buf_type tmp_buf(chk_size, 0);
+		memcpy(&tmp_buf[0], &buf[0], chk_size);
+
+		check_type chk_src;
+		memcpy(&chk_src[0], &buf[chk_size], this_type::E_VERIFY_SIZE);
+
+		verify_type tool;
+		check_type chk_now = tool.encrypt(tmp_buf);
+
+		if(chk_src != chk_now)
+		{
+			return false;
+		}
+
 		_buf.resize(_header.size);
-		memcpy(&_buf[0], &buf[pak_id_type::E_LENGTH + pak_header_type::E_LENGTH], _header.size);
+		memcpy(&_buf[0], &tmp_buf[pak_id_type::E_LENGTH + pak_header_type::E_LENGTH], _header.size);
 
 		return true;
-	}
-
-	void swap(BOOST_RV_REF(this_type) right)
-	{
-#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
-		boost::swap(_id, boost::forward<pak_id_type>(right._id));
-		boost::swap(_header, boost::forward<pak_header_type>(right._header));
-		boost::swap(_buf, boost::forward<data_buf_type>(right._buf));
-#else
-		this_type& right_ref = right;
-		boost::swap(_id, right_ref._id);
-		boost::swap(_header, right_ref._deader);
-		boost::swap(_buf, right_ref._buf);
-#endif // YGGR_NO_CXX11_RVALUE_REFERENCES
 	}
 
 	void swap(this_type& right)
@@ -343,12 +365,15 @@ public:
 		{
 			return;
 		}
-		//_id.swap(right._id);
-		//_header.swap(right._header);
-		//_buf.swap(right._buf);
+
 		boost::swap(_id, right._id);
 		boost::swap(_header, right._deader);
 		boost::swap(_buf, right._buf);
+	}
+
+	bool empty(void) const
+	{
+		return _id == pak_id_type() || _buf.empty();
 	}
 
 private:
@@ -395,7 +420,7 @@ namespace yggr
 namespace network
 {
 
-template<typename Buffer>
+template<typename Buffer, typename Verify = encryption_tool::md5_tool >
 class udp_packet_wrap
 {
 public:
@@ -403,7 +428,8 @@ public:
 	typedef typename data_buf_type::value_type data_buf_val_type;
 
 	typedef yggr::u64 id_type;
-	typedef udp_packet<data_buf_type> udp_packet_type;
+	typedef Verify verify_type;
+	typedef udp_packet<data_buf_type, verify_type> udp_packet_type;
 	typedef std::vector<udp_packet_type> udp_packet_vt_type;
 	typedef typename udp_packet_vt_type::iterator udp_packet_vt_iter_type;
 	typedef typename udp_packet_vt_type::const_iterator udp_packet_vt_c_iter_type;
@@ -507,11 +533,11 @@ public:
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
 
 	udp_packet_wrap(BOOST_RV_REF(this_type) right)
-		: _id(boost::forward<id_type>(right._id)),
-			_now_count(boost::forward<u16>(right._now_count)),
-			_count(boost::forward<u16>(right._count)),
-			_type(boost::forward<u16>(right._type)),
-			_bcomplete(boost::forward<bool>(right._bcomplete)),
+		: _id(right._id),
+			_now_count(right._now_count),
+			_count(right._count),
+			_type(right._type),
+			_bcomplete(right._bcomplete),
 			_udp_packet_vt(boost::forward<udp_packet_vt_type>(right._udp_packet_vt)),
 			_state(E_state_alive)
 	{
@@ -520,19 +546,14 @@ public:
 #else
 
 	udp_packet_wrap(BOOST_RV_REF(this_type) right)
-		: _id(),
-			_now_count(0),
-			_count(0),
-			_type(udp_packet_type::E_unknow),
-			_bcomplete(false),
+		: _id(right._id),
+			_now_count(right._now_count),
+			_count(right._count),
+			_type(right._type),
+			_bcomplete(right._bcomplete),
 			_state(E_state_alive)
 	{
 		this_type& right_ref = right;
-		boost::swap(_id, right_ref._id);
-		boost::swap(_now_count, right_ref._now_count);
-		boost::swap(_count, right_ref._count);
-		boost::swap(_type, right_ref._type);
-		boost::swap(_bcomplete,right_ref._bcomplete);
 		_udp_packet_vt.swap(right_ref._udp_packet_vt);
 	}
 
@@ -895,6 +916,11 @@ private:
 		change_state(E_state_alive);
 		udp_packet_type upak(boost::forward<data_buf_type>(buf));
 
+		if(upak.empty())
+		{
+			return;
+		}
+
 		if(empty())
 		{
 			_id = upak.id();
@@ -924,6 +950,11 @@ private:
 	{
 		change_state(E_state_alive);
 		udp_packet_type upak(buf);
+
+		if(upak.empty())
+		{
+			return;
+		}
 
 		if(empty())
 		{

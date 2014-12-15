@@ -284,25 +284,13 @@ public:
 	{
 	}
 
-#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
 	udp_pak_header(BOOST_RV_REF(this_type) right)
-		: idx(boost::forward<u16>(right.idx)),
-			count(boost::forward<u16>(right.count)),
-			size(boost::forward<u16>(right.size)),
-			type(boost::forward<u16>(right.type))
+		: idx(right.idx),
+			count(right.count),
+			size(right.size),
+			type(right.type)
 	{
 	}
-#else
-	udp_pak_header(BOOST_RV_REF(this_type) right)
-		: idx(u16()), count(u16()), size(u16()), type(u16())
-	{
-		this_type& right_ref = right;
-		boost::swap(idx, right_ref.idx);
-		boost::swap(count, right_ref.count);
-		boost::swap(size, right_ref.size);
-		boost::swap(type, right_ref.type);
-	}
-#endif // YGGR_NO_CXX11_RVALUE_REFERENCES
 
 	udp_pak_header(const this_type& right)
 		: idx(right.idx), count(right.count),
@@ -316,18 +304,10 @@ public:
 
 	inline this_type& operator=(BOOST_RV_REF(this_type) right)
 	{
-#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
-		idx = boost::forward<u16>(right.idx);
-		count = boost::forward<u16>(right.count);
-		size = boost::forward<u16>(right.size);
-		type = boost::forward<u16>(right.type);
-#else
-		this_type& right_ref = right;
-		boost::swap(idx, right_ref.idx);
-		boost::swap(count, right_ref.count);
-		boost::swap(size, right_ref.size);
-		boost::swap(type, right_ref.type);
-#endif //YGGR_NO_CXX11_RVALUE_REFERENCES
+		idx = right.idx;
+		count = right.count;
+		size = right.size;
+		type = right.type;
 		return *this;
 	}
 
@@ -417,23 +397,7 @@ public:
 		return true;
 	}
 
-	inline void swap(BOOST_RV_REF(this_type) right)
-	{
-#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
-		idx = boost::forward<u16>(right.idx);
-		count = boost::forward<u16>(right.count);
-		size = boost::forward<u16>(right.size);
-		type = boost::forward<u16>(right.type);
-#else
-		this_type& right_ref = right;
-		boost::swap(idx, right_ref.idx);
-		boost::swap(count, right_ref.count);
-		boost::swap(size, right_ref.size);
-		boost::swap(type, right_ref.type);
-#endif //YGGR_NO_CXX11_RVALUE_REFERENCES
-	}
-
-	inline void swap(this_type& right)
+	void swap(this_type& right)
 	{
 		if(this == &right)
 		{

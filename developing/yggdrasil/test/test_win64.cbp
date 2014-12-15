@@ -98,7 +98,7 @@
 			<Add library="D:\libiconv-1.13.1\lib\libiconv.a" />
 			<Add directory="..\lib64" />
 		</Linker>
-		<Unit filename="charset\utf8_char_test.cpp" />
+		<Unit filename="charset_utf8_files\utf8_string_test.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

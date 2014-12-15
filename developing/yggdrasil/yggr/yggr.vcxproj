@@ -213,6 +213,7 @@
     <ClInclude Include="database_system\dtl_include_helper.hpp" />
     <ClInclude Include="encryption_tool\packet_cypher_tool.hpp" />
     <ClInclude Include="encryption_tool\safe_packet_tool.hpp" />
+    <ClInclude Include="encryption_tool\tool_buf_size.hpp" />
     <ClInclude Include="encryption_tool\tool_type_check.hpp" />
     <ClInclude Include="file_system\base_file_mgr.hpp" />
     <ClInclude Include="file_system\basic_local_file_operator.hpp" />

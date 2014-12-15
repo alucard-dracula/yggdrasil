@@ -27,6 +27,10 @@ THE SOFTWARE.
 #ifndef __YGGR_NETWORK_NETWORK_HANDLER_MIXER_HPP__
 #define __YGGR_NETWORK_NETWORK_HANDLER_MIXER_HPP__
 
+#if defined(__GNUC__) && (__GNUC__ < 4) && (__GNUC_MINOR__ < 6)
+#	error "this file must use gcc 4.6 or later of compile !!!"
+#endif // __GNUC__
+
 #include <cassert>
 #include <sstream>
 #include <utility>
