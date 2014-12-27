@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="any_val\params_xml_serialize_test.cpp">
+    <ClCompile Include="time\timer_mgr_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

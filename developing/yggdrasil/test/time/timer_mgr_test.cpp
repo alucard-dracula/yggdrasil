@@ -41,6 +41,7 @@ private:
 	time_type _step;
 	timer_type _timer;
 };
+
 int main(int argc, char* argv[])
 {
 	typedef yggr::ids::id64_type id_type;

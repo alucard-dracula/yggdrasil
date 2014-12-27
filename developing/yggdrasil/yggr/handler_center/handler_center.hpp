@@ -471,7 +471,7 @@ public:
 		}
 
 		error_type e(error_maker_type::make_error(0));
-		ret = ptr->invoke(e, ret);
+		ptr->invoke(ret, e);
 
 		return !e;
 	}
