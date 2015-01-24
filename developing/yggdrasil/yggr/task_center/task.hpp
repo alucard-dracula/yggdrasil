@@ -284,7 +284,7 @@ public:
 		: _id(boost::forward<id_type>(right._id)),
 			_owner_info(boost::forward<owner_info_type>(right._owner_info)),
 			_data_info(boost::forward<data_info_type>(right._data_info)),
-			_cal_type(boost::forward<u32>(right._cal_type)),
+			_cal_type(right._cal_type),
 			_data_cont(boost::forward<data_container_type>(right._data_cont))
 	{
 	}
@@ -320,7 +320,7 @@ public:
 		_id = boost::forward<id_type>(right._id);
 		_owner_info = boost::forward<owner_info_type>(right._owner_info);
 		_data_info = boost::forward<data_info_type>(right._data_info);
-		_cal_type = boost::forward<u32>(right._cal_type);
+		_cal_type = right._cal_type;
 		_data_cont = boost::forward<data_container_type>(right._data_cont);
 #else
         this_type& right_ref = right;
@@ -343,12 +343,6 @@ public:
 	void swap(BOOST_RV_REF(this_type) right)
 	{
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
-		//boost::swap(_id, boost::forward<id_type>(right._id));
-		//boost::swap(_owner_info, boost::forward<owner_info_type>(right._owner_info));
-		//boost::swap(_data_info, boost::forward<data_info_type>(right._data_info));
-		//boost::swap(_cal_type, boost::forward<u32>(right._cal_type));
-		//_data_cont.swap(boost::forward<data_container_type>(right._data_cont));
-
 		boost::swap(_id, right._id);
 		boost::swap(_owner_info, right._owner_info);
 		boost::swap(_data_info, right._data_info);

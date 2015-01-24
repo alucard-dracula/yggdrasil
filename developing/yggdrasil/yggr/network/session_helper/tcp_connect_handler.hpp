@@ -90,7 +90,8 @@ public:
 		
 		if(!pconn)
 		{
-			exception::exception::throw_error(error_maker_type::make_error(error_maker_type::E_invalid_conn_alloc));
+			exception::exception::throw_error(error_maker_type::make_error(error_maker_type::E_invalid_conn_alloc),
+												yggr::system_controller::system_code::E_TCP_BASE_NETWORK_SYSTEM);
 			return;
 		}
 
@@ -116,7 +117,8 @@ private:
 	{
 		if(!pconn)
 		{
-			exception::exception::throw_error(error_maker_type::make_error(error_maker_type::E_empty_conn));
+			exception::exception::throw_error(error_maker_type::make_error(error_maker_type::E_empty_conn), 
+												yggr::system_controller::system_code::E_TCP_BASE_NETWORK_SYSTEM);
 			return false;
 		}
 
@@ -126,7 +128,8 @@ private:
 			if(!smgr_ptr)
 			{
 				pconn->close();
-				exception::exception::throw_error(error_maker_type::make_error(error_maker_type::E_invalid_client));
+				exception::exception::throw_error(error_maker_type::make_error(error_maker_type::E_invalid_client),
+													yggr::system_controller::system_code::E_TCP_BASE_NETWORK_SYSTEM);
 				return false;
 			}
 
@@ -134,6 +137,7 @@ private:
 			return false;
 		}
 
+		exception::exception::throw_error(e, yggr::system_controller::system_code::E_TCP_BASE_NETWORK_SYSTEM);
 		return true;
 	}
 

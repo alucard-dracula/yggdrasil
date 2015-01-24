@@ -39,7 +39,8 @@ namespace yggr
 namespace system_controller
 {
 
-class system_code : private nonable::noncreateable
+class system_code 
+	: private nonable::noncreateable
 {
 public:
 	enum

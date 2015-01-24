@@ -74,7 +74,7 @@ public:
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
 	proxy_mode_change_back_msg(BOOST_RV_REF(this_type) right)
 		: _data_info(boost::forward<data_info_type>(right._data_info)),
-			_now_mode(boost::forward<u32>(right_now_mode))
+			_now_mode(right._now_mode)
 	{
 	}
 #else
@@ -119,7 +119,7 @@ public:
 	{
 #ifndef  YGGR_NO_CXX11_RVALUE_REFERENCES
 		_data_info = boost::forward<data_info_type>(right_ref._data_info);
-		_now_mode = boost::forward<u32>(right_ref._now_mode);
+		_now_mode = right_ref._now_mode;
 #else
 		this_type& right_ref = right;
 		_data_info = boost::forward<data_info_type>(right_ref._data_info);
@@ -139,9 +139,6 @@ public:
 	void swap(BOOST_RV_REF(this_type) right)
 	{
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
-		//_data_info.swap(boost::forward<data_info_type>(right._data_info));
-		//std::swap(_now_mode, boost::forward<u32>(right._now_mode));
-
 		_data_info.swap(right._data_info);
 		std::swap(_now_mode, right._now_mode);
 #else

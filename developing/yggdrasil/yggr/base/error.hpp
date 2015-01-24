@@ -58,7 +58,7 @@ public:
 
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
 	error(BOOST_RV_REF(this_type) right)
-        : _code(boost::forward<u32>(right._code)),
+        : _code(right._code),
             _msg(boost::forward<err_string_type>(right._msg))
     {
     }
@@ -68,7 +68,7 @@ public:
             _msg( "[unknow class] ------  unknow error")
     {
         this_type& right_ref = right;
-        std::swap(_code, right_ref._code);
+        _code = right_ref._code;
         _msg.swap(right_ref._msg);
     }
 #endif // YGGR_NO_CXX11_RVALUE_REFERENCES
@@ -81,16 +81,19 @@ public:
 	inline this_type& operator=(BOOST_RV_REF(this_type) right)
     {
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
-		_code = boost::forward<u32>(right._code);
+		_code = right._code;
 		_msg = boost::forward<err_string_type>(right._msg);
 #else
 		this_type& right_ref = right;
-        std::swap(_code, right_ref._code);
+        _code = right_ref._code;
         _msg.swap(right_ref._msg);
 #endif // YGGR_NO_CXX11_RVALUE_REFERENCES
 		return *this;
     }
+
 	this_type& operator=(const this_type& right);
+	void swap(this_type& right);
+
 	const err_string_type& message(void) const;
 	const err_string_type& what(void) const;
 

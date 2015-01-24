@@ -48,7 +48,7 @@ error::error(const u32& code,
 				const err_string_type& class_name,
 				const err_string_type& other_msg,
 				const err_string_type& msg)
-	: _code(code), _msg(class_name + " " + other_msg + " " + msg)
+	: _code(code), _msg(class_name + err_string_type(" ") + other_msg + err_string_type(" ") + msg)
 {
 }
 
@@ -94,10 +94,24 @@ yggr::u32 error::code(void) const
 
 error::this_type& error::operator=(const this_type& right)
 {
-	if(this == &right) {return *this;}
+	if(this == &right) 
+	{
+		return *this;
+	}
 	_code = right._code;
 	_msg = right._msg;
 	return *this;
+}
+
+void error::swap(this_type& right)
+{
+	if(this == &right)
+	{
+		return;
+	}
+
+	std::swap(_code, right._code);
+	_msg.swap(right._msg);
 }
 
 const error::err_string_type& error::message(void) const

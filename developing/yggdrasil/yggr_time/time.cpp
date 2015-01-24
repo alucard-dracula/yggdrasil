@@ -29,6 +29,7 @@ THE SOFTWARE.
 #endif // _MSC_VER
 
 #include <yggr/time/time.hpp>
+#include <boost/functional/hash/hash.hpp>
 #include <boost/date_time/posix_time/conversion.hpp>
 #include <boost/date_time/c_local_time_adjustor.hpp>
 #include <limits>
@@ -364,6 +365,14 @@ const time::this_type time::min_time(void)
 	return this_type(0, 1);
 }
 
+std::size_t time::hash(void) const
+{
+	std::size_t seed = 0;
+	boost::hash_combine(seed, base_type::sec);
+	boost::hash_combine(seed, base_type::nsec);
+	return seed;
+}
+
 } //namespace time
 } //namespace yggr
 
@@ -398,4 +407,26 @@ namespace boost
 } // namespace boost
 
 #undef _YGGR_TMP_PP_TIME_SWAP_IMP
+
+#ifdef BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP
+namespace boost
+{
+#else
+namespace yggr
+{
+namespace time
+{
+#endif // BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP
+
+std::size_t hash_value(const yggr::time::time& tm)
+{
+	return tm.hash();
+}
+
+#ifdef BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP
+} //namespace boost
+#else
+} // namespace time
+} // namespace yggr
+#endif // BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP
 

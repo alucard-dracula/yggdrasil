@@ -303,5 +303,8 @@ public:
 } // namesapce archive
 } // namespace yggr
 
-#pragma warning ( pop )
+#ifdef _MSC_VER
+#	pragma warning ( pop )
+#endif // _MSC_VER
+
 #endif //__YGGR_ARCHIVE_ARCHIVE_HELPER_XML_ARCHIVE_HELPER_HPP__

@@ -272,6 +272,21 @@ public:
 
 	typedef boost::unordered_multiset<owner_info_type> owner_info_container_type;
 
+	template<typename Tag, typename Ctrl_Center>
+	void register_dispatchers(Ctrl_Center& cc) // 注册网络异常的处理
+	{
+
+			// this is fake fixer
+		CTRL_HANDLER_PARAM_0(Tag, cc, 10061,
+								yggr::system_controller::system_code::E_TCP_BASE_NETWORK_SYSTEM,
+								boost::bind(&this_type::cal_network_dispath,
+												shared_from_this()));
+
+		//CTRL_HANDLER_PARAM_0(Tag, cc, yggr::u64, 10061,
+		//						yggr::system_controller::system_code::E_TCP_BASE_NETWORK_SYSTEM,
+		//						boost::bind(&this_type::cal_network_dispath,
+		//										shared_from_this()));
+	}
 
 	template<typename Runner, typename Action_Table, typename Recv_Handler>
 	void register_cal_object(Action_Table& at, const Recv_Handler& handler)
@@ -348,6 +363,17 @@ public:
 			std::cout << "send_packet_fail" << std::endl;
 		}
 	}
+
+	void cal_network_dispath(void)
+	{
+		std::cout << "tcp 10061-" << std::endl;
+	}
+
+	template<typename Owner>
+	void cal_network_dispath2(const Owner& owner)
+	{
+		std::cout << "session 10061-" << owner << std::endl;
+	}
 };
 
 int main(int argc, char* argv[])
@@ -403,7 +429,7 @@ int main(int argc, char* argv[])
 	if(pctrl)
 	{
 		pctrl->register_controller(*pclt);
-		//pctrl->register_dispatchers(*my_cal);
+		pctrl->register_dispatchers(*my_cal);
 	}
 
 	std::string ip("127.0.0.1");

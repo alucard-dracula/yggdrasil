@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="time\timer_mgr_test.cpp">
+    <ClCompile Include="nsql_database_system\bson_serialize_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

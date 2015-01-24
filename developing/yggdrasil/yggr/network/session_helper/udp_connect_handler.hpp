@@ -189,7 +189,8 @@ public:
 		
 		if(!pconn)
 		{
-			prv_throw_error(error_maker_type::make_error(error_maker_type::E_invalid_conn_alloc));
+			prv_throw_error(error_maker_type::make_error(error_maker_type::E_invalid_conn_alloc),
+								yggr::system_controller::system_code::E_UDP_BASE_NETWORK_SYSTEM);
 			return;
 		}
 
@@ -217,7 +218,8 @@ private:
 	{
 		if(!pconn)
 		{
-			prv_throw_error(error_maker_type::make_error(error_maker_type::E_empty_conn));
+			prv_throw_error(error_maker_type::make_error(error_maker_type::E_empty_conn),
+								yggr::system_controller::system_code::E_UDP_BASE_NETWORK_SYSTEM);
 			return false;
 		}
 
@@ -242,7 +244,7 @@ private:
 		if(!precv_buf)
 		{
 			boost::system::error_code err(boost::asio::error::no_buffer_space);
-			prv_throw_error(err);
+			prv_throw_error(err, yggr::system_controller::system_code::E_UDP_BASE_NETWORK_SYSTEM);
 			return;
 		}
 
@@ -268,7 +270,7 @@ private:
 
 		if(e)
 		{
-			prv_throw_error(e);
+			prv_throw_error(e, yggr::system_controller::system_code::E_UDP_BASE_NETWORK_SYSTEM);
 			return;
 		}
 
@@ -297,7 +299,8 @@ private:
 
 		if(!psocket)
 		{
-			prv_throw_error(error_maker_type::make_error(error_maker_type::E_invalid_access));
+			prv_throw_error(error_maker_type::make_error(error_maker_type::E_invalid_access),
+								yggr::system_controller::system_code::E_UDP_BASE_NETWORK_SYSTEM);
 			return;
 		}
 
@@ -321,14 +324,16 @@ private:
 	{
 		if(!psocket)
 		{
-			prv_throw_error(error_maker_type::make_error(error_maker_type::E_invalid_access));
+			prv_throw_error(error_maker_type::make_error(error_maker_type::E_invalid_access),
+								yggr::system_controller::system_code::E_UDP_BASE_NETWORK_SYSTEM);
 			return;
 		}
 
 		conn_ptr_type pconn(new conn_type(*psocket));
 		if(!pconn)
 		{
-			prv_throw_error(error_maker_type::make_error(error_maker_type::E_invalid_conn_alloc));
+			prv_throw_error(error_maker_type::make_error(error_maker_type::E_invalid_conn_alloc),
+								yggr::system_controller::system_code::E_UDP_BASE_NETWORK_SYSTEM);
 			return;
 		}
 
@@ -337,7 +342,8 @@ private:
 		session_mgr_ptr_type psmgr = _smgr_wrap.get_shared_ptr();
 		if(!psmgr)
 		{
-			prv_throw_error(error_maker_type::make_error(error_maker_type::E_invalid_conn_alloc));
+			prv_throw_error(error_maker_type::make_error(error_maker_type::E_invalid_conn_alloc),
+								yggr::system_controller::system_code::E_UDP_BASE_NETWORK_SYSTEM);
 			return;
 		}
 
@@ -349,6 +355,12 @@ private:
 	void prv_throw_error(const Error& e) const
 	{
 		exception::exception::throw_error(e);
+	}
+
+	template<typename Error>
+	void prv_throw_error(const Error& e, yggr::u32 sys_code) const
+	{
+		exception::exception::throw_error(e, sys_code);
 	}
 
 	void handler_clear_backup(container_type& cont) const

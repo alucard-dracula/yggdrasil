@@ -605,9 +605,9 @@ public:
 
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
 		_id = boost::forward<id_type>(right._id);
-		_now_count = boost::forward<u16>(right._now_count);
-		_count = boost::forward<u16>(right._count);
-		_type = boost::forward<u16>(right._type);
+		_now_count = right._now_count;
+		_count = right._count;
+		_type = right._type;
 		_udp_packet_vt = boost::forward<udp_packet_vt_type>(right._udp_packet_vt);
 #else
 		boost::swap(_id, right._id);

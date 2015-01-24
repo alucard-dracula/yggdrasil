@@ -382,7 +382,6 @@ protected:
 			return;
 		}
 
-
 		try
 		{
 			load_info();

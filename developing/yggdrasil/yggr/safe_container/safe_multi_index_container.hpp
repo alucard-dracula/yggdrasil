@@ -31,6 +31,8 @@ THE SOFTWARE.
 #include <boost/multi_index/ordered_index.hpp>
 #include <boost/thread/mutex.hpp>
 #include <boost/bind.hpp>
+//#include <boost/mpl/if.hpp>
+//#include <boost/type_traits/is_base_of.hpp>
 
 #include <yggr/base/yggrdef.h>
 #include <yggr/nonable/noncopyable.hpp>

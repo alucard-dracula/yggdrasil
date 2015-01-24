@@ -214,7 +214,7 @@ bool c_mongo_connection::connect(void)
 	}
 
 	u32 error = 0;
-	u32 ver = grab();
+	u64 ver = grab();
 
 	if(ver)
 	{

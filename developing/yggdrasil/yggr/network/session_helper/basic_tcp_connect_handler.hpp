@@ -244,7 +244,7 @@ private:
 							);
 
 
-		exception::exception::throw_error(e);
+		exception::exception::throw_error(e, yggr::system_controller::system_code::E_TCP_BASE_NETWORK_SYSTEM);
 
 	}
 };

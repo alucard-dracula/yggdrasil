@@ -96,7 +96,7 @@ void test3(void)
 
 void test4(void)
 {
-	for(int j = 0; j < 1000000; ++j)
+	for(int j = 0; j < 10000000; ++j)
 	{
 		assert(yggr::random::gen_random<yggr::u32>(0, 2) < 2);
 	}

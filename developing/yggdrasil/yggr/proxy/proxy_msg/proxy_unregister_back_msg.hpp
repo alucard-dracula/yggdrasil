@@ -113,7 +113,6 @@ public:
 	void swap(BOOST_RV_REF(this_type) right)
 	{
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
-		//_unreg_back_map.swap(boost::forward<this_type>(right._unreg_back_map));
 		_unreg_back_map.swap(right._unreg_back_map);
 #else
 		this_type& right_ref = right;

@@ -224,14 +224,26 @@ public:
 	static const this_type max_time(void);
 	static const this_type min_time(void);
 
+	std::size_t hash(void) const;
+
 private:
 	friend class boost::serialization::access;
 
 	template<typename Archive>
 	void serialize(Archive& ar, const u32 version)
 	{
+		typedef Archive archive_type;
 		ar & YGGR_SERIALIZE_NAME_NVP("sec", base_type::sec);
-		ar & YGGR_SERIALIZE_NAME_NVP("nsec", base_type::nsec);
+		yggr::u64 tnsec = 0;
+		if(typename archive_type::is_saving())
+		{
+			tnsec = base_type::nsec;
+		}
+		ar & YGGR_SERIALIZE_NAME_NVP("nsec", tnsec);
+		if(typename archive_type::is_loading())
+		{
+			base_type::nsec = tnsec;
+		}
 	}
 };
 
@@ -278,5 +290,25 @@ namespace boost
 } // namesapce boost
 
 #undef _YGGR_TMP_PP_TIME_SWAP_DEF
+
+#ifdef BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP
+namespace boost
+{
+#else
+namespace yggr
+{
+namespace time
+{
+#endif // BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP
+
+std::size_t hash_value(const yggr::time::time& tm);
+
+#ifdef BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP
+} //namespace boost
+#else
+} // namespace time
+} // namespace yggr
+#endif // BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP
+
 
 #endif //_YGGR_TIME_TIME_HPP__

@@ -413,6 +413,8 @@ void test2(void)
 	oar & YGGR_SERIALIZE_NAME_NVP(typeid(type_test).name(), test);
 	buf.finish();
 
+	std::cout << buf << std::endl;
+
 	type_test test2(10);
 	iar_type iar(buf);
 

@@ -303,7 +303,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="time\timer_mgr_test.cpp" />
+    <ClCompile Include="nsql_database_system\bson_serialize_test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

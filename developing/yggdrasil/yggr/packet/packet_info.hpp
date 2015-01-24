@@ -60,6 +60,10 @@ THE SOFTWARE.
 #include <yggr/serialization/nvp.hpp>
 #include <yggr/serialization/tuple.hpp>
 
+#ifndef YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN
+#	define YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN
+#endif // YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN
+
 namespace yggr
 {
 namespace packet
@@ -76,7 +80,7 @@ namespace packet
 {
 
 #define YGGR_PP_TEMPLATE_DEFAULT_TYPE() boost::tuples::null_type
-	template< YGGR_PP_TEMPLATE_PARAMS_TYPES_AND_DEFAULT_TYPE( YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, typename Val ) >
+	template< YGGR_PP_TEMPLATE_PARAMS_TYPES_AND_DEFAULT_TYPE( YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, typename Val ) >
 #undef YGGR_PP_TEMPLATE_DEFAULT_TYPE
 class packet_info
 {
@@ -85,7 +89,7 @@ private:
 	typedef boost::mpl::vector
 			<
 				YGGR_PP_TEMPLATE_PARAMS_TYPES(
-					YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN,
+					YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN,
 					Val)
 			> tmp_vt_t_type;
 	typedef typename boost::mpl::find<tmp_vt_t_type, null_type>::type i;
@@ -127,7 +131,7 @@ public:
 
 private:
 
-	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, typename T) >
+	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, typename T) >
 	friend class packet_info;
 
 	typedef packet_info this_type;
@@ -169,20 +173,20 @@ public:
 #undef YGGR_PP_FOO_ARG_NAME
 
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
-	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, typename T) >
-	packet_info(BOOST_RV_REF(packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, T)>) right)
+	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, typename T) >
+	packet_info(BOOST_RV_REF(packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, T)>) right)
 		: _info(boost::forward<value_type>(right._info))
 	{
-		typedef packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, T)> other_type;
+		typedef packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, T)> other_type;
 		typedef typename other_type::value_type other_value_type;
 
 		BOOST_MPL_ASSERT((boost::is_same<value_type, other_value_type>));
 	}
 #else
-	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, typename T) >
-	packet_info(BOOST_RV_REF(packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, T)>) right)
+	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, typename T) >
+	packet_info(BOOST_RV_REF(packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, T)>) right)
 	{
-		typedef packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, T)> other_type;
+		typedef packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, T)> other_type;
 		typedef typename other_type::value_type other_value_type;
 
 		BOOST_MPL_ASSERT((boost::is_same<value_type, other_value_type>));
@@ -191,11 +195,11 @@ public:
 	}
 #endif // YGGR_NO_CXX11_RVALUE_REFERENCES
 
-	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, typename T) >
-	packet_info(const packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, T)>& right)
+	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, typename T) >
+	packet_info(const packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, T)>& right)
 		: _info(right._info)
 	{
-		typedef packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, T)> other_type;
+		typedef packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, T)> other_type;
 		typedef typename other_type::value_type other_value_type;
 
 		BOOST_MPL_ASSERT((boost::is_same<value_type, other_value_type>));
@@ -286,10 +290,10 @@ public:
 		return *this;
 	}
 
-	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, typename T) >
-	this_type& operator=(BOOST_RV_REF(packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, T)>) right)
+	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, typename T) >
+	this_type& operator=(BOOST_RV_REF(packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, T)>) right)
 	{
-		typedef packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, T)> other_type;
+		typedef packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, T)> other_type;
 		typedef typename other_type::value_type other_value_type;
 
 		BOOST_MPL_ASSERT((boost::is_same<value_type, other_value_type>));
@@ -303,10 +307,10 @@ public:
 		return *this;
 	}
 
-	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, typename T) >
-	this_type& operator=(const packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, T)>& right)
+	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, typename T) >
+	this_type& operator=(const packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, T)>& right)
 	{
-		typedef packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, T)> other_type;
+		typedef packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, T)> other_type;
 		typedef typename other_type::value_type other_value_type;
 
 		BOOST_MPL_ASSERT((boost::is_same<value_type, other_value_type>));
@@ -343,8 +347,8 @@ public:
 		return ::operator==(_info, right._info);
 	}
 
-	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, typename T) >
-	bool operator==(const packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, T)>& right)
+	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, typename T) >
+	bool operator==(const packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, T)>& right)
 	{
 		return ::operator==(_info, right._info);
 	}
@@ -354,8 +358,8 @@ public:
 		return ::operator!=(_info, right);
 	}
 
-	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, typename T) >
-	bool operator!=(const packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, T)>& right)
+	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, typename T) >
+	bool operator!=(const packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, T)>& right)
 	{
 		return ::operator!=(_info, right._info);
 	}
@@ -380,10 +384,10 @@ public:
 		boost::swap(_info, right);
 	}
 
-	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, typename T) >
-	void swap(BOOST_RV_REF(packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, T)>) right)
+	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, typename T) >
+	void swap(BOOST_RV_REF(packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, T)>) right)
 	{
-		typedef packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, T)> other_type;
+		typedef packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, T)> other_type;
 		typedef typename other_type::value_type other_value_type;
 
 		BOOST_MPL_ASSERT((boost::is_same<value_type, other_value_type>));
@@ -397,10 +401,10 @@ public:
 		return *this;
 	}
 
-	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, typename T) >
-	void swap(packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, T)>& right)
+	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, typename T) >
+	void swap(packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, T)>& right)
 	{
-		typedef packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN, T)> other_type;
+		typedef packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN, T)> other_type;
 		typedef typename other_type::value_type other_value_type;
 
 		BOOST_MPL_ASSERT((boost::is_same<value_type, other_value_type>));
@@ -546,18 +550,18 @@ private:
 		os << "packet_info_" << info_type::s_element_size() << " : "<< cref_val; \
 		return os; }
 
-	_YGGR_TMP_PP_PACKET_OPERATOR_COMPARE(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN)
-	_YGGR_TMP_PP_PACKET_INFO_OUT(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN)
+	_YGGR_TMP_PP_PACKET_OPERATOR_COMPARE(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN)
+	_YGGR_TMP_PP_PACKET_INFO_OUT(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN)
 
 namespace std
 {
-	_YGGR_TMP_PP_PACKET_INFO_SWAP(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN)
+	_YGGR_TMP_PP_PACKET_INFO_SWAP(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN)
 } // namespace std
 
 namespace boost
 {
 
-	_YGGR_TMP_PP_PACKET_INFO_SWAP(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN)
+	_YGGR_TMP_PP_PACKET_INFO_SWAP(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN)
 
 } // namespace boost
 
@@ -586,7 +590,7 @@ namespace packet
 {
 #endif // BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP
 
-	_YGGR_TMP_PP_PACKET_INFO_HASH_FOO(YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN)
+	_YGGR_TMP_PP_PACKET_INFO_HASH_FOO(YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN)
 
 #ifdef BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP
 } //namespace boost
@@ -733,7 +737,7 @@ public:
 #define YGGR_PP_FOO_ARG_NAME() arg
 #define YGGR_PP_FOO_CUSTOM_OP() YGGR_PP_GET_PACKET_SUB_INFOS_OF_IDX_NAME_LOOP
 
-#define BOOST_PP_LOCAL_LIMITS ( 1, YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN )
+#define BOOST_PP_LOCAL_LIMITS ( 1, YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN )
 #include BOOST_PP_LOCAL_ITERATE()
 
 #undef YGGR_PP_FOO_CUSTOM_OP
@@ -750,7 +754,7 @@ public:
 #define YGGR_PP_PACKET_INFO_TYPE_IDX_NAME() N
 #define YGGR_PP_FOO_ARG_NAME() arg
 
-#define BOOST_PP_LOCAL_LIMITS ( 1, YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN )
+#define BOOST_PP_LOCAL_LIMITS ( 1, YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN )
 #include BOOST_PP_LOCAL_ITERATE()
 
 #undef YGGR_PP_FOO_ARG_NAME
@@ -767,7 +771,7 @@ public:
 #define YGGR_PP_PACKET_INFO_TYPE_IDX_NAME() N
 #define YGGR_PP_FOO_ARG_NAME() arg
 
-#define BOOST_PP_LOCAL_LIMITS ( 1, YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN )
+#define BOOST_PP_LOCAL_LIMITS ( 1, YGGR_PP_PACKET_INFO_DEFAULT_PARAMS_LEN )
 #include BOOST_PP_LOCAL_ITERATE()
 
 #undef YGGR_PP_FOO_ARG_NAME
