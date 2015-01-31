@@ -117,7 +117,7 @@
       <Culture>0x0804</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>libyggr_base-vc100.lib;libyggr_time-vc100.lib;libyggr_ids-vc100.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libyggr_base-vc100.lib;libyggr_time-vc100.lib;libyggr_ids-vc100.lib;libyggr_seh-vc100.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)seh_svr_test.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>../lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -163,7 +163,7 @@
       <Culture>0x0804</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>libyggr_base-vc100.lib;libyggr_time-vc100.lib;libyggr_ids-vc100.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libyggr_base-vc100.lib;libyggr_time-vc100.lib;libyggr_ids-vc100.lib;libyggr_seh-vc100.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)seh_svr_test.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>../lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -209,7 +209,7 @@
       <Culture>0x0804</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>libyggr_base-vc100-d.lib;libyggr_time-vc100-d.lib;libyggr_ids-vc100-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libyggr_base-vc100-d.lib;libyggr_time-vc100-d.lib;libyggr_ids-vc100-d.lib;libyggr_seh-vc100-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)seh_svr_test.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>../lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -255,7 +255,7 @@
       <Culture>0x0804</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>libyggr_base-vc100-d.lib;libyggr_time-vc100-d.lib;libyggr_ids-vc100-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libyggr_base-vc100-d.lib;libyggr_time-vc100-d.lib;libyggr_ids-vc100-d.lib;libyggr_seh-vc100-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)seh_svr_test.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>../lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>

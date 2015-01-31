@@ -77,14 +77,14 @@ public:
 	}
 
 	template<typename Value>
-	bool append(const Value& val)
+	bool append(const Value& val, bool bclear = false)
 	{
 		if(_stream.rdstate() & std::ios::in)
 		{
 			return false;
 		}
 
-		if(!connect())
+		if(!connect(bclear))
 		{
 			return false;
 		}
@@ -106,13 +106,13 @@ public:
 			}
 		}
 
-		return connect();
+		return connect(true);
 		//connect();
 		//return true;
 	}
 
 private:
-	bool connect(void)
+	bool connect(bool bclear = false)
 	{
 		if(_fname.empty())
 		{
@@ -140,7 +140,7 @@ private:
 		if(!_stream.is_open())
 		{
 			lock_type lk(_mutex);
-			_stream.open((_fname + _now_date).c_str(), std::ios::out | std::ios::app);
+			_stream.open((_fname + _now_date).c_str(), std::ios::out | (bclear? 0 :  std::ios::app));
 		}
 
 		return _stream.good();

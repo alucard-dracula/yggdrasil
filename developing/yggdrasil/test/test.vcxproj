@@ -120,7 +120,7 @@
       <Culture>0x0804</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>libiconv.lib;libyggr_base-vc100.lib;libyggr_charset-vc100.lib;libyggr_nsql_database_system-vc100.lib;libyggr_script_python-vc100.lib;libyggr_script_lua-vc100.lib;libyggr_ids-vc100.lib;libyggr_time-vc100.lib;liblua521-vc100.lib;libluabind09-vc100.lib;libblowfish-vc100.lib;libmd5-vc100.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libiconv.lib;libyggr_base-vc100.lib;libyggr_charset-vc100.lib;libyggr_seh-vc100.lib;libyggr_nsql_database_system-vc100.lib;libyggr_script_python-vc100.lib;libyggr_script_lua-vc100.lib;libyggr_ids-vc100.lib;libyggr_time-vc100.lib;liblua521-vc100.lib;libluabind09-vc100.lib;libblowfish-vc100.lib;libmd5-vc100.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)test.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>../lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -157,13 +157,14 @@
       <ProgramDataBaseFileName>.\Release64/</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ExceptionHandling>Async</ExceptionHandling>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Culture>0x0804</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>libyggr_base-vc100.lib;libyggr_charset-vc100.lib;libyggr_nsql_database_system-vc100.lib;libyggr_script_python-vc100.lib;libyggr_script_lua-vc100.lib;libyggr_ids-vc100.lib;libyggr_time-vc100.lib;liblua521-vc100.lib;libluabind09-vc100.lib;libblowfish-vc100.lib;libmd5-vc100.lib;libiconv.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libyggr_base-vc100.lib;libyggr_charset-vc100.lib;libyggr_ids-vc100.lib;libyggr_seh-vc100.lib;libyggr_nsql_database_system-vc100.lib;libyggr_script_python-vc100.lib;libyggr_script_lua-vc100.lib;libyggr_time-vc100.lib;liblua521-vc100.lib;libluabind09-vc100.lib;libblowfish-vc100.lib;libmd5-vc100.lib;libiconv.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)test.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>../lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -261,7 +262,7 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
     <Link>
-      <AdditionalDependencies>libiconv.lib;libyggr_base-vc100-d.lib;libyggr_charset-vc100-d.lib;libyggr_script_python-vc100-d.lib;libyggr_script_lua-vc100-d.lib;libyggr_ids-vc100-d.lib;libyggr_time-vc100-d.lib;libyggr_nsql_database_system-vc100-d.lib;liblua521-vc100-d.lib;libluabind09-vc100-d.lib;libblowfish-vc100-d.lib;libmd5-vc100-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libiconv.lib;libyggr_base-vc100-d.lib;libyggr_charset-vc100-d.lib;libyggr_script_python-vc100-d.lib;libyggr_script_lua-vc100-d.lib;libyggr_ids-vc100-d.lib;libyggr_time-vc100-d.lib;libyggr_seh-vc100-d.lib;libyggr_nsql_database_system-vc100-d.lib;liblua521-vc100-d.lib;libluabind09-vc100-d.lib;libblowfish-vc100-d.lib;libmd5-vc100-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)test.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>../lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -303,7 +304,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="nsql_database_system\bson_serialize_test.cpp" />
+    <ClCompile Include="log\log_accesser_test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

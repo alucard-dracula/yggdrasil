@@ -2,7 +2,7 @@
 
 #define YGGR_USE_SEH
 
-#ifdef _MSC_VER
+#if defined(_MSC_VER) && defined(_DEBUG) 
 #define YGGR_INCLUDE_SEH_DEBUG
 #endif // _MSC_VER
 #include <iostream>
@@ -55,6 +55,7 @@ int main(int argc, char* argv[])
 	//test_normal(); //crash
 	test_seh(); // non crash
 
+	std::cout << "end" << std::endl;
     char cc = 0;
     std::cin >> cc;
    

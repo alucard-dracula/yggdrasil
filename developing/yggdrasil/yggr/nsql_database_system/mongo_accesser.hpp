@@ -1365,6 +1365,10 @@ public:
 
 				if(pconn->errcode)
 				{
+					if(!err)
+					{
+						err = error_maker_type::make_error(pconn->errcode, pconn->errstr);
+					}
 					exception::exception::throw_error(pconn->errcode, pconn->errstr);
 				}
 
@@ -1447,6 +1451,10 @@ public:
 
 				if(pconn->errcode)
 				{
+					if(!err)
+					{
+						err = error_maker_type::make_error(pconn->errcode, pconn->errstr);
+					}
 					exception::exception::throw_error(pconn->errcode, pconn->errstr);
 				}
 				prv_reset_connect(pconn->err, _pconn->now_ver());

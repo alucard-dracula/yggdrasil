@@ -72,20 +72,26 @@ public:
 #	include <yggr/support/log_op_general_foo.ipp>
 
 	template<typename Tuple_Handler>
-	void append(const Tuple_Handler& handler)
+	bool append(const Tuple_Handler& handler)
 	{
-		_real_op.append(boost::get<0>(handler), boost::get<1>(handler));
+		return _real_op.append(handler);
 	}
 
 	template<typename Tuple_Handler>
-	void clear(const Tuple_Handler& handler)
+	bool clear(const Tuple_Handler& handler)
 	{
-		_real_op.clear(boost::get<0>(handler));
+		return _real_op.clear(handler);
+	}
+
+	bool clear(void)
+	{
+		return _real_op.clear();
 	}
 
 	template<typename Tuple_Handler>
-	void search(const Tuple_Handler& handler)
+	inline bool search(const Tuple_Handler& handler)
 	{
+		return false;
 	}
 
 private:

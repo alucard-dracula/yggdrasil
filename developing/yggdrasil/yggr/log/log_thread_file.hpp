@@ -28,15 +28,18 @@ THE SOFTWARE.
 #define __YGGR_LOG_LOGOP_LOG_THREAD_FILE_HPP__
 
 #include <fstream>
-#include <yggr/charset/string.hpp>
+#include <sstream>
 #include <boost/thread/mutex.hpp>
+#include <boost/bind.hpp>
+#include <boost/shared_ptr.hpp>
+#include <boost/tuple/tuple.hpp>
+
+#include <yggr/charset/string.hpp>
 #include <yggr/nonable/noncopyable.hpp>
 #include <yggr/time/time.hpp>
 #include <yggr/safe_container/safe_unordered_map.hpp>
-#include <boost/bind.hpp>
-#include <sstream>
 #include <yggr/file_system/local_file_operator.hpp>
-#include <boost/shared_ptr.hpp>
+
 
 namespace yggr
 {
@@ -47,11 +50,7 @@ namespace log_op
 template<typename Stream, typename Thread_ID>
 class log_thread_file : private nonable::noncopyable
 {
-//public:
-	//typedef Stream stream_type;
-
 private:
-
     typedef Stream stream_type;
     typedef boost::shared_ptr<stream_type> stream_ptr_type;
 	typedef Thread_ID trd_id_type;
@@ -59,8 +58,6 @@ private:
 	typedef typename stream_map_type::iterator stream_map_iter_type;
 
 	typedef log_thread_file this_type;
-
-
 
 public:
 	log_thread_file(const std::string& full_name)
@@ -80,13 +77,15 @@ public:
 		return _fname;
 	}
 
-	bool operator ==(const std::string& name) const
+	bool operator==(const std::string& name) const
 	{
 		return _fname == name;
 	}
 
+	
+
 	template<typename Value>
-	bool append(const Value& val)
+	bool append(const Value& val, bool nil = false)
 	{
 		typedef Value now_val_type;
 
@@ -95,21 +94,24 @@ public:
 			return false;
 		}
 
-		bool b = false;
-		_stream_map.use_handler(boost::bind(&this_type::handler_append<now_val_type>, this, _1, boost::cref(val), boost::ref(b)));
-
-		return b;
+		return _stream_map.use_handler(boost::bind(&this_type::handler_append<now_val_type>, this, _1, boost::cref(val)));
 	}
 
 	bool clear(void)
+	{
+		assert(false);
+		return false;
+	}
+
+private:
+
+	bool prv_clear(void)
 	{
 		_stream_map.use_handler_of_all(boost::bind(&this_type::handler_clear, this, _1));
 		_stream_map.clear();
 
 		return connect();
 	}
-
-private:
 
 	bool connect(void)
 	{
@@ -130,22 +132,23 @@ private:
 		if(now_date != _now_date)
 		{
 			_now_date = now_date;
-			return clear();
+			return prv_clear();
 		}
 
 		return true;
 	}
 
 	template<typename Value>
-	void handler_append(typename stream_map_type::base_type& base, const Value& val, bool& b)
+	bool handler_append(typename stream_map_type::base_type& base, const Value& val)
 	{
 		trd_id_type tid = val.thread_id();
 		stream_map_iter_type iter = base.find(tid);
 		std::pair<stream_map_iter_type, bool> ins_rst;
 
+		bool b = false;
+
 		if(iter == base.end())
 		{
-		    //ins_rst = base.insert(typename stream_map_type::value_type(tid, stream_type()));
 			ins_rst = base.insert(typename stream_map_type::value_type(tid, stream_ptr_type(new stream_type())));
 			if(ins_rst.second)
 			{
@@ -173,13 +176,13 @@ private:
 			b = iter->second->good() && (!(iter->second->rdstate() & std::ios::in));
 		}
 
-		if(!b)
+		if(b)
 		{
-			return;
+			(*(iter->second)) << val << std::endl;
+			iter->second->flush();
 		}
 
-		(*(iter->second)) << val << std::endl;
-		iter->second->flush();
+		return b;
 	}
 
 	void handler_clear(stream_map_iter_type& iter)
@@ -193,8 +196,6 @@ private:
 	std::string _fpath;
 	std::string _now_date;
 	stream_map_type _stream_map;
-	//stream_type _stream;
-	//mutable boost::mutex _mutex;
 };
 
 } // namespace log_op

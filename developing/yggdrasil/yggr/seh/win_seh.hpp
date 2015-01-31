@@ -67,13 +67,8 @@ private:
 
 public:
 
-	win_seh(void)
-	{
-	}
-
-	~win_seh(void)
-	{
-	}
+	win_seh(void);
+	~win_seh(void);
 
 	template<typename Ret, typename Handler>
 	bool safe_invoke(Ret& ret, const Handler& handler) const
@@ -94,15 +89,9 @@ public:
 											boost::bind(&this_type::def_fixer, this));
 	}
 
-	bool register_code(code_type code)
-	{
-		return _set.insert(code);
-	}
+	bool register_code(code_type code);
+	bool unregister_code(code_type code);
 
-	bool unregister_code(code_type code)
-	{
-		return _set.erase(code);
-	}
 private:
 
 	template<typename Ret>
@@ -112,18 +101,18 @@ private:
 		return ret_type();
 	}
 
-	void nonret_def_cleaner(void) const
+	inline void nonret_def_cleaner(void) const
 	{
 		return;
 	}
 
-	bool def_fixer(void) const
+	inline bool def_fixer(void) const
 	{
 		//return true;
 		return false;
 	}
 
-	u32 filter(code_type code, LPEXCEPTION_POINTERS pep) const
+	inline u32 filter(code_type code, LPEXCEPTION_POINTERS pep) const
 	{
 		seh_helper_type::dump_call_stack_type call_stack;
 		{

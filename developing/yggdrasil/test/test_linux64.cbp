@@ -18,6 +18,7 @@
 				<Linker>
 					<Add option="-lyggr_nsql_database_system-gcc47-d" />
 					<Add option="-lyggr_script_lua-gcc47-d" />
+					<Add option="-lyggr_seh-gcc47-d" />
 					<Add option="-lyggr_base-gcc47-d" />
 					<Add option="-lyggr_charset-gcc47-d" />
 					<Add option="-lyggr_time-gcc47-d" />
@@ -50,6 +51,7 @@
 					<Add option="-s" />
 					<Add option="-lyggr_nsql_database_system-gcc47" />
 					<Add option="-lyggr_script_lua-gcc47" />
+					<Add option="-lyggr_seh-gcc47" />
 					<Add option="-lyggr_base-gcc47" />
 					<Add option="-lyggr_charset-gcc47" />
 					<Add option="-lyggr_time-gcc47" />
@@ -87,7 +89,7 @@
 			<Add option="-liconv" />
 			<Add directory="../lib64" />
 		</Linker>
-		<Unit filename="any_val/any_bson_serialize_test.cpp" />
+		<Unit filename="seh/seh_test.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

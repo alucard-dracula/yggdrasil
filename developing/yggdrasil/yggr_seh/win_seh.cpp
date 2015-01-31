@@ -1,4 +1,4 @@
-//linux_seh_helper.hpp
+//win_seh.cpp
 
 /****************************************************************************
 Copyright (c) 2014-2018 yggdrasil
@@ -24,36 +24,38 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __YGGR_SEH_LINUX_SEH_HELPER_HPP__
-#define __YGGR_SEH_LINUX_SEH_HELPER_HPP__
 
-#ifndef YGGR_SEH_INCLUDE
-#	error "linux_seh_helper.hpp include error please include seh.hpp."
-#endif // YGGR_SEH_ENV_INCLUDE
+#define YGGR_SEH_INCLUDE
 
-#include <execinfo.h>
-#include <list>
-#include <yggr/charset/string.hpp>
-#include <sstream>
-#include <yggr/base/yggrdef.h>
+#include <yggr/seh/win_seh.hpp>
 
+#if defined(_MSC_VER) && defined(_DEBUG)
+#	include <vld.h>
+#endif // _MSC_VER
 
 namespace yggr
 {
 namespace seh
 {
 
-class linux_seh_helper
+win_seh::win_seh(void)
 {
-public:
-	typedef std::list<std::string> dump_call_stack_type;
+}
 
-public:
-    static const std::string format_dump_call_stack_msg(const dump_call_stack_type& call_stack);
-	static bool dump_call_stack(dump_call_stack_type& call_stack);
-};
+win_seh::~win_seh(void)
+{
+}
+
+bool win_seh::register_code(code_type code)
+{
+	return _set.insert(code);
+}
+
+bool win_seh::unregister_code(code_type code)
+{
+	return _set.erase(code);
+}
 
 } // namespace seh
 } // namespace yggr
 
-#endif // __YGGR_SEH_LINUX_SEH_HELPER_HPP__

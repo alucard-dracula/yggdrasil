@@ -1,4 +1,4 @@
-//linux_seh_helper.hpp
+//linux_seh_env.cpp
 
 /****************************************************************************
 Copyright (c) 2014-2018 yggdrasil
@@ -24,36 +24,51 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __YGGR_SEH_LINUX_SEH_HELPER_HPP__
-#define __YGGR_SEH_LINUX_SEH_HELPER_HPP__
-
-#ifndef YGGR_SEH_INCLUDE
-#	error "linux_seh_helper.hpp include error please include seh.hpp."
-#endif // YGGR_SEH_ENV_INCLUDE
-
-#include <execinfo.h>
-#include <list>
-#include <yggr/charset/string.hpp>
-#include <sstream>
-#include <yggr/base/yggrdef.h>
-
+#define YGGR_SEH_INCLUDE
+#include <yggr/seh/linux_seh_env.hpp>
 
 namespace yggr
 {
 namespace seh
 {
 
-class linux_seh_helper
-{
-public:
-	typedef std::list<std::string> dump_call_stack_type;
+linux_seh_env::mutex_type linux_seh_env::_jmp_buf_mutex;
+linux_seh_env::mutex_type linux_seh_env::_signal_mutex;
+linux_seh_env::mutex_type linux_seh_env::_call_stack_mutex;
 
-public:
-    static const std::string format_dump_call_stack_msg(const dump_call_stack_type& call_stack);
-	static bool dump_call_stack(dump_call_stack_type& call_stack);
-};
+linux_seh_env::jmp_buf_map_type linux_seh_env::_jmp_buf_map;
+linux_seh_env::now_signal_map_type linux_seh_env::_now_sig_map;
+
+//private:
+/*static*/ void linux_seh_env::handler_recv_signal(int code)
+{
+	trd_id_type tid = this_thread_type::id();
+
+	seh_helper_type::dump_call_stack_type call_stack;
+	{
+		write_lock_type lk(_call_stack_mutex);
+		seh_helper_type::dump_call_stack(call_stack);
+	}
+
+	std::stringstream ss;
+
+	ss << "os_code = " << code << "\n"
+		<< seh_helper_type::format_dump_call_stack_msg(call_stack);
+
+	exception::exception::throw_error(code, ss.str());
+
+	{
+		write_lock_type lk(_signal_mutex);
+		_now_sig_map[tid] = code;
+	}
+
+
+	{
+		write_lock_type lk(_jmp_buf_mutex);
+		siglongjmp(_jmp_buf_map[tid].get(), 1);
+	}
+}
 
 } // namespace seh
 } // namespace yggr
 
-#endif // __YGGR_SEH_LINUX_SEH_HELPER_HPP__

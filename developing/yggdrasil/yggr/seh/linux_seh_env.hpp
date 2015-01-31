@@ -196,34 +196,7 @@ public:
 	}
 
 public:
-    static void handler_recv_signal(int code)
-    {
-        trd_id_type tid = this_thread_type::id();
-
-        seh_helper_type::dump_call_stack_type call_stack;
-        {
-            write_lock_type lk(_call_stack_mutex);
-            seh_helper_type::dump_call_stack(call_stack);
-        }
-
-        std::stringstream ss;
-
-        ss << "os_code = " << code << "\n"
-            << seh_helper_type::format_dump_call_stack_msg(call_stack);
-
-        exception::exception::throw_error(code, ss.str());
-
-        {
-            write_lock_type lk(_signal_mutex);
-            _now_sig_map[tid] = code;
-        }
-
-
-        {
-            write_lock_type lk(_jmp_buf_mutex);
-            siglongjmp(_jmp_buf_map[tid].get(), 1);
-        }
-    }
+    static void handler_recv_signal(int code);
 
 private:
     static mutex_type _jmp_buf_mutex;
@@ -233,13 +206,6 @@ private:
     static jmp_buf_map_type _jmp_buf_map;
     static now_signal_map_type _now_sig_map;
 };
-
-linux_seh_env::mutex_type linux_seh_env::_jmp_buf_mutex;
-linux_seh_env::mutex_type linux_seh_env::_signal_mutex;
-linux_seh_env::mutex_type linux_seh_env::_call_stack_mutex;
-
-linux_seh_env::jmp_buf_map_type linux_seh_env::_jmp_buf_map;
-linux_seh_env::now_signal_map_type linux_seh_env::_now_sig_map;
 
 } // namespace seh
 } // namespace yggr

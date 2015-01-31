@@ -62,14 +62,8 @@ private:
 	typedef linux_seh this_type;
 
 public:
-
-	linux_seh(void)
-	{
-	}
-
-	~linux_seh(void)
-	{
-	}
+	linux_seh(void);
+	~linux_seh(void);
 
 	template<typename Ret, typename Handler>
 	bool safe_invoke(Ret& ret, const Handler& handler) const
@@ -90,17 +84,9 @@ public:
 											boost::bind(&this_type::def_fixer, this));
 	}
 
-	bool register_code(code_type code)
-	{
-	    signal(code, seh_env_type::handler_recv_signal);
-		return true;
-	}
+	bool register_code(code_type code);
+	bool unregister_code(code_type code);
 
-	bool unregister_code(code_type code)
-	{
-	    signal(code, SIG_DFL);
-		return true;
-	}
 private:
 
 	template<typename Ret>
@@ -110,22 +96,21 @@ private:
 		return ret_type();
 	}
 
-	void nonret_def_cleaner(void) const
+	inline void nonret_def_cleaner(void) const
 	{
 		return;
 	}
 
-	bool def_fixer(void) const
+	inline bool def_fixer(void) const
 	{
 		//return true;
 		return false;
 	}
 
-	u32 filter(code_type code) const
+	inline u32 filter(code_type code) const
 	{
 	    return 0;
 	}
-
 };
 
 } // namespace seh

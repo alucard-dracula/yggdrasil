@@ -39,6 +39,8 @@ public:
 private:
 	typedef seh this_type;
 	typedef ptr_single<this_type> this_single_type;
+
+public:
 	typedef typename this_single_type::obj_ptr_type obj_ptr_type;
 	typedef const obj_ptr_type obj_cptr_type;
 
@@ -54,6 +56,16 @@ public:
 	static void s_init_ins()
 	{
 		this_single_type::init_ins();
+	}
+
+	static void s_init_ins(const obj_ptr_type& pobj)
+	{
+		this_single_type::init_ins(pobj);
+	}
+
+	static obj_ptr_type get_ins()
+	{
+		return this_single_type::get_ins();
 	}
 
 	static void s_uninstall()

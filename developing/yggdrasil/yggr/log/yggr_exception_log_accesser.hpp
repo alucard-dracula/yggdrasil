@@ -84,9 +84,9 @@ public:
 	}
 
 	template<typename Value>
-	boost::tuple<fname_string_type, Value> create_param(const Value& val) const
+	boost::tuple<fname_string_type, Value, bool> create_append_param(const Value& val) const
 	{
-		return boost::make_tuple(_fname, val);
+		return boost::make_tuple(_fname, val, false);
 	}
 
 private:

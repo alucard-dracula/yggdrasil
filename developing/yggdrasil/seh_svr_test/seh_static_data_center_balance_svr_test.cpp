@@ -385,8 +385,8 @@ public:
 																	runner_type, 
 																	recv_handler_type>,
 										shared_from_this(), _1, _2, _3, _4),
-										boost::bind(&this_type::handler_seh, 
-														shared_from_this())); // use custom seh fixer
+										boost::bind(&this_type::handler_seh<owner_info_type, test_pak_type>, 
+														shared_from_this(), _1, _2)); // use custom seh fixer
 	}
 
 	template<typename Action_Table>
@@ -424,6 +424,7 @@ public:
 		// test seh s
 		if(online_size == 0)
 		{
+			++online_size;
 			int *p = 0;
 			*p = 100;
 		}
@@ -455,9 +456,10 @@ public:
 		std::cout << "10054 client id = [" << owner << "] is removed" << std::endl;
 	}
 
-	void handler_seh(void) const
+	template<typename OwnerInfo, typename Data>
+	void handler_seh(const OwnerInfo& owner, const Data* pdata) const
 	{
-		std::cout << "seh occur" << std::endl;
+		std::cout << "seh occur owner id = " << owner.owner_id() << std::endl;
 	}
 };
 
@@ -592,7 +594,13 @@ int main(int argc, char* argv[])
 	task_center_single::uninstall(); // 卸载任务中心
 
 	std::cout << "stop end" << std::endl;
+
+#if defined(YGGR_USE_SEH)
+	yggr::seh::seh_type::s_uninstall();
+#endif // YGGR_USE_SEH
 	yggr::ptr_single<yggr::exception::exception>::uninstall(); // 卸载异常处理
+
+
 
 	return 0;
 }

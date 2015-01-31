@@ -1,4 +1,4 @@
-//linux_seh_helper.hpp
+//linux_seh_helper.cpp
 
 /****************************************************************************
 Copyright (c) 2014-2018 yggdrasil
@@ -24,36 +24,55 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __YGGR_SEH_LINUX_SEH_HELPER_HPP__
-#define __YGGR_SEH_LINUX_SEH_HELPER_HPP__
-
-#ifndef YGGR_SEH_INCLUDE
-#	error "linux_seh_helper.hpp include error please include seh.hpp."
-#endif // YGGR_SEH_ENV_INCLUDE
-
-#include <execinfo.h>
-#include <list>
-#include <yggr/charset/string.hpp>
-#include <sstream>
-#include <yggr/base/yggrdef.h>
-
+#define YGGR_SEH_INCLUDE
+#include <yggr/seh/linux_seh_helper.hpp>
 
 namespace yggr
 {
 namespace seh
 {
 
-class linux_seh_helper
+/*static*/ const std::string linux_seh_helper::format_dump_call_stack_msg(const dump_call_stack_type& call_stack)
 {
-public:
-	typedef std::list<std::string> dump_call_stack_type;
+	typedef dump_call_stack_type::const_iterator citer_type;
 
-public:
-    static const std::string format_dump_call_stack_msg(const dump_call_stack_type& call_stack);
-	static bool dump_call_stack(dump_call_stack_type& call_stack);
-};
+	std::stringstream ss;
+	size_type line = 0;
+	for(citer_type i = call_stack.begin(), isize = call_stack.end(); i != isize; ++i, ++line)
+	{
+		for(size_type j = 0, jsize = line; j != jsize; ++j)
+		{
+			ss << "\t";
+		}
+
+		ss << *i << "\n";
+	}
+
+	return ss.str();
+}
+
+/*static*/ bool linux_seh_helper::dump_call_stack(dump_call_stack_type& call_stack)
+{
+	void* arr[1024] = {0};
+	int size = backtrace(arr, 1024);
+	char** strs = (char**)backtrace_symbols(arr, size);
+
+	if(!(strs && size))
+	{
+		return false;
+	}
+
+	for(int i = 0, isize = size ; i != isize; ++i)
+	{
+		call_stack.push_back(strs[i]);
+	}
+
+	free(strs);
+
+	call_stack.reverse();
+	return true;
+}
 
 } // namespace seh
 } // namespace yggr
 
-#endif // __YGGR_SEH_LINUX_SEH_HELPER_HPP__

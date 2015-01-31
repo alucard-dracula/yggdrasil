@@ -90,37 +90,45 @@ public:
 #	include <yggr/support/log_op_general_foo.ipp>
 
 	template<typename Tuple_Handler>
-	void append(const Tuple_Handler& handler)
+	bool append(const Tuple_Handler& handler)
 	{
 		if(!keep_connect())
 		{
-			return;
+			return false;
 		}
 		opak_type opak;
 		opak.save(boost::get<2>(handler));
-		_real_op.insert(boost::get<0>(handler), boost::get<1>(handler), opak);
+		return 0 == _real_op.insert(boost::get<0>(handler), boost::get<1>(handler), opak);
 	}
 
 	template<typename Tuple_Handler>
-	void clear(const Tuple_Handler& handler)
+	bool clear(const Tuple_Handler& handler)
 	{
 		if(!keep_connect())
 		{
-			return;
+			return false;
 		}
-		_real_op.remove_all(boost::get<0>(handler), boost::get<1>(handler));
+		return 0 == _real_op.remove_all(boost::get<0>(handler), boost::get<1>(handler));
+	}
+
+	inline bool clear(void)
+	{
+		assert(false);
+		return false;
 	}
 
 	template<typename Tuple_Handler>
-	void search(const Tuple_Handler& handler)
+	bool search(const Tuple_Handler& handler)
 	{
 		Tuple_Handler& ref_handler = const_cast<Tuple_Handler&>(handler);
 		if(!keep_connect())
 		{
-			return;
+			return false;
 		}
-		_real_op.find(boost::get<0>(ref_handler), boost::get<1>(ref_handler), boost::get<2>(ref_handler), boost::get<3>(ref_handler),
-						boost::get<4>(ref_handler), boost::get<5>(ref_handler), boost::get<6>(ref_handler), boost::get<7>(ref_handler));
+		return 0 == _real_op.find(boost::get<0>(ref_handler), boost::get<1>(ref_handler),
+									boost::get<2>(ref_handler), boost::get<3>(ref_handler),
+									boost::get<4>(ref_handler), boost::get<5>(ref_handler),
+									boost::get<6>(ref_handler), boost::get<7>(ref_handler));
 	}
 
 private:

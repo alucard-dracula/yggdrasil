@@ -27,9 +27,10 @@ THE SOFTWARE.
 #ifndef __YGGR_LOG_LOGOP_LOG_FILE_MGR_HPP__
 #define __YGGR_LOG_LOGOP_LOG_FILE_MGR_HPP__
 
-#include <boost/shared_ptr.hpp>
 #include <map>
 #include <list>
+#include <boost/shared_ptr.hpp>
+#include <boost/tuple/tuple.hpp>
 
 namespace yggr
 {
@@ -74,15 +75,15 @@ public:
 	}
 
 	template<typename Value>
-	bool append(const std::string& fname, const Value& val)
+	bool append(const boost::tuple<std::string, Value, bool>& val)
 	{
-		map_iter_type iter = _map.find(fname);
+		map_iter_type iter = _map.find(boost::get<0>(val));
 		if(_map.end() == iter)
 		{
 			return false;
 		}
 
-		return iter->second? iter->second->append(val) : false;
+		return iter->second? iter->second->append(boost::get<1>(val), boost::get<2>(val)) : false;
 	}
 
 	bool clear(const std::string& fname)
@@ -96,10 +97,9 @@ public:
 		return iter->second? iter->second->clear() : false;
 	}
 
-	bool clear_all(void)
+	bool clear(void) // clear_all
 	{
-		map_iter_type isize = _map.end();
-		for(map_iter_type i = _map.begin() ; i != isize; ++i)
+		for(map_iter_type i = _map.begin(), isize = _map.end() ; i != isize; ++i)
 		{
 			if(i->second)
 			{
@@ -111,10 +111,9 @@ public:
 	}
 
 	template<typename Value>
-	bool append_all(const Value& val)
+	bool append(const Value& val) // append_all
 	{
-		map_iter_type isize = _map.end();
-		for(map_iter_type i = _map.begin() ; i != isize; ++i)
+		for(map_iter_type i = _map.begin(), isize = _map.end() ; i != isize; ++i)
 		{
 			if(i->second)
 			{

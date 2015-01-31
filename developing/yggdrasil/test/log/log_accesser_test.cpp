@@ -67,9 +67,27 @@ public:
 	}
 
 	template<typename Value>
-	boost::tuple<std::string, Value> create_param(const Value& val) const
+	boost::tuple<std::string, Value, bool> create_append_param(const Value& val) const
 	{
-		return boost::make_tuple(_fname, val);
+		return boost::make_tuple(_fname, val, false);
+	}
+
+	template<typename Value>
+	boost::tuple<std::string, Value, bool> create_append_param(const Value& val, bool bclear) const
+	{
+		return boost::make_tuple(_fname, val, bclear);
+	}
+
+	template<typename Value>
+	const std::string& create_clear_param(const Value& val) const
+	{
+		return _fname;
+	}
+
+	template<typename Value>
+	int create_search_param(const Value& val) const
+	{
+		return 0;
 	}
 
 private:
@@ -131,6 +149,20 @@ int main(int argc, char* argv[])
 	A a1(100);
 	A a2(101);
 	A a3(103);
+	acc.append(a1);
+	acc.append(a2);
+	acc.append(a3);
+
+	acc.search(100);
+
+	acc.clear();
+
+	acc.append(a1);
+	acc.append(a2);
+	acc.append(a3);
+
+	acc.clear(100);
+
 	acc.append(a1);
 	acc.append(a2);
 	acc.append(a3);

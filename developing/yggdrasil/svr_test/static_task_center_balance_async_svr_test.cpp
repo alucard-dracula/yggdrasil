@@ -457,7 +457,8 @@ int main(int argc, char* argv[])
 	log_accesser_single::init_ins(log_init); // 创建日志访问器
 
 	yggr::log::yggr_exception_log_accesser_type::data_creator_type dc1("svr_nt_log"); // 定义日志创建器
-	log_accesser_single::get_ins()->register_msg(10054, dc1); // 注册日志事件（这里表示如果发生网络10054错误 将该错误写入日志，当然可以定义多个）
+	log_accesser_single::get_ins()->register_msg(10053, dc1); // 注册日志事件（这里表示如果发生网络10053错误 将该错误写入日志，当然可以定义多个）
+
 	//同时日志文件也可以定义多份用来分类别存储日志信息
 
 	ctrl_center_single::init_ins(); //创建控制中心

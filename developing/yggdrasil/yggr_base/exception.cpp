@@ -182,9 +182,8 @@ bool exception::message(void)
 			//std::cerr << e.to_string() << std::endl;
 
 			ptr_single<log::yggr_exception_log_accesser_type>::obj_ptr_type plog = ptr_single<log::yggr_exception_log_accesser_type>::get_ins();
-			if(plog)
+			if(plog && plog->append(e))
 			{
-				plog->append(e);
 				continue;
 			}
 

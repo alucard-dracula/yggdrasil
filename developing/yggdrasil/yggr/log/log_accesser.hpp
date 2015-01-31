@@ -29,6 +29,7 @@ THE SOFTWARE.
 
 #include <map>
 #include <list>
+#include <yggr/ppex/foo_params.hpp>
 
 namespace yggr
 {
@@ -111,16 +112,60 @@ public:
 	}
 
 	template<typename Value>
-	void append(const Value& val)
+	bool append(const Value& val)
 	{
 		msg_id_map_iter_type iter = _msg_ids.find(val.code());
+		if(iter == _msg_ids.end())
+		{ 
+			return false;
+		} 
+		return _op.append(iter->second->create_append_param(val )); 
+	}
+
+#define BOOST_PP_LOCAL_MACRO( __n__ ) \
+	template<typename Value \
+				YGGR_PP_SYMBOL_IF( __n__, YGGR_PP_SYMBOL_COMMA) \
+				YGGR_PP_FOO_TYPES_DEF( __n__ ) > \
+	bool append(const Value& val \
+					YGGR_PP_SYMBOL_IF( __n__, YGGR_PP_SYMBOL_COMMA) \
+					YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_CREF_PARAMS ) ){ \
+		msg_id_map_iter_type iter = _msg_ids.find(val.code()); \
+		if(iter == _msg_ids.end()) { return false; } \
+		return _op.append(iter->second->create_append_param(val YGGR_PP_SYMBOL_IF( __n__, YGGR_PP_SYMBOL_COMMA) \
+																	YGGR_PP_FOO_PARAMS_OP( __n__, YGGR_PP_SYMBOL_COMMA ))); }
+
+#define YGGR_PP_FOO_ARG_NAME(  ) arg
+#define BOOST_PP_LOCAL_LIMITS ( 1, YGGR_PP_FOO_DEFAULT_PARAMS_LEN )
+#include BOOST_PP_LOCAL_ITERATE(  )
+#undef YGGR_PP_FOO_ARG_NAME
+
+	bool clear(const msg_id_type& id)
+	{
+		msg_id_map_iter_type iter = _msg_ids.find(id);
 
 		if(iter == _msg_ids.end())
 		{
-			return;
+			return false;
 		}
 
-		_op.append(iter->second->create_param(val));
+		return _op.clear(iter->second->create_clear_param(id));
+	}
+
+	bool clear(void)
+	{
+		return _op.clear();
+	}
+
+	bool search(const msg_id_type& id)
+	{
+		msg_id_map_iter_type iter = _msg_ids.find(id);
+
+		if(iter == _msg_ids.end())
+		{
+			return false;
+		}
+
+		return _op.search(iter->second->create_search_param(id));
 	}
 
 

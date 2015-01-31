@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="nsql_database_system\bson_serialize_test.cpp">
+    <ClCompile Include="log\log_accesser_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

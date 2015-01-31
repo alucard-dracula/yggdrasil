@@ -88,40 +88,47 @@ public:
 #	include <yggr/support/log_op_general_foo.ipp>
 
 	template<typename Tuple_Handler>
-	void append(const Tuple_Handler& handler)
+	bool append(const Tuple_Handler& handler)
 	{
 		if(!keep_connect())
 		{
-			return;
+			return false;
 		}
 		pak_vt_type pak_vt(1);
 		pak_vt[0] = boost::get<1>(handler);
-		real_op_type::insert_records_of_table(boost::get<0>(handler), pak_vt, boost::get<2>(handler), *_pconn);
+		return real_op_type::insert_records_of_table(boost::get<0>(handler), pak_vt, boost::get<2>(handler), *_pconn);
 	}
 
 	template<typename Tuple_Handler>
-	void clear(const Tuple_Handler& handler)
+	bool clear(const Tuple_Handler& handler)
 	{
 		if(!keep_connect())
 		{
-			return;
+			return false;
 		}
 
 		std::stringstream ss;
 		ss << "DELETE FROM " << boost::get<0>(handler);
-		real_op_type::execute_sql(ss.str(), *_pconn);
+		return real_op_type::execute_sql(ss.str(), *_pconn);
+	}
+
+	inline bool clear(void)
+	{
+		assert(false);
+		return false;
 	}
 
 	template<typename Tuple_Handler>
-	void search(const Tuple_Handler& handler)
+	bool search(const Tuple_Handler& handler)
 	{
 		if(!keep_connect())
 		{
-			return;
+			return false;
 		}
 		pak_vt_type pak_vt;
-		real_op_type::select_records_of_view(boost::get<0>(handler), pak_vt, boost::get<1>(handler), *_pconn);
+		bool ret = real_op_type::select_records_of_view(boost::get<0>(handler), pak_vt, boost::get<1>(handler), *_pconn);
 		(boost::get<2>(handler))(pak_vt);
+		return ret;
 	}
 
 private:

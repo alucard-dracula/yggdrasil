@@ -121,7 +121,12 @@ private:
 		void run_it_wrap(typename base_type::this_work_runner_type& runner, const this_task_type& task) const
 		{
 			task_real_data_getter_type getter;
+#		ifdef _MSC_VER
 			const real_data_type* pdata = getter.operator()<real_data_type>(task);
+#		else
+			const real_data_type* pdata = getter.template operator()<real_data_type>(task);
+#		endif // _MSC_VER
+
 			if(!pdata)
 			{
 				return;
@@ -160,11 +165,18 @@ private:
 		{
 		}
 
-		virtual void run_handler(typename base_type::this_work_runner_type& runner, const this_task_type& task) const // old_ver
+		virtual void run_handler(typename base_type::this_work_runner_type& runner, const this_task_type& task) const
 		{
+			task_real_data_getter_type getter;
 			if(!seh::seh_type::s_safe_invoke(boost::bind(&this_type::run_it_wrap, this, boost::ref(runner), boost::cref(task))))
 			{
-				_seh_handler();
+#			ifdef _MSC_VER
+				const real_data_type* pdata = getter.operator()<real_data_type>(task);
+#			else
+				const real_data_type* pdata = getter.template operator()<real_data_type>(task);
+#			endif // _MSC_VER
+				
+				_seh_handler(task.owner_info(), pdata);
 			}
 		}
 
@@ -172,7 +184,11 @@ private:
 		void run_it_wrap(typename base_type::this_work_runner_type& runner, const this_task_type& task) const
 		{
 			task_real_data_getter_type getter;
-			const real_data_type* pdata = getter.operator()<real_data_type>(task);
+#		ifdef _MSC_VER
+				const real_data_type* pdata = getter.operator()<real_data_type>(task);
+#		else
+				const real_data_type* pdata = getter.template operator()<real_data_type>(task);
+#		endif // _MSC_VER
 			if(!pdata)
 			{
 				return;
@@ -293,7 +309,7 @@ public:
 
 		typedef calculator<now_container_type,
 							call_handler_type,
-							back_handler_type, 
+							back_handler_type,
 							int> now_calculator_type;
 
 		return reg_map.insert(id_parser_type::template get_reg_id<now_real_data_type>(),
@@ -301,7 +317,7 @@ public:
 
 	}
 
-	template<typename Container, 
+	template<typename Container,
 				typename Recv_Handler, typename Handler>
 	bool register_calculator(const calculator_id_type& id,
 								const Recv_Handler& recv_handler, const Handler& handler)
@@ -320,10 +336,10 @@ public:
 	}
 
 #ifdef YGGR_USE_SEH
-	template<typename Real_Data_Type, 
+	template<typename Real_Data_Type,
 				typename Recv_Handler, typename Handler, typename SEH_Handler>
 	bool register_calculator(const Recv_Handler& recv_handler,
-								const Handler& handler, 
+								const Handler& handler,
 								const SEH_Handler& seh_handler)
 	{
 
@@ -342,8 +358,8 @@ public:
 								calculator_contaniner_type(new now_calculator_type(handler, recv_handler, seh_handler)));
 	}
 
-	template<typename Real_Data_Type, typename Container, 
-				typename Recv_Handler, typename Handler, typename SEH_Handler>
+	template<typename Real_Data_Type, typename Container,
+							typename Recv_Handler, typename Handler, typename SEH_Handler>
 	bool register_calculator_of_container(const Recv_Handler& recv_handler,
 											const Handler& handler,
 											const SEH_Handler& seh_handler)
@@ -352,18 +368,18 @@ public:
 		typedef Container now_container_type;
 		typedef Handler call_handler_type;
 		typedef Recv_Handler back_handler_type;
-		typedef SEH_Handler seh_handler;
+		typedef SEH_Handler seh_handler_type;
 
 		typedef calculator<now_container_type,
 							call_handler_type,
-							back_handler_type, 
-							seh_handler> now_calculator_type;
+							back_handler_type,
+							seh_handler_type> now_calculator_type;
 
 		return reg_map.insert(id_parser_type::template get_reg_id<now_real_data_type>(),
 								calculator_contaniner_type(new now_calculator_type(handler, recv_handler, seh_handler)));
 	}
 
-	template<typename Container, typename Recv_Handler, 
+	template<typename Container, typename Recv_Handler,
 				typename Handler, typename SEH_Handler>
 	bool register_calculator(const calculator_id_type& id,
 								const Recv_Handler& recv_handler,
