@@ -8,6 +8,8 @@
 
 int main(int argc, char* argv[])
 {
+	typedef yggr::file_system::local_file_operator_type::path_list_type path_list_type;
+	
 	if(argc < 2)
 	{
 		return 0;
@@ -19,10 +21,17 @@ int main(int argc, char* argv[])
 	//std::cin >> dir_name;
 
 	{
-		typedef yggr::file_system::local_file_operator_type::path_list_type path_list_type;
-
 		path_list_type list;
-		yggr::file_system::local_file_operator_type::recursion_search_of_files(dir_name, list);
+		
+		try
+		{
+			yggr::file_system::local_file_operator_type::recursion_search_of_files(dir_name, list);
+		}
+		catch(const compatibility::stl_exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+			list.clear();
+		}
 
 		yggr::file_system::ofile_mgr ofm("test_all_file.fsys");
 
@@ -31,7 +40,15 @@ int main(int argc, char* argv[])
 			std::string buf;
 			yggr::file_system::local_file_operator_type::file_size_type size = 0;
 
-			yggr::file_system::local_file_operator_type::read_file_of_binary(list.front(), buf, size);
+			try
+			{
+				yggr::file_system::local_file_operator_type::read_file_of_binary(list.front(), buf, size);
+			}
+			catch(const compatibility::stl_exception& e)
+			{
+				std::cerr << e.what() << std::endl;
+				return -1;
+			}
 			ofm.add_file(list.front(), yggr::file_system::ofile_mgr::E_File_Binary, buf);
 			list.pop_front();
 		}

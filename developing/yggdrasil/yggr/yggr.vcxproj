@@ -109,7 +109,11 @@
     <ClInclude Include="adapter\adapter_register_type_def.hpp" />
     <ClInclude Include="any_val\any.hpp" />
     <ClInclude Include="any_val\any_set.hpp" />
+    <ClInclude Include="any_val\any_val_operator.hpp" />
+    <ClInclude Include="any_val\base_any_type_operator.hpp" />
+    <ClInclude Include="any_val\indexed_typeinfo.hpp" />
     <ClInclude Include="any_val\non_any_type_operator.hpp" />
+    <ClInclude Include="any_val\params.hpp" />
     <ClInclude Include="any_val\params_io_wrap.hpp" />
     <ClInclude Include="archive\archive_data_wrap_traits.hpp" />
     <ClInclude Include="archive\archive_partner_template.hpp" />
@@ -185,6 +189,7 @@
     <ClInclude Include="base\yggrdef.h" />
     <ClInclude Include="charset\charset_base_foo.hpp" />
     <ClInclude Include="charset\charset_type_traits.hpp" />
+    <ClInclude Include="charset\const_strings.hpp" />
     <ClInclude Include="charset\other_char.hpp" />
     <ClInclude Include="charset\string.hpp" />
     <ClInclude Include="charset\utf8_char_impl.hpp" />
@@ -620,9 +625,6 @@
     <ClInclude Include="log\log_op_def.hpp" />
     <ClInclude Include="log\log_sql_db_op.hpp" />
     <ClInclude Include="log\yggr_exception_log_accesser.hpp" />
-    <ClInclude Include="any_val\any_val_operator.hpp" />
-    <ClInclude Include="any_val\base_any_type_operator.hpp" />
-    <ClInclude Include="any_val\params.hpp" />
     <ClInclude Include="regular_parse\regex_parse.hpp" />
     <ClInclude Include="regular_parse\u32regex_parse.hpp" />
     <ClInclude Include="fuzzy\fuzzy_string.hpp" />

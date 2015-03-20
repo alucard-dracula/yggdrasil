@@ -1,0 +1,43 @@
+﻿PC环境: 
+
+编译器说明: windows 使用VS， MINGW LINUX 使用code blocks 和 GNUGCC
+1 python: 安装python 并配置到开发环境
+2 boost:完整编译boost(当前开发使用的版本是1.53)  并配置到开发环境
+3 DTL: 编译 yggdrasil/tools/dtl 并配置到开发环境中
+4 MD5: 编译 yggdrasil/tools/md5 并配置到开发环境中
+5 BLOWFISH: 编译 yggdrasil/tools/blowfish 并配置到开发环境中
+6 LUA: 编译 yggdrasil/tools/lua/lua5_21 和 yggdrasil/tools/lua/luabind52 并配置到开发环境中
+7 mongodb: 编译 yggdrasil/tools/mongodb_c_driver 并配置到开发环境中
+8 yggdrasil: 编译yggdrasil 并配置到开发环境中
+
+android环境:
+1 使用NDK编译BOOST  yggdrasil/tools/md5 和 yggdrasil/tools/blowfish 并配置到NDK环境下
+2 复制 yggdrail目录下 compatibility, yggr， yggr_base， yggr_charset yggr_modules yggr_time到yggdrasil/jni下
+  并使用ndk-build进行编译 编译完成后配置到NDK环境下 NDK下LIB配置文件在yggdrasil/tools/android_static_config
+
+IOS环境:
+1 创建一个third_part目录
+2 创建third_part/boost/include third_part/boost/lib/lib-ios third_part/boost/lib/lib-ios-sim 
+  编译BOOST
+  复制 boost的头文件目录复制到 third_part/boost/include 
+  将ios的.a文件复制到third_part/boost/lib/lib-ios
+  将ios-simulator的.a文件复制到third_part/boost/lib/lib-ios-sim
+
+3 创建third_part/md5/include third_part/md5/lib/lib-ios third_part/md5/lib/lib-ios-sim 
+  编译md5
+  复制 md5的头文件目录复制到 third_part/md5/include 
+  将ios的.a文件复制到third_part/md5/lib/lib-ios
+  将ios-simulator的.a文件复制到third_part/md5/lib/lib-ios-sim
+
+4 创建third_part/blowfish/include third_part/blowfish/lib/lib-ios third_part/blowfish/lib/lib-ios-sim 
+  编译blowfish
+  复制 md5的头文件目录复制到 third_part/blowfish/include 
+  将ios的.a文件复制到third_part/blowfish/lib/lib-ios
+  将ios-simulator的.a文件复制到third_part/blowfish/lib/lib-ios-sim
+
+5 将yggdrasil放在和third_part平级的目录
+  创建third_part/yggdrasil/include third_part/yggdrasil/lib/lib-ios third_part/yggdrasil/lib/lib-ios-sim 
+  编译yggdrasil
+  复制 yggdrasil/compatibility和yggdrasil/yggr 到 third_part/yggdrasil/include 
+  将ios的.a文件复制到third_part/yggdrasil/lib/lib-ios
+  将ios-simulator的.a文件复制到third_part/yggdrasil/lib/lib-ios-sim

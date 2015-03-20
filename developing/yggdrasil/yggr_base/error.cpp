@@ -57,15 +57,6 @@ error::error(const u32& code, const err_string_type& msg)
 {
 }
 
-//error::error(BOOST_RV_REF(this_type) right)
-//	: _code(this_type::E_unknow_error),
-//		_msg( "[unknow class] ------  unknow error")
-//{
-//    this_type& right_ref = right;
-//    std::swap(_code, right_ref._code);
-//    _msg.swap(right._msg);
-//}
-
 error::error(const this_type& right)
 	: _code(right._code), _msg(right._msg)
 {
@@ -84,13 +75,6 @@ yggr::u32 error::code(void) const
 {
 	return _code;
 }
-
-//error::this_type& error::operator=(BOOST_RV_REF(this_type) right)
-//{
-//	std::swap(_code, right._code);
-//	_msg.swap(right._msg);
-//	return *this;
-//}
 
 error::this_type& error::operator=(const this_type& right)
 {

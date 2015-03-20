@@ -154,7 +154,6 @@ void exception::post(const error_code& e)
 	_err_queue.push(e);
 }
 
-
 void exception::post_and_fix(const error_code& e, const u32& class_code)
 {
 	ptr_single<system_controller::ctrl_center>::obj_ptr_type pctrl = ptr_single<system_controller::ctrl_center>::get_ins();
@@ -165,7 +164,6 @@ void exception::post_and_fix(const error_code& e, const u32& class_code)
 
 	_err_queue.push(e);
 }
-
 
 bool exception::message(void)
 {

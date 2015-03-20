@@ -584,13 +584,6 @@ c_bson::c_bson(const base_type& base)
 	}
 }
 
-//c_bson::c_bson(BOOST_RV_REF(this_type) right)
-//{
-//	bson_init(this);
-//	//right.swap(*this);
-//	this_type::swap(right);
-//}
-
 c_bson::c_bson(const c_bson& right)
 {
 	const base_type& base = right;

@@ -23,11 +23,22 @@ int filter(unsigned int code, struct _EXCEPTION_POINTERS *ep)
 {
    if(code == EXCEPTION_ACCESS_VIOLATION)
    {
-	   yggr::seh::win_seh_helper::dump_call_stack_type call_stack;
-	   yggr::seh::win_seh_helper::dump_call_stack(ep, call_stack);
-	   //std::cout << yggr::seh::win_seh_helper::format_dump_call_stack_msg(call_stack) << std::endl;
-	   yggr::file_system::local_file_operator_type::write_file_of_binary("dump.txt", yggr::seh::win_seh_helper::format_dump_call_stack_msg(call_stack));
-       return EXCEPTION_EXECUTE_HANDLER;
+		yggr::seh::win_seh_helper::dump_call_stack_type call_stack;
+		yggr::seh::win_seh_helper::dump_call_stack(ep, call_stack);
+		//std::cout << yggr::seh::win_seh_helper::format_dump_call_stack_msg(call_stack) << std::endl;
+		try
+		{
+			yggr::file_system::local_file_operator_type::write_file_of_binary("dump.txt", yggr::seh::win_seh_helper::format_dump_call_stack_msg(call_stack));
+		}
+		catch(const boost::filesystem::filesystem_error& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		catch(const compatibility::stl_exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		return EXCEPTION_EXECUTE_HANDLER;
    }
    else
    {

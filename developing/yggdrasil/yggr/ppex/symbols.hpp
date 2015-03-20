@@ -124,6 +124,8 @@ THE SOFTWARE.
 
 #define YGGR_PP_SYMBOL_AREA() ::
 
+#define YGGR_PP_SYMBOL_SLASH() /
+
 namespace yggr
 {
 namespace ppex

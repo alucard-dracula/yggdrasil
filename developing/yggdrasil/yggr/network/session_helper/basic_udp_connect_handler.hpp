@@ -133,7 +133,8 @@ protected:
 		}
 
 		id_type id = base_type::backup(pconn);
-		if(!id)
+		//if(!id)
+		if(id == id_type())
 		{
 			pconn->close();
 			return;

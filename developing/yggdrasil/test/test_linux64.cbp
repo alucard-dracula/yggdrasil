@@ -85,11 +85,10 @@
 		<Linker>
 			<Add option="-lpthread" />
 			<Add option="-lrt" />
-			<Add option="-rdynamic" />
 			<Add option="-liconv" />
 			<Add directory="../lib64" />
 		</Linker>
-		<Unit filename="seh/seh_test.cpp" />
+		<Unit filename="ids/uuid_bson_serialize_test.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

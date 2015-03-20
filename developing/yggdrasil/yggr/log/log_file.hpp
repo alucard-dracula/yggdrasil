@@ -121,7 +121,21 @@ private:
 
 		if(!_fpath.empty())
 		{
-			if(!file_system::local_file_operator_type::create_path(_fpath))
+			bool bright = false;
+			try
+			{
+				bright = file_system::local_file_operator_type::create_path(_fpath);
+			}
+			catch(const boost::filesystem::filesystem_error& e)
+			{
+				return false;
+			}
+			catch(const compatibility::stl_exception& e)
+			{
+				return false;
+			}
+
+			if(!bright)
 			{
 				return false;
 			}

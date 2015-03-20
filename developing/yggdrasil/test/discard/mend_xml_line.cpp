@@ -20,9 +20,15 @@ int main(int argc, char* argv[])
 
     std::vector<std::string>  paths;
 
-    yggr::file_system::local_file_operator_type::search_files(argv[1], paths);
-
-
+	try
+	{
+		yggr::file_system::local_file_operator_type::search_files(argv[1], paths);
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return -1;
+	}
 
     int i =0, isize = paths.size();
     boost::progress_display pd(isize);

@@ -162,12 +162,40 @@ private:
 
 	bool is_space_full(const file_runtime_info& info) const
 	{
-		return _now_use_size + base_type::file_size(info) > _count_use_size;
+		base_type::file_size_type fsize = 0;
+		try
+		{
+			fsize = base_type::file_size(info);
+		}
+		catch(const boost::filesystem::filesystem_error& e)
+		{
+			return true;
+		}
+		catch(const compatibility::stl_exception& e)
+		{
+			return true;
+		}
+
+		return _now_use_size + fsize > _count_use_size;
 	}
 
 	bool fix_space(const file_runtime_info& info)
 	{
-		file_size_type request_space = _now_use_size + base_type::file_size(info) - _count_use_size;
+		base_type::file_size_type fsize = 0;
+		try
+		{
+			fsize = base_type::file_size(info);
+		}
+		catch(const boost::filesystem::filesystem_error& e)
+		{
+			return false;
+		}
+		catch(const compatibility::stl_exception& e)
+		{
+			return false;
+		}
+
+		file_size_type request_space = _now_use_size + fsize - _count_use_size;
 
 		if(request_space >= _count_use_size)
 		{

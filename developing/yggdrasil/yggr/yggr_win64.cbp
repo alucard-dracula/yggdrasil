@@ -116,6 +116,7 @@
 		<Unit filename="charset\charset_converter.hpp" />
 		<Unit filename="charset\charset_foo.hpp" />
 		<Unit filename="charset\charset_type_traits.hpp" />
+		<Unit filename="charset\const_strings.hpp" />
 		<Unit filename="charset\default_charset_config.hpp" />
 		<Unit filename="charset\other_char.hpp" />
 		<Unit filename="charset\str_wstr_converter.hpp" />

@@ -95,7 +95,16 @@ void python_script::compile_from_string(const std::string& code)
 void python_script::compile_from_file(const std::string& code)
 {
 	std::string code_buf;
-	file_system::local_file_operator_type::read_file_of_binary(code, code_buf);
+	try
+	{
+		file_system::local_file_operator_type::read_file_of_binary(code, code_buf);
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		exception::exception::throw_error(e);
+		return;
+	}
+
 	try
 	{
 		_object = boost::python::exec(code_buf.c_str(), _local, _local);

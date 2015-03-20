@@ -11,7 +11,15 @@ int main(int argc, char* argv[])
 	std::string buf;
 	yggr::size_type size;
 
-	yggr::file_system::local_file_operator_type::read_file_of_binary("./regex/string_list.txt", buf, size); // load file
+	try
+	{
+		yggr::file_system::local_file_operator_type::read_file_of_binary("./regex/string_list.txt", buf, size); // load file
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return -1;
+	}
 
 	std::vector<std::string> strvt;
 	std::string sp_str("\\r\\n");
@@ -23,6 +31,7 @@ int main(int argc, char* argv[])
 	catch(const yggr::regular_parse::regex_parse::error_type& e)
 	{
 		std::cout << e.what() << std::endl;
+		return -1;
 	}
 
 	for(yggr::size_type i = 0; i != strvt.size(); ++i)

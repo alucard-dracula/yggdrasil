@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="log\log_accesser_test.cpp">
+    <ClCompile Include="maroc\va_args_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

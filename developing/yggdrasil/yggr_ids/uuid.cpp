@@ -24,10 +24,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#include <yggr/ids/uuid.hpp>
-#include <boost/functional/hash/hash.hpp>
 #include <memory>
 #include <iomanip>
+#include <iterator>
+#include <algorithm>
+#include <sstream>
+#include <boost/functional/hash/hash.hpp>
+
+#include <yggr/ids/uuid.hpp>
+
 
 #if defined(_MSC_VER)
 #	include <vld.h>
@@ -111,6 +116,30 @@ std::size_t uuid::hash(void) const
 
 	return seed;
 }
+
+///*static*/ bool uuid::s_from_code(this_type& id, const std::string& code)
+//{
+//	yggr::u64 pos = code.find_first_not_of("0123456789abcdef-");
+//	if(pos != std::string::npos)
+//	{
+//		return false;
+//	}
+//	std::string right_code = code;
+//	std::string::iterator new_end = std::remove(right_code.begin(), right_code.end(), '-');
+//	if(std::distance(right_code.begin(), new_end) != 32)
+//	{
+//		return false;
+//	}
+//
+//	yggr::u32 idx = 0;
+//	for(std::string::const_iterator i = right_code.begin(), isize = right_code.end();
+//			i != isize; std::advance(i, 2), ++idx)
+//	{
+//		std::stringstream ss;
+//		ss << std::hex << (*i) << (*(i + 1));
+//		ss >> id[idx];
+//	}
+//}
 
 } // namespace ids
 

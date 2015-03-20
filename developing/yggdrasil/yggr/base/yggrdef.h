@@ -43,7 +43,8 @@ YGGR_INCLUDE_SEH_DEBUG					include seh model debuging
 YGGR_USE_SEH							use seh model
 
 YGGR_SYS_DEFAULT_STRING_CHARSET			now system string defalut charset, if undef it default "GBK"
-YGGR_SYS_DEFAULT_WSTRING_CHARSET		now system string defalut charset, if undef it default "WCHAR_T"
+YGGR_SYS_DEFAULT_WSTRING_2_CHARSET		now system wstring (sizeof(wchar_t) == 2) defalut charset, if undef it default see charset/default_charset_config.hpp
+YGGR_SYS_DEFAULT_WSTRING_4_CHARSET		now system wstring (sizeof(wchar_t) == 4) defalut charset, if undef it default see charset/default_charset_config.hpp
 YGGR_USE_STL_STRING						yggr::string use std::string, warning: segment(boost::interporcess) must use boost::container::basic_string
 YGGR_USE_BOOST_STRING					yggr::string use boost::container::string (default)
 YGGR_USE_FAST_MATH						yggr use fast math foo
@@ -51,19 +52,6 @@ YGGR_USE_FAST_MATH						yggr use fast math foo
 YGGR_USE_CXX11							yggr use c++11
 
 */
-
-enum
-{
-	E__pointer_byte4 = 4,
-	E__pointer_btye8 = 8,
-	E__pointer_byte_size = sizeof(int*)
-};
-//static const int __pointer_byte_size__ = sizeof(int*);
-#ifndef YGGR_SYSTEM_64
-#	if (E__pointer_byte_size == E__pointer_btye8)
-#		define YGGR_SYSTEM_64
-#	endif // (E__pointer_byte_size__ == 8)
-#endif // YGGR_SYSTEM_64
 
 namespace yggr
 {

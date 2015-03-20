@@ -3,11 +3,11 @@
 #ifndef __YGGR_SEH_SEH_HPP__
 #define __YGGR_SEH_SEH_HPP__
 
+#ifdef YGGR_USE_SEH
+
 #if defined(__MINGW32__) || defined(__CYGWIN__)
 #   error "seh must use to system compile"
 #endif // defined(__MINGW32__) || defined(__CYGWIN__)
-
-#ifdef YGGR_USE_SEH
 
 #include <yggr/base/ptr_single.hpp>
 

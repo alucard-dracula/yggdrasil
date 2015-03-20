@@ -4,7 +4,7 @@
 #	error "this file test msvc only !!!!"
 #endif // _MSC_VER
 
-#define YGGR_USE_STL_STRING
+//#define YGGR_USE_STL_STRING
 
 #ifdef _MSC_VER
 #	include <vld.h>
@@ -33,7 +33,7 @@
 void test_iterator(void)
 {
 	yggr::string stlstr("abc");
-	yggr::utf8_string str("aï¿½ï¿½bï¿½ï¿½c");
+	yggr::utf8_string str("aÄãbºÃc");
 
 	std::cout << str.begin() - str.end() << std::endl;
 	std::cout << str.end() - str.begin() << std::endl;
@@ -88,7 +88,7 @@ void test_iterator(void)
 
 void test_element_access(void)
 {
-	yggr::utf8_string str("aï¿½ï¿½bï¿½ï¿½c");
+	yggr::utf8_string str("aÄãbºÃc");
 	for(int i = 0, isize = str.size(); i != isize; ++i)
 	{
 		std::cout << str[i] << std::endl;
@@ -96,19 +96,19 @@ void test_element_access(void)
 	}
 
 	std::cout << str.str<yggr::string>() << std::endl;
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 	std::wcout.imbue(std::locale("chs"));
 	std::wcout << str.str<yggr::wstring>() << std::endl;
-#endif // __MINGW32__
+#endif // _MSC_VER
 }
 
 void test_modify(void)
 {
 	// append_test
-	yggr::utf8_string str("aï¿½ï¿½bï¿½ï¿½c");
+	yggr::utf8_string str("aÄãbºÃc");
 	assert(str.size() == 5);
 
-	str.append("dï¿½ï¿½ï¿½ï¿½f");
+	str.append("dºº×Öf");
 	assert(str.size() == 9);
 	std::cout << str << std::endl;
 
@@ -116,47 +116,47 @@ void test_modify(void)
 	assert(str.size() == 14);
 	std::cout << str << std::endl;
 
-#ifndef __MINGW32__
-	str.append(5, L'ï¿½ï¿½');
+#ifdef _MSC_VER
+	str.append(5, L'¶à');
 #else
-    str.append(5, "ï¿½ï¿½");
-#endif // __MINGW32__
+    str.append(5, "¶à");
+#endif // _MSC_VER
 	assert(str.size() == 19);
 	std::cout << str << std::endl;
 
-#ifndef __MINGW32__
-	str.append(5, yggr::utf8_char(L'ï¿½ï¿½'));
+#ifdef _MSC_VER
+	str.append(5, yggr::utf8_char(L'ÈË'));
 #else
-    str.append(5, yggr::utf8_char("ï¿½ï¿½"));
-#endif // __MINGW32__
+    str.append(5, yggr::utf8_char("ÈË"));
+#endif // _MSC_VER
 	assert(str.size() == 24);
 	std::cout << str << std::endl;
 
-	str.append("aï¿½ï¿½aÏ·a");
+	str.append("aÓÎaÏ·a");
 	assert(str.size() == 29);
 	std::cout << str << std::endl;
 
-#ifndef __MINGW32__
-	str.append(L"wï¿½ï¿½wÏ·w");
+#ifdef _MSC_VER
+	str.append(L"wÓÎwÏ·w");
 #else
-    str.append("wï¿½ï¿½wÏ·w");
-#endif // __MINGW32__
+    str.append("wÓÎwÏ·w");
+#endif // _MSC_VER
 	assert(str.size() == 34);
 	std::cout << str << std::endl;
 
-	str.append(yggr::string("boostï¿½ï¿½boostÏ·boost"));
+	str.append(yggr::string("boostÓÎboostÏ·boost"));
 	assert(str.size() == 34 + 15 + 2);
 	std::cout << str << std::endl;
 
-#ifndef __MINGW32__
-	str.append(yggr::wstring(L"stdwï¿½ï¿½stdwÏ·stdw"));
+#ifdef _MSC_VER
+	str.append(yggr::wstring(L"stdwÓÎstdwÏ·stdw"));
 #else
-    str.append(yggr::string("stdwï¿½ï¿½stdwÏ·stdw"));
-#endif // __MINGW32__
+    str.append(yggr::string("stdwÓÎstdwÏ·stdw"));
+#endif // _MSC_VER
 	assert(str.size() == 51 + 4 * 3 + 2);
 	std::cout << str << std::endl;
 
-	str = "ï¿½ï¿½ï¿½ï¿½";
+	str = "ÊÖÓÎ";
 	assert(str.size() == 2);
 	std::cout << str << std::endl;
 
@@ -164,11 +164,11 @@ void test_modify(void)
 	assert(str.size() == 5);
 	std::cout << str << std::endl;
 
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 	str.append(L"abcdefg", 0, 3);
 #else
     str.append("abcdefg", 0, 3);
-#endif // __MINGW32__
+#endif // _MSC_VER
 	assert(str.size() == 8);
 	std::cout << str << std::endl;
 
@@ -176,11 +176,11 @@ void test_modify(void)
 	assert(str.size() == 0);
 	std::cout << str << std::endl;
 
-#ifndef __MINGW32__
-	str = L"Ò³ï¿½ï¿½";
+#ifdef _MSC_VER
+	str = L"Ò³ÓÎ";
 #else
-    str = "Ò³ï¿½ï¿½";
-#endif // __MINGW32__
+    str = "Ò³ÓÎ";
+#endif // _MSC_VER
 	assert(str.size() == 2);
 	std::cout << str << std::endl;
 
@@ -188,11 +188,11 @@ void test_modify(void)
 	assert(str.size() == 5);
 	std::cout << str << std::endl;
 
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 	str.append(yggr::wstring(L"abcdefg"), 0, 3);
 #else
     str.append(yggr::string("abcdefg"), 0, 3);
-#endif // __MINGW32__
+#endif // _MSC_VER
 	assert(str.size() == 8);
 	std::cout << str << std::endl;
 
@@ -201,21 +201,21 @@ void test_modify(void)
 	assert(str.size() == 11);
 	std::cout << str << std::endl;
 
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 	wchar_t arr_wstr[] = L"qwertyui";
 #else
     char arr_wstr[] = "qwertyui";
-#endif // __MINGW32__
+#endif // _MSC_VER
 	str.append(arr_wstr, arr_wstr + 5);
 	assert(str.size() == 16);
 	std::cout << str << std::endl;
 
-	yggr::string stl_str("ï¿½ï¿½ï¿½Çºï¿½ï¿½ï¿½");
+	yggr::string stl_str("ÕâÊÇºº×Ö");
 	str.append(stl_str.begin(), stl_str.end());
 	assert(str.size() == 20);
 	std::cout << str << std::endl;
 
-	yggr::utf8_string utf8_str("ï¿½ï¿½ï¿½ï¿½UTF8ï¿½ï¿½ï¿½ï¿½");
+	yggr::utf8_string utf8_str("ÕâÊÇUTF8ºº×Ö");
 	str.append(utf8_str.begin(), utf8_str.end());
 	assert(str.size() == 28);
 	std::cout << str << std::endl;
@@ -226,7 +226,7 @@ void test_modify(void)
 
 	std::cout << utf8_str.substr(1, 8) << std::endl;
 
-	str = "ï¿½ï¿½ï¿½ï¿½";
+	str = "¶ËÓÎ";
 	str.append(utf8_str, 1, 3);
 	assert(str.size() == 5);
 	std::cout << str << std::endl;
@@ -234,13 +234,13 @@ void test_modify(void)
 	//push_back_test
 
 	str.push_back('d');
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 	str.push_back(L'È»');
-	str.push_back(yggr::utf8_char(L'ï¿½ï¿½'));
+	str.push_back(yggr::utf8_char(L'ºó'));
 #else
     str.push_back("È»");
-    str.push_back(yggr::utf8_char("ï¿½ï¿½"));
-#endif // __MINGW32__
+    str.push_back(yggr::utf8_char("ºó"));
+#endif // _MSC_VER
 
 
 	assert(str.size() == 8);
@@ -248,66 +248,66 @@ void test_modify(void)
 
 	//assign_test
 
-	str.assign("assignï¿½ï¿½ï¿½ï¿½");
+	str.assign("assignºº×Ö");
 	assert(str.size() == 8);
 	std::cout << str << std::endl;
 
-#ifndef __MINGW32__
-	str.assign(L"assign_wï¿½ï¿½ï¿½ï¿½");
+#ifdef _MSC_VER
+	str.assign(L"assign_wºº×Ö");
 #else
-    str.assign("assign_wï¿½ï¿½ï¿½ï¿½");
-#endif // __MINGW32__
+    str.assign("assign_wºº×Ö");
+#endif // _MSC_VER
 	assert(str.size() == 10);
 	std::cout << str << std::endl;
 
-	str.assign(yggr::string("stl_assign_ï¿½ï¿½ï¿½ï¿½"));
+	str.assign(yggr::string("stl_assign_ºº×Ö"));
 	assert(str.size() == 13);
 	std::cout << str << std::endl;
 
-#ifndef __MINGW32__
-	str.assign(yggr::wstring(L"stl_assign_wï¿½ï¿½ï¿½ï¿½"));
+#ifdef _MSC_VER
+	str.assign(yggr::wstring(L"stl_assign_wºº×Ö"));
 #else
-    str.assign(yggr::string("stl_assign_wï¿½ï¿½ï¿½ï¿½"));
-#endif // __MINGW32__
+    str.assign(yggr::string("stl_assign_wºº×Ö"));
+#endif // _MSC_VER
 	assert(str.size() == 14);
 	std::cout << str << std::endl;
 
-	str.assign(boost::container::string("boost_assign_ï¿½ï¿½ï¿½ï¿½"));
+	str.assign(boost::container::string("boost_assign_ºº×Ö"));
 	assert(str.size() == 15);
 	std::cout << str << std::endl;
 
-#ifndef __MINGW32__
-	str.assign(boost::container::wstring(L"boost_assign_wï¿½ï¿½ï¿½ï¿½"));
+#ifdef _MSC_VER
+	str.assign(boost::container::wstring(L"boost_assign_wºº×Ö"));
 #else
-    str.assign(boost::container::string("boost_assign_wï¿½ï¿½ï¿½ï¿½"));
-#endif // __MINGW32__
+    str.assign(boost::container::string("boost_assign_wºº×Ö"));
+#endif // _MSC_VER
 	assert(str.size() == 16);
 	std::cout << str << std::endl;
 
-	yggr::string stl_str2("iter_stl_assign_ï¿½ï¿½ï¿½ï¿½");
+	yggr::string stl_str2("iter_stl_assign_ºº×Ö");
 	str.assign(stl_str2.begin(), stl_str2.end());
 	assert(str.size() == 18);
 	std::cout << str << std::endl;
 
-#ifndef __MINGW32__
-	yggr::wstring stl_wstr2(L"iter_stl_assign_wï¿½ï¿½ï¿½ï¿½");
+#ifdef _MSC_VER
+	yggr::wstring stl_wstr2(L"iter_stl_assign_wºº×Ö");
 #else
-    yggr::string stl_wstr2("iter_stl_assign_wï¿½ï¿½ï¿½ï¿½");
-#endif // __MINGW32__
+    yggr::string stl_wstr2("iter_stl_assign_wºº×Ö");
+#endif // _MSC_VER
 	str.assign(stl_wstr2.begin(), stl_wstr2.end());
 	assert(str.size() == 19);
 	std::cout << str << std::endl;
 
-	boost::container::string boost_str2("iter_boost_assign_ï¿½ï¿½ï¿½ï¿½");
+	boost::container::string boost_str2("iter_boost_assign_ºº×Ö");
 	str.assign(boost_str2.begin(), boost_str2.end());
 	assert(str.size() == 20);
 	std::cout << str << std::endl;
 
-#ifndef __MINGW32__
-	boost::container::wstring boost_wstr2(L"iter_boost_assign_wï¿½ï¿½ï¿½ï¿½");
+#ifdef _MSC_VER
+	boost::container::wstring boost_wstr2(L"iter_boost_assign_wºº×Ö");
 #else
-    boost::container::string boost_wstr2("iter_boost_assign_wï¿½ï¿½ï¿½ï¿½");
-#endif // __MINGW32__
+    boost::container::string boost_wstr2("iter_boost_assign_wºº×Ö");
+#endif // _MSC_VER
 	str.assign(boost_wstr2.begin(), boost_wstr2.end());
 	assert(str.size() == 21);
 	std::cout << str << std::endl;
@@ -334,11 +334,11 @@ void test_modify(void)
 	assert(str.size() == 5);
 	std::cout << str << std::endl;
 
-#ifndef __MINGW32__
-	str.insert(2, 2, L'ï¿½ï¿½');
+#ifdef _MSC_VER
+	str.insert(2, 2, L'ÖÐ');
 #else
-    str.insert(2, 2, "ï¿½ï¿½");
-#endif // __MINGW32__
+    str.insert(2, 2, "ÖÐ");
+#endif // _MSC_VER
 	assert(str.size() == 7);
 	std::cout << str << std::endl;
 
@@ -349,21 +349,21 @@ void test_modify(void)
 	}
 
 	{
-#ifndef __MINGW32__
-	yggr::utf8_string::iterator iter = str.insert(str.begin() + 3, 2, L'ï¿½ï¿½');
+#ifdef _MSC_VER
+	yggr::utf8_string::iterator iter = str.insert(str.begin() + 3, 2, L'´ó');
 #else
-    yggr::utf8_string::iterator iter = str.insert(str.begin() + 3, 2, "ï¿½ï¿½");
-#endif // __MINGW32__
+    yggr::utf8_string::iterator iter = str.insert(str.begin() + 3, 2, "´ó");
+#endif // _MSC_VER
 	assert(iter - str.begin() == 3);
 	std::cout << yggr::utf8_char(iter, iter + 1) << std::endl;
 	}
 
 	str.insert(str.begin(), 'z');
-#ifndef __MINGW32__
-	str.insert(str.begin(), L'ï¿½ï¿½');
+#ifdef _MSC_VER
+	str.insert(str.begin(), L'¿¨');
 #else
-    str.insert(str.begin(), "ï¿½ï¿½");
-#endif // __MINGW32__
+    str.insert(str.begin(), "¿¨");
+#endif // _MSC_VER
 	str.insert(str.begin(), yggr::utf8_char('x'));
 
 	assert(str.size() == 14);
@@ -377,31 +377,31 @@ void test_modify(void)
 	}
 
 	{
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 		yggr::wstring str_ins(L"abcdefg");
 #else
         yggr::string str_ins("abcdefg");
-#endif // __MINGW32__
+#endif // _MSC_VER
 		str.insert(str.begin(), str_ins.begin(), str_ins.end());
 		assert(str.size() == 28);
 		std::cout << str << std::endl;
 	}
 
 	{
-#ifndef __MINGW32__
-		yggr::wstring str_ins(L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½ï¿½");
+#ifdef _MSC_VER
+		yggr::wstring str_ins(L"°¡²»´íµÄÅ¶·¢¸ø");
 		str.insert(str.begin(), str_ins.rbegin(), str_ins.rend());
 #else
-        yggr::string str_ins("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½ï¿½");
+        yggr::string str_ins("°¡²»´íµÄÅ¶·¢¸ø");
         str.insert(str.begin(), str_ins.begin(), str_ins.end()); // can't use rbegin() rend()
-#endif // __MINGW32__
+#endif // _MSC_VER
 		assert(str.size() == 35);
 		std::cout << str << std::endl;
 	}
 
 	{
-		str = "utf8ï¿½Ö·ï¿½";
-		yggr::utf8_string ustr("ï¿½ï¿½ï¿½Ç¸ï¿½");
+		str = "utf8×Ö·û´®";
+		yggr::utf8_string ustr("ÕâÊÇ¸ö");
 		str.insert(str.begin(), ustr.begin(), ustr.end());
 		assert(str.size() == 10);
 
@@ -409,8 +409,8 @@ void test_modify(void)
 	}
 
 	{
-		str = "utf8ï¿½Ö·ï¿½";
-		yggr::utf8_string ustr("ï¿½ï¿½ï¿½Ç¸ï¿½");
+		str = "utf8×Ö·û´®";
+		yggr::utf8_string ustr("ÕâÊÇ¸ö");
 		str.insert(str.begin(), ustr.rbegin(), ustr.rend());
 		assert(str.size() == 10);
 
@@ -418,8 +418,8 @@ void test_modify(void)
 	}
 
 	{
-		str = "utf8ï¿½Ö·ï¿½";
-		yggr::utf8_string ustr("ï¿½ï¿½ï¿½Ç¸ï¿½");
+		str = "utf8×Ö·û´®";
+		yggr::utf8_string ustr("ÕâÊÇ¸ö");
 		str.insert(str.end(), ustr.rbegin(), ustr.rend());
 		assert(str.size() == 10);
 
@@ -428,33 +428,33 @@ void test_modify(void)
 
 	// erase test
 	{
-		str = "utf8ï¿½Ö·ï¿½";
+		str = "utf8×Ö·û´®";
 		str.erase();
 		assert(str.empty());
 	}
 
 	{
-		str = "utf8ï¿½Ö·ï¿½";
+		str = "utf8×Ö·û´®";
 		str.erase(0, 100);
 		assert(str.empty());
 	}
 
 	{
-		str = "utf8ï¿½Ö·ï¿½";
+		str = "utf8×Ö·û´®";
 		str.erase(1, 100);
 		assert(str.size() == 1);
 		std::cout << str << std::endl;
 	}
 
 	{
-		str = "utf8ï¿½Ö·ï¿½";
+		str = "utf8×Ö·û´®";
 		str.erase(6, 1);
 		assert(str.size() == 6);
 		std::cout << str << std::endl;
 	}
 
 	{
-		str = "utf8ï¿½Ö·ï¿½";
+		str = "utf8×Ö·û´®";
 		str.erase(str.begin());
 		assert(str.size() == 6);
 		str.erase(str.begin() + 1);
@@ -467,7 +467,7 @@ void test_modify(void)
 	}
 
 	{
-		str = "utf8ï¿½Ö·ï¿½";
+		str = "utf8×Ö·û´®";
 		str.erase(str.begin(), str.begin() + 1);
 		assert(str.size() == 6);
 		str.erase(str.begin() + 1, str.begin() + 2);
@@ -481,7 +481,7 @@ void test_modify(void)
 
 	// replace test
 	{
-		str = "string ï¿½Ö·ï¿½";
+		str = "string ×Ö·û´®";
 		assert(str.size() == 10);
 		str.replace(1, 5, 7, 'a');
 		assert(str.size() == 12);
@@ -489,44 +489,44 @@ void test_modify(void)
 	}
 
 	{
-		str = "string ï¿½Ö·ï¿½";
+		str = "string ×Ö·û´®";
 		assert(str.size() == 10);
-#ifndef __MINGW32__
-		str.replace(1, 5, 7, L'ï¿½ï¿½');
+#ifdef _MSC_VER
+		str.replace(1, 5, 7, L'°¡');
 #else
-        str.replace(1, 5, 7, "ï¿½ï¿½");
-#endif // __MINGW32__
+        str.replace(1, 5, 7, "°¡");
+#endif // _MSC_VER
 		assert(str.size() == 12);
 		std::cout << str << std::endl;
 	}
 
 	{
-		str = "string ï¿½Ö·ï¿½";
+		str = "string ×Ö·û´®";
 		assert(str.size() == 10);
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 		str.replace(8, 2, 7, yggr::utf8_char(L'Å¶'));
 #else
         str.replace(8, 2, 7, yggr::utf8_char("Å¶"));
-#endif //__MINGW32__
+#endif //__GNUC__
 		assert(str.size() == 15);
 		std::cout << str << std::endl;
 	}
 
 	{
-		str = "string ï¿½Ö·ï¿½";
+		str = "string ×Ö·û´®";
 		assert(str.size() == 10);
-#ifndef __MINGW32__
-		str.replace(0, 6, L"ï¿½Ö·ï¿½");
+#ifdef _MSC_VER
+		str.replace(0, 6, L"×Ö·û´®");
 #else
-        str.replace(0, 6, "ï¿½Ö·ï¿½");
-#endif // __MINGW32__
+        str.replace(0, 6, "×Ö·û´®");
+#endif // _MSC_VER
 		int n = str.size();
 		assert(str.size() == 7);
 		std::cout << str << std::endl;
 	}
 
 	{
-		str = "string ï¿½Ö·ï¿½";
+		str = "string ×Ö·û´®";
 		assert(str.size() == 10);
 		str.replace(7, 3, "string");
 		assert(str.size() == 13);
@@ -534,19 +534,19 @@ void test_modify(void)
 	}
 
 	{
-		str = "string ï¿½Ö·ï¿½";
+		str = "string ×Ö·û´®";
 		assert(str.size() == 10);
-#ifndef __MINGW32__
-		str.replace(0, 6, yggr::wstring(L"ï¿½Ö·ï¿½"), 0, 2);
+#ifdef _MSC_VER
+		str.replace(0, 6, yggr::wstring(L"×Ö·û´®"), 0, 2);
 #else
-        str.replace(0, 6, yggr::string("ï¿½Ö·ï¿½"), 0, 2);
-#endif // __MINGW32__
+        str.replace(0, 6, yggr::string("×Ö·û´®"), 0, 2);
+#endif // _MSC_VER
 		assert(str.size() == 6);
 		std::cout << str << std::endl;
 	}
 
 	{
-		str = "string ï¿½Ö·ï¿½";
+		str = "string ×Ö·û´®";
 		yggr::string sstr("abc");
 		assert(str.size() == 10);
 		str.replace(str.begin(), str.begin() + 6, sstr.begin(), sstr.end());
@@ -555,7 +555,7 @@ void test_modify(void)
 	}
 
 	{
-		str = "string ï¿½Ö·ï¿½";
+		str = "string ×Ö·û´®";
 		yggr::string sstr("abc");
 		assert(str.size() == 10);
 		str.replace(str.begin(), str.begin() + 6, sstr.rbegin(), sstr.rend());
@@ -564,12 +564,12 @@ void test_modify(void)
 	}
 
 	{
-		str = "string ï¿½Ö·ï¿½";
-#ifndef __MINGW32__
-		yggr::wstring sstr(L"ï¿½ï¿½ï¿½ï¿½ï¿½");
+		str = "string ×Ö·û´®";
+#ifdef _MSC_VER
+		yggr::wstring sstr(L"ÄãºÃÂð");
 #else
-        yggr::string sstr("ï¿½ï¿½ï¿½ï¿½ï¿½");
-#endif // __MINGW32__
+        yggr::string sstr("ÄãºÃÂð");
+#endif // _MSC_VER
 		assert(str.size() == 10);
 		str.replace(str.begin(), str.begin() + 6, sstr.begin(), sstr.end());
 		assert(str.size() == 7);
@@ -577,25 +577,23 @@ void test_modify(void)
 	}
 
 	{
-		str = "string ï¿½Ö·ï¿½";
-#ifndef __MINGW32__
-		yggr::wstring sstr(L"ï¿½ï¿½ï¿½ï¿½ï¿½");
-#else
-        yggr::string sstr("ï¿½ï¿½ï¿½ï¿½ï¿½");
-#endif // __MINGW32__
+#ifdef _MSC_VER
+		str = "string ×Ö·û´®";
+		yggr::wstring sstr(L"ÄãºÃÂð");
 		assert(str.size() == 10);
 		str.replace(str.begin(), str.begin() + 6, sstr.rbegin(), sstr.rend());
 		assert(str.size() == 7);
 		std::cout << str << std::endl;
+#endif // _MSC_VER
 	}
 
 	{
-		str = "string ï¿½Ö·ï¿½";
-#ifndef __MINGW32__
-		yggr::utf8_string sstr(L"ï¿½ï¿½ï¿½ï¿½ï¿½");
+		str = "string ×Ö·û´®";
+#ifdef _MSC_VER
+		yggr::utf8_string sstr(L"ÄãºÃÂð");
 #else
-        yggr::utf8_string sstr("ï¿½ï¿½ï¿½ï¿½ï¿½");
-#endif // __MINGW32__
+        yggr::utf8_string sstr("ÄãºÃÂð");
+#endif // _MSC_VER
 		assert(str.size() == 10);
 		str.replace(str.begin(), str.begin() + 6, sstr.begin(), sstr.end());
 		assert(str.size() == 7);
@@ -603,12 +601,12 @@ void test_modify(void)
 	}
 
 	{
-		str = "string ï¿½Ö·ï¿½";
-#ifndef __MINGW32__
-		yggr::utf8_string sstr(L"ï¿½ï¿½ï¿½ï¿½ï¿½");
+		str = "string ×Ö·û´®";
+#ifdef _MSC_VER
+		yggr::utf8_string sstr(L"ÄãºÃÂð");
 #else
-        yggr::utf8_string sstr("ï¿½ï¿½ï¿½ï¿½ï¿½");
-#endif // __MINGW32__
+        yggr::utf8_string sstr("ÄãºÃÂð");
+#endif // _MSC_VER
 		assert(str.size() == 10);
 		str.replace(str.begin(), str.begin() + 6, sstr.rbegin(), sstr.rend());
 		assert(str.size() == 7);
@@ -616,12 +614,12 @@ void test_modify(void)
 	}
 
 	{
-		str = "string ï¿½Ö·ï¿½";
-#ifndef __MINGW32__
-		yggr::utf8_string sstr(L"ï¿½ï¿½ï¿½ï¿½ï¿½");
+		str = "string ×Ö·û´®";
+#ifdef _MSC_VER
+		yggr::utf8_string sstr(L"ÄãºÃÂð");
 #else
-        yggr::utf8_string sstr("ï¿½ï¿½ï¿½ï¿½ï¿½");
-#endif // __MINGW32__
+        yggr::utf8_string sstr("ÄãºÃÂð");
+#endif // _MSC_VER
 		assert(str.size() == 10);
 		str.replace(str.begin(), str.begin() + 6, sstr);
 		assert(str.size() == 7);
@@ -629,12 +627,12 @@ void test_modify(void)
 	}
 
 	{
-		str = "string ï¿½Ö·ï¿½";
-#ifndef __MINGW32__
-		yggr::utf8_string sstr(L"ï¿½ï¿½ï¿½ï¿½ï¿½");
+		str = "string ×Ö·û´®";
+#ifdef _MSC_VER
+		yggr::utf8_string sstr(L"ÄãºÃÂð");
 #else
-        yggr::utf8_string sstr("ï¿½ï¿½ï¿½ï¿½ï¿½");
-#endif // __MINGW32__
+        yggr::utf8_string sstr("ÄãºÃÂð");
+#endif // _MSC_VER
 		assert(str.size() == 10);
 		str.replace(0, 6, sstr, 0, 1);
 		assert(str.size() == 5);
@@ -645,27 +643,27 @@ void test_modify(void)
 void test_string_operations(void)
 {
 
-#ifndef __MINGW32__
-	yggr::utf8_string str(L"utf8ï¿½Ö·ï¿½");
+#ifdef _MSC_VER
+	yggr::utf8_string str(L"utf8×Ö·û´®");
 #else
-    yggr::utf8_string str("utf8ï¿½Ö·ï¿½");
-#endif // __MINGW32__
+    yggr::utf8_string str("utf8×Ö·û´®");
+#endif // _MSC_VER
 
 	// find
 	{
 		assert(str.find('u') == 0);
 		assert(str.find('u', 1) == yggr::utf8_string::npos);
-#ifndef __MINGW32__
-		assert(str.find(L'ï¿½ï¿½') == 4);
-		assert(str.find(L'ï¿½ï¿½', 5) == yggr::utf8_string::npos);
-		assert(str.find(yggr::utf8_char(L'ï¿½ï¿½')) == 4);
-		assert(str.find(yggr::utf8_char(L'ï¿½ï¿½'), 5) == yggr::utf8_string::npos);
+#ifdef _MSC_VER
+		assert(str.find(L'×Ö') == 4);
+		assert(str.find(L'×Ö', 5) == yggr::utf8_string::npos);
+		assert(str.find(yggr::utf8_char(L'×Ö')) == 4);
+		assert(str.find(yggr::utf8_char(L'×Ö'), 5) == yggr::utf8_string::npos);
 #else
-        assert(str.find("ï¿½ï¿½") == 4);
-		assert(str.find("ï¿½ï¿½", 5) == yggr::utf8_string::npos);
-		assert(str.find(yggr::utf8_char("ï¿½ï¿½")) == 4);
-		assert(str.find(yggr::utf8_char("ï¿½ï¿½"), 5) == yggr::utf8_string::npos);
-#endif // __MINGW32__
+        assert(str.find("×Ö") == 4);
+		assert(str.find("×Ö", 5) == yggr::utf8_string::npos);
+		assert(str.find(yggr::utf8_char("×Ö")) == 4);
+		assert(str.find(yggr::utf8_char("×Ö"), 5) == yggr::utf8_string::npos);
+#endif // _MSC_VER
 	}
 
 	{
@@ -677,27 +675,27 @@ void test_string_operations(void)
 	}
 
 	{
-#ifndef __MINGW32__
-		yggr::wstring sstr(L"ï¿½Ö·ï¿½");
+#ifdef _MSC_VER
+		yggr::wstring sstr(L"×Ö·û´®");
 		assert(str.find(sstr) == 4);
-		assert(str.find(L"ï¿½Ö·ï¿½") == 4);
+		assert(str.find(L"×Ö·û´®") == 4);
 		assert(str.find(sstr, 5) == yggr::utf8_string::npos);
-		assert(str.find(L"ï¿½Ö·ï¿½", 5) == yggr::utf8_string::npos);
+		assert(str.find(L"×Ö·û´®", 5) == yggr::utf8_string::npos);
 #else
-        yggr::string sstr("ï¿½Ö·ï¿½");
+        yggr::string sstr("×Ö·û´®");
         assert(str.find(sstr) == 4);
-		assert(str.find("ï¿½Ö·ï¿½") == 4);
+		assert(str.find("×Ö·û´®") == 4);
 		assert(str.find(sstr, 5) == yggr::utf8_string::npos);
-		assert(str.find("ï¿½Ö·ï¿½", 5) == yggr::utf8_string::npos);
-#endif // __MINGW32__
+		assert(str.find("×Ö·û´®", 5) == yggr::utf8_string::npos);
+#endif // _MSC_VER
 	}
 
 	{
-#ifndef __MINGW32__
-		yggr::utf8_string sstr(L"tf8ï¿½Ö·ï¿½");
+#ifdef _MSC_VER
+		yggr::utf8_string sstr(L"tf8×Ö·û´®");
 #else
-        yggr::utf8_string sstr("tf8ï¿½Ö·ï¿½");
-#endif // __MINGW32__
+        yggr::utf8_string sstr("tf8×Ö·û´®");
+#endif // _MSC_VER
 		assert(str.find(sstr) == 1);
 		assert(str.find(sstr, 2) == yggr::utf8_string::npos);
 	}
@@ -705,17 +703,17 @@ void test_string_operations(void)
 	// rfind
 	{
 		assert(str.rfind('u') == 0);
-#ifndef __MINGW32__
-		assert(str.rfind(L'ï¿½ï¿½') == 4);
-		assert(str.rfind(L'ï¿½ï¿½', 3) == yggr::utf8_string::npos);
-		assert(str.rfind(yggr::utf8_char(L'ï¿½ï¿½')) == 4);
-		assert(str.rfind(yggr::utf8_char(L'ï¿½ï¿½'), 3) == yggr::utf8_string::npos);
+#ifdef _MSC_VER
+		assert(str.rfind(L'×Ö') == 4);
+		assert(str.rfind(L'×Ö', 3) == yggr::utf8_string::npos);
+		assert(str.rfind(yggr::utf8_char(L'×Ö')) == 4);
+		assert(str.rfind(yggr::utf8_char(L'×Ö'), 3) == yggr::utf8_string::npos);
 #else
-        assert(str.rfind("ï¿½ï¿½") == 4);
-		assert(str.rfind("ï¿½ï¿½", 3) == yggr::utf8_string::npos);
-		assert(str.rfind(yggr::utf8_char("ï¿½ï¿½")) == 4);
-		assert(str.rfind(yggr::utf8_char("ï¿½ï¿½"), 3) == yggr::utf8_string::npos);
-#endif // __MINGW32__
+        assert(str.rfind("×Ö") == 4);
+		assert(str.rfind("×Ö", 3) == yggr::utf8_string::npos);
+		assert(str.rfind(yggr::utf8_char("×Ö")) == 4);
+		assert(str.rfind(yggr::utf8_char("×Ö"), 3) == yggr::utf8_string::npos);
+#endif // _MSC_VER
 	}
 
 	{
@@ -725,320 +723,320 @@ void test_string_operations(void)
 	}
 
 	{
-#ifndef __MINGW32__
-		yggr::wstring sstr(L"ï¿½Ö·ï¿½");
+#ifdef _MSC_VER
+		yggr::wstring sstr(L"×Ö·û´®");
 		assert(str.rfind(sstr) == 4);
-		assert(str.rfind(L"ï¿½Ö·ï¿½") == 4);
+		assert(str.rfind(L"×Ö·û´®") == 4);
 		assert(str.rfind(sstr, 3) == yggr::utf8_string::npos);
-		assert(str.rfind(L"ï¿½Ö·ï¿½", 3) == yggr::utf8_string::npos);
+		assert(str.rfind(L"×Ö·û´®", 3) == yggr::utf8_string::npos);
 #else
-        yggr::string sstr("ï¿½Ö·ï¿½");
+        yggr::string sstr("×Ö·û´®");
 		assert(str.rfind(sstr) == 4);
-		assert(str.rfind("ï¿½Ö·ï¿½") == 4);
+		assert(str.rfind("×Ö·û´®") == 4);
 		assert(str.rfind(sstr, 3) == yggr::utf8_string::npos);
-		assert(str.rfind("ï¿½Ö·ï¿½", 3) == yggr::utf8_string::npos);
-#endif // __MINGW32__
+		assert(str.rfind("×Ö·û´®", 3) == yggr::utf8_string::npos);
+#endif // _MSC_VER
 	}
 
 	{
-#ifndef __MINGW32__
-		yggr::utf8_string sstr(L"tf8ï¿½Ö·ï¿½");
+#ifdef _MSC_VER
+		yggr::utf8_string sstr(L"tf8×Ö·û´®");
 #else
-        yggr::utf8_string sstr("tf8ï¿½Ö·ï¿½");
-#endif // __MINGW32__
+        yggr::utf8_string sstr("tf8×Ö·û´®");
+#endif // _MSC_VER
 		assert(str.rfind(sstr) == 1);
 		assert(str.rfind(sstr, 0) == yggr::utf8_string::npos);
 	}
 
 	// find_first_of
 	{
-		//str == "utf8ï¿½Ö·ï¿½"
-#ifndef __MINGW32__
-		assert(str.find_first_of(L'ï¿½ï¿½') == 4);
-		assert(str.find_first_of(L'ï¿½ï¿½', 1) == 4);
-		assert(str.find_first_of(L'ï¿½ï¿½', 5) == yggr::utf8_string::npos);
+		//str == "utf8×Ö·û´®"
+#ifdef _MSC_VER
+		assert(str.find_first_of(L'×Ö') == 4);
+		assert(str.find_first_of(L'×Ö', 1) == 4);
+		assert(str.find_first_of(L'×Ö', 5) == yggr::utf8_string::npos);
 		assert(str.find_first_of('a') == yggr::utf8_string::npos);
-		assert(str.find_first_of("ï¿½ï¿½abc") == 4);
+		assert(str.find_first_of("×Öabc") == 4);
 		assert(str.find_first_of("abc") == yggr::utf8_string::npos);
-		assert(str.find_first_of(L"ï¿½ï¿½abc") == 4);
+		assert(str.find_first_of(L"×Öabc") == 4);
 		assert(str.find_first_of(L"abc") == yggr::utf8_string::npos);
-		assert(str.find_first_of(L"ï¿½ï¿½abc", 1) == 4);
-		assert(str.find_first_of(L"ï¿½ï¿½abc",5) == yggr::utf8_string::npos);
+		assert(str.find_first_of(L"×Öabc", 1) == 4);
+		assert(str.find_first_of(L"×Öabc",5) == yggr::utf8_string::npos);
 #else
-        assert(str.find_first_of("ï¿½ï¿½") == 4);
-		assert(str.find_first_of("ï¿½ï¿½", 1) == 4);
-		assert(str.find_first_of("ï¿½ï¿½", 5) == yggr::utf8_string::npos);
+        assert(str.find_first_of("×Ö") == 4);
+		assert(str.find_first_of("×Ö", 1) == 4);
+		assert(str.find_first_of("×Ö", 5) == yggr::utf8_string::npos);
 		assert(str.find_first_of('a') == yggr::utf8_string::npos);
-		assert(str.find_first_of("ï¿½ï¿½abc") == 4);
+		assert(str.find_first_of("×Öabc") == 4);
 		assert(str.find_first_of("abc") == yggr::utf8_string::npos);
-		assert(str.find_first_of("ï¿½ï¿½abc") == 4);
+		assert(str.find_first_of("×Öabc") == 4);
 		assert(str.find_first_of("abc") == yggr::utf8_string::npos);
-		assert(str.find_first_of("ï¿½ï¿½abc", 1) == 4);
-		assert(str.find_first_of("ï¿½ï¿½abc",5) == yggr::utf8_string::npos);
-#endif // __MINGW32__
+		assert(str.find_first_of("×Öabc", 1) == 4);
+		assert(str.find_first_of("×Öabc",5) == yggr::utf8_string::npos);
+#endif // _MSC_VER
 	}
 
 	{
-#ifndef __MINGW32__
-		assert(str.find_first_of(yggr::utf8_string(L"ï¿½ï¿½abc")) == 4);
+#ifdef _MSC_VER
+		assert(str.find_first_of(yggr::utf8_string(L"×Öabc")) == 4);
 		assert(str.find_first_of(yggr::utf8_string(L"abc")) == yggr::utf8_string::npos);
-		assert(str.find_first_of(yggr::utf8_string(L"ï¿½ï¿½abc"), 1) == 4);
-		assert(str.find_first_of(yggr::utf8_string(L"ï¿½ï¿½abc"),5) == yggr::utf8_string::npos);
+		assert(str.find_first_of(yggr::utf8_string(L"×Öabc"), 1) == 4);
+		assert(str.find_first_of(yggr::utf8_string(L"×Öabc"),5) == yggr::utf8_string::npos);
 #else
-        assert(str.find_first_of(yggr::utf8_string("ï¿½ï¿½abc")) == 4);
+        assert(str.find_first_of(yggr::utf8_string("×Öabc")) == 4);
 		assert(str.find_first_of(yggr::utf8_string("abc")) == yggr::utf8_string::npos);
-		assert(str.find_first_of(yggr::utf8_string("ï¿½ï¿½abc"), 1) == 4);
-		assert(str.find_first_of(yggr::utf8_string("ï¿½ï¿½abc"),5) == yggr::utf8_string::npos);
-#endif // __MINGW32__
+		assert(str.find_first_of(yggr::utf8_string("×Öabc"), 1) == 4);
+		assert(str.find_first_of(yggr::utf8_string("×Öabc"),5) == yggr::utf8_string::npos);
+#endif // _MSC_VER
 	}
 
 	// find first_not_of
 
 	{
-		//str == "utf8ï¿½Ö·ï¿½"
-#ifndef __MINGW32__
-		assert(str.find_first_not_of(L'ï¿½ï¿½') == 0);
-		assert(str.find_first_not_of(L'ï¿½ï¿½', 1) == 1);
-		assert(str.find_first_not_of(L'ï¿½ï¿½', 5) == 5);
+		//str == "utf8×Ö·û´®"
+#ifdef _MSC_VER
+		assert(str.find_first_not_of(L'×Ö') == 0);
+		assert(str.find_first_not_of(L'×Ö', 1) == 1);
+		assert(str.find_first_not_of(L'×Ö', 5) == 5);
 		assert(str.find_first_not_of('a') == 0);
-		assert(str.find_first_not_of("ï¿½ï¿½abc") == 0);
+		assert(str.find_first_not_of("×Öabc") == 0);
 		assert(str.find_first_not_of("abc") == 0);
-		assert(str.find_first_not_of(L"ï¿½ï¿½abc") == 0);
+		assert(str.find_first_not_of(L"×Öabc") == 0);
 		assert(str.find_first_not_of(L"abc") == 0);
-		assert(str.find_first_not_of(L"ï¿½ï¿½abc", 1) == 1);
-		assert(str.find_first_not_of(L"ï¿½ï¿½abc",5) == 5);
-		assert(str.find_first_not_of(L"utf8ï¿½Ö·ï¿½", 1) == yggr::utf8_string::npos);
+		assert(str.find_first_not_of(L"×Öabc", 1) == 1);
+		assert(str.find_first_not_of(L"×Öabc",5) == 5);
+		assert(str.find_first_not_of(L"utf8×Ö·û´®", 1) == yggr::utf8_string::npos);
 		assert(str.find_first_not_of(L"", str.size()) == yggr::utf8_string::npos);
 		assert(str.find_first_not_of(L"", str.size() - 1) == str.size() - 1);
 		assert(str.find_first_not_of(L"") == 0);
 #else
-        assert(str.find_first_not_of("ï¿½ï¿½") == 0);
-		assert(str.find_first_not_of("ï¿½ï¿½", 1) == 1);
-		assert(str.find_first_not_of("ï¿½ï¿½", 5) == 5);
+        assert(str.find_first_not_of("×Ö") == 0);
+		assert(str.find_first_not_of("×Ö", 1) == 1);
+		assert(str.find_first_not_of("×Ö", 5) == 5);
 		assert(str.find_first_not_of('a') == 0);
-		assert(str.find_first_not_of("ï¿½ï¿½abc") == 0);
+		assert(str.find_first_not_of("×Öabc") == 0);
 		assert(str.find_first_not_of("abc") == 0);
-		assert(str.find_first_not_of("ï¿½ï¿½abc") == 0);
+		assert(str.find_first_not_of("×Öabc") == 0);
 		assert(str.find_first_not_of("abc") == 0);
-		assert(str.find_first_not_of("ï¿½ï¿½abc", 1) == 1);
-		assert(str.find_first_not_of("ï¿½ï¿½abc",5) == 5);
-		assert(str.find_first_not_of("utf8ï¿½Ö·ï¿½", 1) == yggr::utf8_string::npos);
+		assert(str.find_first_not_of("×Öabc", 1) == 1);
+		assert(str.find_first_not_of("×Öabc",5) == 5);
+		assert(str.find_first_not_of("utf8×Ö·û´®", 1) == yggr::utf8_string::npos);
 		assert(str.find_first_not_of("", str.size()) == yggr::utf8_string::npos);
 		assert(str.find_first_not_of("", str.size() - 1) == str.size() - 1);
 		assert(str.find_first_not_of("") == 0);
-#endif // __MINGW32__
+#endif // _MSC_VER
 	}
 
 	{
 
-#ifndef __MINGW32__
-		assert(str.find_first_not_of(yggr::utf8_string(L"ï¿½ï¿½abc")) == 0);
+#ifdef _MSC_VER
+		assert(str.find_first_not_of(yggr::utf8_string(L"×Öabc")) == 0);
 		assert(str.find_first_not_of(yggr::utf8_string(L"abc")) == 0);
-		assert(str.find_first_not_of(yggr::utf8_string(L"ï¿½ï¿½abc"), 1) == 1);
-		assert(str.find_first_not_of(yggr::utf8_string(L"ï¿½ï¿½abc"),5) == 5);
-		assert(str.find_first_not_of(yggr::utf8_string(L"utf8ï¿½Ö·ï¿½"), 1) == yggr::utf8_string::npos);
+		assert(str.find_first_not_of(yggr::utf8_string(L"×Öabc"), 1) == 1);
+		assert(str.find_first_not_of(yggr::utf8_string(L"×Öabc"),5) == 5);
+		assert(str.find_first_not_of(yggr::utf8_string(L"utf8×Ö·û´®"), 1) == yggr::utf8_string::npos);
 
 		assert(str.find_first_not_of(yggr::utf8_string(L""), str.size()) == yggr::utf8_string::npos);
 		assert(str.find_first_not_of(yggr::utf8_string(L""), str.size() - 1) == str.size() - 1);
 		assert(str.find_first_not_of(yggr::utf8_string(L"")) == 0);
 #else
-        assert(str.find_first_not_of(yggr::utf8_string("ï¿½ï¿½abc")) == 0);
+        assert(str.find_first_not_of(yggr::utf8_string("×Öabc")) == 0);
 		assert(str.find_first_not_of(yggr::utf8_string("abc")) == 0);
-		assert(str.find_first_not_of(yggr::utf8_string("ï¿½ï¿½abc"), 1) == 1);
-		assert(str.find_first_not_of(yggr::utf8_string("ï¿½ï¿½abc"),5) == 5);
-		assert(str.find_first_not_of(yggr::utf8_string("utf8ï¿½Ö·ï¿½"), 1) == yggr::utf8_string::npos);
+		assert(str.find_first_not_of(yggr::utf8_string("×Öabc"), 1) == 1);
+		assert(str.find_first_not_of(yggr::utf8_string("×Öabc"),5) == 5);
+		assert(str.find_first_not_of(yggr::utf8_string("utf8×Ö·û´®"), 1) == yggr::utf8_string::npos);
 
 		assert(str.find_first_not_of(yggr::utf8_string(""), str.size()) == yggr::utf8_string::npos);
 		assert(str.find_first_not_of(yggr::utf8_string(""), str.size() - 1) == str.size() - 1);
 		assert(str.find_first_not_of(yggr::utf8_string("")) == 0);
-#endif // __MINGW32__
+#endif // _MSC_VER
 
 	}
 
 	// find_last_of
 	{
-		//str == "utf8ï¿½Ö·ï¿½"
-#ifndef __MINGW32__
-		assert(str.find_last_of(L'ï¿½ï¿½') == 4);
-		assert(str.find_last_of(L'ï¿½ï¿½', 1) == yggr::utf8_string::npos);
-		assert(str.find_last_of(L'ï¿½ï¿½', 5) == 4);
+		//str == "utf8×Ö·û´®"
+#ifdef _MSC_VER
+		assert(str.find_last_of(L'×Ö') == 4);
+		assert(str.find_last_of(L'×Ö', 1) == yggr::utf8_string::npos);
+		assert(str.find_last_of(L'×Ö', 5) == 4);
 		assert(str.find_last_of('a') == yggr::utf8_string::npos);
-		assert(str.find_last_of("ï¿½ï¿½abc") == 4);
+		assert(str.find_last_of("×Öabc") == 4);
 		assert(str.find_last_of("abc") == yggr::utf8_string::npos);
-		assert(str.find_last_of(L"ï¿½ï¿½abc") == 4);
+		assert(str.find_last_of(L"×Öabc") == 4);
 		assert(str.find_last_of(L"abc") == yggr::utf8_string::npos);
-		assert(str.find_last_of(L"ï¿½ï¿½abc", 1) == yggr::utf8_string::npos);
-		assert(str.find_last_of(L"ï¿½ï¿½abc",5) == 4);
+		assert(str.find_last_of(L"×Öabc", 1) == yggr::utf8_string::npos);
+		assert(str.find_last_of(L"×Öabc",5) == 4);
 		assert(str.find_last_of('u', 0) == 0);
 		assert(str.find_last_of("u", 0) == 0);
 #else
-        assert(str.find_last_of("ï¿½ï¿½") == 4);
-		assert(str.find_last_of("ï¿½ï¿½", 1) == yggr::utf8_string::npos);
-		assert(str.find_last_of("ï¿½ï¿½", 5) == 4);
+        assert(str.find_last_of("×Ö") == 4);
+		assert(str.find_last_of("×Ö", 1) == yggr::utf8_string::npos);
+		assert(str.find_last_of("×Ö", 5) == 4);
 		assert(str.find_last_of('a') == yggr::utf8_string::npos);
-		assert(str.find_last_of("ï¿½ï¿½abc") == 4);
+		assert(str.find_last_of("×Öabc") == 4);
 		assert(str.find_last_of("abc") == yggr::utf8_string::npos);
-		assert(str.find_last_of("ï¿½ï¿½abc") == 4);
+		assert(str.find_last_of("×Öabc") == 4);
 		assert(str.find_last_of("abc") == yggr::utf8_string::npos);
-		assert(str.find_last_of("ï¿½ï¿½abc", 1) == yggr::utf8_string::npos);
-		assert(str.find_last_of("ï¿½ï¿½abc",5) == 4);
+		assert(str.find_last_of("×Öabc", 1) == yggr::utf8_string::npos);
+		assert(str.find_last_of("×Öabc",5) == 4);
 		assert(str.find_last_of('u', 0) == 0);
 		assert(str.find_last_of("u", 0) == 0);
-#endif // __MINGW32__
+#endif // _MSC_VER
 	}
 
 	{
-#ifndef __MINGW32__
-		assert(str.find_last_of(yggr::utf8_string(L"ï¿½ï¿½abc")) == 4);
+#ifdef _MSC_VER
+		assert(str.find_last_of(yggr::utf8_string(L"×Öabc")) == 4);
 		assert(str.find_last_of(yggr::utf8_string(L"abc")) == yggr::utf8_string::npos);
-		assert(str.find_last_of(yggr::utf8_string(L"ï¿½ï¿½abc"), 1) == yggr::utf8_string::npos);
-		assert(str.find_last_of(yggr::utf8_string(L"ï¿½ï¿½abc"),5) == 4);
+		assert(str.find_last_of(yggr::utf8_string(L"×Öabc"), 1) == yggr::utf8_string::npos);
+		assert(str.find_last_of(yggr::utf8_string(L"×Öabc"),5) == 4);
 #else
-        assert(str.find_last_of(yggr::utf8_string("ï¿½ï¿½abc")) == 4);
+        assert(str.find_last_of(yggr::utf8_string("×Öabc")) == 4);
 		assert(str.find_last_of(yggr::utf8_string("abc")) == yggr::utf8_string::npos);
-		assert(str.find_last_of(yggr::utf8_string("ï¿½ï¿½abc"), 1) == yggr::utf8_string::npos);
-		assert(str.find_last_of(yggr::utf8_string("ï¿½ï¿½abc"),5) == 4);
-#endif // __MINGW32__
+		assert(str.find_last_of(yggr::utf8_string("×Öabc"), 1) == yggr::utf8_string::npos);
+		assert(str.find_last_of(yggr::utf8_string("×Öabc"),5) == 4);
+#endif // _MSC_VER
 		assert(str.find_last_of(yggr::utf8_string("u"), 0) == 0);
 	}
 
 	// find_last_not_of
 	{
-		//str == "utf8ï¿½Ö·ï¿½"
-#ifndef __MINGW32__
-		assert(str.find_last_not_of(L'ï¿½ï¿½') == str.size() - 1);
-		assert(str.find_last_not_of(L'ï¿½ï¿½', 1) == 1);
-		assert(str.find_last_not_of(L'ï¿½ï¿½', 5) == 5);
+		//str == "utf8×Ö·û´®"
+#ifdef _MSC_VER
+		assert(str.find_last_not_of(L'×Ö') == str.size() - 1);
+		assert(str.find_last_not_of(L'×Ö', 1) == 1);
+		assert(str.find_last_not_of(L'×Ö', 5) == 5);
 		assert(str.find_last_not_of('a') == str.size() - 1);
-		assert(str.find_last_not_of("ï¿½ï¿½abc") == str.size() - 1);
+		assert(str.find_last_not_of("×Öabc") == str.size() - 1);
 		assert(str.find_last_not_of("abc") == str.size() - 1);
-		assert(str.find_last_not_of(L"ï¿½ï¿½abc") == str.size() - 1);
+		assert(str.find_last_not_of(L"×Öabc") == str.size() - 1);
 		assert(str.find_last_not_of(L"abc") == str.size() - 1);
-		assert(str.find_last_not_of(L"ï¿½ï¿½abc", 1) == 1);
-		assert(str.find_last_not_of(L"ï¿½ï¿½abc",5) == 5);
-		assert(str.find_last_not_of(L"utf8ï¿½Ö·ï¿½", 1) == yggr::utf8_string::npos);
+		assert(str.find_last_not_of(L"×Öabc", 1) == 1);
+		assert(str.find_last_not_of(L"×Öabc",5) == 5);
+		assert(str.find_last_not_of(L"utf8×Ö·û´®", 1) == yggr::utf8_string::npos);
 		assert(str.find_last_not_of(L"", 0) == 0);
 		assert(str.find_last_not_of(L"", str.size() - 1) == str.size() - 1);
 		assert(str.find_last_not_of(L"") == str.size() - 1);
 #else
-        assert(str.find_last_not_of("ï¿½ï¿½") == str.size() - 1);
-		assert(str.find_last_not_of("ï¿½ï¿½", 1) == 1);
-		assert(str.find_last_not_of("ï¿½ï¿½", 5) == 5);
+        assert(str.find_last_not_of("×Ö") == str.size() - 1);
+		assert(str.find_last_not_of("×Ö", 1) == 1);
+		assert(str.find_last_not_of("×Ö", 5) == 5);
 		assert(str.find_last_not_of('a') == str.size() - 1);
-		assert(str.find_last_not_of("ï¿½ï¿½abc") == str.size() - 1);
+		assert(str.find_last_not_of("×Öabc") == str.size() - 1);
 		assert(str.find_last_not_of("abc") == str.size() - 1);
-		assert(str.find_last_not_of("ï¿½ï¿½abc") == str.size() - 1);
+		assert(str.find_last_not_of("×Öabc") == str.size() - 1);
 		assert(str.find_last_not_of("abc") == str.size() - 1);
-		assert(str.find_last_not_of("ï¿½ï¿½abc", 1) == 1);
-		assert(str.find_last_not_of("ï¿½ï¿½abc",5) == 5);
-		assert(str.find_last_not_of("utf8ï¿½Ö·ï¿½", 1) == yggr::utf8_string::npos);
+		assert(str.find_last_not_of("×Öabc", 1) == 1);
+		assert(str.find_last_not_of("×Öabc",5) == 5);
+		assert(str.find_last_not_of("utf8×Ö·û´®", 1) == yggr::utf8_string::npos);
 		assert(str.find_last_not_of("", 0) == 0);
 		assert(str.find_last_not_of("", str.size() - 1) == str.size() - 1);
 		assert(str.find_last_not_of("") == str.size() - 1);
-#endif // __MINGW32__
+#endif // _MSC_VER
 	}
 
 	{
-#ifndef __MINGW32__
-		assert(str.find_last_not_of(yggr::utf8_string(L"ï¿½ï¿½abc")) == str.size() - 1);
+#ifdef _MSC_VER
+		assert(str.find_last_not_of(yggr::utf8_string(L"×Öabc")) == str.size() - 1);
 		assert(str.find_last_not_of(yggr::utf8_string(L"abc")) == str.size() - 1);
-		assert(str.find_last_not_of(yggr::utf8_string(L"ï¿½ï¿½abc"), 1) == 1);
-		assert(str.find_last_not_of(yggr::utf8_string(L"ï¿½ï¿½abc"),5) == 5);
-		assert(str.find_last_not_of(yggr::utf8_string(L"utf8ï¿½Ö·ï¿½"), 1) == yggr::utf8_string::npos);
+		assert(str.find_last_not_of(yggr::utf8_string(L"×Öabc"), 1) == 1);
+		assert(str.find_last_not_of(yggr::utf8_string(L"×Öabc"),5) == 5);
+		assert(str.find_last_not_of(yggr::utf8_string(L"utf8×Ö·û´®"), 1) == yggr::utf8_string::npos);
 
 		assert(str.find_last_not_of(yggr::utf8_string(L""), 0) == 0);
 		assert(str.find_last_not_of(yggr::utf8_string(L""), str.size() - 1) == str.size() - 1);
 #else
-        assert(str.find_last_not_of(yggr::utf8_string("ï¿½ï¿½abc")) == str.size() - 1);
+        assert(str.find_last_not_of(yggr::utf8_string("×Öabc")) == str.size() - 1);
 		assert(str.find_last_not_of(yggr::utf8_string("abc")) == str.size() - 1);
-		assert(str.find_last_not_of(yggr::utf8_string("ï¿½ï¿½abc"), 1) == 1);
-		assert(str.find_last_not_of(yggr::utf8_string("ï¿½ï¿½abc"),5) == 5);
-		assert(str.find_last_not_of(yggr::utf8_string("utf8ï¿½Ö·ï¿½"), 1) == yggr::utf8_string::npos);
+		assert(str.find_last_not_of(yggr::utf8_string("×Öabc"), 1) == 1);
+		assert(str.find_last_not_of(yggr::utf8_string("×Öabc"),5) == 5);
+		assert(str.find_last_not_of(yggr::utf8_string("utf8×Ö·û´®"), 1) == yggr::utf8_string::npos);
 
 		assert(str.find_last_not_of(yggr::utf8_string(""), 0) == 0);
 		assert(str.find_last_not_of(yggr::utf8_string(""), str.size() - 1) == str.size() - 1);
-#endif // __MINGW32__
+#endif // _MSC_VER
 	}
 
 	// compare
 
 	{
-		//str = "utf8ï¿½Ö·ï¿½";
+		//str = "utf8×Ö·û´®";
 		assert(str.compare("utf8") > 0);
 		assert(str.compare("utf8_string") > 0);
-		assert(str.compare("utf8ï¿½Ö·ï¿½") < 0);
+		assert(str.compare("utf8×Ö·û´®³¤") < 0);
 		assert(str.compare("") > 0);
-		assert(str.compare("utf8ï¿½Ö·ï¿½") == 0);
+		assert(str.compare("utf8×Ö·û´®") == 0);
 
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 		assert(str.compare(L"utf8") > 0);
 		assert(str.compare(L"utf8_string") > 0);
-		assert(str.compare(L"utf8ï¿½Ö·ï¿½") < 0);
+		assert(str.compare(L"utf8×Ö·û´®³¤") < 0);
 		assert(str.compare(L"") > 0);
-		assert(str.compare(L"utf8ï¿½Ö·ï¿½") == 0);
+		assert(str.compare(L"utf8×Ö·û´®") == 0);
 #else
         assert(str.compare("utf8") > 0 );
 		assert(str.compare("utf8_string") > 0 );
-		assert(str.compare("utf8ï¿½Ö·ï¿½") < 0);
+		assert(str.compare("utf8×Ö·û´®³¤") < 0);
 		assert(str.compare("") > 0);
-		assert(str.compare("utf8ï¿½Ö·ï¿½") == 0);
-#endif // __MINGW32__
+		assert(str.compare("utf8×Ö·û´®") == 0);
+#endif // _MSC_VER
 
 		assert(str.compare("utf8", 0, 1) > 0);
 		assert(str.compare("utf8_string", 2, 7) > 0);
 		assert(str.compare("utf8", 0, 0) > 0);
 
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 		assert(str.compare(L"utf8", 0, 1) > 0);
 		assert(str.compare(L"utf8_string", 2, 7) > 0);
-		assert(str.compare(L"utf8ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½", 0, 8) < 0);
+		assert(str.compare(L"utf8×Ö·û´®³¤³¤³¤", 0, 8) < 0);
 		assert(str.compare(L"utf8", 0, 0) > 0);
-		assert(str.compare(L"ï¿½ï¿½utf8ï¿½Ö·ï¿½ï¿½ï¿½", 1, 7) == 0);
+		assert(str.compare(L"³¤utf8×Ö·û´®³¤³¤", 1, 7) == 0);
 #else
         assert(str.compare("utf8", 0, 1) > 0 );
 		assert(str.compare("utf8_string", 2, 7) > 0);
 		assert(str.compare("utf8", 0, 0) > 0);
-#endif // __MINGW32__
+#endif // _MSC_VER
 
-#ifndef __MINGW32__
-		assert(str.compare(4, 2, "ï¿½Ö·ï¿½") == 0);
-		assert(str.compare(4, 2, L"ï¿½Ö·ï¿½") == 0);
-		assert(str.compare(4, 2, yggr::string("ï¿½Ö·ï¿½")) == 0);
-		assert(str.compare(4, 2, yggr::wstring(L"ï¿½Ö·ï¿½")) == 0);
+#ifdef _MSC_VER
+		assert(str.compare(4, 2, "×Ö·û") == 0);
+		assert(str.compare(4, 2, L"×Ö·û") == 0);
+		assert(str.compare(4, 2, yggr::string("×Ö·û")) == 0);
+		assert(str.compare(4, 2, yggr::wstring(L"×Ö·û")) == 0);
 
-		assert(str.compare(4, 2, "ï¿½Ö·ï¿½") < 0);
-		assert(str.compare(4, 2, L"ï¿½Ö·ï¿½") < 0);
-		assert(str.compare(4, 2, yggr::string("ï¿½Ö·ï¿½"))< 0);
-		assert(str.compare(4, 2, yggr::wstring(L"ï¿½Ö·ï¿½")) < 0);
+		assert(str.compare(4, 2, "×Ö·û³¤") < 0);
+		assert(str.compare(4, 2, L"×Ö·û³¤") < 0);
+		assert(str.compare(4, 2, yggr::string("×Ö·û³¤"))< 0);
+		assert(str.compare(4, 2, yggr::wstring(L"×Ö·û³¤")) < 0);
 
-		assert(str.compare(4, 3, "ï¿½Ö·ï¿½") > 0);
-		assert(str.compare(4, 3, L"ï¿½Ö·ï¿½") > 0);
-		assert(str.compare(4, 3, yggr::string("ï¿½Ö·ï¿½")) > 0);
-		assert(str.compare(4, 3, yggr::wstring(L"ï¿½Ö·ï¿½")) > 0);
+		assert(str.compare(4, 3, "×Ö·û") > 0);
+		assert(str.compare(4, 3, L"×Ö·û") > 0);
+		assert(str.compare(4, 3, yggr::string("×Ö·û")) > 0);
+		assert(str.compare(4, 3, yggr::wstring(L"×Ö·û")) > 0);
 
-		assert(str.compare(4, 2, yggr::utf8_string("ï¿½Ö·ï¿½")) == 0);
-		assert(str.compare(4, 2, yggr::utf8_string(L"ï¿½Ö·ï¿½")) == 0);
+		assert(str.compare(4, 2, yggr::utf8_string("×Ö·û")) == 0);
+		assert(str.compare(4, 2, yggr::utf8_string(L"×Ö·û")) == 0);
 
-		assert(str.compare(4, 2, yggr::utf8_string("ï¿½Ö·ï¿½")) < 0);
-		assert(str.compare(4, 2, yggr::wstring(L"ï¿½Ö·ï¿½")) < 0);
+		assert(str.compare(4, 2, yggr::utf8_string("×Ö·û³¤")) < 0);
+		assert(str.compare(4, 2, yggr::wstring(L"×Ö·û³¤")) < 0);
 
-		assert(str.compare(4, 3, yggr::utf8_string("ï¿½Ö·ï¿½")) > 0);
-		assert(str.compare(4, 3, yggr::utf8_string(L"ï¿½Ö·ï¿½")) > 0);
+		assert(str.compare(4, 3, yggr::utf8_string("×Ö·û")) > 0);
+		assert(str.compare(4, 3, yggr::utf8_string(L"×Ö·û")) > 0);
 #else
-        assert(str.compare(4, 2, "ï¿½Ö·ï¿½") == 0);
-		assert(str.compare(4, 2, yggr::string("ï¿½Ö·ï¿½")) == 0);
+        assert(str.compare(4, 2, "×Ö·û") == 0);
+		assert(str.compare(4, 2, yggr::string("×Ö·û")) == 0);
 
-		assert(str.compare(4, 2, "ï¿½Ö·ï¿½") < 0);
-		assert(str.compare(4, 2, yggr::string("ï¿½Ö·ï¿½")) < 0);
+		assert(str.compare(4, 2, "×Ö·û³¤") < 0);
+		assert(str.compare(4, 2, yggr::string("×Ö·û³¤")) < 0);
 
-		assert(str.compare(4, 3, "ï¿½Ö·ï¿½") > 0);
-		assert(str.compare(4, 3, yggr::string("ï¿½Ö·ï¿½")) > 0);
+		assert(str.compare(4, 3, "×Ö·û") > 0);
+		assert(str.compare(4, 3, yggr::string("×Ö·û")) > 0);
 
-		assert(str.compare(4, 2, yggr::utf8_string("ï¿½Ö·ï¿½")) == 0);
+		assert(str.compare(4, 2, yggr::utf8_string("×Ö·û")) == 0);
 
-		assert(str.compare(4, 2, yggr::utf8_string("ï¿½Ö·ï¿½")) < 0);
+		assert(str.compare(4, 2, yggr::utf8_string("×Ö·û³¤")) < 0);
 
-		assert(str.compare(4, 3, yggr::utf8_string("ï¿½Ö·ï¿½")) > 0);
+		assert(str.compare(4, 3, yggr::utf8_string("×Ö·û")) > 0);
 #endif //
 	}
 }
@@ -1047,71 +1045,71 @@ void non_member_foo_test(void)
 {
 	// operator +
 	{
-#ifndef __MINGW32__
-		yggr::utf8_string str("utf8ï¿½Ö·ï¿½");
-		std::cout << "utf8ï¿½Ö·ï¿½" + str + "aaa" << std::endl;
-		std::cout << L"utf8ï¿½Ö·ï¿½" + str + L"bbb" << std::endl;
+#ifdef _MSC_VER
+		yggr::utf8_string str("utf8×Ö·û´®");
+		std::cout << "utf8×Ö·û" + str + "aaa" << std::endl;
+		std::cout << L"utf8×Ö·û" + str + L"bbb" << std::endl;
 
-		std::cout << yggr::string("utf8ï¿½Ö·ï¿½") + str << std::endl;
+		std::cout << yggr::string("utf8×Ö·û") + str << std::endl;
 		std::wcout.imbue(std::locale("chs"));
-		std::wcout << yggr::wstring(L"utf8ï¿½Ö·ï¿½") + str << std::endl;
+		std::wcout << yggr::wstring(L"utf8×Ö·û") + str << std::endl;
 
-		std::cout << "utf8ï¿½Ö·ï¿½" + str + yggr::string("aaa") << std::endl;
-		std::cout << L"utf8ï¿½Ö·ï¿½" + str + yggr::wstring(L"bbb") << std::endl;
+		std::cout << "utf8×Ö·û" + str + yggr::string("aaa") << std::endl;
+		std::cout << L"utf8×Ö·û" + str + yggr::wstring(L"bbb") << std::endl;
 
-		std::cout << yggr::utf8_string("utf8ï¿½Ö·ï¿½") + str << std::endl;
+		std::cout << yggr::utf8_string("utf8×Ö·û") + str << std::endl;
 		const yggr::utf8_string& cref_str = str;
-		std::cout << yggr::utf8_string("utf8ï¿½Ö·ï¿½") + cref_str << std::endl;
+		std::cout << yggr::utf8_string("utf8×Ö·û") + cref_str << std::endl;
 
 
-		std::cout << yggr::utf8_string("utf8ï¿½Ö·ï¿½") + str + yggr::string("aaa") << std::endl;
-		std::cout << yggr::utf8_string(L"utf8ï¿½Ö·ï¿½") + str + yggr::wstring(L"bbb") << std::endl;
+		std::cout << yggr::utf8_string("utf8×Ö·û") + str + yggr::string("aaa") << std::endl;
+		std::cout << yggr::utf8_string(L"utf8×Ö·û") + str + yggr::wstring(L"bbb") << std::endl;
 #else
-        yggr::utf8_string str("utf8ï¿½Ö·ï¿½");
-		std::cout << "utf8ï¿½Ö·ï¿½" + str + "aaa" << std::endl;
+        yggr::utf8_string str("utf8×Ö·û´®");
+		std::cout << "utf8×Ö·û" + str + "aaa" << std::endl;
 
-		std::cout << yggr::string("utf8ï¿½Ö·ï¿½") + str << std::endl;
+		std::cout << yggr::string("utf8×Ö·û") + str << std::endl;
 
-		std::cout << "utf8ï¿½Ö·ï¿½" + str + yggr::string("aaa") << std::endl;
+		std::cout << "utf8×Ö·û" + str + yggr::string("aaa") << std::endl;
 
-		std::cout << yggr::utf8_string("utf8ï¿½Ö·ï¿½") + str + yggr::string("aaa") << std::endl;
-#endif // __MINGW32__
+		std::cout << yggr::utf8_string("utf8×Ö·û") + str + yggr::string("aaa") << std::endl;
+#endif // _MSC_VER
 	}
 
 	// operator ==
 	{
-#ifndef __MINGW32__
-		yggr::utf8_string str("utf8ï¿½Ö·ï¿½");
-		assert(str == "utf8ï¿½Ö·ï¿½");
-		assert("utf8ï¿½Ö·ï¿½" == str);
-		assert(str == L"utf8ï¿½Ö·ï¿½");
-		assert(L"utf8ï¿½Ö·ï¿½" == str);
+#ifdef _MSC_VER
+		yggr::utf8_string str("utf8×Ö·û´®");
+		assert(str == "utf8×Ö·û´®");
+		assert("utf8×Ö·û´®" == str);
+		assert(str == L"utf8×Ö·û´®");
+		assert(L"utf8×Ö·û´®" == str);
 
-		assert(str == yggr::string("utf8ï¿½Ö·ï¿½"));
-		assert(yggr::string("utf8ï¿½Ö·ï¿½") == str);
-		assert(str == yggr::wstring(L"utf8ï¿½Ö·ï¿½"));
-		assert(yggr::wstring(L"utf8ï¿½Ö·ï¿½") == str);
+		assert(str == yggr::string("utf8×Ö·û´®"));
+		assert(yggr::string("utf8×Ö·û´®") == str);
+		assert(str == yggr::wstring(L"utf8×Ö·û´®"));
+		assert(yggr::wstring(L"utf8×Ö·û´®") == str);
 
-		assert(str == yggr::utf8_string("utf8ï¿½Ö·ï¿½"));
-		assert(yggr::utf8_string("utf8ï¿½Ö·ï¿½") == str);
-		assert(str == yggr::utf8_string(L"utf8ï¿½Ö·ï¿½"));
-		assert(yggr::utf8_string(L"utf8ï¿½Ö·ï¿½") == str);
+		assert(str == yggr::utf8_string("utf8×Ö·û´®"));
+		assert(yggr::utf8_string("utf8×Ö·û´®") == str);
+		assert(str == yggr::utf8_string(L"utf8×Ö·û´®"));
+		assert(yggr::utf8_string(L"utf8×Ö·û´®") == str);
 #else
-        yggr::utf8_string str("utf8ï¿½Ö·ï¿½");
-		assert(str == "utf8ï¿½Ö·ï¿½");
-		assert("utf8ï¿½Ö·ï¿½" == str);
+        yggr::utf8_string str("utf8×Ö·û´®");
+		assert(str == "utf8×Ö·û´®");
+		assert("utf8×Ö·û´®" == str);
 
-		assert(str == yggr::string("utf8ï¿½Ö·ï¿½"));
-		assert(yggr::string("utf8ï¿½Ö·ï¿½") == str);
+		assert(str == yggr::string("utf8×Ö·û´®"));
+		assert(yggr::string("utf8×Ö·û´®") == str);
 
-		assert(str == yggr::utf8_string("utf8ï¿½Ö·ï¿½"));
-		assert(yggr::utf8_string("utf8ï¿½Ö·ï¿½") == str);
-#endif // __MINGW32__
+		assert(str == yggr::utf8_string("utf8×Ö·û´®"));
+		assert(yggr::utf8_string("utf8×Ö·û´®") == str);
+#endif // _MSC_VER
 	}
 
 	// operator !=
 	{
-		yggr::utf8_string str("utf8ï¿½Ö·ï¿½");
+		yggr::utf8_string str("utf8×Ö·û´®");
 		assert(str != "utf8");
 		assert("utf8" != str);
 		assert(str != L"utf8");
@@ -1142,138 +1140,138 @@ void non_member_foo_test(void)
 
 	// operator <
 	{
-#ifndef __MINGW32__
-		yggr::utf8_string str("utf8ï¿½Ö·ï¿½");
-		assert(str < "utf8ï¿½Ö·ï¿½");
-		assert(str < L"utf8ï¿½Ö·ï¿½");
-		assert(str < yggr::string("utf8ï¿½Ö·ï¿½"));
-		assert(str < yggr::wstring(L"utf8ï¿½Ö·ï¿½"));
+#ifdef _MSC_VER
+		yggr::utf8_string str("utf8×Ö·û´®");
+		assert(str < "utf8×Ö·û´®³¤");
+		assert(str < L"utf8×Ö·û´®³¤");
+		assert(str < yggr::string("utf8×Ö·û´®³¤"));
+		assert(str < yggr::wstring(L"utf8×Ö·û´®³¤"));
 		assert("" < str );
 
-		assert(!("utf8ï¿½Ö·ï¿½" < str));
-		assert(!(L"utf8ï¿½Ö·ï¿½" < str));
-		assert(!(yggr::string("utf8ï¿½Ö·ï¿½") < str));
-		assert(!(yggr::wstring(L"utf8ï¿½Ö·ï¿½") < str));
+		assert(!("utf8×Ö·û´®³¤" < str));
+		assert(!(L"utf8×Ö·û´®³¤" < str));
+		assert(!(yggr::string("utf8×Ö·û´®³¤") < str));
+		assert(!(yggr::wstring(L"utf8×Ö·û´®³¤") < str));
 		assert(!(str < yggr::wstring(L"")));
 
-		assert(str < yggr::utf8_string("utf8ï¿½Ö·ï¿½"));
-		assert(!(yggr::utf8_string(L"utf8ï¿½Ö·ï¿½") < str));
+		assert(str < yggr::utf8_string("utf8×Ö·û´®³¤"));
+		assert(!(yggr::utf8_string(L"utf8×Ö·û´®³¤") < str));
 #else
-        yggr::utf8_string str("utf8ï¿½Ö·ï¿½");
-		assert(str < "utf8ï¿½Ö·ï¿½");
-		assert(str < yggr::string("utf8ï¿½Ö·ï¿½"));
+        yggr::utf8_string str("utf8×Ö·û´®");
+		assert(str < "utf8×Ö·û´®³¤");
+		assert(str < yggr::string("utf8×Ö·û´®³¤"));
 		assert("" < str );
 
-		assert(!("utf8ï¿½Ö·ï¿½" < str));
-		assert(!(yggr::string("utf8ï¿½Ö·ï¿½") < str));
+		assert(!("utf8×Ö·û´®³¤" < str));
+		assert(!(yggr::string("utf8×Ö·û´®³¤") < str));
 		assert(!(str < yggr::wstring(L"")));
 
-		assert(str < yggr::utf8_string("utf8ï¿½Ö·ï¿½"));
-#endif // __MINGW32__
+		assert(str < yggr::utf8_string("utf8×Ö·û´®³¤"));
+#endif // _MSC_VER
 	}
 
 	// operator <=
 	{
-#ifndef __MINGW32__
-		yggr::utf8_string str("utf8ï¿½Ö·ï¿½");
-		assert(str <= "utf8ï¿½Ö·ï¿½");
-		assert(str <= "utf8ï¿½Ö·ï¿½");
-		assert(str <= L"utf8ï¿½Ö·ï¿½");
-		assert(str <= L"utf8ï¿½Ö·ï¿½");
-		assert(str <= yggr::string("utf8ï¿½Ö·ï¿½"));
-		assert(str <= yggr::string("utf8ï¿½Ö·ï¿½"));
-		assert(str <= yggr::wstring(L"utf8ï¿½Ö·ï¿½"));
-		assert(str <= yggr::wstring(L"utf8ï¿½Ö·ï¿½"));
+#ifdef _MSC_VER
+		yggr::utf8_string str("utf8×Ö·û´®");
+		assert(str <= "utf8×Ö·û´®³¤");
+		assert(str <= "utf8×Ö·û´®");
+		assert(str <= L"utf8×Ö·û´®³¤");
+		assert(str <= L"utf8×Ö·û´®");
+		assert(str <= yggr::string("utf8×Ö·û´®³¤"));
+		assert(str <= yggr::string("utf8×Ö·û´®"));
+		assert(str <= yggr::wstring(L"utf8×Ö·û´®³¤"));
+		assert(str <= yggr::wstring(L"utf8×Ö·û´®"));
 
-		assert(!("utf8ï¿½Ö·ï¿½" <= str));
-		assert(!(L"utf8ï¿½Ö·ï¿½" <= str));
-		assert(!(yggr::string("utf8ï¿½Ö·ï¿½") <= str));
-		assert(!(yggr::wstring(L"utf8ï¿½Ö·ï¿½") <= str));
+		assert(!("utf8×Ö·û´®³¤" <= str));
+		assert(!(L"utf8×Ö·û´®³¤" <= str));
+		assert(!(yggr::string("utf8×Ö·û´®³¤") <= str));
+		assert(!(yggr::wstring(L"utf8×Ö·û´®³¤") <= str));
 
-		assert(str <= yggr::utf8_string("utf8ï¿½Ö·ï¿½"));
-		assert(!(yggr::utf8_string(L"utf8ï¿½Ö·ï¿½") <= str));
+		assert(str <= yggr::utf8_string("utf8×Ö·û´®³¤"));
+		assert(!(yggr::utf8_string(L"utf8×Ö·û´®³¤") <= str));
 #else
-        yggr::utf8_string str("utf8ï¿½Ö·ï¿½");
-		assert(str <= "utf8ï¿½Ö·ï¿½");
-		assert(str <= "utf8ï¿½Ö·ï¿½");
-		assert(str <= yggr::string("utf8ï¿½Ö·ï¿½"));
-		assert(str <= yggr::string("utf8ï¿½Ö·ï¿½"));
+        yggr::utf8_string str("utf8×Ö·û´®");
+		assert(str <= "utf8×Ö·û´®³¤");
+		assert(str <= "utf8×Ö·û´®");
+		assert(str <= yggr::string("utf8×Ö·û´®³¤"));
+		assert(str <= yggr::string("utf8×Ö·û´®"));
 
-		assert(!("utf8ï¿½Ö·ï¿½" <= str));
-		assert(!(yggr::string("utf8ï¿½Ö·ï¿½") <= str));
+		assert(!("utf8×Ö·û´®³¤" <= str));
+		assert(!(yggr::string("utf8×Ö·û´®³¤") <= str));
 
-		assert(str <= yggr::utf8_string("utf8ï¿½Ö·ï¿½"));
-#endif // __MINGW32__
+		assert(str <= yggr::utf8_string("utf8×Ö·û´®³¤"));
+#endif // _MSC_VER
 	}
 
 	// operator >
 	{
-#ifndef __MINGW32__
-		yggr::utf8_string str("utf8ï¿½Ö·ï¿½");
-		assert(str > "utf8ï¿½Ö·ï¿½");
-		assert(str > L"utf8ï¿½Ö·ï¿½");
-		assert(str > yggr::string("utf8ï¿½Ö·ï¿½"));
-		assert(str > yggr::wstring(L"utf8ï¿½Ö·ï¿½"));
+#ifdef _MSC_VER
+		yggr::utf8_string str("utf8×Ö·û´®");
+		assert(str > "utf8×Ö·û");
+		assert(str > L"utf8×Ö·û");
+		assert(str > yggr::string("utf8×Ö·û"));
+		assert(str > yggr::wstring(L"utf8×Ö·û"));
 		assert(str > "" );
 
-		assert(!("utf8ï¿½Ö·ï¿½" > str));
-		assert(!(L"utf8ï¿½Ö·ï¿½" > str));
-		assert(!(yggr::string("utf8ï¿½Ö·ï¿½") > str));
-		assert(!(yggr::wstring(L"utf8ï¿½Ö·ï¿½") > str));
+		assert(!("utf8×Ö·û" > str));
+		assert(!(L"utf8×Ö·û" > str));
+		assert(!(yggr::string("utf8×Ö·û") > str));
+		assert(!(yggr::wstring(L"utf8×Ö·û") > str));
 
-		assert(str > yggr::utf8_string("utf8ï¿½Ö·ï¿½"));
-		assert(!(yggr::utf8_string(L"utf8ï¿½Ö·ï¿½") > str));
+		assert(str > yggr::utf8_string("utf8×Ö·û"));
+		assert(!(yggr::utf8_string(L"utf8×Ö·û") > str));
 #else
-        yggr::utf8_string str("utf8ï¿½Ö·ï¿½");
-		assert(str > "utf8ï¿½Ö·ï¿½");
-		assert(str > yggr::string("utf8ï¿½Ö·ï¿½"));
+        yggr::utf8_string str("utf8×Ö·û´®");
+		assert(str > "utf8×Ö·û");
+		assert(str > yggr::string("utf8×Ö·û"));
 		assert(str > "" );
 
-		assert(!("utf8ï¿½Ö·ï¿½" > str));
-		assert(!(yggr::string("utf8ï¿½Ö·ï¿½") > str));
+		assert(!("utf8×Ö·û" > str));
+		assert(!(yggr::string("utf8×Ö·û") > str));
 
-		assert(str > yggr::utf8_string("utf8ï¿½Ö·ï¿½"));
-#endif // __MINGW32__
+		assert(str > yggr::utf8_string("utf8×Ö·û"));
+#endif // _MSC_VER
 	}
 
 	// operator >=
 	{
-#ifndef __MINGW32__
-		yggr::utf8_string str("utf8ï¿½Ö·ï¿½");
-		assert(str >= "utf8ï¿½Ö·ï¿½");
-		assert(str >= "utf8ï¿½Ö·ï¿½");
-		assert(str >= L"utf8ï¿½Ö·ï¿½");
-		assert(str >= L"utf8ï¿½Ö·ï¿½");
-		assert(str >= yggr::string("utf8ï¿½Ö·ï¿½"));
-		assert(str >= yggr::string("utf8ï¿½Ö·ï¿½"));
-		assert(str >= yggr::wstring(L"utf8ï¿½Ö·ï¿½"));
-		assert(str >= yggr::wstring(L"utf8ï¿½Ö·ï¿½"));
+#ifdef _MSC_VER
+		yggr::utf8_string str("utf8×Ö·û´®");
+		assert(str >= "utf8×Ö·û");
+		assert(str >= "utf8×Ö·û´®");
+		assert(str >= L"utf8×Ö·û");
+		assert(str >= L"utf8×Ö·û´®");
+		assert(str >= yggr::string("utf8×Ö·û"));
+		assert(str >= yggr::string("utf8×Ö·û´®"));
+		assert(str >= yggr::wstring(L"utf8×Ö·û"));
+		assert(str >= yggr::wstring(L"utf8×Ö·û´®"));
 
-		assert(!("utf8ï¿½Ö·ï¿½" >= str));
-		assert(!(L"utf8ï¿½Ö·ï¿½" >= str));
-		assert(!(yggr::string("utf8ï¿½Ö·ï¿½") >= str));
-		assert(!(yggr::wstring(L"utf8ï¿½Ö·ï¿½") >= str));
+		assert(!("utf8×Ö·û" >= str));
+		assert(!(L"utf8×Ö·û" >= str));
+		assert(!(yggr::string("utf8×Ö·û") >= str));
+		assert(!(yggr::wstring(L"utf8×Ö·û") >= str));
 
-		assert(str >= yggr::utf8_string("utf8ï¿½Ö·ï¿½"));
-		assert(!(yggr::utf8_string(L"utf8ï¿½Ö·ï¿½") >= str));
+		assert(str >= yggr::utf8_string("utf8×Ö·û"));
+		assert(!(yggr::utf8_string(L"utf8×Ö·û") >= str));
 #else
-        yggr::utf8_string str("utf8ï¿½Ö·ï¿½");
-		assert(str >= "utf8ï¿½Ö·ï¿½");
-		assert(str >= "utf8ï¿½Ö·ï¿½");
-		assert(str >= yggr::string("utf8ï¿½Ö·ï¿½"));
-		assert(str >= yggr::string("utf8ï¿½Ö·ï¿½"));
+        yggr::utf8_string str("utf8×Ö·û´®");
+		assert(str >= "utf8×Ö·û");
+		assert(str >= "utf8×Ö·û´®");
+		assert(str >= yggr::string("utf8×Ö·û"));
+		assert(str >= yggr::string("utf8×Ö·û´®"));
 
-		assert(!("utf8ï¿½Ö·ï¿½" >= str));
-		assert(!(yggr::string("utf8ï¿½Ö·ï¿½") >= str));
+		assert(!("utf8×Ö·û" >= str));
+		assert(!(yggr::string("utf8×Ö·û") >= str));
 
-		assert(str >= yggr::utf8_string("utf8ï¿½Ö·ï¿½"));
-#endif // __MINGW32__
+		assert(str >= yggr::utf8_string("utf8×Ö·û"));
+#endif // _MSC_VER
 	}
 
 	// swap
 	{
-		yggr::utf8_string str1_chk("utf8ï¿½Ö·ï¿½1");
-		yggr::utf8_string str2_chk("utf8ï¿½Ö·ï¿½2");
+		yggr::utf8_string str1_chk("utf8×Ö·û´®1");
+		yggr::utf8_string str2_chk("utf8×Ö·û´®2");
 
 		yggr::utf8_string str1(str1_chk);
 		yggr::utf8_string str2(str2_chk);
@@ -1313,11 +1311,11 @@ void test_io(void)
 	std::cin >> in;
 	std::cout << in << std::endl;
 
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 	std::wcin.imbue(std::locale("chs"));
 	std::wcin >> in;
 	std::cout << in << std::endl;
-#endif // __MINGW32__
+#endif // _MSC_VER
 }
 
 int main(int argc, char* argv[])
@@ -1331,6 +1329,7 @@ int main(int argc, char* argv[])
 #	ifdef TEST_IO
 	test_io();
 #	endif // TEST_IO
+
 	char cc = 0;
 	std::cin >> cc;
 	return 0;

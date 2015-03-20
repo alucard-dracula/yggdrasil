@@ -58,11 +58,11 @@ public:
 //	};
 
     template<bool is_inside, typename NIL = int>
-	struct access;
+	class access;
 
 //private:
     template<typename NIL>
-	struct access<false, NIL>
+	class access<false, NIL>
 	{
 	public:
 		// now proxy
@@ -70,7 +70,7 @@ public:
 	};
 
 	template<typename NIL>
-	struct access<true, NIL>
+	class access<true, NIL>
 	{
 	public:
 		access(void) {}

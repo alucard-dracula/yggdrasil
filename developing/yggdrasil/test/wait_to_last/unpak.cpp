@@ -174,7 +174,15 @@ const config get_cfg(const std::string& fname)
 const std::string get_key(const config& cfg, const std::string& fname)
 {
 	std::string t;
-	yggr::file_system::local_file_operator_type::read_file_of_binary(fname, t);
+	try
+	{
+		yggr::file_system::local_file_operator_type::read_file_of_binary(fname, t);
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return std::string();
+	}
 	std::string buf(str_to_buf(t));
 
 
@@ -378,7 +386,18 @@ std::string parse_wpe_file(const std::string& key, const std::string& fname)
 		}
 	}
 
-	yggr::file_system::local_file_operator_type::write_file_of_binary(full_file, report);
+	try
+	{
+		yggr::file_system::local_file_operator_type::write_file_of_binary(full_file, report);
+	}
+	catch(const boost::filesystem::filesystem_error& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	//return std::string(open_value_dir) + std::string("\\") + time_dir; 
 	return full_file;
 }
@@ -386,7 +405,15 @@ std::string parse_wpe_file(const std::string& key, const std::string& fname)
 std::pair<yggr::u32, yggr::u16> get_id_ver_of_normal(const std::string& key, const std::string& fname)
 {
 	std::string t;
-	yggr::file_system::local_file_operator_type::read_file_of_binary(fname, t);
+	try
+	{
+		yggr::file_system::local_file_operator_type::read_file_of_binary(fname, t);
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return std::pair<yggr::u32, yggr::u16>(0, 0);
+	}
 	std::string buf(str_to_buf(t));
 	return get_id_ver_of_buf(key, buf);
 }

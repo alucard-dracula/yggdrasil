@@ -1,5 +1,6 @@
 //id_generator.cpp
 
+#include <sstream>
 #include <iostream>
 #include <yggr/ids/base_ids_def.hpp>
 #include <set>
@@ -122,6 +123,29 @@ void test_uuid2(void)
 
 }
 
+void test_uuid3(void)
+{
+	typedef yggr::ids::uuid val_type;
+	typedef yggr::ids::id_generator<val_type, yggr::ids::parse_uuid_genner::lagged_fibonacci607_type> gen_type;
+
+	gen_type gen;
+
+	val_type val1 = gen();
+
+	std::string str_uuid;
+	std::stringstream ss;
+	ss << val1;
+	ss >> str_uuid;
+
+	std::cout << str_uuid << std::endl;
+
+	val_type val2;
+	bool b = val_type::s_from_code(val2, str_uuid);
+	assert(b);
+	assert(val1 == val2);
+
+}
+
 void test_process_inner_id2(void)
 {
 	typedef yggr::ids::inner_process_id val_type;
@@ -146,6 +170,7 @@ int main(int argc, char* argv[])
 	test_normal_id();
 	test_uuid1();
 	test_uuid2();
+	test_uuid3();
 
 	test_process_inner_id2();
 

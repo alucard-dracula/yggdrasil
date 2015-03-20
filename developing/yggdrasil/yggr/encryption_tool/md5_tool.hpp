@@ -53,6 +53,7 @@ public:
 	{
 		E_MD5_SIZE = MD5_SIZE,
 		//E_MD5_SIZE = 16,
+		E_MD5_STRING_BUF_SIZE = 32,
 		E_MD5_STRING_LEAST_SIZE = 33,
 
 		E_compile_size_u32 = 0xffffffff
@@ -130,8 +131,10 @@ public:
 
 		BOOST_MPL_ASSERT((charset::is_not_utf8_string<code_type>));
 
-		yggr::string tcode(E_MD5_STRING_LEAST_SIZE, 0);
-		md5_sig_to_string((void*)&sig[0], &tcode[0], E_MD5_STRING_LEAST_SIZE);
+		//yggr::string tcode(E_MD5_STRING_LEAST_SIZE, 0);
+		//md5_sig_to_string((void*)&sig[0], &tcode[0], E_MD5_STRING_LEAST_SIZE);
+		yggr::string tcode(E_MD5_STRING_BUF_SIZE, 0);
+		md5_sig_to_string((void*)&sig[0], &tcode[0], E_MD5_STRING_BUF_SIZE);
 
 		return YGGR_PP_CHARSET_FOO_XCHG(code_type, tcode, 
 											charset::charset_name_t<yggr::string::value_type>(),

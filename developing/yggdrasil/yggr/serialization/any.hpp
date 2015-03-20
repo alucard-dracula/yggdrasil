@@ -19,10 +19,10 @@
 	YGGR_CLASS_EXPORT(YGGR_PP_CONCAT( yggr::any::holder< __type__ > ))
 
 #define YGGR_ANY_EXPORT_DECLEAR( __type__ ) \
-	YGGR_CLASS_EXPORT_DECLEAR( YGGR_PP_CONCAT( yggr::any::holder< __type__ > ) )
+	YGGR_CLASS_EXPORT_KEY( YGGR_PP_CONCAT( yggr::any::holder< __type__ > ) )
 
 #define YGGR_ANY_EXPORT_IMPL( __type__ ) \
-	YGGR_CLASS_EXPORT_IMPL( YGGR_PP_CONCAT( yggr::any::holder< __type__ > ) )
+	YGGR_CLASS_EXPORT_IMPLEMENT( YGGR_PP_CONCAT( yggr::any::holder< __type__ > ) )
 
 // don't export this place 
 //YGGR_ANY_EXPORT(char)

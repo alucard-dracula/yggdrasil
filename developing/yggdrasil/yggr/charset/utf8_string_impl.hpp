@@ -67,6 +67,7 @@ class utf8_string_impl;
 namespace charset
 {
 
+// warning md5 use base_type
 template<	typename TChar = char,
 			typename TTraits = std::char_traits<TChar>,
 			typename TAlloc = std::allocator<TChar>

@@ -68,11 +68,32 @@ int main(int argc, char* argv[])
     opak_type opak(network_info_type(yggr::u64(10)), data);
 
 	encrypt_tool.encrypt(opak);
-
-	yggr::file_system::local_file_operator_type::write_file_of_binary("bin.f", opak.org_buf());
+	try
+	{
+		yggr::file_system::local_file_operator_type::write_file_of_binary("bin.f", opak.org_buf());
+	}
+	catch(const boost::filesystem::filesystem_error& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return -1;
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return -1;
+	}
 
 	std::string buf;
-	yggr::file_system::local_file_operator_type::read_file_of_binary("bin.f", buf);
+	try
+	{
+		yggr::file_system::local_file_operator_type::read_file_of_binary("bin.f", buf);
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return -1;
+	}
+
 	ipak_type ipak(network_info_type(yggr::u64(10)), buf);
 
 	encrypt_tool.decrypt(ipak);

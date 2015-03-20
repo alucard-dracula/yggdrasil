@@ -483,15 +483,6 @@
     <ClInclude Include="log\yggr_exception_log_accesser.hpp">
       <Filter>Header Files\log</Filter>
     </ClInclude>
-    <ClInclude Include="any_val\any_val_operator.hpp">
-      <Filter>Header Files\any_val</Filter>
-    </ClInclude>
-    <ClInclude Include="any_val\base_any_type_operator.hpp">
-      <Filter>Header Files\any_val</Filter>
-    </ClInclude>
-    <ClInclude Include="any_val\params.hpp">
-      <Filter>Header Files\any_val</Filter>
-    </ClInclude>
     <ClInclude Include="regular_parse\regex_parse.hpp">
       <Filter>Header Files\regular_parse</Filter>
     </ClInclude>
@@ -1884,26 +1875,41 @@
     <ClInclude Include="struct_conv\conv_params_and_packet_info.hpp">
       <Filter>Header Files\struct_conv</Filter>
     </ClInclude>
-    <ClInclude Include="any_val\params_io_wrap.hpp">
-      <Filter>Header Files\any_val</Filter>
-    </ClInclude>
-    <ClInclude Include="any_val\any.hpp">
-      <Filter>Header Files\any_val</Filter>
-    </ClInclude>
     <ClInclude Include="serialization\any.hpp">
       <Filter>Header Files\serialization</Filter>
-    </ClInclude>
-    <ClInclude Include="any_val\non_any_type_operator.hpp">
-      <Filter>Header Files\any_val</Filter>
-    </ClInclude>
-    <ClInclude Include="any_val\any_set.hpp">
-      <Filter>Header Files\any_val</Filter>
     </ClInclude>
     <ClInclude Include="serialization\export.hpp">
       <Filter>Header Files\serialization</Filter>
     </ClInclude>
     <ClInclude Include="encryption_tool\tool_buf_size.hpp">
       <Filter>Header Files\encryption_tool</Filter>
+    </ClInclude>
+    <ClInclude Include="any_val\any.hpp">
+      <Filter>Header Files\any_val</Filter>
+    </ClInclude>
+    <ClInclude Include="any_val\any_set.hpp">
+      <Filter>Header Files\any_val</Filter>
+    </ClInclude>
+    <ClInclude Include="any_val\any_val_operator.hpp">
+      <Filter>Header Files\any_val</Filter>
+    </ClInclude>
+    <ClInclude Include="any_val\base_any_type_operator.hpp">
+      <Filter>Header Files\any_val</Filter>
+    </ClInclude>
+    <ClInclude Include="any_val\indexed_typeinfo.hpp">
+      <Filter>Header Files\any_val</Filter>
+    </ClInclude>
+    <ClInclude Include="any_val\non_any_type_operator.hpp">
+      <Filter>Header Files\any_val</Filter>
+    </ClInclude>
+    <ClInclude Include="any_val\params.hpp">
+      <Filter>Header Files\any_val</Filter>
+    </ClInclude>
+    <ClInclude Include="any_val\params_io_wrap.hpp">
+      <Filter>Header Files\any_val</Filter>
+    </ClInclude>
+    <ClInclude Include="charset\const_strings.hpp">
+      <Filter>Header Files\charset</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

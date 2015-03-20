@@ -644,7 +644,7 @@ private:
 		{
 			_adp_mgr_wrap.use_handler(boost::bind(&adapter_mgr_type::drop_all_tasks, _1));
 		}
-		catch(const adapter_mgr_wrap_error_type& e)
+		catch(const adapter_mgr_wrap_error_type&)
 		{
 		}
 

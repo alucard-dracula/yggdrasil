@@ -183,13 +183,32 @@ void test_foo4(void)
 	o.save(YGGR_SERIALIZE_NAME_NVP("C", c));
 	std::cout << o.val_buf() << std::endl;
 
-
-
-	yggr::file_system::local_file_operator_type::write_file_of_binary("database.xml", o.org_buf());
+	try
+	{
+		yggr::file_system::local_file_operator_type::write_file_of_binary("database.xml", o.org_buf());
+	}
+	catch(const boost::filesystem::filesystem_error& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return;
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return;
+	}
 
 	opak::buf_type buf;
 
-	yggr::file_system::local_file_operator_type::read_file_of_binary("database.xml", buf);
+	try
+	{
+		yggr::file_system::local_file_operator_type::read_file_of_binary("database.xml", buf);
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return;
+	}
 
 	ipak i(buf);
 

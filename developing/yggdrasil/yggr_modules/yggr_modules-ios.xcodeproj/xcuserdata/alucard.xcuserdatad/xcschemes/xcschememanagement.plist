@@ -7,11 +7,21 @@
 		<key>yggr_modules-ios.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>4</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>D2223CE11AB83CC700C54BC5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D2223CED1AB83E3300C54BC5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D2F8CCFD198C78EC00A860E4</key>
 		<dict>
 			<key>primary</key>

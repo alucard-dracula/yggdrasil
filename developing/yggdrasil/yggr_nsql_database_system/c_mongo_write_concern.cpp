@@ -51,11 +51,6 @@ c_mongo_write_concern::c_mongo_write_concern(int w_count)
 	mongo_write_concern_finish(this);
 }
 
-//c_mongo_write_concern::c_mongo_write_concern(BOOST_RV_REF(this_type) right)
-//{
-//	this_type::operator=(boost::forward<this_type>(right));
-//}
-
 c_mongo_write_concern::c_mongo_write_concern(const this_type& right)
 {
 	this_type::operator=(right);
@@ -65,28 +60,6 @@ c_mongo_write_concern::~c_mongo_write_concern(void)
 {
 	mongo_write_concern_destroy(this);
 }
-
-//c_mongo_write_concern& c_mongo_write_concern::operator=(BOOST_RV_REF(this_type) right)
-//{
-//	this_type& right_ref = right;
-//
-//	std::swap(base_type::w, right_ref.w);
-//	std::swap(base_type::wtimeout, right_ref.wtimeout);
-//	std::swap(base_type::j, right_ref.j);
-//	std::swap(base_type::fsync, right_ref.fsync);
-//	std::swap(base_type::mode, right_ref.mode);
-//
-//	if(!right_ref.cmd)
-//	{
-//		base_type::cmd = 0;
-//	}
-//	else
-//	{
-//		std::swap(base_type::cmd, right_ref.cmd);
-//	}
-//
-//	return *this;
-//}
 
 c_mongo_write_concern& c_mongo_write_concern::operator=(const this_type& right)
 {

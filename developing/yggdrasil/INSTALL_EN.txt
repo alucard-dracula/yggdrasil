@@ -1,0 +1,50 @@
+﻿PC environment
+
+compile: windows use VS, mingw linux use code blocks and gun gcc
+1 python: install python and config development environment
+2 boost: full compile boost(now dev boost ver is 1.53) and config development environment
+3 dtl: compile yggdrasil/tools/dtl and config development environment
+4 md5: compile yggdrasil/tools/md5 and config development environment
+5 blowfish: compile yggdrasil/tools/blowfish and config development environment
+6 lua: compile yggdrasil/tools/lua/lua5_21 and yggdrasil/tools/lua/luabind52 and config development environment
+7 mongodb: compile yggdrasil/tools/mongodb_c_driver and config development environment
+8 yggdrasil: compile yggdrasil and config development environment
+
+android environment:
+
+1 use ndk compile boost yggdrasil/tools/md5 and yggdrasil/tools/blowfish and config ndk development environment
+2 copy yggdrasil/compatibility, yggdrasil/yggr，yggdrasil/yggr_base，yggdrasil/yggr_charset yggdrasil/yggr_modules 
+       yggdrasil/yggr_time to yggdrasil/jni
+  use ndk-build compile this jni and config ndk environment, the ndk environment file at yggdrasil/tools/android_static_config
+
+ios environment:
+
+1 create dir third_part
+2 create dir third_part/boost/include third_part/boost/lib/lib-ios third_part/boost/lib/lib-ios-sim
+  complie BOOST
+  copy boost's head dir to third_part/boost/include 
+  copy ios dir's .a files to hird_part/boost/lib/lib-ios
+  copy ios-simulator dir's .a file to third_part/boost/lib/lib-ios-sim
+
+3 create dir third_part/md5/include third_part/md5/lib/lib-ios third_part/md5/lib/lib-ios-sim 
+  compile md5
+  copy md5's head files to third_part/md5/include 
+  copy ios dir's .a files to third_part/md5/lib/lib-ios
+  copy ios-simulator dir's .a files to third_part/md5/lib/lib-ios-sim
+
+4 create dir third_part/blowfish/include third_part/blowfish/lib/lib-ios third_part/blowfish/lib/lib-ios-sim 
+  compile blowfish
+  copy blowfish's head files to third_part/blowfish/include 
+  copy ios dir's .a files to third_part/blowfish/lib/lib-ios
+  copy ios-simulator dir's .a files to third_part/blowfish/lib/lib-ios-sim
+
+5 copy yggdrasil dir to third_part's same dir
+  create third_part/yggdrasil/include third_part/yggdrasil/lib/lib-ios third_part/yggdrasil/lib/lib-ios-sim 
+  compile yggdrasil
+  copy yggdrasil/compatibility and yggdrasil/yggr to third_part/yggdrasil/include 
+  copy ios dir's .a files to third_part/yggdrasil/lib/lib-ios
+  copy ios-simulator dir's .a files to third_part/yggdrasil/lib/lib-ios-sim
+
+
+
+

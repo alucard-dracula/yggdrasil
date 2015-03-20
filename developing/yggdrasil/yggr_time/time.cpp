@@ -262,7 +262,6 @@ time::this_type time::operator+(const time::this_type& right) const
 	return this_type(sec + right.sec + ((nsec + right.nsec) / E_NS_TO_S), (nsec + right.nsec) % E_NS_TO_S);
 }
 
-
 time::this_type& time::operator+=(const time::xtime_sec_t& sec)
 {
 	return operator+=(this_type(sec));

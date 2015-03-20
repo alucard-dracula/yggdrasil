@@ -39,7 +39,15 @@ void search_file(const std::string& path)
 
 	path_list pl;
 
-	yggr::file_system::local_file_operator_type::recursion_search_of_files(path, pl);
+	try
+	{
+		yggr::file_system::local_file_operator_type::recursion_search_of_files(path, pl);
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		pl.clear();
+	}
 
 	for(path_list_iter p = pl.begin(); p != pl.end(); ++p)
 	{

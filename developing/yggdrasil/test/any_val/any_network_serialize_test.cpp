@@ -7,11 +7,12 @@
 
 #include <boost/serialization/access.hpp>
 
+#include <yggr/any_val/any.hpp>
 #include <yggr/base/yggrdef.h>
 #include <yggr/archive/network_archive_partner.hpp>
 #include <yggr/packet/packet.hpp>
 
-#include <yggr/any_val/any.hpp>
+
 #include <yggr/serialization/any.hpp>
 
 // warning: mingw use libboost_serialization-mgw47-mt-1_53.a //fix xml_gamma_error
@@ -23,7 +24,9 @@
 typedef yggr::packet::packet<yggr::archive::archive_partner::network_oarchive_partner> opak;
 typedef yggr::packet::packet<yggr::archive::archive_partner::network_iarchive_partner> ipak;
 
-YGGR_ANY_EXPORT(int)
+//YGGR_ANY_EXPORT(int)
+YGGR_ANY_EXPORT_DECLEAR(int)
+YGGR_ANY_EXPORT_IMPL(int)
 
 void test_foo1(void)
 {

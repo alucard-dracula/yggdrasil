@@ -67,8 +67,6 @@ public:
 	bool load(const std::string& module_name, int mode = 1);
 	void close(void);
 
-	//this_type& operator=(BOOST_RV_REF(this_type) right)
-
 	inline this_type& operator=(BOOST_RV_REF(this_type) right)
 	{
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES

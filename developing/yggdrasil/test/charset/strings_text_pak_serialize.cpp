@@ -30,7 +30,7 @@ typedef yggr::packet::packet<yggr::archive::archive_partner::text_iarchive_partn
 
 void test_stl_string(void)
 {
-	std::string a("���abc");
+	std::string a("你好abc");
 
 	std::cout << a << std::endl;
 	opak o;
@@ -51,7 +51,7 @@ void test_stl_string(void)
 
 void test_boost_string(void)
 {
-	boost::container::string a("���abc");
+	boost::container::string a("你好");
 
 	std::cout << a << std::endl;
 	opak o;
@@ -72,7 +72,7 @@ void test_boost_string(void)
 
 void test_utf8_string(void)
 {
-	yggr::utf8_string a("���abc");
+	yggr::utf8_string a("你好");
 
 	std::cout << a << std::endl;
 	opak o;

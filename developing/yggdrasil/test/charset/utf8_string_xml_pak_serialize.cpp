@@ -56,7 +56,7 @@ struct A
 	}
 
 	A(int n)
-		:a(n), f(123.5f), str("ï¿½ï¿½ï¿½Hello")
+		:a(n), f(123.5f), str("ÊÀ½çHello")
 	{
 	}
 

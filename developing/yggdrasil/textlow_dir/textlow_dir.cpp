@@ -25,14 +25,35 @@ void change_low(const std::string& path)
 	}
 
 	std::string new_path = dpath + new_dname;
-	yggr::file_system::local_file_operator_type::rename_directory(path, new_path);
+	bool bright = false;
+	try
+	{
+		bright = yggr::file_system::local_file_operator_type::rename_directory(path, new_path);
+	}
+	catch(const boost::filesystem::filesystem_error& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
 };
 
 void search_file(const std::string& path)
 {
 	path_list pl;
 
-	yggr::file_system::local_file_operator_type::recursion_search_of_directorys(path, pl);
+	try
+	{
+		yggr::file_system::local_file_operator_type::recursion_search_of_directorys(path, pl);
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		pl.clear();
+	}
 
 	for(path_list_iter p = pl.begin(); p != pl.end(); ++p)
 	{		

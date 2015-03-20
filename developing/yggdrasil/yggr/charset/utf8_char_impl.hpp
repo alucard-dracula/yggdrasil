@@ -103,7 +103,6 @@ protected:
 
 private:
 	typedef utf8_char_impl this_type;
-
 	BOOST_COPYABLE_AND_MOVABLE(this_type)
 
 public:

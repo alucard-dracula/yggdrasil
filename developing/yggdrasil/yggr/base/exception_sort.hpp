@@ -116,6 +116,9 @@ public:
 		E_code_dtl_root_error = 0x90000000,
 		E_code_luabind_error = 0xA0000000,
 		E_code_runtime_error = 0xB0000000,
+		E_code_seh_error = 0xC0000000,
+
+		E_code_user_error = 0xE0000000,
 
 		E_compile_u32 = 0xffffffff
 

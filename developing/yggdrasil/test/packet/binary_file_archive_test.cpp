@@ -16,8 +16,11 @@
 #include <yggr/network/network_packet.hpp>
 #include <yggr/network/start_data/pak_back_id.hpp>
 
+#include <yggr/serialization/shared_ptr.hpp>
 #include <yggr/serialization/utf8_string.hpp>
 #include <yggr/serialization/vector.hpp>
+
+
 
 #ifdef _MSC_VER
 #   include <vld.h>
@@ -144,6 +147,77 @@ public:
 
 };
 
+#include <boost/serialization/export.hpp>
+#include <yggr/serialization/bson_data_type.hpp>
+struct in_val_t
+{
+	in_val_t(void)
+		: n(0)
+	{
+	}
+
+	in_val_t(int nn)
+		: n(nn)
+	{
+	}
+
+	in_val_t(const in_val_t& right)
+		: n(right.n)
+	{
+	}
+private:
+	friend class boost::serialization::access;
+	template<typename Archive>
+	void serialize(Archive & ar, yggr::u32 version)
+	{
+		ar & YGGR_SERIALIZE_NVP(n);
+	}
+public:
+	int n;
+};
+
+struct E
+{
+public:
+	E(void)
+	{
+	}
+
+	~E(void)
+	{
+	}
+
+private:
+	friend class boost::serialization::access;
+	template<class Archive>
+	void serialize(Archive &ar, const unsigned int version)
+	{
+		ar & YGGR_SERIALIZE_NVP(pval);
+	}
+
+public:
+	boost::shared_ptr<in_val_t> pval;
+};
+
+void test_shared_ptr(void)
+{
+	E e1;
+
+	opak o;
+	o.save(e1);
+
+	std::cout << o.org_buf() << std::endl;
+
+	E e3;
+
+	ipak i(o);
+
+	i.load(e3);
+
+	assert(!e3.pval);
+	
+}
+
 void test_foo0(void)
 {
 	int arr[10] = {1, 2, 3, 4, 5, 6};
@@ -152,11 +226,32 @@ void test_foo0(void)
 	opak o;
 	o.save(arr1);
 
-	yggr::file_system::local_file_operator_type::write_file_of_binary("test_foo0", o.org_buf().data(), o.size());
+	try
+	{
+		yggr::file_system::local_file_operator_type::write_file_of_binary("test_foo0", o.org_buf().data(), o.size());
+	}
+	catch(const boost::filesystem::filesystem_error& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return;
+	}
 
 	std::string buf;
 	yggr::size_type size;
-	yggr::file_system::local_file_operator_type::read_file_of_binary("test_foo0", buf, size);
+
+	try
+	{
+		yggr::file_system::local_file_operator_type::read_file_of_binary("test_foo0", buf, size);
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return;
+	}
 
 	ipak i(buf);
 	boost::array<int, 10> arr2;
@@ -171,11 +266,32 @@ void test_foo1(void)
 	opak o;
 	o.save(c1);
 
-	yggr::file_system::local_file_operator_type::write_file_of_binary("test_foo1", o.org_buf().data(), o.size());
+	try
+	{
+		yggr::file_system::local_file_operator_type::write_file_of_binary("test_foo1", o.org_buf().data(), o.size());
+	}
+	catch(const boost::filesystem::filesystem_error& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return;
+	}
 
 	std::string buf;
 	yggr::size_type size;
-	yggr::file_system::local_file_operator_type::read_file_of_binary("test_foo1", buf, size);
+
+	try
+	{
+		yggr::file_system::local_file_operator_type::read_file_of_binary("test_foo1", buf, size);
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return;
+	}
 
 	ipak i(buf);
 	C c2;
@@ -191,11 +307,32 @@ void test_foo2(void)
 	opak o;
 	o.save(c1);
 
-	yggr::file_system::local_file_operator_type::write_file_of_binary("test_foo2", o.org_buf().data(), o.size());
+	try
+	{
+		yggr::file_system::local_file_operator_type::write_file_of_binary("test_foo2", o.org_buf().data(), o.size());
+	}
+	catch(const boost::filesystem::filesystem_error& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return;
+	}
 
 	std::string buf;
 	yggr::size_type size;
-	yggr::file_system::local_file_operator_type::read_file_of_binary("test_foo2", buf, size);
+	
+	try
+	{
+		yggr::file_system::local_file_operator_type::read_file_of_binary("test_foo2", buf, size);
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return;
+	}
 
 	ipak i(buf);
 	int c2 = 0;
@@ -211,11 +348,32 @@ void test_foo3(void)
 	opak o;
 	o.save(c1);
 
-	yggr::file_system::local_file_operator_type::write_file_of_binary("test_foo3", o.org_buf().data(), o.size());
+	try
+	{
+		yggr::file_system::local_file_operator_type::write_file_of_binary("test_foo3", o.org_buf().data(), o.size());
+	}
+	catch(const boost::filesystem::filesystem_error& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return;
+	}
 
 	std::string buf;
 	yggr::size_type size;
-	yggr::file_system::local_file_operator_type::read_file_of_binary("test_foo3", buf, size);
+
+	try
+	{
+		yggr::file_system::local_file_operator_type::read_file_of_binary("test_foo3", buf, size);
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return;
+	}
 
 	ipak i(buf);
 	B c2 = 0;
@@ -230,11 +388,32 @@ void test_foo4(void)
 	opak o;
 	o.save(c1);
 
-	yggr::file_system::local_file_operator_type::write_file_of_binary("test_foo4", o.org_buf().data(), o.size());
+	try
+	{
+		yggr::file_system::local_file_operator_type::write_file_of_binary("test_foo4", o.org_buf().data(), o.size());
+	}
+	catch(const boost::filesystem::filesystem_error& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return;
+	}
 
 	std::string buf;
 	yggr::size_type size;
-	yggr::file_system::local_file_operator_type::read_file_of_binary("test_foo4", buf, size);
+
+	try
+	{
+		yggr::file_system::local_file_operator_type::read_file_of_binary("test_foo4", buf, size);
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return;
+	}
 
 	ipak i(buf);
 	D c2;
@@ -251,6 +430,8 @@ int main(int argc, char* argv[])
 	test_foo2();
 	test_foo3();
 	test_foo4();
+
+	test_shared_ptr();
 
 	char cc = 0;
 	std::cin >> cc;

@@ -62,6 +62,9 @@ public:
 		E_SCRIPT_SYSTEM,
 		E_ARCHIVE_SYSTEM,
 
+		E_SYS_CODE_END,
+		E_SYS_CODE_USER = E_SYS_CODE_END + 2,
+
 		E_compile_u32 = 0xffffffff
 	};
 };

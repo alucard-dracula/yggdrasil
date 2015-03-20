@@ -129,20 +129,30 @@ public:
 
 		service_type& s = _service_pool.get_service();
 		conn_ptr_type ptr;
+		id_type id = id_type();
 		for(;!ptr;)
 		{
 			conn_ptr_type tptr(new conn_type(s));
-			if(tptr)
+
+			if(!tptr)
 			{
-				ptr.swap(tptr);
+				exception::exception::throw_error(error_maker_type::make_error(error_maker_type::E_invalid_conn_alloc));
+				continue;
 			}
-			else
+
+			ptr.swap(tptr);
+			id = base_type::backup(ptr);
+			if(id == id_type())
 			{
-					exception::exception::throw_error(error_maker_type::make_error(error_maker_type::E_invalid_conn_alloc));
+				conn_ptr_type tmp;
+				tmp.swap(ptr);
+				tmp->close();
 			}
 		}
+
+		assert((ptr && id != id_type()));
 		
-		id_type id = base_type::backup(ptr);
+		//id_type id = base_type::backup(ptr);
 		_pacceptor->async_accept(ptr->get_link(),
 									boost::bind( &this_type::handler_accept,
 													this,

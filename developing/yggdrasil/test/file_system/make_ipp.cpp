@@ -12,7 +12,14 @@
 template<typename Container>
 void get_file_list(Container& cont)
 {
-	yggr::file_system::local_file_operator_type::search_files("./", cont);
+	try
+	{
+		yggr::file_system::local_file_operator_type::search_files("./", cont);
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 }
 
 template<typename Container>
@@ -89,11 +96,45 @@ THE SOFTWARE.\n \
 		;
 
 	//std::cout << ss.str() << std::endl;
+	
+
 	if(!yggr::file_system::local_file_operator_type::is_exists_path(wfpath))
 	{
-		yggr::file_system::local_file_operator_type::create_path(wfpath);
+		bool bright = false;
+		try
+		{
+			bright = yggr::file_system::local_file_operator_type::create_path(wfpath);
+		}
+		catch(const boost::filesystem::filesystem_error& e)
+		{
+			std::cerr << e.what() << std::endl;
+			return;
+		}
+		catch(const compatibility::stl_exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+			return;
+		}
+		if(!bright)
+		{
+			return;
+		}
 	}
-	yggr::file_system::local_file_operator_type::write_file_of_binary(wfpath + "/" + fname, ss.str());
+
+	try
+	{
+		yggr::file_system::local_file_operator_type::write_file_of_binary(wfpath + "/" + fname, ss.str());
+	}
+	catch(const boost::filesystem::filesystem_error& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return;
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return;
+	}
 	std::cout << "write_file:" << (wfpath + "/" + fname) << std::endl;
 
 }

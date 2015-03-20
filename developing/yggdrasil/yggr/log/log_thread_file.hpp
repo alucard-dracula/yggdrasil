@@ -82,10 +82,8 @@ public:
 		return _fname == name;
 	}
 
-	
-
 	template<typename Value>
-	bool append(const Value& val, bool nil = false)
+	bool append(const Value& val, bool tnil = false)
 	{
 		typedef Value now_val_type;
 
@@ -122,7 +120,21 @@ private:
 
 		if(!_fpath.empty())
 		{
-			if(!file_system::local_file_operator_type::create_path(_fpath))
+			bool bright = false;
+			try
+			{
+				bright = file_system::local_file_operator_type::create_path(_fpath);
+			}
+			catch(const boost::filesystem::filesystem_error&)
+			{
+				return false;
+			}
+			catch(const compatibility::stl_exception&)
+			{
+				return false;
+			}
+
+			if(!bright)
 			{
 				return false;
 			}

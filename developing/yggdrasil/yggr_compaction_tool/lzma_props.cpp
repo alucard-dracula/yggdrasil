@@ -44,15 +44,6 @@ lzma_props::lzma_props(void)
 	memset(&base[0], 0, E_byte_length);
 }
 
-//lzma_props::lzma_props(BOOST_RV_REF(this_type) right)
-//{
-//	base_type& base = *this;
-//	memset(&base[0], 0, E_byte_length);
-//
-//	base_type& r = right;
-//	base.swap(r);
-//}
-
 lzma_props::lzma_props(const this_type& right)
 	: base_type(right)
 {
@@ -61,14 +52,6 @@ lzma_props::lzma_props(const this_type& right)
 lzma_props::~lzma_props(void)
 {
 }
-
-//lzma_props::this_type& lzma_props::operator=(BOOST_RV_REF(this_type) right)
-//{
-//	base_type& l = *this;
-//	base_type& r = right;
-//	l.swap(r);
-//	return *this;
-//}
 
 lzma_props::this_type& lzma_props::operator=(const this_type& right)
 {

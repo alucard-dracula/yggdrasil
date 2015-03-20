@@ -119,7 +119,15 @@ private:
 		typedef yggr::file_system::local_file_operator_type::file_size_type file_size_type;
 		file_size_type size = 0;
 		std::string buf;
-		yggr::file_system::local_file_operator_type::read_file_of_binary(file_name, buf, size);
+		try
+		{
+			yggr::file_system::local_file_operator_type::read_file_of_binary(file_name, buf, size);
+		}
+		catch(const compatibility::stl_exception& e)
+		{
+			exception::exception::throw_error(e);
+			return;
+		}
 
 		if(size < def_type::request_length() - 1)
 		{
@@ -141,7 +149,16 @@ private:
 		typedef std::string::iterator str_iter_type;
 		file_size_type size = 0;
 		std::string buf;
-		yggr::file_system::local_file_operator_type::read_file_of_binary(file_name, buf, size);
+
+		try
+		{
+			yggr::file_system::local_file_operator_type::read_file_of_binary(file_name, buf, size);
+		}
+		catch(const compatibility::stl_exception& e)
+		{
+			exception::exception::throw_error(e);
+			return;
+		}
 
 		if(!size)
 		{

@@ -191,7 +191,8 @@ private:
 		}
 		catch(const boost::interprocess::interprocess_exception& e)
 		{
-			err_fixer(e);
+			//err_fixer(e);
+			remove(name);
 		}
 
 		try

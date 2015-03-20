@@ -270,12 +270,12 @@ public:
 	bool unregister_calculator(void)
 	{
 		typedef Real_Data_Type now_real_data_type;
-		return reg_map.erase(id_parser_type::template get_reg_id<now_real_data_type>());
+		return _reg_map.erase(id_parser_type::template get_reg_id<now_real_data_type>());
 	}
 
 	bool unregister_calculator(const calculator_id_type& id)
 	{
-		return reg_map.erase(id);
+		return _reg_map.erase(id);
 	}
 
 	template<typename Real_Data_Type,
@@ -292,7 +292,7 @@ public:
 							int> now_calculator_type;
 
 		//class_name_getter_type name_getter;
-		return reg_map.insert(id_parser_type::template get_reg_id<now_real_data_type>(),
+		return _reg_map.insert(id_parser_type::template get_reg_id<now_real_data_type>(),
 								calculator_contaniner_type(new now_calculator_type(handler, recv_handler)));
 
 
@@ -312,7 +312,7 @@ public:
 							back_handler_type,
 							int> now_calculator_type;
 
-		return reg_map.insert(id_parser_type::template get_reg_id<now_real_data_type>(),
+		return _reg_map.insert(id_parser_type::template get_reg_id<now_real_data_type>(),
 								calculator_contaniner_type(new now_calculator_type(handler, recv_handler)));
 
 	}
@@ -330,7 +330,7 @@ public:
 							back_handler_type,
 							int> now_calculator_type;
 
-		return reg_map.insert(id,
+		return _reg_map.insert(id,
 								calculator_contaniner_type(new now_calculator_type(handler, recv_handler)));
 
 	}
@@ -354,7 +354,7 @@ public:
 							seh_handler_type> now_calculator_type;
 
 		//class_name_getter_type name_getter;
-		return reg_map.insert(id_parser_type::template get_reg_id<now_real_data_type>(),
+		return _reg_map.insert(id_parser_type::template get_reg_id<now_real_data_type>(),
 								calculator_contaniner_type(new now_calculator_type(handler, recv_handler, seh_handler)));
 	}
 
@@ -375,7 +375,7 @@ public:
 							back_handler_type,
 							seh_handler_type> now_calculator_type;
 
-		return reg_map.insert(id_parser_type::template get_reg_id<now_real_data_type>(),
+		return _reg_map.insert(id_parser_type::template get_reg_id<now_real_data_type>(),
 								calculator_contaniner_type(new now_calculator_type(handler, recv_handler, seh_handler)));
 	}
 
@@ -395,49 +395,86 @@ public:
 							back_handler_type,
 							int> now_calculator_type;
 
-		return reg_map.insert(id,
+		return _reg_map.insert(id,
 								calculator_contaniner_type(new now_calculator_type(handler, recv_handler, seh_handler)));
 	}
 
 #endif // YGGR_USE_SEH
 
 
+	//void run_task(work_runner_type& runner, const task_type& task) const
+	//{
+	//	//class_name_getter_type name_getter;
+	//	calculator_id_type key(id_parser_type::template get_task_id<task_type>(task));
+	//	calculator_contaniner_type pcont(
+	//								_reg_map.use_handler(
+	//											boost::bind(
+	//															&action_table::handler_find_calculator,
+	//															this, _1, boost::cref(key))));
+	//	if(pcont)
+	//	{
+	//		pcont->run_handler(runner, task);
+	//	}
+	//}
+
 	void run_task(work_runner_type& runner, const task_type& task) const
 	{
 		//class_name_getter_type name_getter;
 		calculator_id_type key(id_parser_type::template get_task_id<task_type>(task));
-		calculator_contaniner_type pcont(
-									reg_map.use_handler(
-												boost::bind(
-																&action_table::handler_find_calculator,
-																this, _1, boost::cref(key))));
-		if(pcont)
+#if defined(_MSC_VER) && defined(_DEBUG)
+		{
+		if(!key.empty())
+		{
+			if(key[0] == 0xdd)
+			{
+				assert(false);
+			}
+		}
+		}
+#endif // defined(_MSC_VER) && defined(_DEBUG)
+		calculator_contaniner_type pcont;
+		
+		bool bget = _reg_map.get_value(key, pcont);
+
+		if(bget && pcont)
 		{
 			pcont->run_handler(runner, task);
 		}
+
+#if defined(_MSC_VER) && defined(_DEBUG)
+		{
+		if(!key.empty())
+		{
+			if(key[0] == 0xdd)
+			{
+				assert(false);
+			}
+		}
+		}
+#endif // defined(_MSC_VER) && defined(_DEBUG)
 	}
 
 	void clear(void)
 	{
-		reg_map.clear();
+		_reg_map.clear();
 	}
 
 private:
-	calculator_contaniner_type
-		handler_find_calculator(const typename reg_map_type::base_type& base,
-									const calculator_id_type& cmp) const
-	{
-		typedef typename reg_map_type::const_iterator iter_type;
-		iter_type iter = base.find(cmp);
-		if(iter == base.end())
-		{
-			return calculator_contaniner_type();
-		}
+	//calculator_contaniner_type
+	//	handler_find_calculator(const typename reg_map_type::base_type& base,
+	//								const calculator_id_type& cmp) const
+	//{
+	//	typedef typename reg_map_type::const_iterator iter_type;
+	//	iter_type iter = base.find(cmp);
+	//	if(iter == base.end())
+	//	{
+	//		return calculator_contaniner_type();
+	//	}
 
-		return iter->second;
-	}
+	//	return iter->second;
+	//}
 
-	reg_map_type reg_map;
+	reg_map_type _reg_map;
 };
 
 } // namespace thread

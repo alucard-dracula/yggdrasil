@@ -234,6 +234,39 @@ public:
 
 	virtual std::size_t hash(void) const;
 
+public:
+	
+	template<typename Traits, typename Alloc,
+				template<typename _Char, typename _Traits, typename _Alloc> class Basic_String>
+	static bool s_from_code(this_type& id, const Basic_String<char, Traits, Alloc>& code)
+	{
+		typedef Basic_String<char, Traits, Alloc> string_type;
+		typedef typename string_type::iterator str_iter_type;
+
+		yggr::u64 pos = code.find_first_not_of("0123456789abcdef-");
+		if(pos != string_type::npos)
+		{
+			return false;
+		}
+		string_type right_code = code;
+		str_iter_type new_end = std::remove(right_code.begin(), right_code.end(), '-');
+		if(std::distance(right_code.begin(), new_end) != 32)
+		{
+			return false;
+		}
+
+		yggr::u32 n = 0;
+		yggr::u32 idx = 0;
+		for(str_iter_type i = right_code.begin(), isize = new_end;
+				i != isize; std::advance(i, 2), ++idx)
+		{
+			std::stringstream ss;
+			ss << std::hex << (*i) << (*(i + 1));
+			ss >> n;
+			id[idx] = n;
+		}
+		return true;
+	}
 private:
 	friend class boost::serialization::access;
 

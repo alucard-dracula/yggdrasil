@@ -36,7 +36,7 @@ THE SOFTWARE.
 #elif defined(YGGR_AT_LINUX)
 #   define YGGR_DLL_API
 # else // defined(YGGR_AT_LINUX)
-#	error "dll_mark_define.hpp now only support win32 dll and linux so!!"
+#	error "dll_mark_define.hpp now only support dll and so, please append you export code!!"
 #endif // defined(WIN32) || defined(WIN64) || defined(WINDOWS)
 
 #ifndef YGGR_MODULE_CALL_T

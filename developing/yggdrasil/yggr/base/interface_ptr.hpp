@@ -27,7 +27,12 @@ THE SOFTWARE.
 #ifndef __YGGR_INTERFACE_PTR_HPP__
 #define __YGGR_INTERFACE_PTR_HPP__
 
+#include <boost/serialization/access.hpp>
+#include <boost/serialization/base_object.hpp> 
 #include <boost/shared_ptr.hpp>
+#include <yggr/base/yggrdef.h>
+#include <yggr/serialization/shared_ptr.hpp>
+#include <yggr/serialization/nvp.hpp>
 
 namespace yggr
 {
@@ -142,6 +147,16 @@ public:
 	{
 		const base_type& base = *this;
 		return base == i_ptr;
+	}
+
+private:
+	friend class boost::serialization::access;
+
+	template<typename Archive>
+	void serialize(Archive& ar, u32 version)
+	{
+		ar & YGGR_SERIALIZE_NAME_NVP("shared_ptr",
+                                        boost::serialization::base_object<base_type>(*this));
 	}
 
 //private:

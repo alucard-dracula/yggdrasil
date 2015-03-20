@@ -45,12 +45,6 @@ module::module(const std::string& module_name, int mode)
 {
 }
 
-//module::module(BOOST_RV_REF(this_type) right)
-//    : _name(boost::forward<std::string>(right._name))
-//{
-//	std::swap(_handle, right._handle);
-//}
-
 module::module(const this_type& right)
     : _name(right._name), _handle(right._handle)
 {
@@ -73,14 +67,6 @@ void module::close(void)
 {
 	modules_accesser::free_module(_handle);
 }
-
-//module& module::operator=(BOOST_RV_REF(this_type) right)
-//{
-//    _name.swap(right._name);
-//    std::swap(_handle, right._handle);
-//
-//    return *this;
-//}
 
 module::this_type& module::operator=(const this_type& right)
 {

@@ -106,7 +106,16 @@ public:
 
 	static size_type size(const seg_type& seg)
 	{
-		return file_system::local_file_operator_type::file_size(seg.get_name());
+		file_system::local_file_operator_type::file_size_type fsize = 0;
+		try
+		{
+			fsize = file_system::local_file_operator_type::file_size(seg.get_name());
+		}
+		catch(const compatibility::stl_exception&)
+		{
+			return 0;
+		}
+		return fsize;
 	}
 
 	static bool is_named_object(void)
@@ -118,7 +127,12 @@ private:
 	// swap_create
 	static bool prv_create(seg_type& seg, const key_type& name, segment_op::create_only_type op, size_type size, u32 mode)
 	{
-		file_system::local_file_operator_type::create_file_of_binary(name, size);
+		try
+		{
+			file_system::local_file_operator_type::create_file_of_binary(name, size);
+		}
+		catch(const boost::filesystem::filesystem_error&) {}
+		catch(const compatibility::stl_exception&) {}
 
 		try
 		{
@@ -131,7 +145,12 @@ private:
 			remove(name);
 		}
 
-		file_system::local_file_operator_type::create_file_of_binary(name, size);
+		try
+		{
+			file_system::local_file_operator_type::create_file_of_binary(name, size);
+		}
+		catch(const boost::filesystem::filesystem_error&) {}
+		catch(const compatibility::stl_exception&){}
 
 		try
 		{
@@ -182,7 +201,12 @@ private:
 	template<typename Handler>
 	static bool prv_create(seg_type& seg, const key_type& name, const Handler& err_fixer, segment_op::create_only_type op, size_type size, u32 mode)
 	{
-		file_system::local_file_operator_type::create_file_of_binary(name, size);
+		try
+		{
+			file_system::local_file_operator_type::create_file_of_binary(name, size);
+		}
+		catch(const boost::filesystem::filesystem_error&) {}
+		catch(const compatibility::stl_exception&){}
 
 		try
 		{
@@ -192,7 +216,8 @@ private:
 		}
 		catch(const boost::interprocess::interprocess_exception& e)
 		{
-			err_fixer(e);
+			remove(name);
+			//err_fixer(e); //
 		}
 
 		try
@@ -225,7 +250,8 @@ private:
 		}
 		catch(const boost::interprocess::interprocess_exception& e)
 		{
-			err_fixer(e);
+			remove(name);
+			//err_fixer(e);
 		}
 
 		try

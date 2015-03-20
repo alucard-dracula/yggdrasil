@@ -119,11 +119,33 @@ int main(int argc, char* argv[])
 	std::cout << opak.org_buf() << std::endl;
 
 	//file i/o
-	yggr::file_system::local_file_operator_type::write_file_of_binary("test_out.xml", opak.org_buf());
+	try
+	{
+		yggr::file_system::local_file_operator_type::write_file_of_binary("test_out.xml", opak.org_buf());
+	}
+	catch(const boost::filesystem::filesystem_error& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return -1;
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return -1;
+	}
 
 	yggr::file_system::local_file_operator_type::file_size_type fsize = 0;
 	std::string in_buf;
-	yggr::file_system::local_file_operator_type::read_file_of_binary("test_out.xml", in_buf, fsize);
+
+	try
+	{
+		yggr::file_system::local_file_operator_type::read_file_of_binary("test_out.xml", in_buf, fsize);
+	}
+	catch(const compatibility::stl_exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return -1;
+	}
 
 	if(fsize == 0)
 	{

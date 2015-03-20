@@ -1,0 +1,43 @@
+﻿PC 環境: 
+
+コンパイラ: windowsの場はVSを使え， MINGW LINUXの場はcode blocks と GNUGCCを使え
+1 python: インストール　python そして開発環境を配置する
+2 boost:完全コンパイルboost(今開発用のバージョンは1.53) そして開発環境を配置する
+3 DTL: コンパイル yggdrasil/tools/dtl そして開発環境を配置する
+4 MD5: コンパイル yggdrasil/tools/md5 そして開発環境を配置する
+5 BLOWFISH: コンパイル yggdrasil/tools/blowfish そして開発環境を配置する
+6 LUA: コンパイル yggdrasil/tools/lua/lua5_21 と yggdrasil/tools/lua/luabind52 そして開発環境を配置する
+7 mongodb: コンパイル yggdrasil/tools/mongodb_c_driver そして開発環境を配置する
+8 yggdrasil: コンパイルyggdrasil そして開発環境を配置する
+
+android　環境:
+1 NDKを使え　BOOST と yggdrasil/tools/md5 と yggdrasil/tools/blowfish をコンパイルする　そして　NDK環境を配置する
+2 yggdrasilの compatibility、 yggr、 yggr_base、 yggr_charset、yggr_modules、 yggr_timeはyggdrasil/jniの中にコピーする
+  そしてndk-buildを使えコンパイルする、 終た後NDK環境を配置する NDKのLIB配置ファールかyggdrasil/tools/android_static_configの中にある
+
+IOS環境:
+1 創建third_part目録
+2 創建third_part/boost/includeとthird_part/boost/lib/lib-iosとthird_part/boost/lib/lib-ios-sim 目録
+  コンパイルBOOST
+  boostのヘッドファイルスの目録はthird_part/boost/includeにコピーする 
+  ios目録の　.a　ファイルスはthird_part/boost/lib/lib-iosにコピーする
+  ios-simulator目録の　.a　ファイルスはthird_part/boost/lib/lib-ios-simにコピーする
+
+3 創建third_part/md5/includeとthird_part/md5/lib/lib-iosとthird_part/md5/lib/lib-ios-sim 目録
+  コンパイル md5
+  md5のヘッド　ファイルスはthird_part/md5/includeにコピーする 
+  ios目録の　.a　ファイルスはthird_part/md5/lib/lib-iosにコピーする
+  ios-simulator目録の　.a　ファイルスはthird_part/md5/lib/lib-ios-simにコピーする
+
+4 創建third_part/blowfish/includeとthird_part/blowfish/lib/lib-iosとthird_part/blowfish/lib/lib-ios-sim 目録
+  コンパイル blowfish
+  blowfishのヘッド　ファイルスはthird_part/blowfish/includeにコピーする 
+  ios目録の　.a　ファイルスはthird_part/blowfish/lib/lib-iosにコピーする
+  ios-simulator目録の　.a　ファイルスはthird_part/blowfish/lib/lib-ios-simにコピーする
+
+5 yggdrasilとthird_partは同じ目録の中を設置して
+  創建third_part/yggdrasil/includeとthird_part/yggdrasil/lib/lib-iosとthird_part/yggdrasil/lib/lib-ios-sim 目録
+  コンパイル yggdrasil
+  yggdrasilのヘッド　ファイルスはthird_part/yggdrasil/includeにコピーする 
+  ios目録の　.a　ファイルスはthird_part/yggdrasil/lib/lib-iosにコピーする
+  ios-simulator目録の　.a　ファイルスはthird_part/yggdrasil/lib/lib-ios-simにコピーする

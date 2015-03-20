@@ -31,16 +31,16 @@ void test_default_charset_config(void)
 
 void test_charset_base_foo(void)
 {
-	std::string std_str("abcï¿½ï¿½ï¿½");
-	boost::container::string boost_str("abcï¿½ï¿½ï¿½");
+	std::string std_str("abcÄãºÃ");
+	boost::container::string boost_str("abcÄãºÃ");
 
-#ifndef __MINGW32__
-	std::wstring std_wstr(L"abcï¿½ï¿½ï¿½");
-	boost::container::wstring boost_wstr(L"abcï¿½ï¿½ï¿½");
+#ifdef _MSC_VER
+	std::wstring std_wstr(L"abcÄãºÃ");
+	boost::container::wstring boost_wstr(L"abcÄãºÃ");
 #else
-    std::string std_wstr("abcï¿½ï¿½ï¿½");
-	boost::container::string boost_wstr("abcï¿½ï¿½ï¿½");
-#endif // __MINGW32__
+    std::string std_wstr("abcÄãºÃ");
+	boost::container::string boost_wstr("abcÄãºÃ");
+#endif // _MSC_VER
 
 	assert(yggr::charset::charset_base_foo::xchglen(std_str.c_str()) == std_str.size() * 4);
 	assert(yggr::charset::charset_base_foo::xchglen(boost_str.c_str()) == boost_str.size() * 4);
@@ -60,15 +60,16 @@ void test_charset_base_foo(void)
 	memcpy(&boost_lstr[0], &boost_str[0], sizeof(boost::container::string::value_type) * boost_str.size());
 	assert(yggr::charset::charset_base_foo::nptr_rst_norm_lenth(boost_lstr).size() == boost_str.size());
 
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 	std::wstring std_lwstr(100, 0);
 	memcpy(&std_lwstr[0], &std_wstr[0], sizeof(std::wstring::value_type) * std_wstr.size());
 	assert(yggr::charset::charset_base_foo::nptr_rst_norm_lenth(std_lwstr).size() == std_wstr.size());
-#endif // __MINGW32__
 
 	boost::container::wstring boost_lwstr(100, 0);
 	memcpy(&boost_lwstr[0], &boost_wstr[0], sizeof(boost::container::wstring::value_type) * boost_wstr.size());
 	assert(yggr::charset::charset_base_foo::nptr_rst_norm_lenth(boost_lwstr).size() == boost_wstr.size());
+
+#endif // _MSC_VER
 
 	std::cout << "---------test_charset_base_foo end------------" << std::endl;
 }
@@ -78,38 +79,38 @@ void test_charset_converter(void)
 	yggr::charset::charset_converter conv(yggr::charset::default_charset_config::get_default_string_charset_name<char>(),
 											yggr::charset::default_charset_config::get_default_string_charset_name<wchar_t>());
 
-	std::string std_str("abcï¿½ï¿½ï¿½");
+	std::string std_str("abcÄãºÃ");
 	std::wstring std_wstr;
 	conv(std_str, std_wstr);
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 	std::wcout.imbue(std::locale("chs"));
 	std::wcout << std_wstr << std::endl;
-#endif // __MINGW32__
+#endif // _MSC_VER
 
-	boost::container::string boost_str("abcï¿½ï¿½ï¿½");
+	boost::container::string boost_str("abcÄãºÃ");
 	boost::container::wstring boost_wstr;
 	conv(boost_str, boost_wstr);
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 	std::wcout.imbue(std::locale("chs"));
 	std::wcout << boost_wstr << std::endl;
-#endif // __MINGW32__
+#endif // _MSC_VER
 
 	boost::container::string boost_wstr_tmp2;
 	boost::container::wstring boost_wstr2;
 	conv(std_str, boost_wstr2);
 
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 	std::wcout << boost_wstr2 << std::endl;
-#endif // __MINGW32__
+#endif // _MSC_VER
 
 	yggr::charset::charset_converter conv3(yggr::charset::default_charset_config::get_default_string_charset_name<wchar_t>(),
 											yggr::charset::default_charset_config::get_default_string_charset_name<char>());
 
-#ifndef __MINGW32__
-	std::wstring std_wstr3(L"abc_ï¿½ï¿½ï¿½_wchar_t");
+#ifdef _MSC_VER
+	std::wstring std_wstr3(L"abc_ÄãºÃ_wchar_t");
 #else
-    std::string std_wstr3("abc_ï¿½ï¿½ï¿½_wchar_t");
-#endif // __MINGW32__
+    std::string std_wstr3("abc_ÄãºÃ_wchar_t");
+#endif // _MSC_VER
 	std::string std_str3;
 	conv3(std_wstr3, std_str3);
 	std::cout << std_str3 << std::endl;
@@ -121,7 +122,7 @@ void test_charset_foo(void)
 {
 	// char to char same
 	{
-		std::string str("abc1ï¿½ï¿½ï¿½");
+		std::string str("abc1ÄãºÃ");
 
 		const std::string& cref_str = yggr::charset::charset_foo::xchg<std::string>(str); // return cref
 
@@ -135,7 +136,7 @@ void test_charset_foo(void)
 
 	// char to char diff
 	{
-		std::string str("abc2ï¿½ï¿½ï¿½");
+		std::string str("abc2ÄãºÃ");
 
 		//boost::container::string boost_str = yggr::charset::charset_foo::xchg<boost::container::string>(str); //return diff_type
 		boost::container::string tmp(yggr::charset::charset_foo::xchg<boost::container::string>(str));
@@ -149,33 +150,33 @@ void test_charset_foo(void)
 
 	//	wchar to wchar same
 	{
-#ifndef __MINGW32__
-		std::wstring str(L"abcw1ï¿½ï¿½ï¿½");
+#ifdef _MSC_VER
+		std::wstring str(L"abcw1ÄãºÃ");
 #else
-        std::string str("abcw1ï¿½ï¿½ï¿½");
-#endif // __MINGW32__
+        std::string str("abcw1ÄãºÃ");
+#endif // _MSC_VER
 		const std::wstring& cref_str = yggr::charset::charset_foo::xchg<std::wstring>(str); //return cref
 
 		std::wstring& ref_str = const_cast<std::wstring&>(cref_str);
 
 		ref_str[0] = L'd';
 
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 		std::wcout.imbue(std::locale("chs"));
 		std::wcout << ref_str << std::endl;
 		std::wcout << str << std::endl;
 		assert(reinterpret_cast<void*>(&ref_str[0]) == reinterpret_cast<void*>(&str[0]));
-#endif // __MINGW32__
+#endif // _MSC_VER
 
 	}
 
 	// wchar to wchar diff
 	{
-#ifndef __MINGW32__
-		std::wstring str(L"abcw2ï¿½ï¿½ï¿½");
+#ifdef _MSC_VER
+		std::wstring str(L"abcw2ÄãºÃ");
 #else
-        std::string str("abcw2ï¿½ï¿½ï¿½");
-#endif // __MINGW32__
+        std::string str("abcw2ÄãºÃ");
+#endif // _MSC_VER
 
 		//boost::container::wstring boost_str = yggr::charset::charset_foo::xchg<boost::container::wstring>(str);
 		boost::container::wstring tmp(yggr::charset::charset_foo::xchg<boost::container::wstring>(str));
@@ -183,25 +184,25 @@ void test_charset_foo(void)
 
 		str[0] = L'd';
 
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 		std::wcout.imbue(std::locale("chs"));
 		std::wcout << str << std::endl;
 		std::wcout << boost_str << std::endl;
 		assert(reinterpret_cast<void*>(&str[0]) != reinterpret_cast<void*>(&boost_str[0]));
-#endif // __MINGW32__
+#endif // _MSC_VER
 
 	}
 
 	// char to wchar diff
 	{
-		std::string str("abc3ï¿½ï¿½ï¿½");
+		std::string str("abc3ÄãºÃ");
 
         boost::container::wstring tmp(yggr::charset::charset_foo::xchg<boost::container::wstring>(str));
 		boost::container::wstring boost_str(boost::move(tmp)); //change string store type to wstring store type
 
 		std::string rst_str((const char*)&boost_str[0], (const char*)(&boost_str[0] + boost_str.size()));
 
-		assert(str.size() == rst_str.size());
+		assert(str.size() <= rst_str.size());
 		assert(0 == memcmp(&boost_str[0], &str[0], str.size() * sizeof(char)));
 		std::cout << str << std::endl;
 		std::cout << rst_str << std::endl;
@@ -210,8 +211,8 @@ void test_charset_foo(void)
 
 	// wchar to char diff
 	{
-#ifndef __MINGW32__
-		std::wstring str(L"abcw3ï¿½ï¿½ï¿½");
+#ifdef _MSC_VER
+		std::wstring str(L"abcw3ÄãºÃ");
 
         boost::container::string tmp(yggr::charset::charset_foo::xchg<boost::container::string>(str));
 		boost::container::string boost_str(boost::move(tmp)); //change wstring store type to string store type
@@ -225,38 +226,38 @@ void test_charset_foo(void)
 		std::wcout << str << std::endl;
 		std::wcout << rst_str << std::endl;
 		assert(reinterpret_cast<void*>(&str[0]) != reinterpret_cast<void*>(&rst_str[0]));
-#endif // __MINGW32__
+#endif // _MSC_VER
 
 	}
 
 	// string to wstring diff
 	{
-		std::string str("abc4 ï¿½ï¿½ï¿½");
+		std::string str("abc4 ÄãºÃ");
 
 		boost::container::wstring tmp(yggr::charset::charset_foo::xchg<boost::container::wstring>(str, "gbk", "wchar_t"));
 		boost::container::wstring boost_str(boost::move(tmp));
 
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 		std::wcout.imbue(std::locale("chs"));
 		std::wcout << boost_str << std::endl;
-#endif // __MINGW32__
+#endif // _MSC_VER
 		std::cout << str << std::endl;
 	}
 
 	{
-#ifndef __MINGW32__
-		std::wstring str(L"abcw4 ï¿½ï¿½ï¿½");
+#ifdef _MSC_VER
+		std::wstring str(L"abcw4 ÄãºÃ");
 #else
-        std::string str("abcw4 ï¿½ï¿½ï¿½");
-#endif // __MINGW32__
+        std::string str("abcw4 ÄãºÃ");
+#endif // _MSC_VER
 
         boost::container::string tmp(yggr::charset::charset_foo::xchg<boost::container::string>(str, "wchar_t", "gbk"));
 		boost::container::string boost_str(boost::move(tmp));
 
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 		std::wcout.imbue(std::locale("chs"));
 		std::wcout << str << std::endl;
-#endif // __MINGW32__
+#endif // _MSC_VER
 		std::cout << boost_str << std::endl;
 	}
 
@@ -277,65 +278,65 @@ void test_charset_foo(void)
 void test_str_wstr_converter_test(void)
 {
 	{
-		std::string str("abcï¿½ï¿½cdï¿½ï¿½");
+		std::string str("abcÄãcdºÃ");
 		std::wstring wstr(yggr::charset::str_wstr_converter::exchange(str));
 		std::string str2(yggr::charset::str_wstr_converter::exchange(wstr));
 
 		std::cout << str << std::endl;
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 		std::wcout.imbue(std::locale("chs"));
 		std::wcout << wstr << std::endl;
-#endif // __MINGW32__
+#endif // _MSC_VER
 		std::cout << str2 << std::endl;
 	}
 
 	{
-#ifndef __MINGW32__
-		std::wstring wstr(L"abcw1ï¿½ï¿½cdï¿½ï¿½");
+#ifdef _MSC_VER
+		std::wstring wstr(L"abcw1ÄãcdºÃ");
 		std::string str(yggr::charset::str_wstr_converter::exchange(wstr));
 #else
-        std::string wstr("abcw1ï¿½ï¿½cdï¿½ï¿½");
+        std::string wstr("abcw1ÄãcdºÃ");
         std::string str(wstr);
-#endif // __MINGW32__
+#endif // _MSC_VER
 		std::wstring wstr2(yggr::charset::str_wstr_converter::exchange(str));
 
 		std::cout << str << std::endl;
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 		std::wcout.imbue(std::locale("chs"));
 		std::wcout << wstr << std::endl;
 		std::wcout << wstr2 << std::endl;
-#endif // __MINGW32__
+#endif // _MSC_VER
 	}
 
 	{
-		yggr::string str("abc2ï¿½ï¿½cdï¿½ï¿½");
+		yggr::string str("abc2ÄãcdºÃ");
 		yggr::wstring wstr(yggr::charset::str_wstr_converter::exchange(str));
 		yggr::string str2(yggr::charset::str_wstr_converter::exchange(wstr));
 
 		std::cout << str << std::endl;
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 		std::wcout.imbue(std::locale("chs"));
 		std::wcout << wstr << std::endl;
-#endif // __MINGW32__
+#endif // _MSC_VER
 		std::cout << str2 << std::endl;
 	}
 
 	{
-#ifndef __MINGW32__
-		yggr::wstring wstr(L"abcw2ï¿½ï¿½cdï¿½ï¿½");
+#ifdef _MSC_VER
+		yggr::wstring wstr(L"abcw2ÄãcdºÃ");
 		yggr::string str(yggr::charset::str_wstr_converter::exchange(wstr));
 #else
-        yggr::string wstr("abcw2ï¿½ï¿½cdï¿½ï¿½");
+        yggr::string wstr("abcw2ÄãcdºÃ");
 		yggr::string str(wstr);
-#endif // __MINGW32__
+#endif // _MSC_VER
 		yggr::wstring wstr2(yggr::charset::str_wstr_converter::exchange(str));
 
 		std::cout << str << std::endl;
-#ifndef __MINGW32__
+#ifdef _MSC_VER
 		std::wcout.imbue(std::locale("chs"));
 		std::wcout << wstr << std::endl;
 		std::wcout << wstr2 << std::endl;
-#endif // __MINGW32__
+#endif // _MSC_VER
 	}
 
 	std::cout << "---------test_str_wstr_converter_test end------------" << std::endl;

@@ -248,6 +248,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "compatibility-iso";
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = all;
 			};
 			name = Debug;
 		};
@@ -264,6 +265,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "compatibility-iso";
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = all;
 			};
 			name = Release;
 		};

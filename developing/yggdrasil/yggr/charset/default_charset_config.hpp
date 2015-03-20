@@ -38,29 +38,38 @@ THE SOFTWARE.
 
 enum
 {
-	E__wchar_2 =  2,
-	E__wchar_4 =  4,
-	E__wchar_t_byte_size =  sizeof(wchar_t)
+	E__wchar_t_byte_size = sizeof(wchar_t),
+	E__wchar_2 = 2,
+	E__wchar_4 = 4,
+	E__compile_wchar_u32 = 0xffffffff
 };
 
 #define IN_CHARSET_NAME "utf-8"
 #define UTF8_CHARSET_NAME IN_CHARSET_NAME
 
 #if !defined (YGGR_SYS_DEFAULT_STRING_CHARSET)
+#	if defined(_MSC_VER)
 #		define YGGR_SYS_DEFAULT_STRING_CHARSET "gbk"
+#	else
+#		define YGGR_SYS_DEFAULT_STRING_CHARSET "utf-8"
+#	endif //_MSC_VER
 #endif // YGGR_SYS_DEFAULT_STRING_CHARSET
 
-#if !defined (YGGR_SYS_DEFAULT_WSTRING_CHARSET)
+#if !defined (YGGR_SYS_DEFAULT_WSTRING_2_CHARSET)
 #	if _LIBICONV_VERSION < 0x010D
-#		if  ( E__wchar_t_byte_size ==  E__wchar_4 )
-#			define YGGR_SYS_DEFAULT_WSTRING_CHARSET "ucs-4le"
-#		else
-#			define YGGR_SYS_DEFAULT_WSTRING_CHARSET "ucs-2le"
-#		endif // sizeof(wchar_t) == 4
+#		define YGGR_SYS_DEFAULT_WSTRING_2_CHARSET "ucs-2le"
 #	else
-#		define YGGR_SYS_DEFAULT_WSTRING_CHARSET "wchar_t"
+#		define YGGR_SYS_DEFAULT_WSTRING_2_CHARSET "wchar_t"
 #	endif //  _LIBICONV_VERSION < 0x010D
-#endif // YGGR_SYS_DEFAULT_WSTRING_CHARSET
+#endif // YGGR_SYS_DEFAULT_WSTRING_2_CHARSET
+
+#if !defined (YGGR_SYS_DEFAULT_WSTRING_4_CHARSET)
+#	if _LIBICONV_VERSION < 0x010D
+#		define YGGR_SYS_DEFAULT_WSTRING_4_CHARSET "ucs-4le"
+#	else
+#		define YGGR_SYS_DEFAULT_WSTRING_4_CHARSET "wchar_t"
+#	endif //  _LIBICONV_VERSION < 0x010D
+#endif // YGGR_SYS_DEFAULT_WSTRING_2_CHARSET
 
 namespace yggr
 {
@@ -77,7 +86,11 @@ private:
 
 	static inline const char* prv_get_default_string_charset_name(const wchar_t* const)
 	{
-		return YGGR_SYS_DEFAULT_WSTRING_CHARSET;
+		static const char* wstr_charset 
+								= (E__wchar_4 == E__wchar_t_byte_size)? 
+										YGGR_SYS_DEFAULT_WSTRING_4_CHARSET 
+										: YGGR_SYS_DEFAULT_WSTRING_2_CHARSET;
+		return  wstr_charset;
 	}
 
 	static inline string prv_get_str_default_string_charset_name(const char* const)
@@ -87,7 +100,11 @@ private:
 
 	static inline string prv_get_str_default_string_charset_name(const wchar_t* const)
 	{
-		return YGGR_SYS_DEFAULT_WSTRING_CHARSET;
+		static const char* wstr_charset 
+								= (E__wchar_4 == E__wchar_t_byte_size)? 
+										YGGR_SYS_DEFAULT_WSTRING_4_CHARSET 
+										: YGGR_SYS_DEFAULT_WSTRING_2_CHARSET;
+		return string(wstr_charset);
 	}
 
 public:

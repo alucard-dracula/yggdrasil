@@ -446,7 +446,9 @@ public:
 
 	class_name_type class_name(void) const
 	{
-		return class_name_type(_data_cont.type().name());
+		class_name_type cname = _data_cont.type().name();
+		return cname;
+		//return class_name_type(_data_cont.type().name());
 	}
 
 	const u32 cal_type(void) const

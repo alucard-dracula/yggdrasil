@@ -54,7 +54,7 @@ struct A
 	}
 
 	A(int n)
-		:a(n), f(123.5f), str("ï¿½ï¿½ï¿½Hello")
+		:a(n), f(123.5f), str("ÊÀ½çHello")
 	{
 	}
 
@@ -71,7 +71,7 @@ struct A
 	int a;
 	float f;
 	yggr::charset::utf8_string str;
-	
+
 };
 
 void test_foo2(void)

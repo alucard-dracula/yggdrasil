@@ -59,9 +59,9 @@ enum { \
 
 #define ERROR_CODE_MSG_BEGIN() \
 	public: \
-	static const error_type make_error(const yggr::u32& code) { return this_type::make_error(code, err_string_type()); } \
+	inline static const error_type make_error(const yggr::u32& code) { return this_type::make_error(code, err_string_type()); } \
 	\
-	static const error_type make_error(const yggr::u32& code, const err_string_type& other_msg) { \
+	inline static const error_type make_error(const yggr::u32& code, const err_string_type& other_msg) { \
 		err_string_type msg = err_string_type(this_type::class_name()) \
 								+ (other_msg.empty()? "" : " ") \
 								+ other_msg; \

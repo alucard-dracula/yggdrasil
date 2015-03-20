@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D296A00C198C666A00FA3ABF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296A00B198C666A00FA3ABF /* Foundation.framework */; };
 		D296A035198C674500FA3ABF /* BlowFish.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D296A034198C674500FA3ABF /* BlowFish.cpp */; };
 /* End PBXBuildFile section */
 
@@ -24,10 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D296A008198C666A00FA3ABF /* libblowfish-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libblowfish-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D296A00B198C666A00FA3ABF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D296A019198C666A00FA3ABF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		D296A01C198C666A00FA3ABF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		D296A008198C666A00FA3ABF /* libblowfish-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libblowfish-ios.a"; path = "/Users/alucard/project/yggdrasil/tools/blowfish/build/Release-iphoneos/libblowfish-ios.a"; sourceTree = "<absolute>"; };
 		D296A033198C674500FA3ABF /* Blowfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blowfish.h; sourceTree = "<group>"; };
 		D296A034198C674500FA3ABF /* BlowFish.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlowFish.cpp; sourceTree = "<group>"; };
 		D296A036198C674D00FA3ABF /* blowfish-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "blowfish-ios-Prefix.pch"; path = "blowfish-ios/blowfish-ios-Prefix.pch"; sourceTree = "<group>"; };
@@ -38,7 +34,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D296A00C198C666A00FA3ABF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,24 +46,12 @@
 				D296A036198C674D00FA3ABF /* blowfish-ios-Prefix.pch */,
 				D296A032198C672B00FA3ABF /* blowfish-ios */,
 				D296A00A198C666A00FA3ABF /* Frameworks */,
-				D296A009198C666A00FA3ABF /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		D296A009198C666A00FA3ABF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D296A008198C666A00FA3ABF /* libblowfish-ios.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		D296A00A198C666A00FA3ABF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D296A00B198C666A00FA3ABF /* Foundation.framework */,
-				D296A019198C666A00FA3ABF /* XCTest.framework */,
-				D296A01C198C666A00FA3ABF /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -119,7 +102,7 @@
 				en,
 			);
 			mainGroup = D2969FFF198C666A00FA3ABF;
-			productRefGroup = D296A009198C666A00FA3ABF /* Products */;
+			productRefGroup = D2969FFF198C666A00FA3ABF;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -172,10 +155,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
-				VALID_ARCHS = "armv7 armv7s i386";
+				STRIP_STYLE = all;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -205,11 +190,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRIP_STYLE = all;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 armv7s i386";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -225,7 +212,9 @@
 				GCC_PREFIX_HEADER = "blowfish-ios/blowfish-ios-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -241,7 +230,9 @@
 				GCC_PREFIX_HEADER = "blowfish-ios/blowfish-ios-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};

@@ -104,11 +104,6 @@ public:
 		return _start_time;
 	}
 
-//	void swap(BOOST_RV_REF(this_type) right)
-//	{
-//		std::swap(_start_time, boost::forward<time_type>(right._start_time));
-//	}
-
 	void swap(this_type& right)
 	{
 		if(this == &right)

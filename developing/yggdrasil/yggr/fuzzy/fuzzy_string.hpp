@@ -66,11 +66,11 @@ public:
 private:
 	typedef fuzzy_string this_type;
 private:
-	template<typename Char, typename Nil = void>
+	template<typename Char, typename Nil_T = int>
 	struct regex_string;
 
-	template<typename  Nil>
-	struct regex_string<char, Nil>
+	template<typename Nil_T>
+	struct regex_string<char, Nil_T>
 	{
 		inline static const char* space(void)
 		{
@@ -88,8 +88,8 @@ private:
 		}
 	};
 
-	template<typename Nil>
-	struct regex_string<wchar_t,  Nil>
+	template<typename Nil_T>
+	struct regex_string<wchar_t,  Nil_T>
 	{
 		inline static const wchar_t* space(void)
 		{
