@@ -35,14 +35,14 @@ namespace network
 {
 
 // network_sender
-template<typename NetEntity,
-			template<typename _T>
+template<typename NetEntity, yggr::u32 version = 0,
+			template<typename _T, yggr::u32 _version>
 				class Getter = ptr_single>
 class network_sender
 {
 public:
 	typedef NetEntity net_entity_type;
-	typedef Getter<net_entity_type> getter_type;
+	typedef Getter<net_entity_type, version> getter_type;
 	typedef typename getter_type::obj_ptr_type net_entity_ptr_type;
 private:
 	typedef network_sender this_type;

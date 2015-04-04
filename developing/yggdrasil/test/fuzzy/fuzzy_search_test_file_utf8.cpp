@@ -34,7 +34,7 @@ void string_fuzzy_match(void) // not support chs
 
 	try
 	{
-		strf1 = yggr::fuzzy::fuzzy_string::make_fuzzy_string(" b,ef ");
+		strf1 = yggr::fuzzy::fuzzy_string::make_string(" b,ef ");
 		std::cout << strf1 << std::endl;
 	}
 	catch(yggr::fuzzy::fuzzy_string::error_type& e)
@@ -56,7 +56,7 @@ void string_fuzzy_match(void) // not support chs
 	std::string strf2;
 	try
 	{
-		strf2 = yggr::fuzzy::fuzzy_string::make_fuzzy_string(" k po");
+		strf2 = yggr::fuzzy::fuzzy_string::make_string(" k po");
 		std::cout << strf2 << std::endl;
 	}
 	catch(yggr::fuzzy::fuzzy_string::error_type& e)
@@ -84,7 +84,7 @@ void utf8_string_fuzzy_match(void) // support chs
 	yggr::charset::utf8_string strf1;
 	try
 	{
-		strf1 = yggr::fuzzy::fuzzy_string::make_u32_fuzzy_string(" 你 好");
+		strf1 = yggr::fuzzy::fuzzy_string::make_u32_string(" 你 好");
 		std::cout << strf1 << std::endl;
 	}
 	catch(yggr::fuzzy::fuzzy_string::error_type& e)
@@ -107,7 +107,7 @@ void utf8_string_fuzzy_match(void) // support chs
 
 	try
 	{
-		strf2 = yggr::fuzzy::fuzzy_string::make_u32_fuzzy_string(" 你世");
+		strf2 = yggr::fuzzy::fuzzy_string::make_u32_string(" 你世");
 		std::cout << strf2 << std::endl;
 	}
 	catch(yggr::fuzzy::fuzzy_string::error_type& e)

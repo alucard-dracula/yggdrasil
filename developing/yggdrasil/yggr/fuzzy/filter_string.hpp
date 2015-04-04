@@ -1,4 +1,4 @@
-//fuzzy_string.hpp
+//filter_string.hpp
 
 /****************************************************************************
 Copyright (c) 2014-2018 yggdrasil
@@ -24,8 +24,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __YGGR_FUZZY_FUZZY_STRING_HPP__
-#define __YGGR_FUZZY_FUZZY_STRING_HPP__
+#ifndef __YGGR_FUZZY_FILTER_STRING_HPP__
+#define __YGGR_FUZZY_FILTER_STRING_HPP__
 
 #include <yggr/base/yggrdef.h>
 #include <yggr/charset/string.hpp>
@@ -45,9 +45,9 @@ THE SOFTWARE.
 *	example:
 *	try
 *	{
-*		fuzzy_string::foo()
+*		filter_string::foo()
 *	}
-*	catch(fuzzy_string::error_type)
+*	catch(filter_string::error_type)
 *	{
 *	}
 */
@@ -57,14 +57,14 @@ namespace yggr
 namespace fuzzy
 {
 
-class fuzzy_string
+class filter_string
 	: nonable::noncreateable
 {
 public:
 	typedef boost::regex_error error_type;
 
 private:
-	typedef fuzzy_string this_type;
+	typedef filter_string this_type;
 
 private:
 	template<typename Char, typename Nil_T = int>
@@ -80,12 +80,12 @@ private:
 
 		inline static const char* fmt(void)
 		{
-			return "(?1.*)";
+			return "(?1.*)(?2.*)(?3.*|.*)";
 		}
 
 		inline static const char* str_re(void)
 		{
-			return "(\\W+)";
+			return "(^\\W+)|(\\W+$)|(\\W+)";
 		}
 	};
 
@@ -99,12 +99,12 @@ private:
 
 		inline static const wchar_t* fmt(void)
 		{
-			return L"(?1.*)";
+			return L"(?1.*)(?2.*)(?3.*|.*)";
 		}
 
 		inline static const wchar_t* str_re(void)
 		{
-			return L"(\\W+)";
+			return L"(^\\W+)|(\\W+$)|(\\W+)";
 		}
 	};
 
@@ -243,16 +243,7 @@ public:
 
 };
 
-//const char* fuzzy_string::regex_string<char>::space = " ";
-//const char* fuzzy_string::regex_string<char>::fmt = "(?1.*)";
-//const char* fuzzy_string::regex_string<char>::str_re = "(\\W+)";
-//
-//const wchar_t* fuzzy_string::regex_string<wchar_t>::space = L" ";
-//const wchar_t* fuzzy_string::regex_string<wchar_t>::fmt = L"(?1.*)";
-//const wchar_t* fuzzy_string::regex_string<wchar_t>::str_re = L"(\\W+)";
-
-
 } // namespace fuzzy
 } // namespace yggr
 
-#endif //__YGGR_FUZZY_FUZZY_STRING_HPP__
+#endif //__YGGR_FUZZY_FILTER_STRING_HPP__

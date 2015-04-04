@@ -804,6 +804,11 @@ public:
 		path_type fpath(fname.c_str());
 #	endif // _MSC_VER
 		size = boost::filesystem::file_size(fpath);
+		if(!size)
+		{
+			size = 0;
+			return file_size_type(0);
+		}
 
 		buf_type buf(size, 0);
 

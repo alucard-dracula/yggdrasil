@@ -156,6 +156,17 @@ public:
 		return *_ptr;
 	}
 
+	value_type load(void) const
+	{
+		read_lock_type lk(_mutex);
+		if(!_ptr)
+		{
+			throw error_maker_type::make_error(error_maker_type::E_empty_wrap);
+		}
+
+		return *_ptr;
+	}
+
 	this_type& operator=(BOOST_RV_REF(value_type) val)
 	{
 		write_lock_type lk(_mutex);

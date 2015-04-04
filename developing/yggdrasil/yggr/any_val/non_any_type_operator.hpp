@@ -43,7 +43,7 @@ THE SOFTWARE.
 #	pragma warning( disable : 4800)
 #	pragma warning( disable : 4804)
 #	pragma warning( disable : 4805)
-#	pragma warning (disable : 4624)
+#	pragma warning( disable : 4624)
 #endif //_MSC_VER
 
 namespace yggr

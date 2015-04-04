@@ -27,7 +27,12 @@ THE SOFTWARE.
 #ifndef __YGGR_PPEX_CONCAT_HPP__
 #define __YGGR_PPEX_CONCAT_HPP__
 
-#define YGGR_PP_CONCAT(...) __VA_ARGS__
+#ifdef __VA_ARGS__
+#	define YGGR_PP_CONCAT(...) __VA_ARGS__
+#else
+//	self def __args__
+#	define YGGR_PP_CONCAT(__args__) __args__()
+#endif // __VA_ARGS__
 
 namespace yggr
 {

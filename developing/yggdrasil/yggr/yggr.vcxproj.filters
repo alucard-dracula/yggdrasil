@@ -1911,6 +1911,9 @@
     <ClInclude Include="charset\const_strings.hpp">
       <Filter>Header Files\charset</Filter>
     </ClInclude>
+    <ClInclude Include="fuzzy\filter_string.hpp">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="support\log_op_general_foo.ipp">

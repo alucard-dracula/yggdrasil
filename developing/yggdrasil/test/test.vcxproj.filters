@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="maroc\va_args_test.cpp">
+    <ClCompile Include="nsql_database_system\base_bson_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

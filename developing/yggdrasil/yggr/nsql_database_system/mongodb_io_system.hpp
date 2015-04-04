@@ -946,6 +946,15 @@ public:
 		}
 	}
 
+	bool empty(void)
+	{
+		return _save_cmd_queue.empty() 
+				&& _load_cmd_queue.empty()
+				&& _execute_cmd_queue.empty() 
+				&& _all_execute_cmd_queue.empty()
+				&& _remove_cmd_queue.empty();
+	}
+
 	void join(void)
 	{
 		_trd_group.join_all();
@@ -965,6 +974,31 @@ public:
 	bool is_running(void) const
 	{
 		return _brun.load();
+	}
+
+	bool safe_end(void) // must call after join
+	{
+		if(_brun.load())
+		{
+			return false;
+		}
+
+		if(!connect())
+		{
+			return this_type::empty();
+		}
+
+		bool bfree = true;
+		for(;bfree;)
+		{
+			bfree = false;
+			//bfree |= run_reg_command();
+			bfree = run_save_command() || bfree;
+			bfree = run_load_command() || bfree;
+			bfree = run_execute_command() || bfree;
+			bfree = run_all_execute_command() || bfree;
+			bfree = run_remove_command() || bfree;
+		}
 	}
 
 	mongodb_io_system_delegate_ptr_type get_delegate(const inner_process_id_type& id)

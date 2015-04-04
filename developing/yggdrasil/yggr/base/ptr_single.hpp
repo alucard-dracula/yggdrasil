@@ -30,6 +30,7 @@ THE SOFTWARE.
 #include <boost/shared_ptr.hpp>
 #include <boost/weak_ptr.hpp>
 
+#include <yggr/base/yggrdef.h>
 #include <yggr/nonable/noncreateable.hpp>
 #include <yggr/ppex/foo_params.hpp>
 
@@ -40,14 +41,22 @@ THE SOFTWARE.
 
 namespace yggr
 {
-template<typename T>
+template<typename T, yggr::u32 ver = 0>
 class ptr_single 
 	: private nonable::noncreateable
 {
 public:
+	enum
+	{
+		E_ver = ver,
+		E_compile_u32 = 0xffffffff
+	};
+
 	typedef T obj_type;
 	typedef boost::shared_ptr<obj_type> obj_ptr_type;
 	typedef boost::weak_ptr<obj_type> obj_weak_ptr_type;
+
+	typedef yggr::u32 version_type;
 
 private:
 	typedef ptr_single this_type;
@@ -101,6 +110,10 @@ public:
 		obj_ptr_type().swap(this_type::_s_p);
 	}
 
+	static version_type version(void)
+	{
+		return E_ver;
+	}
 private:
 
 	static void create_object(void)
@@ -136,8 +149,8 @@ private:
      static obj_ptr_type _s_p;
 };
 
-template<typename T>
-typename ptr_single<T>::obj_ptr_type ptr_single<T>::_s_p;
+template<typename T, yggr::u32 version>
+typename ptr_single<T, version>::obj_ptr_type ptr_single<T, version>::_s_p;
 
 } // namespace yggr
 

@@ -289,7 +289,7 @@ void test(void)
 	opak_level.save(find_op());
 	std::cout << opak_level.org_buf() << std::endl;
 
-	yggr::nsql_database_system::c_bson b1(opak_level.org_buf()),b2(true);
+	yggr::nsql_database_system::c_bson b1(opak_level.org_buf()), b2(true);
 
     yggr::s64 level = accesser.count(std::string("test"), std::string("foo2"), b1) + 1;
     std::cout << "level = " << level << std::endl;

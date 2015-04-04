@@ -104,8 +104,10 @@ private:
 	typedef typename adapter_mgr_type::reg_def_type adapter_mgr_reg_def_type;
 
 	typedef safe_container::safe_wrap<session_mgr_type> session_mgr_wrap_type;
+public:
 	typedef typename session_mgr_wrap_type::value_ptr_type session_mgr_ptr_type;
 
+private:
 	typedef typename service_handler_type::io_service_pool_type io_service_pool_type;
 
 	typedef Connect_Handler<io_service_pool_type,
