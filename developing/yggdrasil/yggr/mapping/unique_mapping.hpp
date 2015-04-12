@@ -30,7 +30,7 @@ THE SOFTWARE.
 #include <boost/multi_index/key_extractors.hpp>
 #include <yggr/packet/packet_info.hpp>
 #include <yggr/safe_container/safe_multi_index_container.hpp>
-#include <yggr/ppex/concat.hpp>
+//#include <yggr/ppex/concat.hpp>
 #include <yggr/ppex/foo_params.hpp>
 
 // _YGGR_TMP_PP_TEP_SUB_OP(__n__, __val__, )
@@ -65,18 +65,36 @@ private:
 
 private:
 
+	template<typename Tag>
+	static const typename Tag::type& s_prv_get_elem(const value_type& val)
+	{
+		return val.template get<Tag::index>();
+	}
+
 	template<size_type i = 0,
 				size_type isize = value_type::E_length>
 	struct make_indexed_by
 	{
 		typedef make_indexed_by<i + 1, isize> next_type;
+
+		typedef typename value_type::template arg<i> tag_type;
+		typedef typename tag_type::type elem_type;
+
+		// don't use BOOST_MULTI_INDEX_CONST_MEM_FUN at msvc, because this is msvc's bug
+		//typedef boost::multi_index::hashed_unique
+		//		<
+		//			boost::multi_index::tag< typename value_type::template arg<i> >,
+		//			BOOST_MULTI_INDEX_CONST_MEM_FUN(value_type,
+		//                                                const typename value_type::template arg<i>::type&,
+		//                                                template arg_get< value_type::template arg<i> >)
+		//		> now_cont_type;
+
 		typedef boost::multi_index::hashed_unique
 				<
-					boost::multi_index::tag< typename value_type::template arg<i> >,
-					BOOST_MULTI_INDEX_CONST_MEM_FUN(value_type,
-                                                        const typename value_type::template arg<i>::type&,
-                                                        template get<i>)
+					boost::multi_index::tag< tag_type >,
+					boost::multi_index::global_fun< const value_type&, const elem_type&, &this_type::s_prv_get_elem<tag_type> >
 				> now_cont_type;
+
 	public:
 		typedef typename boost::mpl::push_front<typename next_type::type, now_cont_type>::type type;
 	};
@@ -464,10 +482,10 @@ private:
 		typedef TagDst tag_dst_type;
 		typedef typename tag_dst_type::type ret_val_type;
 		typedef std::pair<ret_val_type, bool> ret_type;
-		typedef typename boost::multi_index::index<midx_cont_type, tag_src_type>::type cont_type;
+		typedef typename boost::multi_index::nth_index<midx_cont_type, tag_src_type::index>::type cont_type;
 		typedef typename cont_type::const_iterator cont_iter_type;
 
-		const cont_type& cont = base.template get<tag_src_type>();
+		const cont_type& cont = base.template get<tag_src_type::index>();
 		cont_iter_type iter = cont.find(key);
 		if(iter == cont.end())
 		{

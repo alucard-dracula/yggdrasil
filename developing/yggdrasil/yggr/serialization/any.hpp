@@ -14,15 +14,23 @@
 #include <yggr/serialization/string.hpp>
 #include <yggr/serialization/utf8_string.hpp>
 
-
 #define YGGR_ANY_EXPORT( __type__ ) \
-	YGGR_CLASS_EXPORT(YGGR_PP_CONCAT( yggr::any::holder< __type__ > ))
+	YGGR_CLASS_EXPORT( yggr::any::holder< __type__ > )
 
 #define YGGR_ANY_EXPORT_DECLEAR( __type__ ) \
-	YGGR_CLASS_EXPORT_KEY( YGGR_PP_CONCAT( yggr::any::holder< __type__ > ) )
+	YGGR_CLASS_EXPORT_KEY( yggr::any::holder< __type__ > )
 
 #define YGGR_ANY_EXPORT_IMPL( __type__ ) \
-	YGGR_CLASS_EXPORT_IMPLEMENT( YGGR_PP_CONCAT( yggr::any::holder< __type__ > ) )
+	YGGR_CLASS_EXPORT_IMPLEMENT( yggr::any::holder< __type__ > )
+
+//#define YGGR_ANY_EXPORT( __type__ ) \
+//	YGGR_CLASS_EXPORT(YGGR_PP_CONCAT( yggr::any::holder< __type__ > ))
+//
+//#define YGGR_ANY_EXPORT_DECLEAR( __type__ ) \
+//	YGGR_CLASS_EXPORT_KEY( YGGR_PP_CONCAT( yggr::any::holder< __type__ > ) )
+//
+//#define YGGR_ANY_EXPORT_IMPL( __type__ ) \
+//	YGGR_CLASS_EXPORT_IMPLEMENT( YGGR_PP_CONCAT( yggr::any::holder< __type__ > ) )
 
 // don't export this place 
 //YGGR_ANY_EXPORT(char)

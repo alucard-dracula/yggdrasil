@@ -118,8 +118,30 @@ public:
 		typedef typename mplex::get_arg<params_type, N>::type type;
 	};
 
-	template<typename T, size_type Mode = 0> // now Mode must be 0
+	//template<typename T, size_type Mode = 0> // now Mode must be 0
+	//struct t_arg
+	//{
+	//	enum
+	//	{
+	//		index = boost::mpl::find<vt_t_type, T>::type::pos::value,
+	//		E_compile_u32 = 0xffffffff
+	//	};
+	//	typedef typename arg< index >::type type;
+	//};
+
+	template<typename T, yggr::s_size_type idx = -1, typename Nil_T = void>
 	struct t_arg
+	{
+		enum
+		{
+			index = idx,
+			E_compile_u32 = 0xffffffff
+		};
+		typedef typename arg< index >::type type;
+	};
+
+	template<typename T, typename Nil_T>
+	struct t_arg<T, -1, Nil_T>
 	{
 		enum
 		{
@@ -275,6 +297,34 @@ public:
 	const typename t_arg<T>::type& t_get(void) const
 	{
 		typedef t_arg<T> t_arg_type;
+		return boost::get<t_arg_type::index>(_info);
+	}
+
+	template<typename Arg>
+	typename Arg::type& arg_get(void)
+	{
+		typedef Arg arg_type;
+		return boost::get<arg_type::index>(_info);
+	}
+
+	template<typename Arg>
+	const typename Arg::type& arg_get(void) const
+	{
+		typedef Arg arg_type;
+		return boost::get<arg_type::index>(_info);
+	}
+
+	template<typename T_Arg>
+	typename T_Arg::type& t_arg_get(void)
+	{
+		typedef T_Arg t_arg_type;
+		return boost::get<t_arg_type::index>(_info);
+	}
+
+	template<typename T_Arg>
+	const typename T_Arg::type& t_arg_get(void) const
+	{
+		typedef T_Arg t_arg_type;
 		return boost::get<t_arg_type::index>(_info);
 	}
 
@@ -434,7 +484,7 @@ public:
 
 #define BOOST_PP_LOCAL_MACRO(__n__) \
 	template< YGGR_PP_FOO_TYPES_DEF( __n__ ) > \
-	static this_type make_packet_info( YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_CREF_PARAMS ) ) { \
+	inline static this_type make_packet_info( YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_CREF_PARAMS ) ) { \
 		BOOST_MPL_ASSERT((boost::mpl::less_equal< boost::mpl::long_<__n__>, boost::mpl::long_<this_type::E_length> >)); \
 		return this_type( YGGR_PP_FOO_PARAMS_OP( __n__, YGGR_PP_SYMBOL_COMMA ) ); }
 

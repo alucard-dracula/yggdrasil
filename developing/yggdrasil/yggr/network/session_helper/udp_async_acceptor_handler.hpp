@@ -64,12 +64,12 @@ template<
 			typename Error_Maker
 		>
 class udp_async_acceptor_handler
-	:  public yggr::safe_container::safe_backup_device
+	:  /*public yggr::safe_container::safe_backup_device
 				<
 					yggr::ids::id64_type,
 					typename SessionMgrWrap::value_type::conn_ptr_type,
 					ids::pointer_id_generator<yggr::ids::id64_type>
-				>,
+				>,*/
 		private nonable::noncopyable,
 		private nonable::nonmoveable
 {
@@ -108,14 +108,16 @@ private:
 	typedef typename session_mgr_type::conn_type conn_type;
 	typedef typename session_mgr_type::conn_ptr_type conn_ptr_type;
 
-	typedef yggr::safe_container::safe_backup_device
-				<
-					yggr::ids::id64_type,
-					conn_ptr_type,
-					ids::pointer_id_generator<yggr::ids::id64_type>
-				> base_type;
-	typedef typename base_type::key_type id_type;
-	typedef typename base_type::container_type container_type;
+	//typedef yggr::safe_container::safe_backup_device
+	//			<
+	//				yggr::ids::id64_type,
+	//				conn_ptr_type,
+	//				ids::pointer_id_generator<yggr::ids::id64_type>
+	//			> base_type;
+	//typedef typename base_type::key_type id_type;
+	//typedef typename base_type::container_type container_type;
+
+	typedef typename session_type::id_type id_type;
 
 	typedef boost::shared_ptr<acceptor_type> acceptor_ptr_type;
 
@@ -197,7 +199,7 @@ public:
 
 	~udp_async_acceptor_handler(void)
 	{
-		assert(base_type::backup_empty());
+		//assert(base_type::backup_empty());
 		assert(_udp_socket_pool.empty());
 	}
 
@@ -213,7 +215,7 @@ public:
 
 	void close(void)
 	{
-		base_type::clear_backup(boost::bind(&this_type::handler_clear_backup, this, _1));
+		//base_type::clear_backup(boost::bind(&this_type::handler_clear_backup, this, _1));
 		_udp_socket_pool.close();
 		_collecter.clear();
 	}
@@ -290,7 +292,7 @@ private:
 
 	void accept_complete(endpoint_ptr_type ped, recv_data_type& data)
 	{
-		assert(data.owner_id() == 0);
+		assert(data.owner_id() == id_type());
 
 		socket_ptr_type psocket(_udp_socket_pool.get(_service_pool.get_service()));
 		assert(psocket);
@@ -306,7 +308,7 @@ private:
 
 	void recv_complete(endpoint_ptr_type ped, recv_data_type& data)
 	{
-		assert(data.owner_id() != 0);
+		assert(data.owner_id() != id_type());
 
 		session_mgr_ptr_type psmgr = _session_mgr_wrap.get_shared_ptr();
 		if(!psmgr)
@@ -357,20 +359,20 @@ private:
 		exception::exception::throw_error(e);
 	}
 
-	void handler_clear_backup(container_type& cont) const
-	{
-		typedef typename container_type::iterator iter_type;
+	//void handler_clear_backup(container_type& cont) const
+	//{
+	//	typedef typename container_type::iterator iter_type;
 
-		for(iter_type i = cont.begin(), isize = cont.end(); i != isize; ++i)
-		{
-			if(i->second)
-			{
-				i->second->close();
-			}
-		}
+	//	for(iter_type i = cont.begin(), isize = cont.end(); i != isize; ++i)
+	//	{
+	//		if(i->second)
+	//		{
+	//			i->second->close();
+	//		}
+	//	}
 
-		cont.clear();
-	}
+	//	cont.clear();
+	//}
 
 private:
 	service_pool_type& _service_pool;

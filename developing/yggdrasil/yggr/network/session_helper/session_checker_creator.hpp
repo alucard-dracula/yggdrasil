@@ -33,11 +33,11 @@ THE SOFTWARE.
 
 #define YGGR_PP_REGISTER_SESSION_CHECKER_CREATOR_BEGIN(__start_data_type__, __start_data_name__, __checker_type__) \
 	namespace yggr { namespace network { namespace session_helper { \
-		template<> \
-		struct session_checker_creator<__start_data_type__> { \
+		template< > \
+		struct session_checker_creator< __start_data_type__ > { \
 			typedef __start_data_type__ start_data_type; \
 			typedef __checker_type__ checker_type; \
-			typedef boost::shared_ptr<checker_type> checker_ptr_type; \
+			typedef boost::shared_ptr< checker_type > checker_ptr_type; \
 			checker_ptr_type operator()(const start_data_type& __start_data_name__) const { \
 				return checker_ptr_type(new checker_type(
 /*

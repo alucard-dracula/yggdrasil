@@ -47,6 +47,15 @@ uuid::uuid(void)
 {
 }
 
+//uuid::uuid(const boost::uuids::uuid& right)
+//	: base_type()
+//{
+//	if(right.size() == base_type::E_length)
+//	{
+//		std::copy(right.begin(), right.end(), base_type::_data.begin());
+//	}
+//}
+
 uuid::uuid(const this_type& right)
 	: base_type(right)
 {

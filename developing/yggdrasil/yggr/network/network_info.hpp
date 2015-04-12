@@ -38,6 +38,7 @@ THE SOFTWARE.
 
 #include <yggr/move/move.hpp>
 #include <yggr/charset/string.hpp>
+#include <yggr/time/time.hpp>
 #include <yggr/network/hn_conv.hpp>
 #include <yggr/mplex/iterator_to_value_t.hpp>
 #include <yggr/mplex/strict_sizeof.hpp>
@@ -59,10 +60,15 @@ public:
 	typedef buf_type::value_type buf_val_type;
 
 private:
+	typedef yggr::time::time yggr_time_type;
+
+private:
 	BOOST_STATIC_ASSERT((yggr::mplex::strict_sizeof<buf_val_type>::value == 1));
 
 	BOOST_STATIC_ASSERT(((yggr::mplex::strict_sizeof<owner_id_type>::value == 4)
-						|| (yggr::mplex::strict_sizeof<owner_id_type>::value == 8)));
+						|| (yggr::mplex::strict_sizeof<owner_id_type>::value == 8)
+						|| (yggr::mplex::strict_sizeof<owner_id_type>::value == 16)
+						|| (yggr::mplex::strict_sizeof<owner_id_type>::value == 32)));
 
 	typedef typename buf_type::iterator buf_iter_type;
 	typedef typename buf_type::const_iterator buf_citer_type;
@@ -85,7 +91,7 @@ public:
 	network_info(void)
 		: _buf(E_init_length, 0)
 	{
-		time_type tm = yggr::network::hton(std::time(0));
+		time_type tm = yggr::network::hton(yggr_time_type::s_time_millisecond<time_type>());
 		memcpy(&_buf[0], &tm, E_time_length);
 	}
 
@@ -122,11 +128,11 @@ public:
 	network_info(const owner_id_type& id_owner)
 		: _buf(E_init_length, 0)
 	{
-		time_type tm = yggr::network::hton(std::time(0));
+		time_type tm = yggr::network::hton(yggr_time_type::s_time_millisecond<time_type>());
 		memcpy(&_buf[0], &tm, E_time_length);
 
 		owner_id_type id = yggr::network::hton(id_owner);
-		memcpy(&_buf[E_id_idx_s], &id, E_id_length);
+		memcpy(&_buf[E_id_idx_s], prv_get_owner_id_buf_ptr(id), E_id_length);
 	}
 
 #ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
@@ -200,16 +206,15 @@ public:
 		return *this;
 	}
 
-	void swap(BOOST_RV_REF(this_type) right)
-	{
-#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
-		//_buf.swap(boost::forward<buf_type>(right._buf));
-		_buf.swap(right._buf);
-#else
-		this_type& right_ref = right;
-		_buf.swap(right_ref._buf);
-#endif // YGGR_NO_CXX11_RVALUE_REFERENCES
-	}
+//	void swap(BOOST_RV_REF(this_type) right)
+//	{
+//#ifndef YGGR_NO_CXX11_RVALUE_REFERENCES
+//		_buf.swap(right._buf);
+//#else
+//		this_type& right_ref = right;
+//		_buf.swap(right_ref._buf);
+//#endif // YGGR_NO_CXX11_RVALUE_REFERENCES
+//	}
 
 	void swap(this_type& right)
 	{
@@ -233,8 +238,10 @@ public:
 	template<typename Time>
 	bool time_alive(const Time& tm_step) const
 	{
-		time_type now_tm_step(std::time(0) - this_type::time());
-		return now_tm_step >= time_type() && tm_step >= now_tm_step;
+		time_type tm = yggr_time_type::s_time_millisecond<time_type>();
+
+		time_type now_tm_step(std::abs(tm - this_type::time()));
+		return now_tm_step <= tm_step;
 	}
 
 	bool effective(void) const
@@ -282,26 +289,6 @@ public:
 		return hasher(tmp_buf);
 	}
 
-	//this_type hton(void) const
-	//{
-	//	buf_type tmp_buf(_buf);
-	//	for(buf_iter_type i = tmp_buf.begin(), isize = tmp_buf.end(); i != isize; ++i)
-	//	{
-	//		*i = yggr::network::hton(*i);
-	//	}
-	//	return this_type(boost::move(tmp_buf));
-	//}
-
-	//this_type ntoh(void) const
-	//{
-	//	buf_type tmp_buf(_buf);
-	//	for(buf_iter_type i = tmp_buf.begin(), isize = tmp_buf.end(); i != isize; ++i)
-	//	{
-	//		*i = yggr::network::ntoh(*i);
-	//	}
-	//	return this_type(boost::move(tmp_buf));
-	//}
-
 	time_type time(void) const
 	{
 		return yggr::network::ntoh(*(reinterpret_cast<const time_type*>(&_buf[0])));
@@ -315,7 +302,8 @@ public:
 			return;
 		}
 
-		time_type tm = yggr::network::hton(std::time(0));
+		time_type tm = yggr::network::hton(yggr_time_type::s_time_millisecond<time_type>());
+		
 		memcpy(&_buf[0], &tm, E_time_length);
 	}
 
@@ -329,7 +317,7 @@ public:
 		}
 
 		owner_id_type id = yggr::network::hton(nid);
-		memcpy(reinterpret_cast<buf_val_type*>(&(*(_buf.rbegin() + E_id_idx_len))), &id, E_id_length);
+		memcpy(reinterpret_cast<buf_val_type*>(&(*(_buf.rbegin() + E_id_idx_len))), prv_get_owner_id_buf_ptr(id), E_id_length);
 	}
 
 	owner_id_type owner_id(void) const
@@ -339,10 +327,7 @@ public:
 		return (!effective())
 					? owner_id_type()
 					: yggr::network::ntoh(
-							*(reinterpret_cast
-								<
-									const owner_id_type*
-								>(&(*(_buf.rbegin() + E_id_idx_len)))));
+							prv_get_owner_id(&(*(_buf.rbegin() + E_id_idx_len))));
 	}
 
 	void push(const owner_id_type& nid)
@@ -354,8 +339,13 @@ public:
 			return;
 		}
 		owner_id_type id = yggr::network::hton(nid);
-		_buf.append(reinterpret_cast<const buf_val_type*>(&id),
-						reinterpret_cast<const buf_val_type*>((&id) + 1));
+		const buf_val_type* ptr = prv_get_owner_id_buf_ptr(id);
+		assert(ptr);
+		if(!ptr)
+		{
+			return;
+		}
+		_buf.append(ptr, ptr + E_id_length);
 	}
 
 	owner_id_type pop(void)
@@ -365,9 +355,10 @@ public:
 		{
 			return owner_id_type();
 		}
-
+		
 		owner_id_type tid = yggr::network::ntoh(
-								*(reinterpret_cast
+								prv_get_owner_id(
+								reinterpret_cast
 									<
 										const owner_id_type*
 									>(&(*(_buf.rbegin() + E_id_idx_len)))));
@@ -387,7 +378,7 @@ public:
 		if(idx < _buf.size())
 		{
 			owner_id_type id = yggr::network::hton(nid);
-			memcpy(&_buf[idx], &id, E_id_length);
+			memcpy(&_buf[idx], prv_get_owner_id_buf_ptr(id), E_id_length);
 			return true;
 		}
 
@@ -405,10 +396,7 @@ public:
 		return (!effective())
 					? owner_id_type()
 					: yggr::network::ntoh(
-							*(reinterpret_cast
-								<
-									const owner_id_type*
-								>(&_buf[E_id_idx_s])));
+							prv_get_owner_id(&_buf[E_id_idx_s]));
 	}
 
 	owner_id_type dst(void) const
@@ -422,10 +410,7 @@ public:
 		return (!effective())
 					? owner_id_type()
 					: yggr::network::ntoh(
-							*(reinterpret_cast
-								<
-									const owner_id_type*
-								>(&(*(_buf.rbegin() + E_id_idx_len)))));
+							prv_get_owner_id(&(*(_buf.rbegin() + E_id_idx_len))));
 	}
 
 	//template<typename Handler>
@@ -438,6 +423,79 @@ private:
 	size_type owners_byte_size(void) const
 	{
 		return _buf.size() - E_time_length;
+	}
+
+	template<bool is_class = boost::is_class<owner_id_type>::value, typename Nil_T = void>
+	class owner_id_creator;
+
+	template<typename Nil_T>
+	class owner_id_creator<true, Nil_T>
+	{
+	public:
+		owner_id_type operator()(const buf_val_type* ptr) const
+		{
+			return owner_id_type(ptr, ptr + E_id_length);
+		}
+	};
+
+	template<typename Nil_T>
+	class owner_id_creator<false, Nil_T>
+	{
+	public:
+		owner_id_type operator()(const buf_val_type* ptr) const
+		{
+			owner_id_type owner_id;
+			memcpy(&owner_id, ptr, E_id_length);
+			return owner_id;
+		}
+	};
+
+	owner_id_type prv_get_owner_id(const buf_val_type* ptr) const
+	{
+		typedef owner_id_creator<> creator_type;
+		assert(ptr);
+		creator_type creator;
+		return creator(ptr);
+	}
+
+	template<bool is_class = boost::is_class<owner_id_type>::value, typename Nil_T = void>
+	class owner_id_buffer_pointer;
+
+	template<typename Nil_T>
+	class owner_id_buffer_pointer<true, Nil_T>
+	{
+	public:
+		const buf_val_type* operator()(const owner_id_type& oid) const
+		{
+			return reinterpret_cast<const buf_val_type*>(&(*(oid.begin())));
+		}
+
+		buf_val_type* operator()(owner_id_type& oid) const
+		{
+			return reinterpret_cast<buf_val_type*>(&(*(oid.begin())));
+		}
+	};
+
+	template<typename Nil_T>
+	class owner_id_buffer_pointer<false, Nil_T>
+	{
+	public:
+		const buf_val_type* operator()(const owner_id_type& oid) const
+		{
+			return reinterpret_cast<const buf_val_type*>(&oid);
+		}
+
+		buf_val_type* operator()(owner_id_type& oid) const
+		{
+			return reinterpret_cast<buf_val_type*>(&oid);
+		}
+	};
+
+	const buf_val_type* prv_get_owner_id_buf_ptr(const owner_id_type& oid) const
+	{
+		typedef owner_id_buffer_pointer<> pointer_getter_type;
+		pointer_getter_type getter;
+		return getter(oid);
 	}
 
 private:

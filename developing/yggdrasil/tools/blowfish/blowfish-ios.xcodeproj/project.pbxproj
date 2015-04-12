@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D25E1C591AD952B900BAC0F7 /* blowfish_exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D25E1C571AD952B900BAC0F7 /* blowfish_exception.cpp */; };
 		D296A035198C674500FA3ABF /* BlowFish.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D296A034198C674500FA3ABF /* BlowFish.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,7 +24,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D296A008198C666A00FA3ABF /* libblowfish-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libblowfish-ios.a"; path = "/Users/alucard/project/yggdrasil/tools/blowfish/build/Release-iphoneos/libblowfish-ios.a"; sourceTree = "<absolute>"; };
+		D25E1C561AD952A700BAC0F7 /* libblowfish-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libblowfish-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D25E1C571AD952B900BAC0F7 /* blowfish_exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = blowfish_exception.cpp; sourceTree = "<group>"; };
+		D25E1C581AD952B900BAC0F7 /* blowfish_exception.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = blowfish_exception.hpp; sourceTree = "<group>"; };
 		D296A033198C674500FA3ABF /* Blowfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blowfish.h; sourceTree = "<group>"; };
 		D296A034198C674500FA3ABF /* BlowFish.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlowFish.cpp; sourceTree = "<group>"; };
 		D296A036198C674D00FA3ABF /* blowfish-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "blowfish-ios-Prefix.pch"; path = "blowfish-ios/blowfish-ios-Prefix.pch"; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 				D296A036198C674D00FA3ABF /* blowfish-ios-Prefix.pch */,
 				D296A032198C672B00FA3ABF /* blowfish-ios */,
 				D296A00A198C666A00FA3ABF /* Frameworks */,
+				D25E1C561AD952A700BAC0F7 /* libblowfish-ios.a */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,6 +63,8 @@
 		D296A032198C672B00FA3ABF /* blowfish-ios */ = {
 			isa = PBXGroup;
 			children = (
+				D25E1C571AD952B900BAC0F7 /* blowfish_exception.cpp */,
+				D25E1C581AD952B900BAC0F7 /* blowfish_exception.hpp */,
 				D296A033198C674500FA3ABF /* Blowfish.h */,
 				D296A034198C674500FA3ABF /* BlowFish.cpp */,
 			);
@@ -82,7 +88,7 @@
 			);
 			name = "blowfish-ios";
 			productName = "blowfish-ios";
-			productReference = D296A008198C666A00FA3ABF /* libblowfish-ios.a */;
+			productReference = D25E1C561AD952A700BAC0F7 /* libblowfish-ios.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -117,6 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D296A035198C674500FA3ABF /* BlowFish.cpp in Sources */,
+				D25E1C591AD952B900BAC0F7 /* blowfish_exception.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

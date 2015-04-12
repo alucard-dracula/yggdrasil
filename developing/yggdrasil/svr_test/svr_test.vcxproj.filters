@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="static_task_center_balance_async_svr_test.cpp">
+    <ClCompile Include="uuid_static_task_center_balance_async_svr_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

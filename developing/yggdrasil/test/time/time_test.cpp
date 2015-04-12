@@ -21,7 +21,11 @@ int main()
 	std::strftime( tmp, sizeof(tmp), "%Y-%m-%d %X %A",localtime(&t) );
 	std::cout << tmp << std::endl;
 
+
 	yggr::time::time yggr_tm;
+
+	std::cout << "s = " << yggr_tm.ex_to_second<yggr::u64>() << std::endl;
+	std::cout << "ms = " << yggr_tm.ex_to_millisecond<yggr::u64>() << std::endl;
 
 	std::tm tm = yggr_tm.to_tm();
 
@@ -38,7 +42,16 @@ int main()
 
 	std::cout << yggr_tm.to_string("%Y-%m-%d-%H-%M-%S") << std::endl;
 	std::cout << yggr_tm.to_local_string("%Y-%m-%d-%H-%M-%S") << std::endl;
+
 	char cc = 0;
+
+	yggr::time::time t1;
+	std::cin >> cc;
+
+	yggr::time::time t2;
+
+	std::cout << (t2 - t1).ex_to_millisecond<yggr::u64>() << std::endl; 
+
 	std::cin >> cc;
 	return 0;
 }

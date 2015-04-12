@@ -84,7 +84,7 @@ private:
 public:
 
 	timed_pak_back_id(void)
-		: _id(0), _tm(std::time(0))
+		: _id(), _tm(std::time(0))
 	{
 	}
 

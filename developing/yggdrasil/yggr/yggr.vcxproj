@@ -551,6 +551,7 @@
     <ClInclude Include="server\server.hpp" />
     <ClInclude Include="struct_conv\conv_params_and_packet_info.hpp" />
     <ClInclude Include="struct_support\bind.hpp" />
+    <ClInclude Include="struct_support\iterator.hpp" />
     <ClInclude Include="struct_support\pair.hpp" />
     <ClInclude Include="struct_support\tuple.hpp" />
     <ClInclude Include="support\boost_ver_include.hpp" />

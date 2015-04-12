@@ -80,9 +80,11 @@
 
 typedef yggr::system_controller::ctrl_center ctrl_center_type;
 
-typedef yggr::network::start_data::pak_back_id<yggr::ids::id64_type> test_pak_type;
+//typedef yggr::network::start_data::pak_back_id<yggr::ids::id64_type> test_pak_type;
+typedef yggr::network::start_data::pak_back_id<yggr::ids::uuid> test_pak_type;
 
-typedef yggr::network::network_info<yggr::ids::id64_type> network_info_type;
+//typedef yggr::network::network_info<yggr::ids::id64_type> network_info_type;
+typedef yggr::network::network_info<yggr::ids::uuid> network_info_type;
 typedef yggr::network::support::network_data_info_def<yggr::u32, yggr::u16> data_info_def_type;
 
 typedef yggr::network::network_packet<
@@ -465,7 +467,6 @@ int main(int argc, char* argv[])
 	}
 
 	pclt->stop();
-	pclt->clear();
 	yggr::ptr_single<yggr::exception::exception>::get_ins()->stop();
 	{
 	    clt_ptr_type tmp;

@@ -102,7 +102,7 @@ private:
 		owner_generator_type owner_gen;
 
 		pconn->send_packet(
-							owner_gen(id_type(0)),
+							owner_gen(id_type()),
 							start_data,
 							boost::bind(
 											&session_mgr_type::template handler_create<session_creator_type>,

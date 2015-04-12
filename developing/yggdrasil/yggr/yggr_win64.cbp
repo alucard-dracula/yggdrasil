@@ -180,6 +180,7 @@
 		<Unit filename="file_system\stl_fstream_config.hpp" />
 		<Unit filename="flash_security\security_protocol.hpp" />
 		<Unit filename="flash_security\security_protocol_def.h" />
+		<Unit filename="fuzzy\filter_string.hpp" />
 		<Unit filename="fuzzy\fuzzy_string.hpp" />
 		<Unit filename="geometry\algorithm_helper.hpp" />
 		<Unit filename="geometry\conversion_helper.hpp" />

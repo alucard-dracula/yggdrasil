@@ -65,7 +65,7 @@ public:
     typedef string_type::iterator iterator;
     typedef string_type::const_iterator const_iterator;
 
-private:
+public:
 
 	enum
 	{
@@ -313,6 +313,16 @@ public:
 		return boost::hash_range(_data.begin(), _data.end());
 	}
 
+	inline this_type ntoh(void) const
+	{
+		return *this;
+	}
+
+	inline this_type hton(void) const
+	{
+		return *this;
+	}
+
 public:
 	inline static size_type s_size(void)
 	{
@@ -468,6 +478,33 @@ std::basic_ostream<Char, Traits>&
 	os << std::dec;
 	return os;
 }
+
+#include <yggr/mplex/strict_sizeof.hpp>
+
+namespace yggr
+{
+namespace mplex
+{
+
+template<yggr::u64 LEN>
+struct strict_sizeof< yggr::ids::id_n<LEN> >
+{
+private:
+	typedef yggr::ids::id_n<LEN> value_type;
+
+public:
+	enum
+	{
+		value = value_type::E_length,
+		E_compile_u32 = 0xffffffff
+	};
+
+	BOOST_STATIC_ASSERT((value != 0));
+};
+
+} // namespace mplex
+} // namespace yggr
+
 
 #if defined(_MSC_VER)
 #	pragma warning(pop) // Restore warnings to previous state.

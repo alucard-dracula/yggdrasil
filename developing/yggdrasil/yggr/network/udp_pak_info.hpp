@@ -59,7 +59,7 @@ private:
 
 public:
 	udp_pak_id(void)
-	: _id(0)
+	: _id()
 	{
 	}
 

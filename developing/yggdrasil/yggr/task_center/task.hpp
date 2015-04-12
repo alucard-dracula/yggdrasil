@@ -502,16 +502,23 @@ private:
 } //namespace task_center
 } //namespace yggr
 
+#ifdef __VA_ARGS__
+#define _YGGR_PP_CONCAT_PARAMS() YGGR_PP_CONCAT(Task_Owner_Info_Parser, Task_Data_Info_Parser)
+#else
+#define _YGGR_PP_CONCAT_ARGS() Task_Owner_Info_Parser YGGR_PP_SYMBOL_COMMA() Task_Data_Info_Parser
+#define _YGGR_PP_CONCAT_PARAMS() YGGR_PP_CONCAT(_YGGR_PP_CONCAT_ARGS)
+#endif //__VA_ARGS__
+
 #define _YGGR_PP_TASK_CENTER_TASK_SWAP() \
 	template<YGGR_PP_TEMPLATE_PARAMS_TYPES(4, typename T), \
 				template< YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T1) > class Task_Owner_Info_Parser, \
 				template< YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T2) > class Task_Data_Info_Parser > inline \
 	void swap(YGGR_PP_TEMPLATE_TYPE2(yggr::task_center::task, \
 										YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
-										YGGR_PP_CONCAT(Task_Owner_Info_Parser, Task_Data_Info_Parser))& l, \
+										_YGGR_PP_CONCAT_PARAMS())& l, \
 				YGGR_PP_TEMPLATE_TYPE2(yggr::task_center::task, \
 										YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
-										YGGR_PP_CONCAT(Task_Owner_Info_Parser, Task_Data_Info_Parser))& r) { \
+										_YGGR_PP_CONCAT_PARAMS())& r) { \
 		l.swap(r); } \
 	\
 	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(4, typename T), \
@@ -519,10 +526,10 @@ private:
 				template< YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T2) > class Task_Data_Info_Parser > inline \
 	void swap(BOOST_RV_REF(YGGR_PP_TEMPLATE_TYPE2(yggr::task_center::task, \
 													YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
-													YGGR_PP_CONCAT(Task_Owner_Info_Parser, Task_Data_Info_Parser))) l, \
+													_YGGR_PP_CONCAT_PARAMS())) l, \
 				YGGR_PP_TEMPLATE_TYPE2(yggr::task_center::task, \
 										YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
-										YGGR_PP_CONCAT(Task_Owner_Info_Parser, Task_Data_Info_Parser))& r) { \
+										_YGGR_PP_CONCAT_PARAMS())& r) { \
 		r.swap(l); } \
 	\
 	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(4, typename T), \
@@ -530,11 +537,45 @@ private:
 				template< YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T2) > class Task_Data_Info_Parser > inline \
 	void swap(YGGR_PP_TEMPLATE_TYPE2(yggr::task_center::task, \
 										YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
-										YGGR_PP_CONCAT(Task_Owner_Info_Parser, Task_Data_Info_Parser))& l, \
+										_YGGR_PP_CONCAT_PARAMS())& l, \
 				BOOST_RV_REF(YGGR_PP_TEMPLATE_TYPE2(yggr::task_center::task, \
 														YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
-														YGGR_PP_CONCAT(Task_Owner_Info_Parser, Task_Data_Info_Parser))) r) { \
+														_YGGR_PP_CONCAT_PARAMS())) r) { \
 		l.swap(r); }
+
+//#define _YGGR_PP_TASK_CENTER_TASK_SWAP() \
+//	template<YGGR_PP_TEMPLATE_PARAMS_TYPES(4, typename T), \
+//				template< YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T1) > class Task_Owner_Info_Parser, \
+//				template< YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T2) > class Task_Data_Info_Parser > inline \
+//	void swap(YGGR_PP_TEMPLATE_TYPE2(yggr::task_center::task, \
+//										YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
+//										YGGR_PP_CONCAT(Task_Owner_Info_Parser, Task_Data_Info_Parser))& l, \
+//				YGGR_PP_TEMPLATE_TYPE2(yggr::task_center::task, \
+//										YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
+//										YGGR_PP_CONCAT(Task_Owner_Info_Parser, Task_Data_Info_Parser))& r) { \
+//		l.swap(r); } \
+//	\
+//	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(4, typename T), \
+//				template< YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T1) > class Task_Owner_Info_Parser, \
+//				template< YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T2) > class Task_Data_Info_Parser > inline \
+//	void swap(BOOST_RV_REF(YGGR_PP_TEMPLATE_TYPE2(yggr::task_center::task, \
+//													YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
+//													YGGR_PP_CONCAT(Task_Owner_Info_Parser, Task_Data_Info_Parser))) l, \
+//				YGGR_PP_TEMPLATE_TYPE2(yggr::task_center::task, \
+//										YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
+//										YGGR_PP_CONCAT(Task_Owner_Info_Parser, Task_Data_Info_Parser))& r) { \
+//		r.swap(l); } \
+//	\
+//	template< YGGR_PP_TEMPLATE_PARAMS_TYPES(4, typename T), \
+//				template< YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T1) > class Task_Owner_Info_Parser, \
+//				template< YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T2) > class Task_Data_Info_Parser > inline \
+//	void swap(YGGR_PP_TEMPLATE_TYPE2(yggr::task_center::task, \
+//										YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
+//										YGGR_PP_CONCAT(Task_Owner_Info_Parser, Task_Data_Info_Parser))& l, \
+//				BOOST_RV_REF(YGGR_PP_TEMPLATE_TYPE2(yggr::task_center::task, \
+//														YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
+//														YGGR_PP_CONCAT(Task_Owner_Info_Parser, Task_Data_Info_Parser))) r) { \
+//		l.swap(r); }
 
 namespace std
 {
@@ -547,6 +588,11 @@ namespace boost
 } // namespace boost
 
 #undef _YGGR_PP_TASK_CENTER_TASK_SWAP
+#undef _YGGR_PP_CONCAT_PARAMS
+
+#ifndef __VAR_ARGS__
+#undef _YGGR_PP_CONCAT_ARGS
+#endif // __VAR_ARGS__
 
 #include <yggr/task_center/support/task_real_data_getter.hpp>
 

@@ -189,7 +189,7 @@ typedef yggr::network::ex_linker<yggr::network::network_config::balance_tcpv4_co
 
 typedef yggr::network::connection<linker_type, net_opak_type, net_ipak_type> conn_type;
 
-typedef yggr::network::packets_support::packets_checker<network_info_type, 1000> packets_checker_type;
+typedef yggr::network::packets_support::packets_checker<network_info_type, 5000> packets_checker_type;
 YGGR_PP_REGISTER_SESSION_CHECKER_CREATOR_BEGIN(test_pak_type, test_pak, packets_checker_type)
 	test_pak.id()
 YGGR_PP_REGISTER_SESSION_CHECKER_CREATOR_END()

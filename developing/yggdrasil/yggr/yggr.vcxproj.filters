@@ -1914,6 +1914,9 @@
     <ClInclude Include="fuzzy\filter_string.hpp">
       <Filter>Header Files\fuzzy</Filter>
     </ClInclude>
+    <ClInclude Include="struct_support\iterator.hpp">
+      <Filter>Header Files\struct_support</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="support\log_op_general_foo.ipp">

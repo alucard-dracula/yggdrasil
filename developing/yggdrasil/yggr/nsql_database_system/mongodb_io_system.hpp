@@ -749,6 +749,14 @@ private:
 							this, _1, boost::any(handler)));
 		}
 
+		bool empty(void) const
+		{
+			return  _save_cmd_queue.empty() 
+					&& _load_cmd_queue.empty()
+					&& _execute_cmd_queue.empty() 
+					&& _all_execute_cmd_queue.empty()
+					&& _remove_cmd_queue.empty();
+		}
 	private:
 
 		template<typename Handler>
@@ -946,14 +954,11 @@ public:
 		}
 	}
 
-	bool empty(void)
+	bool empty(void) const
 	{
-		return _save_cmd_queue.empty() 
-				&& _load_cmd_queue.empty()
-				&& _execute_cmd_queue.empty() 
-				&& _all_execute_cmd_queue.empty()
-				&& _remove_cmd_queue.empty();
+		return _delegate_map.use_handler(boost::bind(&this_type::handler_empty, this, _1));
 	}
+
 
 	void join(void)
 	{
@@ -1305,6 +1310,22 @@ private:
 	bool connect(void)
 	{
 		return _accesser.connect();
+	}
+
+	bool handler_empty(const typename delegate_map_type::base_type& cont) const
+	{
+		typedef typename delegate_map_type::base_type cont_type;
+		typedef typename base_type::const_iterator citer_type;
+
+		for(citer_type i = cont.begin(), isize = cont.end(); i != isize; ++i)
+		{
+			if(!(*i).empty())
+			{
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 private:

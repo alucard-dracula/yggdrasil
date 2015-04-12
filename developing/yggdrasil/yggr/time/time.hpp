@@ -51,6 +51,8 @@ class time : public boost::xtime
 public:
 	enum
 	{
+		E_S_TO_MS = 1000,
+		E_NS_TO_MS = 1000000,
 		E_NS_TO_S = 1000000000,
 		E_compile_u32 = 0xffffffff
 	};
@@ -203,7 +205,14 @@ public:
 	const T ex_to_second(void) const
 	{
 		typedef T ret_type;
-		return (ret_type)sec + (ret_type)nsec / E_NS_TO_S;
+		return static_cast<ret_type>(sec) + static_cast<ret_type>(nsec) / E_NS_TO_S;
+	}
+
+	template<typename T>
+	const T ex_to_millisecond(void) const
+	{
+		typedef T ret_type;
+		return static_cast<ret_type>(sec) * E_S_TO_MS + (static_cast<ret_type>(nsec) + 500) / E_NS_TO_MS;
 	}
 
 	operator bool(void) const;
@@ -221,6 +230,20 @@ public:
 	std::string to_string(const std::string& format) const;
 	std::string to_local_string(const std::string& format) const;
 
+	template<typename T>
+	static const T s_time_second(void)
+	{
+		this_type tmp;
+		return tmp.ex_to_second<T>();
+	}
+
+	template<typename T>
+	static const T s_time_millisecond(void)
+	{
+		this_type tmp;
+		return tmp.ex_to_millisecond<T>();
+	}
+
 	static const this_type max_time(void);
 	static const this_type min_time(void);
 
@@ -233,16 +256,16 @@ private:
 	void serialize(Archive& ar, const u32 version)
 	{
 		typedef Archive archive_type;
-		ar & YGGR_SERIALIZE_NAME_NVP("sec", base_type::sec);
-		yggr::u64 tnsec = 0;
+		yggr::s64 tsec = 0;
 		if(typename archive_type::is_saving())
 		{
-			tnsec = base_type::nsec;
+			tsec = base_type::sec;
 		}
-		ar & YGGR_SERIALIZE_NAME_NVP("nsec", tnsec);
+		ar & YGGR_SERIALIZE_NAME_NVP("sec", tsec);
+		ar & YGGR_SERIALIZE_NAME_NVP("nsec", base_type::nsec);
 		if(typename archive_type::is_loading())
 		{
-			base_type::nsec = tnsec;
+			base_type::sec = tsec;
 		}
 	}
 };

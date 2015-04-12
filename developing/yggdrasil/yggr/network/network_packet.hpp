@@ -490,6 +490,13 @@ private:
 } // namespace network
 } // namespace yggr
 
+#ifdef __VA_ARGS__
+#define _YGGR_PP_CONCAT_PARAMS() YGGR_PP_CONCAT(DataInfo_Parser, NetInfo_Parser, Base_Packet)
+#else
+#define _YGGR_PP_CONCAR_ARGS() DataInfo_Parser YGGR_PP_SYMBOL_COMMA() NetInfo_Parser YGGR_PP_SYMBOL_COMMA() Base_Packet
+#define _YGGR_PP_CONCAT_PARAMS() YGGR_PP_CONCAT(_YGGR_PP_CONCAR_ARGS)
+#endif // __VA_ARGS__
+
 #define _YGGR_PP_NETWORK_NETWORK_PACKET_SWAP() \
 	template<YGGR_PP_TEMPLATE_PARAMS_TYPES( 4, typename T ), \
 				template<YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T1)> class DataInfo_Parser, \
@@ -499,10 +506,10 @@ private:
                                 class Base_Packet > inline \
 	void swap(YGGR_PP_TEMPLATE_TYPE2(yggr::network::network_packet, \
 										YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
-										YGGR_PP_CONCAT(DataInfo_Parser, NetInfo_Parser, Base_Packet))& l, \
+										_YGGR_PP_CONCAT_PARAMS())& l, \
 				YGGR_PP_TEMPLATE_TYPE2(yggr::network::network_packet, \
 										YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
-										YGGR_PP_CONCAT(DataInfo_Parser, NetInfo_Parser, Base_Packet))& r) { \
+										_YGGR_PP_CONCAT_PARAMS())& r) { \
 		l.swap(r); } \
 	\
 	template<YGGR_PP_TEMPLATE_PARAMS_TYPES( 4, typename T ), \
@@ -513,10 +520,10 @@ private:
                                 class Base_Packet > inline \
 	void swap(BOOST_RV_REF(YGGR_PP_TEMPLATE_TYPE2(yggr::network::network_packet, \
 													YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
-													YGGR_PP_CONCAT(DataInfo_Parser, NetInfo_Parser, Base_Packet) ) ) l, \
+													_YGGR_PP_CONCAT_PARAMS() ) ) l, \
 				YGGR_PP_TEMPLATE_TYPE2(yggr::network::network_packet, \
 										YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
-										YGGR_PP_CONCAT(DataInfo_Parser, NetInfo_Parser, Base_Packet))& r) { \
+										_YGGR_PP_CONCAT_PARAMS())& r) { \
 		r.swap(l); } \
 	\
 	template<YGGR_PP_TEMPLATE_PARAMS_TYPES( 4, typename T ), \
@@ -527,11 +534,55 @@ private:
                                 class Base_Packet > inline \
 	void swap(YGGR_PP_TEMPLATE_TYPE2(yggr::network::network_packet, \
 										YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
-										YGGR_PP_CONCAT(DataInfo_Parser, NetInfo_Parser, Base_Packet))& l, \
+										_YGGR_PP_CONCAT_PARAMS())& l, \
 				BOOST_RV_REF(YGGR_PP_TEMPLATE_TYPE2(yggr::network::network_packet, \
 														YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
-														YGGR_PP_CONCAT(DataInfo_Parser, NetInfo_Parser, Base_Packet) ) ) r) { \
+														_YGGR_PP_CONCAT_PARAMS() ) ) r) { \
 		l.swap(r); }
+
+//#define _YGGR_PP_NETWORK_NETWORK_PACKET_SWAP() \
+//	template<YGGR_PP_TEMPLATE_PARAMS_TYPES( 4, typename T ), \
+//				template<YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T1)> class DataInfo_Parser, \
+//				template<YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T2)> class NetInfo_Parser, \
+//				template<YGGR_PP_TEMPLATE_PARAMS_TYPES(2, typename _T3), \
+//                            template<YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T33)> class _DataInfo_Parser> \
+//                                class Base_Packet > inline \
+//	void swap(YGGR_PP_TEMPLATE_TYPE2(yggr::network::network_packet, \
+//										YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
+//										YGGR_PP_CONCAT(DataInfo_Parser, NetInfo_Parser, Base_Packet))& l, \
+//				YGGR_PP_TEMPLATE_TYPE2(yggr::network::network_packet, \
+//										YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
+//										YGGR_PP_CONCAT(DataInfo_Parser, NetInfo_Parser, Base_Packet))& r) { \
+//		l.swap(r); } \
+//	\
+//	template<YGGR_PP_TEMPLATE_PARAMS_TYPES( 4, typename T ), \
+//				template<YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T1)> class DataInfo_Parser, \
+//				template<YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T2)> class NetInfo_Parser, \
+//				template<YGGR_PP_TEMPLATE_PARAMS_TYPES(2, typename _T3), \
+//                            template<YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T33)> class _DataInfo_Parser> \
+//                                class Base_Packet > inline \
+//	void swap(BOOST_RV_REF(YGGR_PP_TEMPLATE_TYPE2(yggr::network::network_packet, \
+//													YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
+//													YGGR_PP_CONCAT(DataInfo_Parser, NetInfo_Parser, Base_Packet) ) ) l, \
+//				YGGR_PP_TEMPLATE_TYPE2(yggr::network::network_packet, \
+//										YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
+//										YGGR_PP_CONCAT(DataInfo_Parser, NetInfo_Parser, Base_Packet))& r) { \
+//		r.swap(l); } \
+//	\
+//	template<YGGR_PP_TEMPLATE_PARAMS_TYPES( 4, typename T ), \
+//				template<YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T1)> class DataInfo_Parser, \
+//				template<YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T2)> class NetInfo_Parser, \
+//				template<YGGR_PP_TEMPLATE_PARAMS_TYPES(2, typename _T3), \
+//                            template<YGGR_PP_TEMPLATE_PARAMS_TYPES(1, typename _T33)> class _DataInfo_Parser> \
+//                                class Base_Packet > inline \
+//	void swap(YGGR_PP_TEMPLATE_TYPE2(yggr::network::network_packet, \
+//										YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
+//										YGGR_PP_CONCAT(DataInfo_Parser, NetInfo_Parser, Base_Packet))& l, \
+//				BOOST_RV_REF(YGGR_PP_TEMPLATE_TYPE2(yggr::network::network_packet, \
+//														YGGR_PP_TEMPLATE_PARAMS_TYPES(4, T), \
+//														YGGR_PP_CONCAT(DataInfo_Parser, NetInfo_Parser, Base_Packet) ) ) r) { \
+//		l.swap(r); }
+
 
 namespace std
 {
@@ -544,6 +595,11 @@ namespace boost
 } // namespace boost
 
 #undef _YGGR_PP_NETWORK_NETWORK_PACKET_SWAP
+#undef _YGGR_PP_CONCAT_PARAMS
+
+#ifndef __VAR_ARGS__
+#undef _YGGR_PP_CONCAT_ARGS
+#endif // __VAR_ARGS__
 
 #include <boost/type_traits/is_same.hpp>
 

@@ -121,6 +121,14 @@ public:
 
 	uuid(void);
 
+	template<typename InputIter>
+	uuid(InputIter s, InputIter e)
+		: base_type(s, e)
+	{
+	}
+
+	//explicit uuid(const boost::uuids::uuid& right);
+
 	template<typename Other>
 	explicit uuid(const Other& right)
 		: base_type(right)
@@ -233,6 +241,16 @@ public:
 	}
 
 	virtual std::size_t hash(void) const;
+
+	inline this_type ntoh(void) const
+	{
+		return *this;
+	}
+
+	inline this_type hton(void) const
+	{
+		return *this;
+	}
 
 public:
 	
@@ -408,6 +426,30 @@ std::size_t hash_value(const yggr::ids::uuid& id);
 } // namespace ids
 } // namespace yggr
 #endif // BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP
+
+namespace yggr
+{
+namespace mplex
+{
+
+template<>
+struct strict_sizeof< yggr::ids::uuid >
+{
+private:
+	typedef yggr::ids::uuid value_type;
+
+public:
+	enum
+	{
+		value = value_type::E_length,
+		E_compile_u32 = 0xffffffff
+	};
+
+	BOOST_STATIC_ASSERT((value != 0));
+};
+
+} // namespace mplex
+} // namespace yggr
 
 #ifdef _MSC_VER
 #	pragma warning (pop)

@@ -127,6 +127,7 @@ private:
 
 		if(pak.owner_id())
 		{
+			pconn->close();
 			return;
 		}
 

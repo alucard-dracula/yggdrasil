@@ -411,22 +411,22 @@ inline void BlockToBytes(SBlock const& b, unsigned char* p)
 	unsigned int y;
 	//Right
 	y = b.m_uir;
-	*--p = Byte(y);
+	*--p = ex_to_byte(y);
 	y = b.m_uir >> 8;
-	*--p = Byte(y);
+	*--p = ex_to_byte(y);
 	y = b.m_uir >> 16;
-	*--p = Byte(y);
+	*--p = ex_to_byte(y);
 	y = b.m_uir >> 24;
-	*--p = Byte(y);
+	*--p = ex_to_byte(y);
 	//Left
 	y = b.m_uil;
-	*--p = Byte(y);
+	*--p = ex_to_byte(y);
 	y = b.m_uil >> 8;
-	*--p = Byte(y);
+	*--p = ex_to_byte(y);
 	y = b.m_uil >> 16;
-	*--p = Byte(y);
+	*--p = ex_to_byte(y);
 	y = b.m_uil >> 24;
-	*--p = Byte(y);
+	*--p = ex_to_byte(y);
 }
 
 //Encrypt Buffer in Place

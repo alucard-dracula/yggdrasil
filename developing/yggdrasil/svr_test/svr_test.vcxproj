@@ -287,7 +287,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="static_task_center_balance_async_svr_test.cpp" />
+    <ClCompile Include="uuid_static_task_center_balance_async_svr_test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

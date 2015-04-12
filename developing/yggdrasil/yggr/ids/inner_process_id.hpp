@@ -163,6 +163,16 @@ public:
 		return l >= r;
 	}
 
+	inline this_type ntoh(void) const
+	{
+		return *this;
+	}
+
+	inline this_type hton(void) const
+	{
+		return *this;
+	}
+
 private:
 	friend class boost::serialization::access;
 

@@ -54,17 +54,19 @@ THE SOFTWARE.
 
 #define HN_CONV_64(__type__) \
 	inline __type__ hton( __type__ n ) { \
-	u32* p = reinterpret_cast<u32*>(&n); \
-	p[0] = (htonl(p[0])); \
-	p[1] = (htonl(p[1])); \
-	std::swap(p[0], p[1]); \
+	if(is_little_end()) { \
+		u32* p = reinterpret_cast<u32*>(&n); \
+		p[0] = (htonl(p[0])); \
+		p[1] = (htonl(p[1])); \
+		std::swap(p[0], p[1]); } \
 	return n; } \
 	\
 	inline __type__ ntoh( __type__ n ) { \
-		u32* p = reinterpret_cast<u32*>(&n); \
-		std::swap(p[0], p[1]); \
-		p[0] = (ntohl(p[0])); \
-		p[1] = (ntohl(p[1])); \
+		if(is_little_end()) { \
+			u32* p = reinterpret_cast<u32*>(&n); \
+			std::swap(p[0], p[1]); \
+			p[0] = (ntohl(p[0])); \
+			p[1] = (ntohl(p[1])); } \
 		return n; }
 
 namespace yggr
@@ -72,6 +74,10 @@ namespace yggr
 namespace network
 {
 
+static union { unsigned long mylong; char c[4]; } endian_test = { 0x623f3f6c };
+
+static inline bool is_little_end(void) { return endian_test.c[0] == 'l';}
+static inline bool is_big_end(void) { return endian_test.c[0] == 'b';}
 // 1byte see template foo
 
 HN_CONV_8(char)

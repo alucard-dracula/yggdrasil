@@ -489,7 +489,7 @@ private:
 public:
 
 	udp_packet_wrap(void)
-		: _id(0),
+		: _id(),
 			_now_count(0),
 			_count(0),
 			_type(udp_packet_type::E_unknow),
@@ -499,7 +499,7 @@ public:
 	}
 
 	udp_packet_wrap(BOOST_RV_REF(data_buf_type) buf)
-		: _id(0),
+		: _id(),
 			_now_count(0),
 			_count(0),
 			_type(udp_packet_type::E_unknow),
@@ -509,7 +509,7 @@ public:
 	}
 
 	udp_packet_wrap(const data_buf_type& buf)
-		: _id(0),
+		: _id(),
 			_now_count(0),
 			_count(0),
 			_type(udp_packet_type::E_unknow),
@@ -520,7 +520,7 @@ public:
 
 	template<typename Packet>
 	udp_packet_wrap(const Packet& pak)
-		: _id(0),
+		: _id(),
 			_now_count(0),
 			_count(0),
 			_type(udp_packet_type::E_unknow),

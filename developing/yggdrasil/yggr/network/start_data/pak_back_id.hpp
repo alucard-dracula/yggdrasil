@@ -84,7 +84,7 @@ private:
 public:
 
 	pak_back_id(void)
-		: _id(0)
+		: _id()
 	{
 	}
 

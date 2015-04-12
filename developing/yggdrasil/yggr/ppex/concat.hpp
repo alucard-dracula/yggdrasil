@@ -30,7 +30,7 @@ THE SOFTWARE.
 #ifdef __VA_ARGS__
 #	define YGGR_PP_CONCAT(...) __VA_ARGS__
 #else
-//	self def __args__
+//	self def __args__()
 #	define YGGR_PP_CONCAT(__args__) __args__()
 #endif // __VA_ARGS__
 

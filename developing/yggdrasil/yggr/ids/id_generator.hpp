@@ -128,7 +128,6 @@ struct pointer_id_generator
 	{
 		return reinterpret_cast<id_type>(ptr);
 	}
-
 };
 
 
