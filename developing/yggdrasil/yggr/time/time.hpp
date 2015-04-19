@@ -60,8 +60,8 @@ public:
 	typedef boost::system_time system_type;
 
 	typedef boost::xtime base_type;
-	typedef base_type::xtime_sec_t xtime_sec_t;
-	typedef base_type::xtime_nsec_t xtime_nsec_t;
+	typedef base_type::xtime_sec_t xtime_sec_t; // sys32 32bit sys64 64bit
+	typedef base_type::xtime_nsec_t xtime_nsec_t; // win 32bit linux 64bit
 
 private:
 	typedef time this_type;
@@ -257,15 +257,18 @@ private:
 	{
 		typedef Archive archive_type;
 		yggr::s64 tsec = 0;
+		yggr::s64 tnsec = 0;
 		if(typename archive_type::is_saving())
 		{
-			tsec = base_type::sec;
+			tsec = base_type::sec; // sys32 32bit sys64 64bit
+			tnsec = base_type::nsec; // win 32bit linux 64bit
 		}
 		ar & YGGR_SERIALIZE_NAME_NVP("sec", tsec);
-		ar & YGGR_SERIALIZE_NAME_NVP("nsec", base_type::nsec);
+		ar & YGGR_SERIALIZE_NAME_NVP("nsec",tnsec);
 		if(typename archive_type::is_loading())
 		{
 			base_type::sec = tsec;
+			base_type::nsec = tnsec;
 		}
 	}
 };

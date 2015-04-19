@@ -44,6 +44,7 @@ THE SOFTWARE.
 #include <boost/shared_ptr.hpp>
 #include <boost/any.hpp>
 
+#include <boost/mpl/at.hpp>
 #include <boost/mpl/vector.hpp>
 #include <boost/mpl/find.hpp>
 #include <boost/mpl/erase.hpp>
@@ -108,11 +109,11 @@ private:
 					YGGR_PP_TEMPLATE_DEFAULT_PARAMS_LEN,
 					Val)
 			> tmp_vt_t_type;
-	typedef typename boost::mpl::find<tmp_vt_t_type, null_type>::type i;
+	typedef typename boost::mpl::find<tmp_vt_t_type, null_type>::type i_t;
 	typedef typename boost::mpl::erase
 						<
 							tmp_vt_t_type,
-							i,
+							i_t,
 							typename boost::mpl::end<tmp_vt_t_type>::type
 						>::type vt_t_type;
 
@@ -236,7 +237,7 @@ private:
 		typedef params_type t_conts_type;
 		void operator()(value_ptr_type pval) const
 		{
-			typedef typename boost::mpl::at_c<t_conts_type, i>::type cont_ptr_type;
+			typedef  typename boost::mpl::at_c<t_conts_type, i>::type cont_ptr_type;
 			typedef typename yggr::mplex::pointer_to_value_t<cont_ptr_type>::type cont_type;
 
 			typedef typename cont_type::value_type val_type;

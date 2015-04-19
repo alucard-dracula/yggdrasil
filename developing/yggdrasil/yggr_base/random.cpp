@@ -34,7 +34,8 @@ THE SOFTWARE.
 namespace yggr
 {
 
-random::base_generator_type random::_s_base_gen(42u);
+//random::base_generator_type random::_s_base_gen(42u);
+random::base_generator_type random::_s_base_gen(std::time(0));
 
 void random::init(void)
 {

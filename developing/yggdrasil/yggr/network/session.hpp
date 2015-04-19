@@ -678,6 +678,7 @@ private:
 			return false;
 		}
 
+		pak.update_time();
 		ex_error_type ex_err((*chk_ptr)(pak));
 
 		if(ex_err)
@@ -693,7 +694,7 @@ private:
 			return false;
 		}
 
-		pak.update_time();
+		//pak.update_time();
 		return cry_ptr->template encrypt<send_data_type>(pak);
 	}
 

@@ -106,10 +106,10 @@ int main(int argc, char* argv[])
 {
 	yggr::random::init();
 	test1();
-	test2();
-	test3();
+	//test2();
+	//test3();
 
-	test4();
+	//test4();
 
 	std::cout << "end" << std::endl;
 	char cc = 0;

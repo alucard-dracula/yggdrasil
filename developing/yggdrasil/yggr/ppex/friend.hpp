@@ -39,6 +39,7 @@ THE SOFTWARE.
 #	define YGGR_PP_FRIEND_TYPENAME( __type__ ) friend typename __type__
 #	define YGGR_PP_FRIEND_DEDUCED_TYPENAME( __type__ ) friend typename __type__
 #elif defined(__APPLE__) || defined (__APPLE_CC__)
+//#	define YGGR_PP_FRIEND_TYPEDEF( __type__ ) friend class yggr::traits< __type__ >::type
 #	define YGGR_PP_FRIEND_TYPENAME( __type__ ) friend typename yggr::traits< __type__ >::type
 #	define YGGR_PP_FRIEND_DEDUCED_TYPENAME( __type__ ) friend typename yggr::traits< typename __type__ >::type
 #else
