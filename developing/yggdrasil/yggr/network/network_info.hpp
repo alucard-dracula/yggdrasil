@@ -303,7 +303,7 @@ public:
 		}
 
 		time_type tm = yggr::network::hton(yggr_time_type::s_time_millisecond<time_type>());
-		
+
 		memcpy(&_buf[0], &tm, E_time_length);
 	}
 
@@ -355,7 +355,7 @@ public:
 		{
 			return owner_id_type();
 		}
-		
+
 		/*owner_id_type tid = yggr::network::ntoh(
 								prv_get_owner_id(
 								reinterpret_cast
@@ -381,7 +381,7 @@ public:
 
 		owner_id_type tid = yggr::network::ntoh(
 			prv_get_owner_id(&(*(_buf.rbegin() + E_id_idx_len))));
-		
+
 		_buf.erase(_buf.end() - E_id_length, _buf.end());
 		return tid;
 		//return owner_id_type();
