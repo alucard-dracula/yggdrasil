@@ -175,7 +175,7 @@ private:
 #			else
 				const real_data_type* pdata = getter.template operator()<real_data_type>(task);
 #			endif // _MSC_VER
-				
+
 				_seh_handler(task.owner_info(), pdata);
 			}
 		}
@@ -433,7 +433,7 @@ public:
 		//}
 #endif // defined(_MSC_VER) && defined(_DEBUG)
 		calculator_contaniner_type pcont;
-		
+
 		bool bget = _reg_map.get_value(key, pcont);
 
 		if(bget && pcont)
