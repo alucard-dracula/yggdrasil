@@ -356,14 +356,35 @@ public:
 			return owner_id_type();
 		}
 		
-		owner_id_type tid = yggr::network::ntoh(
+		/*owner_id_type tid = yggr::network::ntoh(
 								prv_get_owner_id(
 								reinterpret_cast
 									<
 										const owner_id_type*
-									>(&(*(_buf.rbegin() + E_id_idx_len)))));
+									>(&(*(_buf.rbegin() + E_id_idx_len)))));*/
+
+		//buf_val_type* pbuf = &(*(_buf.rbegin() + E_id_idx_len));
+		////const buf_val_type* pcbuf = pbuf;
+		//owner_id_type* poid = reinterpret_cast<owner_id_type*>(pbuf);
+
+		//owner_id_type tid = yggr::network::ntoh(
+		//	prv_get_owner_id(
+		//	reinterpret_cast
+		//	<
+		//	const owner_id_type*
+		//	>(const_cast<const buf_val_type*>(pbuf))));
+
+		//owner_id_type tid = yggr::network::ntoh(
+		//	prv_get_owner_id(pbuf));
+
+
+
+		owner_id_type tid = yggr::network::ntoh(
+			prv_get_owner_id(&(*(_buf.rbegin() + E_id_idx_len))));
+		
 		_buf.erase(_buf.end() - E_id_length, _buf.end());
 		return tid;
+		//return owner_id_type();
 	}
 
 	bool modify(size_type nidx, const owner_id_type& nid)

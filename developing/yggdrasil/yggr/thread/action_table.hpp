@@ -422,15 +422,15 @@ public:
 		//class_name_getter_type name_getter;
 		calculator_id_type key(id_parser_type::template get_task_id<task_type>(task));
 #if defined(_MSC_VER) && defined(_DEBUG)
-		{
-		if(!key.empty())
-		{
-			if(key[0] == 0xdd)
-			{
-				assert(false);
-			}
-		}
-		}
+		//{
+		//if(!key.empty())
+		//{
+		//	if(key[0] == 0xdd)
+		//	{
+		//		assert(false);
+		//	}
+		//}
+		//}
 #endif // defined(_MSC_VER) && defined(_DEBUG)
 		calculator_contaniner_type pcont;
 		
@@ -442,15 +442,15 @@ public:
 		}
 
 #if defined(_MSC_VER) && defined(_DEBUG)
-		{
-		if(!key.empty())
-		{
-			if(key[0] == 0xdd)
-			{
-				assert(false);
-			}
-		}
-		}
+		//{
+		//if(!key.empty())
+		//{
+		//	if(key[0] == 0xdd)
+		//	{
+		//		assert(false);
+		//	}
+		//}
+		//}
 #endif // defined(_MSC_VER) && defined(_DEBUG)
 	}
 
