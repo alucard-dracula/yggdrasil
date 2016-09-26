@@ -305,7 +305,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="nsql_database_system\mongo_find_test_level.cpp" />
+    <ClCompile Include="encryption_tool\blowfish_tool_test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

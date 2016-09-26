@@ -160,6 +160,20 @@ protected:
 
 	typedef std::pair<bool, file_hash_map_iter_type> get_file_result_type;
 
+	template<typename T>
+	struct array_deleter
+	{
+		void operator()(T* x) const
+		{
+			if(!x)
+			{
+				return;
+			}
+
+			delete []x;
+		}
+	};
+
 private:
 
 	ERROR_MAKER_BEGIN("base_file_mgr")
@@ -461,6 +475,8 @@ private:
 
 	bool load_info(void)
 	{
+		typedef array_deleter<i_info_pak_type::buf_val_type> array_deleter_type;
+
 		file_size_type file_count = 0;
 
 		try
@@ -482,7 +498,8 @@ private:
 			return false;
 		}
 
-		std::auto_ptr<i_info_pak_type::buf_val_type> pt(new i_info_pak_type::buf_val_type[info_buf_size]);
+		//std::auto_ptr<i_info_pak_type::buf_val_type> pt(new i_info_pak_type::buf_val_type[info_buf_size]);
+		boost::shared_ptr<i_info_pak_type::buf_val_type> pt(new i_info_pak_type::buf_val_type[info_buf_size], array_deleter_type());
 
 		fs.read(pt.get(), info_buf_size);
 

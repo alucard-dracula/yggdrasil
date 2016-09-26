@@ -73,6 +73,23 @@ public:
 	};
 
 private:
+	template<typename T>
+	struct key_deleter
+	{
+		void operator()(T* x) const
+		{
+			if(!x)
+			{
+				return;
+			}
+
+			delete []x;
+		}
+	};
+
+	typedef key_deleter<val_type> key_deleter_type;
+
+private:
 	typedef blowfish_tool this_type;
 
 public:
@@ -97,7 +114,7 @@ public:
 	blowfish_tool(const this_type& right)
 		: _key_size(right._key_size), _pblowfish(right._pblowfish)
 	{
-		key_type key(new val_type[_key_size]);
+		key_type key(new val_type[_key_size], key_deleter_type());
 		_key.swap(key);
 
 		memcpy(&(*_key), &(*right._key), _key_size);
@@ -111,7 +128,7 @@ public:
 	{
 		if(this == &right) {return *this;}
 		_key_size = right._key_size;
-		key_type key(new val_type[_key_size]);
+		key_type key(new val_type[_key_size], key_deleter_type());
 		_key.swap(key);
 
 		memcpy(_key.get(), right._key.get(), _key_size);
@@ -127,7 +144,7 @@ public:
 			return;
 		}
 
-		key_type key(new val_type[_key_size]);
+		key_type key(new val_type[_key_size], key_deleter_type());
 		memcpy(&(*key), &(oth_key[0]), _key_size);
 		_key.swap(key);
 
@@ -137,7 +154,7 @@ public:
 
 	void init(void)
 	{
-		key_type key(new val_type[_key_size]);
+		key_type key(new val_type[_key_size], key_deleter_type());
 		_key.swap(key);
 		for(u32 i = 0; i != _key_size; ++i)
 		{

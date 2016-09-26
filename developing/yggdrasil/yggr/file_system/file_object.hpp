@@ -49,6 +49,21 @@ public:
 	typedef std::string buf_type;
 	typedef buf_type::value_type buf_val_type;
 
+private:
+	template<typename T>
+	struct array_deleter
+	{
+		void operator()(T* x) const
+		{
+			if(!x)
+			{
+				return;
+			}
+
+			delete []x;
+		}
+	};
+
 public:
 
 	file_object(void)
@@ -114,8 +129,11 @@ public:
 	template<typename InputStream>
 	void load(InputStream& is, const file_size_type& offset)
 	{
+		typedef array_deleter<char> array_deleter_type;
+
 		file_size_type now_size = base_type::size();
-		std::auto_ptr<char> pt(new char[base_type::size()]);
+		//std::auto_ptr<char> pt(new char[base_type::size()]);
+		boost::shared_ptr<char> pt(new char[base_type::size()], array_deleter_type());
 
 		try
 		{
