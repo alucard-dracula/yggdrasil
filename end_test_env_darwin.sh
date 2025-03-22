@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ ! "${DYLD_LIBRARY_PATH_TMP}" = "" ]; then
+    DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH_TMP}
+    DYLD_LIBRARY_PATH_TMP=""
+    export DYLD_LIBRARY_PATH
+    export DYLD_LIBRARY_PATH_TMP
+fi
+

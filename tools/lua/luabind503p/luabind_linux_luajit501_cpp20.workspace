@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_workspace_file>
+	<Workspace title="luabind_linux_luajit501_cpp20">
+		<Project filename="include/include_linux_luajit501_cpp20.cbp" active="1"/>
+		<Project filename="luabind/luabind_linux_luajit501_cpp20.cbp">
+			<Depends filename="luabind_static/luabind_static_linux_luajit501_cpp20.cbp"/>
+			<Depends filename="luabind_static_ts/luabind_static_ts_linux_luajit501_cpp20.cbp"/>
+		</Project>
+		<Project filename="luabind_static/luabind_static_linux_luajit501_cpp20.cbp"/>
+		<Project filename="luabind_static_ts/luabind_static_ts_linux_luajit501_cpp20.cbp"/>
+		<Project filename="luabind_test/luabind_test_linux_luajit501_cpp20.cbp">
+			<Depends filename="luabind/luabind_linux_luajit501_cpp20.cbp"/>
+		</Project>
+	</Workspace>
+</CodeBlocks_workspace_file>

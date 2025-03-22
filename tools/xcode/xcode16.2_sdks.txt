@@ -1,0 +1,31 @@
+DriverKit SDKs:
+	DriverKit 24.2                	-sdk driverkit24.2
+
+iOS SDKs:
+	iOS 18.2                      	-sdk iphoneos18.2
+
+iOS Simulator SDKs:
+	Simulator - iOS 18.2          	-sdk iphonesimulator18.2
+
+macOS SDKs:
+	macOS 15.2                    	-sdk macosx15.2
+	macOS 15.2                    	-sdk macosx15.2
+
+tvOS SDKs:
+	tvOS 18.2                     	-sdk appletvos18.2
+
+tvOS Simulator SDKs:
+	Simulator - tvOS 18.2         	-sdk appletvsimulator18.2
+
+visionOS SDKs:
+	visionOS 2.2                  	-sdk xros2.2
+
+visionOS Simulator SDKs:
+	Simulator - visionOS 2.2      	-sdk xrsimulator2.2
+
+watchOS SDKs:
+	watchOS 11.2                  	-sdk watchos11.2
+
+watchOS Simulator SDKs:
+	Simulator - watchOS 11.2      	-sdk watchsimulator11.2
+

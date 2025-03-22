@@ -1,0 +1,19 @@
+regex_textlow.exe
+
+openssl 还有可能没清理干净
+
+diff --git a/crypto/rand/rand_lib.c b/crypto/rand/rand_lib.c
+index fc47dc97a2..ad452504e6 100644
+--- a/crypto/rand/rand_lib.c
++++ b/crypto/rand/rand_lib.c
+@@ -74,7 +74,7 @@ int RAND_set_rand_engine(ENGINE *engine)
+ 
+ void rand_cleanup_int(void)
+ {
+-    const RAND_METHOD *meth = RAND_get_rand_method();
++    const RAND_METHOD *meth = default_RAND_meth;
+     if (meth && meth->cleanup)
+         meth->cleanup();
+     RAND_set_rand_method(NULL);
+
+https://github.com/openssl/openssl/issues/3128

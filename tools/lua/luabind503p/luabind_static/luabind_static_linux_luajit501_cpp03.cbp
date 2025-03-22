@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="luabind_static"/>
+		<Option pch_mode="2"/>
+		<Option compiler="gcc"/>
+		<Build>
+			<Target title="Debug-x32">
+				<Option output="$(WORKSPACE_DIR)/lib/libluabind09$(#COMPILER_VERSION_TAG)-s-d" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-O0"/>
+					<Add option="-g"/>
+					<Add option="-fno-elide-constructors"/>
+					<Add option="-D_DEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+				</Linker>
+			</Target>
+			<Target title="Release-x32">
+				<Option output="$(WORKSPACE_DIR)/lib/libluabind09$(#COMPILER_VERSION_TAG)-s" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-O3"/>
+					<Add option="-DNDEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+					<Add option="-s"/>
+				</Linker>
+			</Target>
+			<Target title="Debug-x64">
+				<Option output="$(WORKSPACE_DIR)/lib64/libluabind09$(#COMPILER_VERSION_TAG)-s-d" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-O0"/>
+					<Add option="-g"/>
+					<Add option="-fno-elide-constructors"/>
+					<Add option="-D_DEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+				</Linker>
+			</Target>
+			<Target title="Release-x64">
+				<Option output="$(WORKSPACE_DIR)/lib64/libluabind09$(#COMPILER_VERSION_TAG)-s" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-O3"/>
+					<Add option="-DNDEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+					<Add option="-s"/>
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="all" targets="Debug-x32;Release-x32;Debug-x64;Release-x64;"/>
+			<Add alias="all_libonly" targets="Debug-x32;Release-x32;Debug-x64;Release-x64;"/>
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall"/>
+			<Add option="-std=c++03"/>
+			<Add option="-fexceptions"/>
+			<Add option="-Wno-sign-compare"/>
+			<Add option="-Wno-comment"/>
+			<Add option="-Wno-enum-compare"/>
+			<Add option="-Wno-unused-local-typedefs"/>
+			<Add option="-Wno-multichar"/>
+			<Add option="-Werror=return-type"/>
+			<Add option="-Werror=endif-labels"/>
+			<Add option="-fdata-sections"/>
+			<Add option="-ffunction-sections"/>
+			<Add option="-fno-strict-aliasing"/>
+			<Add option="-Werror=reorder"/>
+			<Add option="-ftemplate-backtrace-limit=0"/>
+			<Add option="-fPIC"/>
+			<Add directory="../include"/>
+		</Compiler>
+		<Unit filename="../luabind/class.cpp"/>
+		<Unit filename="../luabind/class_info.cpp"/>
+		<Unit filename="../luabind/class_registry.cpp"/>
+		<Unit filename="../luabind/class_rep.cpp"/>
+		<Unit filename="../luabind/create_class.cpp"/>
+		<Unit filename="../luabind/error.cpp"/>
+		<Unit filename="../luabind/exception_handler.cpp"/>
+		<Unit filename="../luabind/function.cpp"/>
+		<Unit filename="../luabind/inheritance.cpp"/>
+		<Unit filename="../luabind/link_compatibility.cpp"/>
+		<Unit filename="../luabind/object_rep.cpp"/>
+		<Unit filename="../luabind/open.cpp"/>
+		<Unit filename="../luabind/pcall.cpp"/>
+		<Unit filename="../luabind/scope.cpp"/>
+		<Unit filename="../luabind/stack_content_by_name.cpp"/>
+		<Unit filename="../luabind/weak_ref.cpp"/>
+		<Unit filename="../luabind/wrapper_base.cpp"/>
+		<Extensions>
+			<lib_finder disable_auto="1"/>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

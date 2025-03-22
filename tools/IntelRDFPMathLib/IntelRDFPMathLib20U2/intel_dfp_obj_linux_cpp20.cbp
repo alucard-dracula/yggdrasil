@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="intel_dfp_obj"/>
+		<Option pch_mode="2"/>
+		<Option compiler="gcc"/>
+		<Build>
+			<Target title="Debug-x32">
+				<Option output="$(WORKSPACE_DIR)/lib/lib$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)-d" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-O0"/>
+					<Add option="-g"/>
+					<Add option="-D_DEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+				</Linker>
+			</Target>
+			<Target title="Release-x32">
+				<Option output="$(WORKSPACE_DIR)/lib/lib$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-O3"/>
+					<Add option="-DNDEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+					<Add option="-s"/>
+				</Linker>
+			</Target>
+			<Target title="Debug-x64">
+				<Option output="$(WORKSPACE_DIR)/lib64/lib$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)-d" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-O0"/>
+					<Add option="-g"/>
+					<Add option="-D_DEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+				</Linker>
+			</Target>
+			<Target title="Release-x64">
+				<Option output="$(WORKSPACE_DIR)/lib64/lib$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-O3"/>
+					<Add option="-DNDEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+					<Add option="-s"/>
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="all" targets="Debug-x32;Release-x32;Debug-x64;Release-x64;"/>
+			<Add alias="all_libonly" targets="Debug-x32;Release-x32;Debug-x64;Release-x64;"/>
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall"/>
+			<Add option="-std=c++20"/>
+			<Add option="-fexceptions"/>
+			<Add option="-Wno-sign-compare"/>
+			<Add option="-Wno-comment"/>
+			<Add option="-Wno-enum-compare"/>
+			<Add option="-Wno-unused-local-typedefs"/>
+			<Add option="-Wno-multichar"/>
+			<Add option="-Werror=return-type"/>
+			<Add option="-Werror=endif-labels"/>
+			<Add option="-fdata-sections"/>
+			<Add option="-ffunction-sections"/>
+			<Add option="-fno-strict-aliasing"/>
+			<Add option="-fPIC"/>
+			<Add option="-DBID_USING_IN_MONGODB"/>
+			<Add directory="./LIBRARY/float128"/>
+			<Add directory="./LIBRARY/src"/>
+		</Compiler>
+		<Unit filename="./LIBRARY/float128/dpml_exception.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_four_over_pi.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_ux_bessel.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_ux_bid.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_ux_cbrt.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_ux_erf.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_ux_exp.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_ux_int.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_ux_inv_hyper.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_ux_inv_trig.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_ux_lgamma.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_ux_log.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_ux_mod.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_ux_ops.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_ux_ops_64.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_ux_pow.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_ux_powi.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_ux_sqrt.c"/>
+		<Unit filename="./LIBRARY/float128/dpml_ux_trig.c"/>
+		<Unit filename="./LIBRARY/float128/sqrt_tab_t.c"/>
+		<Unit filename="./LIBRARY/src/bid128.c"/>
+		<Unit filename="./LIBRARY/src/bid128_2_str_tables.c"/>
+		<Unit filename="./LIBRARY/src/bid128_acos.c"/>
+		<Unit filename="./LIBRARY/src/bid128_acosh.c"/>
+		<Unit filename="./LIBRARY/src/bid128_add.c"/>
+		<Unit filename="./LIBRARY/src/bid128_asin.c"/>
+		<Unit filename="./LIBRARY/src/bid128_asinh.c"/>
+		<Unit filename="./LIBRARY/src/bid128_atan.c"/>
+		<Unit filename="./LIBRARY/src/bid128_atan2.c"/>
+		<Unit filename="./LIBRARY/src/bid128_atanh.c"/>
+		<Unit filename="./LIBRARY/src/bid128_cbrt.c"/>
+		<Unit filename="./LIBRARY/src/bid128_compare.c"/>
+		<Unit filename="./LIBRARY/src/bid128_cos.c"/>
+		<Unit filename="./LIBRARY/src/bid128_cosh.c"/>
+		<Unit filename="./LIBRARY/src/bid128_div.c"/>
+		<Unit filename="./LIBRARY/src/bid128_erf.c"/>
+		<Unit filename="./LIBRARY/src/bid128_erfc.c"/>
+		<Unit filename="./LIBRARY/src/bid128_exp.c"/>
+		<Unit filename="./LIBRARY/src/bid128_exp10.c"/>
+		<Unit filename="./LIBRARY/src/bid128_exp2.c"/>
+		<Unit filename="./LIBRARY/src/bid128_expm1.c"/>
+		<Unit filename="./LIBRARY/src/bid128_fdimd.c"/>
+		<Unit filename="./LIBRARY/src/bid128_fma.c"/>
+		<Unit filename="./LIBRARY/src/bid128_fmod.c"/>
+		<Unit filename="./LIBRARY/src/bid128_frexp.c"/>
+		<Unit filename="./LIBRARY/src/bid128_hypot.c"/>
+		<Unit filename="./LIBRARY/src/bid128_ldexp.c"/>
+		<Unit filename="./LIBRARY/src/bid128_lgamma.c"/>
+		<Unit filename="./LIBRARY/src/bid128_llrintd.c"/>
+		<Unit filename="./LIBRARY/src/bid128_log.c"/>
+		<Unit filename="./LIBRARY/src/bid128_log10.c"/>
+		<Unit filename="./LIBRARY/src/bid128_log1p.c"/>
+		<Unit filename="./LIBRARY/src/bid128_log2.c"/>
+		<Unit filename="./LIBRARY/src/bid128_logb.c"/>
+		<Unit filename="./LIBRARY/src/bid128_logbd.c"/>
+		<Unit filename="./LIBRARY/src/bid128_lrintd.c"/>
+		<Unit filename="./LIBRARY/src/bid128_lround.c"/>
+		<Unit filename="./LIBRARY/src/bid128_minmax.c"/>
+		<Unit filename="./LIBRARY/src/bid128_modf.c"/>
+		<Unit filename="./LIBRARY/src/bid128_mul.c"/>
+		<Unit filename="./LIBRARY/src/bid128_nearbyintd.c"/>
+		<Unit filename="./LIBRARY/src/bid128_next.c"/>
+		<Unit filename="./LIBRARY/src/bid128_nexttowardd.c"/>
+		<Unit filename="./LIBRARY/src/bid128_noncomp.c"/>
+		<Unit filename="./LIBRARY/src/bid128_pow.c"/>
+		<Unit filename="./LIBRARY/src/bid128_quantexpd.c"/>
+		<Unit filename="./LIBRARY/src/bid128_quantize.c"/>
+		<Unit filename="./LIBRARY/src/bid128_rem.c"/>
+		<Unit filename="./LIBRARY/src/bid128_round_integral.c"/>
+		<Unit filename="./LIBRARY/src/bid128_scalb.c"/>
+		<Unit filename="./LIBRARY/src/bid128_scalbl.c"/>
+		<Unit filename="./LIBRARY/src/bid128_sin.c"/>
+		<Unit filename="./LIBRARY/src/bid128_sinh.c"/>
+		<Unit filename="./LIBRARY/src/bid128_sqrt.c"/>
+		<Unit filename="./LIBRARY/src/bid128_string.c"/>
+		<Unit filename="./LIBRARY/src/bid128_tan.c"/>
+		<Unit filename="./LIBRARY/src/bid128_tanh.c"/>
+		<Unit filename="./LIBRARY/src/bid128_tgamma.c"/>
+		<Unit filename="./LIBRARY/src/bid128_to_int16.c"/>
+		<Unit filename="./LIBRARY/src/bid128_to_int32.c"/>
+		<Unit filename="./LIBRARY/src/bid128_to_int64.c"/>
+		<Unit filename="./LIBRARY/src/bid128_to_int8.c"/>
+		<Unit filename="./LIBRARY/src/bid128_to_uint16.c"/>
+		<Unit filename="./LIBRARY/src/bid128_to_uint32.c"/>
+		<Unit filename="./LIBRARY/src/bid128_to_uint64.c"/>
+		<Unit filename="./LIBRARY/src/bid128_to_uint8.c"/>
+		<Unit filename="./LIBRARY/src/bid32_acos.c"/>
+		<Unit filename="./LIBRARY/src/bid32_acosh.c"/>
+		<Unit filename="./LIBRARY/src/bid32_add.c"/>
+		<Unit filename="./LIBRARY/src/bid32_asin.c"/>
+		<Unit filename="./LIBRARY/src/bid32_asinh.c"/>
+		<Unit filename="./LIBRARY/src/bid32_atan.c"/>
+		<Unit filename="./LIBRARY/src/bid32_atan2.c"/>
+		<Unit filename="./LIBRARY/src/bid32_atanh.c"/>
+		<Unit filename="./LIBRARY/src/bid32_cbrt.c"/>
+		<Unit filename="./LIBRARY/src/bid32_compare.c"/>
+		<Unit filename="./LIBRARY/src/bid32_cos.c"/>
+		<Unit filename="./LIBRARY/src/bid32_cosh.c"/>
+		<Unit filename="./LIBRARY/src/bid32_div.c"/>
+		<Unit filename="./LIBRARY/src/bid32_erf.c"/>
+		<Unit filename="./LIBRARY/src/bid32_erfc.c"/>
+		<Unit filename="./LIBRARY/src/bid32_exp.c"/>
+		<Unit filename="./LIBRARY/src/bid32_exp10.c"/>
+		<Unit filename="./LIBRARY/src/bid32_exp2.c"/>
+		<Unit filename="./LIBRARY/src/bid32_expm1.c"/>
+		<Unit filename="./LIBRARY/src/bid32_fdimd.c"/>
+		<Unit filename="./LIBRARY/src/bid32_fma.c"/>
+		<Unit filename="./LIBRARY/src/bid32_fmod.c"/>
+		<Unit filename="./LIBRARY/src/bid32_frexp.c"/>
+		<Unit filename="./LIBRARY/src/bid32_hypot.c"/>
+		<Unit filename="./LIBRARY/src/bid32_ldexp.c"/>
+		<Unit filename="./LIBRARY/src/bid32_lgamma.c"/>
+		<Unit filename="./LIBRARY/src/bid32_llrintd.c"/>
+		<Unit filename="./LIBRARY/src/bid32_log.c"/>
+		<Unit filename="./LIBRARY/src/bid32_log10.c"/>
+		<Unit filename="./LIBRARY/src/bid32_log1p.c"/>
+		<Unit filename="./LIBRARY/src/bid32_log2.c"/>
+		<Unit filename="./LIBRARY/src/bid32_logb.c"/>
+		<Unit filename="./LIBRARY/src/bid32_logbd.c"/>
+		<Unit filename="./LIBRARY/src/bid32_lrintd.c"/>
+		<Unit filename="./LIBRARY/src/bid32_lround.c"/>
+		<Unit filename="./LIBRARY/src/bid32_minmax.c"/>
+		<Unit filename="./LIBRARY/src/bid32_modf.c"/>
+		<Unit filename="./LIBRARY/src/bid32_mul.c"/>
+		<Unit filename="./LIBRARY/src/bid32_nearbyintd.c"/>
+		<Unit filename="./LIBRARY/src/bid32_next.c"/>
+		<Unit filename="./LIBRARY/src/bid32_nexttowardd.c"/>
+		<Unit filename="./LIBRARY/src/bid32_noncomp.c"/>
+		<Unit filename="./LIBRARY/src/bid32_pow.c"/>
+		<Unit filename="./LIBRARY/src/bid32_quantexpd.c"/>
+		<Unit filename="./LIBRARY/src/bid32_quantize.c"/>
+		<Unit filename="./LIBRARY/src/bid32_rem.c"/>
+		<Unit filename="./LIBRARY/src/bid32_round_integral.c"/>
+		<Unit filename="./LIBRARY/src/bid32_scalb.c"/>
+		<Unit filename="./LIBRARY/src/bid32_scalbl.c"/>
+		<Unit filename="./LIBRARY/src/bid32_sin.c"/>
+		<Unit filename="./LIBRARY/src/bid32_sinh.c"/>
+		<Unit filename="./LIBRARY/src/bid32_sqrt.c"/>
+		<Unit filename="./LIBRARY/src/bid32_string.c"/>
+		<Unit filename="./LIBRARY/src/bid32_sub.c"/>
+		<Unit filename="./LIBRARY/src/bid32_tan.c"/>
+		<Unit filename="./LIBRARY/src/bid32_tanh.c"/>
+		<Unit filename="./LIBRARY/src/bid32_tgamma.c"/>
+		<Unit filename="./LIBRARY/src/bid32_to_bid128.c"/>
+		<Unit filename="./LIBRARY/src/bid32_to_bid64.c"/>
+		<Unit filename="./LIBRARY/src/bid32_to_int16.c"/>
+		<Unit filename="./LIBRARY/src/bid32_to_int32.c"/>
+		<Unit filename="./LIBRARY/src/bid32_to_int64.c"/>
+		<Unit filename="./LIBRARY/src/bid32_to_int8.c"/>
+		<Unit filename="./LIBRARY/src/bid32_to_uint16.c"/>
+		<Unit filename="./LIBRARY/src/bid32_to_uint32.c"/>
+		<Unit filename="./LIBRARY/src/bid32_to_uint64.c"/>
+		<Unit filename="./LIBRARY/src/bid32_to_uint8.c"/>
+		<Unit filename="./LIBRARY/src/bid64_acos.c"/>
+		<Unit filename="./LIBRARY/src/bid64_acosh.c"/>
+		<Unit filename="./LIBRARY/src/bid64_add.c"/>
+		<Unit filename="./LIBRARY/src/bid64_asin.c"/>
+		<Unit filename="./LIBRARY/src/bid64_asinh.c"/>
+		<Unit filename="./LIBRARY/src/bid64_atan.c"/>
+		<Unit filename="./LIBRARY/src/bid64_atan2.c"/>
+		<Unit filename="./LIBRARY/src/bid64_atanh.c"/>
+		<Unit filename="./LIBRARY/src/bid64_cbrt.c"/>
+		<Unit filename="./LIBRARY/src/bid64_compare.c"/>
+		<Unit filename="./LIBRARY/src/bid64_cos.c"/>
+		<Unit filename="./LIBRARY/src/bid64_cosh.c"/>
+		<Unit filename="./LIBRARY/src/bid64_div.c"/>
+		<Unit filename="./LIBRARY/src/bid64_erf.c"/>
+		<Unit filename="./LIBRARY/src/bid64_erfc.c"/>
+		<Unit filename="./LIBRARY/src/bid64_exp.c"/>
+		<Unit filename="./LIBRARY/src/bid64_exp10.c"/>
+		<Unit filename="./LIBRARY/src/bid64_exp2.c"/>
+		<Unit filename="./LIBRARY/src/bid64_expm1.c"/>
+		<Unit filename="./LIBRARY/src/bid64_fdimd.c"/>
+		<Unit filename="./LIBRARY/src/bid64_fma.c"/>
+		<Unit filename="./LIBRARY/src/bid64_fmod.c"/>
+		<Unit filename="./LIBRARY/src/bid64_frexp.c"/>
+		<Unit filename="./LIBRARY/src/bid64_hypot.c"/>
+		<Unit filename="./LIBRARY/src/bid64_ldexp.c"/>
+		<Unit filename="./LIBRARY/src/bid64_lgamma.c"/>
+		<Unit filename="./LIBRARY/src/bid64_llrintd.c"/>
+		<Unit filename="./LIBRARY/src/bid64_log.c"/>
+		<Unit filename="./LIBRARY/src/bid64_log10.c"/>
+		<Unit filename="./LIBRARY/src/bid64_log1p.c"/>
+		<Unit filename="./LIBRARY/src/bid64_log2.c"/>
+		<Unit filename="./LIBRARY/src/bid64_logb.c"/>
+		<Unit filename="./LIBRARY/src/bid64_logbd.c"/>
+		<Unit filename="./LIBRARY/src/bid64_lrintd.c"/>
+		<Unit filename="./LIBRARY/src/bid64_lround.c"/>
+		<Unit filename="./LIBRARY/src/bid64_minmax.c"/>
+		<Unit filename="./LIBRARY/src/bid64_modf.c"/>
+		<Unit filename="./LIBRARY/src/bid64_mul.c"/>
+		<Unit filename="./LIBRARY/src/bid64_nearbyintd.c"/>
+		<Unit filename="./LIBRARY/src/bid64_next.c"/>
+		<Unit filename="./LIBRARY/src/bid64_nexttowardd.c"/>
+		<Unit filename="./LIBRARY/src/bid64_noncomp.c"/>
+		<Unit filename="./LIBRARY/src/bid64_pow.c"/>
+		<Unit filename="./LIBRARY/src/bid64_quantexpd.c"/>
+		<Unit filename="./LIBRARY/src/bid64_quantize.c"/>
+		<Unit filename="./LIBRARY/src/bid64_rem.c"/>
+		<Unit filename="./LIBRARY/src/bid64_round_integral.c"/>
+		<Unit filename="./LIBRARY/src/bid64_scalb.c"/>
+		<Unit filename="./LIBRARY/src/bid64_scalbl.c"/>
+		<Unit filename="./LIBRARY/src/bid64_sin.c"/>
+		<Unit filename="./LIBRARY/src/bid64_sinh.c"/>
+		<Unit filename="./LIBRARY/src/bid64_sqrt.c"/>
+		<Unit filename="./LIBRARY/src/bid64_string.c"/>
+		<Unit filename="./LIBRARY/src/bid64_tan.c"/>
+		<Unit filename="./LIBRARY/src/bid64_tanh.c"/>
+		<Unit filename="./LIBRARY/src/bid64_tgamma.c"/>
+		<Unit filename="./LIBRARY/src/bid64_to_bid128.c"/>
+		<Unit filename="./LIBRARY/src/bid64_to_int16.c"/>
+		<Unit filename="./LIBRARY/src/bid64_to_int32.c"/>
+		<Unit filename="./LIBRARY/src/bid64_to_int64.c"/>
+		<Unit filename="./LIBRARY/src/bid64_to_int8.c"/>
+		<Unit filename="./LIBRARY/src/bid64_to_uint16.c"/>
+		<Unit filename="./LIBRARY/src/bid64_to_uint32.c"/>
+		<Unit filename="./LIBRARY/src/bid64_to_uint64.c"/>
+		<Unit filename="./LIBRARY/src/bid64_to_uint8.c"/>
+		<Unit filename="./LIBRARY/src/bid_binarydecimal.c"/>
+		<Unit filename="./LIBRARY/src/bid_convert_data.c"/>
+		<Unit filename="./LIBRARY/src/bid_decimal_data.c"/>
+		<Unit filename="./LIBRARY/src/bid_decimal_globals.c"/>
+		<Unit filename="./LIBRARY/src/bid_dpd.c"/>
+		<Unit filename="./LIBRARY/src/bid_feclearexcept.c"/>
+		<Unit filename="./LIBRARY/src/bid_fegetexceptflag.c"/>
+		<Unit filename="./LIBRARY/src/bid_feraiseexcept.c"/>
+		<Unit filename="./LIBRARY/src/bid_fesetexceptflag.c"/>
+		<Unit filename="./LIBRARY/src/bid_fetestexcept.c"/>
+		<Unit filename="./LIBRARY/src/bid_flag_operations.c"/>
+		<Unit filename="./LIBRARY/src/bid_from_int.c"/>
+		<Unit filename="./LIBRARY/src/bid_round.c"/>
+		<Unit filename="./LIBRARY/src/strtod128.c"/>
+		<Unit filename="./LIBRARY/src/strtod32.c"/>
+		<Unit filename="./LIBRARY/src/strtod64.c"/>
+		<Unit filename="./LIBRARY/src/wcstod128.c"/>
+		<Unit filename="./LIBRARY/src/wcstod32.c"/>
+		<Unit filename="./LIBRARY/src/wcstod64.c"/>
+		<Unit filename="LIBRARY/src/bid128_llquantexpd.c"/>
+		<Unit filename="LIBRARY/src/bid128_llround.c"/>
+		<Unit filename="LIBRARY/src/bid128_quantumd.c"/>
+		<Unit filename="LIBRARY/src/bid32_llquantexpd.c"/>
+		<Unit filename="LIBRARY/src/bid32_llround.c"/>
+		<Unit filename="LIBRARY/src/bid32_quantumd.c"/>
+		<Unit filename="LIBRARY/src/bid64_llquantexpd.c"/>
+		<Unit filename="LIBRARY/src/bid64_llround.c"/>
+		<Unit filename="LIBRARY/src/bid64_quantumd.c"/>
+		<Extensions>
+			<lib_finder disable_auto="1"/>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

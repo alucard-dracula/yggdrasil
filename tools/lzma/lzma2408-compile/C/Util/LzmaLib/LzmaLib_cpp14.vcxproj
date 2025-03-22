@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup Label="ProjectConfigurations">
+		<ProjectConfiguration Include="Debug|Win32">
+			<Configuration>Debug</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug|x64">
+			<Configuration>Debug</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|Win32">
+			<Configuration>Release</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|x64">
+			<Configuration>Release</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+	</ItemGroup>
+	<PropertyGroup Label="Globals">
+		<SccProjectName>
+		</SccProjectName>
+		<SccLocalPath>
+		</SccLocalPath>
+		<RootNamespace>LzmaLib</RootNamespace>
+		<ProjectName>LzmaLib</ProjectName>
+		<WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+		<ConfigurationType>DynamicLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+		<ConfigurationType>DynamicLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+		<ConfigurationType>DynamicLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>true</UseDebugLibraries>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+		<ConfigurationType>DynamicLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>true</UseDebugLibraries>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
+	<ImportGroup Label="ExtensionSettings">
+</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props"/>
+	</ImportGroup>
+	<PropertyGroup Label="UserMacros"/>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)bin/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lzma-vc$(PlatformToolsetVersion)-d</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)bin64/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lzma-vc$(PlatformToolsetVersion)-d</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)bin/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lzma-vc$(PlatformToolsetVersion)</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)bin64/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lzma-vc$(PlatformToolsetVersion)</TargetName>
+	</PropertyGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<ClCompile>
+			<Optimization>Disabled</Optimization>
+			<WarningLevel>Level3</WarningLevel>
+			<PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LZMALIB_EXPORT;COMPRESS_MF_MT;LZMALIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+			<LanguageStandard>stdcpp14</LanguageStandard>
+		</ClCompile>
+		<Bscmake>
+			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+		</Bscmake>
+		<Link>
+			<LinkDLL>true</LinkDLL>
+			<SubSystem>Windows</SubSystem>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<ImportLibrary>$(SolutionDir)lib/lib$(TargetName).lib</ImportLibrary>
+			<AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+			<ModuleDefinitionFile>.\LzmaLib.def</ModuleDefinitionFile>
+			<ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<ClCompile>
+			<Optimization>Disabled</Optimization>
+			<WarningLevel>Level3</WarningLevel>
+			<PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_WINDOWS;_USRDLL;LZMALIB_EXPORT;COMPRESS_MF_MT;LZMALIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+			<LanguageStandard>stdcpp14</LanguageStandard>
+		</ClCompile>
+		<Bscmake>
+			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+		</Bscmake>
+		<Link>
+			<LinkDLL>true</LinkDLL>
+			<SubSystem>Windows</SubSystem>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<ImportLibrary>$(SolutionDir)lib64/lib$(TargetName).lib</ImportLibrary>
+			<AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+			<ModuleDefinitionFile>.\LzmaLib.def</ModuleDefinitionFile>
+			<ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<ClCompile>
+			<Optimization>MaxSpeed</Optimization>
+			<WarningLevel>Level3</WarningLevel>
+			<PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;LZMALIB_EXPORT;LZMALIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<CallingConvention>FastCall</CallingConvention>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<LanguageStandard>stdcpp14</LanguageStandard>
+		</ClCompile>
+		<Bscmake>
+			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+		</Bscmake>
+		<Link>
+			<LinkDLL>true</LinkDLL>
+			<SubSystem>Windows</SubSystem>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<ImportLibrary>$(SolutionDir)lib/lib$(TargetName).lib</ImportLibrary>
+			<AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+			<ModuleDefinitionFile>.\LzmaLib.def</ModuleDefinitionFile>
+			<ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
+			<GenerateDebugInformation>false</GenerateDebugInformation>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<OptimizeReferences>true</OptimizeReferences>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<ClCompile>
+			<Optimization>MaxSpeed</Optimization>
+			<WarningLevel>Level3</WarningLevel>
+			<PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_WINDOWS;_USRDLL;LZMALIB_EXPORT;LZMALIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<CallingConvention>FastCall</CallingConvention>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<LanguageStandard>stdcpp14</LanguageStandard>
+		</ClCompile>
+		<Bscmake>
+			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+		</Bscmake>
+		<Link>
+			<LinkDLL>true</LinkDLL>
+			<SubSystem>Windows</SubSystem>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<ImportLibrary>$(SolutionDir)lib64/lib$(TargetName).lib</ImportLibrary>
+			<AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+			<ModuleDefinitionFile>.\LzmaLib.def</ModuleDefinitionFile>
+			<ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
+			<GenerateDebugInformation>false</GenerateDebugInformation>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<OptimizeReferences>true</OptimizeReferences>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemGroup>
+		<CustomBuild Include="LzmaLib.def"/>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="LzmaLibExports.c"/>
+		<ClCompile Include="..\..\Alloc.c"/>
+		<ClCompile Include="..\..\CpuArch.c"/>
+		<ClCompile Include="..\..\LzFind.c"/>
+		<ClCompile Include="..\..\LzFindMt.c"/>
+		<ClCompile Include="..\..\LzFindOpt.c"/>
+		<ClCompile Include="..\..\LzmaDec.c"/>
+		<ClCompile Include="..\..\LzmaEnc.c"/>
+		<ClCompile Include="..\..\LzmaLib.c"/>
+		<ClCompile Include="..\..\Threads.c"/>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="Precomp.h"/>
+		<ClInclude Include="..\..\7zTypes.h"/>
+		<ClInclude Include="..\..\7zWindows.h"/>
+		<ClInclude Include="..\..\Alloc.h"/>
+		<ClInclude Include="..\..\Compiler.h"/>
+		<ClInclude Include="..\..\CpuArch.h"/>
+		<ClInclude Include="..\..\LzFind.h"/>
+		<ClInclude Include="..\..\LzFindMt.h"/>
+		<ClInclude Include="..\..\LzHash.h"/>
+		<ClInclude Include="..\..\LzmaDec.h"/>
+		<ClInclude Include="..\..\LzmaEnc.h"/>
+		<ClInclude Include="..\..\LzmaLib.h"/>
+		<ClInclude Include="..\..\Precomp.h"/>
+		<ClInclude Include="..\..\Threads.h"/>
+	</ItemGroup>
+	<ItemGroup>
+		<ResourceCompile Include="resource.rc"/>
+	</ItemGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
+	<ImportGroup Label="ExtensionTargets">
+</ImportGroup>
+</Project>

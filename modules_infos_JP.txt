@@ -1,0 +1,68 @@
+各モジュールの機能説明:
+adapter:                            アダプターモジュール データインタラクションの動的認識と変換
+algorithm:                          stl algorithmの補足
+any_val:                            任意のタイプのデータ、SBO(ショートバイト最適化)の最適化、および任意の操作をサポート
+archive:                            シリアライゼーションモジュールは、テキスト、XML、バイナリ、ウェブバイナリ、BSONなどのシリアライゼーション構造をサポートしています。シリアル化は BOOST と同じように使用されます
+base:                               基本データ型、プラットフォーム、言語バージョンなどのマクロ定義が含まれます
+bind:                               正規の boost::bind
+bind_ex:                            boost::bind の拡張
+bytes:                              コンテナ内のデータのバイト数に関する統計
+caller:                             関数を呼び出すときに、サポートされているコンテナを関数パラメータに変換する関数の呼び出し元
+charset:                            文字セット (utf8_char utf8_string および ICONV ベースの変換)
+client:                             クライアントモジュール
+compaction_tool:                    圧縮ツール(不完全、7zipベースのLZMA、基本的な圧縮および解凍機能のみ実行)
+compatibility:                      一部のコンパイラの互換性処理
+compile_link:                       コンパイルリンクの取り扱い
+container:                          STLおよびBOOST　Containerのデータ構造に対するいくつかの拡張
+container_ex:                       コンテナの一部の拡張処理
+database_system:                    DTLに基づくSQLデータベースシステム
+dbs_manager:                        flywightアーキテクチャのDBマネージャー
+dll_make:                           DLLまたはSOのクラフトヘルプ
+encryption_tool:                    暗号化ツール
+exception:                          例外オブジェクト
+file_system:                        ファイルシステム
+func:                               関数型の解析関数
+Fusionex:                           boost::fusion の一部の拡張
+fuzzy:                              レギュラーベースのファジー文字列
+geometry:                           解析ジオメトリ アルゴリズム
+handler_center:                     Function Callback Center 管理モジュールのコールバック関数を登録します
+ids:                                さまざまな ID タイプと ID ジェネレータの定義
+iterator_ex:                        イテレータの拡張処理
+log:                                ロギングシステム
+lua_wrap:                           LUA 言語のラッパー タイプ (完全には完成していない、set map などの STL コンテナーがありません)
+mapping:                            テーブル構造のマッピング
+math:                               数学
+memory_ex:                          アロケーター関連の拡張機能
+modules:                            モジュールの動的読み込み
+move:                               MOVE セマンティック互換性とエミュレーション (boost::move に基づく)
+mplex:                              boost::mpl の拡張
+network:                            ネットワーク (boost::asio に基づく)
+nonable:                            無効にする機能には、コピー不可、削除不可、および作成不可が含まれます
+nsql_database_system:               Non-SQLデータベース システム (現在は MONGODB のみがサポートされています)
+P2P:                                P2Pネットワークをサポート(現在、UDPホールパンチのみがサポートされています)
+packet:                             シリアル化されたパッカー
+plugins:                            プラグイン管理
+ppex:                               boost::preprocessing の一部の拡張
+process:                            プロセス関連機能
+proxy:                              Netowrkプロキシモジュール
+ptr_val:                            ポインタデータの操作機能
+range_ex:                           boost::range の拡張
+regular_parse:                      正規表現 (boost::regex に基づく、組み込みの Unicode 変換は icu4c に依存しない)
+safe_container:                     スレッドセーフなコンテナタイプ (boost::continaer に基づいており、互換性あり)
+script:                             スクリプトシステム (Python と Lua をサポート)
+segment:                            セグメント データには、メモリ マップ ファイル マッピングが含まれます
+SEH:                                クロスプラットフォーム構造化例外処理(Structured Exception Handling) (WindowsとLinuxおよびDarwinとAndroidに対応)
+Serialization:                      各コンテナーのシリアル化
+server:                             サーバーモジュール
+smart_ptr_ex:                       スマートポインタの拡張
+struct_conv:                        構造変換機能
+support:                            いくつかの追加サポート
+system_controller:                  システムコントローラーは、さまざまなシステムイベントを処理するために使用され、ログシステムとのリンクに使用できます
+task_center:                        タスクセンター (タスクデータキャッシュ)
+thread:                             スレッド
+time:                               時間
+tuple:                              yggdrasil タプル構造で、std::tuple および boost::tuple と互換性があります。
+tuple_ex:                           タプルのいくつかの拡張機能
+type_traits:                        type_traits の拡張
+typeof:                             BOOST_TYPEOFに基づいており、decltype と互換性があります
+utility:                            いくつかの一般的な機能

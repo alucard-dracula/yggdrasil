@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="lua514_static"/>
+		<Option pch_mode="2"/>
+		<Option compiler="gcc"/>
+		<Build>
+			<Target title="Debug-Win32">
+				<Option output="$(WORKSPACE_DIR)/lib/liblua501$(#COMPILER_VERSION_TAG)-s-d" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-O0"/>
+					<Add option="-g"/>
+					<Add option="-D_DEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+				</Linker>
+			</Target>
+			<Target title="Release-Win32">
+				<Option output="$(WORKSPACE_DIR)/lib/liblua501$(#COMPILER_VERSION_TAG)-s" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-O3"/>
+					<Add option="-DNDEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+					<Add option="-s"/>
+				</Linker>
+			</Target>
+			<Target title="Debug-x64">
+				<Option output="$(WORKSPACE_DIR)/lib64/liblua501$(#COMPILER_VERSION_TAG)-s-d" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-O0"/>
+					<Add option="-g"/>
+					<Add option="-DWIN64"/>
+					<Add option="-D_DEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+				</Linker>
+			</Target>
+			<Target title="Release-x64">
+				<Option output="$(WORKSPACE_DIR)/lib64/liblua501$(#COMPILER_VERSION_TAG)-s" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-O3"/>
+					<Add option="-DNDEBUG"/>
+					<Add option="-DWIN64"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+					<Add option="-s"/>
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="all" targets="Debug-Win32;Release-Win32;Debug-x64;Release-x64;"/>
+			<Add alias="all_libonly" targets="Debug-Win32;Release-Win32;Debug-x64;Release-x64;"/>
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall"/>
+			<Add option="-std=c++11"/>
+			<Add option="-fexceptions"/>
+			<Add option="-Wno-sign-compare"/>
+			<Add option="-Wno-comment"/>
+			<Add option="-Wno-enum-compare"/>
+			<Add option="-Wno-unused-local-typedefs"/>
+			<Add option="-Wno-multichar"/>
+			<Add option="-Werror=return-type"/>
+			<Add option="-Werror=endif-labels"/>
+			<Add option="-fdata-sections"/>
+			<Add option="-ffunction-sections"/>
+			<Add option="-fno-strict-aliasing"/>
+			<Add option="-DLUA_USELONGLONG"/>
+			<Add option="-DWIN32"/>
+			<Add option="-D_LIB"/>
+			<Add directory="../include"/>
+		</Compiler>
+		<Unit filename="../lua514/lapi.c"/>
+		<Unit filename="../lua514/lauxlib.c"/>
+		<Unit filename="../lua514/lbaselib.c"/>
+		<Unit filename="../lua514/lcode.c"/>
+		<Unit filename="../lua514/ldblib.c"/>
+		<Unit filename="../lua514/ldebug.c"/>
+		<Unit filename="../lua514/ldo.c"/>
+		<Unit filename="../lua514/ldump.c"/>
+		<Unit filename="../lua514/lfunc.c"/>
+		<Unit filename="../lua514/lgc.c"/>
+		<Unit filename="../lua514/linit.c"/>
+		<Unit filename="../lua514/liolib.c"/>
+		<Unit filename="../lua514/llex.c"/>
+		<Unit filename="../lua514/lmathlib.c"/>
+		<Unit filename="../lua514/lmem.c"/>
+		<Unit filename="../lua514/loadlib.c"/>
+		<Unit filename="../lua514/lobject.c"/>
+		<Unit filename="../lua514/lopcodes.c"/>
+		<Unit filename="../lua514/loslib.c"/>
+		<Unit filename="../lua514/lparser.c"/>
+		<Unit filename="../lua514/lstate.c"/>
+		<Unit filename="../lua514/lstring.c"/>
+		<Unit filename="../lua514/lstrlib.c"/>
+		<Unit filename="../lua514/ltable.c"/>
+		<Unit filename="../lua514/ltablib.c"/>
+		<Unit filename="../lua514/ltm.c"/>
+		<Unit filename="../lua514/lundump.c"/>
+		<Unit filename="../lua514/lvm.c"/>
+		<Unit filename="../lua514/lzio.c"/>
+		<Unit filename="../lua514/print.c"/>
+		<Extensions>
+			<lib_finder disable_auto="1"/>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

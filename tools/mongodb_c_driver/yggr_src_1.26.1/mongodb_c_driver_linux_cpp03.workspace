@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_workspace_file>
+	<Workspace title="mongodb_c_driver_linux_cpp03">
+		<Project filename="bson/bson_linux_cpp03.cbp" active="1"/>
+		<Project filename="common/common_linux_cpp03.cbp"/>
+		<Project filename="include/include_linux_cpp03.cbp"/>
+		<Project filename="kms-message/kms-message_linux_cpp03.cbp"/>
+		<Project filename="mongoc/mongoc_linux_cpp03.cbp"/>
+		<Project filename="mongoc3_test/mongoc3_test_linux_cpp03.cbp">
+			<Depends filename="bson/bson_linux_cpp03.cbp"/>
+			<Depends filename="common/common_linux_cpp03.cbp"/>
+			<Depends filename="kms-message/kms-message_linux_cpp03.cbp"/>
+			<Depends filename="mongoc/mongoc_linux_cpp03.cbp"/>
+			<Depends filename="mongocrypt/mongocrypt_linux_cpp03.cbp"/>
+			<Depends filename="utf8proc/utf8proc_linux_cpp03.cbp"/>
+		</Project>
+		<Project filename="mongocrypt/mongocrypt_linux_cpp03.cbp"/>
+		<Project filename="utf8proc/utf8proc_linux_cpp03.cbp"/>
+	</Workspace>
+</CodeBlocks_workspace_file>

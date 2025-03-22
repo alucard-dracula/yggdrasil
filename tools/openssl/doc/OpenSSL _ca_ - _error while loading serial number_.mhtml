@@ -1,0 +1,1784 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: file:///E:/devel/yggr_workspace/yggdrasil/tools/openssl/doc/OpenSSL%20_ca_%20-%20_error%20while%20loading%20serial%20number_.html
+Subject: OpenSSL "ca" - "error while loading serial number"
+Date: Fri, 2 Feb 2024 03:36:48 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--fhViN1aWhnH2kJiEqQCnPNLQixEmMtTtJrRtA3JcoC----"
+
+
+------MultipartBoundary--fhViN1aWhnH2kJiEqQCnPNLQixEmMtTtJrRtA3JcoC----
+Content-Type: text/html
+Content-ID: <frame-19AC2F26D7307F975E6BA8FC4E2E95EE@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///E:/devel/yggr_workspace/yggdrasil/tools/openssl/doc/OpenSSL%20_ca_%20-%20_error%20while%20loading%20serial%20number_.html
+
+<!-- saved from url=3D(0090)http://certificate.fyicenter.com/2120_OpenSSL_c=
+a_-_error_while_loading_serial_number_.html --><html><head><meta http-equiv=
+=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"><link rel=3D"style=
+sheet" type=3D"text/css" href=3D"cid:css-e2425296-3ff2-4abb-83b6-fe3bebe831=
+b2@mhtml.blink" /><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:cs=
+s-a3a28bb9-a623-4116-9e81-49ac5f6b19ba@mhtml.blink" />
+
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+<meta name=3D"description" content=3D"Why I am getting the &quot;error whil=
+e loading serial number&quot; error
+when running OpenSSL &quot;ca&quot; command?">=20
+<meta name=3D"keywords" content=3D"OpenSSL, ">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1.0=
+,maximum-scale=3D1.0,user-scalable=3D0">
+<meta name=3D"format-detection" content=3D"telephone=3Dno">
+<meta name=3D"apple-mobile-web-app-capable" content=3D"yes">
+<meta name=3D"apple-mobile-web-app-status-bar-style" content=3D"black">
+<meta property=3D"og:type" content=3D"article">
+<meta property=3D"og:title" content=3D"OpenSSL &quot;ca&quot; - &quot;error=
+ while loading serial number&quot;">
+<meta property=3D"og:description" content=3D"Why I am getting the &quot;err=
+or while loading serial number&quot; error
+when running OpenSSL &quot;ca&quot; command?">
+<meta property=3D"og:image" content=3D"http://certificate.fyicenter.com/z/_=
+icon_OpenSSL.png">
+<link rel=3D"stylesheet" type=3D"text/css" href=3D"file:///E:/devel/yggr_wo=
+rkspace/yggdrasil/tools/openssl/doc/OpenSSL%20_ca_%20-%20_error%20while%20l=
+oading%20serial%20number__files/_style.css">
+<title>OpenSSL "ca" - "error while loading serial number"</title>
+
+
+
+<meta http-equiv=3D"origin-trial" content=3D"As0hBNJ8h++fNYlkq8cTye2qDLyom8=
+NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iO=
+iJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0=
+ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnV=
+lfQ=3D=3D"><meta http-equiv=3D"origin-trial" content=3D"AgRYsXo24ypxC89CJan=
+C+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCey=
+JvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV=
+2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlz=
+U3ViZG9tYWluIjp0cnVlfQ=3D=3D"><meta http-equiv=3D"origin-trial" content=3D"=
+A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhX=
+Yl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZW=
+F0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5O=
+TksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv=
+=3D"origin-trial" content=3D"A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ8U533U/roYjp=
+4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb=
+2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rp=
+b25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJ=
+kUGFydHkiOnRydWV9"><meta http-equiv=3D"origin-trial" content=3D"As0hBNJ8h++=
+fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ=
+8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV=
+2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlz=
+U3ViZG9tYWluIjp0cnVlfQ=3D=3D"><meta http-equiv=3D"origin-trial" content=3D"=
+AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2z=
+JOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0ND=
+MiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiO=
+jE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=3D=3D"><meta http-equiv=3D"origin=
+-trial" content=3D"A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLnD2Y1lABsqmda=
+JmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWN=
+rLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleH=
+BpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"=
+><meta http-equiv=3D"origin-trial" content=3D"A6OdGH3fVf4eKRDbXb4thXA4InNqD=
+JDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4i=
+OiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQml=
+kZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIj=
+p0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv=3D"origin-trial" conte=
+nt=3D"As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoa=
+iaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMi=
+LCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE=
+3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=3D=3D"><meta http-equiv=3D"origin-t=
+rial" content=3D"AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3=
+NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY=
+2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRp=
+b24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=3D=3D"><meta htt=
+p-equiv=3D"origin-trial" content=3D"A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la=
+6xaLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwcz=
+ovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb=
+25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJk=
+UGFydHkiOnRydWV9"><meta http-equiv=3D"origin-trial" content=3D"A6OdGH3fVf4e=
+KRDbXb4thXA4InNqDJDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgs=
+AAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dX=
+JlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksI=
+mlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv=3D"or=
+igin-trial" content=3D"As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEu=
+TCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWN=
+saWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb2=
+4iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=3D=3D"><meta http-=
+equiv=3D"origin-trial" content=3D"AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj=
+5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczov=
+L2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWR=
+XaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=
+=3D=3D"><meta http-equiv=3D"origin-trial" content=3D"A/ERL66fN363FkXxgDc6F1=
++ucRUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvc=
+mlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlk=
+ZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp=
+0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv=3D"origin-trial" conten=
+t=3D"A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD=
+0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvb=
+To0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnki=
+OjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta=
+ http-equiv=3D"origin-trial" content=3D"As0hBNJ8h++fNYlkq8cTye2qDLyom8NddBy=
+iVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodH=
+RwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXa=
+XRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=
+=3D=3D"><meta http-equiv=3D"origin-trial" content=3D"AgRYsXo24ypxC89CJanC+J=
+gEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvc=
+mlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2Vi=
+Vmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3V=
+iZG9tYWluIjp0cnVlfQ=3D=3D"><meta http-equiv=3D"origin-trial" content=3D"A/E=
+RL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7=
+rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0d=
+XJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTks=
+ImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv=3D"o=
+rigin-trial" content=3D"A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ8U533U/roYjp4Yau0=
+T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZX=
+N5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZ=
+XJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFy=
+dHkiOnRydWV9"><meta http-equiv=3D"origin-trial" content=3D"As0hBNJ8h++fNYlk=
+q8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB=
+8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVm=
+lld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZ=
+G9tYWluIjp0cnVlfQ=3D=3D"><meta http-equiv=3D"origin-trial" content=3D"AgRYs=
+Xo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO=
+64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJ=
+mZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MT=
+k1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=3D=3D"><meta http-equiv=3D"origin-tria=
+l" content=3D"A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNa=
+UKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5l=
+dDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnk=
+iOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><met=
+a http-equiv=3D"origin-trial" content=3D"A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ=
+8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJod=
+HRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGlu=
+Z0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnV=
+lLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv=3D"origin-trial" content=3D=
+"As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYif=
+wEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZ=
+WF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1=
+MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=3D=3D"><meta http-equiv=3D"origin-trial"=
+ content=3D"AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ub=
+hpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW=
+9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iL=
+CJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=3D=3D"><meta http-equ=
+iv=3D"origin-trial" content=3D"A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLn=
+D2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2R=
+vdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZX=
+J2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFyd=
+HkiOnRydWV9"><meta http-equiv=3D"origin-trial" content=3D"A6OdGH3fVf4eKRDbX=
+b4thXA4InNqDJDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACT=
+eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjo=
+iRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3=
+ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"></head>
+<body>
+<div class=3D"c1" id=3D"left">
+<div class=3D"r2" id=3D"links"><p class=3D"head">Categories:</p><p class=3D=
+"link"><a href=3D"http://certificate.fyicenter.com/index.php?K=3D29">Androi=
+d</a> (13)</p><p class=3D"link"><a href=3D"http://certificate.fyicenter.com=
+/index.php?K=3D31">Apple Mac</a> (27)</p><p class=3D"link"><a href=3D"http:=
+//certificate.fyicenter.com/index.php?K=3D27">DH Keys</a> (39)</p><p class=
+=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php?K=3D26">DSA=
+ Keys</a> (71)</p><p class=3D"link"><a href=3D"http://certificate.fyicenter=
+.com/index.php?K=3D28">EC Keys</a> (2210)</p><p class=3D"link"><a href=3D"h=
+ttp://certificate.fyicenter.com/index.php?K=3D15">Firefox</a> (30)</p><p cl=
+ass=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php?K=3D1">G=
+eneral</a> (10)</p><p class=3D"link"><a href=3D"http://certificate.fyicente=
+r.com/index.php?K=3D20">Google Chrome</a> (25)</p><p class=3D"link"><a href=
+=3D"http://certificate.fyicenter.com/index.php?K=3D16">IE (Internet Explore=
+r)</a> (19)</p><p class=3D"link"><a href=3D"http://certificate.fyicenter.co=
+m/index.php?K=3D13">Intermediate CA</a> (152)</p><p class=3D"link"><a href=
+=3D"http://certificate.fyicenter.com/index.php?K=3D11">Java VM</a> (29)</p>=
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php?K=
+=3D10">JDK Keytool</a> (28)</p><p class=3D"link"><a href=3D"http://certific=
+ate.fyicenter.com/index.php?K=3D19">Microsoft CertUtil</a> (29)</p><p class=
+=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php?K=3D30">Mic=
+rosoft Edge</a> (9)</p><p class=3D"link"><a href=3D"http://certificate.fyic=
+enter.com/index.php?K=3D18">Mozilla CertUtil</a> (21)</p><p class=3D"link">=
+<a href=3D"http://certificate.fyicenter.com/index.php?K=3D12">OpenSSL</a> (=
+236)</p><p class=3D"link"><a href=3D"http://certificate.fyicenter.com/index=
+.php?K=3D22">Other</a> (7)</p><p class=3D"link"><a href=3D"http://certifica=
+te.fyicenter.com/index.php?K=3D21">Portecle</a> (38)</p><p class=3D"link"><=
+a href=3D"http://certificate.fyicenter.com/index.php?K=3D14">Publishers</a>=
+ (6243)</p><p class=3D"link"><a href=3D"http://certificate.fyicenter.com/in=
+dex.php?K=3D23">Revoked Certificates</a> (16)</p><p class=3D"link"><a href=
+=3D"http://certificate.fyicenter.com/index.php?K=3D7">Root CA</a> (85)</p><=
+p class=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php?K=3D=
+25">RSA Keys</a> (5078)</p><p class=3D"link"><a href=3D"http://certificate.=
+fyicenter.com/index.php?K=3D24">Tools</a> (46)</p><p class=3D"link"><a href=
+=3D"http://certificate.fyicenter.com/index.php?K=3D9">Tutorial</a> (1)</p><=
+p class=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php?K=3D=
+8">What Is</a> (22)</p><p class=3D"link"><a href=3D"http://certificate.fyic=
+enter.com/index.php?K=3D17">Windows</a> (127)</p></div><div class=3D"r2" id=
+=3D"links">
+<p class=3D"head">Collections:</p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/2246_FYIcente=
+r_HTTPS_Server_Certificate_Checker.html">HTTPS Server Checker</a></p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/1952_FYIcente=
+r_X.509_Certificate_Decoder_and_Viewer.html">Certificate Decoder</a></p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/2145_FYIcente=
+r_Public_Private_Key_Decoder_and_Viewer.html">Public Key Decoder</a></p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/2147_FYIcente=
+r_RSA_Private_Key_Generator.html">RSA Key Generator</a></p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/2249_FYIcente=
+r_DSA_Private_Key_Generator.html">DSA Key Generator</a></p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/3897_FYIcente=
+r_DH_Private_Key_Generator.html">DH Key Generator</a></p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/3898_FYIcente=
+r_EC_Private_Key_Generator.html">EC Key Generator</a></p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/1953_FYIcente=
+r_CSR_Decoder_and_Viewer.html">CSR Decoder</a></p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/2244_Certific=
+ates_Tools.html">Certificates Tools</a></p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/1870_Google_C=
+hrome_Certificates_Tutorials.html">Google Chrome</a></p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/1836_Firefox_=
+Certificates_Tutorials.html">Mozilla Firefox</a></p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/1866_Internet=
+_Explorer_(IE)_Certificates_Tutorials.html">Internet Explorer</a></p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/1945_Windows_=
+Certificates_Tutorials.html">Windows Certificates</a></p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/1964_OpenSSL_=
+Tutorials.html">OpenSSL Tutorials</a></p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/1744_Portecle=
+_Certificate_Tool-Frequently_Asked_Questions.html">Portecle FAQ</a></p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/1877_Certific=
+ate_Manager_certmgr.msc_Manual.html">certmgr.msc Manual</a></p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/1845_Revoked_=
+Certificates-Disabled_Permanently.html">Revoked Certificates</a></p>
+</div>
+
+<div class=3D"r2" id=3D"links">
+<p class=3D"head">Other Resources:</p>
+<p class=3D"link"><a href=3D"http://sqa.fyicenter.com/">Software QA Resourc=
+es</a></p>
+<p class=3D"link"><a href=3D"http://dev.fyicenter.com/">Developer Resources=
+</a></p>
+<p class=3D"link"><a href=3D"http://dba.fyicenter.com/">DBA Resources</a></=
+p>
+<p class=3D"link"><a href=3D"http://windows.fyicenter.com/">Windows Tutoria=
+ls</a></p>
+<p class=3D"link"><a href=3D"http://jar.fyicenter.com/">Java JAR Files</a><=
+/p>
+<p class=3D"link"><a href=3D"http://dll.fyicenter.com/">DLL Files</a></p>
+<p class=3D"link"><a href=3D"http://file.fyicenter.com/">File Extensions</a=
+></p>
+<p class=3D"link"><a href=3D"http://certificate.fyicenter.com/">Security Ce=
+rtificates</a></p>
+<p class=3D"link"><a href=3D"http://regex.fyicenter.com/">Regular Expressio=
+n</a></p>
+<p class=3D"link"><a href=3D"http://link.fyicenter.com/">Link Directories</=
+a></p>
+<p class=3D"link"><a href=3D"http://interview.fyicenter.com/">Interview Q &=
+amp; A</a></p>
+<p class=3D"link"><a href=3D"http://biotech.fyicenter.com/">Biotech Resourc=
+es</a></p>
+<p class=3D"link"><a href=3D"http://phone.fyicenter.com/">Cell Phone Resour=
+ces</a></p>
+<p class=3D"link"><a href=3D"http://travel.fyicenter.com/">Travel Resources=
+</a></p>
+<p class=3D"link"><a href=3D"http://faq.fyicenter.com/">Frequently Asked Qu=
+estions</a></p>
+<p class=3D"link"><a href=3D"http://www.fyicenter.com/">FYIcenter Forum</a>=
+</p>
+</div>
+<!-- Certificate Vertical -->
+<ins class=3D"adsbygoogle" style=3D"display: block; height: 600px;" data-ad=
+-client=3D"ca-pub-4844318048770734" data-ad-slot=3D"3890821628" data-ad-for=
+mat=3D"auto" data-full-width-responsive=3D"true" data-adsbygoogle-status=3D=
+"done"><div id=3D"aswift_1_host" style=3D"border: none; height: 600px; widt=
+h: 200px; margin: 0px; padding: 0px; position: relative; visibility: visibl=
+e; background-color: transparent; display: inline-block;"></div></ins>
+</div>
+<div class=3D"c1" id=3D"center">
+<div class=3D"r2" id=3D"header"><form action=3D"http://certificate.fyicente=
+r.com/index.php" method=3D"get"><p class=3D"tool"><a href=3D"http://certifi=
+cate.fyicenter.com/index.php"><img class=3D"menu" src=3D"file:///E:/devel/y=
+ggr_workspace/yggdrasil/tools/openssl/doc/OpenSSL%20_ca_%20-%20_error%20whi=
+le%20loading%20serial%20number__files/_logo.png"></a>&nbsp;<input type=3D"t=
+ext" size=3D"25" maxlength=3D"64" name=3D"Q" value=3D""><input type=3D"imag=
+e" src=3D"file:///E:/devel/yggr_workspace/yggdrasil/tools/openssl/doc/OpenS=
+SL%20_ca_%20-%20_error%20while%20loading%20serial%20number__files/_search.p=
+ng" border=3D"0" alt=3D"Submit">&nbsp;<a><img class=3D"menu" src=3D"file://=
+/E:/devel/yggr_workspace/yggdrasil/tools/openssl/doc/OpenSSL%20_ca_%20-%20_=
+error%20while%20loading%20serial%20number__files/_menu.png"></a></p></form>=
+</div><div class=3D"none" id=3D"tagsTop"><p class=3D"menu"><span class=3D"l=
+ink"><a href=3D"http://certificate.fyicenter.com/index.php?K=3D29">Android<=
+/a></span> <span class=3D"link"><a href=3D"http://certificate.fyicenter.com=
+/index.php?K=3D31">Apple Mac</a></span> <span class=3D"link"><a href=3D"htt=
+p://certificate.fyicenter.com/index.php?K=3D27">DH Keys</a></span> <span cl=
+ass=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php?K=3D26">=
+DSA Keys</a></span> <span class=3D"link"><a href=3D"http://certificate.fyic=
+enter.com/index.php?K=3D28">EC Keys</a></span> <span class=3D"link"><a href=
+=3D"http://certificate.fyicenter.com/index.php?K=3D15">Firefox</a></span> <=
+span class=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php?K=
+=3D1">General</a></span> <span class=3D"link"><a href=3D"http://certificate=
+.fyicenter.com/index.php?K=3D20">Google Chrome</a></span> <span class=3D"li=
+nk"><a href=3D"http://certificate.fyicenter.com/index.php?K=3D16">IE (Inter=
+net Explorer)</a></span> <span class=3D"link"><a href=3D"http://certificate=
+.fyicenter.com/index.php?K=3D13">Intermediate CA</a></span> <span class=3D"=
+link"><a href=3D"http://certificate.fyicenter.com/index.php?K=3D11">Java VM=
+</a></span> <span class=3D"link"><a href=3D"http://certificate.fyicenter.co=
+m/index.php?K=3D10">JDK Keytool</a></span> <span class=3D"link"><a href=3D"=
+http://certificate.fyicenter.com/index.php?K=3D19">Microsoft CertUtil</a></=
+span> <span class=3D"link"><a href=3D"http://certificate.fyicenter.com/inde=
+x.php?K=3D30">Microsoft Edge</a></span> <span class=3D"link"><a href=3D"htt=
+p://certificate.fyicenter.com/index.php?K=3D18">Mozilla CertUtil</a></span>=
+ <span class=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php=
+?K=3D12">OpenSSL</a></span> <span class=3D"link"><a href=3D"http://certific=
+ate.fyicenter.com/index.php?K=3D22">Other</a></span> <span class=3D"link"><=
+a href=3D"http://certificate.fyicenter.com/index.php?K=3D21">Portecle</a></=
+span> <span class=3D"link"><a href=3D"http://certificate.fyicenter.com/inde=
+x.php?K=3D14">Publishers</a></span> <span class=3D"link"><a href=3D"http://=
+certificate.fyicenter.com/index.php?K=3D23">Revoked Certificates</a></span>=
+ <span class=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php=
+?K=3D7">Root CA</a></span> <span class=3D"link"><a href=3D"http://certifica=
+te.fyicenter.com/index.php?K=3D25">RSA Keys</a></span> <span class=3D"link"=
+><a href=3D"http://certificate.fyicenter.com/index.php?K=3D24">Tools</a></s=
+pan> <span class=3D"link"><a href=3D"http://certificate.fyicenter.com/index=
+.php?K=3D9">Tutorial</a></span> <span class=3D"link"><a href=3D"http://cert=
+ificate.fyicenter.com/index.php?K=3D8">What Is</a></span> <span class=3D"li=
+nk"><a href=3D"http://certificate.fyicenter.com/index.php?K=3D17">Windows</=
+a></span> </p></div><div class=3D"none" id=3D"menuTop"><p class=3D"menu"><s=
+pan class=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php">H=
+ome</a></span> <span class=3D"link"><a href=3D"http://certificate.fyicenter=
+.com/index.php?S=3Drank">Hot</a></span> <span class=3D"link"><a href=3D"htt=
+p://certificate.fyicenter.com/1_Internet_Security_Certificate_Information_C=
+enter.html">About</a></span> <span class=3D"link"><a href=3D"http://certifi=
+cate.fyicenter.com/3268_certificate_FYIcenter_com_Links.html">Collections</=
+a></span> <span class=3D"link"><a href=3D"http://certificate.fyicenter.com/=
+list.php">Index</a></span> <span class=3D"link"><a href=3D"http://certifica=
+te.fyicenter.com/rss_xml.php">RSS</a></span> <span class=3D"link"><a href=
+=3D"http://certificate.fyicenter.com/atom_xml.php">Atom</a></span> <span cl=
+ass=3D"link"><a href=3D"http://certificate.fyicenter.com/submit.php">Ask</a=
+></span> </p><hr><p class=3D"menu"><span class=3D"link"><a href=3D"http://s=
+qa.fyicenter.com/">Tester</a></span> <span class=3D"link"><a href=3D"http:/=
+/dev.fyicenter.com/">Developer</a></span> <span class=3D"link"><a href=3D"h=
+ttp://dba.fyicenter.com/">DBA</a></span> <span class=3D"link"><a href=3D"ht=
+tp://windows.fyicenter.com/">Windows</a></span> <span class=3D"link"><a hre=
+f=3D"http://jar.fyicenter.com/">JAR</a></span> <span class=3D"link"><a href=
+=3D"http://dll.fyicenter.com/">DLL</a></span> <span class=3D"link"><a href=
+=3D"http://file.fyicenter.com/">Files</a></span> <span class=3D"link"><a hr=
+ef=3D"http://certificate.fyicenter.com/">Certificates</a></span> <span clas=
+s=3D"link"><a href=3D"http://regex.fyicenter.com/">RegEx</a></span> <span c=
+lass=3D"link"><a href=3D"http://link.fyicenter.com/">Links</a></span> <span=
+ class=3D"link"><a href=3D"http://interview.fyicenter.com/">Q&amp;A</a></sp=
+an> <span class=3D"link"><a href=3D"http://biotech.fyicenter.com/">Biotech<=
+/a></span> <span class=3D"link"><a href=3D"http://phone.fyicenter.com/">Pho=
+nes</a></span> <span class=3D"link"><a href=3D"http://travel.fyicenter.com/=
+">Travel</a></span> <span class=3D"link"><a href=3D"http://faq.fyicenter.co=
+m/">FAQ</a></span> <span class=3D"link"><a href=3D"http://www.fyicenter.com=
+/">Forum</a></span> </p></div>
+<!-- Certificate Horizontal -->
+<ins class=3D"adsbygoogle" style=3D"display: block; height: 280px;" data-ad=
+-client=3D"ca-pub-4844318048770734" data-ad-slot=3D"3499105230" data-ad-for=
+mat=3D"auto" data-full-width-responsive=3D"true" data-adsbygoogle-status=3D=
+"done"><div id=3D"aswift_2_host" style=3D"border: none; height: 280px; widt=
+h: 600px; margin: 0px; padding: 0px; position: relative; visibility: visibl=
+e; background-color: transparent; display: inline-block;"></div></ins>
+<div class=3D"r2" id=3D"navs"><p class=3D"navs"><a href=3D"http://certifica=
+te.fyicenter.com/index.php">Home</a> &gt; <a href=3D"http://certificate.fyi=
+center.com/index.php?K=3D12">OpenSSL</a></p></div><div class=3D"r2" id=3D"d=
+etail"><p class=3D"head">OpenSSL "ca" - "error while loading serial number"=
+</p><div class=3D"user"><div class=3D"iconL">Q</div><p></p><p>Why I am gett=
+ing the "error while loading serial number" error
+when running OpenSSL "ca" command?
+</p><p></p></div><p class=3D"note">=E2=9C=8D: FYIcenter.com</p><div class=
+=3D"user"><div class=3D"iconL">A</div><p><img class=3D"nailR" src=3D"file:/=
+//E:/devel/yggr_workspace/yggdrasil/tools/openssl/doc/OpenSSL%20_ca_%20-%20=
+_error%20while%20loading%20serial%20number__files/_icon_OpenSSL.png" "=3D""=
+>
+If you are running the OpenSSL "ca" command installed=20
+with the slproweb binary package for Windows,
+you may get the "error while loading serial number" error as shown below:
+</p>
+<pre>C:\Users\fyicenter&gt;\local\OpenSSL-Win32\bin\openssl.exe
+
+OpenSSL&gt; ca -in test.csr -keyfile my_ca.key -cert my_ca.crt
+Using configuration from C:\local\OpenSSL-Win32\bin\openssl.cfg
+Enter pass phrase for my_ca.key:
+./demoCA/serial: No error
+error while loading serial number
+5016:error:02001002:system library:fopen:No such file or directory:
+   .\crypto\bio\bss_file.c:398:fopen('./demoCA/serial','rb')
+5016:error:20074002:BIO routines:FILE_CTRL:system lib:.\crypto\bio\bss_file=
+.c:400:
+error in ca
+</pre>
+
+<p>This error is caused by the "dir=3D./demoCA" and "serial=3D$dir/serial" =
+options in=20
+the configuration file. These options requires you to have a file called
+"\demoCA\serial" under the current directory to be used as a serial number =
+register.=20
+You have to set an initial value like "1000" in the file. After that OpenSS=
+L will=20
+increment the value each time a new certificate is generated.
+</p>
+
+<p>Fixing this error is easy. Just create the serial number file: ./demoCA/=
+serial,=20
+as shown below:
+</p>
+<pre>C:\Users\fyicenter&gt;copy CON demoCA\serial
+1000
+&lt;Ctrl&gt;-Z
+        1 file(s) copied.
+
+C:\Users\fyicenter&gt;dir demoCA\serial
+    10:27 PM                 6 index.txt
+</pre>
+
+<p>Note that the value 1000 is a hexadecimal format, which is 4096 in decim=
+al format.
+</p>
+
+<p>Also note that press &lt;Ctrl&gt;-Z is to end the input stream to finish=
+ the copy command.
+</p>
+
+<p>&nbsp;</p>
+<p><b>=E2=87=92</b> <a href=3D"http://certificate.fyicenter.com/2121_OpenSS=
+L_ca_Error_stateOrProvinceName_field_needed_to_be_the_same_.html">OpenSSL "=
+ca" Error "stateOrProvinceName field needed to be the same"</a></p>
+<p><b>=E2=87=90</b> <a href=3D"http://certificate.fyicenter.com/2119_OpenSS=
+L_ca_Error_unable_to_open_demoCA_index_txt_.html">OpenSSL "ca" Error "unabl=
+e to open ./demoCA/index.txt"</a></p>
+<p><b>=E2=87=91</b> <a href=3D"http://certificate.fyicenter.com/2114_OpenSS=
+L_ca_Command.html">OpenSSL "ca" Command</a></p>
+<p><b>=E2=87=91=E2=87=91</b> <a href=3D"http://certificate.fyicenter.com/19=
+64_OpenSSL_Tutorials.html">OpenSSL Tutorials</a></p><p></p></div>
+<ins class=3D"adsbygoogle" style=3D"display: block; text-align: center; hei=
+ght: 150px;" data-ad-layout=3D"in-article" data-ad-format=3D"fluid" data-ad=
+-client=3D"ca-pub-4844318048770734" data-ad-slot=3D"2855219350" data-adsbyg=
+oogle-status=3D"done"><div id=3D"aswift_3_host" style=3D"border: none; heig=
+ht: 150px; width: 600px; margin: 0px; padding: 0px; position: relative; vis=
+ibility: visible; background-color: transparent; display: inline-block;"></=
+div></ins>
+<p class=3D"note">2016-09-13, 33582=F0=9F=91=8D, 0=F0=9F=92=AC</p></div><di=
+v id=3D"getCommForm"><div class=3D"r2" id=3D"commFormDiv"><form id=3D"commF=
+orm"><p class=3D"head">Submit Your Comment:</p><p class=3D"text">Please wri=
+te meaningful comments. Thanks! =E2=98=BA<br><textarea name=3D"Comment" row=
+s=3D"5" wrap=3D"virtual"></textarea></p><p></p><p class=3D"text">Your Name:=
+ <input type=3D"text" size=3D"23" maxlength=3D"32" name=3D"Author" value=3D=
+""></p><p class=3D"text">Let (a,b)=3D(3,3), what is a+b? <input type=3D"tex=
+t" size=3D"3" maxlength=3D"10" name=3D"A"></p><p class=3D"text">(All fields=
+ are required.) <button type=3D"button">Submit</button></p></form></div></d=
+iv><div id=3D"getCommList"><div class=3D"r2"><p class=3D"head">Recent Comme=
+nts on Other Topics:</p><p class=3D"item"><span class=3D"body">@ <a href=3D=
+"http://certificate.fyicenter.com/1856_8gwifi_org_OCSP_Test_Tool.html">8gwi=
+fi.org OCSP Test Tool</a></span></p><p class=3D"itemComm"><span class=3D"bo=
+dy"><span class=3D"userF">=F0=9F=92=AC 2024-01-04</span> <b>Hex</b>: cutedo=
+rik </span></p><p class=3D"item"><span class=3D"body">@ <a href=3D"http://c=
+ertificate.fyicenter.com/11138_ISRG_Root_X1_Certificate-79B459E67BB6E5E4017=
+3800888C81A58F6E99B6E.html">ISRG Root X1 Certificate - 79B459E67BB6E5E40173=
+800888C81A58F6E99B6E</a></span></p><p class=3D"itemComm"><span class=3D"bod=
+y"><span class=3D"userF">=F0=9F=92=AC 2023-12-29</span> <b>jose</b>: excell=
+ent </span></p><p class=3D"item"><span class=3D"body">@ <a href=3D"http://c=
+ertificate.fyicenter.com/15553_RSA_2048-Bit_Public_Key-9F53983151EB114A0D95=
+3BC3296DBD290AC6921F.html">RSA 2048-Bit Public Key - 9F53983151EB114A0D953B=
+C3296DBD290AC6921F</a></span></p><p class=3D"itemComm"><span class=3D"body"=
+><span class=3D"userF">=F0=9F=92=AC 2023-12-29</span> <b>Ibra</b>: http://c=
+ertificate.fyicenter.com/155 52_webinar_amazoncloud_cn_Certificat e-9F53983=
+151EB114A0D953BC3296DBD290A C6921F.html</span></p><p class=3D"item"><span c=
+lass=3D"body">@ <a href=3D"http://certificate.fyicenter.com/5350_facebook_c=
+om_Certificate-4E03066143A9DEBA18CC0D26037D818EA1AB47A9.html">*.facebook.co=
+m Certificate - 4E03066143A9DEBA18CC0D26037D818EA1AB47A9</a></span></p><p c=
+lass=3D"itemComm"><span class=3D"body"><span class=3D"userF">=F0=9F=92=AC 2=
+023-12-26</span> <b>Bo Ris</b>: Cool </span></p><p class=3D"item"><span cla=
+ss=3D"body">@ <a href=3D"http://certificate.fyicenter.com/319_Baltimore_Cyb=
+erTrust_Root_Certificate-E59D5930824758CCACFA085436867B3AB5044DF0.html">Bal=
+timore CyberTrust Root Certificate - E59D5930824758CCACFA085436867B3AB5044D=
+F0</a></span></p><p class=3D"itemComm"><span class=3D"body"><span class=3D"=
+userF">=F0=9F=92=AC 2023-12-13</span> <b>as</b>: -----BEGIN CERTIFICATE----=
+- MIIDdzCCAl+gAwIBAgIEAgAAuTANBgkqhkiG 9w0BAQUFADBaMQswCQYDVQQGEwJJRTESMBAG=
+A1UEChMJQmFsdGltb3JlMRMwEQY. ..</span></p><p class=3D"item"><span class=3D"=
+body"><a href=3D"http://certificate.fyicenter.com/index.php">More Comments =
+...</a></span></p></div></div><div class=3D"r2" id=3D"related"><p class=3D"=
+head">Related Topics:</p><div class=3D"r2" id=3D"item"><p class=3D"item"><a=
+ href=3D"http://certificate.fyicenter.com/2118_OpenSSL_ca_Error_demoCA_newc=
+erts_No_such_file_or_directory_.html"><img class=3D"nailL" src=3D"file:///E=
+:/devel/yggr_workspace/yggdrasil/tools/openssl/doc/OpenSSL%20_ca_%20-%20_er=
+ror%20while%20loading%20serial%20number__files/_icon_OpenSSL.png"><span cla=
+ss=3D"head">OpenSSL "ca" Error "./demoCA/newcerts: No such file or director=
+y"</span><br><span class=3D"body">Why I am getting the "./demoCA/newcerts: =
+No such file or directory" error when running OpenSSL "ca" command? If you =
+are running the OpenSSL "ca" command installed with the slproweb binary pac=
+kage for Windows, you may get the "./demoCA/newcerts: No such file or direc=
+tory" error as shown below: C:\Use... </span></a> <span class=3D"userF">202=
+2-07-26, 47650=F0=9F=91=8D, 4=F0=9F=92=AC</span></p><p class=3D"itemComm"><=
+a href=3D"http://certificate.fyicenter.com/2118_OpenSSL_ca_Error_demoCA_new=
+certs_No_such_file_or_directory_.html"><span class=3D"body"><span class=3D"=
+userF">=F0=9F=92=AC 2022-07-26</span> <b>FYIcenter.com</b>: Thanks for the =
+suggestion! <br></span></a></p><p class=3D"itemComm"><a href=3D"http://cert=
+ificate.fyicenter.com/2118_OpenSSL_ca_Error_demoCA_newcerts_No_such_file_or=
+_directory_.html"><span class=3D"body"><span class=3D"userF">=F0=9F=92=AC 2=
+022-07-26</span> <b>flash</b>: in openssl.cfg file give double slash in fol=
+der path dir =3D C:\\OpenSSL-Win64\\bin\\demoCA <br></span></a></p><p class=
+=3D"itemComm"><a href=3D"http://certificate.fyicenter.com/2118_OpenSSL_ca_E=
+rror_demoCA_newcerts_No_such_file_or_directory_.html"><span class=3D"body">=
+<span class=3D"userF">=F0=9F=92=AC 2017-02-21</span> <b>FYIcenter.com</b>: =
+Hi sanakhan, thanks for the suggestion. <br></span></a></p><p class=3D"item=
+Comm"><a href=3D"http://certificate.fyicenter.com/2118_OpenSSL_ca_Error_dem=
+oCA_newcerts_No_such_file_or_directory_.html"><span class=3D"body">(More co=
+mments ...)</span></a></p></div>
+<div class=3D"r2" id=3D"item">
+<ins class=3D"adsbygoogle" style=3D"display: block; height: 129px;" data-ad=
+-format=3D"fluid" data-ad-layout-key=3D"-h6-2b+l-25+if" data-ad-client=3D"c=
+a-pub-4844318048770734" data-ad-slot=3D"5723666090" data-adsbygoogle-status=
+=3D"done"><div id=3D"aswift_4_host" style=3D"border: none; height: 129px; w=
+idth: 600px; margin: 0px; padding: 0px; position: relative; visibility: vis=
+ible; background-color: transparent; display: inline-block;"></div></ins>
+</div>
+<div class=3D"r2" id=3D"item"><p class=3D"item"><a href=3D"http://certifica=
+te.fyicenter.com/2120_OpenSSL_ca_-_error_while_loading_serial_number_.html"=
+><img class=3D"nailL" src=3D"file:///E:/devel/yggr_workspace/yggdrasil/tool=
+s/openssl/doc/OpenSSL%20_ca_%20-%20_error%20while%20loading%20serial%20numb=
+er__files/_icon_OpenSSL.png"><span class=3D"head">OpenSSL "ca" - "error whi=
+le loading serial number"</span><br><span class=3D"body">Why I am getting t=
+he "error while loading serial number" error when running OpenSSL "ca" comm=
+and? If you are running the OpenSSL "ca" command installed with the slprowe=
+b binary package for Windows, you may get the "error while loading serial n=
+umber" error as shown below: C:\Users\fyicenter&amp;gt;\l.. .</span></a> <s=
+pan class=3D"userF">2016-09-13, 33583=F0=9F=91=8D, 0=F0=9F=92=AC</span></p>=
+</div>
+<div class=3D"r2" id=3D"item"><p class=3D"item"><a href=3D"http://certifica=
+te.fyicenter.com/2119_OpenSSL_ca_Error_unable_to_open_demoCA_index_txt_.htm=
+l"><img class=3D"nailL" src=3D"file:///E:/devel/yggr_workspace/yggdrasil/to=
+ols/openssl/doc/OpenSSL%20_ca_%20-%20_error%20while%20loading%20serial%20nu=
+mber__files/_icon_OpenSSL.png"><span class=3D"head">OpenSSL "ca" Error "una=
+ble to open ./demoCA/index.txt"</span><br><span class=3D"body">Why I am get=
+ting the "unable to open './demoCA/index.txt'" error when running OpenSSL "=
+ca" command? If you are running the OpenSSL "ca" command installed with the=
+ slproweb binary package for Windows, you may get the "unable to open './de=
+moCA/index.txt'" error as shown below: C:\Users\fyicenter&amp;g... </span><=
+/a> <span class=3D"userF">2016-09-18, 18224=F0=9F=91=8D, 0=F0=9F=92=AC</spa=
+n></p></div>
+<div class=3D"r2" id=3D"item"><p class=3D"item"><a href=3D"http://certifica=
+te.fyicenter.com/2124_OpenSSL_ca_Error_failed_to_update_database_TXT_DB_err=
+or_number_2_.html"><img class=3D"nailL" src=3D"file:///E:/devel/yggr_worksp=
+ace/yggdrasil/tools/openssl/doc/OpenSSL%20_ca_%20-%20_error%20while%20loadi=
+ng%20serial%20number__files/_icon_OpenSSL.png"><span class=3D"head">OpenSSL=
+ "ca" Error "failed to update database TXT_DB error number 2"</span><br><sp=
+an class=3D"body">Why I am getting the "failed to update database TXT_DB er=
+ror number 2" error when running OpenSSL "ca" command? If you are using the=
+ OpenSSL "ca" command to sign a CSR that has the same DN (Distinguished Nam=
+e) fields as an old CSR you have signed before, you will get the "failed to=
+ update database T... </span></a> <span class=3D"userF">2016-09-13, 13595=
+=F0=9F=91=8D, 0=F0=9F=92=AC</span></p></div>
+<div class=3D"r2" id=3D"item"><p class=3D"item"><a href=3D"http://certifica=
+te.fyicenter.com/2115_OpenSSL_ca_Command_Options.html"><img class=3D"nailL"=
+ src=3D"file:///E:/devel/yggr_workspace/yggdrasil/tools/openssl/doc/OpenSSL=
+%20_ca_%20-%20_error%20while%20loading%20serial%20number__files/_icon_OpenS=
+SL.png"><span class=3D"head">OpenSSL "ca" Command Options</span><br><span c=
+lass=3D"body">What can I use OpenSSL "ca" command for? What are options sup=
+ported by the "ca" command? OpenSSL "ca" command is a CA (Certificate Autho=
+rity) tool. It can be used to sign CSR (Certificate Signing Request) in a v=
+ariety of forms and generate CRLs. It also maintains a text database of iss=
+ued certificat... </span></a> <span class=3D"userF">2016-09-18, 8332=F0=9F=
+=91=8D, 0=F0=9F=92=AC</span></p></div>
+<div class=3D"r2" id=3D"item"><p class=3D"item"><a href=3D"http://certifica=
+te.fyicenter.com/2121_OpenSSL_ca_Error_stateOrProvinceName_field_needed_to_=
+be_the_same_.html"><img class=3D"nailL" src=3D"file:///E:/devel/yggr_worksp=
+ace/yggdrasil/tools/openssl/doc/OpenSSL%20_ca_%20-%20_error%20while%20loadi=
+ng%20serial%20number__files/_icon_OpenSSL.png"><span class=3D"head">OpenSSL=
+ "ca" Error "stateOrProvinceName field needed to be the same"</span><br><sp=
+an class=3D"body">Why I am getting the "The stateOrProvinceName field neede=
+d to be the same in the CA certificate (...) and the request (...)" error w=
+hen running OpenSSL "ca" command? If you are running the OpenSSL "ca" comma=
+nd installed with the slproweb binary package for Windows, you may get the =
+"The stateOrProvin... </span></a> <span class=3D"userF">2016-09-13, 6444=F0=
+=9F=91=8D, 0=F0=9F=92=AC</span></p></div>
+<div class=3D"r2" id=3D"item"><p class=3D"item"><a href=3D"http://certifica=
+te.fyicenter.com/2125_OpenSSL_ca-revoke_-Revoke_a_Certificate.html"><img cl=
+ass=3D"nailL" src=3D"file:///E:/devel/yggr_workspace/yggdrasil/tools/openss=
+l/doc/OpenSSL%20_ca_%20-%20_error%20while%20loading%20serial%20number__file=
+s/_icon_OpenSSL.png"><span class=3D"head">OpenSSL "ca -revoke" - Revoke a C=
+ertificate</span><br><span class=3D"body">How to revoke a certificate using=
+ the OpenSSL "ca" command? The certificate was signed by me with my CA cert=
+ificate, but now it is no longer needed. If you want revoke a certificate t=
+hat was signed by you previously, you can use the OpenSSL "ca -revoke" comm=
+and to revoke it. Actually, the certificat... </span></a> <span class=3D"us=
+erF">2016-09-10, 6430=F0=9F=91=8D, 0=F0=9F=92=AC</span></p></div>
+<div class=3D"r2" id=3D"item"><p class=3D"item"><a href=3D"http://certifica=
+te.fyicenter.com/2117_OpenSSL_ca_-Create_CA_Certificate_for_Testing.html"><=
+img class=3D"nailL" src=3D"file:///E:/devel/yggr_workspace/yggdrasil/tools/=
+openssl/doc/OpenSSL%20_ca_%20-%20_error%20while%20loading%20serial%20number=
+__files/_icon_OpenSSL.png"><span class=3D"head">OpenSSL "ca" - Create CA Ce=
+rtificate for Testing</span><br><span class=3D"body">How to generate a new =
+root CA certificate to test the OpenSSL "ca" command? If you need some root=
+ CA (Certificate Authority) certificates for testing purpose, you can gener=
+ate them using the OpenSSL "req" command as shown below: C:\Users\fyicenter=
+&amp;gt;\loc al\OpenSSL-Win32\bin\openssl.e xeOpenSSL&amp;... </span></a> <=
+span class=3D"userF">2016-09-18, 2577=F0=9F=91=8D, 0=F0=9F=92=AC</span></p>=
+</div>
+<div class=3D"r2" id=3D"item"><p class=3D"item"><a href=3D"http://certifica=
+te.fyicenter.com/2116_OpenSSL_ca_-Create_CSR_for_Testing.html"><img class=
+=3D"nailL" src=3D"file:///E:/devel/yggr_workspace/yggdrasil/tools/openssl/d=
+oc/OpenSSL%20_ca_%20-%20_error%20while%20loading%20serial%20number__files/_=
+icon_OpenSSL.png"><span class=3D"head">OpenSSL "ca" - Create CSR for Testin=
+g</span><br><span class=3D"body">How to generate a new CSR to test the Open=
+SSL "ca" command? If you need some CSR (Certificate Signing Request) for te=
+sting purpose, you can generate them using the OpenSSL "req" command as sho=
+wn below: C:\Users\fyicenter&amp;gt;\loc al\OpenSSL-Win32\bin\openssl.e xeO=
+penSSL&amp;gt; req -newkey rsa:102... </span></a> <span class=3D"userF">201=
+6-09-18, 2158=F0=9F=91=8D, 0=F0=9F=92=AC</span></p></div>
+<div class=3D"r2" id=3D"item"><p class=3D"item"><a href=3D"http://certifica=
+te.fyicenter.com/2122_OpenSSL_ca_-Sign_CSR_with_CA_Certificate.html"><img c=
+lass=3D"nailL" src=3D"file:///E:/devel/yggr_workspace/yggdrasil/tools/opens=
+sl/doc/OpenSSL%20_ca_%20-%20_error%20while%20loading%20serial%20number__fil=
+es/_icon_OpenSSL.png"><span class=3D"head">OpenSSL "ca" - Sign CSR with CA =
+Certificate</span><br><span class=3D"body">How to sign a CSR with my CA cer=
+tificate and private key using OpenSSL "ca" command? I think my configurati=
+on file has all the settings for the "ca" command. If you have you configur=
+ation file ready and all the required directories and files created, you ca=
+n sign a CSR with your CA certificate and p... </span></a> <span class=3D"u=
+serF">2016-09-13, 2105=F0=9F=91=8D, 0=F0=9F=92=AC</span></p></div>
+</div>
+<!-- Certificate Horizontal -->
+<ins class=3D"adsbygoogle" style=3D"display: block; height: 280px;" data-ad=
+-client=3D"ca-pub-4844318048770734" data-ad-slot=3D"3499105230" data-ad-for=
+mat=3D"auto" data-full-width-responsive=3D"true" data-adsbygoogle-status=3D=
+"done"><div id=3D"aswift_5_host" style=3D"border: none; height: 280px; widt=
+h: 600px; margin: 0px; padding: 0px; position: relative; visibility: visibl=
+e; background-color: transparent; display: inline-block;"></div></ins>
+<div class=3D"r2" id=3D"tags"><p class=3D"menu"><span class=3D"link"><a hre=
+f=3D"http://certificate.fyicenter.com/index.php?K=3D29">Android</a></span> =
+<span class=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php?=
+K=3D31">Apple Mac</a></span> <span class=3D"link"><a href=3D"http://certifi=
+cate.fyicenter.com/index.php?K=3D27">DH Keys</a></span> <span class=3D"link=
+"><a href=3D"http://certificate.fyicenter.com/index.php?K=3D26">DSA Keys</a=
+></span> <span class=3D"link"><a href=3D"http://certificate.fyicenter.com/i=
+ndex.php?K=3D28">EC Keys</a></span> <span class=3D"link"><a href=3D"http://=
+certificate.fyicenter.com/index.php?K=3D15">Firefox</a></span> <span class=
+=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php?K=3D1">Gene=
+ral</a></span> <span class=3D"link"><a href=3D"http://certificate.fyicenter=
+.com/index.php?K=3D20">Google Chrome</a></span> <span class=3D"link"><a hre=
+f=3D"http://certificate.fyicenter.com/index.php?K=3D16">IE (Internet Explor=
+er)</a></span> <span class=3D"link"><a href=3D"http://certificate.fyicenter=
+.com/index.php?K=3D13">Intermediate CA</a></span> <span class=3D"link"><a h=
+ref=3D"http://certificate.fyicenter.com/index.php?K=3D11">Java VM</a></span=
+> <span class=3D"link"><a href=3D"http://certificate.fyicenter.com/index.ph=
+p?K=3D10">JDK Keytool</a></span> <span class=3D"link"><a href=3D"http://cer=
+tificate.fyicenter.com/index.php?K=3D19">Microsoft CertUtil</a></span> <spa=
+n class=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php?K=3D=
+30">Microsoft Edge</a></span> <span class=3D"link"><a href=3D"http://certif=
+icate.fyicenter.com/index.php?K=3D18">Mozilla CertUtil</a></span> <span cla=
+ss=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php?K=3D12">O=
+penSSL</a></span> <span class=3D"link"><a href=3D"http://certificate.fyicen=
+ter.com/index.php?K=3D22">Other</a></span> <span class=3D"link"><a href=3D"=
+http://certificate.fyicenter.com/index.php?K=3D21">Portecle</a></span> <spa=
+n class=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php?K=3D=
+14">Publishers</a></span> <span class=3D"link"><a href=3D"http://certificat=
+e.fyicenter.com/index.php?K=3D23">Revoked Certificates</a></span> <span cla=
+ss=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php?K=3D7">Ro=
+ot CA</a></span> <span class=3D"link"><a href=3D"http://certificate.fyicent=
+er.com/index.php?K=3D25">RSA Keys</a></span> <span class=3D"link"><a href=
+=3D"http://certificate.fyicenter.com/index.php?K=3D24">Tools</a></span> <sp=
+an class=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php?K=
+=3D9">Tutorial</a></span> <span class=3D"link"><a href=3D"http://certificat=
+e.fyicenter.com/index.php?K=3D8">What Is</a></span> <span class=3D"link"><a=
+ href=3D"http://certificate.fyicenter.com/index.php?K=3D17">Windows</a></sp=
+an> </p></div><div class=3D"r2" id=3D"menu"><p class=3D"menu"><span class=
+=3D"link"><a href=3D"http://certificate.fyicenter.com/index.php">Home</a></=
+span> <span class=3D"link"><a href=3D"http://certificate.fyicenter.com/inde=
+x.php?S=3Drank">Hot</a></span> <span class=3D"link"><a href=3D"http://certi=
+ficate.fyicenter.com/1_Internet_Security_Certificate_Information_Center.htm=
+l">About</a></span> <span class=3D"link"><a href=3D"http://certificate.fyic=
+enter.com/3268_certificate_FYIcenter_com_Links.html">Collections</a></span>=
+ <span class=3D"link"><a href=3D"http://certificate.fyicenter.com/list.php"=
+>Index</a></span> <span class=3D"link"><a href=3D"http://certificate.fyicen=
+ter.com/rss_xml.php">RSS</a></span> <span class=3D"link"><a href=3D"http://=
+certificate.fyicenter.com/atom_xml.php">Atom</a></span> <span class=3D"link=
+"><a href=3D"http://certificate.fyicenter.com/submit.php">Ask</a></span> </=
+p><hr><p class=3D"menu"><span class=3D"link"><a href=3D"http://sqa.fyicente=
+r.com/">Tester</a></span> <span class=3D"link"><a href=3D"http://dev.fyicen=
+ter.com/">Developer</a></span> <span class=3D"link"><a href=3D"http://dba.f=
+yicenter.com/">DBA</a></span> <span class=3D"link"><a href=3D"http://window=
+s.fyicenter.com/">Windows</a></span> <span class=3D"link"><a href=3D"http:/=
+/jar.fyicenter.com/">JAR</a></span> <span class=3D"link"><a href=3D"http://=
+dll.fyicenter.com/">DLL</a></span> <span class=3D"link"><a href=3D"http://f=
+ile.fyicenter.com/">Files</a></span> <span class=3D"link"><a href=3D"http:/=
+/certificate.fyicenter.com/">Certificates</a></span> <span class=3D"link"><=
+a href=3D"http://regex.fyicenter.com/">RegEx</a></span> <span class=3D"link=
+"><a href=3D"http://link.fyicenter.com/">Links</a></span> <span class=3D"li=
+nk"><a href=3D"http://interview.fyicenter.com/">Q&amp;A</a></span> <span cl=
+ass=3D"link"><a href=3D"http://biotech.fyicenter.com/">Biotech</a></span> <=
+span class=3D"link"><a href=3D"http://phone.fyicenter.com/">Phones</a></spa=
+n> <span class=3D"link"><a href=3D"http://travel.fyicenter.com/">Travel</a>=
+</span> <span class=3D"link"><a href=3D"http://faq.fyicenter.com/">FAQ</a><=
+/span> <span class=3D"link"><a href=3D"http://www.fyicenter.com/">Forum</a>=
+</span> </p></div><div class=3D"r2" id=3D"footer"><p class=3D"foot">Copyrig=
+ht =C2=A9 2024 FYIcenter.com</p><p class=3D"foot">All rights in the content=
+s of this web site are reserved by the individual author. fyicenter.com doe=
+s not guarantee the truthfulness, accuracy, or reliability of any contents.=
+</p></div></div>
+<div class=3D"c1" id=3D"right">
+
+<!-- Certificate Vertical -->
+<ins class=3D"adsbygoogle" style=3D"display: block; height: 600px;" data-ad=
+-client=3D"ca-pub-4844318048770734" data-ad-slot=3D"3890821628" data-ad-for=
+mat=3D"auto" data-full-width-responsive=3D"true" data-adsbygoogle-status=3D=
+"done"><div id=3D"aswift_6_host" style=3D"border: none; height: 600px; widt=
+h: 200px; margin: 0px; padding: 0px; position: relative; visibility: visibl=
+e; background-color: transparent; display: inline-block;"></div></ins>
+<div class=3D"r2" id=3D"hot"><p class=3D"head">Popular Posts:</p></div><div=
+ class=3D"r2" id=3D"hot"><p class=3D"link"><a href=3D"http://certificate.fy=
+icenter.com/685_Microsoft_certutil_Certificate_Store_Locations.html">Micros=
+oft "certutil"...</a></p><p class=3D"text">How can I specify the search loc=
+ation of certificate stores for Microsoft "certutil" command? The do... </p=
+></div><div class=3D"r2" id=3D"hot"><p class=3D"link"><a href=3D"http://cer=
+tificate.fyicenter.com/912_passport_58_com_Terms_of_use_at_www_verisign_com=
+_rpa_c_05_.html">passport.58.com, Ter...</a></p><p class=3D"text">Certifica=
+te summary - Owner: passport.58.com, Terms of use at www.verisign.com/rpa (=
+c)05, Purchasing... </p></div><div class=3D"r2" id=3D"hot"><p class=3D"link=
+"><a href=3D"http://certificate.fyicenter.com/1876_certificate_is_not_trust=
+ed_Error_in_Google_Chrome_29.html">"certificate is not ...</a></p><p class=
+=3D"text">Why I am getting the "The site's security certificate is not trus=
+ted!" error screen in Google Chrome... </p></div><div class=3D"r2" id=3D"ho=
+t"><p class=3D"link"><a href=3D"http://certificate.fyicenter.com/122_Common=
+_Causes_for_PKIX_path_building_failed_Error.html">Common Causes for "P...</=
+a></p><p class=3D"text">What are the reasons for the "PKIX path building fa=
+iled" error? I am getting this "sun.security.vali... </p></div><div class=
+=3D"r2" id=3D"hot"><p class=3D"link"><a href=3D"http://certificate.fyicente=
+r.com/9474_updates_cdn-apple_com_Certificate-43B4ACCD4ABF0116CB0427D71CC889=
+5116C5E225.html">updates.cdn-apple.co...</a></p><p class=3D"text">Certifica=
+te Summary: Subject: updates.cdn-apple.com Issuer: Apple IST CA 2 - G1 Expi=
+ration: 2021-12-... </p></div></div>
+
+<ins class=3D"adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status=3D"=
+done" style=3D"display: none !important;"><div id=3D"aswift_0_host" style=
+=3D"border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; posit=
+ion: relative; visibility: visible; background-color: transparent; display:=
+ inline-block;"></div></ins></body><iframe id=3D"google_esf" name=3D"google=
+_esf" src=3D"cid:frame-2396FC31617F69EC143E913E696397E8@mhtml.blink" style=
+=3D"display: none;"></iframe></html>
+------MultipartBoundary--fhViN1aWhnH2kJiEqQCnPNLQixEmMtTtJrRtA3JcoC----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-e2425296-3ff2-4abb-83b6-fe3bebe831b2@mhtml.blink
+
+@charset "utf-8";
+=0A
+------MultipartBoundary--fhViN1aWhnH2kJiEqQCnPNLQixEmMtTtJrRtA3JcoC----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-a3a28bb9-a623-4116-9e81-49ac5f6b19ba@mhtml.blink
+
+@charset "utf-8";
+=0A
+------MultipartBoundary--fhViN1aWhnH2kJiEqQCnPNLQixEmMtTtJrRtA3JcoC----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///E:/devel/yggr_workspace/yggdrasil/tools/openssl/doc/OpenSSL%20_ca_%20-%20_error%20while%20loading%20serial%20number__files/_style.css
+
+@charset "utf-8";
+
+div.c1#left { width: 200px; padding-left: 8px; }
+
+div.c1#center { width: 600px; padding-left: 8px; }
+
+div.c1#right { width: 200px; padding-left: 8px; }
+
+@media (max-width: 1024px) {
+  div.c1#left { display: none; }
+}
+
+@media (max-width: 816px) {
+  div.c1#right { display: none; }
+  div.c1#center { width: 100%; padding-left: 0px; }
+}
+
+html { text-size-adjust: 100%; }
+
+body { font-family: "Microsoft YaHei", Arial, sans-serif; font-size: 16px; =
+margin: 0px; padding: 0px; line-height: 170%; letter-spacing: 1px; }
+
+div.c1 { display: inline; float: left; }
+
+input { font-family: "Microsoft YaHei", Arial, sans-serif; font-size: 16px;=
+ padding: 6px; }
+
+input.button { font-weight: bold; color: rgb(51, 102, 204); cursor: pointer=
+; border-radius: 6px; background-color: rgb(204, 204, 204); }
+
+input.button:hover { background-color: rgb(187, 187, 255); }
+
+textarea { font-family: monospace; font-size: 16px; box-sizing: border-box;=
+ width: 100%; }
+
+option { font-family: "Microsoft YaHei", Arial, sans-serif; font-size: 16px=
+; }
+
+button { font-family: "Microsoft YaHei", Arial, sans-serif; font-size: 16px=
+; padding: 6px; font-weight: bold; color: rgb(51, 102, 204); cursor: pointe=
+r; border-radius: 6px; background-color: rgb(204, 204, 204); }
+
+button:hover { background-color: rgb(187, 187, 255); }
+
+form { margin: 0px; padding: 0px; }
+
+img { margin: 6px; vertical-align: bottom; width: auto !important; height: =
+auto !important; max-width: 100% !important; }
+
+figure { text-align: center; }
+
+figcaption { font-weight: bold; margin: 8px 0px 0px; }
+
+a:link { color: rgb(51, 102, 204); text-decoration: none; }
+
+a:visited { color: rgb(51, 102, 204); text-decoration: none; }
+
+a:hover { text-decoration: underline; }
+
+a.button { color: rgb(51, 102, 204); background-color: rgb(204, 204, 204); =
+border: 1px solid rgb(68, 68, 68); padding: 6px; line-height: 220%; text-al=
+ign: center; text-decoration: none; cursor: pointer; border-radius: 6px; }
+
+a.button:hover { background-color: rgb(187, 187, 255); }
+
+div.r2 { border-top: 1px solid rgb(187, 187, 187); }
+
+div.none { display: none; }
+
+div.c1#left div.r2 { border-right: 1px solid rgb(187, 187, 187); }
+
+div.c1#right div.r2 { border-left: 1px solid rgb(187, 187, 187); }
+
+div#footer { text-align: center; }
+
+div#error { border-top: 3px solid rgb(255, 119, 119); border-bottom: 3px so=
+lid rgb(255, 119, 119); }
+
+div#notice { border-top: 3px solid rgb(255, 255, 119); border-bottom: 3px s=
+olid rgb(255, 255, 119); }
+
+div#item { min-height: 80px; }
+
+div#star { border-top: 3px solid rgb(255, 119, 119); border-bottom: 3px sol=
+id rgb(255, 119, 119); }
+
+p { margin: 10px 0px; padding: 0px 5px; }
+
+pre { overflow-x: auto; margin: 6px 0px; padding: 3px 5px; background-color=
+: rgb(231, 231, 231); }
+
+pre span.db { font-family: "microsoft yahei"; font-size: 12pt; }
+
+pre span.sb { font-family: "courier new"; font-size: 10pt; }
+
+li { margin: 8px 0px; padding: 0px 5px 0px 10px; }
+
+blockquote { margin: 0px 0px 0px 25px; }
+
+p.tool * { vertical-align: top; }
+
+p.foot { font-size: 10px; }
+
+p.navs { font-weight: bold; }
+
+p.menu { line-height: 150%; }
+
+p.menu span.link { font-weight: bold; padding-right: 5px; white-space: nowr=
+ap; }
+
+p.item .head { font-weight: bold; }
+
+p.item .body { color: rgb(0, 0, 0); }
+
+p.itemComm { margin: 10px 0px 10px 30px; }
+
+p.itemComm .body { font-size: 90%; color: rgb(0, 0, 0); }
+
+p.head { font-weight: bold; background-color: rgb(238, 255, 238); margin: 0=
+px; padding-top: 10px; padding-bottom: 4px; }
+
+p.note { font-size: 90%; font-style: italic; text-align: right; }
+
+p.link { margin: 5px 0px; }
+
+p.lead { padding-top: 8px; }
+
+p.text { }
+
+p.zero { height: 0px; }
+
+div.user { background-color: rgb(247, 247, 247); padding-top: 1px; padding-=
+bottom: 1px; }
+
+span.userF { font-size: 12px; font-style: italic; color: rgb(0, 176, 48); }
+
+img.menu { margin: 0px; }
+
+img.floatR { float: right; }
+
+img.iconL { float: left; margin: 2px 4px 2px 2px; }
+
+img.nailL { float: left; margin: 0px 6px 0px 0px; width: 64px !important; h=
+eight: 64px !important; }
+
+img.nailR { float: right; margin: 0px 0px 0px 6px; width: 64px !important; =
+height: 64px !important; }
+
+img.nailR2 { float: right; margin: 0px 0px 0px 6px; max-width: 128px !impor=
+tant; }
+
+img.svg { margin: 6px; vertical-align: bottom; width: 580px !important; hei=
+ght: 580px !important; }
+
+img:not(.nailL, .nailR) { zoom: 0.9; transform: scale(0.9); }
+
+table.rootList { margin-top: 4px; border: 1px solid rgb(187, 187, 187); }
+
+tr.rootItemH { font-weight: bold; background-color: rgb(204, 204, 204); }
+
+tr.rootItemE { background-color: rgb(247, 247, 247); }
+
+tr.rootItemO { background-color: rgb(255, 255, 255); }
+
+div.iconL { float: left; background-color: rgb(0, 176, 48); color: rgb(255,=
+ 255, 255); font-size: 22px; font-weight: bold; font-family: Algerian, sans=
+-serif; padding: 0px 4px; margin: 10px 4px 2px 0px; }
+------MultipartBoundary--fhViN1aWhnH2kJiEqQCnPNLQixEmMtTtJrRtA3JcoC----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: file:///E:/devel/yggr_workspace/yggdrasil/tools/openssl/doc/OpenSSL%20_ca_%20-%20_error%20while%20loading%20serial%20number__files/_logo.png
+
+iVBORw0KGgoAAAANSUhEUgAAACQAAAAYCAIAAAFq3fiPAAAACXBIWXMAABJ0AAASdAHeZh94AAAD
+OElEQVR4Xr1WTUgbQRSeoVPwklRKS9UIRciWpPQghaokl0BzMDl1bx71YvCU9SB4jODNS3LS5BJ7
+EnJZT4mFeNygHorQQoJZWntYsZdiEyiFHqZvfnad3eBPpe13iDNv5s375pv33koopYV2AXGMDI0Q
+mKx11qhOG0c420FErABO+uyXVE+rpz9OhYnMP523O0mt/aKYLrs7w8/ZyuanzaXjJWnyg5z/PKfT
+i/iwAhMIBL/YxMU0NZqYDN0bEgvCKgawwPxUqioK8QLx9gYAdyEoXKyHjJM4rTl2q61BSNhN00Xc
+NAh9ncemgRyciHc5F9tzJXi/1I0nNsLWx57NPDhVuYZ6htaDgYwqwsOBbA14XkXnGjDlxcgN1MBm
+FmhZsaiwg9TdmJURE4kGk72u00y/NBhTWOC47hHGDgKJ86gkSQa2BsAo9EtZJ2hnbll2akKS7Mvz
+BCDg4jSlej7p50JWn63CSyDUUknCW+C2HFcOsXj1VhN75zElIVm2Pm+5lhswNz4XC8XIwvuF7S/b
+wcWrAdRmHs6QP/IROPh2IJWEe5fH2CBnspuoyYLNHNXL3hTxPcytq9OofCWmZ4Vrw+rOYU8KPu6S
+BXq2uCe4LYKPq69PT8B6x8646aKCoMgb+CPOUJGZooJoaT+YPYi5ObuwJzHgCSR3x9mFa6wIggCS
+FRuVLV5oiIvh8YSHXtGppXexqfmcRHJpvBMI9QJJpPES5HVbU+3yAQwlcZDSPNSxaiSTDyaPvx97
+89tg+P4wy8mLXxfLH5bvkC63x+yT2erLKoFWO/FuIrj4t7H3dW+0MXqX/L8zlP4TqdMpf1Nzwb8t
+LbUFBtG37VD0ijWBRs7MBktUlJgPkXo37DOoeySDUBR1krgtSiFRTFv5EGuAyaahVgcPFi6u8Ejo
+LBeMBHCy2qBRIFx8K+/a2JCRroMi463hlTwH00d+b28CD9YzNs7yTMaxcj1SCV6OybiuKcRdGYVc
+mbJOV/ijXrpcAXkz9l3gCeJnLWF31oMmhhb0ghp/s2jMorGbr6jI6GSxeTkbhPrRutbISKgNyQNJ
+PU7xj+H/AEk9SrXT7Uwr4/3X9i8AjXHn1c5vVQ16z4aDDa0AAAAASUVORK5CYII=
+
+------MultipartBoundary--fhViN1aWhnH2kJiEqQCnPNLQixEmMtTtJrRtA3JcoC----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: file:///E:/devel/yggr_workspace/yggdrasil/tools/openssl/doc/OpenSSL%20_ca_%20-%20_error%20while%20loading%20serial%20number__files/_search.png
+
+iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAIAAAEYEpo5AAAACXBIWXMAABJ0AAASdAHeZh94AAAD
+dklEQVR4Xp1Ua0iTURje577NGfsxQdisINGCCeUtb2GpgTcUvIYXJLVQrEhNQVGmaXlF8ArRD0ep
+aWpoDvECKhVMQSHEmaJYP1T8oSRoFLSZbj3zfH7ft2kUPZx9e897nvOcc973PYc2mUyCI9Dkr32+
+3WzJ6mTf97/T3KjNExtjudFs4S+6N3ooeYgZpZ/StA1dGFBYebPSPFX4VHj4+BCGZkXD6JI+EKuM
+lVRLOFkWZpa4UnxFfmVhe+FX2S/GtV+2T8YxBpvWH+gltIS4TIKj1dEXVYpUN1Q1UzXcRGJVBFeU
+TJbUhtRarDizOdMy2+Iudy++Xsw6BWwEpLXSeGV8Z1yn/3l/4sHiG/kbCqmCIfUu9hoODGAczzQD
+28M+uB0kX05O16R36DrS3dNZkrhKPJY6RmxmOUOpAd+KDxXV2mpXB9fx2+NgRHVH6Uv1HIkAx0Ej
+NnYDhvKZUiaRnRLPk7BQqpuq023rsq9mBzsF8/0MqXmmuXCiUEgJkY/QV6GUgGITwZD29HtgkNMS
+lL0vs62yJadhSI4NjuVB5SwDQInUaGvYLJpJFEVlemXySYDRZESQMzwyGNKh8RD9R/6P+CSaolFP
+jI2f9o424EUAn6R6pxJQAkSII/me8w26EIQ8hDmHeZ/1bp1t3TXseio82TlMCCbTJnHGwJeBI59H
+INkU3mRXbVc/XV8UUMSRAIgv3F9guz9VPxGFiIsRbnI3i4hbAXGCHtj/lLt/wSmrre+tI3tr39YO
+jAdkGQRbZCNyOOMwmjqKC2A94QgWQj2fetI0aTCcZE6rD1fxZYfW9tZS36b6tPkgWfUh9QXXCtgh
+Ak4opjdmeHXY3s5+M3+Tvb8sIDp9dxqGS6tL0UTR4MogMsknMEIrOyvjX8ZRlV1xXSdV+BhIHPBT
++81uzs5vzXsoPFg/I4T6Q1ng+WAr40/ALcPpELWtH1t8PyMEbWd75+Wd5ezhbN09HZ9hBRAg5Ch1
+RGnw/VyMlh4sZQ5l4r3AK5Lrm9sQ3sCjmZEykNK32GeiTAnKhP7EfqtRi6ypo9VobXNtOWM5jTON
+gqPE40uKQCQU5fnnPf/4fPTLaFJ/Ut+tPv7cU+ooyysLzdp7DFwN9ZwaK+FSaZI0kZciif8Uob8C
+LwFaZHdkwpsEsVCMipNL5f8jRIAqR66jXkctfV2C0G8Wz2qlL75lzQAAAABJRU5ErkJggg==
+
+------MultipartBoundary--fhViN1aWhnH2kJiEqQCnPNLQixEmMtTtJrRtA3JcoC----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: file:///E:/devel/yggr_workspace/yggdrasil/tools/openssl/doc/OpenSSL%20_ca_%20-%20_error%20while%20loading%20serial%20number__files/_menu.png
+
+iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAIAAAEYEpo5AAAACXBIWXMAABJ0AAASdAHeZh94AAAB
+L0lEQVR4XmP5//8/AxiwQChUFkFZx4WOcD5ICIgPPDiALoQGEMYihIAY2az14etBQvvj98OFGCCq
+GBsZ4fz7+fdBQv/rUYzDpgrTRkwAdSmyVjQAtY8Bw0o0QNik58XPoYrq7etRpRBAgkcCqshBwQFF
+BhWQ4jv8AKQocm3kiy8v0GXAgIOFY3v0dpCiFVdWoEuiAizxggmIdhOekGQA2wNSBHTdjz8/0CWR
+AEjR9+rv6MKoAOq7G29uoMuAATBOMkwyoOGELokEoIqOJx8n4CZi4o4YQFRYEgMQBuEPdTwAmE8U
+BBQQBnmoeOAPBVxAgEOAAdlFwNSHkCQdIAyacWYGrkSOBwBTWIFFAZBEGJS5NRNJAQkgQicCJYwI
+Zhb8YDBHP8GMiR8gDCKYefEDAFt5bDPXozadAAAAAElFTkSuQmCC
+
+------MultipartBoundary--fhViN1aWhnH2kJiEqQCnPNLQixEmMtTtJrRtA3JcoC----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: file:///E:/devel/yggr_workspace/yggdrasil/tools/openssl/doc/OpenSSL%20_ca_%20-%20_error%20while%20loading%20serial%20number__files/_icon_OpenSSL.png
+
+iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACx
+jwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAZvSURBVHhe7Zp9TJVVGMAPfmBSC8ZHahZms9Ea
+mznYXB+b2O4f0kjnWhQVtmWFNkVBS8FpM0yi0IK+wM0WwuoPNKb8ITmwLymnEyXKf2AVWMIyiFuA
+gdrtfZ57zr3nPfec9557eZnRe3/b2fO855zn3HOe95znnPNClMeAOJgpVDqWiAOodCwRB1DpWCIO
+oNKxRBxApWOJOIBKxxL0LnCirpZ0HDtGRt1uMn/pUnJf1iPklgULaOnkR+qAnvZ2UuF6iD7JmZux
+lBTWH6RPk5cABxzYvIm013yE+uXfB8jWc+dI8sKF+DwyMkKadr9GWqur8HnMKH9nkl8mTQ4oumMe
+GRseQr34zFmSkJyMuoxNSQkoPVevkr1/uFGfjJiCIBs8vFmrwQPbvvseZdS0aWSgtxd1nvbjxzEx
+3ns4k6yPiiLrjLT/qRyaaw0sRXA0s3t/eRbp7+mhpYGw34SZCvx08hu0hfSikc4eOYz5PL4ZAIV1
+q5/FzD2X+lEGAzo1IzFeuhTYDIG2mC7yQv0hkpKRQZ/MqGwA1dJjNvBySu66k0yZGYPPIm/82kum
+Rkej7nMAeClaMRgVfLAUncYPQGzzaNnrpLn8TdQzt+8grvwNqDOYrWgHb3/XPSk4MCunw7IE+KV5
+bWyMvDx3Dur8svUtgelxN6O898knUOoAwZH9mBViRzO3bCVxKXejfrTkVZSMD1blorz2Z+AAYVm+
+NXQZdXhZMCgZsCzFuARv/On9H6IO5QyfA1jmg8/nodTFc0XeCcY/l73rUWT7iVaqmTlfW4dy7Wef
+o5QRfeNNKPc9txqlCOxeMhYtX0E1PwEnwaSUFKrp4bnyN9XkFLSepJoaFpzgjcKbBVSxAdj81dco
+mbNEXvpW7lwZAQ4439JMNT2ipt9ANTnsDGHFyYPeA5W73x9HYD2r0u60RViHOUskdt58qgXH5wA2
+VWtzV6HURRVpxwucNHXSuIFdAFhrqIWJ8Z51/qygnGtpQRtIIix/cHCQ5gTC6hzaVozP/Rcv+vLC
+gdlCOyrE9n0zoKS7G6VqWsmoeXQlStiSVPz45RdUU7Nixyso4+d4tylAFeHtxucA2GLYlgZngmDA
+LZHtHOJ2xVP7jHxJwRmCwQ4lAIvwG2bMQCkDTnsQC3T6GQxTENxlnJAAmAVWjcNe3VCwEfWZiUko
+VYCTmisr6JMfdoASt8nSn70zEU6YcJSVceDxx1C+PTqKcjwE3AbhtMWiLJBw263EtaWYTI2NIz8Y
+O8TpPXt9ywTeFuuwCLwhAAYIgfL2+x8gmQWF5NIvF8in69f5Zo/s2M1fymB55X7yMZkeE0MO79xJ
+/urx/p7VSRCOwvxy4mF12O8GOIDBzvkyYKlsPX3G8sMI/0OytkaNAbxrsXRg1oinRAY4c+PhI/TJ
+j60O4IFZAUEplC9B4g8Bv3V14XoPdtMUYTfAUO100HJAOMgc8F8k4CToNCIOoDJsuox1DSkc4MsN
+2PbQNX49CCsGRAU5gAwPD5MLp06hLrvVBbNXdYm3syt0heyAYJ1n6AzCCpn9dXeA2PnU1FSSk5ND
+hoaGSGlpKc31IzYt2rtcLrJs2TJcApWVlTTXj5W9XQ6AhrSB6izJbnm9vb2mOrNnz6YlHk9HR4ep
+TIbhEFMdaI+HL7OLsB2gIi8vT1qvvLxcmi/C1xHrqfLHQ9i7gCpyV1VVEWN2+BIjmrvxWQEBVGY/
+YVBHaAHV+bRkyRJaoodon5+fT0v04G3tIqSWioqKTJ0QkxEUPTU1NbR2IDIbPkEM6OzspLUD4eva
+RcgtXR0dNXXEKskQg6EqpaWlUQs/fLldhN1SW1ubqUOyZLVE6uvrpTZ8EmcDX2YXtrWkcgi8cR2a
+m5ul9jyq/PFgX0scfEf5s4AORuQ32YNjGXy+XWhvg+np6XgSY0mXvr4+lLytlX1sbCzVvAwMqL84
+24G2A8rKyqjmxe3W+6eIrKwslEY8QBkqs2bNotoEQWeCFlCdT/z0ZBgDNtWBXYPB50OC6S4i1uFR
+5Y+HkFoS12ew1NTURC29GBceaT1VEpHVUSVdJuR7ANDd3U2SFR8xdexl3dKxY+gOK+yPonAXWLx4
+sS/IMWDNNzY20ic11dXVZM2aNfTJi7FjkOzsbFJREfiHFGDlSu+f4nRoaGigmjVhO+D/QuSjKJWO
+JeIAKh1LxAFUOpaIA6h0LBEHUOlQCPkXumntBR2HaqgAAAAASUVORK5CYII=
+
+------MultipartBoundary--fhViN1aWhnH2kJiEqQCnPNLQixEmMtTtJrRtA3JcoC----
+Content-Type: text/html
+Content-ID: <frame-2396FC31617F69EC143E913E696397E8@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: chrome-error://chromewebdata/
+
+<!DOCTYPE html><html dir=3D"ltr" lang=3D"zh" subframe=3D"" class=3D"dark-th=
+eme"><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-3bf01d=
+db-27ec-4d40-8ad3-a0ea201830f5@mhtml.blink" /><link rel=3D"stylesheet" type=
+=3D"text/css" href=3D"cid:css-3079fd96-f686-4c1c-992b-11bf8995cc13@mhtml.bl=
+ink" /><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-a3f16153-=
+16b6-4849-a8b3-03b298a99bd5@mhtml.blink" /><link rel=3D"stylesheet" type=3D=
+"text/css" href=3D"cid:css-71b0be84-fdad-467e-afd5-41b3994ffd7b@mhtml.blink=
+" /><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-7d177598-82d=
+f-447b-90fb-e8e3d2170d68@mhtml.blink" /><link rel=3D"stylesheet" type=3D"te=
+xt/css" href=3D"cid:css-adc20f21-03c8-48f8-9865-497f04de3dce@mhtml.blink" /=
+>
+ =20
+  <meta name=3D"color-scheme" content=3D"light dark">
+  <meta name=3D"theme-color" content=3D"#fff">
+  <title>googleads.g.doubleclick.net</title>
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+   =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+</head>
+<body id=3D"t" class=3D"neterror" jstcache=3D"0">
+  =20
+  <div class=3D"content" jstcache=3D"0">
+    <div id=3D"animation" class=3D"animation" style=3D"display:none;" jstca=
+che=3D"0"></div>
+    <div id=3D"illustration" class=3D"illustration" style=3D"display:block"=
+ jstcache=3D"0">
+     =20
+     =20
+     =20
+        <img src=3D"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3d=
+y53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgx=
+IDgxIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSI1MC4wMDElIiB4Mj0iNTAuMDA=
+xJSIgeTE9IjEuNjMxJSIgeTI9Ijk4LjU0NSUiPjxzdG9wIHN0b3AtY29sb3I9IiNGRjFCMkQiIG=
+9mZnNldD0iMzAlIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0ZBMUEyQyIgb2Zmc2V0PSI0My44JSIvP=
+jxzdG9wIHN0b3AtY29sb3I9IiNFRDE1MjgiIG9mZnNldD0iNTkuNCUiLz48c3RvcCBzdG9wLWNv=
+bG9yPSIjRDYwRTIxIiBvZmZzZXQ9Ijc1LjglIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0I3MDUxOSI=
+gb2Zmc2V0PSI5Mi43JSIvPjxzdG9wIHN0b3AtY29sb3I9IiNBNzAwMTQiIG9mZnNldD0iMTAwJS=
+IvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJiIiB4MT0iNDkuOTk2JSIge=
+DI9IjQ5Ljk5NiUiIHkxPSIuODUzJSIgeTI9Ijk5LjYwNyUiPjxzdG9wIHN0b3AtY29sb3I9IiM5=
+QzAwMDAiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjRkY0QjRCIiBvZmZzZXQ9Ijc=
+wJSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxwYXRoIGZpbGw9InVybCgjYSkiIGQ9Ik0yNi=
+45NjcgNjIuODUzYy00LjQ0NC01LjI0Ni03LjMyMy0xMy4wMDMtNy41Mi0yMS43MDd2LTEuODk0Y=
+y4xOTYtOC43MDQgMy4wNzUtMTYuNDYgNy41Mi0yMS43MDcgNS43NjYtNy40OSAxNC4zNC0xMi4y=
+MzcgMjMuOTEyLTEyLjIzNyA1Ljg4NiAwIDExLjM5NiAxLjc5OCAxNi4xMSA0LjkyNUM1OS45MTM=
+gMy45MDMgNTAuNTgyLjA0IDQwLjM1LjAwM0w0MC4yIDBDMTcuOTk3IDAgMCAxNy45OTggMCA0MC=
+4yYzAgMjEuNTU3IDE2Ljk3MiAzOS4xNSAzOC4yODUgNDAuMTUuNjM1LjAzIDEuMjczLjA0OCAxL=
+jkxNS4wNDggMTAuMjkyIDAgMTkuNjc4LTMuODcgMjYuNzktMTAuMjMtNC43MTIgMy4xMjUtMTAu=
+MjIgNC45MjMtMTYuMTEgNC45MjMtOS41NzMgMC0xOC4xNDYtNC43NDYtMjMuOTEzLTEyLjIzNXo=
+iLz48cGF0aCBmaWxsPSJ1cmwoI2IpIiBkPSJNMjYuOTY3IDE3LjU0NmMzLjY4OC00LjM1NCA4Lj=
+Q1NC02Ljk4IDEzLjY2LTYuOTggMTEuNyAwIDIxLjE4OCAxMy4yNjggMjEuMTg4IDI5LjYzNHMtO=
+S40ODYgMjkuNjM0LTIxLjE5IDI5LjYzNGMtNS4yMDQgMC05Ljk3LTIuNjI2LTEzLjY1Ny02Ljk4=
+IDUuNzY3IDcuNDkgMTQuMzQgMTIuMjM3IDIzLjkxMyAxMi4yMzcgNS44OSAwIDExLjQtMS43OTU=
+gMTYuMTEtNC45MkM3NS4yMiA2Mi44MSA4MC40IDUyLjExIDgwLjQgNDAuMmMwLTExLjkwOC01Lj=
+E4LTIyLjYwNS0xMy40MDYtMjkuOTY2QzYyLjI4IDcuMTA3IDU2Ljc3IDUuMzA4IDUwLjg4IDUuM=
+zA4Yy05LjU3MyAwLTE4LjE0NiA0Ljc1LTIzLjkxMyAxMi4yMzh6Ii8+PC9zdmc+" jstcache=
+=3D"0">
+     =20
+    </div>
+
+    <div class=3D"description" jstcache=3D"0">
+      <h1 jstcache=3D"0">
+        <span jsselect=3D"heading" jsvalues=3D".innerHTML:msg" jstcache=3D"=
+4"><span jscontent=3D"hostName" jstcache=3D"16">googleads.g.doubleclick.net=
+</span> =E5=B7=B2=E8=A2=AB=E5=B1=8F=E8=94=BD</span>
+        <a id=3D"error-information-button" class=3D"hidden" jstcache=3D"0">=
+</a>
+      </h1>
+
+      <div class=3D"main" id=3D"errorSummary" jstcache=3D"0">
+        <p jsselect=3D"summary" jsvalues=3D".innerHTML:msg" jstcache=3D"5">=
+=E6=AD=A4=E9=A1=B5=E9=9D=A2=E5=B7=B2=E8=A2=AB=E6=9F=90=E4=B8=AA=E6=89=A9=E5=
+=B1=95=E7=A8=8B=E5=BA=8F=E5=B1=8F=E8=94=BD</p>
+      </div>
+
+      <!--The suggestion list and error code are normally presented inline,
+        in which case error-information-popup-* divs have no effect. When
+        error-information-popup-container has the use-popup-container class=
+, this
+        information is provided in a popup instead.-->
+      <div id=3D"error-information-popup-container" jstcache=3D"0">
+        <div id=3D"error-information-popup" jstcache=3D"0">
+          <div id=3D"error-information-popup-box" jstcache=3D"0">
+            <div id=3D"error-information-popup-content" jstcache=3D"0">
+              <div id=3D"suggestions-list" style=3D"" jsdisplay=3D"(suggest=
+ionsSummaryList &amp;&amp; suggestionsSummaryList.length)" jstcache=3D"11">
+                <h4 jsvalues=3D".innerHTML:suggestionsSummaryListHeader" js=
+tcache=3D"13"></h4>
+                <ul jstcache=3D"0">
+                  <li jsselect=3D"suggestionsSummaryList" jsvalues=3D".inne=
+rHTML:summary" jstcache=3D"15" jsinstance=3D"*0">=E5=B0=9D=E8=AF=95=E5=81=
+=9C=E7=94=A8=E6=89=A9=E5=B1=95=E7=A8=8B=E5=BA=8F=E3=80=82</li>
+                </ul>
+              </div>
+              <div class=3D"error-code" jscontent=3D"errorCode" jstcache=3D=
+"12">ERR_BLOCKED_BY_CLIENT</div>
+              <p id=3D"error-information-popup-close" jstcache=3D"0">
+                <a class=3D"link-button" jscontent=3D"closeDescriptionPopup=
+" jstcache=3D"14">null</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class=3D"suggestions" jsselect=3D"suggestionsDetails" jstcache=
+=3D"1" jsinstance=3D"*0" style=3D"display: none;">
+        <h4 class=3D"suggestion-header" jsvalues=3D".innerHTML:header" jstc=
+ache=3D"6"></h4>
+        <p class=3D"suggestion-body" jsvalues=3D".innerHTML:body" jstcache=
+=3D"7"></p>
+      </div>
+
+      <div id=3D"download-links-wrapper" class=3D"hidden" jstcache=3D"0">
+        <div id=3D"download-link-wrapper" jstcache=3D"0">
+          <a id=3D"download-link" class=3D"link-button" jsselect=3D"downloa=
+dButton" jscontent=3D"msg" jsvalues=3D".disabledText:disabledMsg" jstcache=
+=3D"8" style=3D"display: none;">
+          </a>
+        </div>
+        <div id=3D"download-link-clicked-wrapper" class=3D"hidden" jstcache=
+=3D"0">
+          <div id=3D"download-link-clicked" class=3D"link-button" jsselect=
+=3D"downloadButton" jscontent=3D"disabledMsg" jstcache=3D"9" style=3D"displ=
+ay: none;">
+          </div>
+        </div>
+      </div>
+
+     =20
+      <form class=3D"web-search" jsvalues=3D"action:searchURL" jsdisplay=3D=
+"searchURL" jstcache=3D"3" style=3D"display: none;">
+        <div class=3D"web-search-inner-container" jstcache=3D"0">
+          <span class=3D"web-search-logo" jstcache=3D"0"></span>
+          <div class=3D"suggestion-input-container" jstcache=3D"0">
+            <input class=3D"web-search-input" name=3D"q" autocomplete=3D"of=
+f" autofocus=3D"" spellcheck=3D"false" jsselect=3D"summary" jsvalues=3D"val=
+ue:hostName" jstcache=3D"10">
+          </div>
+          <button type=3D"submit" class=3D"web-search-submit" i18n-content=
+=3D"searchButtonTitle" jstcache=3D"0"></button>
+        </div>
+      </form>
+     =20
+    </div>
+  </div>
+
+
+
+</body></html>
+------MultipartBoundary--fhViN1aWhnH2kJiEqQCnPNLQixEmMtTtJrRtA3JcoC----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-3bf01ddb-27ec-4d40-8ad3-a0ea201830f5@mhtml.blink
+
+@charset "utf-8";
+
+:root { --font-default: menu; --font-size-default: 12px; }
+
+html, body, button, input, select, textarea { color: rgb(10, 10, 10); font-=
+style: ; font-variant: normal; font-stretch: ; font-family: ; font-optical-=
+sizing: ; font-kerning: ; font-feature-settings: ; font-variation-settings:=
+ ; font-size: var(--font-size-default); font-weight: 400; line-height: 1.35=
+; }
+------MultipartBoundary--fhViN1aWhnH2kJiEqQCnPNLQixEmMtTtJrRtA3JcoC----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-3079fd96-f686-4c1c-992b-11bf8995cc13@mhtml.blink
+
+@charset "utf-8";
+
+:root, :host { --opera-primary-color: #0199ff; --opera-primary-color-rgb: 1=
+, 153, 255; --opera-secondary-color: #0199ffa0; --opera-error-color: #f54a4=
+b; --opera-font-color: var(--theme-text-color, #121314); --opera-secondary-=
+font-color: #6a6a75; --opera-modal-header-font-color: #6a6a75; --opera-moda=
+l-font-color: #121314; --opera-hint-font-color: #6e767a; --opera-shadow-col=
+or: var(--theme-shadow-color, transparent); --opera-focus-outline-color: #0=
+199ff66; --opera-controls-primary-color: #0199ff; --opera-controls-primary-=
+hover-color: #0084ff; --opera-controls-primary-focus-color: #0b55e8; --oper=
+a-controls-danger-color: #fa1e4e; --opera-controls-danger-hover-color: #e01=
+b46; --opera-controls-danger-focus-color: #c7183e; --opera-controls-seconda=
+ry-color: #ffffff; --opera-controls-secondary-hover-color: #d8e2eb; --opera=
+-controls-secondary-focus-color: #b2cce3; --opera-controls-disabled-color: =
+#d8e2eb; --opera-icon-color: #2a343d; --opera-icon-disabled-color: #b6c6d3;=
+ --opera-icon-background-color: var(--opera-background-color); --opera-back=
+ground-color: #eef3f7; --opera-secondary-background-color: #ffffff; --opera=
+-secondary-background-hover-color: #eef3f7; --opera-link-color: #007acc; --=
+opera-link-hover-background-color: #007acc14; --opera-link-focus-background=
+-color: #007acc3d; --opera-separator-color: var(--opera-controls-disabled-c=
+olor); --opera-folder-background-color: #e6eef5; --opera-tile-background-co=
+lor: #ffffff; --opera-tile-text-color: #000000; --opera-dark-scrollbar-colo=
+r: #9995; --opera-dark-scrollbar-hover-color: #6668; --opera-light-scrollba=
+r-color: #6665; --opera-light-scrollbar-hover-color: #9998; --opera-startpa=
+ge-component-based-background: #FFFFFF; --opera-startpage-secondary-backgro=
+und-color: #E7EDF1; --opera-startpage-secondary-text-color: #5021FF; }
+
+@media (prefers-color-scheme: dark) {
+  :root, :host { --opera-primary-color: #45b0e6; --opera-primary-color-rgb:=
+ 69, 176, 230; --opera-secondary-color: #45b0e6a0; --opera-error-color: #ff=
+776c; --opera-font-color: var(--theme-text-color, #fafafa); --opera-seconda=
+ry-font-color: var(--theme-secondary-text-color, #a8abad); --opera-modal-fo=
+nt-color: #fafafa; --opera-hint-font-color: #b4c1cc; --opera-focus-outline-=
+color: #45b0e67a; --opera-controls-primary-color: #45b0e6; --opera-controls=
+-primary-hover-color: #4993b8; --opera-controls-primary-focus-color: #1b79a=
+8; --opera-controls-secondary-color: #2a343d; --opera-controls-secondary-ho=
+ver-color: #3e4852; --opera-controls-secondary-focus-color: #4d647a; --oper=
+a-controls-disabled-color: #3e4852; --opera-icon-color: #ffffff; --opera-ic=
+on-disabled-color: var(--opera-separator-color); --opera-icon-background-co=
+lor: var(--opera-input-background-color); --opera-background-color: #101214=
+; --opera-secondary-background-color: #171b1f; --opera-secondary-background=
+-hover-color: #222325; --opera-link-color: #96deff; --opera-link-hover-back=
+ground-color: #96ddff3d; --opera-link-focus-background-color: #96ddff7a; --=
+opera-folder-background-color: #2a343d; --opera-tile-background-color: var(=
+--opera-folder-background-color); --opera-tile-text-color: #f0f0f0; --opera=
+-startpage-component-based-dolphin: #252836; --opera-startpage-component-ba=
+sed-background: var(--opera-startpage-component-based-dolphin); --opera-sta=
+rtpage-secondary-background-color: #484D65; --opera-startpage-secondary-tex=
+t-color: #FFFFFF; --opera-checkbox-border-color: #484D65; }
+}
+
+:root.component-ui, :host-context(html.component-ui) { --opera-secondary-ba=
+ckground-hover-color: #BBCBD799; }
+
+@media (prefers-color-scheme: dark) {
+  :root.component-ui, :host-context(html.component-ui) { --opera-secondary-=
+background-color: #252836; --opera-secondary-background-hover-color: #484d6=
+4; }
+}
+
+:root.gx, :host-context(html.gx) { --opera-font-color: var(--palette-gx_no_=
+00); --opera-error-color: var(--palette-gx_warning_red); --opera-tile-backg=
+round-color: var(--palette-gx_no_96); --opera-tile-border-color: var(--pale=
+tte-gx_no_80); --opera-folder-background-color: hsla(var(--palette-gx_no_24=
+-values) / 0.8); }
+
+@media (prefers-color-scheme: dark) {
+  :root.gx, :host-context(html.gx) { --opera-secondary-font-color: var(--pa=
+lette-gx_no_77); --opera-font-color: var(--palette-gx_no_100); --opera-tile=
+-background-color: var(--palette-gx_no_16); --opera-tile-border-color: var(=
+--palette-gx_no_20); --opera-folder-background-color: hsla(var(--palette-gx=
+_no_12-values) / 0.8); }
+}
+
+:root.crypto, :host-context(html.crypto) { --opera-primary-color: #0ed3df; =
+--opera-primary-color-rgb: 14, 211, 223; --opera-link-color: #0ed3df; --ope=
+ra-dark-scrollbar-color: #9995; --opera-dark-scrollbar-hover-color: #9997; =
+--opera-spinner-color: #000000; }
+------MultipartBoundary--fhViN1aWhnH2kJiEqQCnPNLQixEmMtTtJrRtA3JcoC----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-a3f16153-16b6-4849-a8b3-03b298a99bd5@mhtml.blink
+
+@charset "utf-8";
+
+:root, :host { --opera-animation-tempo-hit: .5s; --opera-animation-tempo: 1=
+.8s; --opera-icon-size: 20px; --opera-logo-size: 32px; --opera-menu-width: =
+240px; --opera-menu-item-height: 32px; --opera-section-spacing: 56px; --ope=
+ra-header-height: 64px; --opera-header-padding: 16px 30px; --opera-header-t=
+itle-padding: 0 0 0 44px; --opera-header-font-size: 17px; --opera-header-fo=
+nt-weight: 450; --max-search-box-width: 620px; --max-news-section-width: 94=
+0px; --opera-default-font-weight: 500; --opera-default-font-size: 13px; --o=
+pera-headline-font-size: 36px; --opera-section-font-size: 15px; --opera-sec=
+tion-font-weight: 500; --opera-section-margin: 26px 0 12px 0; --opera-upper=
+case-font-size: 14px; --opera-font-family: -apple-system, BlinkMacSystemFon=
+t, "Segoe UI", Arial, sans-serif; --opera-article-font-size: 16px; --opera-=
+article-font-weight: 600; --opera-input-background-color: #ffffff; --opera-=
+input-background-color-hover: #fafafa; --opera-input-background-color-press=
+ed: #ededed; --opera-input-font-size: 13px; --opera-input-border-color: #d8=
+e2eb; --opera-input-border-radius: 3px; --opera-input-border-width: 1px; --=
+opera-input-padding: 8px 16px; --opera-input-height: 32px; --opera-rounded-=
+input-border-radius: 16px; --opera-small-input-font-size: 11px; --opera-sma=
+ll-input-height: 24px; --opera-button-font-color: var(--opera-font-color); =
+--opera-button-background-color: var(--opera-input-background-color); --ope=
+ra-button-background-color-hover: #d8e2eb; --opera-button-background-color-=
+pressed: #b2cce3; --opera-button-border-color: var(--opera-input-border-col=
+or); --opera-button-border-radius: 3px; --opera-button-padding: 6px 12px; -=
+-opera-button-disabled-background-color: #ffffff; --opera-button-disabled-b=
+order-color: #ebebee; --opera-button-disabled-font-color: #a0a1a1; --opera-=
+primary-button-font-color: #fff; --opera-primary-button-background-color: v=
+ar(--opera-controls-primary-color); --opera-primary-button-background-color=
+-hover: var(--opera-controls-primary-hover-color); --opera-primary-button-b=
+ackground-color-pressed: var(--opera-controls-primary-focus-color); --opera=
+-primary-button-border-color: #0084ff; --opera-primary-button-padding: 6px =
+16px; --opera-danger-button-font-color: #fff; --opera-danger-button-backgro=
+und-color: var(--opera-controls-danger-color); --opera-danger-button-backgr=
+ound-color-hover: var(--opera-controls-danger-hover-color); --opera-danger-=
+button-background-color-pressed: var(--opera-controls-danger-focus-color); =
+--opera-danger-button-border-color: #E01B46; --opera-danger-button-padding:=
+ 6px 16px; --opera-warning-color: #d0021b; --opera-switch-color: #ceced4; -=
+-opera-switch-color-hover: #bcbcc6; --opera-switch-color-pressed: #ceced4; =
+--opera-switch-active-color: var(--opera-controls-primary-color); --opera-s=
+witch-active-color-hover: var(--opera-controls-primary-hover-color); --oper=
+a-switch-active-color-pressed: var(--opera-controls-primary-focus-color); -=
+-opera-switch-toggle-color: #fff; --opera-switch-height: 20px; --opera-swit=
+ch-width: 40px; --opera-pad-border-radius: 5px; --opera-pad-padding: 20px; =
+--opera-pad-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.04); --opera-box-shado=
+w: 0 10px 20px -8px rgba(0, 0, 0, 0.24); --opera-text-line-height: 1.5; --o=
+pera-text-shadow: 0px 0px 1.8px; --speeddial-tile-width: 140px; --speeddial=
+-tile-height: 89px; --speeddial-tile-spacing: 20px; --opera-settings-menu-w=
+idth: 240px; --opera-unchecked-radio-color: gray; --opera-checked-radio-col=
+or: var(--opera-primary-color); --limiters-number-color: var(--palette-defa=
+ult_color_032); --limiters-label-color: var(--palette-default_color_075); -=
+-limiters-gauge-needle-color: var(--palette-default_color_032); --limiters-=
+gauge-color-enabled: var(--opera-primary-color); --limiters-gauge-color-dis=
+abled: var(--palette-default_color_009); --limiters-gauge-background-color:=
+ var(--palette-default_color_036); --limiters-gauge-stroke-color: var(--pal=
+ette-default_color_022); --limiters-slider-scale-color: var(--palette-defau=
+lt_color_058); --limiters-options-border-disabled: var(--palette-default_co=
+lor_194); --limiters-hot-tabs-toggle-disabled: var(--palette-default_color_=
+194); --opera-tree-hover-background: var(--opera-link-hover-background-colo=
+r); --opera-tree-input-border: var(--opera-primary-color); --opera-tree-inp=
+ut-selection-background: var(--opera-primary-color); --opera-tree-input-sel=
+ection-color: white; --opera-tree-primary-color: var(--opera-font-color); -=
+-opera-tree-secondary-color: var(--opera-secondary-font-color); --opera-tre=
+e-text-color: var(--opera-hint-font-color); }
+
+@media (prefers-color-scheme: dark) {
+  :root, :host { --opera-input-background-color: #030615; --opera-input-bor=
+der-color: #3e4852; --opera-input-background-color-hover: #494c4f; --opera-=
+input-background-color-pressed: #262729; --opera-button-disabled-background=
+-color: #030615; --opera-button-disabled-border-color: var(--opera-button-b=
+order-color); --opera-button-disabled-font-color: #3e4852; --opera-warning-=
+color: #ff5353; --opera-switch-color: #3d4042; --opera-switch-color-hover: =
+#494c4f; --opera-switch-color-pressed: #3d4042; --opera-pad-shadow: 0 10px =
+20px -8px rgba(0, 0, 0, 0.25); --opera-button-background-color-hover: #3e48=
+52; --opera-button-background-color-pressed: #4d647a; --opera-primary-butto=
+n-font-color: var(--opera-font-color); --opera-primary-button-border-color:=
+ #4993b8; --limiters-number-color: var(--palette-default_color_005); --limi=
+ters-label-color: var(--palette-default_color_112); --limiters-gauge-needle=
+-color: var(--palette-default_color_005); --limiters-gauge-color-enabled: v=
+ar(--opera-primary-color); --limiters-gauge-color-disabled: var(--palette-d=
+efault_color_011); --limiters-gauge-background-color: var(--palette-default=
+_color_203); --limiters-gauge-stroke-color: var(--palette-default_color_109=
+); --limiters-slider-scale-color: var(--palette-default_color_214); --limit=
+ers-options-border-disabled: var(--palette-default_color_080); --limiters-h=
+ot-tabs-toggle-disabled: var(--palette-default_color_080); }
+}
+
+:root.gx, :host-context(html.gx) { --opera-background-color: var(--palette-=
+gx_no_96); --opera-button-background-color: var(--palette-gx_no_90); --oper=
+a-button-background-color-hover: var(--palette-gx_no_80); --opera-button-ba=
+ckground-color-pressed: var(--palette-gx_no_40); --opera-button-border-colo=
+r: var(--palette-gx_no_80); --opera-button-disabled-background-color: var(-=
+-palette-gx_no_90); --opera-button-disabled-border-color: var(--palette-gx_=
+no_80); --opera-controls-disabled-color: var(--palette-gx_no_80); --opera-c=
+ontrols-primary-color: var(--palette-gx_accent); --opera-controls-primary-f=
+ocus-color: var(--palette-gx_accent); --opera-controls-primary-hover-color:=
+ var(--palette-gx_accent); --opera-focus-outline-color: var(--palette-gx_ac=
+cent_l_60); --opera-input-background-color: var(--palette-gx_no_88); --oper=
+a-input-background-color-hover: var(--palette-gx_no_90); --opera-input-back=
+ground-color-pressed: var(--palette-gx_no_90); --opera-input-border-color: =
+var(--palette-gx_no_80); --opera-link-color: var(--palette-gx_accent); --op=
+era-link-focus-background-color: rgb(var(--palette-gx_accent-values-rgb) / =
+0.5); --opera-link-hover-background-color: rgb(var(--palette-gx_accent-valu=
+es-rgb) / 0.25); --opera-modal-background-color: var(--palette-gx_no_88); -=
+-opera-modal-border-color: var(--palette-gx_accent_l_60); --opera-modal-hea=
+der-color: var(--palette-gx_no_88); --opera-primary-button-background-color=
+: var(--palette-gx_accent); --opera-primary-button-background-color-hover: =
+var(--palette-gx_accent); --opera-primary-button-border-color: var(--opera-=
+secondary-color); --opera-primary-button-font-color: var(--opera-gx-font-co=
+lor); --opera-primary-color: var(--palette-gx_accent); --opera-primary-colo=
+r-rgb: var(--palette-gx_accent-values-rgb); --opera-primary-color_l_30: var=
+(--palette-gx_accent_l_30); --opera-primary-color_l_60: var(--palette-gx_ac=
+cent_l_60); --opera-primary-color_l_80: var(--palette-gx_accent_l_80); --op=
+era-primary-color_l_120: var(--palette-gx_accent_l_120); --opera-primary-co=
+lor_l_140: var(--palette-gx_accent_l_140); --opera-primary-color_opacity_25=
+: rgb(var(--palette-gx_accent-values-rgb) / 0.25); --opera-primary-color_op=
+acity_50: rgb(var(--palette-gx_accent-values-rgb) / 0.5); --opera-primary-c=
+olor_opacity_75: rgb(var(--palette-gx_accent-values-rgb) / 0.75); --opera-s=
+econdary-background-color: var(--palette-gx_no_98); --opera-secondary-color=
+: var(--palette-gx_accent_l_60); --opera-secondary-font-color: var(--palett=
+e-gx_no_24); --opera-separator-color: var(--palette-gx_no_80); --opera-swit=
+ch-color: var(--palette-gx_no_80); --opera-switch-gx-background-color: var(=
+--palette-gx_no_80); --opera-switch-color-hover: var(--opera-font-color); -=
+-opera-switch-color-pressed: var(--palette-gx_no_24); --opera-warning-color=
+: var(--palette-gx_warning_red); --opera-switch-toggle-color: var(--palette=
+-gx_no_100); --opera-unchecked-radio-color: var(--palette-gx_no_24); --oper=
+a-gx-weather-widget-tooltip-background-color: var(--palette-gx_no_88); --op=
+era-gx-weather-widget-tooltip-border-color: var(--palette-gx_no_80); --chro=
+ma-animation-widget-focused-border-color: var(--palette-gx_no_40); --opera-=
+gx-booster-background-gradient-light: var(--palette-gx_no_88); --opera-gx-b=
+ooster-background-gradient-dark: var(--palette-gx_no_4); --limiters-number-=
+color: var(--palette-gx_no_00); --limiters-label-color: var(--palette-gx_no=
+_24); --limiters-gauge-needle-color: var(--palette-gx_no_00); --limiters-ga=
+uge-color-enabled: var(--opera-primary-color); --limiters-gauge-color-disab=
+led: var(--palette-gx_no_80); --limiters-gauge-background-color: var(--pale=
+tte-gx_no_92); --limiters-gauge-stroke-color: var(--palette-gx_no_96); --li=
+miters-slider-scale-color: var(--palette-gx_no_90); --limiters-options-bord=
+er-disabled: var(--palette-gx_no_88); --limiters-hot-tabs-toggle-disabled: =
+var(--palette-gx_no_88); --opera-tree-secondary-color: var(--palette-gx_no_=
+40); --opera-text-shadow: 0px 0px 1.2px; }
+
+@media (prefers-color-scheme: dark) {
+  :root.gx, :host-context(html.gx) { --opera-background-color: var(--palett=
+e-gx_no_08); --opera-button-background-color: var(--palette-gx_no_20); --op=
+era-button-background-color-hover: var(--palette-gx_no_32); --opera-button-=
+background-color-pressed: var(--palette-gx_no_59); --opera-button-border-co=
+lor: var(--palette-gx_no_32); --opera-button-disabled-background-color: var=
+(--palette-gx_no_20); --opera-button-disabled-border-color: var(--palette-g=
+x_no_32); --opera-controls-disabled-color: var(--palette-gx_no_32); --opera=
+-controls-primary-color: var(--palette-gx_accent); --opera-controls-primary=
+-focus-color: var(--palette-gx_accent); --opera-controls-primary-hover-colo=
+r: var(--palette-gx_accent); --opera-focus-outline-color: var(--palette-gx_=
+accent_l_60); --opera-input-background-color: var(--palette-gx_no_16); --op=
+era-input-background-color-hover: var(--palette-gx_no_20); --opera-input-ba=
+ckground-color-pressed: var(--palette-gx_no_20); --opera-input-border-color=
+: var(--palette-gx_no_32); --opera-link-color: var(--palette-gx_accent); --=
+opera-modal-background-color: var(--palette-gx_no_16); --opera-modal-border=
+-color: var(--palette-gx_accent_l_60); --opera-modal-header-color: var(--pa=
+lette-gx_no_16); --opera-primary-button-background-color: var(--palette-gx_=
+accent); --opera-primary-button-background-color-hover: var(--palette-gx_ac=
+cent); --opera-primary-button-border-color: var(--opera-secondary-color); -=
+-opera-primary-button-font-color: var(--opera-gx-font-color); --opera-prima=
+ry-color: var(--palette-gx_accent); --opera-secondary-background-color: var=
+(--palette-gx_no_12); --opera-secondary-color: var(--palette-gx_accent_l_60=
+); --opera-secondary-font-color: var(--palette-gx_no_77); --opera-separator=
+-color: var(--palette-gx_no_32); --opera-switch-color: var(--palette-gx_no_=
+32); --opera-switch-gx-background-color: var(--palette-gx_no_8); --opera-sw=
+itch-color-hover: var(--opera-font-color); --opera-switch-color-pressed: va=
+r(--palette-gx_no_77); --opera-warning-color: var(--palette-gx_warning_red)=
+; --opera-switch-toggle-color: var(--palette-gx_no_77); --opera-unchecked-r=
+adio-color: var(--palette-gx_no_32); --opera-gx-weather-widget-tooltip-back=
+ground-color: var(--palette-gx_no_16); --opera-gx-weather-widget-tooltip-bo=
+rder-color: var(--palette-gx_no_32); --chroma-animation-widget-focused-bord=
+er-color: var(--palette-gx_no_59); --opera-gx-booster-background-gradient-l=
+ight: var(--palette-gx_no_16); --opera-gx-booster-background-gradient-dark:=
+ var(--palette-gx_no_4); --limiters-number-color: var(--palette-gx_no_100);=
+ --limiters-label-color: var(--palette-gx_no_77); --limiters-gauge-needle-c=
+olor: var(--palette-gx_no_100); --limiters-gauge-color-enabled: var(--opera=
+-primary-color); --limiters-gauge-color-disabled: var(--palette-gx_no_32); =
+--limiters-gauge-background-color: var(--palette-gx_no_04); --limiters-gaug=
+e-stroke-color: var(--palette-gx_no_08); --limiters-slider-scale-color: var=
+(--palette-gx_no_20); --limiters-options-border-disabled: var(--palette-gx_=
+no_16); --limiters-hot-tabs-toggle-disabled: var(--palette-gx_no_16); --ope=
+ra-tree-secondary-color: var(--palette-gx_no_59); }
+}
+
+:root.crypto, :host-context(html.crypto) { --opera-input-background-color: =
+#2a343d; --opera-button-disabled-background-color: #2a343d; --opera-button-=
+border-radius: 20px; --opera-controls-primary-color: var(--opera-primary-co=
+lor); --opera-primary-button-border-color: var(--opera-primary-color); --op=
+era-primary-button-font-color: #0f151a; --opera-controls-primary-hover-colo=
+r: #0ebcc7; --opera-controls-primary-focus-color: #0ca5af; --opera-button-f=
+ont-color: #ffffff; --opera-button-padding: 9px 15px; --max-search-box-widt=
+h: auto; --opera-secondary-background-color: #161F27; }
+
+:root.bigger-tiles, :host-context(html.bigger-tiles) { --speeddial-tile-wid=
+th: 188px; --speeddial-tile-height: 120px; --speeddial-tile-spacing: 28px; =
+}
+
+:root.compact-layout, :host-context(html.compact-layout) { --opera-section-=
+spacing: 28px; }
+------MultipartBoundary--fhViN1aWhnH2kJiEqQCnPNLQixEmMtTtJrRtA3JcoC----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-71b0be84-fdad-467e-afd5-41b3994ffd7b@mhtml.blink
+
+@charset "utf-8";
+
+body { background: var(--opera-secondary-background-color); color: var(--op=
+era-font-color); display: block; height: 100vh; line-height: 1.6; min-heigh=
+t: 240px; min-width: 180px; padding: 0px 48px; }
+
+.description { font-size: var(--opera-uppercase-font-size); }
+
+a { color: var(--opera-link-color); font-weight: bold; }
+
+h1 { font-size: 32px; line-height: 40px; margin: 0px 0px 20px; }
+
+h4 { font-size: 16px; }
+
+.expand { cursor: pointer; margin: 0px 0px 16px -18px; padding: 0px 0px 0px=
+ 18px; position: relative; z-index: 1; }
+
+.expand::before { mask-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD=
+0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgeG1sbnM9Imh0dHA6Ly93d3cud=
+zMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMS41NSAzLjVsNC40NDcgNS4yNUwxMC41IDMuNSIg=
+c3Ryb2tlPSIjMDAwIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=3D"=
+); mask-position: left center; mask-repeat: no-repeat; background-color: rg=
+b(0, 132, 255); content: ""; height: 16px; left: 0px; opacity: 0.65; positi=
+on: absolute; top: 3px; transform: rotate(-90deg); transition: transform 0.=
+2s ease-in-out 0s; width: 16px; }
+
+.gx .expand::before { background-color: var(--opera-controls-primary-color)=
+; }
+
+.expand.open::before { transform: rotate(0deg); }
+
+p, ul, ol, pre, table { font-weight: 400; margin: 0px 0px 16px; }
+
+ul { list-style-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiI=
+GhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3Jn=
+LzIwMDAvc3ZnIj48cGF0aCBzdHJva2U9IiMwMTk5RkYiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTE=
+xIDJMNC41IDkuNSAxIDYiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLW=
+xpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg=3D=3D"); }
+
+input[type=3D"checkbox"], input[type=3D"radio"] { margin-right: 4px; }
+
+small { color: rgb(139, 139, 139); display: block; font-style: ; font-varia=
+nt-ligatures: ; font-variant-caps: ; font-variant-numeric: ; font-variant-e=
+ast-asian: ; font-variant-alternates: ; font-variant-position: ; font-weigh=
+t: ; font-stretch: ; font-family: ; font-optical-sizing: ; font-kerning: ; =
+font-feature-settings: ; font-variation-settings: ; font-size: var(--font-s=
+ize-default); line-height: 20px; max-width: 33em; }
+
+.content { margin: auto; max-width: 600px; padding: 20px 0px; z-index: 2; }
+
+.illustration { animation: 0.3s ease-in-out 0.25s 1 normal forwards running=
+ show; margin: 38px 24px 2em 0px; opacity: 0; transform: translate(-20px, 0=
+px); }
+
+.gx-logo { width: 82px; height: 87px; mask-image: url("data:image/svg+xml;b=
+ase64,PHN2ZyB3aWR0aD0iODIiIGhlaWdodD0iODIiIHZpZXdCb3g9IjAgMCA4MiA4MiIgZmlsb=
+D0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1y=
+dWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik01MS4xMjM4IDcyLjE3OEM1Ni4=
+wOTQ1IDcyLjE3OCA2MC45Njc1IDcwLjY5NTUgNjUuMjMwMSA2Ny44OTgzQzcyLjg0MjYgNjEuMD=
+M2NSA3Ny4yMDg1IDUxLjI0MjkgNzcuMjA4NSA0MS4wMDFDNzcuMjA4NSAzMC43NiA3Mi44NDM1I=
+DIwLjk2NzMgNjUuMjMzIDE0LjEwNTVDNjAuOTY4NSAxMS4zMDY0IDU2LjA5NDUgOS44MjM5MSA1=
+MS4xMjM4IDkuODIzOTFDNDIuOTg5MSA5LjgyMzkxIDM1LjI3NDMgMTMuNzgyMyAyOS45NTk2IDI=
+wLjY4MzlDMjUuODI4NyAyNS41NjM2IDIzLjM5NDYgMzIuNjMyIDIzLjIyNTkgNDAuMTQ2TDIzLj=
+IyNjggNDEuODk4NkMyMy4zOTQ2IDQ5LjM2ODkgMjUuODI4NyA1Ni40MzczIDI5LjkwNDYgNjEuM=
+jQ4OEMyOS45MjM2IDYxLjI3MjUgMjkuOTQxNiA2MS4yOTQzIDI5Ljk2MDUgNjEuMzE4QzM1LjI3=
+NDMgNjguMjE5NiA0Mi45ODgyIDcyLjE3OCA1MS4xMjM4IDcyLjE3OFpNNC43OTE1MSA0MS4wMDF=
+DNC43OTE1MSA2MC4zNzM5IDE5LjkzODYgNzYuMjU5NiAzOS4yNzM0IDc3LjE2NjdDNDMuMDE4NS=
+A3Ny4zNDQ5IDQ2LjgzNjYgNzYuOTMxNyA1MC40MzQ3IDc1Ljk2MUM0MS4zODM0IDc1Ljc0NDkgM=
+zIuODcwNSA3MS4yOTI3IDI2Ljk4MjMgNjMuNjY1OUMyMi4zNzI4IDU4LjIwNDIgMTkuNjIzIDUw=
+LjI4ODQgMTkuNDM1MyA0MS45NDEzVjQwLjEwMzNDMTkuNjIzIDMxLjY5NDYgMjIuMzg0MSAyMy4=
+3NjM2IDI3LjAxMDcgMTguMzAyOEMzMi44NDU5IDEwLjcyMjUgNDEuMzY4MyA2LjI1NyA1MC40Mz=
+E5IDYuMDQwODhDNDcuNDI1MiA1LjIzMDQzIDQ0LjMwMjkgNC44MDQ4MyA0MS4xMzYgNC43OTM0N=
+kw0MS4wMzU1IDQuNzkyNTFDMjEuMDM0NCA0Ljc5MTU2IDQuNzkxNTEgMjEuMDM1NSA0Ljc5MTUx=
+IDQxLjAwMVpNNDEuMTA4NSAxLjAwMTlDNTAuOTQ4NSAxLjAzODg2IDYwLjM2MjggNC42NTQxMSA=
+2Ny42NTk2IDExLjE4MzJDNzYuMTM3NCAxOC43NjcyIDgxIDI5LjYzNTggODEgNDEuMDAxQzgxID=
+UyLjM2NzEgNzYuMTM2NCA2My4yMzU2IDY3LjY1NjcgNzAuODIwNkw2Ny42NDgyIDcwLjgyNjNDN=
+jAuMzExNiA3Ny4zODc2IDUwLjg0NyA4MSA0MS4wMDA1IDgxQzQwLjM2MjYgODEgMzkuNzI4NCA4=
+MC45ODM5IDM5LjA5ODEgODAuOTU0NUMxNy43MzM4IDc5Ljk1MjYgMSA2Mi40MDI0IDEgNDEuMDA=
+xQzEgMTguOTQ0NSAxOC45NDQzIDEgNDEuMDAwNSAxQzQxLjAxMTkgMSA0MS4wOTYyIDEuMDAwOT=
+UgNDEuMTA4NSAxLjAwMTlaTTYwLjM4MDYgNDEuMDUyMUM2MC4zODA2IDI5Ljk2NzcgNTUuNDY3M=
+SAyMC4zODU1IDQ4LjMzMTIgMTUuODAzMUM1Ny40NCAxNi41NTggNjQuNjY4NyAyNy41NzIyIDY0=
+LjY2ODcgNDEuMDUyMUM2NC42Njg3IDU0LjUzMjEgNTcuNDQgNjUuNTQ2MyA0OC4zMzEyIDY2LjM=
+wMTJDNTUuNDY3MSA2MS43MTk3IDYwLjM4MDYgNTIuMTM2NSA2MC4zODA2IDQxLjA1MjFaIiBmaW=
+xsPSIjRkExRTRFIi8+Cjwvc3ZnPgo=3D"); mask-position: left center; mask-repeat=
+: no-repeat; background-color: var(--opera-controls-primary-color); backgro=
+und-size: 82px 82px; }
+
+.description { animation: 0.3s ease-in-out 0.25s 1 normal forwards running =
+show; max-width: 30em; opacity: 0; transform: translate(20px, 0px); transit=
+ion: height 2s ease-in-out 0s; }
+
+form { display: flex; justify-content: space-between; margin: 24px 0px; wid=
+th: 100%; }
+
+.web-search { border-radius: 8px; box-shadow: rgba(0, 0, 0, 0.24) 0px 10px =
+20px -8px; margin: 24px 0px; min-height: 40px; position: relative; backgrou=
+nd: white !important; padding: 0px !important; }
+
+.web-search-inner-container { align-items: center; display: flex; height: 5=
+2px; width: 100%; }
+
+.web-search-logo { height: 36px; margin: 0px 12px; width: 36px; background-=
+image: url("data:image/png;base64,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
+/BgX8ZeZDkAAAAASUVORK5CYII=3D") !important; background-position: center cen=
+ter !important; background-size: 36px !important; }
+
+.web-search-input { background-color: transparent; border: 0px; font-size: =
+16px; width: 100%; }
+
+.web-search .web-search-input:focus { outline: none; }
+
+.web-search .web-search-submit { background-color: transparent; background-=
+image: url("data:image/svg+xml,%3Csvg viewBox=3D'0 0 16 16' xmlns=3D'http:/=
+/www.w3.org/2000/svg'%3E%3Cg fill=3D'none' fill-rule=3D'evenodd'%3E%3Cpath =
+d=3D'M0 0h16v16H0z'/%3E%3Cg stroke=3D'%2367717A' stroke-linecap=3D'round'%3=
+E%3Cpath d=3D'M14.5 14.5l-4-4M11.5 6.5a5 5 0 1 1-10.001-.001A5 5 0 0 1 11.5=
+ 6.5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); background-size: 24px; border-width=
+: 0px; cursor: pointer; height: 24px; margin: 0px 16px; width: 24px; }
+
+.suggestion-input-container { flex: 1 1 0%; }
+
+@media (prefers-color-scheme: dark) {
+  #animation canvas { filter: invert(0.92); }
+}
+
+@media screen and (min-width: 700px) {
+  body { align-items: center; display: flex; }
+  .content { display: flex; align-items: flex-start; }
+  .illustration { margin-top: 0px; }
+  .description { margin-top: 20px; width: 30em; }
+  #animation { margin-top: 0px; }
+}
+
+@media screen and (max-width: 699px) and (max-height: 480px) {
+  .content { margin-top: 50px; }
+}
+
+@media (min-width: 600px) and (max-width: 666px) {
+  .web-search-logo { display: inline !important; }
+  .web-search .suggestion-input-container { margin-left: 20px !important; }
+}
+
+.button { background-position: 12px center; border-radius: 4px; border: non=
+e; box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px; cursor: pointer; display: in=
+line-block; font-size: 16px; line-height: 42px; margin: 0px 24px 24px 0px; =
+padding: 0px 36px; text-decoration: none; transition: transform 0.2s ease-i=
+n-out 0s; white-space: nowrap; }
+
+.button.default { background: var(--opera-primary-button-background-color);=
+ color: rgb(255, 255, 255); font-weight: bold; }
+
+.button svg { margin: -2px 4px 0px -4px; vertical-align: middle; }
+
+.button.secondary { background: rgb(255, 255, 255); box-shadow: rgba(0, 0, =
+0, 0.1) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 1px 3px; color: rgb(102, 10=
+2, 102); }
+
+.button:hover, .button:focus { background: var(--opera-primary-button-backg=
+round-color-hover); }
+
+.button:active { background: var(--opera-primary-button-background-color-pr=
+essed); transform: translate(0px, 2px); }
+
+.button.secondary:hover, .button.secondary:focus, .button.secondary:active =
+{ background: rgb(238, 238, 238); }
+
+.flex { display: flex; justify-content: space-between; margin: 0px 16px; al=
+ign-items: center; }
+
+.flex p { margin: 0px; }
+
+#advisoryImage { display: block; height: auto; margin: 0px 32px 0px 0px; }
+
+:not(.use-popup-container)#error-information-popup-container #error-informa=
+tion-popup-close { display: none; }
+
+#error-information-popup .error-code { margin-bottom: 16px; }
+
+.more { animation: 0.1s ease-in-out 0s 1 normal forwards running hide; tran=
+sform: translate(0px, -20px); display: none; }
+
+.more.show { animation: 0.2s ease-in-out 0s 1 normal forwards running show;=
+ display: block; }
+
+@keyframes show {=20
+  100% { opacity: 1; transform: translate(0px, 0px); }
+}
+
+@keyframes hide {=20
+  100% { opacity: 0; transform: translate(0px, -10px); }
+}
+
+.malware .more { background: rgb(255, 255, 255); padding: 16px; border-radi=
+us: 4px; color: rgb(63, 63, 63); }
+
+.malware .more a { color: rgb(1, 153, 255); }
+
+.animation { animation: 0.3s ease-in-out 0.25s 1 normal forwards running sh=
+ow; transform: translate(20px, 0px); opacity: 0; margin-right: 40px; margin=
+-top: -20px; width: 150px; height: 150px; }
+
+#lottie-err-animation .color1 { stroke: rgb(25, 29, 30); fill: rgb(25, 29, =
+30); }
+
+#lottie-err-animation .color2 { fill: rgb(255, 255, 255); }
+
+@media (prefers-color-scheme: dark) {
+  #lottie-err-animation .color1 { stroke: rgb(213, 209, 208); fill: rgb(213=
+, 209, 208); }
+  #lottie-err-animation .color2 { fill: rgb(20, 20, 20); }
+}
+------MultipartBoundary--fhViN1aWhnH2kJiEqQCnPNLQixEmMtTtJrRtA3JcoC----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-7d177598-82df-447b-90fb-e8e3d2170d68@mhtml.blink
+
+@charset "utf-8";
+
+.btn { display: inline-block; padding: 10px 32px; font-size: 16px; font-wei=
+ght: 700; text-transform: uppercase; color: var(--opera-primary-button-font=
+-color); border-radius: 3px; background-color: var(--opera-primary-button-b=
+ackground-color); border: 1px solid var(--opera-primary-button-border-color=
+); margin-top: 48px; cursor: pointer; }
+
+.btn:hover { background-color: var(--opera-primary-button-background-color-=
+hover); }
+
+.game-hidden { display: none; }
+
+html.gx ::selection { background-color: var(--opera-primary-color); color: =
+var(--opera-gx-font-color); }
+------MultipartBoundary--fhViN1aWhnH2kJiEqQCnPNLQixEmMtTtJrRtA3JcoC----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-adc20f21-03c8-48f8-9865-497f04de3dce@mhtml.blink
+
+@charset "utf-8";
+=0A
+------MultipartBoundary--fhViN1aWhnH2kJiEqQCnPNLQixEmMtTtJrRtA3JcoC------

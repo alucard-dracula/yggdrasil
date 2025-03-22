@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup Label="ProjectConfigurations">
+		<ProjectConfiguration Include="Debug|Win32">
+			<Configuration>Debug</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug|x64">
+			<Configuration>Debug</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|Win32">
+			<Configuration>Release</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|x64">
+			<Configuration>Release</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="LIBRARY\float128\architecture.h"/>
+		<ClInclude Include="LIBRARY\float128\assert.h"/>
+		<ClInclude Include="LIBRARY\float128\build.h"/>
+		<ClInclude Include="LIBRARY\float128\compiler.h"/>
+		<ClInclude Include="LIBRARY\float128\detail_intel\architecture.h"/>
+		<ClInclude Include="LIBRARY\float128\detail_intel\dpml_private.h"/>
+		<ClInclude Include="LIBRARY\float128\detail_intel\dpml_ux.h"/>
+		<ClInclude Include="LIBRARY\float128\detail_mongodb\architecture.h"/>
+		<ClInclude Include="LIBRARY\float128\detail_mongodb\dpml_private.h"/>
+		<ClInclude Include="LIBRARY\float128\detail_mongodb\dpml_ux.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_acosh_t.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_asinh_t.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_bessel_x.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_bid_x.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_cbrt_x.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_cons_x.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_erf_t.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_erf_x.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_error_codes.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_error_codes_enum.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_exception.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_exp_x.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_function_info.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_globals.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_int_x.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_inv_hyper_x.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_inv_trig_x.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_lgamma_t.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_lgamma_x.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_log2_t.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_log_t.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_log_x.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_mod_x.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_names.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_pow.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_powi_x.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_pow_x.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_private.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_rdx_x.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_special_exp.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_sqrt_x.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_trig_x.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_ux.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_ux_32_64.h"/>
+		<ClInclude Include="LIBRARY\float128\dpml_ux_alpha_macros.h"/>
+		<ClInclude Include="LIBRARY\float128\endian.h"/>
+		<ClInclude Include="LIBRARY\float128\f_format.h"/>
+		<ClInclude Include="LIBRARY\float128\ix86_macros.h"/>
+		<ClInclude Include="LIBRARY\float128\i_format.h"/>
+		<ClInclude Include="LIBRARY\float128\mphoc_functions.h"/>
+		<ClInclude Include="LIBRARY\float128\mphoc_macros.h"/>
+		<ClInclude Include="LIBRARY\float128\mtc_macros.h"/>
+		<ClInclude Include="LIBRARY\float128\op_system.h"/>
+		<ClInclude Include="LIBRARY\float128\poly_macros.h"/>
+		<ClInclude Include="LIBRARY\float128\sqrt_macros.h"/>
+		<ClInclude Include="LIBRARY\src\bid128_2_str.h"/>
+		<ClInclude Include="LIBRARY\src\bid128_2_str_macros.h"/>
+		<ClInclude Include="LIBRARY\src\bid_conf.h"/>
+		<ClInclude Include="LIBRARY\src\bid_div_macros.h"/>
+		<ClInclude Include="LIBRARY\src\bid_functions.h"/>
+		<ClInclude Include="LIBRARY\src\bid_gcc_intrinsics.h"/>
+		<ClInclude Include="LIBRARY\src\bid_inline_add.h"/>
+		<ClInclude Include="LIBRARY\src\bid_internal.h"/>
+		<ClInclude Include="LIBRARY\src\bid_sqrt_macros.h"/>
+		<ClInclude Include="LIBRARY\src\bid_strtod.h"/>
+		<ClInclude Include="LIBRARY\src\bid_trans.h"/>
+		<ClInclude Include="LIBRARY\src\bid_user_conf.h"/>
+		<ClInclude Include="LIBRARY\src\bid_wrap_names.h"/>
+		<ClInclude Include="LIBRARY\src\detail_intel\bid_conf.h"/>
+		<ClInclude Include="LIBRARY\src\detail_intel\bid_functions.h"/>
+		<ClInclude Include="LIBRARY\src\detail_intel\bid_internal.h"/>
+		<ClInclude Include="LIBRARY\src\detail_mongodb\bid_conf.h"/>
+		<ClInclude Include="LIBRARY\src\detail_mongodb\bid_functions.h"/>
+		<ClInclude Include="LIBRARY\src\detail_mongodb\bid_internal.h"/>
+		<ClInclude Include="LIBRARY\src\dfp754.h"/>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="LIBRARY\float128\detail_intel\dpml_exception.c.ipp"/>
+		<None Include="LIBRARY\float128\detail_intel\dpml_ux_ops.c.ipp"/>
+		<None Include="LIBRARY\float128\detail_mongodb\dpml_exception.c.ipp"/>
+		<None Include="LIBRARY\float128\detail_mongodb\dpml_ux_ops.c.ipp"/>
+	</ItemGroup>
+	<PropertyGroup Label="Globals">
+		<ProjectGuid>{DCCB5090-69EA-4D2A-A95B-0E4F60BC6C6B}</ProjectGuid>
+		<RootNamespace>include</RootNamespace>
+		<ProjectName>include</ProjectName>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+		<ConfigurationType>Utility</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>true</UseDebugLibraries>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+		<ConfigurationType>Utility</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+		<ConfigurationType>Utility</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>true</UseDebugLibraries>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+		<ConfigurationType>Utility</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
+	<ImportGroup Label="ExtensionSettings">
+</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
+	</ImportGroup>
+	<PropertyGroup Label="UserMacros"/>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+	</PropertyGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+</ItemDefinitionGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
+	<ImportGroup Label="ExtensionTargets">
+</ImportGroup>
+</Project>

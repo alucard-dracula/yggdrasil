@@ -1,0 +1,1 @@
+user.pth need copy to python/Lib/site-packages

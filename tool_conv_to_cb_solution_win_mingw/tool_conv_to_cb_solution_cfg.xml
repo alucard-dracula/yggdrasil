@@ -1,0 +1,36 @@
+<tool_conv_to_cb_solution_cfg class_id="0" tracking_level="0" version="0">
+	<cbp_sample_cfg_>cbp_sample_cfg.xml</cbp_sample_cfg_>
+	<lib_depend_info_cfg_>lib_depend_info_cfg.xml</lib_depend_info_cfg_>
+	<root_dir_>..</root_dir_>
+	<dir_filter_>
+		<count>21</count>
+		<bucket_count>37</bucket_count>
+		<item_version>0</item_version>
+		<item>test_data</item>
+		<item>lib</item>
+		<item>lib64</item>
+		<item>test_out</item>
+		<item>tools</item>
+		<item>Debug</item>
+		<item>Debug64</item>
+		<item>Release</item>
+		<item>Release64</item>
+		<item>Debug-Win32</item>
+		<item>Debug-x64</item>
+		<item>Release-Win32</item>
+		<item>Release-x64</item>
+		<item>jni</item>
+		<item>.git</item>
+		<item>.vs</item>
+		<item>.vscode</item>
+		<item>discard</item>
+		<item>licenses</item>
+		<item>need_reconstruction</item>
+		<item>yggdrasil-ios.xcworkspace</item>
+	</dir_filter_>
+	<file_filter_>
+		<count>0</count>
+		<bucket_count>13</bucket_count>
+		<item_version>0</item_version>
+	</file_filter_>
+</tool_conv_to_cb_solution_cfg>

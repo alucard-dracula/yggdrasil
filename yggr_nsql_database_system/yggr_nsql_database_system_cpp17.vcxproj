@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup Label="ProjectConfigurations">
+		<ProjectConfiguration Include="Debug|Win32">
+			<Configuration>Debug</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug|x64">
+			<Configuration>Debug</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|Win32">
+			<Configuration>Release</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|x64">
+			<Configuration>Release</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+	</ItemGroup>
+	<PropertyGroup Label="Globals">
+		<ProjectGuid>{255D468D-3ADF-42CA-BA45-A0756703D518}</ProjectGuid>
+		<RootNamespace>yggr_nsql_database_system</RootNamespace>
+		<ProjectName>yggr_nsql_database_system</ProjectName>
+		<WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>true</UseDebugLibraries>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>true</UseDebugLibraries>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
+	<ImportGroup Label="ExtensionSettings">
+</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
+	</ImportGroup>
+	<PropertyGroup Label="UserMacros"/>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)lib/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-d</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)lib64/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-d</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)lib/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)lib64/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)</TargetName>
+	</PropertyGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<ClCompile>
+			<Optimization>MaxSpeed</Optimization>
+			<AdditionalIncludeDirectories>../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_LIB;MONGO_STATIC_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<WarningLevel>Level3</WarningLevel>
+			<MultiProcessorCompilation>
+			</MultiProcessorCompilation>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+		</ClCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+		<Bscmake>
+			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+		</Bscmake>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<ClCompile>
+			<Optimization>MaxSpeed</Optimization>
+			<AdditionalIncludeDirectories>../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_WINDOWS;_LIB;MONGO_STATIC_BUILD;YGGR_SYSTEM_64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<WarningLevel>Level3</WarningLevel>
+			<MultiProcessorCompilation>
+			</MultiProcessorCompilation>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+		</ClCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+		<Bscmake>
+			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+		</Bscmake>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<ClCompile>
+			<AdditionalOptions>/D_STLP_DEBUG</AdditionalOptions>
+			<Optimization>Disabled</Optimization>
+			<AdditionalIncludeDirectories>../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_LIB;MONGO_STATIC_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<WarningLevel>Level3</WarningLevel>
+			<MultiProcessorCompilation>
+			</MultiProcessorCompilation>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+		</ClCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+		<Bscmake>
+			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+		</Bscmake>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<ClCompile>
+			<AdditionalOptions>/D_STLP_DEBUG</AdditionalOptions>
+			<Optimization>Disabled</Optimization>
+			<AdditionalIncludeDirectories>../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_WINDOWS;_LIB;YGGR_SYSTEM_64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<WarningLevel>Level3</WarningLevel>
+			<MultiProcessorCompilation>
+			</MultiProcessorCompilation>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+		</ClCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+		<Bscmake>
+			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+		</Bscmake>
+	</ItemDefinitionGroup>
+	<ItemGroup>
+		<ClCompile Include="bson_date_time_native_ex.cpp"/>
+		<ClCompile Include="bson_decimal128_native_ex.cpp"/>
+		<ClCompile Include="bson_error_native_ex.cpp"/>
+		<ClCompile Include="bson_iterator_native_ex.cpp"/>
+		<ClCompile Include="bson_native_ex.cpp"/>
+		<ClCompile Include="bson_oid_native_ex.cpp"/>
+		<ClCompile Include="bson_regex_native_ex.cpp"/>
+		<ClCompile Include="bson_string_native_ex.cpp"/>
+		<ClCompile Include="bson_timeval_native_ex.cpp"/>
+		<ClCompile Include="bson_value_conflict_fixer.cpp"/>
+		<ClCompile Include="bson_value_native_ex.cpp"/>
+		<ClCompile Include="c_bson.cpp"/>
+		<ClCompile Include="c_bson_code.cpp"/>
+		<ClCompile Include="c_bson_date.cpp"/>
+		<ClCompile Include="c_bson_decimal128.cpp"/>
+		<ClCompile Include="c_bson_error.cpp"/>
+		<ClCompile Include="c_bson_oid.cpp"/>
+		<ClCompile Include="c_bson_regex.cpp"/>
+		<ClCompile Include="c_bson_string_item.cpp"/>
+		<ClCompile Include="c_bson_symbol.cpp"/>
+		<ClCompile Include="c_bson_time.cpp"/>
+		<ClCompile Include="c_bson_timestamp.cpp"/>
+		<ClCompile Include="c_bson_timeval.cpp"/>
+		<ClCompile Include="c_bson_value.cpp"/>
+		<ClCompile Include="c_mongo_apm_callbacks.cpp"/>
+		<ClCompile Include="c_mongo_auto_encryption_opts.cpp"/>
+		<ClCompile Include="c_mongo_buffered_stream.cpp"/>
+		<ClCompile Include="c_mongo_client_encryption_datakey_opts.cpp"/>
+		<ClCompile Include="c_mongo_client_encryption_encrypt_opts.cpp"/>
+		<ClCompile Include="c_mongo_client_encryption_encrypt_range_opts.cpp"/>
+		<ClCompile Include="c_mongo_client_encryption_opts.cpp"/>
+		<ClCompile Include="c_mongo_client_encryption_rewrap_many_datakey_result.cpp"/>
+		<ClCompile Include="c_mongo_connection.cpp"/>
+		<ClCompile Include="c_mongo_connection_encryption.cpp"/>
+		<ClCompile Include="c_mongo_connection_pool.cpp"/>
+		<ClCompile Include="c_mongo_enc_connection.cpp"/>
+		<ClCompile Include="c_mongo_file_stream.cpp"/>
+		<ClCompile Include="c_mongo_find_and_modify_opts.cpp"/>
+		<ClCompile Include="c_mongo_gridfs_download_stream.cpp"/>
+		<ClCompile Include="c_mongo_gridfs_file.cpp"/>
+		<ClCompile Include="c_mongo_gridfs_file_opt.cpp"/>
+		<ClCompile Include="c_mongo_gridfs_stream.cpp"/>
+		<ClCompile Include="c_mongo_gridfs_upload_stream.cpp"/>
+		<ClCompile Include="c_mongo_host_info.cpp"/>
+		<ClCompile Include="c_mongo_index_description.cpp"/>
+		<ClCompile Include="c_mongo_index_model.cpp"/>
+		<ClCompile Include="c_mongo_index_opt_geo.cpp"/>
+		<ClCompile Include="c_mongo_index_opt_wt.cpp"/>
+		<ClCompile Include="c_mongo_iovec.cpp"/>
+		<ClCompile Include="c_mongo_mc_kms_credentials_callback.cpp"/>
+		<ClCompile Include="c_mongo_read_concern.cpp"/>
+		<ClCompile Include="c_mongo_read_prefs.cpp"/>
+		<ClCompile Include="c_mongo_basic_stream.cpp"/>
+		<ClCompile Include="c_mongo_server_api.cpp"/>
+		<ClCompile Include="c_mongo_server_description.cpp"/>
+		<ClCompile Include="c_mongo_socket_stream.cpp"/>
+		<ClCompile Include="c_mongo_ssl_opt.cpp"/>
+		<ClCompile Include="c_mongo_tls_stream.cpp"/>
+		<ClCompile Include="c_mongo_uri.cpp"/>
+		<ClCompile Include="c_mongo_write_concern.cpp"/>
+		<ClCompile Include="c_mongo_connection_init.cpp"/>
+		<ClCompile Include="mongoc_auto_encryption_opts_native_ex.cpp"/>
+		<ClCompile Include="mongoc_client_encryption_datakey_opts_native_ex.cpp"/>
+		<ClCompile Include="mongoc_client_encryption_encrypt_opts_native_ex.cpp"/>
+		<ClCompile Include="mongoc_client_encryption_encrypt_range_opts_native_ex.cpp"/>
+		<ClCompile Include="mongoc_client_encryption_opts_native_ex.cpp"/>
+		<ClCompile Include="mongoc_client_native_ex.cpp"/>
+		<ClCompile Include="mongoc_collection_native_ex.cpp"/>
+		<ClCompile Include="mongoc_find_and_modify_opts_native_ex.cpp"/>
+		<ClCompile Include="mongoc_gridfs_bucket_t_native_ex.cpp"/>
+		<ClCompile Include="mongoc_gridfs_bucket_file_t_native_ex.cpp"/>
+		<ClCompile Include="mongoc_gridfs_bucket_native_ex.cpp"/>
+		<ClCompile Include="mongoc_gridfs_file_native_ex.cpp"/>
+		<ClCompile Include="mongoc_gridfs_native_ex.cpp"/>
+		<ClCompile Include="mongoc_read_concern_native_ex.cpp"/>
+		<ClCompile Include="mongoc_read_prefs_native_ex.cpp"/>
+		<ClCompile Include="mongoc_server_description_native_ex.cpp"/>
+		<ClCompile Include="mongoc_uri_native_ex.cpp"/>
+		<ClCompile Include="mongoc_write_concern_native_ex.cpp"/>
+		<ClCompile Include="mongodb_installer.cpp"/>
+		<ClCompile Include="mongoc_host_list_native_ex.cpp"/>
+	</ItemGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
+	<ImportGroup Label="ExtensionTargets">
+</ImportGroup>
+</Project>

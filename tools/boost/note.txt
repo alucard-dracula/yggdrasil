@@ -1,0 +1,32 @@
+boost_153-boost_165_1 max cpp version cpp14
+boost_166-boost_173     max cpp version cpp17
+boost_174-boost_181     max cpp version cpp20 (need fix char8_t, type_traits less char8_t fix), so recommend cpp17
+boost_182-new                max cpp version cpp20          
+
+download: www.boost.org
+now_boost_ver=1.82
+
+rm d:/boost  (must delete now grobal boost config)
+
+bjam xxx --build-type=completed address-model=64
+bjam toolset=msvc-10.0 -sICU_PATH=d:/libicu  --build-type=complete address-model=64
+bjam toolset=msvc-10.0 -sICONV_PATH=d:/libiconv_1_13_1 -sICU_PATH=d:/libicu --build-type=complete address-model=64
+bjam -j12 toolset=msvc-10.0 -sZLIB_SOURCE=e:/devel/build_tmp/zlib-1.2.12  -sICU_PATH=d:/libicu --build-type=complete address-model=64
+
+
+high version mingw gcc:
+
+//test icu
+g++ -g -Wall -ID:\libiconv-1.13.1\include -c has_iconv.cpp -o has_iconv.o
+g++ -LD:\libiconv-1.13.1\lib -o has_iconv.exe has_iconv.o -liconv
+
+g++ -g -Wall -Id:\lib32\libiconv-1.9.2-1\include -c has_iconv.cpp -o has_iconv.o
+g++ -Ld:\lib32\libiconv-1.9.2-1\lib -o has_iconv.exe has_iconv.o -liconv
+
+// compare boost
+bjam -j12 -sICONV_PATH=d:/libiconv_1_13_1 --without-mpi boost.locale.std=off address-model=64 toolset=gcc --build-type=complete
+bjam -j12 -sICONV_PATH=d:/lib32/libiconv-1.9.2-1 --without-mpi boost.locale.std=off address-model=32 toolset=gcc --build-type=complete
+
+!!!
+high version msvc compile low level boost need check boost/config/auto_link.hpp, 
+BOOST_LIB_TOOLSET Limits the maximum version that can be set for the BOOST compilation command parameter toolset=msvc-xx.xx

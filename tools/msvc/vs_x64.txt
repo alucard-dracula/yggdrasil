@@ -1,0 +1,12 @@
+<PreferredToolArchitecture>x64</PreferredToolArchitecture>
+.vcxproj的 <PropertyGroup Label="Globals"> 下
+
+可在环境变量中加入
+
+VS12-
+set _IsNativeEnvironment=true
+start "C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\devenv.exe" your_solution.sln
+
+VS13+
+set PreferredToolArchitecture=x64
+sbm start "C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\devenv.exe" your_solution.sln

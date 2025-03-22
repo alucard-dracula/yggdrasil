@@ -1,0 +1,17 @@
+3.0 addUser
+
+use admin
+db.createUser(
+  {
+    user: "buru",
+    pwd: "12345678",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" },
+		{ role: "clusterAdmin", db: "admin" },
+		{ role: "readAnyDatabase", db: "admin" },
+		 "readWrite" ]
+  }
+)
+
+db.createUser({user:"xy",pwd:"123456abc",roles:[{role:"dbAdminAnyDatabase", db:"admin"},{role:"readWriteAnyDatabase", db:"admin"},{role:"userAdminAnyDatabase", db:"admin"}, {role:"clusterAdmin", db:"admin"}]})
+
+db.createUser({user:"xy_root",pwd:"123456abc",roles:[{role:"root",db:"admin"}]})

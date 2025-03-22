@@ -1,0 +1,69 @@
+各模块功能说明：
+adapter: 			        适配器模块 数据交互时的动态识别和转换
+algorithm:			        对stl algorithm 的补充
+any_val:			        any类型数据, 做了SBO（short byte optimization）优化, 并且支持any运算
+archive:			        序列化模块 支持序列化结构包括 文本 XML 二进制 网络二进制 BSON。序列化使用方式同BOOST
+base:			            基础功能 包括基础数据类型、平台、语言版本等的宏定义
+bind:			            规范boost::bind
+bind_ex:			        对boost::bind的扩展
+bytes:			            对容器的数据字节数的统计
+caller:			            函数调用器，调用函数时将支持的容器转换成函数参数			
+charset:			        字符集（utf8_char utf8_string 以及基于ICONV的转换功能）
+client:			            客户端模块
+compaction_tool:		    压缩工具（未完成, 基于7zip的lzma，只完成了基本的压缩解压功能）
+compatibility:		        一些编译器兼容性处理
+compile_link:		        编译链接的处理
+container:			        容器 对STL和BOOST的数据结构的一些扩展
+container_ex:		        针对container的一些扩展处理
+database_system:		    SQL型数据库系统 基于DTL
+dbs_manager:		        flywight架构的DB管理器
+dll_make:			        DLL或SO的制作帮助
+encryption_tool:		    加密工具
+exception:			        异常对象
+file_system:		        文件系统
+func:			            针对函数类型的解析功能
+fusionex:			        boost::fusion的一些扩展
+fuzzy:			            基于正则的模糊串
+geometry:			        解析几何算法
+handler_center:		        函数回调中心 注册管理模块的回调函数
+ids:			            各种ID类型和ID生成器的定义
+iterator_ex:		        对iterator的扩展处理
+log:			            日志系统
+lua_wrap:			        LUA语言的包装类型（未全部完成，缺少set map等STL容器）
+mapping:			        映射表结构
+math:			            数学
+memory_ex:		            allocator相关扩展
+modules:			        模块动态加载功能
+move:			            MOVE语义兼容及仿真（基于boost::move）
+mplex:			            boost::mpl的一些扩展
+network:			        网络(基于boost::asio)
+nonable:			        能力禁用 包括不可COPY 不可MOVE 不可创建
+nsql_database_system:	    非SQL型数据库系统（当前只支持MONGODB）
+p2p:			            支持p2p网络(当前只支持udp打洞)
+packet:			            序列化打包器
+plugins:			        插件管理
+ppex:			            boost::preprocessing的一些扩展
+process:			        进程相关功能
+proxy:			            网络代理模块
+ptr_val:			        指针数据的操作函数
+range_ex:			        boost::range的扩展
+regular_parse:		        正则表达式（基于boost::regex，自带unicode转换可不依赖icu4c）
+safe_container:		        线程安全的容器类型(基于boost::continaer并且兼容)
+script:			            脚本系统(支持python和lua)
+segment:			        段数据 包括内存映射 文件映射
+seh:			            跨平台的结构化异常处理（支持windows linux darwin android）
+serialization:		        各容器的序列化功能
+server:			            服务器模块
+smart_ptr_ex:		        智能指针的扩展
+struct_conv:		        结构转换功能
+support:			        一些其他的支持
+system_controller:		    系统控制器，用于处理各种系统事件，可用于和日志系统联动
+task_center:		        任务中心（任务数据缓存）
+thread:			            线程
+time:			            时间
+tuple:			            yggdrasil tuple结构，并兼容了std::tuple 以及 boost::tuple
+tuple_ex:			        对tuple的一些扩展
+type_traits:		        扩展type_traits
+typeof:			            基于BOOST_TYPEOF并兼容了decltype
+utility:			        一些通用功能
+

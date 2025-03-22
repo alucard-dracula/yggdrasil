@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup Label="ProjectConfigurations">
+		<ProjectConfiguration Include="Debug|Win32">
+			<Configuration>Debug</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug|x64">
+			<Configuration>Debug</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|Win32">
+			<Configuration>Release</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|x64">
+			<Configuration>Release</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\cleanup.c"/>
+		<ClCompile Include="..\create.c"/>
+		<ClCompile Include="..\dll.c"/>
+		<ClCompile Include="..\errno.c"/>
+		<ClCompile Include="..\global.c"/>
+		<ClCompile Include="..\pthread.c"/>
+		<ClCompile Include="..\pthread_attr_destroy.c"/>
+		<ClCompile Include="..\pthread_attr_getaffinity_np.c"/>
+		<ClCompile Include="..\pthread_attr_getdetachstate.c"/>
+		<ClCompile Include="..\pthread_attr_getinheritsched.c"/>
+		<ClCompile Include="..\pthread_attr_getname_np.c"/>
+		<ClCompile Include="..\pthread_attr_getschedparam.c"/>
+		<ClCompile Include="..\pthread_attr_getschedpolicy.c"/>
+		<ClCompile Include="..\pthread_attr_getscope.c"/>
+		<ClCompile Include="..\pthread_attr_getstackaddr.c"/>
+		<ClCompile Include="..\pthread_attr_getstacksize.c"/>
+		<ClCompile Include="..\pthread_attr_init.c"/>
+		<ClCompile Include="..\pthread_attr_setaffinity_np.c"/>
+		<ClCompile Include="..\pthread_attr_setdetachstate.c"/>
+		<ClCompile Include="..\pthread_attr_setinheritsched.c"/>
+		<ClCompile Include="..\pthread_attr_setname_np.c"/>
+		<ClCompile Include="..\pthread_attr_setschedparam.c"/>
+		<ClCompile Include="..\pthread_attr_setschedpolicy.c"/>
+		<ClCompile Include="..\pthread_attr_setscope.c"/>
+		<ClCompile Include="..\pthread_attr_setstackaddr.c"/>
+		<ClCompile Include="..\pthread_attr_setstacksize.c"/>
+		<ClCompile Include="..\pthread_barrierattr_destroy.c"/>
+		<ClCompile Include="..\pthread_barrierattr_getpshared.c"/>
+		<ClCompile Include="..\pthread_barrierattr_init.c"/>
+		<ClCompile Include="..\pthread_barrierattr_setpshared.c"/>
+		<ClCompile Include="..\pthread_barrier_destroy.c"/>
+		<ClCompile Include="..\pthread_barrier_init.c"/>
+		<ClCompile Include="..\pthread_barrier_wait.c"/>
+		<ClCompile Include="..\pthread_cancel.c"/>
+		<ClCompile Include="..\pthread_condattr_destroy.c"/>
+		<ClCompile Include="..\pthread_condattr_getpshared.c"/>
+		<ClCompile Include="..\pthread_condattr_init.c"/>
+		<ClCompile Include="..\pthread_condattr_setpshared.c"/>
+		<ClCompile Include="..\pthread_cond_destroy.c"/>
+		<ClCompile Include="..\pthread_cond_init.c"/>
+		<ClCompile Include="..\pthread_cond_signal.c"/>
+		<ClCompile Include="..\pthread_cond_wait.c"/>
+		<ClCompile Include="..\pthread_delay_np.c"/>
+		<ClCompile Include="..\pthread_detach.c"/>
+		<ClCompile Include="..\pthread_equal.c"/>
+		<ClCompile Include="..\pthread_exit.c"/>
+		<ClCompile Include="..\pthread_getconcurrency.c"/>
+		<ClCompile Include="..\pthread_getname_np.c"/>
+		<ClCompile Include="..\pthread_getschedparam.c"/>
+		<ClCompile Include="..\pthread_getspecific.c"/>
+		<ClCompile Include="..\pthread_getunique_np.c"/>
+		<ClCompile Include="..\pthread_getw32threadhandle_np.c"/>
+		<ClCompile Include="..\pthread_join.c"/>
+		<ClCompile Include="..\pthread_key_create.c"/>
+		<ClCompile Include="..\pthread_key_delete.c"/>
+		<ClCompile Include="..\pthread_kill.c"/>
+		<ClCompile Include="..\pthread_mutexattr_destroy.c"/>
+		<ClCompile Include="..\pthread_mutexattr_getkind_np.c"/>
+		<ClCompile Include="..\pthread_mutexattr_getpshared.c"/>
+		<ClCompile Include="..\pthread_mutexattr_getrobust.c"/>
+		<ClCompile Include="..\pthread_mutexattr_gettype.c"/>
+		<ClCompile Include="..\pthread_mutexattr_init.c"/>
+		<ClCompile Include="..\pthread_mutexattr_setkind_np.c"/>
+		<ClCompile Include="..\pthread_mutexattr_setpshared.c"/>
+		<ClCompile Include="..\pthread_mutexattr_setrobust.c"/>
+		<ClCompile Include="..\pthread_mutexattr_settype.c"/>
+		<ClCompile Include="..\pthread_mutex_consistent.c"/>
+		<ClCompile Include="..\pthread_mutex_destroy.c"/>
+		<ClCompile Include="..\pthread_mutex_init.c"/>
+		<ClCompile Include="..\pthread_mutex_lock.c"/>
+		<ClCompile Include="..\pthread_mutex_timedlock.c"/>
+		<ClCompile Include="..\pthread_mutex_trylock.c"/>
+		<ClCompile Include="..\pthread_mutex_unlock.c"/>
+		<ClCompile Include="..\pthread_num_processors_np.c"/>
+		<ClCompile Include="..\pthread_once.c"/>
+		<ClCompile Include="..\pthread_rwlockattr_destroy.c"/>
+		<ClCompile Include="..\pthread_rwlockattr_getpshared.c"/>
+		<ClCompile Include="..\pthread_rwlockattr_init.c"/>
+		<ClCompile Include="..\pthread_rwlockattr_setpshared.c"/>
+		<ClCompile Include="..\pthread_rwlock_destroy.c"/>
+		<ClCompile Include="..\pthread_rwlock_init.c"/>
+		<ClCompile Include="..\pthread_rwlock_rdlock.c"/>
+		<ClCompile Include="..\pthread_rwlock_timedrdlock.c"/>
+		<ClCompile Include="..\pthread_rwlock_timedwrlock.c"/>
+		<ClCompile Include="..\pthread_rwlock_tryrdlock.c"/>
+		<ClCompile Include="..\pthread_rwlock_trywrlock.c"/>
+		<ClCompile Include="..\pthread_rwlock_unlock.c"/>
+		<ClCompile Include="..\pthread_rwlock_wrlock.c"/>
+		<ClCompile Include="..\pthread_self.c"/>
+		<ClCompile Include="..\pthread_setaffinity.c"/>
+		<ClCompile Include="..\pthread_setcancelstate.c"/>
+		<ClCompile Include="..\pthread_setcanceltype.c"/>
+		<ClCompile Include="..\pthread_setconcurrency.c"/>
+		<ClCompile Include="..\pthread_setname_np.c"/>
+		<ClCompile Include="..\pthread_setschedparam.c"/>
+		<ClCompile Include="..\pthread_setspecific.c"/>
+		<ClCompile Include="..\pthread_spin_destroy.c"/>
+		<ClCompile Include="..\pthread_spin_init.c"/>
+		<ClCompile Include="..\pthread_spin_lock.c"/>
+		<ClCompile Include="..\pthread_spin_trylock.c"/>
+		<ClCompile Include="..\pthread_spin_unlock.c"/>
+		<ClCompile Include="..\pthread_testcancel.c"/>
+		<ClCompile Include="..\pthread_timechange_handler_np.c"/>
+		<ClCompile Include="..\pthread_timedjoin_np.c"/>
+		<ClCompile Include="..\pthread_tryjoin_np.c"/>
+		<ClCompile Include="..\pthread_win32_attach_detach_np.c"/>
+		<ClCompile Include="..\ptw32_calloc.c"/>
+		<ClCompile Include="..\ptw32_callUserDestroyRoutines.c"/>
+		<ClCompile Include="..\ptw32_cond_check_need_init.c"/>
+		<ClCompile Include="..\ptw32_getprocessors.c"/>
+		<ClCompile Include="..\ptw32_is_attr.c"/>
+		<ClCompile Include="..\ptw32_MCS_lock.c"/>
+		<ClCompile Include="..\ptw32_mutex_check_need_init.c"/>
+		<ClCompile Include="..\ptw32_new.c"/>
+		<ClCompile Include="..\ptw32_processInitialize.c"/>
+		<ClCompile Include="..\ptw32_processTerminate.c"/>
+		<ClCompile Include="..\ptw32_relmillisecs.c"/>
+		<ClCompile Include="..\ptw32_reuse.c"/>
+		<ClCompile Include="..\ptw32_rwlock_cancelwrwait.c"/>
+		<ClCompile Include="..\ptw32_rwlock_check_need_init.c"/>
+		<ClCompile Include="..\ptw32_semwait.c"/>
+		<ClCompile Include="..\ptw32_spinlock_check_need_init.c"/>
+		<ClCompile Include="..\ptw32_threadDestroy.c"/>
+		<ClCompile Include="..\ptw32_threadStart.c"/>
+		<ClCompile Include="..\ptw32_throw.c"/>
+		<ClCompile Include="..\ptw32_timespec.c"/>
+		<ClCompile Include="..\ptw32_tkAssocCreate.c"/>
+		<ClCompile Include="..\ptw32_tkAssocDestroy.c"/>
+		<ClCompile Include="..\sched_getscheduler.c"/>
+		<ClCompile Include="..\sched_get_priority_max.c"/>
+		<ClCompile Include="..\sched_get_priority_min.c"/>
+		<ClCompile Include="..\sched_setaffinity.c"/>
+		<ClCompile Include="..\sched_setscheduler.c"/>
+		<ClCompile Include="..\sched_yield.c"/>
+		<ClCompile Include="..\sem_close.c"/>
+		<ClCompile Include="..\sem_destroy.c"/>
+		<ClCompile Include="..\sem_getvalue.c"/>
+		<ClCompile Include="..\sem_init.c"/>
+		<ClCompile Include="..\sem_open.c"/>
+		<ClCompile Include="..\sem_post.c"/>
+		<ClCompile Include="..\sem_post_multiple.c"/>
+		<ClCompile Include="..\sem_timedwait.c"/>
+		<ClCompile Include="..\sem_trywait.c"/>
+		<ClCompile Include="..\sem_unlink.c"/>
+		<ClCompile Include="..\sem_wait.c"/>
+		<ClCompile Include="..\signal.c"/>
+		<ClCompile Include="..\w32_CancelableWait.c"/>
+	</ItemGroup>
+	<PropertyGroup Label="Globals">
+		<ProjectGuid>{99D2DEF5-1F97-4743-BDF4-82E7BAED6E69}</ProjectGuid>
+		<RootNamespace>pthread_cpp_view</RootNamespace>
+		<ProjectName>pthread_cpp_view</ProjectName>
+		<WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+		<ConfigurationType>Utility</ConfigurationType>
+		<UseDebugLibraries>true</UseDebugLibraries>
+		<CharacterSet>MultiByte</CharacterSet>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+		<ConfigurationType>Utility</ConfigurationType>
+		<UseDebugLibraries>true</UseDebugLibraries>
+		<CharacterSet>MultiByte</CharacterSet>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+		<ConfigurationType>Utility</ConfigurationType>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<CharacterSet>MultiByte</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+		<ConfigurationType>Utility</ConfigurationType>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<CharacterSet>MultiByte</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
+	<ImportGroup Label="ExtensionSettings">
+</ImportGroup>
+	<ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+	</ImportGroup>
+	<ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+	</ImportGroup>
+	<PropertyGroup Label="UserMacros"/>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+	</PropertyGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<ClCompile>
+			<PrecompiledHeader>
+			</PrecompiledHeader>
+			<WarningLevel>Level3</WarningLevel>
+			<Optimization>Disabled</Optimization>
+			<PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+		</ClCompile>
+		<Link>
+			<SubSystem>Console</SubSystem>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<ClCompile>
+			<PrecompiledHeader>
+			</PrecompiledHeader>
+			<WarningLevel>Level3</WarningLevel>
+			<Optimization>Disabled</Optimization>
+			<PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+		</ClCompile>
+		<Link>
+			<SubSystem>Console</SubSystem>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<ClCompile>
+			<WarningLevel>Level3</WarningLevel>
+			<PrecompiledHeader>
+			</PrecompiledHeader>
+			<Optimization>MaxSpeed</Optimization>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+		</ClCompile>
+		<Link>
+			<SubSystem>Console</SubSystem>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<OptimizeReferences>true</OptimizeReferences>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<ClCompile>
+			<WarningLevel>Level3</WarningLevel>
+			<PrecompiledHeader>
+			</PrecompiledHeader>
+			<Optimization>MaxSpeed</Optimization>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+		</ClCompile>
+		<Link>
+			<SubSystem>Console</SubSystem>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<OptimizeReferences>true</OptimizeReferences>
+		</Link>
+	</ItemDefinitionGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
+	<ImportGroup Label="ExtensionTargets">
+</ImportGroup>
+</Project>

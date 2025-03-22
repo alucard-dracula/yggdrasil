@@ -1,0 +1,68 @@
+Function description of each module:
+adapter:                        Adapter module Dynamic recognition and transformation of data interaction
+algorithm:                      A supplement to the STL algorithm
+any_val:                        Any type data, SBO (short byte optimization) optimization, and support any operation
+archive:                        The serialization module supports serialization structures including text, XML, binary, and web binary, BSON. Serialization is used in the same way as BOOST
+base:                           Basic functions include macro definitions for basic data types, platforms, language versions, and so on
+bind:                           canonical boost::bind
+bind_ex:                        Extension to boost::bind
+bytes:                          statistics on the number of bytes of data in a container
+caller:                         A function caller that converts supported containers into function parameters when calling a function
+charset:                        character set (utf8_char utf8_string and ICONV-based conversion)
+client:                         The client module
+compaction_tool:                Compression tool (incomplete, 7zip-based LZMA, only basic compression and decompression functions are done)
+compatibility:                  Some compiler compatibility handling
+compile_link:                   Handling of compilation links
+container:                      Container Some extensions to the data structure of STL and BOOST
+container_ex:                   Some extended processing for containers
+database_system:                SQL database system based on DTL
+dbs_manager:                    DB manager with flywight architecture
+dll_make:                       Crafting help for DLL or SO
+encryption_tool:                Encryption tools
+exception:                      Exception object
+file_system:                    File system
+func:                           The parsing function for the function type
+fusionex:                       Some extensions of boost::fusion
+fuzzy:                          A regular-based fuzzy string
+geometry:                       Analytic geometry algorithms
+handler_center:                 Function Callback Center Register the callback function of the management module
+ids:                            Definition of various ID types and ID generators
+iterator_ex:                    Extended handling of iterator
+log:                            Logging system
+lua_wrap:                       Wrapper type of LUA language (not fully completed, STL containers such as set map missing)
+mapping:                        Mapping the table structure
+math:                           Mathematics
+memory_ex:                      Allocator related extensions
+modules:                        Dynamic loading of modules
+move:                           MOVE semantic compatibility and emulation (based on boost::move)
+mplex:                          Some extension of boost::mpl
+network:                        network (based on boost::asio)
+nonable:                        The ability to disable includes non-copyable, non-removal, and non-creation
+nsql_database_system:           NON-SQL DATABASE SYSTEM (CURRENTLY ONLY MONGODB IS SUPPORTED)
+P2P:                            Support P2P network (currently only UDP hole-punching is supported)
+packet:                         Serialized packer
+plugins:                        Plugin management
+ppex:                           Some extension of boost::preprocessing
+process:                        Process-related functions
+proxy:                          a netowrk proxy module
+ptr_val:                        An operational function for pointer data
+range_ex:                       Some extension of boost::range
+regular_parse:                  Regular expressions (based on boost::regex, built-in Unicode conversion can not rely on icu4c)
+safe_container:                 Thread-safe container type (based on boost::continaer and compatible)
+script:                         Scripting system (supports Python and Lua)
+segment:                        Segment data includes memory-mapped file mappings
+SEH:                            Cross-platform Structured Exception Handling (Windows Linux and Darwin Android supported)
+Serialization:                  Serialization of each container
+server:                         Server module
+smart_ptr_ex:                   Extension of Smart Pointer
+struct_conv:                    Structure conversion function
+support:                        Some additional support
+system_controller:              The system controller is used to process various system events and can be used to link with the log system
+task_center:                    Task Center (Task Data Cache)
+thread:                         thread
+time:                           Time
+tuple:                          yggdrasil tuple structure and is compatible with std::tuple and boost::tuple
+tuple_ex:                       Some extensions to tuple
+type_traits:                    Extend type_traits
+typeof:                         Based on BOOST_TYPEOF and compatible with decltype
+utility:                        Some general features

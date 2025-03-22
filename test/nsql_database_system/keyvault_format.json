@@ -1,0 +1,44 @@
+{
+    "_id": {
+        "$binary": "8lBbbRlyQ5qeEyWvsG9D+Q==",
+        "$type": "04"
+    },
+    "keyMaterial": {
+        "$binary": "+VuUJlWAhoQNL3M2p7cZBBrHQX6R2T1Y6ArsaU+ubfrLajUbZJ9pu4RHR+jzPYNd7NTxhuoKPtgNePfKZxj8Yyy5zVa42iTOZ+pDyxp0CZQ63Ff0AkNkoVy7Lb/qFLb6q2Q92rLvnIJChWl+TdC/btwO4MHDfisdzOrCDC6keCZ5RXrRMVuO9mF1O2P97ZRzIkmZ4woqONin/K6Wl54Z0Q==",
+        "$type": "00"
+    },
+    "creationDate": {
+        "$date": 1709860457828
+    },
+    "updateDate": {
+        "$date": 1709860457828
+    },
+    "status": 0,
+    "masterKey": {
+        "provider": "local"
+    }
+}
+
+{
+    "_id": {
+        "$binary": "RbvariekRAOuooqc+R3ZWw==",
+        "$type": "04"
+    },
+    "keyAltNames": [
+        "yggr_conn_enc_keyvalut_1"
+    ],
+    "keyMaterial": {
+        "$binary": "jadnj5bSJuX+xtd4wMIzIPePLXpIaRLbtCPcT9Nd46j5RlDzZWRr6I2K4GNLiQdMJmz53NAkHpk/rArpDiqG8CAHa/eo/yNxLcIJ5GIE0i9rqk9exuJB3qk2kGCaYT4NOf22o9Yxl6xyuiRhjp64raldSOQVrR2/rwKuNygJxsLJsLf4nTq+TrGofno+7/uUt8Di9fM4qJmVxOi4NMJorA==",
+        "$type": "00"
+    },
+    "creationDate": {
+        "$date": 1709860458633
+    },
+    "updateDate": {
+        "$date": 1709860458633
+    },
+    "status": 0,
+    "masterKey": {
+        "provider": "local"
+    }
+}

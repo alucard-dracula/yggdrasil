@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="yggr_nsql_database_system" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug64">
+				<Option output="../lib64/yggr_nsql_database_system-mgw47-d" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="./Debug64/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-D_DEBUG" />
+					<Add directory="../" />
+				</Compiler>
+			</Target>
+			<Target title="Release64">
+				<Option output="../lib64/yggr_nsql_database_system-mgw47" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="./Release64/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O3" />
+					<Add option="-DNDEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add option="-fdata-sections" />
+			<Add option="-ffunction-sections" />
+			<Add option="-fno-strict-aliasing" />
+			<Add option="-DWIN32" />
+			<Add option="-D_LIB" />
+			<Add option="-DWIN64" />
+			<Add option="-DYGGR_SYSTEM_64" />
+			<Add option="-DMONGODB_DRIVER_INCLUDED_YGGR_VER" />
+			<Add directory="../compatibility" />
+			<Add directory="../" />
+		</Compiler>
+		<Unit filename="bson_data_type.cpp" />
+		<Unit filename="bson_error_native_ex.cpp" />
+		<Unit filename="bson_iterator_native_ex.cpp" />
+		<Unit filename="bson_native_ex.cpp" />
+		<Unit filename="bson_oid_native_ex.cpp" />
+		<Unit filename="bson_value_native_ex.cpp" />
+		<Unit filename="c_bson.cpp" />
+		<Unit filename="c_bson_code.cpp" />
+		<Unit filename="c_bson_date.cpp" />
+		<Unit filename="c_bson_error.cpp" />
+		<Unit filename="c_bson_oid.cpp" />
+		<Unit filename="c_bson_regex.cpp" />
+		<Unit filename="c_bson_string_item.cpp" />
+		<Unit filename="c_bson_symbol.cpp" />
+		<Unit filename="c_bson_time.cpp" />
+		<Unit filename="c_bson_timestamp.cpp" />
+		<Unit filename="c_bson_timeval.cpp" />
+		<Unit filename="c_bson_value.cpp" />
+		<Unit filename="c_mongo_basic_stream.cpp" />
+		<Unit filename="c_mongo_buffered_stream.cpp" />
+		<Unit filename="c_mongo_connection.cpp" />
+		<Unit filename="c_mongo_connection_init.cpp" />
+		<Unit filename="c_mongo_connection_pool.cpp" />
+		<Unit filename="c_mongo_file_stream.cpp" />
+		<Unit filename="c_mongo_find_and_modify_opts.cpp" />
+		<Unit filename="c_mongo_gridfs_file.cpp" />
+		<Unit filename="c_mongo_gridfs_file_opt.cpp" />
+		<Unit filename="c_mongo_gridfs_stream.cpp" />
+		<Unit filename="c_mongo_host_info.cpp" />
+		<Unit filename="c_mongo_index_description.cpp" />
+		<Unit filename="c_mongo_index_opt.cpp" />
+		<Unit filename="c_mongo_index_opt_geo.cpp" />
+		<Unit filename="c_mongo_index_opt_wt.cpp" />
+		<Unit filename="c_mongo_iovec.cpp" />
+		<Unit filename="c_mongo_read_concern.cpp" />
+		<Unit filename="c_mongo_read_prefs.cpp" />
+		<Unit filename="c_mongo_socket_stream.cpp" />
+		<Unit filename="c_mongo_ssl_opt.cpp" />
+		<Unit filename="c_mongo_tls_steam.cpp" />
+		<Unit filename="c_mongo_uri.cpp" />
+		<Unit filename="c_mongo_write_concern.cpp" />
+		<Unit filename="mongo_bulk_operation_helper.cpp" />
+		<Unit filename="mongoc_find_and_modify_opts_native_ex.cpp" />
+		<Unit filename="mongoc_gridfs_file_native_ex.cpp" />
+		<Unit filename="mongoc_gridfs_native_ex.cpp" />
+		<Unit filename="mongoc_index_opt_geo_native_ex.cpp" />
+		<Unit filename="mongoc_index_opt_native_ex.cpp" />
+		<Unit filename="mongoc_index_opt_wt_native_ex.cpp" />
+		<Unit filename="mongoc_read_concern_native_ex.cpp" />
+		<Unit filename="mongoc_read_prefs_native_ex.cpp" />
+		<Unit filename="mongoc_uri_native_ex.cpp" />
+		<Unit filename="mongoc_write_concern_native_ex.cpp" />
+		<Unit filename="mongodb_installer.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

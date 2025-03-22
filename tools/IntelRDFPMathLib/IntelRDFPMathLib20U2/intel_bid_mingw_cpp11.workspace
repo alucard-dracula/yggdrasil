@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_workspace_file>
+	<Workspace title="intel_bid_mingw_cpp11">
+		<Project filename="bid_mingw_cpp11.cbp" active="1"/>
+		<Project filename="bid_test_mingw_cpp11.cbp">
+			<Depends filename="bid_mingw_cpp11.cbp"/>
+			<Depends filename="intel_dfp_obj_mingw_cpp11.cbp"/>
+		</Project>
+		<Project filename="include_mingw_cpp11.cbp"/>
+		<Project filename="intel_dfp_obj_mingw_cpp11.cbp"/>
+		<Project filename="intel_dfp_obj_test_mingw_cpp11.cbp">
+			<Depends filename="bid_mingw_cpp11.cbp"/>
+			<Depends filename="intel_dfp_obj_mingw_cpp11.cbp"/>
+		</Project>
+	</Workspace>
+</CodeBlocks_workspace_file>

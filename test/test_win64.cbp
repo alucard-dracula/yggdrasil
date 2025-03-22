@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="test" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug64">
+				<Option output="../Debug64/test" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Debug64/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++0x" />
+					<Add option="-g" />
+					<Add option="-D_DEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="-lyggr_nsql_database_system-mgw47-d" />
+					<Add option="-lyggr_script_lua-mgw47-d" />
+					<Add option="-lyggr_any_val-mgw47-d" />
+					<Add option="-lyggr_charset-mgw47-d" />
+					<Add option="-lyggr_base-mgw47-d" />
+					<Add option="-lyggr_time-mgw47-d" />
+					<Add option="-lyggr_ids-mgw47-d" />
+					<Add option="-lluabind09-mgw47.dll" />
+					<Add option="-lboost_filesystem-mgw47-mt-d-1_53.dll" />
+					<Add option="-lboost_regex-mgw47-mt-1_53.dll" />
+					<Add option="-lboost_system-mgw47-mt-d-1_53.dll" />
+					<Add option="-lboost_thread-mgw47-mt-d-1_53.dll" />
+					<Add option="-ldtl-mgw47-d" />
+					<Add option="-lmongoc-mgw47-d" />
+					<Add option="-lbson-mgw47-d" />
+					<Add option="-llua521-mgw47.dll" />
+					<Add option="-lblowfish-mgw47-d" />
+					<Add option="-lmd5-mgw47-d" />
+					<Add option="-lodbc32" />
+					<Add library="D:\boost\lib64\libboost_serialization-mgw47-d-1_53.a" />
+				</Linker>
+			</Target>
+			<Target title="Release64">
+				<Option output="../Release64/test" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Release64" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O3" />
+					<Add option="-DNDEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-lyggr_nsql_database_system-mgw47" />
+					<Add option="-lyggr_script_lua-mgw47" />
+					<Add option="-lyggr_charset-mgw47" />
+					<Add option="-lyggr_base-mgw47" />
+					<Add option="-lyggr_any_val-mgw47" />
+					<Add option="-lyggr_time-mgw47" />
+					<Add option="-lyggr_ids-mgw47" />
+					<Add option="-lluabind09-mgw47.dll" />
+					<Add option="-lboost_filesystem-mgw47-mt-1_53.dll" />
+					<Add option="-lboost_regex-mgw47-mt-1_53.dll" />
+					<Add option="-lboost_system-mgw47-mt-1_53.dll" />
+					<Add option="-lboost_thread-mgw47-mt-1_53.dll" />
+					<Add option="-ldtl-mgw47" />
+					<Add option="-lmongoc-mgw47" />
+					<Add option="-lbson-mgw47" />
+					<Add option="-llua521-mgw47.dll" />
+					<Add option="-lblowfish-mgw47" />
+					<Add option="-lmd5-mgw47" />
+					<Add option="-lodbc32" />
+					<Add library="d:\boost\lib64\libboost_serialization-mgw47-mt-1_53.a" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-fexceptions" />
+			<Add option="-fdata-sections" />
+			<Add option="-ffunction-sections" />
+			<Add option="-fno-strict-aliasing" />
+			<Add option="-DWIN32" />
+			<Add option="-DWIN64" />
+			<Add option="-DYGGR_SYSTEM_64" />
+			<Add option="-DMONGODB_DRIVER_INCLUDED_YGGR_VER" />
+			<Add option="-DDTL_UC" />
+			<Add option="-DDTL_MINGW64" />
+			<Add directory="../" />
+			<Add directory="../compatibility" />
+			<Add directory="../yggr_lua_base_type" />
+		</Compiler>
+		<Linker>
+			<Add option="-lpthread" />
+			<Add option="-lodbc32" />
+			<Add option="-lole32" />
+			<Add option="-loleaut32" />
+			<Add option="-lws2_32" />
+			<Add option="-luser32" />
+			<Add option="-lwsock32" />
+			<Add option="-lpython32" />
+			<Add library="D:\libiconv-1.13.1\lib\libiconv.a" />
+			<Add directory="../lib64" />
+		</Linker>
+		<Unit filename="safe_container/test.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

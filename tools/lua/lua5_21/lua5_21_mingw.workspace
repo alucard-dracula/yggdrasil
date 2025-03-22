@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_workspace_file>
+	<Workspace title="lua5_21_mingw">
+		<Project filename="include/include_mingw.cbp" active="1"/>
+		<Project filename="lua/lua_mingw.cbp">
+			<Depends filename="lua521/lua521_mingw.cbp"/>
+		</Project>
+		<Project filename="lua521/lua521_mingw.cbp">
+			<Depends filename="lua521_static/lua521_static_mingw.cbp"/>
+			<Depends filename="lua521_static_ts/lua521_static_ts_mingw.cbp"/>
+		</Project>
+		<Project filename="lua521_static/lua521_static_mingw.cbp"/>
+		<Project filename="lua521_static_ts/lua521_static_ts_mingw.cbp"/>
+		<Project filename="luac/luac_mingw.cbp">
+			<Depends filename="lua521/lua521_mingw.cbp"/>
+		</Project>
+	</Workspace>
+</CodeBlocks_workspace_file>

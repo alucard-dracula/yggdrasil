@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_workspace_file>
+	<Workspace title="yggr_lib_only_mingw">
+		<Project filename="test/test_mingw.cbp" active="1">
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw.cbp"/>
+		</Project>
+		<Project filename="test/test_other_mingw.cbp">
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw.cbp"/>
+		</Project>
+		<Project filename="test/test_other2_mingw.cbp">
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw.cbp"/>
+		</Project>
+		<Project filename="test/test_other3_mingw.cbp">
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw.cbp"/>
+		</Project>
+		<Project filename="yggr/yggr_mingw.cbp"/>
+		<Project filename="yggr_any_val/yggr_any_val_mingw.cbp"/>
+		<Project filename="yggr_base/yggr_base_mingw.cbp"/>
+		<Project filename="yggr_charset/yggr_charset_mingw.cbp"/>
+		<Project filename="yggr_compaction_tool/yggr_compaction_tool_mingw.cbp"/>
+		<Project filename="yggr_compatibility/yggr_compatibility_mingw.cbp"/>
+		<Project filename="yggr_database_system/yggr_database_system_mingw.cbp"/>
+		<Project filename="yggr_encryption_tool/yggr_encryption_tool_mingw.cbp"/>
+		<Project filename="yggr_exception/yggr_exception_mingw.cbp"/>
+		<Project filename="yggr_ids/yggr_ids_mingw.cbp"/>
+		<Project filename="yggr_log/yggr_log_mingw.cbp"/>
+		<Project filename="yggr_lua_base_type/yggr_lua_base_type_mingw.cbp">
+			<Depends filename="yggr_any_val/yggr_any_val_mingw.cbp"/>
+			<Depends filename="yggr_base/yggr_base_mingw.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_mingw.cbp"/>
+			<Depends filename="yggr_compaction_tool/yggr_compaction_tool_mingw.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_mingw.cbp"/>
+			<Depends filename="yggr_database_system/yggr_database_system_mingw.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_mingw.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_mingw.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_mingw.cbp"/>
+			<Depends filename="yggr_log/yggr_log_mingw.cbp"/>
+			<Depends filename="yggr_modules/yggr_modules_mingw.cbp"/>
+			<Depends filename="yggr_nsql_database_system/yggr_nsql_database_system_mingw.cbp"/>
+			<Depends filename="yggr_script_lua/yggr_script_lua_mingw.cbp"/>
+			<Depends filename="yggr_script_python/yggr_script_python_mingw.cbp"/>
+			<Depends filename="yggr_segment/yggr_segment_mingw.cbp"/>
+			<Depends filename="yggr_seh/yggr_seh_mingw.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_mingw.cbp"/>
+			<Depends filename="yggr_time/yggr_time_mingw.cbp"/>
+		</Project>
+		<Project filename="yggr_modules/yggr_modules_mingw.cbp"/>
+		<Project filename="yggr_nsql_database_system/yggr_nsql_database_system_mingw.cbp"/>
+		<Project filename="yggr_script_lua/yggr_script_lua_mingw.cbp"/>
+		<Project filename="yggr_script_python/yggr_script_python_mingw.cbp"/>
+		<Project filename="yggr_segment/yggr_segment_mingw.cbp"/>
+		<Project filename="yggr_seh/yggr_seh_mingw.cbp"/>
+		<Project filename="yggr_system_controller/yggr_system_controller_mingw.cbp"/>
+		<Project filename="yggr_time/yggr_time_mingw.cbp"/>
+	</Workspace>
+</CodeBlocks_workspace_file>

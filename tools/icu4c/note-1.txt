@@ -1,0 +1,21 @@
+current yggdrasil used icu version: icu-release-58-2
+build doc address:
+https://unicode-org.github.io/icu/userguide/icu4c/build.html#re-targeting-the-windows-10-sdk-for-the-uwp-projects
+
+msvc100 max supported icu-release-58-2
+
+build:
+1, modify sdk to current msvc version, e.g. "<WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>"
+2, add msvc $(BuildToolVersion) to "Build.Windows.PlatformToolset.props" file
+3, copy "icu4c_build.bat" "icu4c_build_msvc32.bat" "icu4c_build_msvc64.bat" in build_script to  icu4c dir
+4 run  "icu4c_build.bat" build it (recomment start "icu4c_build.bat")
+
+tips:
+The ICU binary files supports all msvc versions,
+ but requires the compiler to support the corresponding version of the C++ syntax
+
+//some data
+<AutoDetectedPlatformToolset Condition="'$(BuildToolVersion)'=='14.0'">v140</AutoDetectedPlatformToolset>
+    <AutoDetectedPlatformToolset Condition="'$(BuildToolVersion)'=='15.0'">v141</AutoDetectedPlatformToolset>
+    <AutoDetectedPlatformToolset Condition="'$(BuildToolVersion)'=='16.0'">v142</AutoDetectedPlatformToolset>
+    <AutoDetectedPlatformToolset Condition="'$(BuildToolVersion)'=='17.0'">v143</AutoDetectedPlatformToolset>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_workspace_file>
+	<Workspace title="yggr_tools_linux_cpp11">
+		<Project filename="tool_conv_to_cb_solution_linux/tool_conv_to_cb_solution_linux_linux_cpp11.cbp" active="1">
+			<Depends filename="yggr_base/yggr_base_linux_cpp11.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_linux_cpp11.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_linux_cpp11.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_linux_cpp11.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_linux_cpp11.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_linux_cpp11.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_linux_cpp11.cbp"/>
+			<Depends filename="yggr_time/yggr_time_linux_cpp11.cbp"/>
+		</Project>
+		<Project filename="tool_conv_to_cb_solution_win_mingw/tool_conv_to_cb_solution_win_mingw_linux_cpp11.cbp">
+			<Depends filename="yggr_base/yggr_base_linux_cpp11.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_linux_cpp11.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_linux_cpp11.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_linux_cpp11.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_linux_cpp11.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_linux_cpp11.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_linux_cpp11.cbp"/>
+			<Depends filename="yggr_time/yggr_time_linux_cpp11.cbp"/>
+		</Project>
+		<Project filename="tool_conv_to_darwin_cmakelists_txt/tool_conv_to_darwin_cmakelists_txt_linux_cpp11.cbp">
+			<Depends filename="yggr_base/yggr_base_linux_cpp11.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_linux_cpp11.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_linux_cpp11.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_linux_cpp11.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_linux_cpp11.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_linux_cpp11.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_linux_cpp11.cbp"/>
+			<Depends filename="yggr_time/yggr_time_linux_cpp11.cbp"/>
+		</Project>
+		<Project filename="tool_conv_to_jni_mk/tool_conv_to_jni_mk_linux_cpp11.cbp">
+			<Depends filename="yggr_base/yggr_base_linux_cpp11.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_linux_cpp11.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_linux_cpp11.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_linux_cpp11.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_linux_cpp11.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_linux_cpp11.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_linux_cpp11.cbp"/>
+			<Depends filename="yggr_time/yggr_time_linux_cpp11.cbp"/>
+		</Project>
+		<Project filename="tool_format_vcxproj/tool_format_vcxproj_linux_cpp11.cbp">
+			<Depends filename="yggr_base/yggr_base_linux_cpp11.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_linux_cpp11.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_linux_cpp11.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_linux_cpp11.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_linux_cpp11.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_linux_cpp11.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_linux_cpp11.cbp"/>
+			<Depends filename="yggr_time/yggr_time_linux_cpp11.cbp"/>
+		</Project>
+		<Project filename="tool_remove_duplicate_files/tool_remove_duplicate_files_linux_cpp11.cbp">
+			<Depends filename="yggr_base/yggr_base_linux_cpp11.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_linux_cpp11.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_linux_cpp11.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_linux_cpp11.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_linux_cpp11.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_linux_cpp11.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_linux_cpp11.cbp"/>
+			<Depends filename="yggr_time/yggr_time_linux_cpp11.cbp"/>
+		</Project>
+		<Project filename="tool_suo_batch_build_selector/tool_suo_batch_build_selector_linux_cpp11.cbp">
+			<Depends filename="yggr_base/yggr_base_linux_cpp11.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_linux_cpp11.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_linux_cpp11.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_linux_cpp11.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_linux_cpp11.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_linux_cpp11.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_linux_cpp11.cbp"/>
+			<Depends filename="yggr_time/yggr_time_linux_cpp11.cbp"/>
+		</Project>
+		<Project filename="tool_test_project_maker/tool_test_project_maker_linux_cpp11.cbp">
+			<Depends filename="yggr_base/yggr_base_linux_cpp11.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_linux_cpp11.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_linux_cpp11.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_linux_cpp11.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_linux_cpp11.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_linux_cpp11.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_linux_cpp11.cbp"/>
+			<Depends filename="yggr_time/yggr_time_linux_cpp11.cbp"/>
+		</Project>
+		<Project filename="tool_test_search_files/tool_test_search_files_linux_cpp11.cbp">
+			<Depends filename="yggr_base/yggr_base_linux_cpp11.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_linux_cpp11.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_linux_cpp11.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_linux_cpp11.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_linux_cpp11.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_linux_cpp11.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_linux_cpp11.cbp"/>
+			<Depends filename="yggr_time/yggr_time_linux_cpp11.cbp"/>
+		</Project>
+		<Project filename="tool_upgrade_vcxproj/tool_upgrade_vcxproj_linux_cpp11.cbp">
+			<Depends filename="yggr_base/yggr_base_linux_cpp11.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_linux_cpp11.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_linux_cpp11.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_linux_cpp11.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_linux_cpp11.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_linux_cpp11.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_linux_cpp11.cbp"/>
+			<Depends filename="yggr_time/yggr_time_linux_cpp11.cbp"/>
+		</Project>
+		<Project filename="yggr/yggr_linux_cpp11.cbp"/>
+		<Project filename="yggr_base/yggr_base_linux_cpp11.cbp"/>
+		<Project filename="yggr_charset/yggr_charset_linux_cpp11.cbp"/>
+		<Project filename="yggr_compatibility/yggr_compatibility_linux_cpp11.cbp"/>
+		<Project filename="yggr_encryption_tool/yggr_encryption_tool_linux_cpp11.cbp"/>
+		<Project filename="yggr_exception/yggr_exception_linux_cpp11.cbp"/>
+		<Project filename="yggr_ids/yggr_ids_linux_cpp11.cbp"/>
+		<Project filename="yggr_system_controller/yggr_system_controller_linux_cpp11.cbp"/>
+		<Project filename="yggr_time/yggr_time_linux_cpp11.cbp"/>
+	</Workspace>
+</CodeBlocks_workspace_file>

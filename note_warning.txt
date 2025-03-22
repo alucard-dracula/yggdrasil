@@ -1,0 +1,20 @@
+1、bigobj是BOOST 升级引起的，模板多了 自然就这样
+2、不推荐使用 boost_164 该版本BOOST 问题很多
+3、注意一定要检查iterator的有效性判断，RELEASE版本在VS调试中会忽略iterator的有效性 导致运行正确，
+      而单独运行时才会奔溃，由于RELEASE没有正确堆栈（CORE 没堆栈） 调试非常麻烦。
+4、LIB 项目不要使用/GL 优化， 原因：1 二进制兼容会受影响，2 会引起 link 1000 内部错误
+5、/ZI 不能支持正常的SEH (/EHa 无法调用析构函数)
+6、code blocks 在IDE中调试时 会给调试程序 增加线程， 可能导致退出时 0xc0000005 发生，这种情况 要仔细辨别
+
+7、字符集影响
+	7.1、 VC默认源码字符集是UNICODE， char字符集是GBK
+	7.2 、GCC 源码字符集根据源码以及CB的配置决定 char字符集 根据源码和CB配置和编译配置决定
+	7.3 、WIN 控制台 字符集 UNICODE
+	7.4、LINUX 控制台 字符集 可配置
+     所以 源码中出现多国语言 直接影响源码兼容性，故不允许项目源码中出现多国语言， 出现多国语言的源文件仅用于测试
+	
+注意 除了CHARSET中UTF8 CHAR 和 STRING 本身 外部模块（除了本身带转换的函数外）的其他函数不需要charset_name的参数 使用string_charset_helper来传递
+模板参数除了需要兼容utf8_string和utf8_char的构造 operator=之类 同时要兼容string_charset_helper
+
+string_charset_helper 和非utf8的字符或字符串 还有非相同类型的utf8 字符或字符串 只需要做在const 参数里
+只有和存储类型相同的UTF8字符和字符串才需要支持MOVE 因为 其他的类型必然存在COPY

@@ -1,0 +1,2 @@
+file boost/container/map.hpp // fixed bug boost::container::map insert_or_assign hint version error C2664
+file boost/serialization/singleton.hpp //  fixed memory leaks caused by msvc not calling the destructor

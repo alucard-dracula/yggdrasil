@@ -1,0 +1,23 @@
+Hello there,
+
+I have found a temporary workaround to enable 3gB user space addressing.
+
+Will need to open command prompt as an administrator, then type
+
+bcdedit /set IncreaseUserVa 3072
+
+Followed by
+
+cd C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin
+editbin /LARGEADDRESSAWARE "C:\SysGCC\raspberry\libexec\gcc\arm-linux-gnueabihf\4.9\cc1plus.exe"
+The first part enables 3gB user space for 32 bit applications globally. This might not need be done on Windows 64bit, I think it sets it automatically as long as the application is LargeAddressAware flag set
+
+However, cc1plus.exe does not have largeaddressaware set during compilation, so you will need to set this flag manually. The second command is what does this using a Visual Studio tool editbin.exe
+
+The actual path to this application may be different depending on what version of Visual Studio is used.
+
+This is a temporary workaround because the application may exceed 3gB usage on a per-case scenarion.
+
+Luckily the cc1plus.exe memory usages is on a per-file basis, and it resets when it begins compiling a new file. So it will only be a problem if there are a lot of nested includes in 1 cpp file.
+
+Thanks,

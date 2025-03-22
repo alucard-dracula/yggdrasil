@@ -1,0 +1,56 @@
+D:\luabind\include\luabind\detail\make_instance.hpp line 51
+
+template <class P>
+class_rep* get_pointee_class(lua_State* L, P const& p, class_id dynamic_id)
+{
+    lua_pushliteral(L, "__luabind_class_map");
+    lua_rawget(L, LUA_REGISTRYINDEX);
+
+
+    //class_map const& classes = *static_cast<class_map*>(
+        //lua_touserdata(L, -1)); //src code
+
+	/*mended code*/
+	void *pclasses = lua_touserdata(L, -1);
+	lua_pop(L, 1);
+	if(!pclasses)
+	{
+		return 0;
+	}
+
+	class_map const& classes = *static_cast<class_map*>(pclasses);
+
+	/*mended code*/
+
+    //lua_pop(L, 1);
+
+    class_rep* cls = classes.get(dynamic_id);
+
+    if (!cls)
+        cls = get_pointee_class(classes, get_pointer(p));
+
+    return cls;
+}
+
+
+D:\luabind\include\luabind\detail\constructor.hpp
+
+ void operator()(argument const& self_, BOOST_PP_ENUM_BINARY_PARAMS(N,a,_)) const
+    {
+        object_rep* self = touserdata<object_rep>(self_);
+		if(!self) return; //mend code
+        class_rep* cls = self->crep();
+
+        std::auto_ptr<T> instance(new T(BOOST_PP_ENUM_PARAMS(N,_)));
+        inject_backref(self_.interpreter(), instance.get(), instance.get());
+
+        void* naked_ptr = instance.get();
+        Pointer ptr(instance.release());
+
+        void* storage = self->allocate(sizeof(holder_type));
+
+        self->set_instance(new (storage) holder_type(
+            ptr, registered_class<T>::id, naked_ptr, cls));
+    }
+
+不能导出 std::shared_ptr

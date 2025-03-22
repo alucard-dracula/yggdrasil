@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_workspace_file>
+	<Workspace title="yggr_lib_only_linux">
+		<Project filename="test/test_linux.cbp" active="1">
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_linux.cbp"/>
+		</Project>
+		<Project filename="test/test_other_linux.cbp">
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_linux.cbp"/>
+		</Project>
+		<Project filename="test/test_other2_linux.cbp">
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_linux.cbp"/>
+		</Project>
+		<Project filename="test/test_other3_linux.cbp">
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_linux.cbp"/>
+		</Project>
+		<Project filename="yggr/yggr_linux.cbp"/>
+		<Project filename="yggr_any_val/yggr_any_val_linux.cbp"/>
+		<Project filename="yggr_base/yggr_base_linux.cbp"/>
+		<Project filename="yggr_charset/yggr_charset_linux.cbp"/>
+		<Project filename="yggr_compaction_tool/yggr_compaction_tool_linux.cbp"/>
+		<Project filename="yggr_compatibility/yggr_compatibility_linux.cbp"/>
+		<Project filename="yggr_database_system/yggr_database_system_linux.cbp"/>
+		<Project filename="yggr_encryption_tool/yggr_encryption_tool_linux.cbp"/>
+		<Project filename="yggr_exception/yggr_exception_linux.cbp"/>
+		<Project filename="yggr_ids/yggr_ids_linux.cbp"/>
+		<Project filename="yggr_log/yggr_log_linux.cbp"/>
+		<Project filename="yggr_lua_base_type/yggr_lua_base_type_linux.cbp">
+			<Depends filename="yggr_any_val/yggr_any_val_linux.cbp"/>
+			<Depends filename="yggr_base/yggr_base_linux.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_linux.cbp"/>
+			<Depends filename="yggr_compaction_tool/yggr_compaction_tool_linux.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_linux.cbp"/>
+			<Depends filename="yggr_database_system/yggr_database_system_linux.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_linux.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_linux.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_linux.cbp"/>
+			<Depends filename="yggr_log/yggr_log_linux.cbp"/>
+			<Depends filename="yggr_modules/yggr_modules_linux.cbp"/>
+			<Depends filename="yggr_nsql_database_system/yggr_nsql_database_system_linux.cbp"/>
+			<Depends filename="yggr_script_lua/yggr_script_lua_linux.cbp"/>
+			<Depends filename="yggr_script_python/yggr_script_python_linux.cbp"/>
+			<Depends filename="yggr_segment/yggr_segment_linux.cbp"/>
+			<Depends filename="yggr_seh/yggr_seh_linux.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_linux.cbp"/>
+			<Depends filename="yggr_time/yggr_time_linux.cbp"/>
+		</Project>
+		<Project filename="yggr_modules/yggr_modules_linux.cbp"/>
+		<Project filename="yggr_nsql_database_system/yggr_nsql_database_system_linux.cbp"/>
+		<Project filename="yggr_script_lua/yggr_script_lua_linux.cbp"/>
+		<Project filename="yggr_script_python/yggr_script_python_linux.cbp"/>
+		<Project filename="yggr_segment/yggr_segment_linux.cbp"/>
+		<Project filename="yggr_seh/yggr_seh_linux.cbp"/>
+		<Project filename="yggr_system_controller/yggr_system_controller_linux.cbp"/>
+		<Project filename="yggr_time/yggr_time_linux.cbp"/>
+	</Workspace>
+</CodeBlocks_workspace_file>

@@ -1,0 +1,39 @@
+1, file-type
+1.1 ".key"  secret_key file // private key
+1.2 ".csr"   request file // public key
+1.3 ".crt"   cert file // signed public key
+
+2,原理 及 安全链
+
+相关原理可以先看DOC里的内容
+
+2.1 CA根证书-CA根证书用于签名其他证书， 要使得系统信任自己的自签名证书必须要安装CA证书
+2.2 服务端证书和客户端证书一样都是证书无非配置的地方不同而已，只有需要双向认证时才需要客户端证书
+
+3，自签证书 具体操作
+
+// 生成一个CA证书KEY文件 （私钥)
+openssl genrsa -out ca.key 2048 
+// 生成CA证书的csr文件（公钥）
+openssl req -new -sha256 -key ca.key -subj /C=cn/ST=beijing/L=beijing/O=yggdrasil/CN=alucard -out ca.csr -utf8 
+// CA自己签名自己（使用CNF文件是因为需要V3版本）
+openssl x509 -req -sha256 -days 36500 -in ca.csr -signkey ca.key -out ca.crt -extensions v3_req -extfile yggr_openssl_ca.cnf
+
+// 生成一个服务端证书KEY文件 （私钥)
+openssl genrsa -out server.key 2048 
+// 生成服务端证书的csr文件（公钥）
+openssl req -new -sha256 -key server.key -subj /C=cn/ST=beijing/L=beijing/O=yggdrasil/CN=yggdrasil -out server.csr -utf8  
+ // 使用CA证书签名服务端公钥（使用CNF文件是因为需要V3版本，以及加入subjectAltName，处理ERR_CERT_COMMON_NAME_INVALID）
+openssl x509 -req -sha256 -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 36500 -extensions v3_req -extfile yggr_openssl.cnf
+
+//客户端和服务端操作一样
+
+//连接CRT和KEY 生成 PEM文件 （顺序必须是CRT+KEY）
+cat server.crt server.key > server.pem
+cat ca.crt ca.key > ca.pem
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+boost_version 1_82
+boost_version_tag -1_82
+compile_version mgw14
+compile_version_tag -mgw14
+python_version 312

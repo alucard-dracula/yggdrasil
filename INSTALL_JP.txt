@@ -1,0 +1,41 @@
+﻿PC 環境: 
+
+编译器说明: 
+01, windowsの場はMS Visual Studioを使う
+02, mingwとlinuxの場はcode blocks + GNUGCCを使う
+03, androidの場はndk-build + clangを使う
+04, macosとiosの場は cmake + ninjia + xcode + clang(apple)使う
+05, 外のコンパイラは自分て設定する
+
+コンパイラ: windowsの場はVSを使え， MINGW LINUXの場はcode blocks と GNUGCCを使え
+1 python: インストール　python そして開発環境を配置する
+2 boost:完全コンパイルboost(今開発用のバージョンは1.53) そして開発環境を配置する
+3 DTL: コンパイル yggdrasil/tools/dtl そして開発環境を配置する
+4 MD5: コンパイル yggdrasil/tools/md5 そして開発環境を配置する
+5 BLOWFISH: コンパイル yggdrasil/tools/blowfish そして開発環境を配置する
+6 LUA: コンパイル yggdrasil/tools/lua/lua5_21 と yggdrasil/tools/lua/luabind52 そして開発環境を配置する
+7 mongodb: コンパイル yggdrasil/tools/mongodb_c_driver そして開発環境を配置する
+8 yggdrasil: コンパイルyggdrasil そして開発環境を配置する
+
+toolsディレクトリのパッチをboostディレクトリにマージする
+
+サードパーティライブラリのインストール：
+01, base64: コンパイル yggdrasil/tools/base64 そして開発環境を配置する
+02, BLOWFISH: コンパイル yggdrasil/tools/blowfish そして開発環境を配置する
+03, BOOST:　yggdrasil/tools/boostディレクトリのパッチをboostディレクトリにマージする，コンパイルboost そして開発環境を配置する (最後にサポートされるboostバージョンは1.82です)
+04, DTL: コンパイル yggdrasil/tools/dtl そして開発環境を配置する
+05, LUA: コンパイル yggdrasil/tools/lua/lua5_34 と yggdrasil/tools/lua/luabind503p そして開発環境を配置する
+06, LZMA: コンパイル yggdrasil/tools/lzma そして開発環境を配置する
+07, MD5: コンパイル yggdrasil/tools/md5 そして開発環境を配置する
+08, openssl: システムにインストールされたopensslまたはコンパイルyggdrasil/tools/openssl そして開発環境を配置する
+09, pthread: システムにインストールされたpthreadまたはコンパイルyggdrasil/tools/pthread_win そして開発環境を配置する
+10, PYTHON: インストールpythonまたはコンパイル python そして開発環境を配置する (BOOST.PYTHONをサポートするために)
+11, sha: コンパイル yggdrasil/tools/sha そして開発環境を配置する
+12, unixODBC: 使システムにインストールされたunixODBCまたはコンパイルyggdrasil/tools/unixODBC そして開発環境を配置する (linuxとmacosをサポートするために)
+13, vld: インストールVisual Leak Detector そして開発環境を配置する （githubブランチバージョンvld-2.7.0を使用する  https://github.com/oneiric/vld/releases）
+14, mongodb: コンパイル yggdrasil/tools/mongodb_c_driver/yggr_src_1.26.1 そして開発環境を配置する
+15, iconv: システムにインストールされたiconvまたはコンパイルyggdrasil/tools/iconv そして開発環境を配置する
+16, icu4c: システムにインストールされたiconvまたはコンパイルyggdrasil/tools/icu4c そして開発環境を配置する（可选，用于支持boost regex）
+17，IntelRDFPMathLib：コンパイル yggdrasil/tools/IntelRDFPMathLib そして開発環境を配置する（mongodb_c_dirver.float128をサポートするために）
+18, yggdrasil: コンパイルyggdrasil そして開発環境を配置する
+19, サードパーティライブラリをビルドするために必要なスクリプト、設定、パッチはyggdrasil/toolsを参照してください。

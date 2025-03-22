@@ -1,0 +1,24 @@
+注意：
+1， stl容器 和 boost容器 在内存区域重叠情况下 使用iterator操作（包括内部隐含的使用iterator的操作函数）都会“可能”产生问题
+
+比如
+std::vector<int> vt = {1, 2, 3}
+vt.assign(vt.rbegin(), vt.rend()) // 错误结果 3 2 3
+
+std::string str = "abc";
+str.assign(str.rbegin(), str.rend()) // 正确结果 cba
+
+
+boost::container::string str = "abc";
+str.assign(str.rbegin(), str.rend()) // 错误结果 cbc
+
+2， boost::container::string 和 std::string在部分操作上语义不同
+比如
+
+std::string str;
+str.find("") == 0;
+
+boost::container::string str;
+str.find("") == string::npos;
+
+这些地方由于不会产生任何警告必须高度注意 不要产生类似操作

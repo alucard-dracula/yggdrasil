@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CodeBlocks_workspace_file>
-	<Workspace title="luabind_linux64">
-		<Project filename="include/include_linux64.cbp" />
-		<Project filename="luabind/luabind_linux64.cbp" active="1">
-			<Depends filename="include/include_linux64.cbp" />
-		</Project>
-	</Workspace>
-</CodeBlocks_workspace_file>

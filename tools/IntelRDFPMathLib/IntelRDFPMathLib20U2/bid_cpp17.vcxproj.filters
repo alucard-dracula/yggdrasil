@@ -1,0 +1,751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include=".\LIBRARY\float128\dpml_exception.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_four_over_pi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_ux_bessel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_ux_bid.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_ux_cbrt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_ux_erf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_ux_exp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_ux_int.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_ux_inv_hyper.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_ux_inv_trig.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_ux_lgamma.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_ux_log.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_ux_mod.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_ux_ops.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_ux_ops_64.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_ux_pow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_ux_powi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_ux_sqrt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\dpml_ux_trig.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\float128\sqrt_tab_t.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_2_str_tables.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_acos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_acosh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_add.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_asin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_asinh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_atan.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_atan2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_atanh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_cbrt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_compare.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_cos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_cosh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_div.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_erf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_erfc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_exp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_exp10.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_exp2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_expm1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_fdimd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_fma.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_fmod.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_frexp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_hypot.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_ldexp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_lgamma.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_llrintd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_log.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_log10.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_log1p.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_log2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_logb.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_logbd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_lrintd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_lround.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_minmax.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_modf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_mul.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_nearbyintd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_next.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_nexttowardd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_noncomp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_pow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_quantexpd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_quantize.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_rem.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_round_integral.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_scalb.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_scalbl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_sin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_sinh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_sqrt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_string.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_tan.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_tanh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_tgamma.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_to_int16.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_to_int32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_to_int64.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_to_int8.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_to_uint16.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_to_uint32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_to_uint64.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid128_to_uint8.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_acos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_acosh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_add.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_asin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_asinh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_atan.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_atan2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_atanh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_cbrt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_compare.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_cos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_cosh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_div.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_erf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_erfc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_exp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_exp10.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_exp2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_expm1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_fdimd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_fma.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_fmod.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_frexp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_hypot.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_ldexp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_lgamma.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_llrintd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_log.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_log10.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_log1p.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_log2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_logb.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_logbd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_lrintd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_lround.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_minmax.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_modf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_mul.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_nearbyintd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_next.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_nexttowardd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_noncomp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_pow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_quantexpd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_quantize.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_rem.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_round_integral.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_scalb.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_scalbl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_sin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_sinh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_sqrt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_string.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_sub.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_tan.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_tanh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_tgamma.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_to_bid128.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_to_bid64.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_to_int16.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_to_int32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_to_int64.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_to_int8.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_to_uint16.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_to_uint32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_to_uint64.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid32_to_uint8.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_acos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_acosh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_add.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_asin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_asinh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_atan.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_atan2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_atanh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_cbrt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_compare.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_cos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_cosh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_div.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_erf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_erfc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_exp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_exp10.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_exp2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_expm1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_fdimd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_fma.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_fmod.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_frexp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_hypot.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_ldexp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_lgamma.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_llrintd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_log.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_log10.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_log1p.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_log2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_logb.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_logbd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_lrintd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_lround.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_minmax.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_modf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_mul.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_nearbyintd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_next.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_nexttowardd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_noncomp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_pow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_quantexpd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_quantize.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_rem.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_round_integral.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_scalb.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_scalbl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_sin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_sinh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_sqrt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_string.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_tan.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_tanh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_tgamma.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_to_bid128.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_to_int16.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_to_int32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_to_int64.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_to_int8.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_to_uint16.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_to_uint32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_to_uint64.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid64_to_uint8.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid_binarydecimal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid_convert_data.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid_decimal_data.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid_decimal_globals.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid_dpd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid_feclearexcept.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid_fegetexceptflag.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid_feraiseexcept.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid_fesetexceptflag.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid_fetestexcept.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid_flag_operations.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid_from_int.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\bid_round.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\strtod128.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\strtod32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\strtod64.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\wcstod128.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\wcstod32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\LIBRARY\src\wcstod64.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LIBRARY\src\bid32_llquantexpd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LIBRARY\src\bid128_llquantexpd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LIBRARY\src\bid32_llround.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LIBRARY\src\bid32_quantumd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LIBRARY\src\bid64_llquantexpd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LIBRARY\src\bid64_llround.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LIBRARY\src\bid64_quantumd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LIBRARY\src\bid128_llround.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LIBRARY\src\bid128_quantumd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{10B501DA-CBB6-38A9-B37C-4691C4D77406}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{ccde1dd9-4956-4978-b60b-918821958e04}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_workspace_file>
+	<Workspace title="yggr_mingw_cpp14">
+		<Project filename="active_svr_test/active_svr_test_mingw_cpp14.cbp" active="1">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="clt_test/clt_test_async_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="clt_test/clt_test_static_task_center_balance_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="clt_test/clt_test_static_task_center_balance2_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="clt_test/clt_test_uuid_static_task_center_balance_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp">
+			<Depends filename="yggr_any_val/yggr_any_val_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_base/yggr_base_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_compaction_tool/yggr_compaction_tool_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_database_system/yggr_database_system_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_log/yggr_log_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_modules/yggr_modules_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_nsql_database_system/yggr_nsql_database_system_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_script_lua/yggr_script_lua_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_script_python/yggr_script_python_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_segment/yggr_segment_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_seh/yggr_seh_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_time/yggr_time_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="dll_param_test/dll_param_test_mingw_cpp14.cbp"/>
+		<Project filename="encryption_tool_clt_test/encryption_tool_clt_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="encryption_tool_proxy_srv_test/encryption_tool_proxy_srv_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="encryption_tool_proxy_trun_srv_test/encryption_tool_proxy_trun_srv_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="encryption_tool_svr_test/encryption_tool_svr_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="lua_active_svr_test/lua_active_svr_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp">
+			<Depends filename="yggr_any_val/yggr_any_val_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_base/yggr_base_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_compaction_tool/yggr_compaction_tool_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_database_system/yggr_database_system_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_log/yggr_log_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_modules/yggr_modules_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_nsql_database_system/yggr_nsql_database_system_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_script_lua/yggr_script_lua_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_script_python/yggr_script_python_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_segment/yggr_segment_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_seh/yggr_seh_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_time/yggr_time_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="lua_calculator/lua_calculator_mingw_cpp14.cbp">
+			<Depends filename="yggr_any_val/yggr_any_val_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_base/yggr_base_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_compaction_tool/yggr_compaction_tool_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_database_system/yggr_database_system_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_log/yggr_log_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_modules/yggr_modules_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_nsql_database_system/yggr_nsql_database_system_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_script_lua/yggr_script_lua_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_script_python/yggr_script_python_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_segment/yggr_segment_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_seh/yggr_seh_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_time/yggr_time_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="lua_clt_test/lua_clt_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp">
+			<Depends filename="yggr_any_val/yggr_any_val_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_base/yggr_base_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_compaction_tool/yggr_compaction_tool_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_database_system/yggr_database_system_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_log/yggr_log_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_modules/yggr_modules_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_nsql_database_system/yggr_nsql_database_system_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_script_lua/yggr_script_lua_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_script_python/yggr_script_python_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_segment/yggr_segment_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_seh/yggr_seh_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_time/yggr_time_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="mixer_svr_test/mixer_svr_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="p2p_boot_svr_test/p2p_boot_svr_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="p2p_peer_test/p2p_peer_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="proxy_srv_test/proxy_srv_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="proxy_trun_mixer_svr_test/proxy_trun_mixer_svr_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="proxy_trun_srv_test/proxy_trun_srv_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="pyd_export/pyd_export_mingw_cpp14.cbp">
+			<Depends filename="yggr_any_val/yggr_any_val_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_base/yggr_base_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_compaction_tool/yggr_compaction_tool_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_database_system/yggr_database_system_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_log/yggr_log_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_modules/yggr_modules_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_nsql_database_system/yggr_nsql_database_system_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_script_lua/yggr_script_lua_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_script_python/yggr_script_python_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_segment/yggr_segment_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_seh/yggr_seh_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_time/yggr_time_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="seh_svr_test/seh_svr_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="svr_test/svr_test_async_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="svr_test/svr_test_balance_async_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="svr_test/svr_test_service_handler_shared_wrap_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="svr_test/svr_test_static_task_center_balance_async_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="svr_test/svr_test_uuid_static_task_center_balance_async_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="test/test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="test/test_other_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="test/test_other2_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="test/test_other3_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="tool_conv_to_cb_solution_linux/tool_conv_to_cb_solution_linux_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="tool_conv_to_cb_solution_win_mingw/tool_conv_to_cb_solution_win_mingw_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="tool_conv_to_darwin_cmakelists_txt/tool_conv_to_darwin_cmakelists_txt_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="tool_conv_to_jni_mk/tool_conv_to_jni_mk_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="tool_downgrade_vcxproj/tool_downgrade_vcxproj_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="tool_format_vcxproj/tool_format_vcxproj_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="tool_remove_duplicate_files/tool_remove_duplicate_files_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="tool_suo_batch_build_selector/tool_suo_batch_build_selector_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="tool_test_project_maker/tool_test_project_maker_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="tool_test_search_files/tool_test_search_files_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="tool_upgrade_vcxproj/tool_upgrade_vcxproj_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="udp_clt_test/udp_clt_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="udp_proxy_svr_test/udp_proxy_svr_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="udp_proxy_trun_svr_test/udp_proxy_trun_svr_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="udp_svr_test/udp_svr_test_mingw_cpp14.cbp">
+			<Depends filename="dll_cal_test/dll_cal_test_mingw_cpp14.cbp"/>
+			<Depends filename="lua_cal_svr_procotol/lua_cal_svr_procotol_mingw_cpp14.cbp"/>
+			<Depends filename="lua_calculator/lua_calculator_mingw_cpp14.cbp"/>
+			<Depends filename="lua_hello_dll/lua_hello_dll_mingw_cpp14.cbp"/>
+			<Depends filename="pyd_export/pyd_export_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="yggr/yggr_mingw_cpp14.cbp"/>
+		<Project filename="yggr_any_val/yggr_any_val_mingw_cpp14.cbp"/>
+		<Project filename="yggr_base/yggr_base_mingw_cpp14.cbp"/>
+		<Project filename="yggr_charset/yggr_charset_mingw_cpp14.cbp"/>
+		<Project filename="yggr_compaction_tool/yggr_compaction_tool_mingw_cpp14.cbp"/>
+		<Project filename="yggr_compatibility/yggr_compatibility_mingw_cpp14.cbp"/>
+		<Project filename="yggr_database_system/yggr_database_system_mingw_cpp14.cbp"/>
+		<Project filename="yggr_encryption_tool/yggr_encryption_tool_mingw_cpp14.cbp"/>
+		<Project filename="yggr_exception/yggr_exception_mingw_cpp14.cbp"/>
+		<Project filename="yggr_ids/yggr_ids_mingw_cpp14.cbp"/>
+		<Project filename="yggr_log/yggr_log_mingw_cpp14.cbp"/>
+		<Project filename="yggr_lua_base_type/yggr_lua_base_type_mingw_cpp14.cbp">
+			<Depends filename="yggr_any_val/yggr_any_val_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_base/yggr_base_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_compaction_tool/yggr_compaction_tool_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_database_system/yggr_database_system_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_log/yggr_log_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_modules/yggr_modules_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_nsql_database_system/yggr_nsql_database_system_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_script_lua/yggr_script_lua_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_script_python/yggr_script_python_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_segment/yggr_segment_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_seh/yggr_seh_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_mingw_cpp14.cbp"/>
+			<Depends filename="yggr_time/yggr_time_mingw_cpp14.cbp"/>
+		</Project>
+		<Project filename="yggr_modules/yggr_modules_mingw_cpp14.cbp"/>
+		<Project filename="yggr_nsql_database_system/yggr_nsql_database_system_mingw_cpp14.cbp"/>
+		<Project filename="yggr_script_lua/yggr_script_lua_mingw_cpp14.cbp"/>
+		<Project filename="yggr_script_python/yggr_script_python_mingw_cpp14.cbp"/>
+		<Project filename="yggr_segment/yggr_segment_mingw_cpp14.cbp"/>
+		<Project filename="yggr_seh/yggr_seh_mingw_cpp14.cbp"/>
+		<Project filename="yggr_system_controller/yggr_system_controller_mingw_cpp14.cbp"/>
+		<Project filename="yggr_time/yggr_time_mingw_cpp14.cbp"/>
+	</Workspace>
+</CodeBlocks_workspace_file>

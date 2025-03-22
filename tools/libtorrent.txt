@@ -1,0 +1,1 @@
+this lib is other lib, yggdrasil is not used. see yggr_too_bak/other_lib, do't forgot it

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="include"/>
+		<Option pch_mode="2"/>
+		<Option compiler="gcc"/>
+		<Build>
+			<Target title="Debug-x32">
+				<Option type="4"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-O0"/>
+					<Add option="-g"/>
+					<Add option="-Werror=unused-variable"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+				</Linker>
+			</Target>
+			<Target title="Release-x32">
+				<Option type="4"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-O3"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+					<Add option="-s"/>
+				</Linker>
+			</Target>
+			<Target title="Debug-x64">
+				<Option type="4"/>
+				<Option compiler="gcc"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-O0"/>
+					<Add option="-g"/>
+					<Add option="-Werror=unused-variable"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+				</Linker>
+			</Target>
+			<Target title="Release-x64">
+				<Option type="4"/>
+				<Option compiler="gcc"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-O3"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+					<Add option="-s"/>
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="all" targets="NIL;"/>
+			<Add alias="all_libonly" targets="NIL;"/>
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall"/>
+			<Add option="-std=c++03"/>
+			<Add option="-fexceptions"/>
+			<Add option="-Wno-sign-compare"/>
+			<Add option="-Wno-comment"/>
+			<Add option="-Wno-enum-compare"/>
+			<Add option="-Wno-unused-local-typedefs"/>
+			<Add option="-Wno-multichar"/>
+			<Add option="-Werror=return-type"/>
+			<Add option="-Werror=endif-labels"/>
+			<Add option="-fdata-sections"/>
+			<Add option="-ffunction-sections"/>
+			<Add option="-fno-strict-aliasing"/>
+			<Add option="-Werror=reorder"/>
+			<Add option="-ftemplate-backtrace-limit=0"/>
+		</Compiler>
+		<Unit filename="lapi.h"/>
+		<Unit filename="lauxlib.h"/>
+		<Unit filename="lcode.h"/>
+		<Unit filename="ldebug.h"/>
+		<Unit filename="ldo.h"/>
+		<Unit filename="lfunc.h"/>
+		<Unit filename="lgc.h"/>
+		<Unit filename="llex.h"/>
+		<Unit filename="llimits.h"/>
+		<Unit filename="llimits_nts.h"/>
+		<Unit filename="llimits_ts.h"/>
+		<Unit filename="lmem.h"/>
+		<Unit filename="lobject.h"/>
+		<Unit filename="lopcodes.h"/>
+		<Unit filename="lparser.h"/>
+		<Unit filename="lstate.h"/>
+		<Unit filename="lstate_nts.h"/>
+		<Unit filename="lstate_ts.h"/>
+		<Unit filename="lstring.h"/>
+		<Unit filename="ltable.h"/>
+		<Unit filename="ltm.h"/>
+		<Unit filename="lua.h"/>
+		<Unit filename="lua.hpp"/>
+		<Unit filename="luaconf.h"/>
+		<Unit filename="lualib.h"/>
+		<Unit filename="lundump.h"/>
+		<Unit filename="lvm.h"/>
+		<Unit filename="lzio.h"/>
+		<Extensions>
+			<lib_finder disable_auto="1"/>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,29 @@
+﻿PC环境: 
+
+编译器说明: 
+01, windows 使用 MS Visual Studio 
+02, mingw linux 使用 code blocks + GNUGCC
+03, android 使用 ndk-build + clang
+04, macos 和 ios使用 cmake + ninjia + xcode + clang(apple)
+05, 其他编译方法请自行处理
+
+第三方库安装：
+01, base64: 编译 yggdrasil/tools/base64 并配置到开发环境中
+02, BLOWFISH: 编译 yggdrasil/tools/blowfish 并配置到开发环境中
+03, BOOST:请将 yggdrasil/tools/boost中的补丁合并到BOOST中，编译boost  并配置到开发环境 (最后支持的boost版本是1.82)
+04, DTL: 编译 yggdrasil/tools/dtl 并配置到开发环境中
+05, LUA: 编译 yggdrasil/tools/lua/lua5_34 和 yggdrasil/tools/lua/luabind503p 并配置到开发环境中
+06, LZMA: 编译 yggdrasil/tools/lzma 并配置到开发环境中
+07, MD5: 编译 yggdrasil/tools/md5 并配置到开发环境中
+08, openssl: 使用系统或者自行编译yggdrasil/tools/openssl 并配置到开发环境中
+09, pthread: 使用系统或者自行编译yggdrasil/tools/pthread_win 并配置到开发环境中
+10, PYTHON: 安装python或者自行编译 并配置到开发环境 (用于支持BOOST.PYTHON)
+11, sha: 编译 yggdrasil/tools/sha 并配置到开发环境中
+12, unixODBC: 使用系统或者自行编译yggdrasil/tools/unixODBC 并配置到开发环境中 (linux，macos 需要)
+13, vld: 安装Visual Leak Detector 并配置到开发环境中 （使用vld-2.7.0的分支版本  https://github.com/oneiric/vld/releases）
+14, mongodb: 编译 yggdrasil/tools/mongodb_c_driver/yggr_src_1.26.1 并配置到开发环境中
+15, iconv: 使用系统或者自行编译yggdrasil/tools/iconv 并配置到开发环境中
+16, icu4c: 使用系统或者自行编译yggdrasil/tools/icu4c 并配置到开发环境中（可选，用于支持boost regex）
+17，IntelRDFPMathLib：编译 yggdrasil/tools/IntelRDFPMathLib 并配置到开发环境中（用于支持mongodb_c_dirver float128）
+18, yggdrasil: 编译yggdrasil 并配置到开发环境中
+19, 编译第三方库需要的脚本、配置、补丁详见yggdrasil/tools

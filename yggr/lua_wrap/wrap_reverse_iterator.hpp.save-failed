@@ -1,0 +1,1630 @@
+// wrap_reverse_iterator.hpp
+
+/****************************************************************************
+Copyright (c) 2010-2024 yggdrasil
+
+author: xu yang
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+****************************************************************************/
+
+#ifndef __YGGR_LUA_WRAP_WRAP_REVERSE_ITERATOR_HPP__
+#define __YGGR_LUA_WRAP_WRAP_REVERSE_ITERATOR_HPP__
+
+#include <yggr/base/yggrdef.h>
+#include <yggr/move/move.hpp>
+#include <yggr/utility/swap.hpp>
+
+#include <yggr/mplex/static_assert.hpp>
+#include <yggr/mplex/tag_sfinae.hpp>
+#include <yggr/mplex/static_assert.hpp>
+
+#include <yggr/iterator_ex/is_reverse_iterator.hpp>
+#include <yggr/iterator_ex/is_const_iterator.hpp>
+#include <yggr/iterator_ex/unwrap_reverse_iterator.hpp>
+#include <yggr/iterator_ex/iterator_traits.hpp>
+#include <yggr/iterator_ex/iterator.hpp>
+
+#include <yggr/lua_wrap/wrap_base_t.hpp>
+#include <yggr/lua_wrap/detail/luabind_function_noexcept.hpp>
+#include <yggr/lua_wrap/detail/unwrap_t.hpp>
+
+#include <boost/ref.hpp>
+#include <boost/utility/enable_if.hpp>
+#include <boost/mpl/bool.hpp>
+#include <boost/mpl/if.hpp>
+#include <boost/mpl/and.hpp>
+#include <boost/mpl/not.hpp>
+#include <boost/type_traits/is_class.hpp>
+
+#include <ostream>
+#include <cassert>
+
+
+namespace yggr
+{
+namespace lua_wrap
+{
+
+template<typename TRIter>
+class wrap_reverse_iterator;
+
+} // namespace lua_wrap
+} // namespace yggr
+
+namespace yggr
+{
+namespace lua_wrap
+{
+namespace detail
+{
+
+template<typename TRIter>
+struct is_wrap_reverse_iterator
+	: public boost::mpl::false_
+{
+};
+
+template<typename TRIter>
+struct is_wrap_reverse_iterator< wrap_reverse_iterator<TRIter> >
+	: public boost::mpl::true_
+{
+};
+
+} // namespace detail
+} // namespace lua_wrap
+} // namespace yggr
+
+namespace yggr
+{
+namespace lua_wrap
+{
+namespace detail
+{
+
+template<typename Iter, bool is_const_iterator = iterator_ex::is_const_iterator<Iter>::value>
+struct riter_value_setter;
+
+template<typename Iter>
+struct riter_value_setter<Iter, false>
+{
+public:
+	typedef Iter iterator_type;
+	typedef typename iterator_ex::iterator_value_ex<iterator_type>::type value_type;
+	typedef typename iterator_ex::iterator_difference_ex<iterator_type>::type difference_type;
+
+public:
+	template<typename RIter> YGGR_CONSTEXPR_OR_INLINE
+	bool set_value(RIter& riter, const value_type& val) const
+	{
+		*riter = val;
+		return true;
+	}
+
+	template<typename RIter> YGGR_CONSTEXPR_OR_INLINE
+	bool set_value(RIter& riter, difference_type n, const value_type& val) const
+	{
+		RIter tmp_iter = iterator_ex::advance_copy(riter, n);
+		*tmp_iter = val;
+		return true;
+	}
+};
+
+template<typename Iter>
+struct riter_value_setter<Iter, true>
+{
+public:
+	template<typename RIter, typename T> YGGR_CONSTEXPR_OR_INLINE
+	bool set_value(RIter&, const T&) const
+	{
+		YGGR_MPLEX_FXIED_ASSERT_FALSE();
+		return false;
+	}
+
+	template<typename RIter, typename Diff, typename T> YGGR_CONSTEXPR_OR_INLINE
+	bool set_value(RIter&, const Diff&, const T&) const
+	{
+		YGGR_MPLEX_FXIED_ASSERT_FALSE();
+		return false;
+	}
+};
+
+} // namespace detail
+} // namespace lua_wrap
+} // namespace yggr
+
+namespace yggr
+{
+namespace lua_wrap
+{
+namespace detail
+{
+
+template<typename TChild, typename TRIter, bool is_rnd>
+class wrap_reverse_iterator_inner;
+
+template<typename TChild, typename TRIter>
+class wrap_reverse_iterator_inner<TChild, TRIter, true>
+{
+protected:
+	typedef TRIter base_type;
+
+private:
+	BOOST_MPL_ASSERT((iterator_ex::is_reverse_iterator<base_type>));
+
+protected:
+	typedef typename iterator_ex::unwrap_reverse_iterator<base_type>::type iterator_type;
+	typedef typename iterator_ex::iterator_category_ex<iterator_type>::type iterator_category;
+	typedef typename iterator_ex::iterator_value_ex<iterator_type>::type value_type;
+	typedef typename iterator_ex::iterator_pointer_ex<iterator_type>::type pointer;
+	typedef typename iterator_ex::iterator_difference_ex<iterator_type>::type difference_type;
+	typedef typename iterator_ex::iterator_reference_ex<iterator_type>::type reference;
+
+private:
+	template<typename Child, typename RIter, bool n_is_rnd>
+	friend class wrap_reverse_iterator_inner;
+
+private:
+	typedef wrap_reverse_iterator_inner this_type;
+
+public:
+	YGGR_CONSTEXPR wrap_reverse_iterator_inner(void)
+	{
+	}
+
+	template<typename Iter> YGGR_CONSTEXPR
+	explicit wrap_reverse_iterator_inner(Iter iter,
+									typename
+										boost::enable_if
+										<
+											iterator_ex::is_reverse_iterator
+											<
+												typename detail::unwrap_t<Iter>::type
+											>,
+											mplex::sfinae_type
+										>::type sfinae = 0)
+		: _base(detail::unwrap_object(iter).base())
+	{
+	}
+
+	template<typename Iter> YGGR_CONSTEXPR
+	explicit wrap_reverse_iterator_inner(Iter iter,
+									typename
+										boost::disable_if
+										<
+											iterator_ex::is_reverse_iterator
+											<
+												typename detail::unwrap_t<Iter>::type
+											>,
+											mplex::sfinae_type
+										>::type sfinae = 0)
+		: _base(detail::unwrap_object(iter))
+	{
+	}
+
+	YGGR_CONSTEXPR explicit wrap_reverse_iterator_inner(iterator_type right)
+		: _base(right)
+	{
+	}
+
+	YGGR_CONSTEXPR wrap_reverse_iterator_inner(const base_type& right)
+		: _base(right)
+	{
+	}
+
+	YGGR_CONSTEXPR wrap_reverse_iterator_inner(const this_type& right)
+		: _base(right._base)
+	{
+	}
+
+	YGGR_CXX20_CONSTEXPR ~wrap_reverse_iterator_inner(void)
+	{
+	}
+
+public:
+	YGGR_CXX14_CONSTEXPR_OR_INLINE base_type& unwrap(void) YGGR_NOEXCEPT_OR_NOTHROW
+	{
+		return _base;
+	}
+
+	YGGR_CXX14_CONSTEXPR_OR_INLINE const base_type& unwrap(void) const YGGR_NOEXCEPT_OR_NOTHROW
+	{
+		return _base;
+	}
+
+public:
+	template<typename T> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			boost::is_arithmetic<T>,
+			reference
+		>::type
+		at(T n) const
+	{
+		base_type tmp_iter = iterator_ex::advance_copy(_base, static_cast<difference_type>(n));
+		return *tmp_iter;
+	}
+
+	template<typename T> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			detail::is_wrap_base_t<T>,
+			reference
+		>::type
+		at(const T& n) const
+	{
+		base_type tmp_iter =
+			iterator_ex::advance_copy(_base, static_cast<difference_type>(n.value()));
+		return *tmp_iter;
+	}
+
+public:
+	YGGR_CONSTEXPR_OR_INLINE
+	typename boost::mpl::if_<boost::is_class<value_type>, reference, value_type >::type
+		get_value(void) const
+	{
+		return *_base;
+	}
+
+	template<typename T> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			boost::is_arithmetic<T>,
+			typename boost::mpl::if_<boost::is_class<value_type>, reference, value_type >::type
+		>::type
+		get_value(T n) const
+	{
+		return this_type::at(n);
+	}
+
+	template<typename T> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			detail::is_wrap_base_t<T>,
+			typename boost::mpl::if_<boost::is_class<value_type>, reference, value_type >::type
+		>::type
+		get_value(const T& n) const
+	{
+		return this_type::at(n);
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE TChild& set_value(const value_type& val) const
+	{
+		typedef TChild ret_type;
+		typedef detail::riter_value_setter<iterator_type> riter_value_setter_type;
+
+		riter_value_setter_type setter;
+#if defined(_DEBUG)
+		bool bchk =
+#endif // _DEBUG
+
+		setter.set_value(_base, val);
+
+#if defined(_DEBUG)
+		assert(bchk);
+#endif // _DEBUG
+
+		return reinterpret_cast<ret_type&>(const_cast<this_type&>(*this));
+	}
+
+	template<typename T> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			boost::is_arithmetic<T>,
+			TChild&
+		>::type
+		set_value(T n, const value_type& val) const
+	{
+		typedef TChild ret_type;
+		typedef detail::riter_value_setter<iterator_type> riter_value_setter_type;
+
+		riter_value_setter_type setter;
+#if defined(_DEBUG)
+		bool bchk =
+#endif // _DEBUG
+
+		setter.set_value(_base, static_cast<difference_type>(n), val);
+
+#if defined(_DEBUG)
+		assert(bchk);
+#endif // _DEBUG
+
+		return reinterpret_cast<ret_type&>(const_cast<this_type&>(*this));
+	}
+
+	template<typename T> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			detail::is_wrap_base_t<T>,
+			TChild&
+		>::type
+		set_value(const T& n, const value_type& val) const
+	{
+		typedef TChild ret_type;
+		typedef detail::riter_value_setter<iterator_type> riter_value_setter_type;
+
+		riter_value_setter_type setter;
+#if defined(_DEBUG)
+		bool bchk =
+#endif // _DEBUG
+
+		setter.set_value(_base, static_cast<difference_type>(n.value()), val);
+
+#if defined(_DEBUG)
+		assert(bchk);
+#endif // _DEBUG
+
+		return reinterpret_cast<ret_type&>(const_cast<this_type&>(*this));
+	}
+
+public:
+	template<typename T> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			boost::is_arithmetic<T>,
+			TChild
+		>::type
+		plus(T n) const
+	{
+		typedef TChild ret_type;
+		return ret_type(iterator_ex::advance_copy(_base, static_cast<difference_type>(n)));
+	}
+
+	template<typename T> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			detail::is_wrap_base_t<T>,
+			TChild
+		>::type
+		plus(const T& n) const
+	{
+		typedef TChild ret_type;
+		return ret_type(iterator_ex::advance_copy(_base, static_cast<difference_type>(n.value())));
+	}
+
+	template<typename T> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			boost::is_arithmetic<T>,
+			TChild&
+		>::type
+		plus_set(T n)
+	{
+		typedef TChild ret_type;
+
+		iterator_ex::advance(_base, static_cast<difference_type>(n));
+		return reinterpret_cast<ret_type&>(*this);
+	}
+
+	template<typename T> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			detail::is_wrap_base_t<T>,
+			TChild&
+		>::type
+		plus_set(const T& n)
+	{
+		typedef TChild ret_type;
+
+		iterator_ex::advance(_base, static_cast<difference_type>(n.value()));
+		return reinterpret_cast<ret_type&>(*this);
+	}
+
+	template<typename T> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			boost::is_arithmetic<T>,
+			TChild
+		>::type
+		minus(T n) const
+	{
+		typedef TChild ret_type;
+
+		return ret_type(iterator_ex::advance_copy(_base, -static_cast<difference_type>(n)));
+	}
+
+	template<typename T> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			detail::is_wrap_base_t<T>,
+			TChild
+		>::type
+		minus(const T& n) const
+	{
+		typedef TChild ret_type;
+
+		return ret_type(iterator_ex::advance_copy(_base, -static_cast<difference_type>(n.value())));
+	}
+
+	template<typename RIter> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			iterator_ex::is_reverse_iterator<RIter>,
+			difference_type
+		>::type
+		minus(const RIter& right) const
+	{
+		typedef typename detail::unwrap_t<RIter>::type right_riter_type;
+		typedef typename
+			iterator_ex::unwrap_reverse_iterator
+			<
+				right_riter_type
+			>::type right_iterator_type;
+
+		typedef typename
+			boost::mpl::if_
+			<
+				iterator_ex::is_const_iterator<right_iterator_type>,
+				right_riter_type,
+				base_type
+			>::type dis_iter_type;
+
+		return -iterator_ex::distance<dis_iter_type>(_base, detail::unwrap_object(right));
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE difference_type minus(const base_type& right) const
+	{
+		return -iterator_ex::distance(_base, right);
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE difference_type minus(const this_type& right) const
+	{
+		return -iterator_ex::distance(_base, right._base);
+	}
+
+	template<typename T> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			boost::is_arithmetic<T>,
+			TChild&
+		>::type
+		minus_set(T n)
+	{
+		typedef TChild ret_type;
+
+		iterator_ex::advance(_base, -static_cast<difference_type>(n));
+		return reinterpret_cast<ret_type&>(*this);
+	}
+
+	template<typename T> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			detail::is_wrap_base_t<T>,
+			TChild&
+		>::type
+		minus_set(const T& n)
+	{
+		typedef TChild ret_type;
+
+		iterator_ex::advance(_base, -static_cast<difference_type>(n.value()));
+		return reinterpret_cast<ret_type&>(*this);
+	}
+
+	template<typename RIter> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			iterator_ex::is_reverse_iterator<RIter>,
+			typename wrap_base_t_maker<difference_type>::type
+		>::type
+		wraped_minus(const RIter& right) const
+	{
+		typedef typename wrap_base_t_maker<difference_type>::type wrap_diff_type;
+
+		return wrap_diff_type(this_type::minus(right));
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE typename wrap_base_t_maker<difference_type>::type
+		wraped_minus(const base_type& right) const
+	{
+		typedef typename wrap_base_t_maker<difference_type>::type wrap_diff_type;
+
+		return wrap_diff_type(this_type::minus(right));
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE typename wrap_base_t_maker<difference_type>::type
+		wraped_minus(const this_type& right) const
+	{
+		typedef typename wrap_base_t_maker<difference_type>::type wrap_diff_type;
+
+		return wrap_diff_type(this_type::minus(right));
+	}
+
+public:
+	template<typename RIter> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			iterator_ex::is_reverse_iterator<RIter>,
+			s32
+		>::type
+		compare(const RIter& right) const
+	{
+		difference_type diff = this_type::minus(right);
+		return diff == 0? 0 : diff < 0? -1 : 1;
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE s32 compare(const base_type& right) const
+	{
+		difference_type diff = this_type::minus(right);
+		return diff == 0? 0 : diff < 0? -1 : 1;
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE s32 compare(const this_type& right) const
+	{
+		difference_type diff = this_type::minus(right.unwrap());
+		return diff == 0? 0 : diff < 0? -1 : 1;
+	}
+
+public:
+	template<typename T> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			boost::is_arithmetic<T>,
+			reference
+		>::type
+		operator[](T n) const
+	{
+		return this_type::at(n);
+	}
+
+	template<typename T> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			detail::is_wrap_base_t<T>,
+			reference
+		>::type
+		operator[](const T& n) const
+	{
+		return this_type::at(n);
+	}
+
+protected:
+	base_type _base;
+};
+
+template<typename TChild, typename TRIter>
+class wrap_reverse_iterator_inner<TChild, TRIter, false>
+{
+protected:
+	typedef TRIter base_type;
+
+private:
+	BOOST_MPL_ASSERT((iterator_ex::is_reverse_iterator<base_type>));
+
+protected:
+	typedef typename iterator_ex::unwrap_reverse_iterator<base_type>::type iterator_type;
+	typedef typename iterator_ex::iterator_category_ex<iterator_type>::type iterator_category;
+	typedef typename iterator_ex::iterator_value_ex<iterator_type>::type value_type;
+	typedef typename iterator_ex::iterator_pointer_ex<iterator_type>::type pointer;
+	typedef typename iterator_ex::iterator_difference_ex<iterator_type>::type difference_type;
+	typedef typename iterator_ex::iterator_reference_ex<iterator_type>::type reference;
+
+private:
+	template<typename Child, typename RIter, bool n_is_rnd>
+	friend class wrap_reverse_iterator_inner;
+
+private:
+	typedef wrap_reverse_iterator_inner this_type;
+
+public:
+	YGGR_CONSTEXPR wrap_reverse_iterator_inner(void)
+	{
+	}
+
+	template<typename Iter> YGGR_CONSTEXPR
+	explicit wrap_reverse_iterator_inner(Iter iter,
+									typename
+										boost::enable_if
+										<
+											iterator_ex::is_reverse_iterator
+											<
+												typename detail::unwrap_t<Iter>::type
+											>,
+											mplex::sfinae_type
+										>::type sfinae = 0)
+		: _base(detail::unwrap_object(iter).base())
+	{
+	}
+
+	template<typename Iter> YGGR_CONSTEXPR
+	explicit wrap_reverse_iterator_inner(Iter iter,
+									typename
+										boost::disable_if
+										<
+											iterator_ex::is_reverse_iterator
+											<
+												typename detail::unwrap_t<Iter>::type
+											>,
+											mplex::sfinae_type
+										>::type sfinae = 0)
+		: _base(detail::unwrap_object(iter))
+	{
+	}
+
+	YGGR_CONSTEXPR explicit wrap_reverse_iterator_inner(iterator_type right)
+		: _base(right)
+	{
+	}
+
+	YGGR_CONSTEXPR wrap_reverse_iterator_inner(const base_type& right)
+		: _base(right)
+	{
+	}
+
+	YGGR_CONSTEXPR wrap_reverse_iterator_inner(const this_type& right)
+		: _base(right._base)
+	{
+	}
+
+	YGGR_CXX20_CONSTEXPR ~wrap_reverse_iterator_inner(void)
+	{
+	}
+
+public:
+	YGGR_CONSTEXPR_OR_INLINE base_type& unwrap(void) YGGR_NOEXCEPT_OR_NOTHROW
+	{
+		return _base;
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE const base_type& unwrap(void) const YGGR_NOEXCEPT_OR_NOTHROW
+	{
+		return _base;
+	}
+
+public:
+	YGGR_CONSTEXPR_OR_INLINE
+	typename boost::mpl::if_<boost::is_class<value_type>, reference, value_type >::type
+		get_value(void) const
+	{
+		return *_base;
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE TChild& set_value(const value_type& val) const
+	{
+		typedef TChild ret_type;
+		typedef detail::riter_value_setter<iterator_type> riter_value_setter_type;
+
+		riter_value_setter_type setter;
+#if defined(_DEBUG)
+		bool bchk =
+#endif // _DEBUG
+
+		setter.set_value(_base, val);
+
+#if defined(_DEBUG)
+		assert(bchk);
+#endif // _DEBUG
+
+		return reinterpret_cast<ret_type&>(const_cast<this_type&>(*this));
+	}
+
+protected:
+	base_type _base;
+};
+
+
+} // namespace detail
+} // namespace lua_wrap
+} // namespace yggr
+
+namespace yggr
+{
+namespace lua_wrap
+{
+
+template<typename TRIter>
+class wrap_reverse_iterator
+	: public
+		detail::wrap_reverse_iterator_inner
+		<
+			wrap_reverse_iterator<TRIter>,
+			TRIter,
+			iterator_ex::is_random_access_iterator<TRIter>::value
+		>
+{
+public:
+	typedef TRIter base_type;
+	typedef
+		detail::wrap_reverse_iterator_inner
+		<
+			wrap_reverse_iterator<base_type>,
+			base_type,
+			iterator_ex::is_random_access_iterator<base_type>::value
+		> parent_type;
+
+private:
+	BOOST_MPL_ASSERT((iterator_ex::is_reverse_iterator<base_type>));
+
+public:
+	typedef typename iterator_ex::unwrap_reverse_iterator<base_type>::type iterator_type;
+	typedef typename iterator_ex::iterator_category_ex<iterator_type>::type iterator_category;
+	typedef typename iterator_ex::iterator_value_ex<iterator_type>::type value_type;
+	typedef typename iterator_ex::iterator_pointer_ex<iterator_type>::type pointer;
+	typedef typename iterator_ex::iterator_difference_ex<iterator_type>::type difference_type;
+	typedef typename iterator_ex::iterator_reference_ex<iterator_type>::type reference;
+
+private:
+	template<typename RIter>
+	friend class wrap_reverse_iterator;
+
+	template<typename Child, typename RIter, bool n_is_rnd>
+	friend class detail::wrap_reverse_iterator_inner;
+
+private:
+	typedef wrap_reverse_iterator this_type;
+
+public:
+	YGGR_CONSTEXPR wrap_reverse_iterator(void)
+	{
+	}
+
+	template<typename Iter> YGGR_CONSTEXPR
+	wrap_reverse_iterator(Iter iter,
+							typename
+								boost::enable_if
+								<
+									iterator_ex::is_reverse_iterator
+									<
+										typename detail::unwrap_t<Iter>::type
+									>,
+									mplex::sfinae_type
+								>::type sfinae = 0)
+		: parent_type(detail::unwrap_object(iter).base())
+	{
+	}
+
+	template<typename Iter> YGGR_CONSTEXPR
+	wrap_reverse_iterator(Iter iter,
+							typename
+								boost::disable_if
+								<
+									iterator_ex::is_reverse_iterator
+									<
+										typename detail::unwrap_t<Iter>::type
+									>,
+									mplex::sfinae_type
+								>::type sfinae = 0)
+		: parent_type(detail::unwrap_object(iter))
+	{
+	}
+
+
+	YGGR_CONSTEXPR explicit wrap_reverse_iterator(iterator_type right)
+		: parent_type(right)
+	{
+	}
+
+	YGGR_CONSTEXPR wrap_reverse_iterator(const base_type& right)
+		: parent_type(right)
+	{
+	}
+
+	template<typename RIter> YGGR_CONSTEXPR
+	wrap_reverse_iterator(const wrap_reverse_iterator<RIter>& right)
+		: parent_type(right._base)
+	{
+	}
+
+	YGGR_CONSTEXPR wrap_reverse_iterator(const this_type& right)
+		: parent_type(right._base)
+	{
+	}
+
+	YGGR_CXX20_CONSTEXPR ~wrap_reverse_iterator(void)
+	{
+	}
+
+public:
+	template<typename RIter> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			iterator_ex::is_reverse_iterator<RIter>,
+			this_type&
+		>::type
+		operator=(const RIter& right)
+	{
+		parent_type::_base = right;
+		return *this;
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE this_type& operator=(const base_type& right)
+	{
+		parent_type::_base = right;
+		return *this;
+	}
+
+	template<typename RIter> YGGR_CONSTEXPR_OR_INLINE
+	this_type& operator=(const wrap_reverse_iterator<RIter>& right)
+	{
+		parent_type::_base = right._base;
+		return *this;
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE this_type& operator=(const this_type& right)
+	{
+		if(this == boost::addressof(right))
+		{
+			return *this;
+		}
+
+		parent_type::_base = right._base;
+		return *this;
+	}
+
+public:
+	YGGR_CONSTEXPR_OR_INLINE void swap(base_type& right)
+	{
+		::yggr::swap(parent_type::_base, right);
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE void swap(this_type& right)
+	{
+		if(this == boost::addressof(right))
+		{
+			return;
+		}
+
+		::yggr::swap(parent_type::_base, right._base);
+	}
+
+public:
+	YGGR_CONSTEXPR_OR_INLINE operator base_type&(void) YGGR_NOEXCEPT_OR_NOTHROW
+	{
+		return parent_type::_base;
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE operator const base_type&(void) const YGGR_NOEXCEPT_OR_NOTHROW
+	{
+		return parent_type::_base;
+	}
+
+public:
+	using parent_type::unwrap;
+
+public:
+	template<typename RIter> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			iterator_ex::is_reverse_iterator<RIter>,
+			this_type&
+		>::type
+		set_iterator(const RIter& right)
+	{
+		parent_type::_base = right;
+		return *this;
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE this_type& set_iterator(const base_type& right)
+	{
+		parent_type::_base = right;
+		return *this;
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE this_type& set_iterator(const this_type& right)
+	{
+		if(this == boost::addressof(right))
+		{
+			return *this;
+		}
+
+		parent_type::_base = right._base;
+		return *this;
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE this_type copy(void) const YGGR_LUABIND_FUNC_NOEXCEPT_OR_NOTHROW
+	{
+		return *this;
+	}
+
+public:
+	YGGR_CONSTEXPR_OR_INLINE iterator_type base(void) const
+	{
+		return parent_type::_base.base();
+	}
+
+
+public:
+	using parent_type::get_value;
+	using parent_type::set_value;
+
+public:
+	YGGR_CONSTEXPR_OR_INLINE this_type& head_increment(void)
+	{
+		iterator_ex::advance(parent_type::_base, static_cast<difference_type>(1));
+		return *this;
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE this_type tail_increment(void)
+	{
+		this_type ret(parent_type::_base);
+		iterator_ex::advance(parent_type::_base, static_cast<difference_type>(1));
+		return ret;
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE this_type& head_decrement(void)
+	{
+		iterator_ex::advance(parent_type::_base, -static_cast<difference_type>(1));
+		return *this;
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE this_type tail_decrement(void)
+	{
+		this_type ret(parent_type::_base);
+		iterator_ex::advance(parent_type::_base, -static_cast<difference_type>(1));
+		return ret;
+	}
+
+public:
+	template<typename RIter> YGGR_CONSTEXPR_OR_INLINE
+	typename
+		boost::enable_if
+		<
+			iterator_ex::is_reverse_iterator<RIter>,
+			bool
+		>::type
+		compare_eq(const RIter& right) const
+	{
+		return parent_type::_base.operator->() == detail::unwrap_object(right).operator->();
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE bool compare_eq(const base_type& right) const
+	{
+		return parent_type::_base == right;
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE bool compare_eq(const this_type& right) const
+	{
+		return parent_type::_base == right.unwrap();
+	}
+
+public:
+	YGGR_CONSTEXPR_OR_INLINE this_type& next(void)
+	{
+		return this_type::head_increment();
+	}
+
+	YGGR_CONSTEXPR_OR_INLINE this_type& prev(void)
+	{
+		return this_type::head_decrement();
+	}
+public:
+	YGGR_CONSTEXPR_OR_INLINE pointer operator->(void) const
+	{
+		return parent_type::_base.operator->();
+	}
+
+};
+
+// non-member foo
+// *
+template<typename L> YGGR_CONSTEXPR_OR_INLINE
+typename wrap_reverse_iterator<L>::reference
+	operator*(const wrap_reverse_iterator<L>& l)
+{
+	return *(l.unwrap());
+}
+
+// ++
+template<typename L> YGGR_CONSTEXPR_OR_INLINE
+wrap_reverse_iterator<L>&
+	operator++(wrap_reverse_iterator<L>& l)
+{
+	return l.head_increment();
+}
+
+template<typename L> YGGR_CONSTEXPR_OR_INLINE
+wrap_reverse_iterator<L>
+	operator++(wrap_reverse_iterator<L>& l, int)
+{
+	return l.tail_increment();
+}
+
+//--
+template<typename L> YGGR_CONSTEXPR_OR_INLINE
+wrap_reverse_iterator<L>&
+	operator--(wrap_reverse_iterator<L>& l)
+{
+	return l.head_decrement();
+}
+
+template<typename L> YGGR_CONSTEXPR_OR_INLINE
+wrap_reverse_iterator<L>
+	operator--(wrap_reverse_iterator<L>& l, int)
+{
+	return l.tail_decrement();
+}
+
+// +
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<R>,
+			boost::is_arithmetic<L>
+		>,
+		wrap_reverse_iterator<R>
+	>::type
+	operator+(L l, const wrap_reverse_iterator<R>& r)
+{
+	return r.plus(l);
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<R>,
+			detail::is_wrap_base_t<L>
+		>,
+		wrap_reverse_iterator<R>
+	>::type
+	operator+(const L& l, const wrap_reverse_iterator<R>& r)
+{
+	return r.plus(l);
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			boost::is_arithmetic<R>
+		>,
+		wrap_reverse_iterator<L>
+	>::type
+	operator+(const wrap_reverse_iterator<L>& l, R r)
+{
+	return l.plus(r);
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			detail::is_wrap_base_t<R>
+		>,
+		wrap_reverse_iterator<L>
+	>::type
+	operator+(const wrap_reverse_iterator<L>& l, const R& r)
+{
+	return l.plus(r);
+}
+
+// +=
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			boost::is_arithmetic<R>
+		>,
+		wrap_reverse_iterator<L>&
+	>::type
+	operator+=(wrap_reverse_iterator<L>& l, R r)
+{
+	return l.plus_set(r);
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			detail::is_wrap_base_t<R>
+		>,
+		wrap_reverse_iterator<L>&
+	>::type
+	operator+=(wrap_reverse_iterator<L>& l, const R& r)
+{
+	return l.plus_set(r);
+}
+
+// - diff
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			boost::is_arithmetic<R>
+		>,
+		wrap_reverse_iterator<L>
+	>::type
+	operator-(const wrap_reverse_iterator<L>& l, R r)
+{
+	return l.minus(r);
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			detail::is_wrap_base_t<R>
+		>,
+		wrap_reverse_iterator<L>
+	>::type
+	operator-(const wrap_reverse_iterator<L>& l, const R& r)
+{
+	return l.minus(r);
+}
+
+// -iter
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			iterator_ex::is_random_access_iterator<R>,
+			iterator_ex::is_reverse_iterator<L>
+		>,
+		typename wrap_reverse_iterator<R>::difference_type
+	>::type
+	operator-(const L& l, const wrap_reverse_iterator<R>& r)
+{
+	return -r.minus(l);
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			iterator_ex::is_random_access_iterator<R>,
+			iterator_ex::is_reverse_iterator<R>
+		>,
+		typename wrap_reverse_iterator<L>::difference_type
+	>::type
+	operator-(const wrap_reverse_iterator<L>& l, const R& r)
+{
+	return l.minus(r);
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			iterator_ex::is_random_access_iterator<R>
+		>,
+		typename wrap_reverse_iterator<L>::difference_type
+	>::type
+	operator-(const wrap_reverse_iterator<L>& l,
+				const wrap_reverse_iterator<R>& r)
+{
+	return l.minus(r);
+}
+
+// -=
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			boost::is_arithmetic<R>
+		>,
+		wrap_reverse_iterator<L>&
+	>::type
+	operator-=(wrap_reverse_iterator<L>& l, R r)
+{
+	return l.minus_set(r);
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			detail::is_wrap_base_t<R>
+		>,
+		wrap_reverse_iterator<L>&
+	>::type
+	operator-=(wrap_reverse_iterator<L>& l, const R& r)
+{
+	return l.minus_set(r);
+}
+
+// operator==
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		iterator_ex::is_reverse_iterator<L>,
+		bool
+	>::type
+	operator==(const L& l, const wrap_reverse_iterator<R>& r)
+{
+	return r.compare_eq(l);
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		iterator_ex::is_reverse_iterator<R>,
+		bool
+	>::type
+	operator==(const wrap_reverse_iterator<L>& l, const R& r)
+{
+	return l.compare_eq(r);
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+bool operator==(const wrap_reverse_iterator<L>& l,
+				const wrap_reverse_iterator<R>& r)
+{
+	return l.compare_eq(r);
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		iterator_ex::is_reverse_iterator<L>,
+		bool
+	>::type
+	operator!=(const L& l, const wrap_reverse_iterator<R>& r)
+{
+	return !r.compare_eq(l);
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		iterator_ex::is_reverse_iterator<R>,
+		bool
+	>::type
+	operator!=(const wrap_reverse_iterator<L>& l, const R& r)
+{
+	return !l.compare_eq(r);
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+bool operator!=(const wrap_reverse_iterator<L>& l,
+				const wrap_reverse_iterator<R>& r)
+{
+	return !l.compare_eq(r);
+}
+
+// operator<
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			iterator_ex::is_random_access_iterator<R>,
+			iterator_ex::is_reverse_iterator<L>
+		>,
+		bool
+	>::type
+	operator<(const L& l, const wrap_reverse_iterator<R>& r)
+{
+	return 0 < r.compare(l);
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			iterator_ex::is_random_access_iterator<R>,
+			iterator_ex::is_reverse_iterator<R>
+		>,
+		bool
+	>::type
+	operator<(const wrap_reverse_iterator<L>& l, const R& r)
+{
+	return l.compare(r) < 0;
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			iterator_ex::is_random_access_iterator<R>
+		>,
+		bool
+	>::type
+	operator<(const wrap_reverse_iterator<L>& l,
+				const wrap_reverse_iterator<R>& r)
+{
+	return l.compare(r) < 0;
+}
+
+// operator<=
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			iterator_ex::is_random_access_iterator<R>,
+			iterator_ex::is_reverse_iterator<L>
+		>,
+		bool
+	>::type
+	operator<=(const L& l, const wrap_reverse_iterator<R>& r)
+{
+	return 0 <= r.compare(l) ;
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			iterator_ex::is_random_access_iterator<R>,
+			iterator_ex::is_reverse_iterator<R>
+		>,
+		bool
+	>::type
+	operator<=(const wrap_reverse_iterator<L>& l, const R& r)
+{
+	return l.compare(r) <= 0;
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			iterator_ex::is_random_access_iterator<R>
+		>,
+		bool
+	>::type
+	operator<=(const wrap_reverse_iterator<L>& l,
+				const wrap_reverse_iterator<R>& r)
+{
+	return l.compare(r) <= 0;
+}
+
+// operator>
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			iterator_ex::is_random_access_iterator<R>,
+			iterator_ex::is_reverse_iterator<L>
+		>,
+		bool
+	>::type
+	operator>(const L& l, const wrap_reverse_iterator<R>& r)
+{
+	return 0 > r.compare(l) ;
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			iterator_ex::is_random_access_iterator<R>,
+			iterator_ex::is_reverse_iterator<R>
+		>,
+		bool
+	>::type
+	operator>(const wrap_reverse_iterator<L>& l, const R& r)
+{
+	return l.compare(r) > 0;
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			iterator_ex::is_random_access_iterator<R>
+		>,
+		bool
+	>::type
+	operator>(const wrap_reverse_iterator<L>& l,
+				const wrap_reverse_iterator<R>& r)
+{
+	return l.compare(r) > 0;
+}
+
+// operator>=
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			iterator_ex::is_random_access_iterator<R>,
+			iterator_ex::is_reverse_iterator<L>
+		>,
+		bool
+	>::type
+	operator>=(const L& l, const wrap_reverse_iterator<R>& r)
+{
+	return 0 >= r.compare(l) ;
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			iterator_ex::is_random_access_iterator<R>,
+			iterator_ex::is_reverse_iterator<R>
+		>,
+		bool
+	>::type
+	operator>=(const wrap_reverse_iterator<L>& l, const R& r)
+{
+	return l.compare(r) >= 0;
+}
+
+template<typename L, typename R> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		boost::mpl::and_
+		<
+			iterator_ex::is_random_access_iterator<L>,
+			iterator_ex::is_random_access_iterator<R>
+		>,
+		bool
+	>::type
+	operator>=(const wrap_reverse_iterator<L>& l,
+				const wrap_reverse_iterator<R>& r)
+{
+	return l.compare(r) >= 0;
+}
+
+// output
+
+template<typename Char, typename Traits, typename TIter> YGGR_CONSTEXPR_OR_INLINE
+std::basic_ostream<Char, Traits>&
+	operator<<(std::basic_ostream<Char, Traits>& os,
+				const wrap_reverse_iterator<TIter>& r)
+{
+	os << r.operator->();
+	return os;
+}
+
+} // namespace lua_wrap
+} // namespace yggr
+
+namespace yggr
+{
+namespace lua_wrap
+{
+namespace swap_support
+{
+
+template<typename RIter> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		iterator_ex::is_reverse_iterator<RIter>,
+		void
+	>::type
+	swap(RIter& l, yggr::lua_wrap::wrap_reverse_iterator<RIter>& r)
+{
+	r.swap(l);
+}
+
+template<typename RIter> YGGR_CONSTEXPR_OR_INLINE
+typename
+	boost::enable_if
+	<
+		iterator_ex::is_reverse_iterator<RIter>,
+		void
+	>::type
+	swap(yggr::lua_wrap::wrap_reverse_iterator<RIter>& l, RIter& r)
+{
+	l.swap(r);
+}
+
+template<typename RIter> YGGR_CONSTEXPR_OR_INLINE
+void swap(yggr::lua_wrap::wrap_reverse_iterator<RIter>& l,
+			yggr::lua_wrap::wrap_reverse_iterator<RIter>& r)
+{
+	l.swap(r);
+}
+
+} // namespace swap_support
+
+using swap_support::swap;
+
+} // namespace lua_wrap
+} // namespace yggr
+
+namespace std
+{
+	using ::yggr::lua_wrap::swap_support::swap;
+} // namespace std
+
+namespace boost
+{
+	using ::yggr::lua_wrap::swap_support::swap;
+} // namespace boost
+
+#endif // __YGGR_LUA_WRAP_WRAP_REVERSE_ITERATOR_HPP__
+

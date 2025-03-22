@@ -1,0 +1,57 @@
+// mongoc_command_mode_def.hpp
+
+/****************************************************************************
+Copyright (c) 2010-2024 yggdrasil
+
+author: xu yang
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+****************************************************************************/
+
+#ifndef __YGGR_NSQL_DATABASE_SYSTEM_MONGOC_COMMAND_MODE_DEF_HPP__
+#define __YGGR_NSQL_DATABASE_SYSTEM_MONGOC_COMMAND_MODE_DEF_HPP__
+
+#include <yggr/base/yggrdef.h>
+#include <yggr/base/static_constant.hpp>
+
+//typedef enum {
+//   MONGOC_CMD_RAW = 0,
+//   MONGOC_CMD_READ = 1,
+//   MONGOC_CMD_WRITE = 2,
+//   MONGOC_CMD_RW = 3,
+//} mongoc_command_mode_t;
+
+namespace yggr
+{
+namespace nsql_database_system
+{
+
+struct mongoc_command_mode_def
+{
+public:
+	YGGR_STATIC_CONSTANT(u32, E_MONGOC_CMD_RAW = 0);
+	YGGR_STATIC_CONSTANT(u32, E_MONGOC_CMD_READ = 1);
+	YGGR_STATIC_CONSTANT(u32, E_MONGOC_CMD_WRITE = 2);
+	YGGR_STATIC_CONSTANT(u32, E_MONGOC_CMD_RW = 3);
+};
+
+} // namespace nsql_database_system
+} // namespace yggr
+
+#endif // __YGGR_NSQL_DATABASE_SYSTEM_MONGOC_COMMAND_MODE_DEF_HPP__

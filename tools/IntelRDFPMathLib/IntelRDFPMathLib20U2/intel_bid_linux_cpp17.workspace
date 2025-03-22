@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_workspace_file>
+	<Workspace title="intel_bid_linux_cpp17">
+		<Project filename="bid_linux_cpp17.cbp" active="1"/>
+		<Project filename="bid_test_linux_cpp17.cbp">
+			<Depends filename="bid_linux_cpp17.cbp"/>
+			<Depends filename="intel_dfp_obj_linux_cpp17.cbp"/>
+		</Project>
+		<Project filename="include_linux_cpp17.cbp"/>
+		<Project filename="intel_dfp_obj_linux_cpp17.cbp"/>
+		<Project filename="intel_dfp_obj_test_linux_cpp17.cbp">
+			<Depends filename="bid_linux_cpp17.cbp"/>
+			<Depends filename="intel_dfp_obj_linux_cpp17.cbp"/>
+		</Project>
+	</Workspace>
+</CodeBlocks_workspace_file>

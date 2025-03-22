@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{cf584780-a081-4997-811a-24007554e92b}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{43fa73d9-32df-4b69-a805-d4388e641d93}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Header Files\src">
+      <UniqueIdentifier>{c9a0a2ef-c057-4c9a-89d0-8dc5d41c1864}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\float128">
+      <UniqueIdentifier>{d906fe3f-32e1-4195-ac16-0574df01f36f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\float128\detail_intel">
+      <UniqueIdentifier>{64202303-e298-4344-a185-973e2f8fb855}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\float128\detail_mongodb">
+      <UniqueIdentifier>{9a918a34-8528-4f82-bf33-3038dc2e6675}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\src\detail_intel">
+      <UniqueIdentifier>{f44659a3-4b87-4571-b973-1c6a431e3767}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\src\detail_mongodb">
+      <UniqueIdentifier>{5e228ba2-f69a-4242-b65c-662631df3e6d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LIBRARY\src\bid_conf.h">
+      <Filter>Header Files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\bid_div_macros.h">
+      <Filter>Header Files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\bid_functions.h">
+      <Filter>Header Files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\bid_gcc_intrinsics.h">
+      <Filter>Header Files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\bid_inline_add.h">
+      <Filter>Header Files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\bid_internal.h">
+      <Filter>Header Files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\bid_sqrt_macros.h">
+      <Filter>Header Files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\bid_strtod.h">
+      <Filter>Header Files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\bid_trans.h">
+      <Filter>Header Files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\bid_user_conf.h">
+      <Filter>Header Files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\bid_wrap_names.h">
+      <Filter>Header Files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\bid128_2_str.h">
+      <Filter>Header Files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\bid128_2_str_macros.h">
+      <Filter>Header Files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\dfp754.h">
+      <Filter>Header Files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\detail_intel\bid_conf.h">
+      <Filter>Header Files\src\detail_intel</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\detail_intel\bid_functions.h">
+      <Filter>Header Files\src\detail_intel</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\detail_intel\bid_internal.h">
+      <Filter>Header Files\src\detail_intel</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\detail_mongodb\bid_conf.h">
+      <Filter>Header Files\src\detail_mongodb</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\detail_mongodb\bid_functions.h">
+      <Filter>Header Files\src\detail_mongodb</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\src\detail_mongodb\bid_internal.h">
+      <Filter>Header Files\src\detail_mongodb</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\architecture.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\assert.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\build.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\compiler.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_acosh_t.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_asinh_t.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_bessel_x.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_bid_x.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_cbrt_x.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_cons_x.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_erf_t.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_erf_x.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_error_codes.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_error_codes_enum.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_exception.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_exp_x.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_function_info.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_globals.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_int_x.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_inv_hyper_x.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_inv_trig_x.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_lgamma_t.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_lgamma_x.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_log_t.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_log_x.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_log2_t.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_mod_x.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_names.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_pow.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_pow_x.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_powi_x.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_private.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_rdx_x.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_special_exp.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_sqrt_x.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_trig_x.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_ux.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_ux_32_64.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\dpml_ux_alpha_macros.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\endian.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\f_format.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\i_format.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\ix86_macros.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\mphoc_functions.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\mphoc_macros.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\mtc_macros.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\op_system.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\poly_macros.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\sqrt_macros.h">
+      <Filter>Header Files\float128</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\detail_intel\architecture.h">
+      <Filter>Header Files\float128\detail_intel</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\detail_intel\dpml_private.h">
+      <Filter>Header Files\float128\detail_intel</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\detail_intel\dpml_ux.h">
+      <Filter>Header Files\float128\detail_intel</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\detail_mongodb\architecture.h">
+      <Filter>Header Files\float128\detail_mongodb</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\detail_mongodb\dpml_private.h">
+      <Filter>Header Files\float128\detail_mongodb</Filter>
+    </ClInclude>
+    <ClInclude Include="LIBRARY\float128\detail_mongodb\dpml_ux.h">
+      <Filter>Header Files\float128\detail_mongodb</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LIBRARY\float128\detail_intel\dpml_exception.c.ipp">
+      <Filter>Header Files\float128\detail_intel</Filter>
+    </None>
+    <None Include="LIBRARY\float128\detail_intel\dpml_ux_ops.c.ipp">
+      <Filter>Header Files\float128\detail_intel</Filter>
+    </None>
+    <None Include="LIBRARY\float128\detail_mongodb\dpml_exception.c.ipp">
+      <Filter>Header Files\float128\detail_mongodb</Filter>
+    </None>
+    <None Include="LIBRARY\float128\detail_mongodb\dpml_ux_ops.c.ipp">
+      <Filter>Header Files\float128\detail_mongodb</Filter>
+    </None>
+  </ItemGroup>
+</Project>

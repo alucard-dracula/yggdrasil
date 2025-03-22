@@ -1,0 +1,1 @@
+In macOS .pyd need named .so 

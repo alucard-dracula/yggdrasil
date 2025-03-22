@@ -1,0 +1,33 @@
+
+openssl.cnf 就是 openssl/bin下的openssl.cfg
+证书是否设置密码随意 设置了密码的话 MONGODB的启动参数里要加上 --sslPEMKeyPassword
+
+ca 签名目录结构
+$ mkdir -p ./demoCA/newcerts
+$ touch ./demoCA/index.txt
+$ echo 01 > ./demoCA/serial
+
+
+
+根据openssl说明建立
+ca.crt ca.key server.crt server.key client.crt client.key
+
+使用CA 签名 server.crt和client.crt
+例如 Openssl ca -in server.csr -out server.crt -cert ca.crt -keyfile ca.key -config openssl.cnf
+注意每次签名都要清空demoCA目录并重建
+
+创建pem
+cat ca.key ca.crt > ca.pem
+其他2个pem类似
+
+启动mongodb服务端
+D:\mongo-bin\bin\mongod.exe --dbpath e:/mongodb/data --logpath e:/mongodb/log/log.txt  --port 10098 --master --sslMode requireSSL --sslPEMKeyFile e:/mongodb/ssl/mongodb.pem --sslCAFile e:/mongodb/ssl/camongodb.pem
+
+启动mongodb 客户端
+E:\mongodb\ssl>mongo --host 127.0.0.1 --port 10098 --ssl --sslPEMKeyFile mongo.pem --sslCAFile ./camongodb.pem --sslAllowInvalidHostnames
+
+--sslAllowInvalidHostnames 是用作证书文件和服务器名不匹配的问题
+解决 for The server certificate does not match the host name %hostname%
+
+x509 需要使用 -traditional （使用传统格式） 来生成KEY 否则 CryptDecodeObjectEx 会出现 ASN.1 解析到非法字符的问题
+openssl genrsa -traditional -out ca.key 2048

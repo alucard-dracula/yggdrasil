@@ -1,0 +1,5 @@
+mongodb needed
+
+nmake -fmakefile.mak CC=icl CALL_BY_REF=1 GLOBAL_RND=1 GLOBAL_FLAGS=1 UNCHANGED_BINARY_FLAGS=1
+
+don't append "IntelRDFPMathLib20U2/LIBRARY/float128" to system path, because "assert.h" conflict

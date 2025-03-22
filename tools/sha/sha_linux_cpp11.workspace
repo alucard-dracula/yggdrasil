@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_workspace_file>
+	<Workspace title="sha_linux_cpp11">
+		<Project filename="sha/sha_linux_cpp11.cbp" active="1"/>
+		<Project filename="sha_test/sha_test_linux_cpp11.cbp">
+			<Depends filename="sha/sha_linux_cpp11.cbp"/>
+		</Project>
+	</Workspace>
+</CodeBlocks_workspace_file>

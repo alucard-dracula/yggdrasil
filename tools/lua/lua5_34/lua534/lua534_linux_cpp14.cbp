@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="lua534"/>
+		<Option pch_mode="2"/>
+		<Option compiler="gcc"/>
+		<Build>
+			<Target title="Debug-x32">
+				<Option output="$(WORKSPACE_DIR)/lib/lua503$(#COMPILER_VERSION_TAG)-d" imp_lib="$(WORKSPACE_DIR)/lib/$(TARGET_OUTPUT_FILENAME)" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="3"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option createStaticLib="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-O0"/>
+					<Add option="-g"/>
+					<Add option="-D_DEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+				</Linker>
+			</Target>
+			<Target title="Release-x32">
+				<Option output="$(WORKSPACE_DIR)/lib/lua503$(#COMPILER_VERSION_TAG)" imp_lib="$(WORKSPACE_DIR)/lib/$(TARGET_OUTPUT_FILENAME)" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="3"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option createStaticLib="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-O3"/>
+					<Add option="-DNDEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+					<Add option="-s"/>
+				</Linker>
+			</Target>
+			<Target title="Debug-x64">
+				<Option output="$(WORKSPACE_DIR)/lib64/lua503$(#COMPILER_VERSION_TAG)-d" imp_lib="$(WORKSPACE_DIR)/lib64/$(TARGET_OUTPUT_FILENAME)" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Option createStaticLib="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-O0"/>
+					<Add option="-g"/>
+					<Add option="-D_DEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+				</Linker>
+			</Target>
+			<Target title="Release-x64">
+				<Option output="$(WORKSPACE_DIR)/lib64/lua503$(#COMPILER_VERSION_TAG)" imp_lib="$(WORKSPACE_DIR)/lib64/$(TARGET_OUTPUT_FILENAME)" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Option createStaticLib="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-O3"/>
+					<Add option="-DNDEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+					<Add option="-s"/>
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="all" targets="Debug-x32;Release-x32;Debug-x64;Release-x64;"/>
+			<Add alias="all_libonly" targets="NIL;"/>
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall"/>
+			<Add option="-std=c++14"/>
+			<Add option="-fexceptions"/>
+			<Add option="-Wno-sign-compare"/>
+			<Add option="-Wno-comment"/>
+			<Add option="-Wno-enum-compare"/>
+			<Add option="-Wno-unused-local-typedefs"/>
+			<Add option="-Wno-multichar"/>
+			<Add option="-Werror=return-type"/>
+			<Add option="-Werror=endif-labels"/>
+			<Add option="-fdata-sections"/>
+			<Add option="-ffunction-sections"/>
+			<Add option="-fno-strict-aliasing"/>
+			<Add option="-fPIC"/>
+			<Add option="-DBUILD_DLL"/>
+			<Add option="-DLUA534_EXPORT"/>
+			<Add option="-DLUA_COMPAT_5_1"/>
+			<Add option="-DLUA_COMPAT_5_2"/>
+			<Add option="-DLUA_USE_LINUX"/>
+			<Add directory="../include"/>
+		</Compiler>
+		<Unit filename="lapi.c"/>
+		<Unit filename="lauxlib.c"/>
+		<Unit filename="lbaselib.c"/>
+		<Unit filename="lbitlib.c"/>
+		<Unit filename="lcode.c"/>
+		<Unit filename="lcorolib.c"/>
+		<Unit filename="lctype.c"/>
+		<Unit filename="ldblib.c"/>
+		<Unit filename="ldebug.c"/>
+		<Unit filename="ldo.c"/>
+		<Unit filename="ldump.c"/>
+		<Unit filename="lfunc.c"/>
+		<Unit filename="lgc.c"/>
+		<Unit filename="linit.c"/>
+		<Unit filename="liolib.c"/>
+		<Unit filename="llex.c"/>
+		<Unit filename="lmathlib.c"/>
+		<Unit filename="lmem.c"/>
+		<Unit filename="loadlib.c"/>
+		<Unit filename="lobject.c"/>
+		<Unit filename="lopcodes.c"/>
+		<Unit filename="loslib.c"/>
+		<Unit filename="lparser.c"/>
+		<Unit filename="lstate.c"/>
+		<Unit filename="lstring.c"/>
+		<Unit filename="lstrlib.c"/>
+		<Unit filename="ltable.c"/>
+		<Unit filename="ltablib.c"/>
+		<Unit filename="ltm.c"/>
+		<Unit filename="lundump.c"/>
+		<Unit filename="lutf8lib.c"/>
+		<Unit filename="lvm.c"/>
+		<Unit filename="lzio.c"/>
+		<Extensions>
+			<lib_finder disable_auto="1"/>
+		</Extensions>
+		<Linker>
+			<Add option="-lm"/>
+		</Linker>
+	</Project>
+</CodeBlocks_project_file>

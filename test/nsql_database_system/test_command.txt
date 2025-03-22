@@ -1,0 +1,30 @@
+replicset:
+run repset.bat
+cfg = { _id:'rs0', members:[{_id:0,host:'127.0.0.1:10099'},{_id:1,host:'127.0.0.1:10100'},{_id:2, host:'127.0.0.1:10101'}] }
+rs.initiate(cfg);
+
+shareding:
+
+run shareding.bat
+
+use admin
+db.runCommand({addshard:'192.168.1.103:10130', allowLocal:true});
+db.runCommand({addshard:'192.168.1.103:10131', allowLocal:true});
+db.runCommand({addshard:'192.168.1.103:10132', allowLocal:true});
+
+mongodb install string
+
+// copy and mendit
+D:\mongo-bin\bin\mongod.exe --dbpath e:/mongodb/data --logpath e:/mongodb/log/log.txt  --port 10098 --master --auth --install
+
+测试端口：
+单服务器: 10098 开始 第3位 表示 测试类型  比如： 10098-单服务器, 10198-单服务器AUTH， 10298-单服务器SSL  10398-单服务器-AUTH_SSL
+replicset: 11098开始
+shareding:12098开始
+
+制作repl的keyFile  (mongosh --keyFile key_file_name)
+openssl rand -base64 756 > <path-to-keyfile>
+chmod 400 <path-to-keyfile>
+
+repl使用SSL的时候 不能使用 keyFile
+注意REPL 启动没那么快 要多等一会

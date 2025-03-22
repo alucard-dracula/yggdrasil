@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="luabind"/>
+		<Option pch_mode="2"/>
+		<Option compiler="gcc"/>
+		<Build>
+			<Target title="Debug-Win32">
+				<Option output="$(WORKSPACE_DIR)/bin/luabind09$(#COMPILER_VERSION_TAG)-d" imp_lib="$(WORKSPACE_DIR)/lib/$(TARGET_OUTPUT_FILENAME)" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="3"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option createStaticLib="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-O0"/>
+					<Add option="-g"/>
+					<Add option="-fno-elide-constructors"/>
+					<Add option="-D_DEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+					<Add option="-lluajit501$(#COMPILER_VERSION_TAG)-d.dll"/>
+					<Add option="-lmgw_gcc_sjlj$(#COMPILER_VERSION_TAG)-d"/>
+					<Add directory="../lib"/>
+				</Linker>
+			</Target>
+			<Target title="Release-Win32">
+				<Option output="$(WORKSPACE_DIR)/bin/luabind09$(#COMPILER_VERSION_TAG)" imp_lib="$(WORKSPACE_DIR)/lib/$(TARGET_OUTPUT_FILENAME)" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="3"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option createStaticLib="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-O3"/>
+					<Add option="-DNDEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+					<Add option="-s"/>
+					<Add option="-lluajit501$(#COMPILER_VERSION_TAG).dll"/>
+					<Add option="-lmgw_gcc_sjlj$(#COMPILER_VERSION_TAG)"/>
+					<Add directory="../lib"/>
+				</Linker>
+			</Target>
+			<Target title="Debug-x64">
+				<Option output="$(WORKSPACE_DIR)/bin64/luabind09$(#COMPILER_VERSION_TAG)-d" imp_lib="$(WORKSPACE_DIR)/lib64/$(TARGET_OUTPUT_FILENAME)" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Option createStaticLib="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-O0"/>
+					<Add option="-g"/>
+					<Add option="-fno-elide-constructors"/>
+					<Add option="-DWIN64"/>
+					<Add option="-D_DEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+					<Add option="-lluajit501$(#COMPILER_VERSION_TAG)-d.dll"/>
+					<Add directory="../lib64"/>
+				</Linker>
+			</Target>
+			<Target title="Release-x64">
+				<Option output="$(WORKSPACE_DIR)/bin64/luabind09$(#COMPILER_VERSION_TAG)" imp_lib="$(WORKSPACE_DIR)/lib64/$(TARGET_OUTPUT_FILENAME)" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Option createStaticLib="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-O3"/>
+					<Add option="-DNDEBUG"/>
+					<Add option="-DWIN64"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+					<Add option="-s"/>
+					<Add option="-lluajit501$(#COMPILER_VERSION_TAG).dll"/>
+					<Add directory="../lib64"/>
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="all" targets="Debug-Win32;Release-Win32;Debug-x64;Release-x64;"/>
+			<Add alias="all_libonly" targets="NIL;"/>
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall"/>
+			<Add option="-std=c++17"/>
+			<Add option="-fexceptions"/>
+			<Add option="-Wno-sign-compare"/>
+			<Add option="-Wno-comment"/>
+			<Add option="-Wno-enum-compare"/>
+			<Add option="-Wno-unused-local-typedefs"/>
+			<Add option="-Wno-multichar"/>
+			<Add option="-Werror=return-type"/>
+			<Add option="-Werror=endif-labels"/>
+			<Add option="-fdata-sections"/>
+			<Add option="-ffunction-sections"/>
+			<Add option="-fno-strict-aliasing"/>
+			<Add option="-Werror=reorder"/>
+			<Add option="-ftemplate-backtrace-limit=0"/>
+			<Add option="-fPIC"/>
+			<Add option="-DBUILD_DLL"/>
+			<Add option="-DBOOST_WINDOWS"/>
+			<Add option="-DLUABIND_DYNAMIC_LINK"/>
+			<Add option="-DLUABIND_EXPORT"/>
+			<Add option="-DWIN32"/>
+			<Add option="-D_USRDLL"/>
+			<Add option="-D_WINDOWS"/>
+			<Add directory="../include"/>
+		</Compiler>
+		<Unit filename="class.cpp"/>
+		<Unit filename="class_info.cpp"/>
+		<Unit filename="class_registry.cpp"/>
+		<Unit filename="class_rep.cpp"/>
+		<Unit filename="create_class.cpp"/>
+		<Unit filename="dllmain.cpp"/>
+		<Unit filename="error.cpp"/>
+		<Unit filename="exception_handler.cpp"/>
+		<Unit filename="function.cpp"/>
+		<Unit filename="inheritance.cpp"/>
+		<Unit filename="link_compatibility.cpp"/>
+		<Unit filename="object_rep.cpp"/>
+		<Unit filename="open.cpp"/>
+		<Unit filename="pcall.cpp"/>
+		<Unit filename="scope.cpp"/>
+		<Unit filename="stack_content_by_name.cpp"/>
+		<Unit filename="weak_ref.cpp"/>
+		<Unit filename="wrapper_base.cpp"/>
+		<Extensions>
+			<lib_finder disable_auto="1"/>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

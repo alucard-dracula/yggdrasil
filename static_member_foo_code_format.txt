@@ -1,0 +1,5 @@
+// static 成员函数书写格式
+
+1 static成员函数 s_ 开头
+2 如果 static 成员函数和 成员函数功能重复的话 必须写2个 因为有static和非static功能不同的情况 比如 bson_value
+3 一些和系统函数名字类似的或者用于某些META类型的函数 可以不带 s_, 比如value()  比如strlen()

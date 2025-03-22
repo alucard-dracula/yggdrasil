@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "luabind", "luabind\luabind_cpp20.vcxproj", "{44537026-B6B7-4592-8BF1-79FA71681569}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BC5C4F77-2712-49A6-B258-56ADA53A3F01} = {BC5C4F77-2712-49A6-B258-56ADA53A3F01}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "include", "include\include_cpp20.vcxproj", "{BC5C4F77-2712-49A6-B258-56ADA53A3F01}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "luabind_static", "luabind_static\luabind_static_cpp20.vcxproj", "{FC0DF99B-6F4F-4A32-BD74-FDF7EDE17E49}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "luabind_static_ts", "luabind_static_ts\luabind_static_ts_cpp20.vcxproj", "{3E532171-830D-4699-8E1A-A633EB677E31}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "luabind_test", "luabind_test\luabind_test_cpp20.vcxproj", "{E48560A5-7833-43A7-A879-57AFE5AF2246}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44537026-B6B7-4592-8BF1-79FA71681569}.Debug|Win32.ActiveCfg = Debug|Win32
+		{44537026-B6B7-4592-8BF1-79FA71681569}.Debug|Win32.Build.0 = Debug|Win32
+		{44537026-B6B7-4592-8BF1-79FA71681569}.Debug|x64.ActiveCfg = Debug|x64
+		{44537026-B6B7-4592-8BF1-79FA71681569}.Debug|x64.Build.0 = Debug|x64
+		{44537026-B6B7-4592-8BF1-79FA71681569}.Release|Win32.ActiveCfg = Release|Win32
+		{44537026-B6B7-4592-8BF1-79FA71681569}.Release|Win32.Build.0 = Release|Win32
+		{44537026-B6B7-4592-8BF1-79FA71681569}.Release|x64.ActiveCfg = Release|x64
+		{44537026-B6B7-4592-8BF1-79FA71681569}.Release|x64.Build.0 = Release|x64
+		{BC5C4F77-2712-49A6-B258-56ADA53A3F01}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BC5C4F77-2712-49A6-B258-56ADA53A3F01}.Debug|x64.ActiveCfg = Debug|x64
+		{BC5C4F77-2712-49A6-B258-56ADA53A3F01}.Release|Win32.ActiveCfg = Release|Win32
+		{BC5C4F77-2712-49A6-B258-56ADA53A3F01}.Release|x64.ActiveCfg = Release|x64
+		{FC0DF99B-6F4F-4A32-BD74-FDF7EDE17E49}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FC0DF99B-6F4F-4A32-BD74-FDF7EDE17E49}.Debug|Win32.Build.0 = Debug|Win32
+		{FC0DF99B-6F4F-4A32-BD74-FDF7EDE17E49}.Debug|x64.ActiveCfg = Debug|x64
+		{FC0DF99B-6F4F-4A32-BD74-FDF7EDE17E49}.Debug|x64.Build.0 = Debug|x64
+		{FC0DF99B-6F4F-4A32-BD74-FDF7EDE17E49}.Release|Win32.ActiveCfg = Release|Win32
+		{FC0DF99B-6F4F-4A32-BD74-FDF7EDE17E49}.Release|Win32.Build.0 = Release|Win32
+		{FC0DF99B-6F4F-4A32-BD74-FDF7EDE17E49}.Release|x64.ActiveCfg = Release|x64
+		{FC0DF99B-6F4F-4A32-BD74-FDF7EDE17E49}.Release|x64.Build.0 = Release|x64
+		{3E532171-830D-4699-8E1A-A633EB677E31}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3E532171-830D-4699-8E1A-A633EB677E31}.Debug|Win32.Build.0 = Debug|Win32
+		{3E532171-830D-4699-8E1A-A633EB677E31}.Debug|x64.ActiveCfg = Debug|x64
+		{3E532171-830D-4699-8E1A-A633EB677E31}.Debug|x64.Build.0 = Debug|x64
+		{3E532171-830D-4699-8E1A-A633EB677E31}.Release|Win32.ActiveCfg = Release|Win32
+		{3E532171-830D-4699-8E1A-A633EB677E31}.Release|Win32.Build.0 = Release|Win32
+		{3E532171-830D-4699-8E1A-A633EB677E31}.Release|x64.ActiveCfg = Release|x64
+		{3E532171-830D-4699-8E1A-A633EB677E31}.Release|x64.Build.0 = Release|x64
+		{E48560A5-7833-43A7-A879-57AFE5AF2246}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E48560A5-7833-43A7-A879-57AFE5AF2246}.Debug|Win32.Build.0 = Debug|Win32
+		{E48560A5-7833-43A7-A879-57AFE5AF2246}.Debug|x64.ActiveCfg = Debug|x64
+		{E48560A5-7833-43A7-A879-57AFE5AF2246}.Debug|x64.Build.0 = Debug|x64
+		{E48560A5-7833-43A7-A879-57AFE5AF2246}.Release|Win32.ActiveCfg = Release|Win32
+		{E48560A5-7833-43A7-A879-57AFE5AF2246}.Release|Win32.Build.0 = Release|Win32
+		{E48560A5-7833-43A7-A879-57AFE5AF2246}.Release|x64.ActiveCfg = Release|x64
+		{E48560A5-7833-43A7-A879-57AFE5AF2246}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

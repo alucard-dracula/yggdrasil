@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="yggr_any_val"/>
+		<Option pch_mode="2"/>
+		<Option compiler="gcc"/>
+		<Build>
+			<Target title="Debug-Win32">
+				<Option output="$(WORKSPACE_DIR)/lib/lib$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)-d" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-Og"/>
+					<Add option="-fno-elide-constructors"/>
+					<Add option="-Werror=unused-variable"/>
+					<Add option="-D_DEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+				</Linker>
+			</Target>
+			<Target title="Release-Win32">
+				<Option output="$(WORKSPACE_DIR)/lib/lib$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-O3"/>
+					<Add option="-DNDEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+					<Add option="-s"/>
+				</Linker>
+			</Target>
+			<Target title="Debug-x64">
+				<Option output="$(WORKSPACE_DIR)/lib64/lib$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)-d" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-Og"/>
+					<Add option="-fno-elide-constructors"/>
+					<Add option="-Werror=unused-variable"/>
+					<Add option="-DWIN64"/>
+					<Add option="-DYGGR_SYSTEM_64"/>
+					<Add option="-D_DEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+				</Linker>
+			</Target>
+			<Target title="Release-x64">
+				<Option output="$(WORKSPACE_DIR)/lib64/lib$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-O3"/>
+					<Add option="-DNDEBUG"/>
+					<Add option="-DWIN64"/>
+					<Add option="-DYGGR_SYSTEM_64"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+					<Add option="-s"/>
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="all" targets="Debug-Win32;Release-Win32;Debug-x64;Release-x64;"/>
+			<Add alias="all_libonly" targets="Debug-Win32;Release-Win32;Debug-x64;Release-x64;"/>
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall"/>
+			<Add option="-std=c++14"/>
+			<Add option="-fexceptions"/>
+			<Add option="-Wno-sign-compare"/>
+			<Add option="-Wno-comment"/>
+			<Add option="-Wno-enum-compare"/>
+			<Add option="-Wno-unused-local-typedefs"/>
+			<Add option="-Wno-multichar"/>
+			<Add option="-Werror=return-type"/>
+			<Add option="-Werror=endif-labels"/>
+			<Add option="-fdata-sections"/>
+			<Add option="-ffunction-sections"/>
+			<Add option="-fno-strict-aliasing"/>
+			<Add option="-Werror=reorder"/>
+			<Add option="-ftemplate-backtrace-limit=0"/>
+			<Add option="-DWIN32"/>
+			<Add option="-D_LIB"/>
+			<Add directory="../"/>
+		</Compiler>
+		<Unit filename="any_operator_mgr_basic_t_reg.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_bitwise_op_and_eins.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_bitwise_op_and_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_bitwise_op_left_shift_eins.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_bitwise_op_left_shift_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_bitwise_op_not.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_bitwise_op_or_eins.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_bitwise_op_or_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_bitwise_op_right_shift_enis.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_bitwise_op_right_shift_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_bitwise_op_xor_eins.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_bitwise_op_xor_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_logic_op_and.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_logic_op_equal_to_eins.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_logic_op_equal_to_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_logic_op_greater_eins.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_logic_op_greater_equal_eins.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_logic_op_greater_equal_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_logic_op_greater_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_logic_op_less_eins.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_logic_op_less_equal_eins.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_logic_op_less_equal_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_logic_op_less_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_logic_op_not.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_logic_op_not_equal_to_eins.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_logic_op_not_equal_to_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_logic_op_or.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_math_bin_op_div_eins.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_math_bin_op_div_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_math_bin_op_minus_eins.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_math_bin_op_minus_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_math_bin_op_mod_eins.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_math_bin_op_mod_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_math_bin_op_mul_eins.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_math_bin_op_mul_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_math_bin_op_plus_drei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_math_bin_op_plus_eins.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_math_bin_op_plus_funf.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_math_bin_op_plus_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_math_bin_op_set_eins.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_math_bin_op_set_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_math_unary_op_eins.cpp"/>
+		<Unit filename="any_operator_mgr_basic_t_reg_math_unary_op_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_bitwise_op_and_eins.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_bitwise_op_and_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_bitwise_op_left_shift_eins.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_bitwise_op_left_shift_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_bitwise_op_not.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_bitwise_op_or_eins.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_bitwise_op_or_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_bitwise_op_right_shift_enis.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_bitwise_op_right_shift_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_bitwise_op_xor_eins.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_bitwise_op_xor_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_logic_op_and.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_logic_op_equal_to_eins.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_logic_op_equal_to_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_logic_op_greater_eins.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_logic_op_greater_equal_eins.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_logic_op_greater_equal_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_logic_op_greater_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_logic_op_less_eins.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_logic_op_less_equal_eins.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_logic_op_less_equal_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_logic_op_less_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_logic_op_not.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_logic_op_not_equal_to_eins.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_logic_op_not_equal_to_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_logic_op_or.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_math_bin_op_div_eins.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_math_bin_op_div_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_math_bin_op_minus_eins.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_math_bin_op_minus_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_math_bin_op_mod_eins.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_math_bin_op_mod_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_math_bin_op_mul_eins.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_math_bin_op_mul_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_math_bin_op_plus_drei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_math_bin_op_plus_eins.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_math_bin_op_plus_funf.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_math_bin_op_plus_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_math_bin_op_set_eins.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_math_bin_op_set_zwei.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_math_unary_op_eins.cpp"/>
+		<Unit filename="any_operator_mgr_boost_basic_t_reg_math_unary_op_zwei.cpp"/>
+		<Extensions>
+			<lib_finder disable_auto="1"/>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

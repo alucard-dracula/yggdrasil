@@ -1,0 +1,51 @@
+//default_allocator.hpp
+
+/****************************************************************************
+Copyright (c) 2010-2024 yggdrasil
+
+author: xu yang
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+****************************************************************************/
+
+#ifndef __YGGR_CONTAINER_DEFAULT_ALLOCATOR_HPP__
+#define __YGGR_CONTAINER_DEFAULT_ALLOCATOR_HPP__
+
+#include <yggr/base/yggrdef.h>
+#include <yggr/container/container_selector.hpp>
+
+#if !(BOOST_VERSION < 105800)
+#	include <boost/container/new_allocator.hpp>
+#endif // !(BOOST_VERSION < 105800)
+
+#include <memory>
+
+#if defined YGGR_USE_BOOST_CONTAINER
+#	if !(BOOST_VERSION < 105800)
+#		define YGGR_CONTAINER_DEFAULT_ALLOCATOR() boost::container::new_allocator
+#	else
+#		define YGGR_CONTAINER_DEFAULT_ALLOCATOR() std::allocator
+#	endif // !(BOOST_VERSION < 105800)
+#elif defined YGGR_USE_STL_CONTAINER
+#	define YGGR_CONTAINER_DEFAULT_ALLOCATOR() std::allocator
+#else
+#	error "use allocator type unknown error. please check source"
+#endif //YGGR_USE_BOOST_CONTAINER
+
+#endif // __YGGR_CONTAINER_DEFAULT_ALLOCATOR_HPP__

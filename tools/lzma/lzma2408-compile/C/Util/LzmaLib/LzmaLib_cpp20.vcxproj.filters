@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Spec">
+      <UniqueIdentifier>{249697fc-c5ff-4757-87bb-5b5bb670b47a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="LzmaLibExports.c">
+      <Filter>Spec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Alloc.c" />
+    <ClCompile Include="..\..\LzFind.c" />
+    <ClCompile Include="..\..\LzFindMt.c" />
+    <ClCompile Include="..\..\LzFindOpt.c" />
+    <ClCompile Include="..\..\LzmaDec.c" />
+    <ClCompile Include="..\..\LzmaEnc.c" />
+    <ClCompile Include="..\..\LzmaLib.c" />
+    <ClCompile Include="..\..\Threads.c" />
+    <ClCompile Include="..\..\CpuArch.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Precomp.h">
+      <Filter>Spec</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\7zTypes.h" />
+    <ClInclude Include="..\..\7zWindows.h" />
+    <ClInclude Include="..\..\Alloc.h" />
+    <ClInclude Include="..\..\Compiler.h" />
+    <ClInclude Include="..\..\CpuArch.h" />
+    <ClInclude Include="..\..\LzFind.h" />
+    <ClInclude Include="..\..\LzFindMt.h" />
+    <ClInclude Include="..\..\LzHash.h" />
+    <ClInclude Include="..\..\LzmaDec.h" />
+    <ClInclude Include="..\..\LzmaEnc.h" />
+    <ClInclude Include="..\..\LzmaLib.h" />
+    <ClInclude Include="..\..\Precomp.h" />
+    <ClInclude Include="..\..\Threads.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="LzmaLib.def">
+      <Filter>Spec</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

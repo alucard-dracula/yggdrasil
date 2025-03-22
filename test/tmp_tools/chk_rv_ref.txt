@@ -1,0 +1,9 @@
+E:\project\work_station\yggr_workspace\yggdrasil\yggr\tuple\detail\tuple_basic.hpp
+E:\project\work_station\yggr_workspace\yggdrasil\yggr\nsql_database_system\c_bson_null.hpp
+E:\project\work_station\yggr_workspace\yggdrasil\yggr\log\log_accesser.hpp
+E:\project\work_station\yggr_workspace\yggdrasil\yggr\tuple\detail\tuple_basic_no_partial_spec.hpp
+E:\project\work_station\yggr_workspace\yggdrasil\yggr\nsql_database_system\c_bson_maxkey.hpp
+E:\project\work_station\yggr_workspace\yggdrasil\yggr\nsql_database_system\c_bson_minkey.hpp
+E:\project\work_station\yggr_workspace\yggdrasil\yggr\math\moving_avg\moving_collector.hpp
+E:\project\work_station\yggr_workspace\yggdrasil\yggr\lua_wrap\wrap_list.hpp
+E:\project\work_station\yggr_workspace\yggdrasil\yggr\network\timed_base_network_packet.hpp

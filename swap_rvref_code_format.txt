@@ -1,0 +1,19 @@
+swap 的书写规范
+
+1 #include <yggr/utility/swap.hpp>
+2 类内部书写 REF 和 RV_REF的SWAP
+3 类外部SWAP在类自身命名空间下的swap_support下书写类外部的swap函数（swap_support命名空间可以自己定义）
+4 在 STD和BOOST 2个命名空间下 使用 using 第3条书写的swap函数
+5 外部SWAP 不需要写 RV_REF参数的版本
+6 如果允许异构模板类型SWAP 需要写2个SWAP 一个同构的一个异构的,  否则会出现和std::swap冲突的情况
+7 对6的补充 类内部的swap 需要和 外部的swap保持一致 否则会出现和std::swap冲突的情况 参考handler_center 去掉第二个swap的编译情况
+8 swap_support 下的swap 要使用using 对swap对象的命名空间可见（修正MSVC CPP20 对std命名空间无视）
+
+右值引用处理方式
+1 使用BOOST_RV_REF 的函数 对于SWAP不能违反上面情况
+2 处理数据的COPY和MOVE时候需要再加一个CONST的版本，否则GCC无法处理POD类型
+3 只有RVREF函数的情况下，这个函数必然是转发函数，内部使用forward
+3 如果违反2 会导致 RVREF 变成 const ref 如果没有const版本 那么就会编译错误 如果有则会产生COPY操作
+4 RVREF, REF, CRVREF 函数重载不能同时存在 否则 在POD类型上会冲突 比如(int)
+5 备注1：如果要兼容CPP11的RVREF在处理即可COPY又可以转发的数据时（同时支持CREF和RVREF） 需要同时存在2个函数 1 RVREF 2 CREF 
+6 备注2：对于右值 03标准下是不会进入RVREF版本的，进入的是CREF版本

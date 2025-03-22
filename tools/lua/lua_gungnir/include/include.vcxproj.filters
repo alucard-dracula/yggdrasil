@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\mscompatibility">
+      <UniqueIdentifier>{170b9822-653b-4630-b6e1-df9b857dcba9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\luajitcompatibility">
+      <UniqueIdentifier>{2a4ce30e-74c1-497a-b664-5b52a5ba3d4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\lualpeg">
+      <UniqueIdentifier>{a023c9a3-d120-47c6-abbf-942e06e20aec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\luacjson">
+      <UniqueIdentifier>{827d67b0-3b78-4952-942f-e4e84213e786}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\tolua">
+      <UniqueIdentifier>{2d39c234-a505-45bf-b299-1cf68cb06689}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\luacjsoncompatibility">
+      <UniqueIdentifier>{7d528ab7-c6ae-4184-af96-59f1ac5834f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\luapb">
+      <UniqueIdentifier>{9c1bb6f7-b2f7-48ac-a5eb-489438a0d9c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\luabit">
+      <UniqueIdentifier>{fa0644af-6b48-4e63-94ad-5995d9f42a68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\luastruct">
+      <UniqueIdentifier>{93b0428a-fc3b-4076-912d-a010df29cfda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\luasocket">
+      <UniqueIdentifier>{3f1c7a07-1a00-48f7-8be0-a784d4d75e23}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mscompatibility\inttypes.h">
+      <Filter>Header Files\mscompatibility</Filter>
+    </ClInclude>
+    <ClInclude Include="mscompatibility\stdint.h">
+      <Filter>Header Files\mscompatibility</Filter>
+    </ClInclude>
+    <ClInclude Include="mscompatibility\stdbool.h">
+      <Filter>Header Files\mscompatibility</Filter>
+    </ClInclude>
+    <ClInclude Include="luajitcompatibility\ref.h">
+      <Filter>Header Files\luajitcompatibility</Filter>
+    </ClInclude>
+    <ClInclude Include="mscompatibility\strtoll.h">
+      <Filter>Header Files\mscompatibility</Filter>
+    </ClInclude>
+    <ClInclude Include="lualpeg\lpeg.h">
+      <Filter>Header Files\lualpeg</Filter>
+    </ClInclude>
+    <ClInclude Include="luacjson\fpconv.h">
+      <Filter>Header Files\luacjson</Filter>
+    </ClInclude>
+    <ClInclude Include="luacjson\strbuf.h">
+      <Filter>Header Files\luacjson</Filter>
+    </ClInclude>
+    <ClInclude Include="tolua\tolua.h">
+      <Filter>Header Files\tolua</Filter>
+    </ClInclude>
+    <ClInclude Include="luacjsoncompatibility\macro_config.h">
+      <Filter>Header Files\luacjsoncompatibility</Filter>
+    </ClInclude>
+    <ClInclude Include="mscompatibility\warning_check.h">
+      <Filter>Header Files\mscompatibility</Filter>
+    </ClInclude>
+    <ClInclude Include="tolua.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="luacjson.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="luapb\pb.h">
+      <Filter>Header Files\luapb</Filter>
+    </ClInclude>
+    <ClInclude Include="luabit\bit.h">
+      <Filter>Header Files\luabit</Filter>
+    </ClInclude>
+    <ClInclude Include="luabit.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="luastruct.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="luastruct\struct.h">
+      <Filter>Header Files\luastruct</Filter>
+    </ClInclude>
+    <ClInclude Include="lualpeg\lpegex.h">
+      <Filter>Header Files\lualpeg</Filter>
+    </ClInclude>
+    <ClInclude Include="luapb.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lualpeg.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="luacjson\luacjsonex.h">
+      <Filter>Header Files\luacjson</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket\auxiliar.h">
+      <Filter>Header Files\luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket\buffer.h">
+      <Filter>Header Files\luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket\compat.h">
+      <Filter>Header Files\luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket\except.h">
+      <Filter>Header Files\luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket\inet.h">
+      <Filter>Header Files\luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket\io.h">
+      <Filter>Header Files\luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket\luasocket.h">
+      <Filter>Header Files\luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket\luasocket_scripts.h">
+      <Filter>Header Files\luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket\mime.h">
+      <Filter>Header Files\luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket\options.h">
+      <Filter>Header Files\luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket\pierror.h">
+      <Filter>Header Files\luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket\select.h">
+      <Filter>Header Files\luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket\socket.h">
+      <Filter>Header Files\luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket\tcp.h">
+      <Filter>Header Files\luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket\timeout.h">
+      <Filter>Header Files\luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket\udp.h">
+      <Filter>Header Files\luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket\wsocket.h">
+      <Filter>Header Files\luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="luasocket.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

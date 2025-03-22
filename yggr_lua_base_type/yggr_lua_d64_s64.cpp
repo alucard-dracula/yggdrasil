@@ -1,0 +1,111 @@
+//yggr_lua_d64_s64.cpp
+
+/****************************************************************************
+Copyright (c) 2010-2024 yggdrasil
+
+author: xu yang
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+****************************************************************************/
+
+#include "yggr_lua_d32.hpp"
+#include "yggr_lua_d64.hpp"
+
+#include <yggr/lua_wrap/lua_export_typeid.hpp>
+#include <yggr/lua_wrap/lua_export_wrap_base_t.hpp>
+#include <yggr/lua_wrap/lua_export_wrap_random_access_iterator.hpp>
+#include <yggr/lua_wrap/lua_export_wrap_reverse_iterator.hpp>
+
+#if defined(_MSC_VER)
+#	include <vld.h>
+#endif // _MSC_VER
+
+namespace yggr
+{
+namespace lua
+{
+
+void export_d64_s64(lua_State* L)
+{
+
+	luabind::class_<wrap_s64_type> s64_cobj("s64");
+
+	lua_wrap::export_wrap_base_t(s64_cobj);
+	lua_wrap::export_wrap_base_t_other<wrap_u64_type>(s64_cobj);
+
+	// d64
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_s64_vector_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_s64_vector_const_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_s64_vector_reverse_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_s64_vector_const_reverse_iterator_type>(s64_cobj);
+
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_u64_vector_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_u64_vector_const_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_u64_vector_reverse_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_u64_vector_const_reverse_iterator_type>(s64_cobj);
+
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_s64_deque_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_s64_deque_const_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_s64_deque_reverse_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_s64_deque_const_reverse_iterator_type>(s64_cobj);
+
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_u64_deque_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_u64_deque_const_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_u64_deque_reverse_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_u64_deque_const_reverse_iterator_type>(s64_cobj);
+
+	// d32
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_s32_vector_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_s32_vector_const_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_s32_vector_reverse_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_s32_vector_const_reverse_iterator_type>(s64_cobj);
+
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_u32_vector_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_u32_vector_const_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_u32_vector_reverse_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_u32_vector_const_reverse_iterator_type>(s64_cobj);
+
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_s32_deque_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_s32_deque_const_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_s32_deque_reverse_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_s32_deque_const_reverse_iterator_type>(s64_cobj);
+
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_u32_deque_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_u32_deque_const_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_u32_deque_reverse_iterator_type>(s64_cobj);
+	lua_wrap::export_wrap_iterator_l_wrap_base_t<wrap_u32_deque_const_reverse_iterator_type>(s64_cobj);
+
+	luabind::module(L)
+	[
+		luabind::namespace_(YGGR_PP_CAST_TO_STRING(yggr))
+		[
+			luabind::namespace_(YGGR_PP_CAST_TO_STRING(lua))
+			[
+				s64_cobj,
+
+				//typeid
+				lua_wrap::export_typeid<wrap_s64_type>()
+			]
+		]
+	];
+}
+
+
+} // namespace lua
+} // namespace yggr

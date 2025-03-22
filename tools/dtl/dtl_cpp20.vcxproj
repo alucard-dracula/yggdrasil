@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup Label="ProjectConfigurations">
+		<ProjectConfiguration Include="Debug|Win32">
+			<Configuration>Debug</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug|x64">
+			<Configuration>Debug</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|Win32">
+			<Configuration>Release</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|x64">
+			<Configuration>Release</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+	</ItemGroup>
+	<PropertyGroup Label="Globals">
+		<ProjectGuid>{B54D76AE-F4A9-4269-B00A-564FC90325D4}</ProjectGuid>
+		<RootNamespace>dtl</RootNamespace>
+		<ProjectName>dtl</ProjectName>
+		<WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>true</UseDebugLibraries>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>true</UseDebugLibraries>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
+	<ImportGroup Label="ExtensionSettings">
+</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
+	</ImportGroup>
+	<PropertyGroup Label="UserMacros"/>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)lib/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-d</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)lib64/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-d</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)lib/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)lib64/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)</TargetName>
+	</PropertyGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<ClCompile>
+			<Optimization>MaxSpeed</Optimization>
+			<AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_LIB;DTL_UC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<PrecompiledHeader>
+			</PrecompiledHeader>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<WarningLevel>Level3</WarningLevel>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<LanguageStandard>stdcpp20</LanguageStandard>
+		</ClCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<ClCompile>
+			<Optimization>MaxSpeed</Optimization>
+			<AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_WINDOWS;_LIB;DTL_UC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<PrecompiledHeader>
+			</PrecompiledHeader>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<WarningLevel>Level3</WarningLevel>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<LanguageStandard>stdcpp20</LanguageStandard>
+		</ClCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<ClCompile>
+			<AdditionalOptions>/D_STLP_DEBUG</AdditionalOptions>
+			<Optimization>Disabled</Optimization>
+			<AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_LIB;DTL_UC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<WarningLevel>Level3</WarningLevel>
+			<CompileAs>Default</CompileAs>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+			<LanguageStandard>stdcpp20</LanguageStandard>
+		</ClCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<ClCompile>
+			<AdditionalOptions>/D_STLP_DEBUG</AdditionalOptions>
+			<Optimization>Disabled</Optimization>
+			<AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_WINDOWS;_LIB;DTL_UC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<WarningLevel>Level3</WarningLevel>
+			<CompileAs>Default</CompileAs>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+			<LanguageStandard>stdcpp20</LanguageStandard>
+		</ClCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+	</ItemDefinitionGroup>
+	<ItemGroup>
+		<ClCompile Include="src\__dummyinst.cpp"/>
+		<ClCompile Include="src\bind_basics.cpp"/>
+		<ClCompile Include="src\BoundIO.cpp"/>
+		<ClCompile Include="src\clib_fwd.cpp"/>
+		<ClCompile Include="src\CountedPtr.cpp"/>
+		<ClCompile Include="src\date_util.cpp"/>
+		<ClCompile Include="src\DB_Base.cpp"/>
+		<ClCompile Include="src\DBConnection.cpp"/>
+		<ClCompile Include="src\DBException.cpp"/>
+		<ClCompile Include="src\DBStmt.cpp"/>
+		<ClCompile Include="src\DBView.cpp"/>
+		<ClCompile Include="src\dtl_base_types.cpp"/>
+		<ClCompile Include="src\LocalBCA.cpp"/>
+		<ClCompile Include="src\RootException.cpp"/>
+		<ClCompile Include="src\string_util.cpp"/>
+		<ClCompile Include="src\validate.cpp"/>
+		<ClCompile Include="src\variant_row.cpp"/>
+		<ClCompile Include="src\VariantException.cpp"/>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="include\array_string.h"/>
+		<ClInclude Include="include\bind_basics.h"/>
+		<ClInclude Include="include\BoundIO.h"/>
+		<ClInclude Include="include\Callback.h"/>
+		<ClInclude Include="include\clib_fwd.h"/>
+		<ClInclude Include="include\CountedPtr.h"/>
+		<ClInclude Include="include\date_util.h"/>
+		<ClInclude Include="include\DB_Base.h"/>
+		<ClInclude Include="include\DB_iterator.h"/>
+		<ClInclude Include="include\DBConnection.h"/>
+		<ClInclude Include="include\DBDefaults.h"/>
+		<ClInclude Include="include\DBException.h"/>
+		<ClInclude Include="include\DBIndex.h"/>
+		<ClInclude Include="include\DBStmt.h"/>
+		<ClInclude Include="include\DBView.h"/>
+		<ClInclude Include="include\delete_iterator.h"/>
+		<ClInclude Include="include\DTL.h"/>
+		<ClInclude Include="include\dtl_algo.h"/>
+		<ClInclude Include="include\dtl_assign_t.h"/>
+		<ClInclude Include="include\dtl_base_types.h"/>
+		<ClInclude Include="include\dtl_config.h"/>
+		<ClInclude Include="include\dtl_enum.h"/>
+		<ClInclude Include="include\dtl_posix_time.h"/>
+		<ClInclude Include="include\dtl_reverse_bidirectional_iterator.hpp"/>
+		<ClInclude Include="include\dtl_set.h"/>
+		<ClInclude Include="include\DynaDBView.h"/>
+		<ClInclude Include="include\IndexedDBView.h"/>
+		<ClInclude Include="include\insert_iterator.h"/>
+		<ClInclude Include="include\LocalBCA.h"/>
+		<ClInclude Include="include\merant.h"/>
+		<ClInclude Include="include\minimax.h"/>
+		<ClInclude Include="include\nullable.h"/>
+		<ClInclude Include="include\random_select_iterator.h"/>
+		<ClInclude Include="include\random_select_update_iterator.h"/>
+		<ClInclude Include="include\RandomDBView.h"/>
+		<ClInclude Include="include\RootException.h"/>
+		<ClInclude Include="include\select_insert_iterator.h"/>
+		<ClInclude Include="include\select_iterator.h"/>
+		<ClInclude Include="include\select_update_iterator.h"/>
+		<ClInclude Include="include\sql_iterator.h"/>
+		<ClInclude Include="include\starit.h"/>
+		<ClInclude Include="include\std_warn_off.h"/>
+		<ClInclude Include="include\std_warn_on.h"/>
+		<ClInclude Include="include\string_util.h"/>
+		<ClInclude Include="include\table.h"/>
+		<ClInclude Include="include\unix_tchar.h"/>
+		<ClInclude Include="include\update_iterator.h"/>
+		<ClInclude Include="include\validate.h"/>
+		<ClInclude Include="include\variant_row.h"/>
+		<ClInclude Include="include\VariantException.h"/>
+		<ClInclude Include="include\vec_multiset.h"/>
+	</ItemGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
+	<ImportGroup Label="ExtensionTargets">
+</ImportGroup>
+</Project>

@@ -1,0 +1,17 @@
+//handler_reg.hpp
+
+#ifndef __PORXY_SVR_TEST_HANDLER_REG_HPP__
+#define __PORXY_SVR_TEST_HANDLER_REG_HPP__
+
+#include <cassert>
+
+#include "config.hpp"
+#include "calculator.hpp"
+
+void reg_calculator(runner_shared_info_ptr_type shared_info_ptr, 
+						::yggr::shared_ptr<Calculator> pcal);
+
+void reg_ctrl_center(ctrl_center_single::obj_ptr_type pctrl,
+						clt_ptr_type pclt);
+
+#endif // __PORXY_SVR_TEST_HANDLER_REG_HPP__

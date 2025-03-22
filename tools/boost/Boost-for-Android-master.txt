@@ -1,0 +1,3 @@
+boost android compilation Refer to Boost-for-Android
+
+https://github.com/moritz-wundke/Boost-for-Android

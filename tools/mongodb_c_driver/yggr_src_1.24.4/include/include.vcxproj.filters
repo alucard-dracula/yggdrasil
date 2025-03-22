@@ -1,0 +1,1016 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{cf584780-a081-4997-811a-24007554e92b}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{43fa73d9-32df-4b69-a805-d4388e641d93}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Header Files\yggr_detail">
+      <UniqueIdentifier>{f9e6790d-48fe-456b-8ad0-8dbca2ef4e7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\mlib">
+      <UniqueIdentifier>{615f8354-82e6-47ce-9d67-5654ed231c6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\bson">
+      <UniqueIdentifier>{c139c4d1-e026-4080-af1b-27713f876a30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\mongoc">
+      <UniqueIdentifier>{a980fbd4-681d-4f73-9ff1-6c17d785d29c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\jsonsl">
+      <UniqueIdentifier>{7a07d06b-b1ab-4d1d-a34d-440bd169bd3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\kms_message">
+      <UniqueIdentifier>{3e88be84-98f8-4152-855d-abf9fff6753a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\mongocrypt">
+      <UniqueIdentifier>{9d139eba-22b4-42f9-bf35-a5e16ec40653}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\mongo_crypt">
+      <UniqueIdentifier>{9a433c30-937e-4e00-b409-48046b71a41a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\mongo_crypt\v1">
+      <UniqueIdentifier>{39857330-537e-482e-a20b-824bcea6a6e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\mongo_crypt\v1\mongo_crypt">
+      <UniqueIdentifier>{a2b898f5-baeb-4974-b14e-86817bdddad4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="yggr_detail\yggr_bson_t.h">
+      <Filter>Header Files\yggr_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="yggr_detail\yggr_mongoc_t.h">
+      <Filter>Header Files\yggr_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="bcon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bson.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mcd-azure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mcd-integer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mcd-rpc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mcd-time.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-aggregate-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-apm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-apm-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-array-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-async-cmd-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-async-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-buffer-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-bulk-operation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-bulk-operation-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-change-stream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-change-stream-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-client.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-client-pool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-client-pool-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-client-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-client-session.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-client-session-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-client-side-encryption.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-client-side-encryption-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-cluster-aws-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-cluster-cyrus-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-cluster-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-cluster-sasl-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-cluster-sspi-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-cmd-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-collection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-collection-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-compression-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-counters-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-crypto-cng-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-crypto-common-crypto-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-crypto-openssl-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-crypto-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-crypt-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-cursor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-cursor-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-cyrus-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-database.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-database-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-errno-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-error.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-error-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-find-and-modify.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-find-and-modify-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-flags.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-flags-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-generation-map-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-gridfs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-gridfs-bucket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-gridfs-bucket-file-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-gridfs-bucket-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-gridfs-file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-gridfs-file-list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-gridfs-file-list-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-gridfs-file-page.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-gridfs-file-page-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-gridfs-file-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-gridfs-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-handshake.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-handshake-compiler-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-handshake-os-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-handshake-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-host-list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-host-list-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-http-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-index.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-init.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-interrupt-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-iovec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-libressl-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-linux-distro-scanner-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-list-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-log-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-macros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-matcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-matcher-op-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-matcher-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-memcmp-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-ocsp-cache-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-opcode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-openssl-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-optional.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-opts-helpers-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-opts-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-prelude.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-queue-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-rand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-rand-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-read-concern.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-read-concern-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-read-prefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-read-prefs-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-rpc-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-sasl-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-scram-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-secure-channel-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-secure-transport-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-server-api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-server-api-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-server-description.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-server-description-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-server-monitor-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-server-stream-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-set-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-shared-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-socket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-socket-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-ssl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-ssl-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-sspi-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-buffered.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-gridfs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-gridfs-download-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-gridfs-upload-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-socket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-tls.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-tls-libressl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-tls-libressl-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-tls-openssl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-tls-openssl-bio-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-tls-openssl-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-tls-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-tls-secure-channel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-tls-secure-channel-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-tls-secure-transport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-stream-tls-secure-transport-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-thread-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-timeout-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-topology-background-monitoring-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-topology-description.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-topology-description-apm-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-topology-description-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-topology-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-topology-scanner-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-trace-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-ts-pool-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-uri.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-uri-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-util-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-version-functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-write-command-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-write-concern.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-write-concern-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="service-gcp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utlist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="yggr_detail\stdbool.h">
+      <Filter>Header Files\yggr_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc-config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bson-dsl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common-b64-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common-macros-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common-md5-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common-prelude.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common-thread-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common-config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="yggr_detail\original_error_t.h">
+      <Filter>Header Files\yggr_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-array-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-check-conversions-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-dec128.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-efc-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-fle2-encryption-placeholder-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-fle2-find-equality-payload-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-fle2-find-equality-payload-private-v2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-fle2-find-range-payload-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-fle2-find-range-payload-private-v2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-fle2-insert-update-payload-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-fle2-insert-update-payload-private-v2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-fle2-payload-iev-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-fle2-payload-iev-private-v2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-fle2-payload-uev-common-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-fle2-payload-uev-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-fle2-payload-uev-v2-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-fle2-range-operator-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-fle2-rfds-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-fle-blob-subtype-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-optional-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-range-edge-generation-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-range-encoding-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-range-mincover-generator.template.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-range-mincover-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-rangeopts-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-reader-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-tokens-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mc-writer-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongo_crypt-v1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-binary-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-buffer-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-cache-collinfo-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-cache-key-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-cache-oauth-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-cache-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-ciphertext-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-compat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-crypto-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-ctx-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-dll-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-endian-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-endpoint-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-export.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-kek-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-key-broker-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-key-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-kms-ctx-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-log-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-marking-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-mutex-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-opts-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-status-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-traverse-util-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt-util-private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mlib\endian.h">
+      <Filter>Header Files\mlib</Filter>
+    </ClInclude>
+    <ClInclude Include="mlib\error.h">
+      <Filter>Header Files\mlib</Filter>
+    </ClInclude>
+    <ClInclude Include="mlib\int128.h">
+      <Filter>Header Files\mlib</Filter>
+    </ClInclude>
+    <ClInclude Include="mlib\macros.h">
+      <Filter>Header Files\mlib</Filter>
+    </ClInclude>
+    <ClInclude Include="mlib\path.h">
+      <Filter>Header Files\mlib</Filter>
+    </ClInclude>
+    <ClInclude Include="mlib\str.h">
+      <Filter>Header Files\mlib</Filter>
+    </ClInclude>
+    <ClInclude Include="mlib\thread.h">
+      <Filter>Header Files\mlib</Filter>
+    </ClInclude>
+    <ClInclude Include="mlib\user-check.h">
+      <Filter>Header Files\mlib</Filter>
+    </ClInclude>
+    <ClInclude Include="mlib\windows-lean.h">
+      <Filter>Header Files\mlib</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\mcd-time.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\mongoc.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\mongoc-http-private.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="jsonsl\jsonsl.h">
+      <Filter>Header Files\jsonsl</Filter>
+    </ClInclude>
+    <ClInclude Include="jsonsl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\mongoc-cluster-private.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\common-thread-private.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\mongoc-interrupt-private.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\mongoc-log.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\mongoc-socket-private.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\mongoc-stream-socket.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\mongoc-trace-private.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\mcd-rpc.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\mongoc-ssl-private.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\mongoc-stream-private.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\mongoc-topology-background-monitoring-private.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\mongoc-topology-private.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\mongoc-client-private.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\mongoc-errno-private.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="mongoc\mongoc-error-private.h">
+      <Filter>Header Files\mongoc</Filter>
+    </ClInclude>
+    <ClInclude Include="yggr_detail\inttypes.h">
+      <Filter>Header Files\yggr_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="yggr_detail\c_version_support.h">
+      <Filter>Header Files\yggr_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="yggr_detail\mongo_c_inline.h">
+      <Filter>Header Files\yggr_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="yggr_detail\mongo_c__func__.h">
+      <Filter>Header Files\yggr_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="kms_message\kms_azure_request.h">
+      <Filter>Header Files\kms_message</Filter>
+    </ClInclude>
+    <ClInclude Include="kms_message\kms_b64.h">
+      <Filter>Header Files\kms_message</Filter>
+    </ClInclude>
+    <ClInclude Include="kms_message\kms_caller_identity_request.h">
+      <Filter>Header Files\kms_message</Filter>
+    </ClInclude>
+    <ClInclude Include="kms_message\kms_decrypt_request.h">
+      <Filter>Header Files\kms_message</Filter>
+    </ClInclude>
+    <ClInclude Include="kms_message\kms_encrypt_request.h">
+      <Filter>Header Files\kms_message</Filter>
+    </ClInclude>
+    <ClInclude Include="kms_message\kms_gcp_request.h">
+      <Filter>Header Files\kms_message</Filter>
+    </ClInclude>
+    <ClInclude Include="kms_message\kms_kmip_request.h">
+      <Filter>Header Files\kms_message</Filter>
+    </ClInclude>
+    <ClInclude Include="kms_message\kms_kmip_response.h">
+      <Filter>Header Files\kms_message</Filter>
+    </ClInclude>
+    <ClInclude Include="kms_message\kms_kmip_response_parser.h">
+      <Filter>Header Files\kms_message</Filter>
+    </ClInclude>
+    <ClInclude Include="kms_message\kms_message.h">
+      <Filter>Header Files\kms_message</Filter>
+    </ClInclude>
+    <ClInclude Include="kms_message\kms_message_defines.h">
+      <Filter>Header Files\kms_message</Filter>
+    </ClInclude>
+    <ClInclude Include="kms_message\kms_request.h">
+      <Filter>Header Files\kms_message</Filter>
+    </ClInclude>
+    <ClInclude Include="kms_message\kms_request_opt.h">
+      <Filter>Header Files\kms_message</Filter>
+    </ClInclude>
+    <ClInclude Include="kms_message\kms_response.h">
+      <Filter>Header Files\kms_message</Filter>
+    </ClInclude>
+    <ClInclude Include="kms_message\kms_response_parser.h">
+      <Filter>Header Files\kms_message</Filter>
+    </ClInclude>
+    <ClInclude Include="kms_message\kms_message_user_config.h">
+      <Filter>Header Files\kms_message</Filter>
+    </ClInclude>
+    <ClInclude Include="yggr_detail\double_limit.h">
+      <Filter>Header Files\yggr_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="yggr_detail\warning_check.h">
+      <Filter>Header Files\yggr_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bcon.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-atomic.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-clock.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-cmp.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-compat.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-config.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-context.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-context-private.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-decimal128.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-endian.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-error.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-iso8601-private.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-iter.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-json.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-json-private.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-keys.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-macros.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-md5.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-memory.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-oid.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-prelude.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-private.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-reader.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-string.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-timegm-private.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-types.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-utf8.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-value.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-version.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-version-functions.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="bson\bson-writer.h">
+      <Filter>Header Files\bson</Filter>
+    </ClInclude>
+    <ClInclude Include="mongocrypt\mongocrypt.h">
+      <Filter>Header Files\mongocrypt</Filter>
+    </ClInclude>
+    <ClInclude Include="mongo_crypt\v1\mongo_crypt\mongo_crypt.h">
+      <Filter>Header Files\mongo_crypt\v1\mongo_crypt</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mongoc-counters.defs">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="op-compressed.def">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="op-delete.def">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="op-get-more.def">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="op-header.def">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="op-insert.def">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="op-kill-cursors.def">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="op-msg.def">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="op-query.def">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="op-reply.def">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="op-reply-header.def">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="op-update.def">
+      <Filter>Header Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

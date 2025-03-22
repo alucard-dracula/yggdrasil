@@ -1,0 +1,3 @@
+file boost/asio/detail/strand_executor_service.hpp, boost/asio/detail/impl/strand_executor_service.hpp // fix bug boost::asio::detal::strand_executor_service execute error C2244 in msvc100
+file boost/asio/detail/post.hpp, boost/asio/impl/post.hpp // fix bug boost::asio::detal::strand_executor_service execute error LNK2019 in msvc100
+file boost/container/node_handle.hpp // fix bug boost::container::set boost::container::map segemnt allocator using operator= and swap 

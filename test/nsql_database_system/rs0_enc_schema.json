@@ -1,0 +1,1 @@
+{ "bsonType" : "object", "properties" : { "enc_field_01" : { "encrypt" : { "keyId" : [ { "$binary" : { "base64" : "msZUWiahTg6t4LZE2PeM3w==", "subType" : "04" } } ], "bsonType" : "string", "algorithm" : "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic" } } } }

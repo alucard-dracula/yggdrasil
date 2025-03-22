@@ -1,0 +1,42 @@
+﻿PC environment
+
+compile: windows use VS, mingw linux use code blocks and gun gcc
+1 python: install python and config development environment
+2 boost: full compile boost(now dev boost ver is 1.53) and config development environment
+3 dtl: compile yggdrasil/tools/dtl and config development environment
+4 md5: compile yggdrasil/tools/md5 and config development environment
+5 blowfish: compile yggdrasil/tools/blowfish and config development environment
+6 lua: compile yggdrasil/tools/lua/lua5_21 and yggdrasil/tools/lua/luabind52 and config development environment
+7 mongodb: compile yggdrasil/tools/mongodb_c_driver and config development environment
+8 yggdrasil: compile yggdrasil and config development environment
+
+PC environment
+
+compile: 
+01, use MS Visual Studio on windows
+02, use code blocks + GNUGCC on mingw or linux, 
+03, use ndk-build + clang on android
+04, use cmake + ninjia + xcode + apple-clang on macos and ios
+05, other compile please do it your self
+
+第三方库安装：
+01, base64: compile yggdrasil/tools/base64 and configure it into the development environment
+02, BLOWFISH: compile yggdrasil/tools/blowfish and configure it into the development environment
+03, BOOST: merge boost patch (in yggdrasil/tools/boost)，compile boost and configure it into the development environment(last support boost version is 1.82)
+04, DTL: compile yggdrasil/tools/dtl and configure it into the development environment
+05, LUA: compile yggdrasil/tools/lua/lua5_34 and yggdrasil/tools/lua/luabind503p, and configure it into the development environment
+06, LZMA: compile yggdrasil/tools/lzma and configure it into the development environment
+07, MD5: compile yggdrasil/tools/md5 and configure it into the development environment
+08, openssl: using system installed or compile yggdrasil/tools/openssl and configure it into the development environment
+09, pthread: using system installed or compile yggdrasil/tools/pthread_win and configure it into the development environment
+10, PYTHON: install or compile python and configure it into the development environment (support BOOST.PYTHON)
+11, sha: compile yggdrasil/tools/sha and configure it into the development environment
+12, unixODBC: using system installed or compile yggdrasil/tools/unixODBC and configure it into the development environment (linux，macos needed)
+13, vld: install Visual Leak Detector and configure it into the development environment （using github vld-2.7.0 branch version  https://github.com/oneiric/vld/releases）
+14, mongodb: compile yggdrasil/tools/mongodb_c_driver/yggr_src_1.26.1 and configure it into the development environment
+15, iconv: using system installed or compile yggdrasil/tools/iconv and configure it into the development environment
+16, icu4c: using system installed or compile yggdrasil/tools/icu4c and configure it into the development environment（optional，support boost regex）
+17，IntelRDFPMathLib：compile yggdrasil/tools/IntelRDFPMathLib and configure it into the development environment（support mongodb_c_dirver float128）
+18, yggdrasil: compile yggdrasil and configure it into the development environment
+19, for more information about the scripts, configurations, and patches required to compile third-party libraries, see the yggdrasil/tools directory
+
