@@ -29,7 +29,7 @@ PS: 文档工作量实在太大，个人能力有限，不过项目里提供了�
 
 -----------------------------------------------------------------------
 
-A game server-side engine written in C
+A game server-side engine written in C++
 
 Engine Features:  
 01. Asynchronous Network Communication (TCP + UDP + P2P)  
