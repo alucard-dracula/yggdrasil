@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3333e8d3-5c1f-452d-92f5-a2cde2f3de6e}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{ae1ffbeb-f459-4a72-a1d7-1754e09a949d}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Source Files\crypto">
+      <UniqueIdentifier>{5ded0e0b-e7b9-46db-a33e-ad36ccc388f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\os_win">
+      <UniqueIdentifier>{84749039-2918-489f-ac68-d3c2c950903d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\os_posix">
+      <UniqueIdentifier>{32cc9522-c6e1-4e57-9f4b-e72753dcf226}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\unicode">
+      <UniqueIdentifier>{1ea063a9-b3d8-4e1d-a032-e5413333fad4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="mc-array.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-efc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-fle2-encryption-placeholder.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-fle2-find-equality-payload.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-fle2-find-equality-payload-v2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-fle2-find-range-payload.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-fle2-find-range-payload-v2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-fle2-insert-update-payload.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-fle2-insert-update-payload-v2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-fle2-payload-iev.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-fle2-payload-iev-v2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-fle2-payload-uev.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-fle2-payload-uev-common.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-fle2-payload-uev-v2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-fle2-rfds.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-fle2-tag-and-encrypted-metadata-block.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-range-edge-generation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-range-encoding.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-range-mincover.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-rangeopts.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-reader.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-schema-broker.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-str-encode-string-sets.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-text-search-str-encode.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-tokens.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mc-writer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-binary.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-buffer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-cache.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-cache-collinfo.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-cache-key.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-cache-oauth.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-ciphertext.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-crypto.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-ctx.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-ctx-datakey.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-ctx-decrypt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-ctx-encrypt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-ctx-rewrap-many-datakey.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-endpoint.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-kek.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-key.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-key-broker.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-kms-ctx.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-log.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-marking.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-opts.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-status.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-traverse-util.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mongocrypt-util.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\cng.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\commoncrypto.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\libcrypto.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\none.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="unicode\case-fold-map.c">
+      <Filter>Source Files\unicode</Filter>
+    </ClCompile>
+    <ClCompile Include="unicode\diacritic-fold-map.c">
+      <Filter>Source Files\unicode</Filter>
+    </ClCompile>
+    <ClCompile Include="unicode\fold.c">
+      <Filter>Source Files\unicode</Filter>
+    </ClCompile>
+    <ClCompile Include="os_win\os_dll_win.c">
+      <Filter>Source Files\os_win</Filter>
+    </ClCompile>
+    <ClCompile Include="os_win\os_mutex_win.c">
+      <Filter>Source Files\os_win</Filter>
+    </ClCompile>
+    <ClCompile Include="os_posix\os_dll_posix.c">
+      <Filter>Source Files\os_posix</Filter>
+    </ClCompile>
+    <ClCompile Include="os_posix\os_mutex_posix.c">
+      <Filter>Source Files\os_posix</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

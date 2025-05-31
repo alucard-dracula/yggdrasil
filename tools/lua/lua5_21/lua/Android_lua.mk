@@ -74,22 +74,27 @@ endif
 # ldflags
 ifeq ("$(TARGET_ARCH_ABI)", "arm64-v8a")
 	USEDEF_CLANG_ABI := aarch64-linux-android
+	tag_arch_bits := -a64
 endif
 
 ifeq ("$(TARGET_ARCH_ABI)", "armeabi-v7a")
 	USEDEF_CLANG_ABI := armv7a-linux-androideabi
+	tag_arch_bits := -a32
 endif
 
 ifeq ("$(TARGET_ARCH_ABI)", "riscv64")
 	USEDEF_CLANG_ABI := riscv64-linux-android
+	tag_arch_bits := -r64
 endif
 
 ifeq ("$(TARGET_ARCH_ABI)", "x86_64")
 	USEDEF_CLANG_ABI := x86_64-linux-android
+	tag_arch_bits := 
 endif
 
 ifeq ("$(TARGET_ARCH_ABI)", "x86")
 	USEDEF_CLANG_ABI := i686-linux-android
+	tag_arch_bits := 
 endif
 
 ifeq ("$(TARGET_ARCH_ABI)", "riscv64")

@@ -14,9 +14,9 @@
 #include <yggr/archive/text_archive_partner.hpp>
 #include <yggr/archive/xml_archive_partner.hpp>
 
-#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 #	include <yggr/archive/bson_archive_partner.hpp>
-#endif // #if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#endif //#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 
 #if 0
 #	define YGGR_STRING_SERIALIZATION_NOT_PRIMITIVE

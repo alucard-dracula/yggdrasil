@@ -40,11 +40,18 @@
 
 void test1(void)
 {
+
+#if defined(YGGR_AT_MOBILE)
+	yggr::utf8_string host_addr = "192.168.1.101"; // you host ip address
+#else
+	yggr::utf8_string host_addr = "127.0.0.1";
+#endif // YGGR_AT_MOBILE
+
 #if MONGODB_USING_CA()
 
 #	if MONGODB_USING_AUTH()
 	yggr::nsql_database_system::c_mongo_connection::init_type client_init(
-				"mongodb://xy:123456abc@127.0.0.1:10398/?ssl=true",	// str_uri
+				"mongodb://xy:123456abc@" + host_addr + ":10398/?ssl=true", //"mongodb://xy:123456abc@127.0.0.1:10398/?ssl=true",	// str_uri
 				"./nsql_database_system/cert/client.pem",		// pem_file
 				"",										// pem_pwd
 				"./nsql_database_system/cert/ca.pem",	// ca_file
@@ -53,7 +60,7 @@ void test1(void)
 			);
 #	else
 	yggr::nsql_database_system::c_mongo_connection::init_type client_init(
-				"mongodb://127.0.0.1:10298/?ssl=true",	// str_uri
+				"mongodb://" + host_addr + ":10298/?ssl=true", //"mongodb://127.0.0.1:10298/?ssl=true",	// str_uri
 				"./nsql_database_system/cert/client.pem",		// pem_file
 				"",										// pem_pwd
 				"./nsql_database_system/cert/ca.pem",	// ca_file
@@ -67,11 +74,11 @@ void test1(void)
 
 #	if MONGODB_USING_AUTH()
 	yggr::nsql_database_system::c_mongo_connection::init_type client_init(
-				"mongodb://xy:123456abc@127.0.0.1:10198/?ssl=false"	// str_uri
+				"mongodb://xy:123456abc@" + host_addr + ":10198/?ssl=false" //"mongodb://xy:123456abc@127.0.0.1:10198/?ssl=false"	// str_uri
 			);
 #	else
 	yggr::nsql_database_system::c_mongo_connection::init_type client_init(
-				"mongodb://127.0.0.1:10098/?ssl=false"	// str_uri
+				"mongodb://" + host_addr + ":10098/?ssl=false" // "mongodb://127.0.0.1:10098/?ssl=false"	// str_uri
 			);
 #	endif // MONGODB_USING_AUTH
 
@@ -95,23 +102,47 @@ void test1(void)
 void test2(void)
 {
 
-#if MONGODB_USING_CA()
+#if defined(YGGR_AT_MOBILE)
 
-#	if MONGODB_USING_AUTH()
-	const char *uristr = "mongodb://xy:123456abc@127.0.0.1:10398/?ssl=true";
+#	if MONGODB_USING_CA()
+
+#		if MONGODB_USING_AUTH()
+		const char *uristr = "mongodb://xy:123456abc@192.168.1.101:10398/?ssl=true";
+#		else
+		const char *uristr = "mongodb://192.168.1.101:10298/?ssl=true";
+#		endif // MONGODB_USING_AUTH
+
 #	else
-	const char *uristr = "mongodb://127.0.0.1:10298/?ssl=true";
-#	endif // MONGODB_USING_AUTH
+
+#		if MONGODB_USING_AUTH()
+		const char *uristr = "mongodb://xy:123456abc@192.168.1.101:10198/?ssl=false";
+#		else
+		const char *uristr = "mongodb://192.168.1.101:10098/?ssl=false";
+#		endif // MONGODB_USING_AUTH
+
+#	endif // MONGODB_USING_CA
 
 #else
 
-#	if MONGODB_USING_AUTH()
-	const char *uristr = "mongodb://xy:123456abc@127.0.0.1:10198/?ssl=false";
-#	else
-	const char *uristr = "mongodb://127.0.0.1:10098/?ssl=false";
-#	endif // MONGODB_USING_AUTH
+#	if MONGODB_USING_CA()
 
-#endif // MONGODB_USING_CA
+#		if MONGODB_USING_AUTH()
+		const char *uristr = "mongodb://xy:123456abc@127.0.0.1:10398/?ssl=true";
+#		else
+		const char *uristr = "mongodb://127.0.0.1:10298/?ssl=true";
+#		endif // MONGODB_USING_AUTH
+
+#	else
+
+#		if MONGODB_USING_AUTH()
+		const char *uristr = "mongodb://xy:123456abc@127.0.0.1:10198/?ssl=false";
+#		else
+		const char *uristr = "mongodb://127.0.0.1:10098/?ssl=false";
+#		endif // MONGODB_USING_AUTH
+
+#	endif // MONGODB_USING_CA
+
+#endif // YGGR_AT_MOBILE
 
 	mongoc_client_pool_t *client_pool = 0;
 	
@@ -131,7 +162,7 @@ void test2(void)
 	ssl_opts.pem_file = str_pem_file.c_str(); // warning this is not copy
 	ssl_opts.pem_pwd = "";
 	ssl_opts.ca_file = "./nsql_database_system/cert/ca.pem";
-	ssl_opts.ca_dir = "./nsql_database_system";
+	ssl_opts.ca_dir = "./nsql_database_system/cert";
 	ssl_opts.weak_cert_validation = true;
 
 	mongoc_client_pool_set_ssl_opts(client_pool, &ssl_opts);

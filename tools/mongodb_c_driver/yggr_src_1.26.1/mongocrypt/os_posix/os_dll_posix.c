@@ -104,15 +104,32 @@ bool mcr_dll_path_supported(void) {
 
 #include <link.h>
 
+#	if defined(__ANDROID__) || defined(ANDROID)
+
 mcr_dll_path_result mcr_dll_path(mcr_dll dll) {
-    struct link_map *map;
+	Dl_info info = {0}; 
+    int rc = dladdr(dll._native_handle, &info);
+    if (rc) {
+        return (mcr_dll_path_result){.path = mstr_copy_cstr(info.dli_fname)};
+    } else {
+        return (mcr_dll_path_result){.error_string = mstr_copy_cstr(dlerror())};
+    }
+}
+
+#	else
+
+mcr_dll_path_result mcr_dll_path(mcr_dll dll) {
+    struct link_map *map = 0;
     int rc = dlinfo(dll._native_handle, RTLD_DI_LINKMAP, &map);
     if (rc == 0) {
+        assert(0 != map);
         return (mcr_dll_path_result){.path = mstr_copy_cstr(map->l_name)};
     } else {
         return (mcr_dll_path_result){.error_string = mstr_copy_cstr(dlerror())};
     }
 }
+
+#endif // #	if defined(__ANDROID__) || defined(ANDROID)
 
 bool mcr_dll_path_supported(void) {
     return true;

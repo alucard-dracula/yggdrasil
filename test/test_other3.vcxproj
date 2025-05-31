@@ -22,7 +22,7 @@
     <ClInclude Include="wait_any_key\wait_any_key.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="database_system\database_accesser_test.cpp" />
+    <ClCompile Include="math\vector_and_matrix_nvp_seriaztion_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{249678C4-7A0E-43DF-8B86-9E3A2EEE8230}</ProjectGuid>

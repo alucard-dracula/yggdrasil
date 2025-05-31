@@ -22,7 +22,7 @@
     <ClInclude Include="wait_any_key\wait_any_key.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="database_system\test_database_accesser_excel_extern_sheet.cpp" />
+    <ClCompile Include="nsql_database_system\c_bson_binary_buffer_ref_operator_set_test_liner_only.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{780C73CB-30A1-45B2-BC42-81FF843E4B06}</ProjectGuid>

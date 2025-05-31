@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if [ -d "./cyrus-sasl2/krb5-1.21.3-final/src/not-remove-lib" ]; then
+	mv -f ./cyrus-sasl2/krb5-1.21.3-final/src/not-remove-lib ./cyrus-sasl2/krb5-1.21.3-final/src/lib
+fi
+
 find ./ -type d -name 'Debug' -exec rm -fr {} \;
 find ./ -type d -name 'Release' -exec rm -fr {} \;
 find ./ -type d -name 'Debug64' -exec rm -fr {} \;
@@ -16,7 +20,17 @@ find ./ -type d -name 'Release-a32' -exec rm -fr {} \;
 find ./ -type d -name 'Release-a64' -exec rm -fr {} \;
 find ./ -type d -name '.vscode' -exec rm -fr {} \;
 find ./ -type d -name '.vs' -exec rm -fr {} \;
+
+if [ -d "./cyrus-sasl2/krb5-1.21.3-final/src/lib" ]; then
+	mv -f ./cyrus-sasl2/krb5-1.21.3-final/src/lib ./cyrus-sasl2/krb5-1.21.3-final/src/not-remove-lib
+fi
+
 find ./ -type d -name 'lib' -exec rm -fr {} \;
+
+if [ -d "./cyrus-sasl2/krb5-1.21.3-final/src/not-remove-lib" ]; then
+	mv -f ./cyrus-sasl2/krb5-1.21.3-final/src/not-remove-lib ./cyrus-sasl2/krb5-1.21.3-final/src/lib
+fi
+
 find ./ -type d -name 'lib64' -exec rm -fr {} \;
 find ./ -type d -name 'bin' -exec rm -fr {} \;
 find ./ -type d -name 'bin64' -exec rm -fr {} \;

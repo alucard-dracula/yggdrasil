@@ -1,5 +1,5 @@
 <tool_upgrade_vcxproj_cfg class_id="0" tracking_level="0" version="0">
-	<root_dir_>..</root_dir_>
+	<root_dir_>../tools/cyrus-sasl2/lmdb-LMDB_0.9.31/libraries/liblmdb</root_dir_>
 	<dir_filter_>
 		<count>20</count>
 		<bucket_count>37</bucket_count>

@@ -61,7 +61,7 @@ goto :lab_end
 		--dbpath %data_dir1% ^
 		--logpath %log_file1% ^
 		--replSet rs0 ^
-		--bind_ip 127.0.0.1 ^
+		--bind_ip_all ^
 		--port 11398 ^
 		--logappend ^
 		--tlsMode requireTLS ^
@@ -75,7 +75,7 @@ goto :lab_end
 		--dbpath %data_dir2% ^
 		--logpath %log_file2% ^
 		--replSet rs0 ^
-		--bind_ip 127.0.0.1 ^
+		--bind_ip_all ^
 		--port 11399 ^
 		--logappend ^
 		--tlsMode requireTLS ^
@@ -89,7 +89,7 @@ goto :lab_end
 		--dbpath %data_dir3% ^
 		--logpath %log_file3% ^
 		--replSet rs0 ^
-		--bind_ip 127.0.0.1 ^
+		--bind_ip_all ^
 		--port 11400 ^
 		--logappend ^
 		--tlsMode requireTLS ^

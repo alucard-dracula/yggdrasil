@@ -22,18 +22,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-m32"/>
-					<Add option="-lmongoc$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lmongocrypt$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lkms-message$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lutf8proc$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lbson$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lcommon$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lz$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lssl"/>
-					<Add option="-lsasl2.dll"/>
-					<Add option="-lintel_dfp_obj$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lcrypto"/>
-					<Add option="-lbase64$(#COMPILER_VERSION_TAG)-d"/>
 					<Add option="-lmgw_gcc_sjlj$(#COMPILER_VERSION_TAG)-d"/>
 					<Add directory="../lib"/>
 				</Linker>
@@ -53,18 +41,6 @@
 					<Add option="-m32"/>
 					<Add option="-s"/>
 					<Add option="-Wl,--gc-sections"/>
-					<Add option="-lmongoc$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lmongocrypt$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lkms-message$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lutf8proc$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lbson$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lcommon$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lz$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lssl"/>
-					<Add option="-lsasl2.dll"/>
-					<Add option="-lintel_dfp_obj$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lcrypto"/>
-					<Add option="-lbase64$(#COMPILER_VERSION_TAG)"/>
 					<Add option="-lmgw_gcc_sjlj$(#COMPILER_VERSION_TAG)"/>
 					<Add directory="../lib"/>
 				</Linker>
@@ -87,18 +63,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-m64"/>
-					<Add option="-lmongoc$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lmongocrypt$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lkms-message$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lutf8proc$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lbson$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lcommon$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lz$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lssl"/>
-					<Add option="-lsasl2.dll"/>
-					<Add option="-lintel_dfp_obj$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lcrypto"/>
-					<Add option="-lbase64$(#COMPILER_VERSION_TAG)-d"/>
 					<Add directory="../lib64"/>
 				</Linker>
 			</Target>
@@ -119,18 +83,6 @@
 					<Add option="-m64"/>
 					<Add option="-s"/>
 					<Add option="-Wl,--gc-sections"/>
-					<Add option="-lmongoc$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lmongocrypt$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lkms-message$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lutf8proc$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lbson$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lcommon$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lz$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lssl"/>
-					<Add option="-lsasl2.dll"/>
-					<Add option="-lintel_dfp_obj$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lcrypto"/>
-					<Add option="-lbase64$(#COMPILER_VERSION_TAG)"/>
 					<Add directory="../lib64"/>
 				</Linker>
 			</Target>
@@ -164,9 +116,5 @@
 		<Extensions>
 			<lib_finder disable_auto="1"/>
 		</Extensions>
-		<Linker>
-			<Add option="-lws2_32"/>
-			<Add option="-ldnsapi"/>
-		</Linker>
 	</Project>
 </CodeBlocks_project_file>

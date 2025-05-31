@@ -26,6 +26,7 @@
 
 #include <yggr_detail/c_version_support.h>
 #include <yggr_detail/platform_config.h>
+#include <yggr_detail/inteldfp_config.h>
 
 /* clang-format off */
 
@@ -39,20 +40,15 @@
  * o test_handshake_platform_config in test-mongoc-handshake.c
  */
 
-#ifdef BUILD_MONGODB_DRIVER_YGGR_VER
-#	include <yggr_detail/c_version_support.h>
-#	include <yggr_detail/platform_config.h>
-#endif //BUILD_MONGODB_DRIVER_YGGR_VER
-
 /* MONGOC_USER_SET_CFLAGS is set from config based on what compiler flags were
  * used to compile mongoc */
 
-#if defined(WIN64) || defined(_WIN64)
+#if YGGR_EX_SYSTEM_64
 #	if defined(_DEBUG)
 #		define MONGOC_USER_SET_CFLAGS \
 			-D_DEBUG -D_WINDOWS -D_LIB \
 			-DBSON_STATIC -DBUILD_MONGODB_DRIVER_YGGR_VER -DKMS_MSG_STATIC \
-			-DMLIB_USER -DMONGOCRYPT_INTELDFP -DMONGOCRYPT_LITTLE_ENDIAN \
+			-DMLIB_USER -DMONGOCRYPT_LITTLE_ENDIAN \
 			-DMONGOCRYPT_STATIC_DEFINE -DMONGOC_COMPILATION -DMONGOC_STATIC -DUTF8PROC_STATIC \
 			-g -O0 -m64 -Wall -fexceptions -Wno-sign-compare -Wno-comment -Wno-enum-compare \
 			-Wno-unused-local-typedefs -Wno-multichar -Werror=return-type -Werror=endif-labels \
@@ -65,7 +61,7 @@
 #		define MONGOC_USER_SET_CFLAGS \
 			-DNDEBUG -D_WINDOWS -D_LIB \
 			-DBSON_STATIC -DBUILD_MONGODB_DRIVER_YGGR_VER -DKMS_MSG_STATIC \
-			-DMLIB_USER -DMONGOCRYPT_INTELDFP -DMONGOCRYPT_LITTLE_ENDIAN \
+			-DMLIB_USER -DMONGOCRYPT_LITTLE_ENDIAN \
 			-DMONGOCRYPT_STATIC_DEFINE -DMONGOC_COMPILATION -DMONGOC_STATIC -DUTF8PROC_STATIC \
 			-O3 -Wall -m64 -fexceptions -Wno-sign-compare -Wno-comment -Wno-enum-compare \
 			-Wno-unused-local-typedefs -Wno-multichar -Werror=return-type -Werror=endif-labels \
@@ -79,7 +75,7 @@
 #		define MONGOC_USER_SET_CFLAGS \
 			-D_DEBUG -D_WINDOWS -D_LIB \
 			-DBSON_STATIC -DBUILD_MONGODB_DRIVER_YGGR_VER -DKMS_MSG_STATIC \
-			-DMLIB_USER -DMONGOCRYPT_INTELDFP -DMONGOCRYPT_LITTLE_ENDIAN \
+			-DMLIB_USER -DMONGOCRYPT_LITTLE_ENDIAN \
 			-DMONGOCRYPT_STATIC_DEFINE -DMONGOC_COMPILATION -DMONGOC_STATIC -DUTF8PROC_STATIC \
 			-g -O0 -m32 -Wall -fexceptions -Wno-sign-compare -Wno-comment -Wno-enum-compare \
 			-Wno-unused-local-typedefs -Wno-multichar -Werror=return-type -Werror=endif-labels \
@@ -91,7 +87,7 @@
 #		define MONGOC_USER_SET_CFLAGS \
 			-DNDEBUG -D_WINDOWS -D_LIB \
 			-DBSON_STATIC -DBUILD_MONGODB_DRIVER_YGGR_VER -DKMS_MSG_STATIC \
-			-DMLIB_USER -DMONGOCRYPT_INTELDFP -DMONGOCRYPT_LITTLE_ENDIAN \
+			-DMLIB_USER -DMONGOCRYPT_LITTLE_ENDIAN \
 			-DMONGOCRYPT_STATIC_DEFINE -DMONGOC_COMPILATION -DMONGOC_STATIC -DUTF8PROC_STATIC \
 			-O3 -m32 -Wall -fexceptions -Wno-sign-compare -Wno-comment -Wno-enum-compare \
 			-Wno-unused-local-typedefs -Wno-multichar -Werror=return-type -Werror=endif-labels \
@@ -99,7 +95,7 @@
 
 #		define MONGOC_USER_SET_LDFLAGS -m32 -s
 #	endif // _DEBUG
-#endif //WIN64
+#endif //YGGR_EX_SYSTEM_64
 
 /* MONGOC_CC is used to determine what C compiler was used to compile mongoc */
 #define MONGOC_CC "clang"
@@ -151,6 +147,15 @@
 #	undef MONGOC_ENABLE_CRYPTO_CNG
 #endif // MONGOC_ENABLE_CRYPTO_CNG
 
+/*
+ * MONGOC_HAVE_BCRYPT_PBKDF2 is set from configure to determine if 
+ * our Bcrypt Windows library supports PBKDF2 
+ */
+#define MONGOC_HAVE_BCRYPT_PBKDF2 0
+
+#if MONGOC_HAVE_BCRYPT_PBKDF2 != 1
+#  undef MONGOC_HAVE_BCRYPT_PBKDF2
+#endif
 
 /*
  * MONGOC_ENABLE_SSL_SECURE_TRANSPORT is set from configure to determine if we are
@@ -304,6 +309,14 @@
 #	undef MONGOC_ENABLE_SASL_CYRUS
 #endif // MONGOC_ENABLE_SASL_CYRUS
 
+#if MONGOC_ENABLE_SASL_CYRUS
+#	if (YGGR_EX_SYSTEM_64)
+#		define MONGOC_CYRUS_PLUGIN_PATH_PREFIX "/usr/lib/sasl2"
+#	else
+#		error "macos not support 32bit app"
+#	endif // YGGR_EX_SYSTEM_64
+#endif //MONGOC_ENABLE_SASL_CYRUS
+
 /*
  * MONGOC_ENABLE_SASL_SSPI is set from configure to determine if we are
  * compiled with SSPI support.
@@ -380,7 +393,7 @@
  * have thread-safe res_nsearch().
  */
 #if !defined(MONGOC_HAVE_RES_NSEARCH)
-#	define MONGOC_HAVE_RES_NSEARCH 0
+#	define MONGOC_HAVE_RES_NSEARCH 1
 #endif // MONGOC_HAVE_RES_NSEARCH
 
 #if MONGOC_HAVE_RES_NSEARCH != 1
@@ -393,7 +406,7 @@
  * have BSD / Darwin's res_ndestroy().
  */
 #if !defined(MONGOC_HAVE_RES_NDESTROY)
-#	define MONGOC_HAVE_RES_NDESTROY 0
+#	define MONGOC_HAVE_RES_NDESTROY 1
 #endif // MONGOC_HAVE_RES_NDESTROY
 
 #if MONGOC_HAVE_RES_NDESTROY != 1
@@ -406,7 +419,7 @@
  * have Linux's res_nclose().
  */
 #if !defined(MONGOC_HAVE_RES_NCLOSE)
-#	define MONGOC_HAVE_RES_NCLOSE 1
+#	define MONGOC_HAVE_RES_NCLOSE 0
 #endif // MONGOC_HAVE_RES_NCLOSE
 
 #if MONGOC_HAVE_RES_NCLOSE != 1

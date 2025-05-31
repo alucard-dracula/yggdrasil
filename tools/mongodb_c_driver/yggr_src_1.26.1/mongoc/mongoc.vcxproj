@@ -1,280 +1,280 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<ItemGroup Label="ProjectConfigurations">
-		<ProjectConfiguration Include="Debug|Win32">
-			<Configuration>Debug</Configuration>
-			<Platform>Win32</Platform>
-		</ProjectConfiguration>
-		<ProjectConfiguration Include="Debug|x64">
-			<Configuration>Debug</Configuration>
-			<Platform>x64</Platform>
-		</ProjectConfiguration>
-		<ProjectConfiguration Include="Release|Win32">
-			<Configuration>Release</Configuration>
-			<Platform>Win32</Platform>
-		</ProjectConfiguration>
-		<ProjectConfiguration Include="Release|x64">
-			<Configuration>Release</Configuration>
-			<Platform>x64</Platform>
-		</ProjectConfiguration>
-	</ItemGroup>
-	<ItemGroup>
-		<ClCompile Include="mcd-azure.c"/>
-		<ClCompile Include="mcd-rpc.c"/>
-		<ClCompile Include="mongoc-aggregate.c"/>
-		<ClCompile Include="mongoc-apm.c"/>
-		<ClCompile Include="mongoc-array.c"/>
-		<ClCompile Include="mongoc-async-cmd.c"/>
-		<ClCompile Include="mongoc-async.c"/>
-		<ClCompile Include="mongoc-buffer.c"/>
-		<ClCompile Include="mongoc-bulk-operation.c"/>
-		<ClCompile Include="mongoc-change-stream.c"/>
-		<ClCompile Include="mongoc-client-pool.c"/>
-		<ClCompile Include="mongoc-client-session.c"/>
-		<ClCompile Include="mongoc-client-side-encryption.c"/>
-		<ClCompile Include="mongoc-client.c"/>
-		<ClCompile Include="mongoc-cluster-aws.c"/>
-		<ClCompile Include="mongoc-cluster-cyrus.c"/>
-		<ClCompile Include="mongoc-cluster-sasl.c"/>
-		<ClCompile Include="mongoc-cluster-sspi.c"/>
-		<ClCompile Include="mongoc-cluster.c"/>
-		<ClCompile Include="mongoc-cmd.c"/>
-		<ClCompile Include="mongoc-collection.c"/>
-		<ClCompile Include="mongoc-compression.c"/>
-		<ClCompile Include="mongoc-counters.c"/>
-		<ClCompile Include="mongoc-crypt.c"/>
-		<ClCompile Include="mongoc-crypto-cng.c"/>
-		<ClCompile Include="mongoc-crypto-common-crypto.c"/>
-		<ClCompile Include="mongoc-crypto-openssl.c"/>
-		<ClCompile Include="mongoc-crypto.c"/>
-		<ClCompile Include="mongoc-cursor-array.c"/>
-		<ClCompile Include="mongoc-cursor-change-stream.c"/>
-		<ClCompile Include="mongoc-cursor-cmd-deprecated.c"/>
-		<ClCompile Include="mongoc-cursor-cmd.c"/>
-		<ClCompile Include="mongoc-cursor-find-cmd.c"/>
-		<ClCompile Include="mongoc-cursor-find-opquery.c"/>
-		<ClCompile Include="mongoc-cursor-find.c"/>
-		<ClCompile Include="mongoc-cursor-legacy.c"/>
-		<ClCompile Include="mongoc-cursor.c"/>
-		<ClCompile Include="mongoc-cyrus.c"/>
-		<ClCompile Include="mongoc-database.c"/>
-		<ClCompile Include="mongoc-deprioritized-servers.c"/>
-		<ClCompile Include="mongoc-error.c"/>
-		<ClCompile Include="mongoc-find-and-modify.c"/>
-		<ClCompile Include="mongoc-flags.c"/>
-		<ClCompile Include="mongoc-generation-map.c"/>
-		<ClCompile Include="mongoc-gridfs-bucket-file.c"/>
-		<ClCompile Include="mongoc-gridfs-bucket.c"/>
-		<ClCompile Include="mongoc-gridfs-file-list.c"/>
-		<ClCompile Include="mongoc-gridfs-file-page.c"/>
-		<ClCompile Include="mongoc-gridfs-file.c"/>
-		<ClCompile Include="mongoc-gridfs.c"/>
-		<ClCompile Include="mongoc-handshake.c"/>
-		<ClCompile Include="mongoc-host-list.c"/>
-		<ClCompile Include="mongoc-http.c"/>
-		<ClCompile Include="mongoc-index.c"/>
-		<ClCompile Include="mongoc-init.c"/>
-		<ClCompile Include="mongoc-interrupt.c"/>
-		<ClCompile Include="mongoc-libressl.c"/>
-		<ClCompile Include="mongoc-linux-distro-scanner.c"/>
-		<ClCompile Include="mongoc-list.c"/>
-		<ClCompile Include="mongoc-log.c"/>
-		<ClCompile Include="mongoc-matcher-op.c"/>
-		<ClCompile Include="mongoc-matcher.c"/>
-		<ClCompile Include="mongoc-memcmp.c"/>
-		<ClCompile Include="mongoc-ocsp-cache.c"/>
-		<ClCompile Include="mongoc-opcode.c"/>
-		<ClCompile Include="mongoc-openssl.c"/>
-		<ClCompile Include="mongoc-optional.c"/>
-		<ClCompile Include="mongoc-opts-helpers.c"/>
-		<ClCompile Include="mongoc-opts.c"/>
-		<ClCompile Include="mongoc-queue.c"/>
-		<ClCompile Include="mongoc-rand-cng.c"/>
-		<ClCompile Include="mongoc-rand-common-crypto.c"/>
-		<ClCompile Include="mongoc-rand-openssl.c"/>
-		<ClCompile Include="mongoc-read-concern.c"/>
-		<ClCompile Include="mongoc-read-prefs.c"/>
-		<ClCompile Include="mongoc-rpc.c"/>
-		<ClCompile Include="mongoc-sasl.c"/>
-		<ClCompile Include="mongoc-scram.c"/>
-		<ClCompile Include="mongoc-secure-channel.c"/>
-		<ClCompile Include="mongoc-secure-transport.c"/>
-		<ClCompile Include="mongoc-server-api.c"/>
-		<ClCompile Include="mongoc-server-description.c"/>
-		<ClCompile Include="mongoc-server-monitor.c"/>
-		<ClCompile Include="mongoc-server-stream.c"/>
-		<ClCompile Include="mongoc-set.c"/>
-		<ClCompile Include="mongoc-shared.c"/>
-		<ClCompile Include="mongoc-socket.c"/>
-		<ClCompile Include="mongoc-ssl.c"/>
-		<ClCompile Include="mongoc-sspi.c"/>
-		<ClCompile Include="mongoc-stream-buffered.c"/>
-		<ClCompile Include="mongoc-stream-file.c"/>
-		<ClCompile Include="mongoc-stream-gridfs-download.c"/>
-		<ClCompile Include="mongoc-stream-gridfs-upload.c"/>
-		<ClCompile Include="mongoc-stream-gridfs.c"/>
-		<ClCompile Include="mongoc-stream-socket.c"/>
-		<ClCompile Include="mongoc-stream-tls-libressl.c"/>
-		<ClCompile Include="mongoc-stream-tls-openssl-bio.c"/>
-		<ClCompile Include="mongoc-stream-tls-openssl.c"/>
-		<ClCompile Include="mongoc-stream-tls-secure-channel.c"/>
-		<ClCompile Include="mongoc-stream-tls-secure-transport.c"/>
-		<ClCompile Include="mongoc-stream-tls.c"/>
-		<ClCompile Include="mongoc-stream.c"/>
-		<ClCompile Include="mongoc-timeout.c"/>
-		<ClCompile Include="mongoc-topology-background-monitoring.c"/>
-		<ClCompile Include="mongoc-topology-description-apm.c"/>
-		<ClCompile Include="mongoc-topology-description.c"/>
-		<ClCompile Include="mongoc-topology-scanner.c"/>
-		<ClCompile Include="mongoc-topology.c"/>
-		<ClCompile Include="mongoc-ts-pool.c"/>
-		<ClCompile Include="mongoc-uri.c"/>
-		<ClCompile Include="mongoc-util.c"/>
-		<ClCompile Include="mongoc-version-functions.c"/>
-		<ClCompile Include="mongoc-write-command.c"/>
-		<ClCompile Include="mongoc-write-concern.c"/>
-		<ClCompile Include="service-gcp.c"/>
-	</ItemGroup>
-	<PropertyGroup Label="Globals">
-		<ProjectGuid>{2D82DD3C-5F70-4A2A-9253-022DAC86AC2D}</ProjectGuid>
-		<RootNamespace>mongoc</RootNamespace>
-	</PropertyGroup>
-	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-		<ConfigurationType>StaticLibrary</ConfigurationType>
-		<CharacterSet>MultiByte</CharacterSet>
-		<UseDebugLibraries>true</UseDebugLibraries>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-		<ConfigurationType>StaticLibrary</ConfigurationType>
-		<CharacterSet>MultiByte</CharacterSet>
-		<WholeProgramOptimization>true</WholeProgramOptimization>
-		<UseDebugLibraries>false</UseDebugLibraries>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-		<ConfigurationType>StaticLibrary</ConfigurationType>
-		<CharacterSet>MultiByte</CharacterSet>
-		<UseDebugLibraries>true</UseDebugLibraries>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-		<ConfigurationType>StaticLibrary</ConfigurationType>
-		<CharacterSet>MultiByte</CharacterSet>
-		<WholeProgramOptimization>true</WholeProgramOptimization>
-		<UseDebugLibraries>false</UseDebugLibraries>
-	</PropertyGroup>
-	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
-	<ImportGroup Label="ExtensionSettings">
-</ImportGroup>
-	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
-		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
-		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
-	</ImportGroup>
-	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
-		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
-		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
-	</ImportGroup>
-	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
-		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
-		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
-	</ImportGroup>
-	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
-		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
-		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
-	</ImportGroup>
-	<PropertyGroup Label="UserMacros"/>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-		<LinkIncremental>true</LinkIncremental>
-		<OutDir>$(SolutionDir)lib/</OutDir>
-		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
-		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-d</TargetName>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-		<LinkIncremental>true</LinkIncremental>
-		<OutDir>$(SolutionDir)lib64/</OutDir>
-		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
-		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-d</TargetName>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-		<LinkIncremental>false</LinkIncremental>
-		<OutDir>$(SolutionDir)lib/</OutDir>
-		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
-		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)</TargetName>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-		<LinkIncremental>false</LinkIncremental>
-		<OutDir>$(SolutionDir)lib64/</OutDir>
-		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
-		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)</TargetName>
-	</PropertyGroup>
-	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-		<ClCompile>
-			<Optimization>MaxSpeed</Optimization>
-			<AdditionalIncludeDirectories>../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_LIB;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_INTELDFP;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_COMPILATION;MONGOC_STATIC;UTF8PROC_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
-			<WarningLevel>Level3</WarningLevel>
-			<FunctionLevelLinking>true</FunctionLevelLinking>
-			<IntrinsicFunctions>true</IntrinsicFunctions>
-			<WholeProgramOptimization>false</WholeProgramOptimization>
-		</ClCompile>
-		<Lib>
-			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-		</Lib>
-		<Bscmake>
-			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
-		</Bscmake>
-	</ItemDefinitionGroup>
-	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-		<ClCompile>
-			<Optimization>MaxSpeed</Optimization>
-			<AdditionalIncludeDirectories>../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_WINDOWS;_LIB;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_INTELDFP;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_COMPILATION;MONGOC_STATIC;UTF8PROC_STATIC;_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
-			<WarningLevel>Level3</WarningLevel>
-			<FunctionLevelLinking>true</FunctionLevelLinking>
-			<IntrinsicFunctions>true</IntrinsicFunctions>
-			<WholeProgramOptimization>false</WholeProgramOptimization>
-		</ClCompile>
-		<Lib>
-			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-		</Lib>
-		<Bscmake>
-			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
-		</Bscmake>
-	</ItemDefinitionGroup>
-	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-		<ClCompile>
-			<Optimization>Disabled</Optimization>
-			<AdditionalIncludeDirectories>../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_LIB;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_INTELDFP;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_COMPILATION;MONGOC_STATIC;UTF8PROC_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
-			<WarningLevel>Level3</WarningLevel>
-			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-		</ClCompile>
-		<Lib>
-			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-		</Lib>
-		<Bscmake>
-			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
-		</Bscmake>
-	</ItemDefinitionGroup>
-	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-		<ClCompile>
-			<Optimization>Disabled</Optimization>
-			<AdditionalIncludeDirectories>../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_WINDOWS;_LIB;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_INTELDFP;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_COMPILATION;MONGOC_STATIC;UTF8PROC_STATIC;_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
-			<WarningLevel>Level3</WarningLevel>
-			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-		</ClCompile>
-		<Lib>
-			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-		</Lib>
-		<Bscmake>
-			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
-		</Bscmake>
-	</ItemDefinitionGroup>
-	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
-	<ImportGroup Label="ExtensionTargets">
-</ImportGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="mcd-azure.c" />
+    <ClCompile Include="mcd-rpc.c" />
+    <ClCompile Include="mongoc-aggregate.c" />
+    <ClCompile Include="mongoc-apm.c" />
+    <ClCompile Include="mongoc-array.c" />
+    <ClCompile Include="mongoc-async-cmd.c" />
+    <ClCompile Include="mongoc-async.c" />
+    <ClCompile Include="mongoc-buffer.c" />
+    <ClCompile Include="mongoc-bulk-operation.c" />
+    <ClCompile Include="mongoc-change-stream.c" />
+    <ClCompile Include="mongoc-client-pool.c" />
+    <ClCompile Include="mongoc-client-session.c" />
+    <ClCompile Include="mongoc-client-side-encryption.c" />
+    <ClCompile Include="mongoc-client.c" />
+    <ClCompile Include="mongoc-cluster-aws.c" />
+    <ClCompile Include="mongoc-cluster-cyrus.c" />
+    <ClCompile Include="mongoc-cluster-sasl.c" />
+    <ClCompile Include="mongoc-cluster-sspi.c" />
+    <ClCompile Include="mongoc-cluster.c" />
+    <ClCompile Include="mongoc-cmd.c" />
+    <ClCompile Include="mongoc-collection.c" />
+    <ClCompile Include="mongoc-compression.c" />
+    <ClCompile Include="mongoc-counters.c" />
+    <ClCompile Include="mongoc-crypt.c" />
+    <ClCompile Include="mongoc-crypto-cng.c" />
+    <ClCompile Include="mongoc-crypto-common-crypto.c" />
+    <ClCompile Include="mongoc-crypto-openssl.c" />
+    <ClCompile Include="mongoc-crypto.c" />
+    <ClCompile Include="mongoc-cursor-array.c" />
+    <ClCompile Include="mongoc-cursor-change-stream.c" />
+    <ClCompile Include="mongoc-cursor-cmd-deprecated.c" />
+    <ClCompile Include="mongoc-cursor-cmd.c" />
+    <ClCompile Include="mongoc-cursor-find-cmd.c" />
+    <ClCompile Include="mongoc-cursor-find-opquery.c" />
+    <ClCompile Include="mongoc-cursor-find.c" />
+    <ClCompile Include="mongoc-cursor-legacy.c" />
+    <ClCompile Include="mongoc-cursor.c" />
+    <ClCompile Include="mongoc-cyrus.c" />
+    <ClCompile Include="mongoc-database.c" />
+    <ClCompile Include="mongoc-deprioritized-servers.c" />
+    <ClCompile Include="mongoc-error.c" />
+    <ClCompile Include="mongoc-find-and-modify.c" />
+    <ClCompile Include="mongoc-flags.c" />
+    <ClCompile Include="mongoc-generation-map.c" />
+    <ClCompile Include="mongoc-gridfs-bucket-file.c" />
+    <ClCompile Include="mongoc-gridfs-bucket.c" />
+    <ClCompile Include="mongoc-gridfs-file-list.c" />
+    <ClCompile Include="mongoc-gridfs-file-page.c" />
+    <ClCompile Include="mongoc-gridfs-file.c" />
+    <ClCompile Include="mongoc-gridfs.c" />
+    <ClCompile Include="mongoc-handshake.c" />
+    <ClCompile Include="mongoc-host-list.c" />
+    <ClCompile Include="mongoc-http.c" />
+    <ClCompile Include="mongoc-index.c" />
+    <ClCompile Include="mongoc-init.c" />
+    <ClCompile Include="mongoc-interrupt.c" />
+    <ClCompile Include="mongoc-libressl.c" />
+    <ClCompile Include="mongoc-linux-distro-scanner.c" />
+    <ClCompile Include="mongoc-list.c" />
+    <ClCompile Include="mongoc-log.c" />
+    <ClCompile Include="mongoc-matcher-op.c" />
+    <ClCompile Include="mongoc-matcher.c" />
+    <ClCompile Include="mongoc-memcmp.c" />
+    <ClCompile Include="mongoc-ocsp-cache.c" />
+    <ClCompile Include="mongoc-opcode.c" />
+    <ClCompile Include="mongoc-openssl.c" />
+    <ClCompile Include="mongoc-optional.c" />
+    <ClCompile Include="mongoc-opts-helpers.c" />
+    <ClCompile Include="mongoc-opts.c" />
+    <ClCompile Include="mongoc-queue.c" />
+    <ClCompile Include="mongoc-rand-cng.c" />
+    <ClCompile Include="mongoc-rand-common-crypto.c" />
+    <ClCompile Include="mongoc-rand-openssl.c" />
+    <ClCompile Include="mongoc-read-concern.c" />
+    <ClCompile Include="mongoc-read-prefs.c" />
+    <ClCompile Include="mongoc-rpc.c" />
+    <ClCompile Include="mongoc-sasl.c" />
+    <ClCompile Include="mongoc-scram.c" />
+    <ClCompile Include="mongoc-secure-channel.c" />
+    <ClCompile Include="mongoc-secure-transport.c" />
+    <ClCompile Include="mongoc-server-api.c" />
+    <ClCompile Include="mongoc-server-description.c" />
+    <ClCompile Include="mongoc-server-monitor.c" />
+    <ClCompile Include="mongoc-server-stream.c" />
+    <ClCompile Include="mongoc-set.c" />
+    <ClCompile Include="mongoc-shared.c" />
+    <ClCompile Include="mongoc-socket.c" />
+    <ClCompile Include="mongoc-ssl.c" />
+    <ClCompile Include="mongoc-sspi.c" />
+    <ClCompile Include="mongoc-stream-buffered.c" />
+    <ClCompile Include="mongoc-stream-file.c" />
+    <ClCompile Include="mongoc-stream-gridfs-download.c" />
+    <ClCompile Include="mongoc-stream-gridfs-upload.c" />
+    <ClCompile Include="mongoc-stream-gridfs.c" />
+    <ClCompile Include="mongoc-stream-socket.c" />
+    <ClCompile Include="mongoc-stream-tls-libressl.c" />
+    <ClCompile Include="mongoc-stream-tls-openssl-bio.c" />
+    <ClCompile Include="mongoc-stream-tls-openssl.c" />
+    <ClCompile Include="mongoc-stream-tls-secure-channel.c" />
+    <ClCompile Include="mongoc-stream-tls-secure-transport.c" />
+    <ClCompile Include="mongoc-stream-tls.c" />
+    <ClCompile Include="mongoc-stream.c" />
+    <ClCompile Include="mongoc-timeout.c" />
+    <ClCompile Include="mongoc-topology-background-monitoring.c" />
+    <ClCompile Include="mongoc-topology-description-apm.c" />
+    <ClCompile Include="mongoc-topology-description.c" />
+    <ClCompile Include="mongoc-topology-scanner.c" />
+    <ClCompile Include="mongoc-topology.c" />
+    <ClCompile Include="mongoc-ts-pool.c" />
+    <ClCompile Include="mongoc-uri.c" />
+    <ClCompile Include="mongoc-util.c" />
+    <ClCompile Include="mongoc-version-functions.c" />
+    <ClCompile Include="mongoc-write-command.c" />
+    <ClCompile Include="mongoc-write-concern.c" />
+    <ClCompile Include="service-gcp.c" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2D82DD3C-5F70-4A2A-9253-022DAC86AC2D}</ProjectGuid>
+    <RootNamespace>mongoc</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)lib/</OutDir>
+    <IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+    <TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)lib64/</OutDir>
+    <IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+    <TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)lib/</OutDir>
+    <IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+    <TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)lib64/</OutDir>
+    <IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+    <TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../include;../include/bson;../include/common;../include/jsonsl;../include/kms_message;../include/mongo_crypt;../include/mongoc;../include/mongocrypt;../include/mongocrypt/unicode;../include/utf8proc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_LIB;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_COMPILATION;MONGOC_STATIC;UTF8PROC_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+    <Bscmake>
+      <OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../include;../include/bson;../include/common;../include/jsonsl;../include/kms_message;../include/mongo_crypt;../include/mongoc;../include/mongocrypt;../include/mongocrypt/unicode;../include/utf8proc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_WINDOWS;_LIB;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_COMPILATION;MONGOC_STATIC;UTF8PROC_STATIC;_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+    <Bscmake>
+      <OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../include;../include/bson;../include/common;../include/jsonsl;../include/kms_message;../include/mongo_crypt;../include/mongoc;../include/mongocrypt;../include/mongocrypt/unicode;../include/utf8proc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_LIB;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_COMPILATION;MONGOC_STATIC;UTF8PROC_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+    <Bscmake>
+      <OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../include;../include/bson;../include/common;../include/jsonsl;../include/kms_message;../include/mongo_crypt;../include/mongoc;../include/mongocrypt;../include/mongocrypt/unicode;../include/utf8proc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_WINDOWS;_LIB;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_COMPILATION;MONGOC_STATIC;UTF8PROC_STATIC;_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+    <Bscmake>
+      <OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
 </Project>

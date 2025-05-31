@@ -20,7 +20,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="database_system\database_accesser_test.cpp">
+    <ClCompile Include="math\vector_and_matrix_nvp_seriaztion_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

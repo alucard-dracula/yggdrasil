@@ -130,6 +130,7 @@ l_ldflags := \
 
 ifeq ($(NDK_DEBUG), 1)
 	l_ldflags += \
+		-lyggr_nsql_database_system$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		-lyggr_segment$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		-lyggr_system_controller$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		-lyggr_exception$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
@@ -145,6 +146,14 @@ ifeq ($(NDK_DEBUG), 1)
 		-lboost_date_time$(USRDEF_APP_COMPILER_VERSION_TAG)-mt-d$(tag_arch_bits)$(USRDEF_APP_BOOST_VERSION_TAG) \
 		-lboost_thread$(USRDEF_APP_COMPILER_VERSION_TAG)-mt-d$(tag_arch_bits)$(USRDEF_APP_BOOST_VERSION_TAG) \
 		-lboost_system$(USRDEF_APP_COMPILER_VERSION_TAG)-mt-d$(tag_arch_bits)$(USRDEF_APP_BOOST_VERSION_TAG) \
+		-lmongoc$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
+		-lmongocrypt$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
+		-lkms-message$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
+		-lbson$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
+		-lcommon$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
+		-lbson$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
+		-lcommon$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
+		-lutf8proc$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		-licuuc \
 		-licui18n \
 		-licudata \
@@ -155,6 +164,7 @@ else
 	l_ldflags += \
 		-s \
 		-Wl,--gc-sections \
+		-lyggr_nsql_database_system$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		-lyggr_segment$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		-lyggr_system_controller$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		-lyggr_exception$(USRDEF_APP_COMPILER_VERSION_TAG) \
@@ -170,6 +180,14 @@ else
 		-lboost_date_time$(USRDEF_APP_COMPILER_VERSION_TAG)-mt$(tag_arch_bits)$(USRDEF_APP_BOOST_VERSION_TAG) \
 		-lboost_thread$(USRDEF_APP_COMPILER_VERSION_TAG)-mt$(tag_arch_bits)$(USRDEF_APP_BOOST_VERSION_TAG) \
 		-lboost_system$(USRDEF_APP_COMPILER_VERSION_TAG)-mt$(tag_arch_bits)$(USRDEF_APP_BOOST_VERSION_TAG) \
+		-lmongoc$(USRDEF_APP_COMPILER_VERSION_TAG) \
+		-lmongocrypt$(USRDEF_APP_COMPILER_VERSION_TAG) \
+		-lkms-message$(USRDEF_APP_COMPILER_VERSION_TAG) \
+		-lbson$(USRDEF_APP_COMPILER_VERSION_TAG) \
+		-lcommon$(USRDEF_APP_COMPILER_VERSION_TAG) \
+		-lbson$(USRDEF_APP_COMPILER_VERSION_TAG) \
+		-lcommon$(USRDEF_APP_COMPILER_VERSION_TAG) \
+		-lutf8proc$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		-licuuc \
 		-licui18n \
 		-licudata \

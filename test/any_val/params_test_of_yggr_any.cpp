@@ -18,6 +18,7 @@
 #include YGGR_PP_LINK_LIB(any_val)
 #include YGGR_PP_LINK_LIB(exception)
 #include YGGR_PP_LINK_LIB(charset)
+#include YGGR_PP_LINK_LIB(time)
 #include YGGR_PP_LINK_LIB(base)
 
 typedef yggr::any_val::params<std::string> params_type;

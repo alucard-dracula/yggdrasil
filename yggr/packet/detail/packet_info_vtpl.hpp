@@ -622,7 +622,7 @@ std::basic_ostream<Char, Traits>&
 	typedef typename info_type::value_type info_value_type;
 	const info_value_type& cref_val = right;
 
-	os <<"packet_info" <<cref_val;
+	os << "packet_info" <<cref_val;
 	return os;
 }
 

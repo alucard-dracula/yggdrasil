@@ -23,14 +23,27 @@
 
 #if defined(BUILD_MONGODB_DRIVER_YGGR_VER)
 
+#include <yggr_detail/mongo_c_inline.h>
+#include <yggr_detail/c_version_support.h>
+#include <yggr_detail/warning_check.h>
+
 #if defined(_MSC_VER)
 #	include <yggr_detail/config/bson_config_msvc.h>
 #elif defined(__MINGW32__)
 #	include <yggr_detail/config/bson_config_mingw.h>
 #elif defined(__APPLE__) || defined(__APPLE_CC__)
-#	include <yggr_detail/config/bson_config_darwin.h>
+#	if (defined(TARGET_OS_IPHONE) && TARGET_OS_IPHONE) \
+		|| (defined(TARGET_OS_IOS) && TARGET_OS_IOS)
+#		include <yggr_detail/config/bson_config_ios.h>
+#	else
+#		include <yggr_detail/config/bson_config_darwin.h>
+#	endif // TARGET_OS_IPHONE
 #else
-#	include <yggr_detail/config/bson_config_linux.h>
+#	if defined(__ANDROID__) || defined(ANDROID)
+#		include <yggr_detail/config/bson_config_android.h>
+#	else
+#		include <yggr_detail/config/bson_config_linux.h>
+#	endif // __ANDROID__
 #endif // _MSC_VER
 
 #else

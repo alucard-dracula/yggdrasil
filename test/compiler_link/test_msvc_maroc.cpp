@@ -16,7 +16,6 @@
 # pragma comment YGGR_COMPILE_LINK_LIB(yggr_base)
 
 #include YGGR_PP_LINK_LIB(base)
-#include YGGR_PP_LINK_LIB(base)
 
 int main(int argc, char* argv[])
 {

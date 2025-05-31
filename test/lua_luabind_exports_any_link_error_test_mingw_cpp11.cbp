@@ -22,9 +22,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-m32"/>
-					<Add option="-lyggr_script_lua$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lluabind09$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-llua503$(#COMPILER_VERSION_TAG)-d.dll"/>
 					<Add option="-lmgw_gcc_sjlj$(#COMPILER_VERSION_TAG)-d"/>
 					<Add directory="../lib"/>
 				</Linker>
@@ -44,9 +41,6 @@
 					<Add option="-m32"/>
 					<Add option="-s"/>
 					<Add option="-Wl,--gc-sections"/>
-					<Add option="-lyggr_script_lua$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lluabind09$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-llua503$(#COMPILER_VERSION_TAG).dll"/>
 					<Add option="-lmgw_gcc_sjlj$(#COMPILER_VERSION_TAG)"/>
 					<Add directory="../lib"/>
 				</Linker>
@@ -69,9 +63,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-m64"/>
-					<Add option="-lyggr_script_lua$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lluabind09$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-llua503$(#COMPILER_VERSION_TAG)-d.dll"/>
 					<Add directory="../lib64"/>
 				</Linker>
 			</Target>
@@ -92,9 +83,6 @@
 					<Add option="-m64"/>
 					<Add option="-s"/>
 					<Add option="-Wl,--gc-sections"/>
-					<Add option="-lyggr_script_lua$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lluabind09$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-llua503$(#COMPILER_VERSION_TAG).dll"/>
 					<Add directory="../lib64"/>
 				</Linker>
 			</Target>
@@ -128,8 +116,5 @@
 		<Extensions>
 			<lib_finder disable_auto="1"/>
 		</Extensions>
-		<Linker>
-			<Add option="-lws2_32"/>
-		</Linker>
 	</Project>
 </CodeBlocks_project_file>

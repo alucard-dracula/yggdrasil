@@ -182,6 +182,7 @@ l_ldflags := \
 ifeq ($(NDK_DEBUG), 1)
 	l_ldflags += \
 		-lyggr_script_lua$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
+		-lyggr_exception$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		-lyggr_time$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		-lyggr_charset$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		-lyggr_base$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
@@ -195,6 +196,7 @@ else
 	l_ldflags += \
 		-s \
 		-lyggr_script_lua$(USRDEF_APP_COMPILER_VERSION_TAG) \
+		-lyggr_exception$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		-lyggr_time$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		-lyggr_charset$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		-lyggr_base$(USRDEF_APP_COMPILER_VERSION_TAG) \

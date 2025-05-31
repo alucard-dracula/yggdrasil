@@ -466,7 +466,7 @@ void arm64_fat_filter_cpp(string_set_type& fatable, string_set_type& fatfailed, 
 
 	if(!exclude_arm64.size())
 	{
-		exclude_arm64.insert("log_mongodb_op_caller.cpp");
+		//exclude_arm64.insert("log_mongodb_op_caller.cpp");
 	}
 
 	for(string_set_type::const_iterator i = flist.begin(), isize = flist.end(); i != isize; ++i)
@@ -487,13 +487,13 @@ bool need_fix_arm64_support(cb::cb_infos& infos)
 	static string_uset_type exclude_arm64;
 	if(!exclude_arm64.size())
 	{
-		exclude_arm64.insert("charset_utf8_char_serialization_test");
-		exclude_arm64.insert("charset_utf8_string_serialization_test");
-		exclude_arm64.insert("math_vector_and_matrix_nvp_seriaztion_test");
-		exclude_arm64.insert("packet_string_serialization_test_eins");
-		exclude_arm64.insert("packet_string_serialization_test_zwei");
-		exclude_arm64.insert("segment_mem_mapped_string_serialization_test");
-		exclude_arm64.insert("time_time_serialization_test");
+		//exclude_arm64.insert("charset_utf8_char_serialization_test");
+		//exclude_arm64.insert("charset_utf8_string_serialization_test");
+		//exclude_arm64.insert("math_vector_and_matrix_nvp_seriaztion_test");
+		//exclude_arm64.insert("packet_string_serialization_test_eins");
+		//exclude_arm64.insert("packet_string_serialization_test_zwei");
+		//exclude_arm64.insert("segment_mem_mapped_string_serialization_test");
+		//exclude_arm64.insert("time_time_serialization_test");
 	}
 
 	return !(exclude_arm64.find(infos.proj_name_) == exclude_arm64.end());
@@ -502,31 +502,32 @@ bool need_fix_arm64_support(cb::cb_infos& infos)
 cb::cb_infos::string_vt_type& 
 	erase_arm64_support(cb::cb_infos::string_vt_type& out, const cb::cb_infos::string_vt_type& in)
 {
+	//std::cout << "----------erase_arm64_support----------------" << std::endl;
 	typedef cb::cb_infos::string_vt_type string_vt_type;
 	typedef string_vt_type::const_iterator string_vt_citer_type;
 
 	static string_uset_type exclude_arm64;
 	if(!exclude_arm64.size())
 	{
-		exclude_arm64.insert("-lyggr_nsql_database_system${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d");
-		exclude_arm64.insert("-lmongoc${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d");
-		exclude_arm64.insert("-lmongocrypt${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d");
-		exclude_arm64.insert("-lkms-message${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d");
-		exclude_arm64.insert("-lutf8proc${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d");
-		exclude_arm64.insert("-lbson${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d");
-		exclude_arm64.insert("-lcommon${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d");
+		//exclude_arm64.insert("-lyggr_nsql_database_system${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d");
+		//exclude_arm64.insert("-lmongoc${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d");
+		//exclude_arm64.insert("-lmongocrypt${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d");
+		//exclude_arm64.insert("-lkms-message${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d");
+		//exclude_arm64.insert("-lutf8proc${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d");
+		//exclude_arm64.insert("-lbson${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d");
+		//exclude_arm64.insert("-lcommon${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d");
 		exclude_arm64.insert("-lintel_dfp_obj${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d");
 
-		exclude_arm64.insert("-lyggr_nsql_database_system${USRDEF_CMAKE_COMPILER_VERSION_TAG}");
-		exclude_arm64.insert("-lmongoc${USRDEF_CMAKE_COMPILER_VERSION_TAG}");
-		exclude_arm64.insert("-lmongocrypt${USRDEF_CMAKE_COMPILER_VERSION_TAG}");
-		exclude_arm64.insert("-lkms-message${USRDEF_CMAKE_COMPILER_VERSION_TAG}");
-		exclude_arm64.insert("-lutf8proc${USRDEF_CMAKE_COMPILER_VERSION_TAG}");
-		exclude_arm64.insert("-lbson${USRDEF_CMAKE_COMPILER_VERSION_TAG}");
-		exclude_arm64.insert("-lcommon${USRDEF_CMAKE_COMPILER_VERSION_TAG}");
+		//exclude_arm64.insert("-lyggr_nsql_database_system${USRDEF_CMAKE_COMPILER_VERSION_TAG}");
+		//exclude_arm64.insert("-lmongoc${USRDEF_CMAKE_COMPILER_VERSION_TAG}");
+		//exclude_arm64.insert("-lmongocrypt${USRDEF_CMAKE_COMPILER_VERSION_TAG}");
+		//exclude_arm64.insert("-lkms-message${USRDEF_CMAKE_COMPILER_VERSION_TAG}");
+		//exclude_arm64.insert("-lutf8proc${USRDEF_CMAKE_COMPILER_VERSION_TAG}");
+		//exclude_arm64.insert("-lbson${USRDEF_CMAKE_COMPILER_VERSION_TAG}");
+		//exclude_arm64.insert("-lcommon${USRDEF_CMAKE_COMPILER_VERSION_TAG}");
 		exclude_arm64.insert("-lintel_dfp_obj${USRDEF_CMAKE_COMPILER_VERSION_TAG}");
 
-		exclude_arm64.insert("-lsasl2");
+		//exclude_arm64.insert("-lsasl2");
 	}
 
 	cb::cb_infos::string_vt_type tmp;
@@ -534,7 +535,7 @@ cb::cb_infos::string_vt_type&
 
 	for(string_vt_citer_type i = in.begin(), isize = in.end(); i != isize; ++i)
 	{
-		//std::cout << "------exclude_arm64.find( " << *i << ")----------------" << std::endl;
+		std::cout << "------exclude_arm64.find( " << *i << ")----------------" << std::endl;
 		if(exclude_arm64.find(*i) == exclude_arm64.end())
 		{
 			tmp.push_back(*i);
@@ -684,7 +685,7 @@ ptree_string_type& conv_to_proj_cmakelists_txt(ptree_string_type& out,
 		;
 
 	// link_libs
-	if(need_fix_arm64_support(infos))
+	//if(need_fix_arm64_support(infos))
 	{
 		//std::cout << "------------ need_fix_arm64_support ----------" << std::endl;
 		string_vt_type link_libs_proj;
@@ -704,13 +705,13 @@ ptree_string_type& conv_to_proj_cmakelists_txt(ptree_string_type& out,
 		}
 		else
 		{
-			ss << "if(${USRDEF_HAS_ARM64})\n"
+			ss << "if(${USRDEF_HAS_X86_64})\n"
 				<< "\tset(var_proj_link_libs \n"
-				<< make_cmake_l_multi_item(link_libs_proj, "\t\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY}") 
+				<< make_cmake_l_multi_item(infos.link_libs_proj_, "\t\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY}") 
 				<< "\t)\n"
 				<< "else()\n"
 				<< "\tset(var_proj_link_libs \n"
-				<< make_cmake_l_multi_item(infos.link_libs_proj_, "\t\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY}") 
+				<< make_cmake_l_multi_item(link_libs_proj, "\t\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY}") 
 				<< "\t)\n"
 				<< "endif()\n\n"
 				;
@@ -725,13 +726,13 @@ ptree_string_type& conv_to_proj_cmakelists_txt(ptree_string_type& out,
 		}
 		else
 		{
-			ss << "if(${USRDEF_HAS_ARM64})\n"
+			ss << "if(${USRDEF_HAS_X86_64})\n"
 				<< "\tset(var_proj_link_libs_debug \n"
-				<< make_cmake_l_multi_item(link_libs_proj_debug, "\t\t\t", "", "${USRDEF_CMAKE_LDFLAGS_DEBUG}") 
+				<< make_cmake_l_multi_item(infos.link_libs_proj_debug_, "\t\t\t", "", "${USRDEF_CMAKE_LDFLAGS_DEBUG}") 
 				<< "\t)\n"
 				<< "else()\n"
 				<< "\tset(var_proj_link_libs_debug \n"
-				<< make_cmake_l_multi_item(infos.link_libs_proj_debug_, "\t\t\t", "", "${USRDEF_CMAKE_LDFLAGS_DEBUG}") 
+				<< make_cmake_l_multi_item(link_libs_proj_debug, "\t\t\t", "", "${USRDEF_CMAKE_LDFLAGS_DEBUG}") 
 				<< "\t)\n"
 				<< "endif()\n\n"
 				;
@@ -746,33 +747,33 @@ ptree_string_type& conv_to_proj_cmakelists_txt(ptree_string_type& out,
 		}
 		else
 		{
-			ss << "if(${USRDEF_HAS_ARM64})\n"
+			ss << "if(${USRDEF_HAS_X86_64})\n"
 				<< "\tset(var_proj_link_libs_release \n"
-				<< make_cmake_l_multi_item(link_libs_proj_release, "\t\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY_RELEASE}") 
+				<< make_cmake_l_multi_item(infos.link_libs_proj_release_, "\t\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY_RELEASE}") 
 				<< "\t)\n"
 				<< "else()\n"
 				<< "\tset(var_proj_link_libs_release \n"
-				<< make_cmake_l_multi_item(infos.link_libs_proj_release_, "\t\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY_RELEASE}") 
+				<< make_cmake_l_multi_item(link_libs_proj_release, "\t\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY_RELEASE}") 
 				<< "\t)\n"
 				<< "endif()\n\n"
 				;
 		}
 	}
-	else
-	{
-		ss << "set(var_proj_link_libs \n"
-			<< make_cmake_l_multi_item(infos.link_libs_proj_, "\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY}") 
-			<< ")\n\n"
+	// else
+	// {
+	// 	ss << "set(var_proj_link_libs \n"
+	// 		<< make_cmake_l_multi_item(infos.link_libs_proj_, "\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY}") 
+	// 		<< ")\n\n"
 
-			<< "set(var_proj_link_libs_debug \n"
-			<< make_cmake_l_multi_item(infos.link_libs_proj_debug_, "\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY_DEBUG}") 
-			<< ")\n\n"
+	// 		<< "set(var_proj_link_libs_debug \n"
+	// 		<< make_cmake_l_multi_item(infos.link_libs_proj_debug_, "\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY_DEBUG}") 
+	// 		<< ")\n\n"
 
-			<< "set(var_proj_link_libs_release \n"
-			<< make_cmake_l_multi_item(infos.link_libs_proj_release_, "\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY_RELEASE}") 
-			<< ")\n\n"
-			;
-	}
+	// 		<< "set(var_proj_link_libs_release \n"
+	// 		<< make_cmake_l_multi_item(infos.link_libs_proj_release_, "\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY_RELEASE}") 
+	// 		<< ")\n\n"
+	// 		;
+	// }
 
 	// ldflags
 	ss << "set(var_proj_ldflags \n"
@@ -887,16 +888,19 @@ ptree_string_type format_cb_infos_output_string(const ptree_string_type& str)
 	static const ptree_string_type mark_proj_name = "$(PROJECT_NAME)";
 	static const ptree_string_type mark_compiler_version_tag = "$(#COMPILER_VERSION_TAG)";
 	static const ptree_string_type mark_compiler_version = "$(#COMPILER_VERSION)";
+	//static const ptree_string_type mark_duplicate_link = "$(#DUPLICATE_LINK_MARK)";
 	
 	static const ptree_string_type mark_proj_name_r = "${var_proj_name}";
 	static const ptree_string_type mark_compiler_version_tag_r = "${USRDEF_CMAKE_COMPILER_VERSION_TAG}";
 	static const ptree_string_type mark_compiler_version_r = "${USRDEF_CMAKE_COMPILER_VERSION}";
+	//static const ptree_string_type mark_duplicate_link_r = "";
 
 	ptree_string_type str_fname = file_op::get_file_name(str);
 
 	find_and_replace(str_fname, mark_proj_name, mark_proj_name_r);
 	find_and_replace(str_fname, mark_compiler_version_tag, mark_compiler_version_tag_r);
 	find_and_replace(str_fname, mark_compiler_version, mark_compiler_version_r);
+	//find_and_replace(str_fname, mark_duplicate_link, mark_duplicate_link_r);
 
 	return str_fname;
 }
@@ -943,6 +947,8 @@ ptree_string_type format_cb_infos_link_lib(const ptree_string_type& str)
 	static const ptree_string_type mark_boost_mt_d = "-mt-d${USRDEF_CMAKE_BUILD_ARCH_BITS_TAG}";
 	static const ptree_string_type mark_boost_mt = "-mt${USRDEF_CMAKE_BUILD_ARCH_BITS_TAG}";
 
+	static const ptree_string_type mark_duplicate_link = "$(#DUPLICATE_LINK_MARK)";
+
 	static const ptree_string_type mark_compiler_version_tag_r = "${USRDEF_CMAKE_COMPILER_VERSION_TAG}";
 	static const ptree_string_type mark_compiler_version_r = "${USRDEF_CMAKE_COMPILER_VERSION}";
 	static const ptree_string_type mark_boost_version_tag_r = "${USRDEF_CMAKE_BOOST_VERSION_TAG}";
@@ -953,6 +959,8 @@ ptree_string_type format_cb_infos_link_lib(const ptree_string_type& str)
 	static const ptree_string_type mark_boost_mt_d_r = "-mt${USRDEF_CMAKE_BOOST_LINK_TAG_DEBUG}${USRDEF_CMAKE_BUILD_ARCH_BITS_TAG}";
 	static const ptree_string_type mark_boost_mt_r = "-mt${USRDEF_CMAKE_BOOST_LINK_TAG_RELEASE}${USRDEF_CMAKE_BUILD_ARCH_BITS_TAG}";
 
+	static const ptree_string_type mark_duplicate_link_r = "";
+
 	ptree_string_type str_out = str;
 
 	find_and_replace(str_out, mark_compiler_version_tag, mark_compiler_version_tag_r);
@@ -961,6 +969,7 @@ ptree_string_type format_cb_infos_link_lib(const ptree_string_type& str)
 	find_and_replace(str_out, mark_boost_version, mark_boost_version_r);
 	find_and_replace(str_out, mark_python_version, mark_python_version_r);
 	find_and_replace(str_out, mark_arch64_tag, mark_arch_tag_r);
+	find_and_replace(str_out, mark_duplicate_link, mark_duplicate_link_r);
 
 	if(8 < str_out.size() && str_out.substr(0, 8) == "-lboost_")
 	{
@@ -1082,97 +1091,97 @@ void arm64_fat_filter(ptree_string_set_type& fatable, ptree_string_set_type& fat
 
 	if(!exclude_arm64.size())
 	{
-		exclude_arm64.insert("yggr_nsql_database_system");
+		//exclude_arm64.insert("yggr_nsql_database_system");
 		exclude_arm64.insert("pyd_export");
-		exclude_arm64.insert("nsql_database_system_base_bson_test");
-		exclude_arm64.insert("nsql_database_system_bson_serialize_test");
-		exclude_arm64.insert("nsql_database_system_c_bson_basic_demo");
-		exclude_arm64.insert("nsql_database_system_c_bson_basic_test");
-		exclude_arm64.insert("nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_equal");
-		exclude_arm64.insert("nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_liner_only");
-		exclude_arm64.insert("nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_sizeof_greater");
-		exclude_arm64.insert("nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_sizeof_less");
-		exclude_arm64.insert("nsql_database_system_c_bson_binary_buffer_ref_test");
-		exclude_arm64.insert("nsql_database_system_c_bson_binary_buffer_test");
-		exclude_arm64.insert("nsql_database_system_c_bson_code_test");
-		exclude_arm64.insert("nsql_database_system_c_bson_code_w_scope_test");
-		exclude_arm64.insert("nsql_database_system_c_bson_date_test");
-		exclude_arm64.insert("nsql_database_system_c_bson_date_time_timeval_test");
-		exclude_arm64.insert("nsql_database_system_c_bson_dbpointer_test");
-		exclude_arm64.insert("nsql_database_system_c_bson_decimal128_test");
-		exclude_arm64.insert("nsql_database_system_c_bson_error_test");
-		exclude_arm64.insert("nsql_database_system_c_bson_oid_test2");
-		exclude_arm64.insert("nsql_database_system_c_bson_oid_test");
-		exclude_arm64.insert("nsql_database_system_c_bson_regex_test");
-		exclude_arm64.insert("nsql_database_system_c_bson_symbol_test");
-		exclude_arm64.insert("nsql_database_system_c_bson_time_test");
-		exclude_arm64.insert("nsql_database_system_c_bson_timestamp_test");
-		exclude_arm64.insert("nsql_database_system_c_bson_timeval_test");
-		exclude_arm64.insert("nsql_database_system_c_bson_value_test2");
-		exclude_arm64.insert("nsql_database_system_c_bson_value_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_apm_callbacks_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_auto_encryption_opts_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_client_encryption_datakey_opts_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_client_encryption_encrypt_opts_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_client_encryption_encrypt_range_opts_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_client_encryption_opts_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_client_encryption_rewrap_many_datakey_result_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_connection_init_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_find_and_modify_opts_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_gridfs_file_opt_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_gridfs_file_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_host_info_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_index_model_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_read_concern_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_read_prefs_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_server_api_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_ssl_opt_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_stream_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_uri_test");
-		exclude_arm64.insert("nsql_database_system_c_mongo_write_concern_test");
-		exclude_arm64.insert("nsql_database_system_cert_file_win32_load_failed_test");
-		exclude_arm64.insert("nsql_database_system_mongo_accesser_encryption_test_of_connect");
-		exclude_arm64.insert("nsql_database_system_mongo_accesser_encryption_test_of_connect_pool");
-		exclude_arm64.insert("nsql_database_system_mongo_accesser_test_of_connection");
-		exclude_arm64.insert("nsql_database_system_mongo_accesser_test_of_connection_mt");
-		exclude_arm64.insert("nsql_database_system_mongo_accesser_test_of_connection_pool");
-		exclude_arm64.insert("nsql_database_system_mongo_accesser_test_of_connection_pool_mt");
-		exclude_arm64.insert("nsql_database_system_mongo_accesser_test_of_connection_sharding");
-		exclude_arm64.insert("nsql_database_system_mongo_gridfs_bucket_org_test");
-		exclude_arm64.insert("nsql_database_system_mongo_gridfs_org_test");
-		exclude_arm64.insert("nsql_database_system_mongo_operators_dollar_cmd_def_test");
-		exclude_arm64.insert("nsql_database_system_mongoc_connection_pool_test");
-		exclude_arm64.insert("nsql_database_system_mongodbc_basic_connect_test");
-		exclude_arm64.insert("nsql_database_system_test_mongodb_async_mgr");
-		exclude_arm64.insert("nsql_database_system_test_mongodb_mgr");
+		// exclude_arm64.insert("nsql_database_system_base_bson_test");
+		// exclude_arm64.insert("nsql_database_system_bson_serialize_test");
+		// exclude_arm64.insert("nsql_database_system_c_bson_basic_demo");
+		// exclude_arm64.insert("nsql_database_system_c_bson_basic_test");
+		// exclude_arm64.insert("nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_equal");
+		// exclude_arm64.insert("nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_liner_only");
+		// exclude_arm64.insert("nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_sizeof_greater");
+		// exclude_arm64.insert("nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_sizeof_less");
+		// exclude_arm64.insert("nsql_database_system_c_bson_binary_buffer_ref_test");
+		// exclude_arm64.insert("nsql_database_system_c_bson_binary_buffer_test");
+		// exclude_arm64.insert("nsql_database_system_c_bson_code_test");
+		// exclude_arm64.insert("nsql_database_system_c_bson_code_w_scope_test");
+		// exclude_arm64.insert("nsql_database_system_c_bson_date_test");
+		// exclude_arm64.insert("nsql_database_system_c_bson_date_time_timeval_test");
+		// exclude_arm64.insert("nsql_database_system_c_bson_dbpointer_test");
+		// exclude_arm64.insert("nsql_database_system_c_bson_decimal128_test");
+		// exclude_arm64.insert("nsql_database_system_c_bson_error_test");
+		// exclude_arm64.insert("nsql_database_system_c_bson_oid_test2");
+		// exclude_arm64.insert("nsql_database_system_c_bson_oid_test");
+		// exclude_arm64.insert("nsql_database_system_c_bson_regex_test");
+		// exclude_arm64.insert("nsql_database_system_c_bson_symbol_test");
+		// exclude_arm64.insert("nsql_database_system_c_bson_time_test");
+		// exclude_arm64.insert("nsql_database_system_c_bson_timestamp_test");
+		// exclude_arm64.insert("nsql_database_system_c_bson_timeval_test");
+		// exclude_arm64.insert("nsql_database_system_c_bson_value_test2");
+		// exclude_arm64.insert("nsql_database_system_c_bson_value_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_apm_callbacks_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_auto_encryption_opts_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_client_encryption_datakey_opts_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_client_encryption_encrypt_opts_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_client_encryption_encrypt_range_opts_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_client_encryption_opts_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_client_encryption_rewrap_many_datakey_result_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_connection_init_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_find_and_modify_opts_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_gridfs_file_opt_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_gridfs_file_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_host_info_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_index_model_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_read_concern_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_read_prefs_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_server_api_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_ssl_opt_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_stream_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_uri_test");
+		// exclude_arm64.insert("nsql_database_system_c_mongo_write_concern_test");
+		// exclude_arm64.insert("nsql_database_system_cert_file_win32_load_failed_test");
+		// exclude_arm64.insert("nsql_database_system_mongo_accesser_encryption_test_of_connect");
+		// exclude_arm64.insert("nsql_database_system_mongo_accesser_encryption_test_of_connect_pool");
+		// exclude_arm64.insert("nsql_database_system_mongo_accesser_test_of_connection");
+		// exclude_arm64.insert("nsql_database_system_mongo_accesser_test_of_connection_mt");
+		// exclude_arm64.insert("nsql_database_system_mongo_accesser_test_of_connection_pool");
+		// exclude_arm64.insert("nsql_database_system_mongo_accesser_test_of_connection_pool_mt");
+		// exclude_arm64.insert("nsql_database_system_mongo_accesser_test_of_connection_sharding");
+		// exclude_arm64.insert("nsql_database_system_mongo_gridfs_bucket_org_test");
+		// exclude_arm64.insert("nsql_database_system_mongo_gridfs_org_test");
+		// exclude_arm64.insert("nsql_database_system_mongo_operators_dollar_cmd_def_test");
+		// exclude_arm64.insert("nsql_database_system_mongoc_connection_pool_test");
+		// exclude_arm64.insert("nsql_database_system_mongodbc_basic_connect_test");
+		// exclude_arm64.insert("nsql_database_system_test_mongodb_async_mgr");
+		// exclude_arm64.insert("nsql_database_system_test_mongodb_mgr");
 
-		exclude_arm64.insert("any_val_any_bson_serialize_test");
-		exclude_arm64.insert("any_val_params_bson_serialize_test");
-		exclude_arm64.insert("charset_utf8_string_bson_pak_test");
-		exclude_arm64.insert("exception_bson_pak_test_of_error_code");
-		exclude_arm64.insert("ids_uuid_bson_serialize_test");
+		// exclude_arm64.insert("any_val_any_bson_serialize_test");
+		// exclude_arm64.insert("any_val_params_bson_serialize_test");
+		// exclude_arm64.insert("charset_utf8_string_bson_pak_test");
+		// exclude_arm64.insert("exception_bson_pak_test_of_error_code");
+		// exclude_arm64.insert("ids_uuid_bson_serialize_test");
 
-		exclude_arm64.insert("packet_bson_cmd_pak_test_of_container_midx");
-		exclude_arm64.insert("packet_bson_cmd_pak_test_of_container_part1");
-		exclude_arm64.insert("packet_bson_cmd_pak_test_of_container_part2");
-		exclude_arm64.insert("packet_bson_pak_test_of_class_and_base");
-		exclude_arm64.insert("packet_bson_pak_test_of_container_part1_1");
-		exclude_arm64.insert("packet_bson_pak_test_of_container_part1_2");
-		exclude_arm64.insert("packet_bson_pak_test_of_container_part2_1");
-		exclude_arm64.insert("packet_bson_pak_test_of_container_part2_2");
-		exclude_arm64.insert("packet_bson_pak_test_of_container_part3");
-		exclude_arm64.insert("packet_bson_pak_test_of_container_part4");
-		exclude_arm64.insert("packet_bson_pak_test_of_tuple_container");
-		exclude_arm64.insert("packet_bug_test_bson_pak_man");
-		exclude_arm64.insert("packet_shared_ptr_bson_serialization_test");
-		exclude_arm64.insert("packet_test_bson_serialization_include");
+		// exclude_arm64.insert("packet_bson_cmd_pak_test_of_container_midx");
+		// exclude_arm64.insert("packet_bson_cmd_pak_test_of_container_part1");
+		// exclude_arm64.insert("packet_bson_cmd_pak_test_of_container_part2");
+		// exclude_arm64.insert("packet_bson_pak_test_of_class_and_base");
+		// exclude_arm64.insert("packet_bson_pak_test_of_container_part1_1");
+		// exclude_arm64.insert("packet_bson_pak_test_of_container_part1_2");
+		// exclude_arm64.insert("packet_bson_pak_test_of_container_part2_1");
+		// exclude_arm64.insert("packet_bson_pak_test_of_container_part2_2");
+		// exclude_arm64.insert("packet_bson_pak_test_of_container_part3");
+		// exclude_arm64.insert("packet_bson_pak_test_of_container_part4");
+		// exclude_arm64.insert("packet_bson_pak_test_of_tuple_container");
+		// exclude_arm64.insert("packet_bug_test_bson_pak_man");
+		// exclude_arm64.insert("packet_shared_ptr_bson_serialization_test");
+		// exclude_arm64.insert("packet_test_bson_serialization_include");
 
 		exclude_arm64.insert("compiler_link_test_msvc_maroc");
 
-		exclude_arm64.insert("exception_exception_mongodb_log_test");
-		exclude_arm64.insert("log_log_mongodb_accesser_test");
-		exclude_arm64.insert("log_log_mongodb_op_caller_test");
-		exclude_arm64.insert("log_log_mongodb_op_test");
+		// exclude_arm64.insert("exception_exception_mongodb_log_test");
+		// exclude_arm64.insert("log_log_mongodb_accesser_test");
+		// exclude_arm64.insert("log_log_mongodb_op_caller_test");
+		// exclude_arm64.insert("log_log_mongodb_op_test");
 	}
 
 	for(ptree_string_set_type::const_iterator i = flist.begin(), isize = flist.end(); i != isize; ++i)
@@ -1263,6 +1272,14 @@ ptree_string_type& conv_to_cbws_cmakelists_txt(ptree_string_type& out,
 		<< "endif()\n\n"
 		;
 
+	ss << "string(FIND \"${USRDEF_CMAKE_OSX_ARCHITECTURES}\" \"x86_64\" var_x86_64_chk)\n"
+		<< "if(var_x86_64_chk EQUAL -1)\n"
+		<< "\tset(USRDEF_HAS_X86_64 OFF)\n"
+		<< "else()\n"
+		<< "\tset(USRDEF_HAS_X86_64 ON)\n"
+		<< "endif()\n\n"
+		;
+
 	ss << "if(\"${USRDEF_CMAKE_OSX_SDK_NAME}\" STREQUAL \"macosx\")\n"
 		<< "\t set(var_third_part_dir \"third_part\")\n"
 		<< "else()\n"
@@ -1272,27 +1289,51 @@ ptree_string_type& conv_to_cbws_cmakelists_txt(ptree_string_type& out,
 
 	// need to macos modify
 	ss << "set(USRDEF_CMAKE_INCLUDE_DIRS \n"
-		<<"\t\t~/${var_third_part_dir}/boost/include\n" 
-		<<"\t\t~/${var_third_part_dir}/libbase64/include\n" 
-		<<"\t\t~/${var_third_part_dir}/libblowfish/include\n"
-		<<"\t\t~/${var_third_part_dir}/libmd5/include\n"
-		<<"\t\t~/${var_third_part_dir}/libsha/include\n"
-		//<<"\t\t~/${var_third_part_dir}/libiconv/include\n"
-		<<"\t\t~/${var_third_part_dir}/libicu/include\n"
-		<<"\t\t~/${var_third_part_dir}/libzlib/include\n" 
-		<<"\t\t~/${var_third_part_dir}/libopenssl/include\n" 
-		<<"\t\t~/${var_third_part_dir}/LzmaLib/include\n"
-		<<"\t\t~/${var_third_part_dir}/IntelRDFPMathLib/include\n"
-		<<"\t\t~/${var_third_part_dir}/IntelRDFPMathLib/include/src\n" 
-		<<"\t\t~/${var_third_part_dir}/unixODBC/include\n" 
-		<<"\t\t~/${var_third_part_dir}/libdtl/include\n" 
-		<<"\t\t~/${var_third_part_dir}/mongodb/include\n" 
-		<<"\t\t~/${var_third_part_dir}/mongodb_c_driver/include\n" 
-		<<"\t\t~/${var_third_part_dir}/lua/include\n" 
-		<<"\t\t~/${var_third_part_dir}/luabind/include\n" 
-		<<"\t\t~/${var_third_part_dir}/python/include/${USRDEF_CMAKE_PYTHON_INCLUDE_DIR}\n" 
+		<< "\t\t~/${var_third_part_dir}/boost/include\n" 
+		<< "\t\t~/${var_third_part_dir}/libbase64/include\n" 
+		<< "\t\t~/${var_third_part_dir}/libblowfish/include\n"
+		<< "\t\t~/${var_third_part_dir}/libmd5/include\n"
+		<< "\t\t~/${var_third_part_dir}/libsha/include\n"
+		//<< "\t\t~/${var_third_part_dir}/libiconv/include\n"
+		<< "\t\t~/${var_third_part_dir}/libicu/include\n"
+		<< "\t\t~/${var_third_part_dir}/libzlib/include\n" 
+		<< "\t\t~/${var_third_part_dir}/libopenssl/include\n" 
+		<< "\t\t~/${var_third_part_dir}/LzmaLib/include\n"
+		//<< "\t\t~/${var_third_part_dir}/IntelRDFPMathLib/include\n"
+		//<< "\t\t~/${var_third_part_dir}/IntelRDFPMathLib/include/src\n" 
+		<< "\t\t~/${var_third_part_dir}/unixODBC/include\n" 
+		<< "\t\t~/${var_third_part_dir}/libdtl/include\n" 
+		<< "\t\t~/${var_third_part_dir}/mongodb/include\n" 
+		<< "\t\t~/${var_third_part_dir}/mongodb_c_driver/include\n" 
+		<< "\t\t~/${var_third_part_dir}/mongodb_c_driver/include/bson\n" 
+		<< "\t\t~/${var_third_part_dir}/mongodb_c_driver/include/common\n" 
+		<< "\t\t~/${var_third_part_dir}/mongodb_c_driver/include/kms_message\n" 
+		<< "\t\t~/${var_third_part_dir}/mongodb_c_driver/include/mongo_crypt\n" 
+		<< "\t\t~/${var_third_part_dir}/mongodb_c_driver/include/mongoc\n" 
+		<< "\t\t~/${var_third_part_dir}/mongodb_c_driver/include/mongocrypt\n" 
+		<< "\t\t~/${var_third_part_dir}/mongodb_c_driver/include/mongocrypt/unicode\n" 
+		<< "\t\t~/${var_third_part_dir}/mongodb_c_driver/include/utf8proc\n" 
+		<< "\t\t~/${var_third_part_dir}/lua/include\n" 
+		<< "\t\t~/${var_third_part_dir}/luabind/include\n" 
+		<< "\t\t~/${var_third_part_dir}/python/include/${USRDEF_CMAKE_PYTHON_INCLUDE_DIR}\n" 
 		<< ")\n\n"
 		;
+
+	ss << "if(${USRDEF_HAS_X86_64})\n"
+		<< "\tlist(APPEND USRDEF_CMAKE_INCLUDE_DIRS \n"
+		<< "\t\t\t~/${var_third_part_dir}/IntelRDFPMathLib/include\n"
+		<< "\t\t\t~/${var_third_part_dir}/IntelRDFPMathLib/include/src\n" 
+		<< "\t)\n"
+		<< "endif()\n\n"
+    ;
+
+	ss << "if((NOT(${CMAKE_SYSTEM_PROCESSOR} STREQUAL ${USRDEF_CMAKE_OSX_ARCHITECTURES}))\n"
+		<< "\tOR (NOT(${USRDEF_CMAKE_OSX_SDK_NAME} STREQUAL \"macosx\")))\n"
+		<< "\tlist(APPEND USRDEF_CMAKE_INCLUDE_DIRS \n"
+		<< "\t\t\t~/${var_third_part_dir}/cyrus-sasl/include\n"
+		<< "\t)\n"
+		<< "endif()\n\n"
+    ;
 
 	ss << "if(${USRDEF_HAS_ARM64})\n"
 		<< "\tset(USRDEF_CMAKE_DEFINEDS \"-DYGGR_TEST_DISABLE_NON_GENERIC_SUPPORT\")\n"
@@ -1314,26 +1355,41 @@ ptree_string_type& conv_to_cbws_cmakelists_txt(ptree_string_type& out,
 		;
 
 	ss << "set(USRDEF_CMAKE_LD_LIBRARY_PATH \n"
-		<<"\t\t~/${var_third_part_dir}/boost/lib\n" 
-		<<"\t\t~/${var_third_part_dir}/libbase64/lib\n" 
-		<<"\t\t~/${var_third_part_dir}/libblowfish/lib\n"
-		<<"\t\t~/${var_third_part_dir}/libmd5/lib\n"
-		<<"\t\t~/${var_third_part_dir}/libsha/lib\n"
-		//<<"\t\t~/${var_third_part_dir}/libiconv/lib\n"
-		<<"\t\t~/${var_third_part_dir}/libicu/lib\n"
-		<<"\t\t~/${var_third_part_dir}/libzlib/lib\n" 
-		<<"\t\t~/${var_third_part_dir}/libopenssl/lib\n" 
-		<<"\t\t~/${var_third_part_dir}/LzmaLib/lib\n"
-		<<"\t\t~/${var_third_part_dir}/IntelRDFPMathLib/lib\n" 
-		<<"\t\t~/${var_third_part_dir}/unixODBC/lib\n" 
-		<<"\t\t~/${var_third_part_dir}/libdtl/lib\n" 
-		<<"\t\t~/${var_third_part_dir}/mongodb/lib\n" 
-		<<"\t\t~/${var_third_part_dir}/mongodb_c_driver/lib\n" 
-		<<"\t\t~/${var_third_part_dir}/lua/lib\n" 
-		<<"\t\t~/${var_third_part_dir}/luabind/lib\n" 
-		<<"\t\t~/${var_third_part_dir}/python/lib\n" 
+		<< "\t\t~/${var_third_part_dir}/boost/lib\n" 
+		<< "\t\t~/${var_third_part_dir}/libbase64/lib\n" 
+		<< "\t\t~/${var_third_part_dir}/libblowfish/lib\n"
+		<< "\t\t~/${var_third_part_dir}/libmd5/lib\n"
+		<< "\t\t~/${var_third_part_dir}/libsha/lib\n"
+		//<< "\t\t~/${var_third_part_dir}/libiconv/lib\n"
+		<< "\t\t~/${var_third_part_dir}/libicu/lib\n"
+		<< "\t\t~/${var_third_part_dir}/libzlib/lib\n" 
+		<< "\t\t~/${var_third_part_dir}/libopenssl/lib\n" 
+		<< "\t\t~/${var_third_part_dir}/LzmaLib/lib\n"
+		//<< "\t\t~/${var_third_part_dir}/IntelRDFPMathLib/lib\n" 
+		<< "\t\t~/${var_third_part_dir}/unixODBC/lib\n" 
+		<< "\t\t~/${var_third_part_dir}/libdtl/lib\n" 
+		<< "\t\t~/${var_third_part_dir}/mongodb/lib\n" 
+		<< "\t\t~/${var_third_part_dir}/mongodb_c_driver/lib\n" 
+		<< "\t\t~/${var_third_part_dir}/lua/lib\n" 
+		<< "\t\t~/${var_third_part_dir}/luabind/lib\n" 
+		<< "\t\t~/${var_third_part_dir}/python/lib\n" 
 		<< ")\n\n"
 		;
+
+	ss << "if(${USRDEF_HAS_X86_64})\n"
+		<< "\tlist(APPEND USRDEF_CMAKE_LD_LIBRARY_PATH \n"
+		<< "\t\t\t~/${var_third_part_dir}/IntelRDFPMathLib/lib\n" 
+		<< "\t)\n"
+		<< "endif()\n\n"
+    ;
+
+	ss << "if((NOT(${CMAKE_SYSTEM_PROCESSOR} STREQUAL ${USRDEF_CMAKE_OSX_ARCHITECTURES}))\n"
+		<< "\tOR (NOT(${USRDEF_CMAKE_OSX_SDK_NAME} STREQUAL \"macosx\")))\n"
+		<< "\tlist(APPEND USRDEF_CMAKE_LD_LIBRARY_PATH \n"
+		<< "\t\t\t~/${var_third_part_dir}/cyrus-sasl/lib\n" 
+		<< "\t)\n"
+		<< "endif()\n\n"
+    ;
 
 	ss << "set(USRDEF_CMAKE_LD_LIBRARY \"\")\n"
 		<< "set(USRDEF_CMAKE_LD_LIBRARY_DEBUG \"\")\n"
@@ -1985,7 +2041,7 @@ yggr::utf8_string& gen_cmake_build_sh(yggr::utf8_string& out_str,
 		<< "var_darwin_sdk_name=" << sdk_name << "\n"
 		<< "var_darwin_sdk_ver_min=" << sdk_min_ver << "\n"
 		<< "var_darwin_arch=\"" << arch << "\"\n"
-		<< "var_usr_cmake_ld_arch_tag="<< ld_arg_tag <<"\n"
+		<< "var_usr_cmake_ld_arch_tag="<< ld_arg_tag << "\n"
 		<< "var_usr_cmake_c_standard=" << cstd_ver << "\n"
 		<< "var_usr_cmake_cxx_standard=" << cppstd_ver << "\n"
 		<< "var_clear_other_build_lib=" << (clear_other_build_lib? "yes" : "no") << "\n"
@@ -2114,6 +2170,212 @@ yggr::utf8_string& gen_cmake_darwin_build_and_collection_sh(yggr::utf8_string& o
 	return out_str;
 }
 
+yggr::utf8_string& gen_cmake_darwin_build_and_collection_lipo_sh(yggr::utf8_string& out_str, 
+																	const cb::cbws_infos& cbws_infos,
+																	const yggr::string& cpp_ver)
+{
+	std::stringstream ss;
+
+	ss << "#!/bin/bash\n\n"
+
+		<< "var_local_dir=$(cd `dirname $0`; pwd)\n\n"
+		;
+
+	ss << "collection_foo(){ \n"
+		<< "\tvar_sln_name=$1\n"
+		<< "\tvar_sdk_name=$2\n"
+		<< "\tvar_clang_tag=$3\n"
+		<< "\tvar_cpp_ver=$4\n"
+		<< "\tvar_src_root_dir=$5\n"
+		<< "\tvar_prefix_stage_dir=$6\n\n"
+
+		<< "#\techo \"var_sln_name = ${var_sln_name}\"\n"
+		<< "#\techo \"var_sdk_name = ${var_sdk_name}\"\n"
+		<< "#\techo \"var_clang_tag = ${var_clang_tag}\"\n"
+		<< "#\techo \"var_cpp_ver = ${var_cpp_ver}\"\n"
+		<< "#\techo \"var_src_root_dir = ${var_src_root_dir}\"\n"
+		<< "#\techo \"var_prefix_stage_dir = ${var_prefix_stage_dir}\"\n\n"
+
+		<< "\tvar_src_bin_dir=\"${var_src_root_dir}/Release-x64/${var_clang_tag}\"\n"
+		<< "\tvar_src_lib_dir=\"${var_src_root_dir}/lib\"\n"
+		<< "\tvar_src_inc_dir=\"${var_src_root_dir}/include\"\n\n"
+
+		<< "\tvar_prefix_sln_dir=\"${var_prefix_stage_dir}/${var_sln_name}-${var_sdk_name}\"\n"
+		<< "\tvar_prefix_sln_bin_dir=\"${var_prefix_sln_dir}/bin\"\n"
+		<< "\tvar_prefix_sln_lib_dir=\"${var_prefix_sln_dir}/lib\"\n"
+		<< "\tvar_prefix_sln_inc_dir=\"${var_prefix_sln_dir}/include\"\n\n"
+
+		<< "\tif [ -d \"${var_prefix_sln_dir}\" ]; then\n"
+		<< "\t\trm -fr \"${var_prefix_sln_dir}\"\n"
+		<< "\tfi\n\n"
+
+		<< "\tif [ -d \"${var_src_inc_dir}\" ]; then\n"
+		<< "\t\tmkdir -p \"${var_prefix_sln_dir}\"\n"
+		<< "\telse\n"
+		<< "\t\tmkdir -p \"${var_prefix_sln_inc_dir}\"\n"
+		<< "\tfi\n\n"
+
+		<< "\tif [ \"${var_sdk_name}\" = \"iphoneos\" ]; then\n"
+		<< "\t\tvar_sh_file=\"cmake-build-${var_sdk_name}-${var_clang_tag}-${var_cpp_ver}.sh\"\n"
+		<< "\t\t#	echo \"sh ${var_sh_file}\"\n"
+		<< "\t\tsh \"${var_sh_file}\"\n\n"
+
+		<< "\t\tif [ -d \"${var_src_bin_dir}\" ]; then\n"
+		<< "\t\t\tcp -fr \"${var_src_bin_dir}\" \"${var_prefix_sln_bin_dir}\"\n"
+		<< "\t\tfi\n\n"
+
+		<< "\t\tif [ -d \"${var_src_lib_dir}\" ]; then\n"
+		<< "\t\t\tcp -fr \"${var_src_lib_dir}\" \"${var_prefix_sln_dir}/\"\n"
+		<< "\t\tfi\n"
+		<< "\telse\n"
+		<< "\t\tmkdir -p \"${var_prefix_sln_bin_dir}\"\n"
+		<< "\t\tmkdir -p \"${var_prefix_sln_lib_dir}\"\n\n"
+
+		<< "\t\t#x86_64\n"
+		<< "\t\tvar_prefix_sln_bin_dir_x86_64=\"${var_prefix_sln_bin_dir}/x86_64\"\n"
+		<< "\t\tvar_prefix_sln_lib_dir_x86_64=\"${var_prefix_sln_lib_dir}/x86_64\"\n\n"
+
+		<< "\t\tvar_sh_file_x86_64=\"cmake-build-${var_sdk_name}-${var_clang_tag}-${var_cpp_ver}-x86_64.sh\"\n"
+		<< "\t\t#	echo \"sh ${var_sh_file}\"\n"
+		<< "\t\tsh \"${var_sh_file_x86_64}\"\n\n"
+
+		<< "\t\tif [ -d \"${var_src_bin_dir}\" ]; then\n"
+		<< "\t\t\tcp -fr \"${var_src_bin_dir}\" \"${var_prefix_sln_bin_dir_x86_64}\"\n"
+		<< "\t\tfi\n\n"
+
+		<< "\t\tif [ -d \"${var_src_lib_dir}\" ]; then\n"
+		<< "\t\t\tcp -fr \"${var_src_lib_dir}\" \"${var_prefix_sln_lib_dir_x86_64}/\"\n"
+		<< "\t\tfi\n\n"
+
+		<< "\t\t#arm64\n"
+		<< "\t\tvar_prefix_sln_bin_dir_arm64=\"${var_prefix_sln_bin_dir}/arm64\"\n"
+		<< "\t\tvar_prefix_sln_lib_dir_arm64=\"${var_prefix_sln_lib_dir}/arm64\"\n\n"
+
+		<< "\t\tvar_sh_file_arm64=\"cmake-build-${var_sdk_name}-${var_clang_tag}-${var_cpp_ver}-arm64.sh\"\n"
+		<< "\t\t#	echo \"sh ${var_sh_file}\"\n"
+		<< "\t\tsh \"${var_sh_file_arm64}\"\n\n"
+
+		<< "\t\tif [ -d \"${var_src_bin_dir}\" ]; then\n"
+		<< "\t\t\tcp -fr \"${var_src_bin_dir}\" \"${var_prefix_sln_bin_dir_arm64}\"\n"
+		<< "\t\tfi\n\n"
+
+		<< "\t\tif [ -d \"${var_src_lib_dir}\" ]; then\n"
+		<< "\t\t\tcp -fr \"${var_src_lib_dir}\" \"${var_prefix_sln_lib_dir_arm64}/\"\n"
+		<< "\t\tfi\n\n"
+
+		<< "\t\tvar_x86_exe_list=$(find ${var_prefix_sln_bin_dir_x86_64} -type f -perm +555)\n"
+		<< "\t\techo \"${var_x86_exe_list}\"\n\n"
+
+		<< "\t\tfor var_fpath in ${var_x86_exe_list}\n"
+		<< "\t\tdo\n"
+		<< "\t\t\tvar_fname=${var_fpath##*/}\n\n"
+			
+		<< "\t\t\tif [ -f \"${var_prefix_sln_bin_dir_arm64}/${var_fname}\" ]; then\n"
+		<< "\t\t\t\tvar_cmd_create=\"lipo -create ${var_fpath} ${var_prefix_sln_bin_dir_arm64}/${var_fname} -output ${var_prefix_sln_bin_dir}/${var_fname}\"\n"
+		<< "\t\t\t\tvar_cmd_check=\"lipo -info ${var_prefix_sln_bin_dir}/${var_fname}\"\n"
+		<< "\t\t\t\techo \"${var_cmd_create}\"\n"
+		<< "\t\t\t\teval ${var_cmd_create}\n"
+		<< "\t\t\t\teval ${var_cmd_check}\n"
+		<< "\t\t\tfi\n"
+		<< "\t\tdone\n\n"
+
+		<< "\t\tvar_x86_so_list=$(find ${var_prefix_sln_lib_dir_x86_64} -type f -name '*.so')\n"
+		<< "\t\techo \"${var_x86_so_list}\"\n\n"
+
+		<< "\t\tfor var_fpath in ${var_x86_so_list}\n"
+		<< "\t\tdo\n"
+		<< "\t\tvar_fname=${var_fpath##*/}\n\n"
+			
+		<< "\t\t\tif [ -f \"${var_prefix_sln_lib_dir_arm64}/${var_fname}\" ]; then\n"
+		<< "\t\t\t\tvar_cmd_create=\"lipo -create ${var_fpath} ${var_prefix_sln_lib_dir_arm64}/${var_fname} -output ${var_prefix_sln_lib_dir}/${var_fname}\"\n"
+		<< "\t\t\t\tvar_cmd_check=\"lipo -info ${var_prefix_sln_lib_dir}/${var_fname}\"\n"
+		<< "\t\t\t\techo \"${var_cmd_create}\"\n"
+		<< "\t\t\t\teval ${var_cmd_create}\n"
+		<< "\t\t\t\teval ${var_cmd_check}\n"
+		<< "\t\t\tfi\n"
+		<< "\t\tdone\n\n"
+
+		<< "\t\tvar_x86_dylib_list=$(find ${var_prefix_sln_lib_dir_x86_64} -type f -name '*.dylib')\n"
+		<< "\t\techo \"${var_x86_dylib_list}\"\n\n"
+
+		<< "\t\tfor var_fpath in ${var_x86_dylib_list}\n" 
+		<< "\t\tdo\n"
+		<< "\t\tvar_fname=${var_fpath##*/}\n\n"
+			
+		<< "\t\t\tif [ -f \"${var_prefix_sln_lib_dir_arm64}/${var_fname}\" ]; then\n"
+		<< "\t\t\t\tvar_cmd_create=\"lipo -create ${var_fpath} ${var_prefix_sln_lib_dir_arm64}/${var_fname} -output ${var_prefix_sln_lib_dir}/${var_fname}\"\n"
+		<< "\t\t\t\tvar_cmd_check=\"lipo -info ${var_prefix_sln_lib_dir}/${var_fname}\"\n"
+		<< "\t\t\t\techo \"${var_cmd_create}\"\n"
+		<< "\t\t\t\teval ${var_cmd_create}\n"
+		<< "\t\t\t\teval ${var_cmd_check}\n"
+		<< "\t\t\tfi\n"
+		<< "\t\tdone\n\n"
+
+		<< "\t\tvar_x86_a_list=$(find ${var_prefix_sln_lib_dir_x86_64} -type f -name '*.a')\n"
+		<< "\t\techo \"${var_x86_a_list}\"\n\n"
+
+		<< "\t\tfor var_fpath in ${var_x86_a_list}\n" 
+		<< "\t\tdo\n"
+		<< "\t\t\tvar_fname=${var_fpath##*/}\n\n"
+			
+		<< "\t\t\tif [ -f \"${var_prefix_sln_lib_dir_arm64}/${var_fname}\" ]; then\n"
+		<< "\t\t\t\tvar_cmd_create=\"lipo -create ${var_fpath} ${var_prefix_sln_lib_dir_arm64}/${var_fname} -output ${var_prefix_sln_lib_dir}/${var_fname}\"\n"
+		<< "\t\t\t\tvar_cmd_check=\"lipo -info ${var_prefix_sln_lib_dir}/${var_fname}\"\n"
+		<< "\t\t\t\techo \"${var_cmd_create}\"\n"
+		<< "\t\t\t\teval ${var_cmd_create}\n"
+		<< "\t\t\t\teval ${var_cmd_check}\n"
+		<< "\t\t\tfi\n"
+		<< "\t\tdone\n"
+		<< "\tfi\n\n"
+
+		<< "\tif [ -d \"${var_src_inc_dir}\" ]; then\n"
+		<< "\t\tcp -fr \"${var_src_inc_dir}\" \"${var_prefix_sln_dir}/\"\n"
+		<< "\tfi\n"
+		<< "}\n\n"
+		;
+
+	ss << "var_sln_name=" << cbws_infos.cbws_title_ << "\n"
+		<< "var_clang_tag=\"clang-darwin16\"\n"
+		<< "var_cpp_ver=\"" << cpp_ver << "\"\n\n"
+
+		<< "var_sln_dir=\"${var_local_dir}/../..\"\n"
+		<< "var_prefix_stage_dir=\"${var_sln_dir}/stage_prefix\"\n\n"
+
+		<< "var_sdk_name=\"macosx\"\n"
+
+		<< "collection_foo \\\n"
+		<< "\t\"${var_sln_name}\" \\\n"
+		<< "\t\"${var_sdk_name}\" \\\n"
+		<< "\t\"${var_clang_tag}\" \\\n"
+		<< "\t\"${var_cpp_ver}\" \\\n"
+		<< "\t\"${var_sln_dir}\" \\\n"
+		<< "\t\"${var_prefix_stage_dir}\" \n\n"
+
+		<< "var_sdk_name=\"iphoneos\"\n\n"
+
+		<< "collection_foo \\\n"
+		<< "\t\"${var_sln_name}\" \\\n"
+		<< "\t\"${var_sdk_name}\" \\\n"
+		<< "\t\"${var_clang_tag}\" \\\n"
+		<< "\t\"${var_cpp_ver}\" \\\n"
+		<< "\t\"${var_sln_dir}\" \\\n"
+		<< "\t\"${var_prefix_stage_dir}\" \n\n"
+
+		<< "var_sdk_name=\"iphonesimulator\"\n\n"
+
+		<< "collection_foo \\\n"
+		<< "\t\"${var_sln_name}\" \\\n"
+		<< "\t\"${var_sdk_name}\" \\\n"
+		<< "\t\"${var_clang_tag}\" \\\n"
+		<< "\t\"${var_cpp_ver}\" \\\n"
+		<< "\t\"${var_sln_dir}\" \\\n"
+		<< "\t\"${var_prefix_stage_dir}\" \n\n"
+		;
+
+	out_str = yggr::charset::make_string_charset_helper(ss.str(), YGGR_STR_UTF8_STRING_CHARSET_NAME());
+	return out_str;
+}
+
 bool fix_workspace_file_one_gen_cmake_build_sh(const cb::cbws_infos& cbws_infos, 
 												const ptree_string_type& ws_dir,
 												const ptree_string_type& ws_fname)
@@ -2128,6 +2390,12 @@ bool fix_workspace_file_one_gen_cmake_build_sh(const cb::cbws_infos& cbws_infos,
 	yggr::utf8_string cmake_all_build_and_collection_cpp14("cmake_all_build_and_collection_cpp14.sh");
 	yggr::utf8_string cmake_all_build_and_collection_cpp17("cmake_all_build_and_collection_cpp17.sh");
 	yggr::utf8_string cmake_all_build_and_collection_cpp20("cmake_all_build_and_collection_cpp20.sh");
+
+	yggr::utf8_string cmake_all_build_and_collection_lipo("cmake_all_build_and_collection_lipo.sh");
+	yggr::utf8_string cmake_all_build_and_collection_lipo_cpp11("cmake_all_build_and_collection_lipo_cpp11.sh");
+	yggr::utf8_string cmake_all_build_and_collection_lipo_cpp14("cmake_all_build_and_collection_lipo_cpp14.sh");
+	yggr::utf8_string cmake_all_build_and_collection_lipo_cpp17("cmake_all_build_and_collection_lipo_cpp17.sh");
+	yggr::utf8_string cmake_all_build_and_collection_lipo_cpp20("cmake_all_build_and_collection_lipo_cpp20.sh");
 
 	yggr::utf8_string cmake_build_macosx_cpp11_x86_64("cmake-build-macosx-clang-darwin16-cpp11-x86_64.sh");
 	yggr::utf8_string cmake_build_macosx_cpp14_x86_64("cmake-build-macosx-clang-darwin16-cpp14-x86_64.sh");
@@ -2148,6 +2416,16 @@ bool fix_workspace_file_one_gen_cmake_build_sh(const cb::cbws_infos& cbws_infos,
 	yggr::utf8_string cmake_build_iphoneos_cpp14("cmake-build-iphoneos-clang-darwin16-cpp14.sh");
 	yggr::utf8_string cmake_build_iphoneos_cpp17("cmake-build-iphoneos-clang-darwin16-cpp17.sh");
 	yggr::utf8_string cmake_build_iphoneos_cpp20("cmake-build-iphoneos-clang-darwin16-cpp20.sh");
+
+	yggr::utf8_string cmake_build_iphonesimulator_cpp11_x86_64("cmake-build-iphonesimulator-clang-darwin16-cpp11-x86_64.sh");
+	yggr::utf8_string cmake_build_iphonesimulator_cpp14_x86_64("cmake-build-iphonesimulator-clang-darwin16-cpp14-x86_64.sh");
+	yggr::utf8_string cmake_build_iphonesimulator_cpp17_x86_64("cmake-build-iphonesimulator-clang-darwin16-cpp17-x86_64.sh");
+	yggr::utf8_string cmake_build_iphonesimulator_cpp20_x86_64("cmake-build-iphonesimulator-clang-darwin16-cpp20-x86_64.sh");
+
+	yggr::utf8_string cmake_build_iphonesimulator_cpp11_arm64("cmake-build-iphonesimulator-clang-darwin16-cpp11-arm64.sh");
+	yggr::utf8_string cmake_build_iphonesimulator_cpp14_arm64("cmake-build-iphonesimulator-clang-darwin16-cpp14-arm64.sh");
+	yggr::utf8_string cmake_build_iphonesimulator_cpp17_arm64("cmake-build-iphonesimulator-clang-darwin16-cpp17-arm64.sh");
+	yggr::utf8_string cmake_build_iphonesimulator_cpp20_arm64("cmake-build-iphonesimulator-clang-darwin16-cpp20-arm64.sh");
 
 	yggr::utf8_string cmake_build_iphonesimulator_cpp11("cmake-build-iphonesimulator-clang-darwin16-cpp11.sh");
 	yggr::utf8_string cmake_build_iphonesimulator_cpp14("cmake-build-iphonesimulator-clang-darwin16-cpp14.sh");
@@ -2174,6 +2452,16 @@ bool fix_workspace_file_one_gen_cmake_build_sh(const cb::cbws_infos& cbws_infos,
 	yggr::utf8_string cmake_build_iphoneos_cpp14_xcode("cmake-build-iphoneos-clang-darwin16-cpp14-xcode.sh");
 	yggr::utf8_string cmake_build_iphoneos_cpp17_xcode("cmake-build-iphoneos-clang-darwin16-cpp17-xcode.sh");
 	yggr::utf8_string cmake_build_iphoneos_cpp20_xcode("cmake-build-iphoneos-clang-darwin16-cpp20-xcode.sh");
+
+	yggr::utf8_string cmake_build_iphonesimulator_cpp11_x86_64_xcode("cmake-build-iphonesimulator-clang-darwin16-cpp11-x86_64-xcode.sh");
+	yggr::utf8_string cmake_build_iphonesimulator_cpp14_x86_64_xcode("cmake-build-iphonesimulator-clang-darwin16-cpp14-x86_64-xcode.sh");
+	yggr::utf8_string cmake_build_iphonesimulator_cpp17_x86_64_xcode("cmake-build-iphonesimulator-clang-darwin16-cpp17-x86_64-xcode.sh");
+	yggr::utf8_string cmake_build_iphonesimulator_cpp20_x86_64_xcode("cmake-build-iphonesimulator-clang-darwin16-cpp20-x86_64-xcode.sh");
+
+	yggr::utf8_string cmake_build_iphonesimulator_cpp11_arm64_xcode("cmake-build-iphonesimulator-clang-darwin16-cpp11-arm64-xcode.sh");
+	yggr::utf8_string cmake_build_iphonesimulator_cpp14_arm64_xcode("cmake-build-iphonesimulator-clang-darwin16-cpp14-arm64-xcode.sh");
+	yggr::utf8_string cmake_build_iphonesimulator_cpp17_arm64_xcode("cmake-build-iphonesimulator-clang-darwin16-cpp17-arm64-xcode.sh");
+	yggr::utf8_string cmake_build_iphonesimulator_cpp20_arm64_xcode("cmake-build-iphonesimulator-clang-darwin16-cpp20-arm64-xcode.sh");
 
 	yggr::utf8_string cmake_build_iphonesimulator_cpp11_xcode("cmake-build-iphonesimulator-clang-darwin16-cpp11-xcode.sh");
 	yggr::utf8_string cmake_build_iphonesimulator_cpp14_xcode("cmake-build-iphonesimulator-clang-darwin16-cpp14-xcode.sh");
@@ -2247,6 +2535,53 @@ bool fix_workspace_file_one_gen_cmake_build_sh(const cb::cbws_infos& cbws_infos,
 #endif // ONLY_MAKE_RUN_TEST()
 	}
 
+	// cmake_all_build_and_collection_lipo
+	{
+		yggr::utf8_string str_cmake_all_build_and_collection;
+		gen_cmake_darwin_build_and_collection_lipo_sh(str_cmake_all_build_and_collection, cbws_infos, "cpp11");
+
+#if ONLY_MAKE_RUN_TEST()
+		std::cout << "write " << cmake_darwin_dir + "/" + cmake_all_build_and_collection_lipo << std::endl;
+		std::cout << "write " << cmake_darwin_dir + "/" + cmake_all_build_and_collection_lipo_cpp11 << std::endl;
+#else
+		file_op::write_to_file(cmake_darwin_dir + "/" + cmake_all_build_and_collection_lipo, str_cmake_all_build_and_collection.org_str());
+		file_op::write_to_file(cmake_darwin_dir + "/" + cmake_all_build_and_collection_lipo_cpp11, str_cmake_all_build_and_collection.org_str());
+#endif // ONLY_MAKE_RUN_TEST()
+	}
+
+	{
+		yggr::utf8_string str_cmake_all_build_and_collection;
+		gen_cmake_darwin_build_and_collection_sh(str_cmake_all_build_and_collection, cbws_infos, "cpp14");
+
+#if ONLY_MAKE_RUN_TEST()
+		std::cout << "write " << cmake_darwin_dir + "/" + cmake_all_build_and_collection_lipo_cpp14 << std::endl;
+#else
+		file_op::write_to_file(cmake_darwin_dir + "/" + cmake_all_build_and_collection_lipo_cpp14, str_cmake_all_build_and_collection.org_str());
+#endif // ONLY_MAKE_RUN_TEST()
+	}
+
+	{
+		yggr::utf8_string str_cmake_all_build_and_collection;
+		gen_cmake_darwin_build_and_collection_sh(str_cmake_all_build_and_collection, cbws_infos, "cpp17");
+
+#if ONLY_MAKE_RUN_TEST()
+		std::cout << "write " << cmake_darwin_dir + "/" + cmake_all_build_and_collection_lipo_cpp17 << std::endl;
+#else
+		file_op::write_to_file(cmake_darwin_dir + "/" + cmake_all_build_and_collection_lipo_cpp17, str_cmake_all_build_and_collection.org_str());
+#endif // ONLY_MAKE_RUN_TEST()
+	}
+
+	{
+		yggr::utf8_string str_cmake_all_build_and_collection;
+		gen_cmake_darwin_build_and_collection_sh(str_cmake_all_build_and_collection, cbws_infos, "cpp20");
+
+#if ONLY_MAKE_RUN_TEST()
+		std::cout << "write " << cmake_darwin_dir + "/" + cmake_all_build_and_collection_lipo_cpp20 << std::endl;
+#else
+		file_op::write_to_file(cmake_darwin_dir + "/" + cmake_all_build_and_collection_lipo_cpp20, str_cmake_all_build_and_collection.org_str());
+#endif // ONLY_MAKE_RUN_TEST()
+	}
+
 
 #if ONLY_MAKE_RUN_TEST()
 
@@ -2297,7 +2632,19 @@ bool fix_workspace_file_one_gen_cmake_build_sh(const cb::cbws_infos& cbws_infos,
 	WRITE_BUILD_SH(cmake_build_iphoneos_cpp17, "Ninja", "iphoneos", "15.6", "all", "a", 99, 17, b_clr_lib, b_clr_bin);
 	WRITE_BUILD_SH(cmake_build_iphoneos_cpp20, "Ninja", "iphoneos", "15.6", "all", "a", 99, 20, b_clr_lib, b_clr_bin);
 
-	// iphonesimulator
+	// iphonesimulator x86_64
+	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp11_x86_64, "Ninja", "iphonesimulator", "15.6", "x86_64", "a", 99, 11, b_clr_lib, b_clr_bin);
+	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp14_x86_64, "Ninja", "iphonesimulator", "15.6", "x86_64", "a", 99, 14, b_clr_lib, b_clr_bin);
+	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp17_x86_64, "Ninja", "iphonesimulator", "15.6", "x86_64", "a", 99, 17, b_clr_lib, b_clr_bin);
+	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp20_x86_64, "Ninja", "iphonesimulator", "15.6", "x86_64", "a", 99, 20, b_clr_lib, b_clr_bin);
+
+	// iphonesimulator arm64
+	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp11_arm64, "Ninja", "iphonesimulator", "15.6", "arm64", "a", 99, 11, b_clr_lib, b_clr_bin);
+	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp14_arm64, "Ninja", "iphonesimulator", "15.6", "arm64", "a", 99, 14, b_clr_lib, b_clr_bin);
+	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp17_arm64, "Ninja", "iphonesimulator", "15.6", "arm64", "a", 99, 17, b_clr_lib, b_clr_bin);
+	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp20_arm64, "Ninja", "iphonesimulator", "15.6", "arm64", "a", 99, 20, b_clr_lib, b_clr_bin);
+
+	// iphonesimulator fat
 	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp11, "Ninja", "iphonesimulator", "15.6", "all", "a", 99, 11, b_clr_lib, b_clr_bin);
 	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp14, "Ninja", "iphonesimulator", "15.6", "all", "a", 99, 14, b_clr_lib, b_clr_bin);
 	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp17, "Ninja", "iphonesimulator", "15.6", "all", "a", 99, 17, b_clr_lib, b_clr_bin);
@@ -2328,7 +2675,19 @@ bool fix_workspace_file_one_gen_cmake_build_sh(const cb::cbws_infos& cbws_infos,
 	WRITE_BUILD_SH(cmake_build_iphoneos_cpp17_xcode, "Xcode", "iphoneos", "15.6", "all", "a", 99, 17, b_clr_lib, b_clr_bin);
 	WRITE_BUILD_SH(cmake_build_iphoneos_cpp20_xcode, "Xcode", "iphoneos", "15.6", "all", "a", 99, 20, b_clr_lib, b_clr_bin);
 
-	// iphonesimulator
+	// iphonesimulator x86_64
+	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp11_x86_64_xcode, "Xcode", "iphonesimulator", "15.6", "x86_64", "a", 99, 11, b_clr_lib, b_clr_bin);
+	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp14_x86_64_xcode, "Xcode", "iphonesimulator", "15.6", "x86_64", "a", 99, 14, b_clr_lib, b_clr_bin);
+	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp17_x86_64_xcode, "Xcode", "iphonesimulator", "15.6", "x86_64", "a", 99, 17, b_clr_lib, b_clr_bin);
+	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp20_x86_64_xcode, "Xcode", "iphonesimulator", "15.6", "x86_64", "a", 99, 20, b_clr_lib, b_clr_bin);
+
+	// iphonesimulator arm64
+	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp11_arm64_xcode, "Xcode", "iphonesimulator", "15.6", "arm64", "a", 99, 11, b_clr_lib, b_clr_bin);
+	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp14_arm64_xcode, "Xcode", "iphonesimulator", "15.6", "arm64", "a", 99, 14, b_clr_lib, b_clr_bin);
+	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp17_arm64_xcode, "Xcode", "iphonesimulator", "15.6", "arm64", "a", 99, 17, b_clr_lib, b_clr_bin);
+	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp20_arm64_xcode, "Xcode", "iphonesimulator", "15.6", "arm64", "a", 99, 20, b_clr_lib, b_clr_bin);
+
+	// iphonesimulator fat
 	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp11_xcode, "Xcode", "iphonesimulator", "15.6", "all", "a", 99, 11, b_clr_lib, b_clr_bin);
 	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp14_xcode, "Xcode", "iphonesimulator", "15.6", "all", "a", 99, 14, b_clr_lib, b_clr_bin);
 	WRITE_BUILD_SH(cmake_build_iphonesimulator_cpp17_xcode, "Xcode", "iphonesimulator", "15.6", "all", "a", 99, 17, b_clr_lib, b_clr_bin);

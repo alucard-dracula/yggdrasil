@@ -9,9 +9,10 @@
 		<item>
 			<first>Crypt32</first>
 			<second>
-				<count>2</count>
+				<count>3</count>
 				<bucket_count>13</bucket_count>
 				<item_version>0</item_version>
+				<item>Crypt32</item>
 				<item>crypto</item>
 				<item>ssl</item>
 			</second>
@@ -70,7 +71,7 @@
 		<item>
 			<first>nsql_database_system</first>
 			<second>
-				<count>19</count>
+				<count>22</count>
 				<bucket_count>29</bucket_count>
 				<item_version>0</item_version>
 				<item>zlibstatic</item>
@@ -87,9 +88,12 @@
 				<item>bson</item>
 				<item>intel_dfp_obj</item>
 				<item>base64</item>
+				<item>bson2</item>
 				<item>crypto</item>
 				<item>icuuc</item>
+				<item>common2</item>
 				<item>ssl</item>
+				<item>Crypt32</item>
 				<item>boost_thread</item>
 				<item>utf8proc</item>
 			</second>
@@ -294,10 +298,13 @@
 		<item>
 			<first>bson</first>
 			<second>
-				<count>1</count>
+				<count>4</count>
 				<bucket_count>13</bucket_count>
 				<item_version>0</item_version>
 				<item>bson</item>
+				<item>bson2</item>
+				<item>common</item>
+				<item>common2</item>
 			</second>
 		</item>
 		<item>
@@ -821,10 +828,13 @@
 		<item>
 			<first>common</first>
 			<second>
-				<count>1</count>
+				<count>4</count>
 				<bucket_count>13</bucket_count>
 				<item_version>0</item_version>
+				<item>bson</item>
+				<item>bson2</item>
 				<item>common</item>
+				<item>common2</item>
 			</second>
 		</item>
 		<item>
@@ -1022,7 +1032,7 @@
 		</item>
 	</_marks_dep>
 	<_marks_lv>
-		<count>82</count>
+		<count>84</count>
 		<bucket_count>97</bucket_count>
 		<item_version>0</item_version>
 		<item>
@@ -1095,7 +1105,7 @@
 		</item>
 		<item>
 			<first>common</first>
-			<second>50</second>
+			<second>53</second>
 		</item>
 		<item>
 			<first>boost_thread</first>
@@ -1107,7 +1117,7 @@
 		</item>
 		<item>
 			<first>utf8proc</first>
-			<second>52</second>
+			<second>50</second>
 		</item>
 		<item>
 			<first>lua503-s</first>
@@ -1120,6 +1130,10 @@
 		<item>
 			<first>lua502_ts-s</first>
 			<second>13</second>
+		</item>
+		<item>
+			<first>common2</first>
+			<second>51</second>
 		</item>
 		<item>
 			<first>python</first>
@@ -1139,7 +1153,7 @@
 		</item>
 		<item>
 			<first>mongocrypt</first>
-			<second>54</second>
+			<second>56</second>
 		</item>
 		<item>
 			<first>yggr_compatibility</first>
@@ -1167,7 +1181,11 @@
 		</item>
 		<item>
 			<first>kms-message</first>
-			<second>53</second>
+			<second>55</second>
+		</item>
+		<item>
+			<first>bson2</first>
+			<second>52</second>
 		</item>
 		<item>
 			<first>yggr_nsql_database_system</first>
@@ -1207,7 +1225,7 @@
 		</item>
 		<item>
 			<first>mongoc</first>
-			<second>55</second>
+			<second>57</second>
 		</item>
 		<item>
 			<first>boost_system</first>
@@ -1267,7 +1285,7 @@
 		</item>
 		<item>
 			<first>bson</first>
-			<second>51</second>
+			<second>54</second>
 		</item>
 		<item>
 			<first>boost_python</first>
@@ -1355,7 +1373,7 @@
 		</item>
 	</_marks_lv>
 	<_marks_name>
-		<count>82</count>
+		<count>84</count>
 		<bucket_count>97</bucket_count>
 		<item_version>0</item_version>
 		<item>
@@ -1459,6 +1477,10 @@
 			<second>-lintel_dfp_obj$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
+			<first>common2</first>
+			<second>-lcommon$(#COMPILER_VERSION_TAG)%(debug)$(#DUPLICATE_LINK_MARK)</second>
+		</item>
+		<item>
 			<first>python</first>
 			<second>-lpython%(python_main_version)</second>
 		</item>
@@ -1501,6 +1523,10 @@
 		<item>
 			<first>kms-message</first>
 			<second>-lkms-message$(#COMPILER_VERSION_TAG)%(debug)</second>
+		</item>
+		<item>
+			<first>bson2</first>
+			<second>-lbson$(#COMPILER_VERSION_TAG)%(debug)$(#DUPLICATE_LINK_MARK)</second>
 		</item>
 		<item>
 			<first>yggr_nsql_database_system</first>

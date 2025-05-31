@@ -19,6 +19,7 @@ subdirs := \
 	$(LOCAL_PATH)/../yggr_ids/Android_yggr_ids.mk \
 	$(LOCAL_PATH)/../yggr_log/Android_yggr_log.mk \
 	$(LOCAL_PATH)/../yggr_modules/Android_yggr_modules.mk \
+	$(LOCAL_PATH)/../yggr_nsql_database_system/Android_yggr_nsql_database_system.mk \
 	$(LOCAL_PATH)/../yggr_script_lua/Android_yggr_script_lua.mk \
 	$(LOCAL_PATH)/../yggr_script_python/Android_yggr_script_python.mk \
 	$(LOCAL_PATH)/../yggr_segment/Android_yggr_segment.mk \

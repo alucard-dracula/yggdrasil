@@ -15,7 +15,7 @@ start ^
 	mongod ^
 		--dbpath %data_dir% ^
 		--logpath %log_file% ^
-		--bind_ip 127.0.0.1 ^
+		--bind_ip_all ^
 		--port 10298 ^
 		--logappend ^
 		--tlsMode requireTLS ^

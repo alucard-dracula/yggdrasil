@@ -45,26 +45,32 @@ yggr::u32 flag_filter_link(const ptree_string_type& flag)
 		exclude_ldflags.insert("-m64");
 		exclude_ldflags.insert("-lpthread");
 
-		exclude_ldflags.insert("-lyggr_nsql_database_system$(#COMPILER_VERSION_TAG)-d");
-		exclude_ldflags.insert("-lyggr_nsql_database_system$(#COMPILER_VERSION_TAG)");
+		//exclude_ldflags.insert("-lyggr_nsql_database_system$(#COMPILER_VERSION_TAG)-d");
+		//exclude_ldflags.insert("-lyggr_nsql_database_system$(#COMPILER_VERSION_TAG)");
 
-		exclude_ldflags.insert("-lmongoc$(#COMPILER_VERSION_TAG)-d");
-		exclude_ldflags.insert("-lmongoc$(#COMPILER_VERSION_TAG)");
+		//exclude_ldflags.insert("-lmongoc$(#COMPILER_VERSION_TAG)-d");
+		//exclude_ldflags.insert("-lmongoc$(#COMPILER_VERSION_TAG)");
 
-		exclude_ldflags.insert("-lmongocrypt$(#COMPILER_VERSION_TAG)-d");
-		exclude_ldflags.insert("-lmongocrypt$(#COMPILER_VERSION_TAG)");
+		//exclude_ldflags.insert("-lmongocrypt$(#COMPILER_VERSION_TAG)-d");
+		//exclude_ldflags.insert("-lmongocrypt$(#COMPILER_VERSION_TAG)");
 
-		exclude_ldflags.insert("-lkms-message$(#COMPILER_VERSION_TAG)-d");
-		exclude_ldflags.insert("-lkms-message$(#COMPILER_VERSION_TAG)");
+		//exclude_ldflags.insert("-lkms-message$(#COMPILER_VERSION_TAG)-d");
+		//exclude_ldflags.insert("-lkms-message$(#COMPILER_VERSION_TAG)");
 
-		exclude_ldflags.insert("-lutf8proc$(#COMPILER_VERSION_TAG)-d");
-		exclude_ldflags.insert("-lutf8proc$(#COMPILER_VERSION_TAG)");
+		//exclude_ldflags.insert("-lutf8proc$(#COMPILER_VERSION_TAG)-d");
+		//exclude_ldflags.insert("-lutf8proc$(#COMPILER_VERSION_TAG)");
 
-		exclude_ldflags.insert("-lbson$(#COMPILER_VERSION_TAG)-d");
-		exclude_ldflags.insert("-lbson$(#COMPILER_VERSION_TAG)");
+		//exclude_ldflags.insert("-lbson$(#COMPILER_VERSION_TAG)-d");
+		//exclude_ldflags.insert("-lbson$(#COMPILER_VERSION_TAG)");
 
-		exclude_ldflags.insert("-lcommon$(#COMPILER_VERSION_TAG)-d");
-		exclude_ldflags.insert("-lcommon$(#COMPILER_VERSION_TAG)");
+		//exclude_ldflags.insert("-lbson$(#COMPILER_VERSION_TAG)-d$(#DUPLICATE_LINK_MARK)");
+		//exclude_ldflags.insert("-lbson$(#COMPILER_VERSION_TAG)$(#DUPLICATE_LINK_MARK)");
+
+		//exclude_ldflags.insert("-lcommon$(#COMPILER_VERSION_TAG)-d$(#DUPLICATE_LINK_MARK)");
+		//exclude_ldflags.insert("-lcommon$(#COMPILER_VERSION_TAG)$(#DUPLICATE_LINK_MARK)");
+
+		//exclude_ldflags.insert("-lcommon$(#COMPILER_VERSION_TAG)-d");
+		//exclude_ldflags.insert("-lcommon$(#COMPILER_VERSION_TAG)");
 
 		exclude_ldflags.insert("-lintel_dfp_obj$(#COMPILER_VERSION_TAG)-d");
 		exclude_ldflags.insert("-lintel_dfp_obj$(#COMPILER_VERSION_TAG)");

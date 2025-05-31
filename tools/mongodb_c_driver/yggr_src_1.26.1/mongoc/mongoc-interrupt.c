@@ -20,7 +20,7 @@
 #include "mongoc/mongoc-socket-private.h"
 #include "mongoc/mongoc-stream-socket.h"
 #include "mongoc/mongoc-trace-private.h"
-#include "mongoc/common-thread-private.h"
+#include "common/common-thread-private.h"
 
 /* The interrupt stream is implemented in two ways.
  * On POSIX, this uses the self-pipe trick.

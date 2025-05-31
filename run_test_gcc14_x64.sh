@@ -1,5 +1,5 @@
 #!/bin/sh
-source ./begin_test_env_x64.sh
+source ./begin_test_env_linux_x64.sh
 rm -f Release-x64/gcc14/yggr_lua_base_type.so
 rm -f Release-x64/gcc14/mongo_crypt_v1.so
 ln -s libyggr_lua_base_type.so Release-x64/gcc14/yggr_lua_base_type.so
@@ -74,18 +74,7 @@ ln -s /usr/local/lib64/mongo_crypt/mongo_crypt_v1.so mongo_crypt_v1.so
 ../Release-x64/gcc14/charset_utf8_string_boyer_moore_test --batch-test
 ../Release-x64/gcc14/charset_utf8_string_bson_pak_test --batch-test
 ../Release-x64/gcc14/charset_utf8_string_getter --batch-test
-../Release-x64/gcc14/charset_utf8_string_isomeric_same_test --batch-test
-../Release-x64/gcc14/charset_utf8_string_knuth_morris_pratt_test --batch-test
-../Release-x64/gcc14/charset_utf8_string_serialization_test --batch-test
-../Release-x64/gcc14/charset_utf8_string_test --batch-test
-../Release-x64/gcc14/charset_utf8_string_test2 --batch-test
-../Release-x64/gcc14/charset_utf8_string_view_test --batch-test
-../Release-x64/gcc14/charset_utf8_string_xml_pak_serialize --batch-test
-../Release-x64/gcc14/compaction_tool_zip_lzma_test --batch-test
-../Release-x64/gcc14/compiler_link_test_msvc_maroc --batch-test
-../Release-x64/gcc14/container_cast_to_native_array_reference_test --batch-test
-../Release-x64/gcc14/container_deque_test --batch-test
-../Release-x64/gcc14/container_isomeric_same_deque_test --batch-test
+../Release-x64/gcc14/charset_utf8_ssource end_test_env.sheric_same_deque_test --batch-test
 ../Release-x64/gcc14/container_isomeric_same_list_test --batch-test
 ../Release-x64/gcc14/container_isomeric_same_map_test --batch-test
 ../Release-x64/gcc14/container_isomeric_same_multimap_test --batch-test
@@ -589,4 +578,4 @@ ln -s /usr/local/lib64/mongo_crypt/mongo_crypt_v1.so mongo_crypt_v1.so
 ../Release-x64/gcc14/utility_typeinfo_hasher_test --batch-test
 echo "---------all test end-----------------"
 cd ..
-source end_test_env.sh
+source ./end_test_env.sh

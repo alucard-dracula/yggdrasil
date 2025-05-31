@@ -56,7 +56,7 @@ template<typename Char, typename Traits>
 std::basic_ostream<Char, Traits>& 
 	operator<<(std::basic_ostream<Char, Traits>& os, const t_s& ts)
 {
-	os << ts.uid <<","<< ts.uname<<","<<ts.utm;
+	os << ts.uid << ","<< ts.uname<< ","<<ts.utm;
 	return os;
 }
 
@@ -344,7 +344,7 @@ public:
 
 std::ostream& operator<<(std::ostream& os, const t_s2& ts)
 {
-	os << ts.uid <<","<< ts.uname << "," << ts.utm;
+	os << ts.uid << ","<< ts.uname << "," << ts.utm;
 	return os;
 }
 

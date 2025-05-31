@@ -60,24 +60,30 @@ void test(void)
 	typedef yggr::ptr_single<exception_type> exception_single_type;
 	typedef exception_single_type::obj_ptr_type exception_ptr_type;
 
+#if defined(YGGR_AT_MOBILE)
+	yggr::utf8_string host_addr = "192.168.1.101"; // you host ip address
+#else
+	yggr::utf8_string host_addr = "127.0.0.1";
+#endif // YGGR_AT_MOBILE
+
 #if MONGODB_USE_CA()
 
 #	if MONGODB_USE_AUTH()
 		connection_type::init_type client_init(
-					"mongodb://xy:123456abc@127.0.0.1:10098/?ssl=true",	// str_uri
-					"./nsql_database_system/mongo.pem",		// pem_file
+					"mongodb://xy:123456abc@" + host_addr + ":10098/?ssl=true",	 // "mongodb://xy:123456abc@127.0.0.1:10098/?ssl=true",	// str_uri
+					"./nsql_database_system/cert/client.pem",		// pem_file
 					"",										// pem_pwd
-					"./nsql_database_system/camongodb.pem",	// ca_file
-					"./nsql_database_system",				// ca_dir
+					"./nsql_database_system/cert/ca.pem",	// ca_file
+					"./nsql_database_system/cert",				// ca_dir
 					""										// crl_file
 				);
 #	else
 		connection_type::init_type client_init(
-					"mongodb://127.0.0.1:10098/?ssl=true",	// str_uri
-					"./nsql_database_system/mongo.pem",		// pem_file
+					"mongodb://" + host_addr + ":10098/?ssl=true", //"mongodb://127.0.0.1:10098/?ssl=true",	// str_uri
+					"./nsql_database_system/cert/client.pem",		// pem_file
 					"",										// pem_pwd
-					"./nsql_database_system/camongodb.pem",	// ca_file
-					"./nsql_database_system",				// ca_dir
+					"./nsql_database_system/cert/ca.pem",	// ca_file
+					"./nsql_database_system/cert",				// ca_dir
 					""										// crl_file
 				);
 
@@ -87,20 +93,20 @@ void test(void)
 
 #	if MONGODB_USE_AUTH()
 		connection_type::init_type client_init(
-					"mongodb://xy:123456abc@127.0.0.1:10098/?ssl=false",	// str_uri
-					"./nsql_database_system/mongo.pem",		// pem_file
+					"mongodb://xy:123456abc@" + host_addr + ":10098/?ssl=false", // "mongodb://xy:123456abc@127.0.0.1:10098/?ssl=false",	// str_uri
+					"./nsql_database_system/cert/client.pem",		// pem_file
 					"",										// pem_pwd
-					"./nsql_database_system/camongodb.pem",	// ca_file
-					"./nsql_database_system",				// ca_dir
+					"./nsql_database_system/cert/ca.pem",	// ca_file
+					"./nsql_database_system/cert",				// ca_dir
 					""										// crl_file
 				);
 #	else
 		connection_type::init_type client_init(
-					"mongodb://127.0.0.1:10098/?ssl=false",	// str_uri
-					"./nsql_database_system/mongo.pem",		// pem_file
+					"mongodb://" + host_addr + ":10098/?ssl=false", // "mongodb://127.0.0.1:10098/?ssl=false",	// str_uri
+					"./nsql_database_system/cert/client.pem",		// pem_file
 					"",										// pem_pwd
-					"./nsql_database_system/camongodb.pem",	// ca_file
-					"./nsql_database_system",				// ca_dir
+					"./nsql_database_system/cert/ca.pem",	// ca_file
+					"./nsql_database_system/cert",				// ca_dir
 					""										// crl_file
 				);
 #	endif // MONGODB_USE_AUTH

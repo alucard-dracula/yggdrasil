@@ -31,7 +31,7 @@ if exist %data_dir% goto :lab_start
 	start mongod ^
 		--dbpath %data_dir% ^
 		--logpath %log_file% ^
-		--bind_ip 127.0.0.1 ^
+		--bind_ip_all ^
 		--port 10398 ^
 		--logappend ^
 		--tlsMode requireTLS ^

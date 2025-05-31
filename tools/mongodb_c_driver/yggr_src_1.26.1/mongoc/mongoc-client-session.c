@@ -1213,6 +1213,38 @@ mongoc_client_session_in_transaction (const mongoc_client_session_t *session)
 }
 
 
+//mongoc_transaction_state_t
+//mongoc_client_session_get_transaction_state (
+//   const mongoc_client_session_t *session)
+//{
+//   ENTRY;
+//
+//   BSON_ASSERT (session);
+//
+//   switch (session->txn.state) {
+//   case MONGOC_INTERNAL_TRANSACTION_NONE:
+//      RETURN (MONGOC_TRANSACTION_NONE);
+//   case MONGOC_INTERNAL_TRANSACTION_STARTING:
+//      RETURN (MONGOC_TRANSACTION_STARTING);
+//   case MONGOC_INTERNAL_TRANSACTION_IN_PROGRESS:
+//      RETURN (MONGOC_TRANSACTION_IN_PROGRESS);
+//   case MONGOC_INTERNAL_TRANSACTION_COMMITTED_EMPTY:
+//   case MONGOC_INTERNAL_TRANSACTION_COMMITTED:
+//      RETURN (MONGOC_TRANSACTION_COMMITTED);
+//   case MONGOC_INTERNAL_TRANSACTION_ABORTED:
+//      RETURN (MONGOC_TRANSACTION_ABORTED);
+//   case MONGOC_INTERNAL_TRANSACTION_ENDING:
+//      MONGOC_ERROR ("invalid state MONGOC_INTERNAL_TRANSACTION_ENDING when "
+//                    "getting transaction state");
+//      abort ();
+//   default:
+//      MONGOC_ERROR ("invalid state %d when getting transaction state",
+//                    (int) session->txn.state);
+//      abort ();
+//      break;
+//   }
+//}
+
 mongoc_transaction_state_t
 mongoc_client_session_get_transaction_state (
    const mongoc_client_session_t *session)
@@ -1243,6 +1275,8 @@ mongoc_client_session_get_transaction_state (
       abort ();
       break;
    }
+
+   RETURN (MONGOC_TRANSACTION_ABORTED);
 }
 
 bool

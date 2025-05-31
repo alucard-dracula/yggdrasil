@@ -82,6 +82,10 @@ bool mongoc_client_encryption_encrypt_range_opts_native_ex::s_mongoc_client_encr
 			boost::addressof(pyggr_src_opts->max.value) );
 		pyggr_dst_opts->max.set = pyggr_src_opts->max.set;
 
+#if !(YGGR_MONGOC_HEX() < 0x011C0000)
+		pyggr_dst_opts->trim_factor = pyggr_src_opts->trim_factor;
+#endif // #if !(YGGR_MONGOC_HEX() < 0x011C0000)
+
 		pyggr_dst_opts->sparsity = pyggr_src_opts->sparsity;
 
 		pyggr_dst_opts->precision = pyggr_src_opts->precision;
@@ -120,6 +124,10 @@ void mongoc_client_encryption_encrypt_range_opts_native_ex::s_mongoc_client_encr
 		boost::addressof(pyggr_src_opts->max.value));
 	::yggr::swap(pyggr_dst_opts->max.set, pyggr_src_opts->max.set);
 
+#if !(YGGR_MONGOC_HEX() < 0x011C0000)
+	::yggr::swap(pyggr_dst_opts->trim_factor, pyggr_src_opts->trim_factor);
+#endif // #if !(YGGR_MONGOC_HEX() < 0x011C0000)
+
 	::yggr::swap(pyggr_dst_opts->sparsity, pyggr_src_opts->sparsity);
 
 	::yggr::swap(pyggr_dst_opts->precision, pyggr_src_opts->precision);
@@ -154,6 +162,10 @@ void mongoc_client_encryption_encrypt_range_opts_native_ex::s_mongoc_client_encr
 		boost::addressof(pyggr_dst_opts->max.value), 
 		boost::addressof(pyggr_src_opts->max.value));
 	pyggr_dst_opts->max.set = pyggr_src_opts->max.set;
+
+#if !(YGGR_MONGOC_HEX() < 0x011C0000)
+	pyggr_dst_opts->trim_factor = pyggr_src_opts->trim_factor;
+#endif // #if !(YGGR_MONGOC_HEX() < 0x011C0000)
 
 	pyggr_dst_opts->sparsity = pyggr_src_opts->sparsity;
 

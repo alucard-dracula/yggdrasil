@@ -132,9 +132,11 @@ ifeq ($(NDK_DEBUG), 1)
 	l_ldflags += \
 		-lyggr_any_val$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		-lyggr_exception$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
+		-lyggr_time$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		-lyggr_charset$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		-lyggr_base$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		-lyggr_compatibility$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
+		-lboost_date_time$(USRDEF_APP_COMPILER_VERSION_TAG)-mt-d$(tag_arch_bits)$(USRDEF_APP_BOOST_VERSION_TAG) \
 		-lboost_thread$(USRDEF_APP_COMPILER_VERSION_TAG)-mt-d$(tag_arch_bits)$(USRDEF_APP_BOOST_VERSION_TAG) \
 		$(USRDEF_APP_LDFLAGS_DEBUG) \
 
@@ -144,9 +146,11 @@ else
 		-Wl,--gc-sections \
 		-lyggr_any_val$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		-lyggr_exception$(USRDEF_APP_COMPILER_VERSION_TAG) \
+		-lyggr_time$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		-lyggr_charset$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		-lyggr_base$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		-lyggr_compatibility$(USRDEF_APP_COMPILER_VERSION_TAG) \
+		-lboost_date_time$(USRDEF_APP_COMPILER_VERSION_TAG)-mt$(tag_arch_bits)$(USRDEF_APP_BOOST_VERSION_TAG) \
 		-lboost_thread$(USRDEF_APP_COMPILER_VERSION_TAG)-mt$(tag_arch_bits)$(USRDEF_APP_BOOST_VERSION_TAG) \
 		$(USRDEF_APP_LDFLAGS_RELEASE) \
 

@@ -155,8 +155,8 @@
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
 		<ClCompile>
 			<Optimization>MaxSpeed</Optimization>
-			<AdditionalIncludeDirectories>../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_LIB;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_INTELDFP;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_COMPILATION;MONGOC_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>../include;../include/bson;../include/common;../include/jsonsl;../include/kms_message;../include/mongo_crypt;../include/mongoc;../include/mongocrypt;../include/mongocrypt/unicode;../include/utf8proc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_LIB;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_COMPILATION;MONGOC_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
 			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
 			<WarningLevel>Level3</WarningLevel>
 			<FunctionLevelLinking>true</FunctionLevelLinking>
@@ -174,8 +174,8 @@
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
 		<ClCompile>
 			<Optimization>MaxSpeed</Optimization>
-			<AdditionalIncludeDirectories>../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_WINDOWS;_LIB;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_INTELDFP;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_COMPILATION;MONGOC_STATIC;_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>../include;../include/bson;../include/common;../include/jsonsl;../include/kms_message;../include/mongo_crypt;../include/mongoc;../include/mongocrypt;../include/mongocrypt/unicode;../include/utf8proc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_WINDOWS;_LIB;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_COMPILATION;MONGOC_STATIC;_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
 			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
 			<WarningLevel>Level3</WarningLevel>
 			<FunctionLevelLinking>true</FunctionLevelLinking>
@@ -193,8 +193,8 @@
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
 		<ClCompile>
 			<Optimization>Disabled</Optimization>
-			<AdditionalIncludeDirectories>../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_LIB;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_INTELDFP;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_COMPILATION;MONGOC_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>../include;../include/bson;../include/common;../include/jsonsl;../include/kms_message;../include/mongo_crypt;../include/mongoc;../include/mongocrypt;../include/mongocrypt/unicode;../include/utf8proc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_LIB;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_COMPILATION;MONGOC_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
 			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
 			<WarningLevel>Level3</WarningLevel>
 			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -210,8 +210,8 @@
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
 		<ClCompile>
 			<Optimization>Disabled</Optimization>
-			<AdditionalIncludeDirectories>../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_WINDOWS;_LIB;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_INTELDFP;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_COMPILATION;MONGOC_STATIC;_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>../include;../include/bson;../include/common;../include/jsonsl;../include/kms_message;../include/mongo_crypt;../include/mongoc;../include/mongocrypt;../include/mongocrypt/unicode;../include/utf8proc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_WINDOWS;_LIB;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_COMPILATION;MONGOC_STATIC;_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
 			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
 			<WarningLevel>Level3</WarningLevel>
 			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="mongoc"/>
+		<Option pch_mode="2"/>
+		<Option compiler="gcc"/>
+		<Build>
+			<Target title="Debug-Win32">
+				<Option output="$(WORKSPACE_DIR)/lib/lib$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)-d" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-O0"/>
+					<Add option="-g"/>
+					<Add option="-D_DEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+				</Linker>
+			</Target>
+			<Target title="Release-Win32">
+				<Option output="$(WORKSPACE_DIR)/lib/lib$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-O3"/>
+					<Add option="-DNDEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+					<Add option="-s"/>
+				</Linker>
+			</Target>
+			<Target title="Debug-x64">
+				<Option output="$(WORKSPACE_DIR)/lib64/lib$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)-d" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-O0"/>
+					<Add option="-g"/>
+					<Add option="-DWIN64"/>
+					<Add option="-D_DEBUG"/>
+					<Add option="-D_WIN64"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+				</Linker>
+			</Target>
+			<Target title="Release-x64">
+				<Option output="$(WORKSPACE_DIR)/lib64/lib$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-O3"/>
+					<Add option="-DNDEBUG"/>
+					<Add option="-DWIN64"/>
+					<Add option="-D_WIN64"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+					<Add option="-s"/>
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="all" targets="Debug-Win32;Release-Win32;Debug-x64;Release-x64;"/>
+			<Add alias="all_libonly" targets="Debug-Win32;Release-Win32;Debug-x64;Release-x64;"/>
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall"/>
+			<Add option="-std=c++20"/>
+			<Add option="-fexceptions"/>
+			<Add option="-Wno-sign-compare"/>
+			<Add option="-Wno-comment"/>
+			<Add option="-Wno-enum-compare"/>
+			<Add option="-Wno-unused-local-typedefs"/>
+			<Add option="-Wno-multichar"/>
+			<Add option="-Werror=return-type"/>
+			<Add option="-Werror=endif-labels"/>
+			<Add option="-fdata-sections"/>
+			<Add option="-ffunction-sections"/>
+			<Add option="-fno-strict-aliasing"/>
+			<Add option="-DBSON_STATIC"/>
+			<Add option="-DBUILD_MONGODB_DRIVER_YGGR_VER"/>
+			<Add option="-DKMS_MSG_STATIC"/>
+			<Add option="-DMLIB_USER"/>
+			<Add option="-DMONGOCRYPT_LITTLE_ENDIAN"/>
+			<Add option="-DMONGOCRYPT_STATIC_DEFINE"/>
+			<Add option="-DMONGOC_COMPILATION"/>
+			<Add option="-DMONGOC_STATIC"/>
+			<Add option="-DUTF8PROC_STATIC"/>
+			<Add option="-DWIN32"/>
+			<Add option="-D_LIB"/>
+			<Add directory="../include"/>
+			<Add directory="../include/bson"/>
+			<Add directory="../include/common"/>
+			<Add directory="../include/jsonsl"/>
+			<Add directory="../include/kms_message"/>
+			<Add directory="../include/mongo_crypt"/>
+			<Add directory="../include/mongoc"/>
+			<Add directory="../include/mongocrypt"/>
+			<Add directory="../include/mongocrypt/unicode"/>
+			<Add directory="../include/utf8proc"/>
+		</Compiler>
+		<Unit filename="mcd-azure.c"/>
+		<Unit filename="mcd-nsinfo.c"/>
+		<Unit filename="mcd-rpc.c"/>
+		<Unit filename="mongoc-aggregate.c"/>
+		<Unit filename="mongoc-apm.c"/>
+		<Unit filename="mongoc-array.c"/>
+		<Unit filename="mongoc-async-cmd.c"/>
+		<Unit filename="mongoc-async.c"/>
+		<Unit filename="mongoc-buffer.c"/>
+		<Unit filename="mongoc-bulk-operation.c"/>
+		<Unit filename="mongoc-bulkwrite.c"/>
+		<Unit filename="mongoc-change-stream.c"/>
+		<Unit filename="mongoc-client-pool.c"/>
+		<Unit filename="mongoc-client-session.c"/>
+		<Unit filename="mongoc-client-side-encryption.c"/>
+		<Unit filename="mongoc-client.c"/>
+		<Unit filename="mongoc-cluster-aws.c"/>
+		<Unit filename="mongoc-cluster-cyrus.c"/>
+		<Unit filename="mongoc-cluster-sasl.c"/>
+		<Unit filename="mongoc-cluster-sspi.c"/>
+		<Unit filename="mongoc-cluster.c"/>
+		<Unit filename="mongoc-cmd.c"/>
+		<Unit filename="mongoc-collection.c"/>
+		<Unit filename="mongoc-compression.c"/>
+		<Unit filename="mongoc-counters.c"/>
+		<Unit filename="mongoc-crypt.c"/>
+		<Unit filename="mongoc-crypto-cng.c"/>
+		<Unit filename="mongoc-crypto-common-crypto.c"/>
+		<Unit filename="mongoc-crypto-openssl.c"/>
+		<Unit filename="mongoc-crypto.c"/>
+		<Unit filename="mongoc-cursor-array.c"/>
+		<Unit filename="mongoc-cursor-change-stream.c"/>
+		<Unit filename="mongoc-cursor-cmd-deprecated.c"/>
+		<Unit filename="mongoc-cursor-cmd.c"/>
+		<Unit filename="mongoc-cursor-find-cmd.c"/>
+		<Unit filename="mongoc-cursor-find-opquery.c"/>
+		<Unit filename="mongoc-cursor-find.c"/>
+		<Unit filename="mongoc-cursor-legacy.c"/>
+		<Unit filename="mongoc-cursor.c"/>
+		<Unit filename="mongoc-cyrus.c"/>
+		<Unit filename="mongoc-database.c"/>
+		<Unit filename="mongoc-deprioritized-servers.c"/>
+		<Unit filename="mongoc-error.c"/>
+		<Unit filename="mongoc-find-and-modify.c"/>
+		<Unit filename="mongoc-flags.c"/>
+		<Unit filename="mongoc-generation-map.c"/>
+		<Unit filename="mongoc-gridfs-bucket-file.c"/>
+		<Unit filename="mongoc-gridfs-bucket.c"/>
+		<Unit filename="mongoc-gridfs-file-list.c"/>
+		<Unit filename="mongoc-gridfs-file-page.c"/>
+		<Unit filename="mongoc-gridfs-file.c"/>
+		<Unit filename="mongoc-gridfs.c"/>
+		<Unit filename="mongoc-handshake.c"/>
+		<Unit filename="mongoc-host-list.c"/>
+		<Unit filename="mongoc-http.c"/>
+		<Unit filename="mongoc-index.c"/>
+		<Unit filename="mongoc-init.c"/>
+		<Unit filename="mongoc-interrupt.c"/>
+		<Unit filename="mongoc-libressl.c"/>
+		<Unit filename="mongoc-linux-distro-scanner.c"/>
+		<Unit filename="mongoc-list.c"/>
+		<Unit filename="mongoc-log-and-monitor-private.c"/>
+		<Unit filename="mongoc-log.c"/>
+		<Unit filename="mongoc-matcher-op.c"/>
+		<Unit filename="mongoc-matcher.c"/>
+		<Unit filename="mongoc-memcmp.c"/>
+		<Unit filename="mongoc-ocsp-cache.c"/>
+		<Unit filename="mongoc-opcode.c"/>
+		<Unit filename="mongoc-openssl.c"/>
+		<Unit filename="mongoc-optional.c"/>
+		<Unit filename="mongoc-opts-helpers.c"/>
+		<Unit filename="mongoc-opts.c"/>
+		<Unit filename="mongoc-queue.c"/>
+		<Unit filename="mongoc-rand-cng.c"/>
+		<Unit filename="mongoc-rand-common-crypto.c"/>
+		<Unit filename="mongoc-rand-openssl.c"/>
+		<Unit filename="mongoc-read-concern.c"/>
+		<Unit filename="mongoc-read-prefs.c"/>
+		<Unit filename="mongoc-rpc.c"/>
+		<Unit filename="mongoc-sasl.c"/>
+		<Unit filename="mongoc-scram.c"/>
+		<Unit filename="mongoc-secure-channel.c"/>
+		<Unit filename="mongoc-secure-transport.c"/>
+		<Unit filename="mongoc-server-api.c"/>
+		<Unit filename="mongoc-server-description.c"/>
+		<Unit filename="mongoc-server-monitor.c"/>
+		<Unit filename="mongoc-server-stream.c"/>
+		<Unit filename="mongoc-set.c"/>
+		<Unit filename="mongoc-shared.c"/>
+		<Unit filename="mongoc-socket.c"/>
+		<Unit filename="mongoc-ssl.c"/>
+		<Unit filename="mongoc-sspi.c"/>
+		<Unit filename="mongoc-stream-buffered.c"/>
+		<Unit filename="mongoc-stream-file.c"/>
+		<Unit filename="mongoc-stream-gridfs-download.c"/>
+		<Unit filename="mongoc-stream-gridfs-upload.c"/>
+		<Unit filename="mongoc-stream-gridfs.c"/>
+		<Unit filename="mongoc-stream-socket.c"/>
+		<Unit filename="mongoc-stream-tls-libressl.c"/>
+		<Unit filename="mongoc-stream-tls-openssl-bio.c"/>
+		<Unit filename="mongoc-stream-tls-openssl.c"/>
+		<Unit filename="mongoc-stream-tls-secure-channel.c"/>
+		<Unit filename="mongoc-stream-tls-secure-transport.c"/>
+		<Unit filename="mongoc-stream-tls.c"/>
+		<Unit filename="mongoc-stream.c"/>
+		<Unit filename="mongoc-structured-log.c"/>
+		<Unit filename="mongoc-timeout.c"/>
+		<Unit filename="mongoc-topology-background-monitoring.c"/>
+		<Unit filename="mongoc-topology-description-apm.c"/>
+		<Unit filename="mongoc-topology-description.c"/>
+		<Unit filename="mongoc-topology-scanner.c"/>
+		<Unit filename="mongoc-topology.c"/>
+		<Unit filename="mongoc-ts-pool.c"/>
+		<Unit filename="mongoc-uri.c"/>
+		<Unit filename="mongoc-util.c"/>
+		<Unit filename="mongoc-version-functions.c"/>
+		<Unit filename="mongoc-write-command.c"/>
+		<Unit filename="mongoc-write-concern.c"/>
+		<Unit filename="service-gcp.c"/>
+		<Extensions>
+			<lib_finder disable_auto="1"/>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

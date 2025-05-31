@@ -17,7 +17,7 @@ typedef game::game_mgr::protocol::error_container<yggr::u32, yggr::charset::utf8
 
 parser_mgr_type::run_rst_type out_cmd(const string_type& uid, const yggr::u32& lv, const parser_mgr_type::command_type& command)
 {
-	std::cout <<"uid = " << uid <<" lv = " << lv << " command = " << command << std::endl;
+	std::cout << "uid = " << uid << " lv = " << lv << " command = " << command << std::endl;
 	return parser_mgr_type::run_rst_type(0,  string_type("sucess"));
 }
 
@@ -27,7 +27,7 @@ void test_parser_mgr(void)
 	parser_mgr_type mgr;
 
 	mgr.register_parser(string_type("item"), boost::bind(&out_cmd, _1, _2, _3));
-	error_type err = mgr.run_command<error_type>(string_type("xy"), 10, string_type("item"), string_type("update name=´óÑªÆ¿ add_count = 1"));
+	error_type err = mgr.run_command<error_type>(string_type("xy"), 10, string_type("item"), string_type("update name=ï¿½ï¿½ÑªÆ¿ add_count = 1"));
 
 	std::cout << err.what() << std::endl;
 }
@@ -51,10 +51,10 @@ void user_info_mgr_test(void)
 	user_info_mgr_type user_mgr;
 
 	user_mgr.add_user(string_type("xy"), string_type("123456"));
-	user_mgr.add_user(string_type("xy2"), string_type("ÄãºÃ"));
+	user_mgr.add_user(string_type("xy2"), string_type("ï¿½ï¿½ï¿½"));
 	std::cout << user_mgr.cmp_passwd(string_type("xy"), string_type("123456")) << std::endl;
-	std::cout << user_mgr.cmp_passwd(string_type("xy2"), string_type("ÄãºÃ")) << std::endl;
-	std::cout << user_mgr.cmp_passwd(string_type("xy"), string_type("ÄãºÃ")) << std::endl;
+	std::cout << user_mgr.cmp_passwd(string_type("xy2"), string_type("ï¿½ï¿½ï¿½")) << std::endl;
+	std::cout << user_mgr.cmp_passwd(string_type("xy"), string_type("ï¿½ï¿½ï¿½")) << std::endl;
 
 	sys_lv_list_type sys_lv_list;
 

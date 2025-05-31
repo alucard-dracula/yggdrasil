@@ -23,9 +23,11 @@
 					<Add option="-m32"/>
 					<Add option="-lyggr_any_val$(#COMPILER_VERSION_TAG)-d"/>
 					<Add option="-lyggr_exception$(#COMPILER_VERSION_TAG)-d"/>
+					<Add option="-lyggr_time$(#COMPILER_VERSION_TAG)-d"/>
 					<Add option="-lyggr_charset$(#COMPILER_VERSION_TAG)-d"/>
 					<Add option="-lyggr_base$(#COMPILER_VERSION_TAG)-d"/>
 					<Add option="-lyggr_compatibility$(#COMPILER_VERSION_TAG)-d"/>
+					<Add option="-lboost_date_time$(#COMPILER_VERSION_TAG)-mt-d-x32$(#BOOST_VERSION_TAG)"/>
 					<Add option="-lboost_thread$(#COMPILER_VERSION_TAG)-mt-d-x32$(#BOOST_VERSION_TAG)"/>
 					<Add directory="../lib"/>
 				</Linker>
@@ -47,9 +49,11 @@
 					<Add option="-Wl,--gc-sections"/>
 					<Add option="-lyggr_any_val$(#COMPILER_VERSION_TAG)"/>
 					<Add option="-lyggr_exception$(#COMPILER_VERSION_TAG)"/>
+					<Add option="-lyggr_time$(#COMPILER_VERSION_TAG)"/>
 					<Add option="-lyggr_charset$(#COMPILER_VERSION_TAG)"/>
 					<Add option="-lyggr_base$(#COMPILER_VERSION_TAG)"/>
 					<Add option="-lyggr_compatibility$(#COMPILER_VERSION_TAG)"/>
+					<Add option="-lboost_date_time$(#COMPILER_VERSION_TAG)-mt-x32$(#BOOST_VERSION_TAG)"/>
 					<Add option="-lboost_thread$(#COMPILER_VERSION_TAG)-mt-x32$(#BOOST_VERSION_TAG)"/>
 					<Add directory="../lib"/>
 				</Linker>
@@ -72,9 +76,11 @@
 					<Add option="-m64"/>
 					<Add option="-lyggr_any_val$(#COMPILER_VERSION_TAG)-d"/>
 					<Add option="-lyggr_exception$(#COMPILER_VERSION_TAG)-d"/>
+					<Add option="-lyggr_time$(#COMPILER_VERSION_TAG)-d"/>
 					<Add option="-lyggr_charset$(#COMPILER_VERSION_TAG)-d"/>
 					<Add option="-lyggr_base$(#COMPILER_VERSION_TAG)-d"/>
 					<Add option="-lyggr_compatibility$(#COMPILER_VERSION_TAG)-d"/>
+					<Add option="-lboost_date_time$(#COMPILER_VERSION_TAG)-mt-d-x64$(#BOOST_VERSION_TAG)"/>
 					<Add option="-lboost_thread$(#COMPILER_VERSION_TAG)-mt-d-x64$(#BOOST_VERSION_TAG)"/>
 					<Add directory="../lib64"/>
 				</Linker>
@@ -97,9 +103,11 @@
 					<Add option="-Wl,--gc-sections"/>
 					<Add option="-lyggr_any_val$(#COMPILER_VERSION_TAG)"/>
 					<Add option="-lyggr_exception$(#COMPILER_VERSION_TAG)"/>
+					<Add option="-lyggr_time$(#COMPILER_VERSION_TAG)"/>
 					<Add option="-lyggr_charset$(#COMPILER_VERSION_TAG)"/>
 					<Add option="-lyggr_base$(#COMPILER_VERSION_TAG)"/>
 					<Add option="-lyggr_compatibility$(#COMPILER_VERSION_TAG)"/>
+					<Add option="-lboost_date_time$(#COMPILER_VERSION_TAG)-mt-x64$(#BOOST_VERSION_TAG)"/>
 					<Add option="-lboost_thread$(#COMPILER_VERSION_TAG)-mt-x64$(#BOOST_VERSION_TAG)"/>
 					<Add directory="../lib64"/>
 				</Linker>

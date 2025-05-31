@@ -60,6 +60,13 @@ THE SOFTWARE.
 #	endif // BSON_STATIC
 #endif // BSON_VERSION_HEX < 0x01070000
 
+//mongocrypt
+#	if !defined(MONGOCRYPT_INTELDFP) \
+		&& defined(YGGR_X86_PLATFORM) \
+		&& !defined(YGGR_MONGODB_NO_DECIMAL128)
+#		define MONGOCRYPT_INTELDFP
+#	endif // MONGOCRYPT_INTELDFP
+
 #include <bson.h>
 
 #if (YGGR_BSON_HEX() < (YGGR_MAKE_BSON_HEX(1, 23, 0)))

@@ -10,7 +10,8 @@ dir7="\.\.\/tools\/lua\/lua5_34"
 #dir8="\.\.\/tools\/lua\/luabind503p"
 dir9="\.\.\/tools\/lzma\/lzma2408-compile\/C\/Util\/LzmaLib"
 dir10="\.\.\/tools\/md5"
-#dir11="\.\.\/tools\/mongodb_c_driver\/yggr_src_1.26.1"
+dir11_1="\.\.\/tools\/mongodb_c_driver\/yggr_src_1.26.1"
+dir11_2="\.\.\/tools\/mongodb_c_driver\/yggr_src_1.30.2"
 dir12="\.\.\/tools\/sha"
 dir13="\.\."
 
@@ -44,8 +45,11 @@ sed -i "s/<root_dir_>.*<\/root_dir_>/<root_dir_>${dir9}<\/root_dir_>/g" tool_con
 sed -i "s/<root_dir_>.*<\/root_dir_>/<root_dir_>${dir10}<\/root_dir_>/g" tool_conv_to_darwin_cmakelists_txt_cfg.xml
 ./tool_conv_to_darwin_cmakelists_txt tool_conv_to_darwin_cmakelists_txt_cfg.xml
 
-#sed -i "s/<root_dir_>.*<\/root_dir_>/<root_dir_>${dir11}<\/root_dir_>/g" tool_conv_to_darwin_cmakelists_txt_cfg.xml
-#./tool_conv_to_darwin_cmakelists_txt tool_conv_to_darwin_cmakelists_txt_cfg.xml
+sed -i "s/<root_dir_>.*<\/root_dir_>/<root_dir_>${dir11_1}<\/root_dir_>/g" tool_conv_to_darwin_cmakelists_txt_cfg.xml
+./tool_conv_to_darwin_cmakelists_txt tool_conv_to_darwin_cmakelists_txt_cfg.xml
+
+sed -i "s/<root_dir_>.*<\/root_dir_>/<root_dir_>${dir11_2}<\/root_dir_>/g" tool_conv_to_darwin_cmakelists_txt_cfg.xml
+./tool_conv_to_darwin_cmakelists_txt tool_conv_to_darwin_cmakelists_txt_cfg.xml
 
 sed -i "s/<root_dir_>.*<\/root_dir_>/<root_dir_>${dir12}<\/root_dir_>/g" tool_conv_to_darwin_cmakelists_txt_cfg.xml
 ./tool_conv_to_darwin_cmakelists_txt tool_conv_to_darwin_cmakelists_txt_cfg.xml

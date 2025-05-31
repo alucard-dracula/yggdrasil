@@ -15,5 +15,6 @@ if exist %data_dir% goto :lab_start
 	start mongod ^
 		--dbpath %data_dir% ^
 		--logpath %log_file% ^
+		--bind_ip_all ^
 		--port 10098 ^
 		--logappend

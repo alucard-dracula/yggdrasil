@@ -7,4 +7,4 @@ if [ ! -d ${data_dir} ];then
 	mkdir -p ${data_dir}
 fi
 
-mongod --dbpath ${data_dir} --logpath ${log_file} --port 10098 --logappend &
+mongod --dbpath ${data_dir} --logpath ${log_file} --bind_ip_all --port 10098 --logappend &

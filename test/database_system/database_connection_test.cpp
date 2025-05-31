@@ -24,6 +24,7 @@
 #include YGGR_PP_LINK_LIB(exception)
 #include YGGR_PP_LINK_LIB(database_system)
 #include YGGR_PP_LINK_LIB(charset)
+#include YGGR_PP_LINK_LIB(time)
 #include YGGR_PP_LINK_LIB(base)
 
 #define USE_MYSQL
@@ -58,7 +59,7 @@ template<typename Char, typename Traits>
 std::basic_ostream<Char, Traits>& 
 	operator<<(std::basic_ostream<Char, Traits>& os, const t_s& ts)
 {
-	os << ts.uid <<","<< ts.uname<<","<<ts.utm;
+	os << ts.uid << ","<< ts.uname<< ","<<ts.utm;
 	return os;
 }
 
@@ -264,7 +265,7 @@ public:
 
 std::ostream& operator<<(std::ostream& os, const t_s2& ts)
 {
-	os << ts.uid <<","<< ts.uname << "," << ts.utm;
+	os << ts.uid << ","<< ts.uname << "," << ts.utm;
 	return os;
 }
 

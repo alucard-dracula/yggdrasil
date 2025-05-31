@@ -14,9 +14,41 @@
  * limitations under the License.
  */
 
-#ifndef __MONGOC_MONGOC_ERRNO_PRIVATE_H__
-#define __MONGOC_MONGOC_ERRNO_PRIVATE_H__
+#include "mongoc-prelude.h"
 
-#include "../mongoc-errno-private.h"
+#ifndef MONGOC_ERRNO_PRIVATE_H
+#define MONGOC_ERRNO_PRIVATE_H
 
-#endif // __MONGOC_MONGOC_ERRNO_PRIVATE_H__
+#include <bson.h>
+#include <errno.h>
+#ifdef _WIN32
+#include <winsock2.h>
+#include <winerror.h>
+#endif
+
+
+BSON_BEGIN_DECLS
+
+
+#if defined(_WIN32)
+#define MONGOC_ERRNO_IS_AGAIN(errno) \
+   ((errno == EAGAIN) || (errno == WSAEWOULDBLOCK) || (errno == WSAEINPROGRESS))
+#define MONGOC_ERRNO_IS_TIMEDOUT(errno) (errno == WSAETIMEDOUT)
+#elif defined(__sun)
+/* for some reason, accept() returns -1 and errno of 0 */
+#define MONGOC_ERRNO_IS_AGAIN(errno)                                   \
+   ((errno == EINTR) || (errno == EAGAIN) || (errno == EWOULDBLOCK) || \
+    (errno == EINPROGRESS) || (errno == 0))
+#define MONGOC_ERRNO_IS_TIMEDOUT(errno) (errno == ETIMEDOUT)
+#else
+#define MONGOC_ERRNO_IS_AGAIN(errno)                                   \
+   ((errno == EINTR) || (errno == EAGAIN) || (errno == EWOULDBLOCK) || \
+    (errno == EINPROGRESS))
+#define MONGOC_ERRNO_IS_TIMEDOUT(errno) (errno == ETIMEDOUT)
+#endif
+
+
+BSON_END_DECLS
+
+
+#endif /* MONGOC_ERRNO_PRIVATE_H */

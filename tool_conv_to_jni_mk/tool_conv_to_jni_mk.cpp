@@ -561,16 +561,19 @@ ptree_string_type format_cb_infos_output_string(const ptree_string_type& str)
 	static const ptree_string_type mark_proj_name = "$(PROJECT_NAME)";
 	static const ptree_string_type mark_compiler_version_tag = "$(#COMPILER_VERSION_TAG)";
 	static const ptree_string_type mark_compiler_version = "$(#COMPILER_VERSION)";
+	//static const ptree_string_type mark_duplicate_link = "$(#DUPLICATE_LINK_MARK)";
 	
 	static const ptree_string_type mark_proj_name_r = "$(USRDEF_LOCAL_PROJECT_NAME)";
 	static const ptree_string_type mark_compiler_version_tag_r = "$(USRDEF_APP_COMPILER_VERSION_TAG)";
 	static const ptree_string_type mark_compiler_version_r = "$(USRDEF_APP_COMPILER_VERSION)";
+	//static const ptree_string_type mark_duplicate_link_r = "";
 
 	ptree_string_type str_fname = file_op::get_file_name(str);
 
 	find_and_replace(str_fname, mark_proj_name, mark_proj_name_r);
 	find_and_replace(str_fname, mark_compiler_version_tag, mark_compiler_version_tag_r);
 	find_and_replace(str_fname, mark_compiler_version, mark_compiler_version_r);
+	//find_and_replace(str_fname, mark_duplicate_link, mark_duplicate_link_r);
 
 	return str_fname;
 }
@@ -585,6 +588,8 @@ ptree_string_type format_cb_infos_ldflags(const ptree_string_type& str)
 	static const ptree_string_type mark_python_version = "$(#PYTHON_VERSION)";
 	static const ptree_string_type mark_arch64_tag = "-x64";
 	static const ptree_string_type mark_arch32_tag = "-x32";
+	static const ptree_string_type mark_duplicate_link = "$(#DUPLICATE_LINK_MARK)";
+	
 
 	//static const ptree_string_type mark_proj_name_r = "$(USRDEF_LOCAL_PROJECT_NAME)";
 	static const ptree_string_type mark_compiler_version_tag_r = "$(USRDEF_APP_COMPILER_VERSION_TAG)";
@@ -593,6 +598,7 @@ ptree_string_type format_cb_infos_ldflags(const ptree_string_type& str)
 	static const ptree_string_type mark_boost_version_r = "$(USRDEF_APP_BOOST_VERSION)";
 	static const ptree_string_type mark_python_version_r = "$(USRDEF_APP_PYTHON_VERSION)";
 	static const ptree_string_type mark_arch_tag_r = "$(tag_arch_bits)";
+	static const ptree_string_type mark_duplicate_link_r = "";
 
 	ptree_string_type str_out = str;
 
@@ -604,6 +610,7 @@ ptree_string_type format_cb_infos_ldflags(const ptree_string_type& str)
 	find_and_replace(str_out, mark_python_version, mark_python_version_r);
 	find_and_replace(str_out, mark_arch64_tag, mark_arch_tag_r);
 	find_and_replace(str_out, mark_arch32_tag, mark_arch_tag_r);
+	find_and_replace(str_out, mark_duplicate_link, mark_duplicate_link_r);
 
 	return str_out;
 }
@@ -715,7 +722,7 @@ ptree_string_type& conv_to_app_android_mk(ptree_string_type& out,
 		yggr::string str_fname = file_op::get_file_name_no_ext(*i);
 		assert(str_dir.size());
 		assert(6 < str_fname.size());
-		ss << "\t$(LOCAL_PATH)/../" << str_dir << "/Android_" << str_fname.substr(0, str_fname.size() - 6/*"_linux"*/) <<".mk \\\n";
+		ss << "\t$(LOCAL_PATH)/../" << str_dir << "/Android_" << str_fname.substr(0, str_fname.size() - 6/*"_linux"*/) << ".mk \\\n";
 	}
 
 	if(fixed_cbs_flist.size())
@@ -847,6 +854,16 @@ ptree_string_type& conv_to_appliction_mk(ptree_string_type& out,
 		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/openssl/include \\\n"
 		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/python/include \\\n"
 		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/dtl/include \\\n"
+		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include \\\n"
+		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/bson \\\n"
+		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/common \\\n"
+		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/jsonsl \\\n"
+		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/kms_message \\\n"
+		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/mongo_crypt \\\n"
+		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/mongoc \\\n"
+		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/mongocrypt \\\n"
+		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/mongocrypt/unicode \\\n"
+		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/utf8proc \\\n"
 		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/boost/include \\\n"
 		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/lua/include \\\n"
 		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/luabind/include \n\n"
@@ -887,6 +904,7 @@ ptree_string_type& conv_to_appliction_mk(ptree_string_type& out,
 		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/openssl/lib \\\n"
 		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/python/lib \\\n"
 		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/dtl/lib \\\n"
+		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/lib \\\n"
 		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/boost/lib \\\n"
 		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/lua/lib \\\n"
 		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/luabind/lib \n\n"
@@ -996,7 +1014,8 @@ ptree_string_type& gen_format_jni(ptree_string_type& out,
 	std::stringstream ss;
 
 	ss << "#!/bin/sh\n\n"
-		<< "var_ndk_root=/d/android_devel/Android/Sdk/ndk/28.0.12674087\n"
+		//<< "var_ndk_root=/d/android_devel/Android/Sdk/ndk/28.0.12674087\n"
+		<< "var_ndk_root=/d/android_devel/Android/Sdk/ndk/current\n"
 		<< "var_ndk_build_cmd=${var_ndk_root}/ndk-build.cmd\n\n"
 
 		<< "var_android_api=21\n"

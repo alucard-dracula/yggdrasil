@@ -5,9 +5,9 @@
 
 #include <yggr/archive/xml_archive_partner.hpp>
 
-#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 #	include <yggr/archive/bson_archive_partner.hpp>
-#endif // #if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#endif //#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 
 #include <yggr/packet/packet.hpp>
 
@@ -35,14 +35,14 @@
 typedef yggr::packet::packet<yggr::archive::archive_partner::xml_oarchive_partner> opak_type;
 typedef yggr::packet::packet<yggr::archive::archive_partner::xml_iarchive_partner> ipak_type;
 
-#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 
 typedef yggr::packet::packet<yggr::archive::archive_partner::bson_oarchive_partner> bson_opak_type;
 typedef yggr::packet::packet<yggr::archive::archive_partner::bson_iarchive_partner> bson_ipak_type;
 
 typedef yggr::packet::packet<yggr::archive::archive_partner::bson_nld_oarchive_partner> bson_nld_opak_type;
 
-#endif // #if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#endif //#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 
 typedef yggr::time::time time_type;
 
@@ -93,7 +93,7 @@ void test_foo1(void)
 	std::cout << tm_dst.to_string() << std::endl;
 }
 
-#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 
 void test_foo1_bson(void)
 {
@@ -124,7 +124,7 @@ void test_foo1_bson_nld(void)
 	std::cout << o.org_buf() << std::endl;
 }
 
-#endif // #if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#endif //#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 
 void test_foo2(void)
 {
@@ -144,7 +144,7 @@ void test_foo2(void)
 	std::cout << a2.tm.to_string() << std::endl;
 }
 
-#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 
 void test_foo2_bson(void)
 {
@@ -173,24 +173,24 @@ void test_foo2_bson_nld(void)
 	std::cout << o.org_buf() << std::endl;
 }
 
-#endif // #if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#endif //#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 
 
 int main(int argc, char* argv[])
 {
 	test_foo1();
 
-#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 	test_foo1_bson();
 	test_foo1_bson_nld();
-#endif // #if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#endif //#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 
 	test_foo2();
 
-#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 	test_foo2_bson();
 	test_foo2_bson_nld();
-#endif // #if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#endif //#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 
 	wait_any_key(argc, argv);
 	return 0;

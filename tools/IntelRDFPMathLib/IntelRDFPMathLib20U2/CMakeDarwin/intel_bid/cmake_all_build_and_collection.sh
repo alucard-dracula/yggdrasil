@@ -62,6 +62,8 @@ var_cpp_ver="cpp11"
 var_sln_dir="${var_local_dir}/../.."
 var_prefix_stage_dir="${var_sln_dir}/stage_prefix"
 
+<< 'EOF'
+
 var_sdk_name="macosx"
 collection_foo \
 	"${var_sln_name}" \
@@ -71,4 +73,14 @@ collection_foo \
 	"${var_sln_dir}" \
 	"${var_prefix_stage_dir}" 
 
+EOF
+
+var_sdk_name="iphonesimulator"
+collection_foo \
+	"${var_sln_name}" \
+	"${var_sdk_name}" \
+	"${var_clang_tag}" \
+	"${var_cpp_ver}" \
+	"${var_sln_dir}" \
+	"${var_prefix_stage_dir}" 
 

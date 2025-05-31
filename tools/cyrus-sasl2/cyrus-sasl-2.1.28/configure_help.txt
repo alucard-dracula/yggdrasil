@@ -1,0 +1,180 @@
+`configure' configures cyrus-sasl 2.1.28 to adapt to many kinds of systems.
+
+Usage: ./configure [OPTION]... [VAR=VALUE]...
+
+To assign environment variables (e.g., CC, CFLAGS...), specify them as
+VAR=VALUE.  See below for descriptions of some of the useful variables.
+
+Defaults for the options are specified in brackets.
+
+Configuration:
+  -h, --help              display this help and exit
+      --help=short        display options specific to this package
+      --help=recursive    display the short help of all the included packages
+  -V, --version           display version information and exit
+  -q, --quiet, --silent   do not print `checking ...' messages
+      --cache-file=FILE   cache test results in FILE [disabled]
+  -C, --config-cache      alias for `--cache-file=config.cache'
+  -n, --no-create         do not create output files
+      --srcdir=DIR        find the sources in DIR [configure dir or `..']
+
+Installation directories:
+  --prefix=PREFIX         install architecture-independent files in PREFIX
+                          [/usr/local]
+  --exec-prefix=EPREFIX   install architecture-dependent files in EPREFIX
+                          [PREFIX]
+
+By default, `make install' will install all the files in
+`/usr/local/bin', `/usr/local/lib' etc.  You can specify
+an installation prefix other than `/usr/local' using `--prefix',
+for instance `--prefix=$HOME'.
+
+For better control, use the options below.
+
+Fine tuning of the installation directories:
+  --bindir=DIR            user executables [EPREFIX/bin]
+  --sbindir=DIR           system admin executables [EPREFIX/sbin]
+  --libexecdir=DIR        program executables [EPREFIX/libexec]
+  --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
+  --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
+  --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
+  --runstatedir=DIR       modifiable per-process data [LOCALSTATEDIR/run]
+  --libdir=DIR            object code libraries [EPREFIX/lib]
+  --includedir=DIR        C header files [PREFIX/include]
+  --oldincludedir=DIR     C header files for non-gcc [/usr/include]
+  --datarootdir=DIR       read-only arch.-independent data root [PREFIX/share]
+  --datadir=DIR           read-only architecture-independent data [DATAROOTDIR]
+  --infodir=DIR           info documentation [DATAROOTDIR/info]
+  --localedir=DIR         locale-dependent data [DATAROOTDIR/locale]
+  --mandir=DIR            man documentation [DATAROOTDIR/man]
+  --docdir=DIR            documentation root [DATAROOTDIR/doc/cyrus-sasl]
+  --htmldir=DIR           html documentation [DOCDIR]
+  --dvidir=DIR            dvi documentation [DOCDIR]
+  --pdfdir=DIR            pdf documentation [DOCDIR]
+  --psdir=DIR             ps documentation [DOCDIR]
+
+Program names:
+  --program-prefix=PREFIX            prepend PREFIX to installed program names
+  --program-suffix=SUFFIX            append SUFFIX to installed program names
+  --program-transform-name=PROGRAM   run sed PROGRAM on installed program names
+
+System types:
+  --build=BUILD     configure for building on BUILD [guessed]
+  --host=HOST       cross-compile to build programs to run on HOST [BUILD]
+  --target=TARGET   configure for building compilers for TARGET [HOST]
+
+Optional Features:
+  --disable-option-checking  ignore unrecognized --enable/--with options
+  --disable-FEATURE       do not include FEATURE (same as --enable-FEATURE=no)
+  --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
+  --enable-silent-rules   less verbose build output (undo: "make V=1")
+  --disable-silent-rules  verbose build output (undo: "make V=0")
+  --enable-cmulocal       enable local mods for CMU [[no]]
+  --enable-sample         compile sample code [[yes]]
+  --enable-obsolete_cram_attr
+                          enable support for cmusaslsecretCRAM-MD5 auxprop
+                          property [[yes]]
+  --enable-obsolete_digest_attr
+                          enable support for cmusaslsecretDIGEST-MD5 auxprop
+                          property [[yes]]
+  --enable-dependency-tracking
+                          do not reject slow dependency extractors
+  --disable-dependency-tracking
+                          speeds up one-time build
+  --enable-static[=PKGS]  build static libraries [default=no]
+  --enable-shared[=PKGS]  build shared libraries [default=yes]
+  --enable-fast-install[=PKGS]
+                          optimize for fast installation [default=yes]
+  --disable-libtool-lock  avoid locking (might break parallel builds)
+  --enable-staticdlopen   try dynamic plugins when we are a static libsasl [no]
+  --enable-keep-db-open   keep handle to DB open for improved performance [no]
+  --enable-alwaystrue     enable the alwaystrue password verifier (discouraged)
+  --enable-checkapop      enable use of sasl_checkapop [yes]
+  --enable-cram           enable CRAM-MD5 authentication [yes]
+  --enable-digest         enable DIGEST-MD5 authentication [yes]
+  --enable-scram            enable SCRAM authentication [yes]
+  --enable-otp            enable OTP authentication [yes]
+  --enable-srp            enable SRP authentication [no]
+  --enable-srp-setpass    enable setting SRP secrets with saslpasswd [no]
+  --enable-krb4           enable KERBEROS_V4 authentication [no]
+  --enable-gssapi=<DIR>   enable GSSAPI authentication [yes]
+  --enable-gss_mutexes     use mutexes around calls to the GSS library
+  --enable-sia            enable SIA authentication no
+  --enable-auth-sasldb    enable experimental SASLdb authentication module no
+  --enable-httpform       enable HTTP form authentication [no]
+  --enable-plain          enable PLAIN authentication yes
+  --enable-anon           enable ANONYMOUS authentication [yes]
+  --enable-login          enable unsupported LOGIN authentication [no]
+  --enable-ntlm           enable unsupported NTLM authentication [no]
+  --enable-passdss        enable PASSDSS authentication (experimental) [no]
+  --enable-sql            enable SQL auxprop [no]
+  --enable-ldapdb         enable LDAPDB plugin no
+  --disable-macos-framework       disable building and installing replacement SASL2 Framework for MacOS X-provided SASL Framework [no]
+
+Optional Packages:
+  --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
+  --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
+
+  --with-pic[=PKGS]       try to use only PIC/non-PIC objects [default=use
+                          both]
+  --with-aix-soname=aix|svr4|both
+                          shared library versioning (aka "SONAME") variant to
+                          provide on AIX, [default=aix].
+  --with-gnu-ld           assume the C compiler uses GNU ld [default=no]
+  --with-sysroot[=DIR]    Search for dependent libraries within DIR (or the
+                          compiler's sysroot if not specified).
+  --with-purecov          link with purecov
+  --with-purify           link with purify
+  --with-dbpath=PATH      set the DB path to use /etc/sasldb2
+  --with-dblib={berkeley|gdbm|lmdb|ndbm|none|auto_detect}
+                          set the DB library to use [[berkeley]]
+  --with-bdb-libdir=DIR   Berkeley DB lib files are in DIR
+  --with-bdb-incdir=DIR   Berkeley DB include files are in DIR
+  --with-gdbm=PATH        use gdbm from PATH
+  --with-devrandom=PATH   set the path to pseudo random number generator [/dev/urandom]
+  --with-saslauthd=DIR    enable use of the saslauth daemon using state dir DIR
+  --with-authdaemond=PATH enable use of authdaemon with default socket=PATH [yes]
+  --with-pwcheck=DIR     enable deprecated pwcheck daemon using statedir DIR
+  --with-ipctype={unix,doors}    use ipctype [unix]
+  --with-lib-subdir=DIR   Find libraries in DIR instead of lib
+  --with-openssl=DIR      use OpenSSL from DIR
+  --with-des=DIR          with DES (look in DIR) yes
+  --with-opie=PATH        use OPIE (One Time Passwords in Everything) from
+                          PATH
+  --with-gss_impl={heimdal|mit|cybersafe|seam|auto}
+                          choose specific GSSAPI implementation [[auto]]
+  --with-pam=DIR          use PAM (rooted in DIR) [yes]
+  --with-ldap=DIR         use LDAP (in DIR) for saslauthd no
+  --with-mysql=PATH       use MySQL from PATH
+  --with-pgsql=PATH       use PostgreSQL from PATH
+  --with-sqlite=PATH       use SQLite from PATH
+  --with-sqlite3=PATH       use SQLite3 from PATH
+  --with-plugindir=DIR    set the directory where plugins will
+                          be found [LIBDIR/sasl2]
+   --with-configdir=DIR    set the directory where config files will
+                          be found PLUGINDIR:SYSCONFDIR/sasl2
+  --with-rc4              use rc4 routines [yes]
+  --with-dmalloc=DIR      with DMALLOC support (for test applications) [no]
+  --with-sfio=DIR         with SFIO support (for smtptest/libsfsasl) [no]
+  with-sphinx-build=(yes|no|PATH)
+                          Look for sphinx-build in PATH
+
+Some influential environment variables:
+  CC          C compiler command
+  CFLAGS      C compiler flags
+  LDFLAGS     linker flags, e.g. -L<lib dir> if you have libraries in a
+              nonstandard directory <lib dir>
+  LIBS        libraries to pass to the linker, e.g. -l<library>
+  CPPFLAGS    (Objective) C/C++ preprocessor flags, e.g. -I<include dir> if
+              you have headers in a nonstandard directory <include dir>
+  CPP         C preprocessor
+  LT_SYS_LIBRARY_PATH
+              User-defined run-time library search path.
+  SPHINX_BUILD
+              Location of sphinx-build
+
+Use these variables to override the choices made by `configure' or to help
+it to find libraries and programs with nonstandard names/locations.
+
+Report bugs to <https://github.com/cyrusimap/cyrus-sasl/issues>.
+cyrus-sasl home page: <https://www.cyrusimap.org>.

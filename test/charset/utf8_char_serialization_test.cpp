@@ -13,9 +13,9 @@
 #include <yggr/archive/text_archive_partner.hpp>
 #include <yggr/archive/xml_archive_partner.hpp>
 
-#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 #	include <yggr/archive/bson_archive_partner.hpp>
-#endif //#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#endif //#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 
 #include <yggr/serialization/nvp.hpp>
 
@@ -201,7 +201,7 @@ void test_xml_warchive(void)
 
 #endif // BOOST_NO_STD_WSTRING
 
-#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 
 void test_bson_archive(void)
 {
@@ -213,7 +213,7 @@ void test_bson_archive(void)
 	std::cout << "test_bson_archive success" << std::endl;
 }
 
-#endif // #if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#endif //#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 
 int main(int argc, char* argv[])
 {
@@ -227,9 +227,9 @@ int main(int argc, char* argv[])
 	test_text_archive();
 	test_xml_archive();
 
-#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 	test_bson_archive();
-#endif // #if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
+//#endif //#if !(defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS) || defined(YGGR_TEST_DISABLE_NON_GENERIC_SUPPORT))
 
 #ifndef BOOST_NO_STD_WSTRING
 	test_binary_warchive();

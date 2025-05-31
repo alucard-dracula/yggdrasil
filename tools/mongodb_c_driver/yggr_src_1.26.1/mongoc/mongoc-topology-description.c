@@ -976,6 +976,45 @@ _check_any_server_less_than_wire_version_13 (const void *sd_,
  * secondary server for using aggregate pipelines that contain writing stages
  * (i.e. '$out' and '$merge').
  */
+//static bool
+//_must_use_primary (const mongoc_topology_description_t *td,
+//                   mongoc_ss_optype_t optype,
+//                   mongoc_read_mode_t requested_read_mode)
+//{
+//   if (requested_read_mode == MONGOC_READ_PRIMARY) {
+//      /* We never alter from a primary read mode. This early-return is just an
+//       * optimization to skip scanning for old servers, as we would end up
+//       * returning MONGOC_READ_PRIMARY regardless. */
+//      return requested_read_mode;
+//   }
+//   switch (optype) {
+//   case MONGOC_SS_WRITE:
+//      /* We don't deal with write operations */
+//      return false;
+//   case MONGOC_SS_READ:
+//      /* Maintain the requested read mode if it is a regular read operation */
+//      return false;
+//   case MONGOC_SS_AGGREGATE_WITH_WRITE: {
+//      /* Check if any of the servers are too old to support the
+//       * aggregate-with-write on a secondary server */
+//      bool any_too_old = false;
+//      mongoc_set_for_each_const (mc_tpld_servers_const (td),
+//                                 _check_any_server_less_than_wire_version_13,
+//                                 &any_too_old);
+//      if (any_too_old) {
+//         /* Force the read preference back to reading from a primary server, as
+//          * one or more servers in the system may not support the operation */
+//         return true;
+//      }
+//      /* We're okay to send an aggr-with-write to a secondary server, so permit
+//       * the caller's read mode preference */
+//      return false;
+//   }
+//   default:
+//      BSON_UNREACHABLE ("Invalid mongoc_ss_optype_t for _must_use_primary()");
+//   }
+//}
+
 static bool
 _must_use_primary (const mongoc_topology_description_t *td,
                    mongoc_ss_optype_t optype,
@@ -1012,6 +1051,7 @@ _must_use_primary (const mongoc_topology_description_t *td,
    }
    default:
       BSON_UNREACHABLE ("Invalid mongoc_ss_optype_t for _must_use_primary()");
+	  return false;
    }
 }
 

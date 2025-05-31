@@ -45,7 +45,11 @@ c_mongo_client_encryption_encrypt_range_opts::c_mongo_client_encryption_encrypt_
 {
 	this_type::pro_init();
 
+#if (YGGR_MONGOC_HEX() < 0x011C0000)
 	base_type::sparsity = arg_sparsity;
+#else
+	this_type::var_sparsity() = arg_sparsity;
+#endif // #if (YGGR_MONGOC_HEX() < 0x011C0000)
 }
 
 c_mongo_client_encryption_encrypt_range_opts::c_mongo_client_encryption_encrypt_range_opts(const org_type* ptr)

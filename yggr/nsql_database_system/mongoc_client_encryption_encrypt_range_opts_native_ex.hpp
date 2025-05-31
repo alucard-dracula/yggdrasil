@@ -38,6 +38,8 @@ namespace yggr
 namespace nsql_database_system
 {
 
+#if YGGR_MONGOC_HEX() < 0x011C0000
+
 //struct _mongoc_client_encryption_encrypt_range_opts_t {
 //   struct {
 //      bson_value_t value;
@@ -74,6 +76,62 @@ public:
 	int64_t sparsity;
 	precision_type precision;
 };
+
+#else
+
+//struct _mongoc_client_encryption_encrypt_range_opts_t {
+//   struct {
+//      bson_value_t value;
+//      bool set;
+//   } min;
+//   struct {
+//      bson_value_t value;
+//      bool set;
+//   } max;
+//   struct {
+//      int32_t value;
+//      bool set;
+//   } trim_factor;
+//   struct {
+//      int64_t value;
+//      bool set;
+//   } sparsity;
+//   struct {
+//      int32_t value;
+//      bool set;
+//   } precision;
+//};
+
+struct yggr_mongoc_client_encryption_encrypt_range_opts 
+{
+	typedef struct 
+	{
+		bson_value_t value;
+		bool set;
+	} min_max_type;
+
+	typedef struct 
+	{
+		int32_t value;
+		bool set;
+	} int32_val_type;
+	typedef int32_val_type trim_factor_type;
+	typedef int32_val_type precision_type;
+
+	typedef struct 
+	{
+		int64_t value;
+		bool set;
+	} sparsity_type;
+
+	min_max_type min;
+	min_max_type max;
+	trim_factor_type trim_factor;
+	sparsity_type sparsity;
+	precision_type precision;
+};
+
+#endif // #if YGGR_MONGOC_HEX() < 0x011C0000
 
 } // namespace nsql_database_system
 } // namespace yggr

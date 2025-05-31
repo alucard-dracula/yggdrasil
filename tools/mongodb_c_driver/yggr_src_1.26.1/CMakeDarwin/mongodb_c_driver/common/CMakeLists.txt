@@ -22,6 +22,15 @@ set(var_proj_ach_outdir ${var_proj_lib_outdir})
 set(var_proj_include_dirs 
 		${var_proj_src_dir}
 		${var_proj_src_dir}/../include
+		${var_proj_src_dir}/../include/bson
+		${var_proj_src_dir}/../include/common
+		${var_proj_src_dir}/../include/jsonsl
+		${var_proj_src_dir}/../include/kms_message
+		${var_proj_src_dir}/../include/mongo_crypt
+		${var_proj_src_dir}/../include/mongoc
+		${var_proj_src_dir}/../include/mongocrypt
+		${var_proj_src_dir}/../include/mongocrypt/unicode
+		${var_proj_src_dir}/../include/utf8proc
 		${USRDEF_CMAKE_INCLUDE_DIRS}
 )
 
@@ -29,7 +38,7 @@ set(var_proj_c_defineds "-DBSON_COMPILATION -DBSON_STATIC -DBUILD_MONGODB_DRIVER
 
 set(var_proj_c_defineds_debug "-D_DEBUG ${USRDEF_CMAKE_DEFINEDS_DEBUG}")
 
-set(var_proj_c_defineds_release "-DKMS_MSG_STATIC -DMLIB_USER -DMONGOCRYPT_INTELDFP -DMONGOCRYPT_LITTLE_ENDIAN -DMONGOCRYPT_STATIC_DEFINE -DMONGOC_STATIC -DNDEBUG ${USRDEF_CMAKE_DEFINEDS_RELEASE}")
+set(var_proj_c_defineds_release "-DKMS_MSG_STATIC -DMLIB_USER -DMONGOCRYPT_LITTLE_ENDIAN -DMONGOCRYPT_STATIC_DEFINE -DMONGOC_STATIC -DNDEBUG ${USRDEF_CMAKE_DEFINEDS_RELEASE}")
 
 set(var_proj_c_flags "-Wall -Werror=endif-labels -Werror=return-type -Wno-comment -Wno-enum-compare -Wno-multichar -Wno-sign-compare -Wno-unused-local-typedefs -fPIC -fdata-sections -fexceptions -ffunction-sections -fno-strict-aliasing ${USRDEF_CMAKE_CFLAGS}")
 
@@ -59,7 +68,7 @@ set(var_proj_link_libs
 )
 
 set(var_proj_link_libs_debug 
-		${USRDEF_CMAKE_LD_LIBRARY_DEBUG}
+		${USRDEF_CMAKE_LDFLAGS_DEBUG}
 )
 
 set(var_proj_link_libs_release 

@@ -732,7 +732,7 @@ static bool _fle2_derive_encrypted_token(_mongocrypt_crypto_t *crypto,
 											mongocrypt_status_t *status) {
 	bool ok = false;
 	_mongocrypt_buffer_t tmp;
-	_mongocrypt_buffer_t *p = 0;
+	const _mongocrypt_buffer_t *p = 0;
 	mc_ECOCToken_t *ecocToken = mc_ECOCToken_new(crypto, collectionsLevel1Token, status);
 	if (!ecocToken) {
 		return false;
@@ -1784,7 +1784,7 @@ static mc_edges_t *get_edges(mc_FLE2RangeInsertSpec_t *insertSpec, size_t sparsi
 #else
 
 static mc_edges_t *get_edges(mc_FLE2RangeInsertSpec_t *insertSpec, size_t sparsity, mongocrypt_status_t *status) {
-	bson_type_t value_type = {0};
+	bson_type_t value_type = BSON_TYPE_EOD;
 
     BSON_ASSERT_PARAM(insertSpec);
 	
@@ -1865,13 +1865,11 @@ static mc_edges_t *get_edges(mc_FLE2RangeInsertSpec_t *insertSpec, size_t sparsi
 		}
 #endif // MONGOCRYPT_HAVE_DECIMAL128_SUPPORT
 	default:
-		{
-			CLIENT_ERR("unsupported BSON type: %s for range", mc_bson_type_to_string(value_type));
-			return NULL;
-		}
+        break;
 	}
 
-    return NULL;
+    CLIENT_ERR("unsupported BSON type: %s for range", mc_bson_type_to_string(value_type));
+	return NULL;
 }
 
 #endif // YGGR_EX_C99_SUPPORTED

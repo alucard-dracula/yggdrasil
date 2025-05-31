@@ -2,9 +2,10 @@
 
 #include <test/wait_any_key/wait_any_key.hpp>
 
-#define BUILD_MONGODB_DRIVER_YGGR_VER
+#if !defined(BUILD_MONGODB_DRIVER_YGGR_VER)
+#   define BUILD_MONGODB_DRIVER_YGGR_VER
+#endif // BUILD_MONGODB_DRIVER_YGGR_VER
 
-#include <bson.h>
 #include <yggr/nsql_database_system/c_bson.hpp>
 
 #include <yggr/compile_link/linker.hpp>

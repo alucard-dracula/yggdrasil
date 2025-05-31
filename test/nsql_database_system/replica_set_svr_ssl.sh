@@ -56,7 +56,7 @@ mongod \
 	--dbpath ${data_dir1} \
 	--logpath ${log_file1} \
 	--replSet rs0 \
-	--bind_ip 127.0.0.1 \
+	--bind_ip_all \
 	--port 11298 \
 	--logappend \
 	--tlsMode requireTLS \
@@ -67,7 +67,7 @@ mongod \
 	--dbpath ${data_dir2} \
 	--logpath ${log_file2} \
 	--replSet rs0 \
-	--bind_ip 127.0.0.1 \
+	--bind_ip_all \
 	--port 11299 \
 	--logappend \
 	--tlsMode requireTLS \
@@ -78,7 +78,7 @@ mongod \
 	--dbpath ${data_dir3} \
 	--logpath ${log_file3} \
 	--replSet rs0 \
-	--bind_ip 127.0.0.1 \
+	--bind_ip_all \
 	--port 11300 \
 	--logappend \
 	--tlsMode requireTLS \

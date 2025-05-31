@@ -83,6 +83,12 @@ cp -f ${var_ndk_third_part_dir}/libicu/share/icu/58.2/icudt58l.dat ${var_dst_pak
 cp -f ${var_ndk_third_part_dir}/unixODBC/lib/${var_abi_third_part}/${var_used_android_api}/libodbc.so ${var_dst_pak_bin_debug_dir}/
 cp -f ${var_ndk_third_part_dir}/unixODBC/lib/${var_abi_third_part}/${var_used_android_api}/libodbc.so ${var_dst_pak_bin_dir}/
 
+cp -f ${var_ndk_third_part_dir}/openssl/lib/${var_abi_third_part}/${var_used_android_api}/libssl.so ${var_dst_pak_bin_debug_dir}/
+cp -f ${var_ndk_third_part_dir}/openssl/lib/${var_abi_third_part}/${var_used_android_api}/libssl.so ${var_dst_pak_bin_dir}/
+
+cp -f ${var_ndk_third_part_dir}/openssl/lib/${var_abi_third_part}/${var_used_android_api}/libcrypto.so ${var_dst_pak_bin_debug_dir}/
+cp -f ${var_ndk_third_part_dir}/openssl/lib/${var_abi_third_part}/${var_used_android_api}/libcrypto.so ${var_dst_pak_bin_dir}/
+
 cp -f ./end_test_env_termux.sh ${var_dst_pak_bin_dir}/
 cp -f ./end_test_env_termux.sh ${var_dst_pak_bin_debug_dir}/
 
@@ -103,5 +109,20 @@ mkdir -p ${var_dst_pak_bin_dir}/lua
 mkdir -p ${var_dst_pak_bin_debug_dir}/lua
 cp -fr ./test/lua/*.lua ${var_dst_pak_bin_dir}/lua/
 cp -fr ./test/lua/*.lua ${var_dst_pak_bin_debug_dir}/lua/
+
+mkdir -p ${var_dst_pak_bin_dir}/nsql_database_system
+mkdir -p ${var_dst_pak_bin_debug_dir}/nsql_database_system
+cp -fr ./test/nsql_database_system/*.txt ${var_dst_pak_bin_dir}/nsql_database_system/
+cp -fr ./test/nsql_database_system/*.txt ${var_dst_pak_bin_debug_dir}/nsql_database_system/
+cp -fr ./test/nsql_database_system/*.mp3 ${var_dst_pak_bin_dir}/nsql_database_system/
+cp -fr ./test/nsql_database_system/*.mp3 ${var_dst_pak_bin_debug_dir}/nsql_database_system/
+cp -fr ./test/nsql_database_system/*.key ${var_dst_pak_bin_dir}/nsql_database_system/
+cp -fr ./test/nsql_database_system/*.key ${var_dst_pak_bin_debug_dir}/nsql_database_system/
+cp -fr ./test/nsql_database_system/*.json ${var_dst_pak_bin_dir}/nsql_database_system/
+cp -fr ./test/nsql_database_system/*.json ${var_dst_pak_bin_debug_dir}/nsql_database_system/
+cp -fr ./test/nsql_database_system/keyfile ${var_dst_pak_bin_dir}/nsql_database_system/
+cp -fr ./test/nsql_database_system/keyfile ${var_dst_pak_bin_debug_dir}/nsql_database_system/
+cp -fr ./test/nsql_database_system/cert ${var_dst_pak_bin_dir}/nsql_database_system/
+cp -fr ./test/nsql_database_system/cert ${var_dst_pak_bin_debug_dir}/nsql_database_system/
 
 

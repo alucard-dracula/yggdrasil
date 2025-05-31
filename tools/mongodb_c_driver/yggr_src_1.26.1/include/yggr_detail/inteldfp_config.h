@@ -1,0 +1,31 @@
+// intel_config.h
+
+#ifndef __MONGODB_YGGR_EX_INTELDFP_CONFIG_H__
+#define __MONGODB_YGGR_EX_INTELDFP_CONFIG_H__
+
+#include <yggr_detail/platform_config.h>
+
+/*
+ * Define MONGOCRYPT_INTELDFP if you have inteldfp
+ */
+
+#if defined(YGGR_X86_PLATFORM) && (YGGR_X86_PLATFORM)
+#	if !defined(MONGOCRYPT_INTELDFP)
+#		define MONGOCRYPT_INTELDFP
+#	endif // MONGOCRYPT_INTELDFP
+#else
+#	if defined(MONGOCRYPT_INTELDFP)
+#		undef MONGOCRYPT_INTELDFP
+#	endif // MONGOCRYPT_INTELDFP
+#endif // #if defined(YGGR_X86_PLATFORM) && (YGGR_X86_PLATFORM)
+
+#if (defined(YGGR_EX_PLATFORM_ANDROID) && YGGR_EX_PLATFORM_ANDROID) \
+	|| (defined(YGGR_EX_PLATFORM_IOS) && YGGR_EX_PLATFORM_IOS) \
+
+#	if defined(MONGOCRYPT_INTELDFP)
+#		undef MONGOCRYPT_INTELDFP
+#	endif // MONGOCRYPT_INTELDFP
+
+#endif // YGGR_EX_PLATFORM_ANDROID YGGR_EX_PLATFORM_IOS
+
+#endif // __MONGODB_YGGR_EX_INTELDFP_CONFIG_H__

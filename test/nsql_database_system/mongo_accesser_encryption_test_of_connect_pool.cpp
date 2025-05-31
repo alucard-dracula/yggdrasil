@@ -478,11 +478,25 @@ void test_client_encryption_foo(void)
 {
 	typedef yggr::nsql_database_system::c_mongo_connection_encryption conn_enc_type;
 
+#if defined(YGGR_AT_MOBILE)
+	yggr::utf8_string host_addr = "192.168.1.101"; // you host ip address
+#else
+	yggr::utf8_string host_addr = "127.0.0.1";
+#endif // YGGR_AT_MOBILE
+
+
 #if MONGODB_USING_CA()
 
 #	if MONGODB_USING_AUTH()
+
+#		if defined(YGGR_AT_MOBILE)
+	yggr::utf8_string host_port = "11798"; // you host ip address
+#		else
+	yggr::utf8_string host_port = "11398";
+#		endif // YGGR_AT_MOBILE
+
 	yggr::nsql_database_system::c_mongo_connection client(
-				"mongodb://xy:123456abc@127.0.0.1:11398/?replicaSet=rs0&tls=true",	// str_uri
+				"mongodb://xy:123456abc@" + host_addr + ":" + host_port + "/?replicaSet=rs0&tls=true", //"mongodb://xy:123456abc@127.0.0.1:11398/?replicaSet=rs0&tls=true",	// str_uri
 				"./nsql_database_system/cert/client.pem",		// pem_file
 				"",										// pem_pwd
 				"./nsql_database_system/cert/ca.pem",	// ca_file
@@ -491,7 +505,7 @@ void test_client_encryption_foo(void)
 			);
 
 	yggr::nsql_database_system::c_mongo_connection_pool client_pool(
-				"mongodb://xy:123456abc@127.0.0.1:11398/?replicaSet=rs0&tls=true",	// str_uri
+				"mongodb://xy:123456abc@" + host_addr + ":" + host_port + "/?replicaSet=rs0&tls=true", // "mongodb://xy:123456abc@127.0.0.1:11398/?replicaSet=rs0&tls=true",	// str_uri
 				"./nsql_database_system/cert/client.pem",		// pem_file
 				"",										// pem_pwd
 				"./nsql_database_system/cert/ca.pem",	// ca_file
@@ -499,8 +513,15 @@ void test_client_encryption_foo(void)
 				""										// crl_file
 			);
 #	else
+
+#		if defined(YGGR_AT_MOBILE)
+	yggr::utf8_string host_port = "11698"; // you host ip address
+#		else
+	yggr::utf8_string host_port = "11298";
+#		endif // YGGR_AT_MOBILE
+
 	yggr::nsql_database_system::c_mongo_connection client(
-				"mongodb://127.0.0.1:11298/?replicaSet=rs0&tls=true",	// str_uri
+				"mongodb://" + host_addr + ":" + host_port + "/?replicaSet=rs0&tls=true", // "mongodb://127.0.0.1:11298/?replicaSet=rs0&tls=true",	// str_uri
 				"./nsql_database_system/cert/client.pem",		// pem_file
 				"",										// pem_pwd
 				"./nsql_database_system/cert/ca.pem",	// ca_file
@@ -509,7 +530,7 @@ void test_client_encryption_foo(void)
 			);
 
 	yggr::nsql_database_system::c_mongo_connection_pool client_pool(
-				"mongodb://127.0.0.1:11298/?replicaSet=rs0&tls=true",	// str_uri
+				"mongodb://" + host_addr + ":" + host_port + "/?replicaSet=rs0&tls=true",	// str_uri
 				"./nsql_database_system/cert/client.pem",		// pem_file
 				"",										// pem_pwd
 				"./nsql_database_system/cert/ca.pem",	// ca_file
@@ -522,20 +543,34 @@ void test_client_encryption_foo(void)
 #else
 
 #	if MONGODB_USING_AUTH()
+
+#		if defined(YGGR_AT_MOBILE)
+	yggr::utf8_string host_port = "11598"; // you host ip address
+#		else
+	yggr::utf8_string host_port = "11198";
+#		endif // YGGR_AT_MOBILE
+
 	yggr::nsql_database_system::c_mongo_connection client(
-				"mongodb://xy:123456abc@127.0.0.1:11198/?replicaSet=rs0&tls=false"	// str_uri
+				"mongodb://xy:123456abc@" + host_addr + ":" + host_port + "/?replicaSet=rs0&tls=false" //"mongodb://xy:123456abc@127.0.0.1:11198/?replicaSet=rs0&tls=false"	// str_uri
 			);
 
 	yggr::nsql_database_system::c_mongo_connection_pool client_pool(
-				"mongodb://xy:123456abc@127.0.0.1:11198/?replicaSet=rs0&tls=false"	// str_uri
+				"mongodb://xy:123456abc@" + host_addr + ":" + host_port + "/?replicaSet=rs0&tls=false" //"mongodb://xy:123456abc@127.0.0.1:11198/?replicaSet=rs0&tls=false"	// str_uri
 			);
 #	else
+
+#		if defined(YGGR_AT_MOBILE)
+	yggr::utf8_string host_port = "11498"; // you host ip address
+#		else
+	yggr::utf8_string host_port = "11098";
+#		endif // YGGR_AT_MOBILE
+
 	yggr::nsql_database_system::c_mongo_connection client(
-				"mongodb://127.0.0.1:11098/?replicaSet=rs0&tls=false"	// str_uri
+				"mongodb://" + host_addr + ":" + host_port + "/?replicaSet=rs0&tls=false" //"mongodb://127.0.0.1:11098/?replicaSet=rs0&tls=false"	// str_uri
 			);
 
 	yggr::nsql_database_system::c_mongo_connection_pool client_pool(
-				"mongodb://127.0.0.1:11098/?replicaSet=rs0&tls=false"	// str_uri
+				"mongodb://" + host_addr + ":" + host_port + "/?replicaSet=rs0&tls=false" //"mongodb://127.0.0.1:11098/?replicaSet=rs0&tls=false"	// str_uri
 			);
 #	endif // MONGODB_USING_AUTH
 
@@ -574,11 +609,11 @@ int main(int argc, char *argv[])
 {
 	yggr::nsql_database_system::mongodb_installer::install();
 
-#if defined(YGGR_SYSTEM_64)
+#if defined(YGGR_SYSTEM_64) && !(defined(YGGR_AT_MOBILE))
 	test_client_encryption_foo();
 #else
-	std::cout << "32bit exe not supprot auto encryption, because mongo_crypt_v1.dll not has 32bit version";
-#endif // #if defined(YGGR_SYSTEM_64)
+	std::cout << "current platform not supprot auto encryption, because mongo_crypt_v1.dll (so) not supported";
+#endif // #if defined(YGGR_SYSTEM_64) && !(defined(YGGR_AT_MOBILE))
 
 	yggr::nsql_database_system::mongodb_installer::uninstall();
 	

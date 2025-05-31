@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{ae554af3-6861-4c58-bfb0-0fbb561cf0a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2d0a6935-3311-44ef-aba9-03b39a016011}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bcon.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-atomic.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-clock.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-context.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-decimal128.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-error.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-iso8601.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-iter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-json.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-keys.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-md5.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-memory.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-oid.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-reader.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-string.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-timegm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-utf8.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-value.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-version-functions.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bson-writer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="jsonsl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -22,19 +22,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-m32"/>
-					<Add option="-lyggr_database_system$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_exception$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_time$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_charset$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_base$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_compatibility$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lboost_serialization$(#COMPILER_VERSION_TAG)-mt-sd-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_date_time$(#COMPILER_VERSION_TAG)-mt-d-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_thread$(#COMPILER_VERSION_TAG)-mt-d-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_system$(#COMPILER_VERSION_TAG)-mt-d-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-liconv"/>
-					<Add option="-ldtl$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lpthread"/>
 					<Add option="-lmgw_gcc_sjlj$(#COMPILER_VERSION_TAG)-d"/>
 					<Add directory="../lib"/>
 				</Linker>
@@ -54,19 +41,6 @@
 					<Add option="-m32"/>
 					<Add option="-s"/>
 					<Add option="-Wl,--gc-sections"/>
-					<Add option="-lyggr_database_system$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_exception$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_time$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_charset$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_base$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_compatibility$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lboost_serialization$(#COMPILER_VERSION_TAG)-mt-s-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_date_time$(#COMPILER_VERSION_TAG)-mt-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_thread$(#COMPILER_VERSION_TAG)-mt-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_system$(#COMPILER_VERSION_TAG)-mt-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-liconv"/>
-					<Add option="-ldtl$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lpthread"/>
 					<Add option="-lmgw_gcc_sjlj$(#COMPILER_VERSION_TAG)"/>
 					<Add directory="../lib"/>
 				</Linker>
@@ -89,19 +63,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-m64"/>
-					<Add option="-lyggr_database_system$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_exception$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_time$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_charset$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_base$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_compatibility$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lboost_serialization$(#COMPILER_VERSION_TAG)-mt-sd-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_date_time$(#COMPILER_VERSION_TAG)-mt-d-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_thread$(#COMPILER_VERSION_TAG)-mt-d-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_system$(#COMPILER_VERSION_TAG)-mt-d-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-liconv"/>
-					<Add option="-ldtl$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lpthread"/>
 					<Add directory="../lib64"/>
 				</Linker>
 			</Target>
@@ -122,19 +83,6 @@
 					<Add option="-m64"/>
 					<Add option="-s"/>
 					<Add option="-Wl,--gc-sections"/>
-					<Add option="-lyggr_database_system$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_exception$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_time$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_charset$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_base$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_compatibility$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lboost_serialization$(#COMPILER_VERSION_TAG)-mt-s-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_date_time$(#COMPILER_VERSION_TAG)-mt-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_thread$(#COMPILER_VERSION_TAG)-mt-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_system$(#COMPILER_VERSION_TAG)-mt-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-liconv"/>
-					<Add option="-ldtl$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lpthread"/>
 					<Add directory="../lib64"/>
 				</Linker>
 			</Target>
@@ -168,9 +116,5 @@
 		<Extensions>
 			<lib_finder disable_auto="1"/>
 		</Extensions>
-		<Linker>
-			<Add option="-lodbc32"/>
-			<Add option="-lws2_32"/>
-		</Linker>
 	</Project>
 </CodeBlocks_project_file>

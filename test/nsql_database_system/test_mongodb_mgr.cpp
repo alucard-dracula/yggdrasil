@@ -134,11 +134,17 @@ void test_mongodb_mgr_of_connection(void)
 	typedef yggr::nsql_database_system::mongodb_mgr<
 				yggr::string, conn_type, accesser_type> db_mgr_type;
 
+#if defined(YGGR_AT_MOBILE)
+	yggr::utf8_string host_addr = "192.168.1.101"; // you host ip address
+#else
+	yggr::utf8_string host_addr = "127.0.0.1";
+#endif // YGGR_AT_MOBILE
+
 #if MONGODB_USING_CA()
 
 #	if MONGODB_USING_AUTH()
 	yggr::nsql_database_system::c_mongo_connection::init_type client_init(
-				"mongodb://xy:123456abc@127.0.0.1:10398/?ssl=true",	// str_uri
+				"mongodb://xy:123456abc@" + host_addr + ":10398/?ssl=true", //"mongodb://xy:123456abc@127.0.0.1:10398/?ssl=true",	// str_uri
 				"./nsql_database_system/cert/client.pem",		// pem_file
 				"",										// pem_pwd
 				"./nsql_database_system/cert/ca.pem",	// ca_file
@@ -147,7 +153,7 @@ void test_mongodb_mgr_of_connection(void)
 			);
 #	else
 	yggr::nsql_database_system::c_mongo_connection::init_type client_init(
-				"mongodb://127.0.0.1:10298/?ssl=true",	// str_uri
+				"mongodb://" + host_addr + ":10298/?ssl=true", //"mongodb://127.0.0.1:10298/?ssl=true",	// str_uri
 				"./nsql_database_system/cert/client.pem",		// pem_file
 				"",										// pem_pwd
 				"./nsql_database_system/cert/ca.pem",	// ca_file
@@ -161,11 +167,11 @@ void test_mongodb_mgr_of_connection(void)
 
 #	if MONGODB_USING_AUTH()
 	yggr::nsql_database_system::c_mongo_connection::init_type client_init(
-				"mongodb://xy:123456abc@127.0.0.1:10198/?ssl=false"	// str_uri
+				"mongodb://xy:123456abc@" + host_addr + ":10198/?ssl=false" // "mongodb://xy:123456abc@127.0.0.1:10198/?ssl=false"	// str_uri
 			);
 #	else
 	yggr::nsql_database_system::c_mongo_connection::init_type client_init(
-				"mongodb://127.0.0.1:10098/?ssl=false"	// str_uri
+				"mongodb://" + host_addr + ":10098/?ssl=false" //"mongodb://127.0.0.1:10098/?ssl=false"	// str_uri
 			);
 #	endif // MONGODB_USING_AUTH
 
@@ -202,11 +208,17 @@ void test_mongodb_mgr_of_connection_pool(void)
 	typedef yggr::nsql_database_system::mongodb_mgr<
 				yggr::string, conn_type, accesser_type> db_mgr_type;
 
+#if defined(YGGR_AT_MOBILE)
+	yggr::utf8_string host_addr = "192.168.1.101"; // you host ip address
+#else
+	yggr::utf8_string host_addr = "127.0.0.1";
+#endif // YGGR_AT_MOBILE
+
 #if MONGODB_USING_CA()
 
 #	if MONGODB_USING_AUTH()
 	db_mgr_type db_mgr(
-					"mongodb://xy:123456abc@127.0.0.1:10398/?ssl=true",	// str_uri
+					"mongodb://xy:123456abc@" + host_addr + ":10398/?ssl=true",	 //"mongodb://xy:123456abc@127.0.0.1:10398/?ssl=true",	// str_uri
 					"./nsql_database_system/cert/client.pem",		// pem_file
 					"",										// pem_pwd
 					"./nsql_database_system/cert/ca.pem",	// ca_file
@@ -215,7 +227,7 @@ void test_mongodb_mgr_of_connection_pool(void)
 				);
 #	else
 	db_mgr_type db_mgr(
-					"mongodb://127.0.0.1:10298/?ssl=true",	// str_uri
+					"mongodb://" + host_addr + ":10298/?ssl=true", //"mongodb://127.0.0.1:10298/?ssl=true",	// str_uri
 					"./nsql_database_system/cert/client.pem",		// pem_file
 					"",										// pem_pwd
 					"./nsql_database_system/cert/ca.pem",	// ca_file
@@ -229,11 +241,11 @@ void test_mongodb_mgr_of_connection_pool(void)
 
 #	if MONGODB_USING_AUTH()
 	db_mgr_type db_mgr(
-					"mongodb://xy:123456abc@127.0.0.1:10198/?ssl=false"	// str_uri
+					"mongodb://xy:123456abc@" + host_addr + ":10198/?ssl=false" //"mongodb://xy:123456abc@127.0.0.1:10198/?ssl=false"	// str_uri
 				);
 #	else
 	db_mgr_type db_mgr(
-					"mongodb://127.0.0.1:10098/?ssl=false"	// str_uri
+					"mongodb://" + host_addr + ":10098/?ssl=false" //"mongodb://127.0.0.1:10098/?ssl=false"	// str_uri
 				);
 #	endif // MONGODB_USING_AUTH
 

@@ -19,6 +19,7 @@ endif
 l_src_file := \
 	log_file_mgr_op_caller.cpp \
 	log_file_op_caller.cpp \
+	log_mongodb_op_caller.cpp \
 	log_sql_db_op_caller.cpp \
 
 # include path

@@ -101,7 +101,6 @@
 			<Add option="-DBUILD_MONGODB_DRIVER_YGGR_VER"/>
 			<Add option="-DKMS_MSG_STATIC"/>
 			<Add option="-DMLIB_USER"/>
-			<Add option="-DMONGOCRYPT_INTELDFP"/>
 			<Add option="-DMONGOCRYPT_LITTLE_ENDIAN"/>
 			<Add option="-DMONGOCRYPT_STATIC_DEFINE"/>
 			<Add option="-DMONGOC_COMPILATION"/>
@@ -109,6 +108,15 @@
 			<Add option="-DWIN32"/>
 			<Add option="-D_LIB"/>
 			<Add directory="../include"/>
+			<Add directory="../include/bson"/>
+			<Add directory="../include/common"/>
+			<Add directory="../include/jsonsl"/>
+			<Add directory="../include/kms_message"/>
+			<Add directory="../include/mongo_crypt"/>
+			<Add directory="../include/mongoc"/>
+			<Add directory="../include/mongocrypt"/>
+			<Add directory="../include/mongocrypt/unicode"/>
+			<Add directory="../include/utf8proc"/>
 		</Compiler>
 		<Unit filename="crypto/cng.c"/>
 		<Unit filename="crypto/commoncrypto.c"/>

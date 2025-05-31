@@ -531,101 +531,101 @@ _mongoc_secure_channel_extract_subject (const char *filename,
 
 #if 0
 
-bool
-mongoc_secure_channel_setup_ca (
-   mongoc_stream_tls_secure_channel_t *secure_channel, mongoc_ssl_opt_t *opt)
-{
-   FILE *file;
-   long length;
-   const char *pem_key;
-   HCERTSTORE cert_store = NULL;
-   PCCERT_CONTEXT cert = NULL;
-   DWORD encrypted_cert_len = 0;
-   LPBYTE encrypted_cert = NULL;
-
-   file = fopen (opt->ca_file, "rb");
-   if (!file) {
-      MONGOC_ERROR ("Couldn't open file '%s'", opt->ca_file);
-      return false;
-   }
-
-   fseek (file, 0, SEEK_END);
-   length = ftell (file);
-   fseek (file, 0, SEEK_SET);
-   if (length < 1) {
-      MONGOC_WARNING ("Couldn't determine file size of '%s'", opt->ca_file);
-      return false;
-   }
-
-   pem_key = (const char *) bson_malloc0 (length);
-   fread ((void *) pem_key, 1, length, file);
-   fclose (file);
-
-   /* If we have private keys or other fuzz, seek to the good stuff */
-   pem_key = strstr (pem_key, "-----BEGIN CERTIFICATE-----");
-   /*printf ("%s\n", pem_key);*/
-
-   if (!pem_key) {
-      MONGOC_WARNING ("Couldn't find certificate in '%s'", opt->ca_file);
-      return false;
-   }
-
-   if (!CryptStringToBinaryA (pem_key,
-                              0,
-                              CRYPT_STRING_BASE64HEADER,
-                              NULL,
-                              &encrypted_cert_len,
-                              NULL,
-                              NULL)) {
-      MONGOC_ERROR ("Failed to convert BASE64 public key. Error 0x%.8X",
-                    (unsigned int) GetLastError ());
-      return false;
-   }
-
-   encrypted_cert = (LPBYTE) LocalAlloc (0, encrypted_cert_len);
-   if (!CryptStringToBinaryA (pem_key,
-                              0,
-                              CRYPT_STRING_BASE64HEADER,
-                              encrypted_cert,
-                              &encrypted_cert_len,
-                              NULL,
-                              NULL)) {
-      MONGOC_ERROR ("Failed to convert BASE64 public key. Error 0x%.8X",
-                    (unsigned int) GetLastError ());
-      return false;
-   }
-
-   cert = CertCreateCertificateContext (
-      X509_ASN_ENCODING, encrypted_cert, encrypted_cert_len);
-   if (!cert) {
-      MONGOC_WARNING ("Could not convert certificate");
-      return false;
-   }
-
-
-   cert_store = CertOpenStore (
-      CERT_STORE_PROV_SYSTEM,                  /* provider */
-      X509_ASN_ENCODING | PKCS_7_ASN_ENCODING, /* certificate encoding */
-      0,                                       /* unused */
-      CERT_SYSTEM_STORE_LOCAL_MACHINE,         /* dwFlags */
-      L"Root"); /* system store name. "My" or "Root" */
-
-   if (cert_store == NULL) {
-      MONGOC_ERROR ("Error opening certificate store");
-      return false;
-   }
-
-   if (CertAddCertificateContextToStore (
-          cert_store, cert, CERT_STORE_ADD_USE_EXISTING, NULL)) {
-      TRACE ("%s", "Added the certificate !");
-      CertCloseStore (cert_store, 0);
-      return true;
-   }
-   MONGOC_WARNING ("Failed adding the cert");
-   CertCloseStore (cert_store, 0);
-
-   return false;
-}
+//bool
+//mongoc_secure_channel_setup_ca (
+//   mongoc_stream_tls_secure_channel_t *secure_channel, mongoc_ssl_opt_t *opt)
+//{
+//   FILE *file;
+//   long length;
+//   const char *pem_key;
+//   HCERTSTORE cert_store = NULL;
+//   PCCERT_CONTEXT cert = NULL;
+//   DWORD encrypted_cert_len = 0;
+//   LPBYTE encrypted_cert = NULL;
+//
+//   file = fopen (opt->ca_file, "rb");
+//   if (!file) {
+//      MONGOC_ERROR ("Couldn't open file '%s'", opt->ca_file);
+//      return false;
+//   }
+//
+//   fseek (file, 0, SEEK_END);
+//   length = ftell (file);
+//   fseek (file, 0, SEEK_SET);
+//   if (length < 1) {
+//      MONGOC_WARNING ("Couldn't determine file size of '%s'", opt->ca_file);
+//      return false;
+//   }
+//
+//   pem_key = (const char *) bson_malloc0 (length);
+//   fread ((void *) pem_key, 1, length, file);
+//   fclose (file);
+//
+//   /* If we have private keys or other fuzz, seek to the good stuff */
+//   pem_key = strstr (pem_key, "-----BEGIN CERTIFICATE-----");
+//   /*printf ("%s\n", pem_key);*/
+//
+//   if (!pem_key) {
+//      MONGOC_WARNING ("Couldn't find certificate in '%s'", opt->ca_file);
+//      return false;
+//   }
+//
+//   if (!CryptStringToBinaryA (pem_key,
+//                              0,
+//                              CRYPT_STRING_BASE64HEADER,
+//                              NULL,
+//                              &encrypted_cert_len,
+//                              NULL,
+//                              NULL)) {
+//      MONGOC_ERROR ("Failed to convert BASE64 public key. Error 0x%.8X",
+//                    (unsigned int) GetLastError ());
+//      return false;
+//   }
+//
+//   encrypted_cert = (LPBYTE) LocalAlloc (0, encrypted_cert_len);
+//   if (!CryptStringToBinaryA (pem_key,
+//                              0,
+//                              CRYPT_STRING_BASE64HEADER,
+//                              encrypted_cert,
+//                              &encrypted_cert_len,
+//                              NULL,
+//                              NULL)) {
+//      MONGOC_ERROR ("Failed to convert BASE64 public key. Error 0x%.8X",
+//                    (unsigned int) GetLastError ());
+//      return false;
+//   }
+//
+//   cert = CertCreateCertificateContext (
+//      X509_ASN_ENCODING, encrypted_cert, encrypted_cert_len);
+//   if (!cert) {
+//      MONGOC_WARNING ("Could not convert certificate");
+//      return false;
+//   }
+//
+//
+//   cert_store = CertOpenStore (
+//      CERT_STORE_PROV_SYSTEM,                  /* provider */
+//      X509_ASN_ENCODING | PKCS_7_ASN_ENCODING, /* certificate encoding */
+//      0,                                       /* unused */
+//      CERT_SYSTEM_STORE_LOCAL_MACHINE,         /* dwFlags */
+//      L"Root"); /* system store name. "My" or "Root" */
+//
+//   if (cert_store == NULL) {
+//      MONGOC_ERROR ("Error opening certificate store");
+//      return false;
+//   }
+//
+//   if (CertAddCertificateContextToStore (
+//          cert_store, cert, CERT_STORE_ADD_USE_EXISTING, NULL)) {
+//      TRACE ("%s", "Added the certificate !");
+//      CertCloseStore (cert_store, 0);
+//      return true;
+//   }
+//   MONGOC_WARNING ("Failed adding the cert");
+//   CertCloseStore (cert_store, 0);
+//
+//   return false;
+//}
 
 #else
 

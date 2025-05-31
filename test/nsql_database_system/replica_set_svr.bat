@@ -27,6 +27,7 @@ start mongod ^
 	--logpath %log_file1% ^
 	--logappend ^
 	--replSet rs0 ^
+	--bind_ip_all ^
 	--port 11098
 
 start mongod ^
@@ -34,6 +35,7 @@ start mongod ^
 	--logpath %log_file2% ^
 	--logappend ^
 	--replSet rs0 ^
+	--bind_ip_all ^
 	--port 11099
 
 start mongod ^
@@ -41,6 +43,7 @@ start mongod ^
 	--logpath %log_file3% ^
 	--logappend ^
 	--replSet rs0 ^
+	--bind_ip_all ^
 	--port 11100
 
 if %dir1% == 1 goto :lab_init

@@ -14,7 +14,6 @@
 					<Add option="-m32"/>
 					<Add option="-O0"/>
 					<Add option="-g"/>
-					<Add option="-Werror=unused-variable"/>
 				</Compiler>
 				<Linker>
 					<Add option="-m32"/>
@@ -41,7 +40,6 @@
 					<Add option="-m64"/>
 					<Add option="-O0"/>
 					<Add option="-g"/>
-					<Add option="-Werror=unused-variable"/>
 				</Compiler>
 				<Linker>
 					<Add option="-m64"/>

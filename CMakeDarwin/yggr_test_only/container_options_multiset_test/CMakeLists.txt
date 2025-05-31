@@ -60,7 +60,7 @@ set(var_proj_link_libs
 )
 
 set(var_proj_link_libs_debug 
-		${USRDEF_CMAKE_LD_LIBRARY_DEBUG}
+		${USRDEF_CMAKE_LDFLAGS_DEBUG}
 )
 
 set(var_proj_link_libs_release 

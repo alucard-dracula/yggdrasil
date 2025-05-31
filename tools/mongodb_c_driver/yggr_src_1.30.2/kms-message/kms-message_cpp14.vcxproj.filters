@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3333e8d3-5c1f-452d-92f5-a2cde2f3de6e}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{ae1ffbeb-f459-4a72-a1d7-1754e09a949d}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="hexlify.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_azure_request.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_b64.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_caller_identity_request.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_crypto_apple.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_crypto_libcrypto.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_crypto_none.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_crypto_windows.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_decrypt_request.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_encrypt_request.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_gcp_request.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_kmip_reader_writer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_kmip_request.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_kmip_response.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_kmip_response_parser.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_kv_list.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_message.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_port.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_request.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_request_opt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_request_str.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_response.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kms_response_parser.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sort.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

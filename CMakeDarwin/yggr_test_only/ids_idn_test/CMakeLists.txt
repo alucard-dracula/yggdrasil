@@ -63,7 +63,7 @@ set(var_proj_link_libs_debug
 		-lyggr_ids${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d
 		-lyggr_base${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d
 		-lyggr_compatibility${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d
-		${USRDEF_CMAKE_LD_LIBRARY_DEBUG}
+		${USRDEF_CMAKE_LDFLAGS_DEBUG}
 )
 
 set(var_proj_link_libs_release 

@@ -119,12 +119,33 @@ public:
 		return s_alog_name;
 	}
 
+#if YGGR_MONGOC_HEX() < 0x011C0000
 	inline static const inner_string_type& s_encrypt_algorithm_range_preview(void)
 	{
 		static const inner_string_type s_alog_name(MONGOC_ENCRYPT_ALGORITHM_RANGEPREVIEW, 
 													YGGR_STR_UTF8_STRING_CHARSET_NAME());
 		return s_alog_name;
 	}
+
+	inline static const inner_string_type& s_encrypt_algorithm_range(void)
+	{
+		return this_type::s_encrypt_algorithm_range_preview();
+	}
+
+#else
+	inline static const inner_string_type& s_encrypt_algorithm_range(void)
+	{
+		static const inner_string_type s_alog_name(MONGOC_ENCRYPT_ALGORITHM_RANGE, 
+													YGGR_STR_UTF8_STRING_CHARSET_NAME());
+		return s_alog_name;
+	}
+
+	inline static const inner_string_type& s_encrypt_algorithm_range_preview(void)
+	{
+		return this_type::s_encrypt_algorithm_range();
+	}
+#endif // #if YGGR_MONGOC_HEX() < 0x011C0000
+
 
 public:
 	inline static const inner_string_type& s_encrypt_query_mode_equality(void)
@@ -134,12 +155,31 @@ public:
 		return s_query_mode_name;
 	}
 
+#if YGGR_MONGOC_HEX() < 0x011C0000
 	inline static const inner_string_type& s_encrypt_query_mode_range_preview(void)
 	{
 		static const inner_string_type s_query_mode_name(MONGOC_ENCRYPT_QUERY_TYPE_RANGEPREVIEW, 
 															YGGR_STR_UTF8_STRING_CHARSET_NAME());
 		return s_query_mode_name;
 	}
+
+	inline static const inner_string_type& s_encrypt_query_mode_range(void)
+	{
+		return this_type::s_encrypt_query_mode_range_preview();
+	}
+#else
+	inline static const inner_string_type& s_encrypt_query_mode_range(void)
+	{
+		static const inner_string_type s_query_mode_name(MONGOC_ENCRYPT_QUERY_TYPE_RANGE, 
+															YGGR_STR_UTF8_STRING_CHARSET_NAME());
+		return s_query_mode_name;
+	}
+
+	inline static const inner_string_type& s_encrypt_query_mode_range_preview(void)
+	{
+		return this_type::s_encrypt_query_mode_range();
+	}
+#endif // #if YGGR_MONGOC_HEX() < 0x011C0000
 
 public:
 	static bool s_mongoc_client_encryption_encrypt_opts_init(void* popts);

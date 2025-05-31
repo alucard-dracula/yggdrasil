@@ -18,6 +18,12 @@
 #ifndef BSON_H
 #define BSON_H
 
+#ifdef BUILD_MONGODB_DRIVER_YGGR_VER
+#	include <yggr_detail/c_version_support.h>
+#	include <yggr_detail/platform_config.h>
+#	include <yggr_detail/inteldfp_config.h>
+#endif //BUILD_MONGODB_DRIVER_YGGR_VER
+
 #define BSON_INSIDE
 
 #include <bson/bson-compat.h>
@@ -50,6 +56,10 @@
 #include <bson/bcon.h>
 
 #undef BSON_INSIDE
+
+#ifdef BUILD_MONGODB_DRIVER_YGGR_VER
+#	include <yggr_detail/yggr_bson_t.h>
+#endif //BUILD_MONGODB_DRIVER_YGGR_VER
 
 
 BSON_BEGIN_DECLS

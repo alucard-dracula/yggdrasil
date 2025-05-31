@@ -82,6 +82,8 @@
 
 BSON_BEGIN_DECLS
 
+#include <yggr_detail/stdbool.h>
+
 #if !defined(_MSC_VER) || (_MSC_VER >= 1800)
 #include <inttypes.h>
 #endif

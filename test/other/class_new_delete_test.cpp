@@ -7,7 +7,7 @@ class A
 public:
 	A(void)
 	{
-		std::cout <<"A(void)" << std::endl;
+		std::cout << "A(void)" << std::endl;
 	}
 
 	~A(void)
@@ -21,7 +21,7 @@ class B
 public:
 	B(void)
 	{
-		std::cout <<"B(void)" << std::endl;
+		std::cout << "B(void)" << std::endl;
 	}
 
 	~B(void)
@@ -35,7 +35,7 @@ class C
 public:
 	C(void)
 	{
-		std::cout <<"C(void)" << std::endl;
+		std::cout << "C(void)" << std::endl;
 	}
 
 	~C(void)
@@ -52,7 +52,7 @@ class D
 public:
 	D(void)
 	{
-		std::cout <<"D(void)" << std::endl;
+		std::cout << "D(void)" << std::endl;
 	}
 
 	~D(void)
@@ -66,7 +66,7 @@ class E
 public:
 	E(void)
 	{
-		std::cout <<"E(void)" << std::endl;
+		std::cout << "E(void)" << std::endl;
 	}
 
 	~E(void)
@@ -80,7 +80,7 @@ class F : public C
 public:
 	F(void)
 	{
-		std::cout <<"F(void)" << std::endl;
+		std::cout << "F(void)" << std::endl;
 	}
 
 	~F(void)

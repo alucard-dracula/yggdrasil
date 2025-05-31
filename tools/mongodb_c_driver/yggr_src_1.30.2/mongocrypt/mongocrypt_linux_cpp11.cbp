@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="mongocrypt"/>
+		<Option pch_mode="2"/>
+		<Option compiler="gcc"/>
+		<Build>
+			<Target title="Debug-x32">
+				<Option output="$(WORKSPACE_DIR)/lib/lib$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)-d" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-O0"/>
+					<Add option="-g"/>
+					<Add option="-D_DEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+				</Linker>
+			</Target>
+			<Target title="Release-x32">
+				<Option output="$(WORKSPACE_DIR)/lib/lib$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gnu_gcc32_compiler"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m32"/>
+					<Add option="-O3"/>
+					<Add option="-DNDEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m32"/>
+					<Add option="-s"/>
+				</Linker>
+			</Target>
+			<Target title="Debug-x64">
+				<Option output="$(WORKSPACE_DIR)/lib64/lib$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)-d" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-O0"/>
+					<Add option="-g"/>
+					<Add option="-D_DEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+				</Linker>
+			</Target>
+			<Target title="Release-x64">
+				<Option output="$(WORKSPACE_DIR)/lib64/lib$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)" prefix_auto="1" extension_auto="1"/>
+				<Option object_output="$(TARGET_NAME)/$(PROJECT_NAME)$(#COMPILER_VERSION_TAG)"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Option createDefFile="1"/>
+				<Option projectLinkerOptionsRelation="2"/>
+				<Compiler>
+					<Add option="-m64"/>
+					<Add option="-O3"/>
+					<Add option="-DNDEBUG"/>
+				</Compiler>
+				<Linker>
+					<Add option="-m64"/>
+					<Add option="-s"/>
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="all" targets="Debug-x32;Release-x32;Debug-x64;Release-x64;"/>
+			<Add alias="all_libonly" targets="Debug-x32;Release-x32;Debug-x64;Release-x64;"/>
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall"/>
+			<Add option="-std=c++11"/>
+			<Add option="-fexceptions"/>
+			<Add option="-Wno-sign-compare"/>
+			<Add option="-Wno-comment"/>
+			<Add option="-Wno-enum-compare"/>
+			<Add option="-Wno-unused-local-typedefs"/>
+			<Add option="-Wno-multichar"/>
+			<Add option="-Werror=return-type"/>
+			<Add option="-Werror=endif-labels"/>
+			<Add option="-fdata-sections"/>
+			<Add option="-ffunction-sections"/>
+			<Add option="-fno-strict-aliasing"/>
+			<Add option="-fPIC"/>
+			<Add option="-DBSON_STATIC"/>
+			<Add option="-DBUILD_MONGODB_DRIVER_YGGR_VER"/>
+			<Add option="-DKMS_MSG_STATIC"/>
+			<Add option="-DMLIB_USER"/>
+			<Add option="-DMONGOCRYPT_LITTLE_ENDIAN"/>
+			<Add option="-DMONGOCRYPT_STATIC_DEFINE"/>
+			<Add option="-DMONGOC_COMPILATION"/>
+			<Add option="-DMONGOC_STATIC"/>
+			<Add directory="../include"/>
+			<Add directory="../include/bson"/>
+			<Add directory="../include/common"/>
+			<Add directory="../include/jsonsl"/>
+			<Add directory="../include/kms_message"/>
+			<Add directory="../include/mongo_crypt"/>
+			<Add directory="../include/mongoc"/>
+			<Add directory="../include/mongocrypt"/>
+			<Add directory="../include/mongocrypt/unicode"/>
+			<Add directory="../include/utf8proc"/>
+		</Compiler>
+		<Unit filename="crypto/cng.c"/>
+		<Unit filename="crypto/commoncrypto.c"/>
+		<Unit filename="crypto/libcrypto.c"/>
+		<Unit filename="crypto/none.c"/>
+		<Unit filename="mc-array.c"/>
+		<Unit filename="mc-efc.c"/>
+		<Unit filename="mc-fle2-encryption-placeholder.c"/>
+		<Unit filename="mc-fle2-find-equality-payload-v2.c"/>
+		<Unit filename="mc-fle2-find-equality-payload.c"/>
+		<Unit filename="mc-fle2-find-range-payload-v2.c"/>
+		<Unit filename="mc-fle2-find-range-payload.c"/>
+		<Unit filename="mc-fle2-insert-update-payload-v2.c"/>
+		<Unit filename="mc-fle2-insert-update-payload.c"/>
+		<Unit filename="mc-fle2-payload-iev-v2.c"/>
+		<Unit filename="mc-fle2-payload-iev.c"/>
+		<Unit filename="mc-fle2-payload-uev-common.c"/>
+		<Unit filename="mc-fle2-payload-uev-v2.c"/>
+		<Unit filename="mc-fle2-payload-uev.c"/>
+		<Unit filename="mc-fle2-rfds.c"/>
+		<Unit filename="mc-fle2-tag-and-encrypted-metadata-block.c"/>
+		<Unit filename="mc-range-edge-generation.c"/>
+		<Unit filename="mc-range-encoding.c"/>
+		<Unit filename="mc-range-mincover.c"/>
+		<Unit filename="mc-rangeopts.c"/>
+		<Unit filename="mc-reader.c"/>
+		<Unit filename="mc-schema-broker.c"/>
+		<Unit filename="mc-str-encode-string-sets.c"/>
+		<Unit filename="mc-text-search-str-encode.c"/>
+		<Unit filename="mc-tokens.c"/>
+		<Unit filename="mc-writer.c"/>
+		<Unit filename="mongocrypt-binary.c"/>
+		<Unit filename="mongocrypt-buffer.c"/>
+		<Unit filename="mongocrypt-cache-collinfo.c"/>
+		<Unit filename="mongocrypt-cache-key.c"/>
+		<Unit filename="mongocrypt-cache-oauth.c"/>
+		<Unit filename="mongocrypt-cache.c"/>
+		<Unit filename="mongocrypt-ciphertext.c"/>
+		<Unit filename="mongocrypt-crypto.c"/>
+		<Unit filename="mongocrypt-ctx-datakey.c"/>
+		<Unit filename="mongocrypt-ctx-decrypt.c"/>
+		<Unit filename="mongocrypt-ctx-encrypt.c"/>
+		<Unit filename="mongocrypt-ctx-rewrap-many-datakey.c"/>
+		<Unit filename="mongocrypt-ctx.c"/>
+		<Unit filename="mongocrypt-endpoint.c"/>
+		<Unit filename="mongocrypt-kek.c"/>
+		<Unit filename="mongocrypt-key-broker.c"/>
+		<Unit filename="mongocrypt-key.c"/>
+		<Unit filename="mongocrypt-kms-ctx.c"/>
+		<Unit filename="mongocrypt-log.c"/>
+		<Unit filename="mongocrypt-marking.c"/>
+		<Unit filename="mongocrypt-opts.c"/>
+		<Unit filename="mongocrypt-status.c"/>
+		<Unit filename="mongocrypt-traverse-util.c"/>
+		<Unit filename="mongocrypt-util.c"/>
+		<Unit filename="mongocrypt.c"/>
+		<Unit filename="os_posix/os_dll_posix.c"/>
+		<Unit filename="os_posix/os_mutex_posix.c"/>
+		<Unit filename="os_win/os_dll_win.c"/>
+		<Unit filename="os_win/os_mutex_win.c"/>
+		<Unit filename="unicode/case-fold-map.c"/>
+		<Unit filename="unicode/diacritic-fold-map.c"/>
+		<Unit filename="unicode/fold.c"/>
+		<Extensions>
+			<lib_finder disable_auto="1"/>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

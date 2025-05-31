@@ -24,6 +24,7 @@
 
 #include <yggr_detail/c_version_support.h>
 #include <yggr_detail/platform_config.h>
+#include <yggr_detail/inteldfp_config.h>
 
 /*
  * Define to 1234 for Little Endian, 4321 for Big Endian.

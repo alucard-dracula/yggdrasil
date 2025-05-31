@@ -41,6 +41,7 @@ THE SOFTWARE.
 //C4003: not enough actual parameters for macro
 //C4005: 'macro' : macro redefinition
 //C4006: #undef expected an identifier
+//C4013: warning C4013: 'xxx function' undefined
 //C4067: unexpected tokens following preprocessor directive - expected a newline
 //C4068: unknown pragma
 //C4090: '=' : different 'const' qualifiers
@@ -63,6 +64,7 @@ THE SOFTWARE.
 #pragma warning (error : 4003)
 #pragma warning (error : 4005)
 #pragma warning (error : 4006)
+#pragma warning (error : 4013)
 #pragma warning (error : 4067)
 #pragma warning (error : 4068)
 #pragma warning (error : 4090)
@@ -195,6 +197,8 @@ YGGR_ANY_VAL_OP_NOT_INIT_BASE_TYPE			yggr::any_val::any_operator_mgr_basic_t_reg
 YGGR_ANY_VAL_OP_INIT_NOT_SUPPORT_BASE_TYPE	yggr::any_val::any_operator_mgr_basic_t_reg not call 
 YGGR_ANY_VAL_OP_EXCLUDE_UNSAFE_TYPE			yggr::any_val::any_operator_mgr_basic_t_reg not register unsafe type operator
 
+YGGR_MONGODB_NO_DECIMAL128					yggr::nsql_database_system not support decimal128
+
 */
 
 //compiler
@@ -267,12 +271,16 @@ YGGR_ANY_VAL_OP_EXCLUDE_UNSAFE_TYPE			yggr::any_val::any_operator_mgr_basic_t_re
 #	define YGGR_RISCV_PLATFORM 1
 #endif // #if defined(YGGR_ARM) || defined(YGGR_ARM64)
 
-#if (defined(__i386) && __i386) ||  (defined(__i386__) && __i386__) \
+#if (defined(_M_IX86) && _M_IX86) \
+	|| (defined(__i386) && __i386) ||  (defined(__i386__) && __i386__) \
+	|| (defined(__i486) && __i486) ||  (defined(__i486__) && __i486__) \
+	|| (defined(__i586) && __i586) ||  (defined(__i586__) && __i586__) \
 	|| (defined(__i686) && __i686) ||  (defined(__i686__) && __i686__)
 #	define YGGR_X86 1
 #endif // i386 i686
 
-#if (defined(__amd64) && __amd64) ||  (defined(__amd64__) && __amd64__) \
+#if (defined(_M_X64) && _M_X64) \
+	|| (defined(__amd64) && __amd64) ||  (defined(__amd64__) && __amd64__) \
 	|| (defined(__x86_64) && __x86_64) ||  (defined(__x86_64__) && __x86_64__)
 #	define YGGR_X86_64 1
 #endif // amd64 x86_64
@@ -349,25 +357,43 @@ YGGR_ANY_VAL_OP_EXCLUDE_UNSAFE_TYPE			yggr::any_val::any_operator_mgr_basic_t_re
 
 #if !(defined(YGGR_AT_WINDOWS) || defined(YGGR_AT_DARWIN) || defined(YGGR_AT_LINUX))
 #	if defined(WIN32) || defined(WIN64) || defined(_WIN32) || defined(_WIN64) || defined(WINDOWS) || defined(BOOST_WINDOWS)
-#		define YGGR_AT_WINDOWS
+#		if !defined(YGGR_AT_WINDOWS)
+#			define YGGR_AT_WINDOWS
+#		endif // YGGR_AT_WINDOWS
 #	elif (defined(__APPLE__) || defined(__APPLE_CC__))
-#		define YGGR_AT_DARWIN
+#		if !defined(YGGR_AT_DARWIN)
+#			define YGGR_AT_DARWIN
+#		endif // YGGR_AT_DARWIN
 #	elif defined(__linux__) || defined(__linux)
-#		define YGGR_AT_LINUX
+#		if !defined(YGGR_AT_LINUX)
+#			define YGGR_AT_LINUX
+#		endif // YGGR_AT_LINUX
 #	else
-#		define YGGR_AT_LINUX	
+#		if !defined(YGGR_AT_LINUX)
+#			define YGGR_AT_LINUX
+#		endif // YGGR_AT_LINUX
 #	endif // WIN32
 #endif // !(defined(YGGR_AT_WINDOWS) || defined(YGGR_AT_DARWIN) || defined(YGGR_AT_LINUX))
 
 #if defined(YGGR_AT_DARWIN) \
 	&& (defined(TARGET_OS_IPHONE) && TARGET_OS_IPHONE) \
 		|| (defined(TARGET_OS_IOS) && TARGET_OS_IOS)
-#	define YGGR_AT_IOS
+#	if !defined(YGGR_AT_IOS)
+#		define YGGR_AT_IOS
+#	endif // YGGR_AT_IOS
 #endif // TARGET_OS_IPHONE
 
 #if defined(__ANDROID__) || defined(ANDROID) 
-#	define YGGR_AT_ANDROID
+#	if !defined(YGGR_AT_ANDROID)
+#		define YGGR_AT_ANDROID
+#	endif // YGGR_AT_ANDROID
 #endif // TARGET_OS_IPHONE
+
+#if defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS)
+#	if !defined(YGGR_AT_MOBILE)
+#		define YGGR_AT_MOBILE
+#	endif // YGGR_AT_MOBILE
+#endif // #if defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS)
 
 
 #if defined(YGGR_AT_WINDOWS)

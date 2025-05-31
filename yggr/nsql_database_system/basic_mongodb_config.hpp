@@ -27,7 +27,9 @@ THE SOFTWARE.
 #ifndef __YGGR_NSQL_DATABASE_SYSTEM_BASIC_MONGODB_CONFIG_HPP__
 #define __YGGR_NSQL_DATABASE_SYSTEM_BASIC_MONGODB_CONFIG_HPP__
 
-#ifndef BUILD_MONGODB_DRIVER_YGGR_VER
+#include <yggr/base/yggrdef.h>
+
+#if !defined(BUILD_MONGODB_DRIVER_YGGR_VER)
 #	define BUILD_MONGODB_DRIVER_YGGR_VER
 #endif // BUILD_MONGODB_DRIVER_YGGR_VER
 
@@ -81,7 +83,9 @@ THE SOFTWARE.
 #		endif // MONGOCRYPT_LITTLE_ENDIAN
 #	endif // MONGOCRYPT_BIG_ENDIAN
 
-#	if !defined(MONGOCRYPT_INTELDFP)
+#	if !defined(MONGOCRYPT_INTELDFP) \
+		&& defined(YGGR_X86_PLATFORM) \
+		&& !defined(YGGR_MONGODB_NO_DECIMAL128)
 #		define MONGOCRYPT_INTELDFP
 #	endif // MONGOCRYPT_INTELDFP
 
@@ -102,8 +106,6 @@ THE SOFTWARE.
 #	error "this driver is not support yggdrasil!!!!"
 #endif // !defined(MONGODB_DRIVER_INCLUDED_YGGR_VER)
 
-#include <yggr/base/yggrdef.h>
-
 #ifdef MONGOC_ENABLE_SSL
 #	include <openssl/ssl.h>
 #	include <openssl/err.h>
@@ -120,5 +122,13 @@ THE SOFTWARE.
 #	include <yggr/network/socket_conflict_fixer.hpp>
 #	include <windows.h>
 #endif // defined(WIN32) || defined(WIN64) || defined(WINDOWS)
+
+#if defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS)
+
+#	if !defined(YGGR_MONGODB_NOT_SUPPORT_CSFLE)
+#		define YGGR_MONGODB_NOT_SUPPORT_CSFLE 1
+#	endif // YGGR_MONGODB_NOT_SUPPORT_CSFLE
+
+#endif // #if defined(YGGR_AT_ANDROID) || defined(YGGR_AT_IOS)
 
 #endif //__YGGR_NSQL_DATABASE_SYSTEM_BASIC_MONGODB_CONFIG_HPP__

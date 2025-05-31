@@ -117,8 +117,6 @@
 			<lib_finder disable_auto="1"/>
 		</Extensions>
 		<Linker>
-			<Add option="-lws2_32"/>
-			<Add option="-lwinmm"/>
 			<Add option="-lgdi32"/>
 		</Linker>
 	</Project>

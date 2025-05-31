@@ -22,7 +22,7 @@
     <ClInclude Include="wait_any_key\wait_any_key.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="database_system\test_database_accesser_excel_extern_file.cpp" />
+    <ClCompile Include="nsql_database_system\mongo_accesser_encryption_test_of_connect_pool.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{336DA8C4-0684-45CE-B09E-7E2705F88DCA}</ProjectGuid>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeBlocks_workspace_file>
+	<Workspace title="mongodb_c_driver_mingw">
+		<Project filename="bson/bson_mingw.cbp" active="1"/>
+		<Project filename="common/common_mingw.cbp"/>
+		<Project filename="include/include_mingw.cbp"/>
+		<Project filename="kms-message/kms-message_mingw.cbp"/>
+		<Project filename="mongoc/mongoc_mingw.cbp"/>
+		<Project filename="mongoc3_test/mongoc3_test_mingw.cbp">
+			<Depends filename="bson/bson_mingw.cbp"/>
+			<Depends filename="common/common_mingw.cbp"/>
+			<Depends filename="kms-message/kms-message_mingw.cbp"/>
+			<Depends filename="mongoc/mongoc_mingw.cbp"/>
+			<Depends filename="mongocrypt/mongocrypt_mingw.cbp"/>
+			<Depends filename="utf8proc/utf8proc_mingw.cbp"/>
+		</Project>
+		<Project filename="mongocrypt/mongocrypt_mingw.cbp"/>
+		<Project filename="utf8proc/utf8proc_mingw.cbp"/>
+	</Workspace>
+</CodeBlocks_workspace_file>

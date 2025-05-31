@@ -43,6 +43,7 @@ THE SOFTWARE.
 #include <yggr/compile_link/linker.hpp>
 
 #include YGGR_PP_LINK_LIB(script_lua)
+#include YGGR_PP_LINK_LIB(exception)
 #include YGGR_PP_LINK_LIB(charset)
 #include YGGR_PP_LINK_LIB(time)
 #include YGGR_PP_LINK_LIB(base)

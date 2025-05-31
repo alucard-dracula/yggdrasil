@@ -17,8 +17,15 @@
 int
 main (int argc, char *argv[])
 {
+
+#if defined(YGGR_AT_MOBILE)
+	const char *uri_string =
+		"mongodb://192.168.1.101:10098/?appname=new-gridfs-example";
+#else
 	const char *uri_string =
 		"mongodb://127.0.0.1:10098/?appname=new-gridfs-example";
+#endif // YGGR_AT_MOBILE
+
 	mongoc_client_t *client = 0;
 	mongoc_database_t *db = 0;
 	mongoc_stream_t *file_stream = 0;

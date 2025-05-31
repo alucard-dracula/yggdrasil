@@ -46,7 +46,6 @@ ifeq ($(NDK_DEBUG), 1)
 	l_cflags += \
 		-D_DEBUG \
 		-O0 \
-		-fno-elide-constructors \
 		-g \
 		$(USRDEF_APP_CFLAGS_DEBUG) \
 
@@ -78,6 +77,7 @@ l_cppflags := \
 
 ifeq ($(NDK_DEBUG), 1)
 	l_cppflags += \
+		-fno-elide-constructors \
 		$(USRDEF_APP_CPPFLAGS_DEBUG) \
 
 else
@@ -149,12 +149,14 @@ ifeq ($(NDK_DEBUG), 1)
 		-lmongoc$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		-lmongocrypt$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		-lkms-message$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
-		-lutf8proc$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		-lbson$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		-lcommon$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
+		-lbson$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
+		-lcommon$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
+		-lutf8proc$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		-licuuc \
 		-licui18n \
-		-lintel_dfp_obj$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
+		-licudata \
 		-lbase64$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		$(USRDEF_APP_LDFLAGS_DEBUG) \
 
@@ -181,12 +183,14 @@ else
 		-lmongoc$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		-lmongocrypt$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		-lkms-message$(USRDEF_APP_COMPILER_VERSION_TAG) \
-		-lutf8proc$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		-lbson$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		-lcommon$(USRDEF_APP_COMPILER_VERSION_TAG) \
+		-lbson$(USRDEF_APP_COMPILER_VERSION_TAG) \
+		-lcommon$(USRDEF_APP_COMPILER_VERSION_TAG) \
+		-lutf8proc$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		-licuuc \
 		-licui18n \
-		-lintel_dfp_obj$(USRDEF_APP_COMPILER_VERSION_TAG) \
+		-licudata \
 		-lbase64$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		$(USRDEF_APP_LDFLAGS_RELEASE) \
 
@@ -195,10 +199,8 @@ endif
 l_ldflags += \
 	-lz \
 	-lssl \
-	-lsasl2 \
 	-liconv \
 	-lcrypto \
-	-lresolv \
 	-lm \
 	$(USRDEF_APP_LDFLAGS)\
 

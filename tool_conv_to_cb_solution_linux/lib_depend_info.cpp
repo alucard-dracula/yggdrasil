@@ -58,7 +58,9 @@ lib_depend_info::lib_depend_info(lib_depend_info_cfg_sample)
 		_marks_dep["nsql_database_system"].insert("boost_thread");
 		_marks_dep["nsql_database_system"].insert("mongoc");
 		_marks_dep["nsql_database_system"].insert("bson");
+		_marks_dep["nsql_database_system"].insert("bson2");
 		_marks_dep["nsql_database_system"].insert("common");
+		_marks_dep["nsql_database_system"].insert("common2");
 		_marks_dep["nsql_database_system"].insert("mongocrypt");
 		_marks_dep["nsql_database_system"].insert("kms-message");
 		_marks_dep["nsql_database_system"].insert("utf8proc");
@@ -77,7 +79,13 @@ lib_depend_info::lib_depend_info(lib_depend_info_cfg_sample)
 		_marks_dep["mongoc"].insert("mongoc");
 		_marks_dep["mongoc"].insert("resolv");
 		_marks_dep["bson"].insert("bson");
+		_marks_dep["bson"].insert("bson2");
+		_marks_dep["bson"].insert("common");
+		_marks_dep["bson"].insert("common2");
 		_marks_dep["common"].insert("common");
+		_marks_dep["common"].insert("common2");
+		_marks_dep["common"].insert("bson");
+		_marks_dep["common"].insert("bson2");
 		_marks_dep["kms-message"].insert("kms-message");
 		_marks_dep["mongocrypt"].insert("mongocrypt");
 		_marks_dep["mongocrypt"].insert("intel_dfp_obj");
@@ -403,12 +411,14 @@ lib_depend_info::lib_depend_info(lib_depend_info_cfg_sample)
 		_marks_lv["luabind09_s"] = 14;
 		_marks_lv["luabind09_ts"] = 14;
 
-		_marks_lv["common"] = 50;
-		_marks_lv["bson"] = 51;
-		_marks_lv["utf8proc"] = 52;
-		_marks_lv["kms-message"] = 53;
-		_marks_lv["mongocrypt"] = 54;
-		_marks_lv["mongoc"] = 55;
+		_marks_lv["utf8proc"] = 50;
+		_marks_lv["common2"] = 51;
+		_marks_lv["bson2"] = 52;
+		_marks_lv["common"] = 53;
+		_marks_lv["bson"] = 54;
+		_marks_lv["kms-message"] = 55;
+		_marks_lv["mongocrypt"] = 56;
+		_marks_lv["mongoc"] = 57;
 
 		_marks_lv["boost_system"] = 500;
 		_marks_lv["boost_thread"] = 502;
@@ -557,7 +567,9 @@ lib_depend_info::lib_depend_info(lib_depend_info_cfg_sample)
 
 		_marks_name["mongoc"] = "-lmongoc$(#COMPILER_VERSION_TAG)%(debug)";
 		_marks_name["bson"] = "-lbson$(#COMPILER_VERSION_TAG)%(debug)";
+		_marks_name["bson2"] = "-lbson$(#COMPILER_VERSION_TAG)%(debug)$(#DUPLICATE_LINK_MARK)";
 		_marks_name["common"] = "-lcommon$(#COMPILER_VERSION_TAG)%(debug)";
+		_marks_name["common2"] = "-lcommon$(#COMPILER_VERSION_TAG)%(debug)$(#DUPLICATE_LINK_MARK)";
 		_marks_name["mongocrypt"] = "-lmongocrypt$(#COMPILER_VERSION_TAG)%(debug)";
 		_marks_name["kms-message"] = "-lkms-message$(#COMPILER_VERSION_TAG)%(debug)";
 		_marks_name["utf8proc"] = "-lutf8proc$(#COMPILER_VERSION_TAG)%(debug)";

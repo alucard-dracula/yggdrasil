@@ -14,11 +14,13 @@ subdirs := \
 	$(LOCAL_PATH)/../test/Android_algorithm_knuth_morris_pratt_test.mk \
 	$(LOCAL_PATH)/../test/Android_algorithm_lexicographical_c_compare_test.mk \
 	$(LOCAL_PATH)/../test/Android_algorithm_random_shuffle_test.mk \
+	$(LOCAL_PATH)/../test/Android_any_val_any_bson_serialize_test.mk \
 	$(LOCAL_PATH)/../test/Android_any_val_any_network_serialize_test.mk \
 	$(LOCAL_PATH)/../test/Android_any_val_any_operator_mgr_basic_type_mix_test.mk \
 	$(LOCAL_PATH)/../test/Android_any_val_any_operator_mgr_performance_test.mk \
 	$(LOCAL_PATH)/../test/Android_any_val_any_xml_serialize_test.mk \
 	$(LOCAL_PATH)/../test/Android_any_val_boost_any_operator_mgr_basic_type_test.mk \
+	$(LOCAL_PATH)/../test/Android_any_val_params_bson_serialize_test.mk \
 	$(LOCAL_PATH)/../test/Android_any_val_params_network_serialize_test.mk \
 	$(LOCAL_PATH)/../test/Android_any_val_params_network_serialize_test_utf8_string_key.mk \
 	$(LOCAL_PATH)/../test/Android_any_val_params_test_of_boost_any.mk \
@@ -68,6 +70,7 @@ subdirs := \
 	$(LOCAL_PATH)/../test/Android_charset_utf8_string_binary_pak_serialize.mk \
 	$(LOCAL_PATH)/../test/Android_charset_utf8_string_boyer_moore_horspool_test.mk \
 	$(LOCAL_PATH)/../test/Android_charset_utf8_string_boyer_moore_test.mk \
+	$(LOCAL_PATH)/../test/Android_charset_utf8_string_bson_pak_test.mk \
 	$(LOCAL_PATH)/../test/Android_charset_utf8_string_getter.mk \
 	$(LOCAL_PATH)/../test/Android_charset_utf8_string_isomeric_same_test.mk \
 	$(LOCAL_PATH)/../test/Android_charset_utf8_string_knuth_morris_pratt_test.mk \
@@ -137,7 +140,9 @@ subdirs := \
 	$(LOCAL_PATH)/../test/Android_encryption_tool_safe_pak_tool_test.mk \
 	$(LOCAL_PATH)/../test/Android_encryption_tool_sha1_tool_test.mk \
 	$(LOCAL_PATH)/../test/Android_encryption_tool_sha256_tool_test.mk \
+	$(LOCAL_PATH)/../test/Android_exception_bson_pak_test_of_error_code.mk \
 	$(LOCAL_PATH)/../test/Android_exception_exception_default_log_test.mk \
+	$(LOCAL_PATH)/../test/Android_exception_exception_mongodb_log_test.mk \
 	$(LOCAL_PATH)/../test/Android_exception_exception_sqldb_log_test.mk \
 	$(LOCAL_PATH)/../test/Android_exception_exception_test.mk \
 	$(LOCAL_PATH)/../test/Android_exception_exception_thread_file_log_test.mk \
@@ -179,6 +184,7 @@ subdirs := \
 	$(LOCAL_PATH)/../test/Android_handler_center_handler_center_test_u32_id.mk \
 	$(LOCAL_PATH)/../test/Android_ids_id_generator_test.mk \
 	$(LOCAL_PATH)/../test/Android_ids_idn_test.mk \
+	$(LOCAL_PATH)/../test/Android_ids_uuid_bson_serialize_test.mk \
 	$(LOCAL_PATH)/../test/Android_iterator_ex_advance_copy_test.mk \
 	$(LOCAL_PATH)/../test/Android_iterator_ex_is_const_iterator_test.mk \
 	$(LOCAL_PATH)/../test/Android_iterator_ex_is_reverse_iterator_test.mk \
@@ -195,6 +201,9 @@ subdirs := \
 	$(LOCAL_PATH)/../test/Android_log_log_file_op_caller_test.mk \
 	$(LOCAL_PATH)/../test/Android_log_log_file_op_test.mk \
 	$(LOCAL_PATH)/../test/Android_log_log_file_test.mk \
+	$(LOCAL_PATH)/../test/Android_log_log_mongodb_accesser_test.mk \
+	$(LOCAL_PATH)/../test/Android_log_log_mongodb_op_caller_test.mk \
+	$(LOCAL_PATH)/../test/Android_log_log_mongodb_op_test.mk \
 	$(LOCAL_PATH)/../test/Android_log_log_sql_db_accesser_test.mk \
 	$(LOCAL_PATH)/../test/Android_log_log_sql_db_op_caller_test.mk \
 	$(LOCAL_PATH)/../test/Android_log_log_sql_db_op_test.mk \
@@ -271,21 +280,96 @@ subdirs := \
 	$(LOCAL_PATH)/../test/Android_network_io_service_pool_test.mk \
 	$(LOCAL_PATH)/../test/Android_network_network_info_test.mk \
 	$(LOCAL_PATH)/../test/Android_network_network_packet_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_base_bson_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_bson_serialize_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_basic_demo.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_basic_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_equal.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_liner_only.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_sizeof_greater.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_sizeof_less.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_binary_buffer_ref_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_binary_buffer_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_code_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_code_w_scope_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_date_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_date_time_timeval_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_dbpointer_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_decimal128_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_error_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_oid_test2.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_oid_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_regex_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_symbol_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_time_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_timestamp_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_timeval_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_value_test2.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_bson_value_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_apm_callbacks_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_auto_encryption_opts_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_client_encryption_datakey_opts_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_client_encryption_encrypt_opts_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_client_encryption_encrypt_range_opts_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_client_encryption_opts_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_client_encryption_rewrap_many_datakey_result_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_connection_init_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_find_and_modify_opts_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_gridfs_file_opt_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_gridfs_file_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_host_info_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_index_model_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_read_concern_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_read_prefs_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_server_api_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_ssl_opt_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_stream_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_uri_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_c_mongo_write_concern_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_cert_file_win32_load_failed_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_mongo_accesser_encryption_test_of_connect.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_mongo_accesser_encryption_test_of_connect_pool.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_mongo_accesser_test_of_connection.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_mongo_accesser_test_of_connection_mt.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_mongo_accesser_test_of_connection_pool.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_mongo_accesser_test_of_connection_pool_mt.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_mongo_accesser_test_of_connection_sharding.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_mongo_gridfs_bucket_org_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_mongo_gridfs_org_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_mongo_operators_dollar_cmd_def_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_mongoc_connection_pool_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_mongodbc_basic_connect_test.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_test_mongodb_async_mgr.mk \
+	$(LOCAL_PATH)/../test/Android_nsql_database_system_test_mongodb_mgr.mk \
 	$(LOCAL_PATH)/../test/Android_packet_binary_archive_test.mk \
 	$(LOCAL_PATH)/../test/Android_packet_binary_file_archive_test.mk \
 	$(LOCAL_PATH)/../test/Android_packet_binary_pak_archive_test.mk \
 	$(LOCAL_PATH)/../test/Android_packet_binary_pak_warchive_test.mk \
+	$(LOCAL_PATH)/../test/Android_packet_bson_cmd_pak_test_of_container_midx.mk \
+	$(LOCAL_PATH)/../test/Android_packet_bson_cmd_pak_test_of_container_part1.mk \
+	$(LOCAL_PATH)/../test/Android_packet_bson_cmd_pak_test_of_container_part2.mk \
+	$(LOCAL_PATH)/../test/Android_packet_bson_pak_test_of_class_and_base.mk \
+	$(LOCAL_PATH)/../test/Android_packet_bson_pak_test_of_container_part1_1.mk \
+	$(LOCAL_PATH)/../test/Android_packet_bson_pak_test_of_container_part1_2.mk \
+	$(LOCAL_PATH)/../test/Android_packet_bson_pak_test_of_container_part2_1.mk \
+	$(LOCAL_PATH)/../test/Android_packet_bson_pak_test_of_container_part2_2.mk \
+	$(LOCAL_PATH)/../test/Android_packet_bson_pak_test_of_container_part3.mk \
+	$(LOCAL_PATH)/../test/Android_packet_bson_pak_test_of_container_part4.mk \
+	$(LOCAL_PATH)/../test/Android_packet_bson_pak_test_of_tuple_container.mk \
+	$(LOCAL_PATH)/../test/Android_packet_bug_test_bson_pak_man.mk \
 	$(LOCAL_PATH)/../test/Android_packet_network_32_64_x_serialization_test.mk \
 	$(LOCAL_PATH)/../test/Android_packet_packet_info_key_test.mk \
 	$(LOCAL_PATH)/../test/Android_packet_packet_info_test.mk \
 	$(LOCAL_PATH)/../test/Android_packet_polymiorphism_serialization.mk \
 	$(LOCAL_PATH)/../test/Android_packet_serialize_file_test.mk \
+	$(LOCAL_PATH)/../test/Android_packet_shared_ptr_bson_serialization_test.mk \
 	$(LOCAL_PATH)/../test/Android_packet_shared_ptr_serialization_test.mk \
 	$(LOCAL_PATH)/../test/Android_packet_string_serialization_test_eins.mk \
 	$(LOCAL_PATH)/../test/Android_packet_string_serialization_test_zwei.mk \
 	$(LOCAL_PATH)/../test/Android_packet_test_archive_udp_wrap_and_collecter.mk \
 	$(LOCAL_PATH)/../test/Android_packet_test_archive_udp_wrap.mk \
 	$(LOCAL_PATH)/../test/Android_packet_test_archive_vector.mk \
+	$(LOCAL_PATH)/../test/Android_packet_test_bson_serialization_include.mk \
 	$(LOCAL_PATH)/../test/Android_packet_test_encrypt_archive.mk \
 	$(LOCAL_PATH)/../test/Android_packet_test_packet_info_caster.mk \
 	$(LOCAL_PATH)/../test/Android_packet_text_archive_test.mk \

@@ -1,5 +1,5 @@
 #!/bin/sh
-source ./begin_test_env_x64d.sh
+source ./begin_test_env_linux_x64d.sh
 rm -f Debug-x64/gcc14/yggr_lua_base_type.so
 rm -f Debug-x64/gcc14/mongo_crypt_v1.so
 ln -s libyggr_lua_base_type.so Debug-x64/gcc14/yggr_lua_base_type.so
@@ -589,4 +589,4 @@ ln -s /usr/local/lib64/mongo_crypt/mongo_crypt_v1.so mongo_crypt_v1.so
 ../Debug-x64/gcc14/utility_typeinfo_hasher_test --batch-test
 echo "---------all test end-----------------"
 cd ..
-source end_test_env.sh
+source ./end_test_env.sh

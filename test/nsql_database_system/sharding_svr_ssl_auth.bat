@@ -32,7 +32,7 @@ timeout /t 10 /nobreak > nul
 start mongos ^
 		--configdb "rscfg0/127.0.0.1:12401,127.0.0.1:12402,127.0.0.1:12403" ^
 		--logpath %route_dir%\route_log.txt ^
-		--bind_ip 127.0.0.1 ^
+		--bind_ip_all ^
 		--port 12398 ^
 		--tlsMode requireTLS ^
 		--tlsCertificateKeyFile %svr_pem% ^

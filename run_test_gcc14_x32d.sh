@@ -1,5 +1,5 @@
 #!/bin/sh
-source ./begin_test_env_x32d.sh
+source ./begin_test_env_linux_x32d.sh
 rm -f Debug-x32/gcc14/yggr_lua_base_type.so
 ln -s libyggr_lua_base_type.so Debug-x32/gcc14/yggr_lua_base_type.so
 cd ./test
@@ -586,4 +586,4 @@ ln -s ../Debug-x32/gcc14/libyggr_lua_base_type.so yggr_lua_base_type.so
 ../Debug-x32/gcc14/utility_typeinfo_hasher_test --batch-test
 echo "---------all test end-----------------"
 cd ..
-source end_test_env.sh
+source ./end_test_env.sh

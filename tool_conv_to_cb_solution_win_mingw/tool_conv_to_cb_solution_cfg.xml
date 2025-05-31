@@ -1,7 +1,7 @@
 <tool_conv_to_cb_solution_cfg class_id="0" tracking_level="0" version="0">
 	<cbp_sample_cfg_>cbp_sample_cfg.xml</cbp_sample_cfg_>
 	<lib_depend_info_cfg_>lib_depend_info_cfg.xml</lib_depend_info_cfg_>
-	<root_dir_>..</root_dir_>
+	<root_dir_>../tools/cyrus-sasl2/lmdb-LMDB_0.9.31/libraries/liblmdb</root_dir_>
 	<dir_filter_>
 		<count>21</count>
 		<bucket_count>37</bucket_count>

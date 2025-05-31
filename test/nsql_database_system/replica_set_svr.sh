@@ -25,9 +25,9 @@ if [ ! -d ${data_dir3} ];then
 	need_init=1
 fi
 
-mongod --dbpath ${data_dir1} --logpath ${log_file1} --replSet rs0 --port 11098 --logappend &
-mongod --dbpath ${data_dir2} --logpath ${log_file2} --replSet rs0 --port 11099 --logappend &
-mongod --dbpath ${data_dir3} --logpath ${log_file3} --replSet rs0 --port 11100 --logappend &
+mongod --dbpath ${data_dir1} --logpath ${log_file1} --replSet rs0 --bind_ip_all --port 11098 --logappend &
+mongod --dbpath ${data_dir2} --logpath ${log_file2} --replSet rs0 --bind_ip_all --port 11099 --logappend &
+mongod --dbpath ${data_dir3} --logpath ${log_file3} --replSet rs0 --bind_ip_all --port 11100 --logappend &
 
 if [ ${need_init} == 1 ];then
 	echo "wait 5 second"

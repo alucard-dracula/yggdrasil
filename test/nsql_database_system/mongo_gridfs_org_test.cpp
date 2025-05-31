@@ -307,39 +307,79 @@ const char* g_gridfs_name = "fs";
 const char* g_fname = "gridfs_test_file.txt";
 //const char* g_fname = "test.mp3";
 
-#if MONGODB_USING_CA()
-#	if MONGODB_USING_AUTH()
+#if defined(YGGR_AT_MOBILE)
+
+#	if MONGODB_USING_CA()
+#		if MONGODB_USING_AUTH()
+
+	const char* g_uristr = "mongodb://xy@123456abc@192.168.1.101:10098/?ssl=true";
+	const char* g_pem_file = "./nsql_database_system/cert/client.pem";
+	const char* g_pem_pwd = "";
+	const char* g_ca_file = "./nsql_database_system/cert/ca.pem";
+	const char* g_ca_dir = "./nsql_database_system/cert";
+
+#		else
+
+	const char* g_uristr = "mongodb://192.168.1.101:10098/?ssl=true";
+	const char* g_pem_file = "./nsql_database_system/cert/client.pem";
+	const char* g_pem_pwd = "";
+	const char* g_ca_file = "./nsql_database_system/cert/ca.pem";
+	const char* g_ca_dir = "./nsql_database_system/cert";
+
+#		endif // MONGODB_USING_AUTH
+#	else
+#		if MONGODB_USING_AUTH()
+	const char* g_uristr = "mongodb://xy@123456abc@192.168.1.101:10098/?ssl=false";
+	const char* g_pem_file = "";
+	const char* g_pem_pwd = "";
+	const char* g_ca_file = "";
+	const char* g_ca_dir = "";
+#		else
+	const char* g_uristr = "mongodb://192.168.1.101:10098/?ssl=false";
+	const char* g_pem_file = "";
+	const char* g_pem_pwd = "";
+	const char* g_ca_file = "";
+	const char* g_ca_dir = "";
+#		endif // MONGODB_USING_AUTH
+#	endif // MONGODB_USING_CA
+
+#else
+
+#	if MONGODB_USING_CA()
+#		if MONGODB_USING_AUTH()
 
 	const char* g_uristr = "mongodb://xy@123456abc@127.0.0.1:10098/?ssl=true";
 	const char* g_pem_file = "./nsql_database_system/cert/client.pem";
 	const char* g_pem_pwd = "";
 	const char* g_ca_file = "./nsql_database_system/cert/ca.pem";
-	const char* g_ca_dir = "./nsql_database_system";
+	const char* g_ca_dir = "./nsql_database_system/cert";
 
-#	else
+#		else
 
 	const char* g_uristr = "mongodb://127.0.0.1:10098/?ssl=true";
 	const char* g_pem_file = "./nsql_database_system/cert/client.pem";
 	const char* g_pem_pwd = "";
 	const char* g_ca_file = "./nsql_database_system/cert/ca.pem";
-	const char* g_ca_dir = "./nsql_database_system";
+	const char* g_ca_dir = "./nsql_database_system/cert";
 
-#	endif // MONGODB_USING_AUTH
-#else
-#	if MONGODB_USING_AUTH()
+#		endif // MONGODB_USING_AUTH
+#	else
+#		if MONGODB_USING_AUTH()
 	const char* g_uristr = "mongodb://xy@123456abc@127.0.0.1:10098/?ssl=false";
 	const char* g_pem_file = "";
 	const char* g_pem_pwd = "";
 	const char* g_ca_file = "";
 	const char* g_ca_dir = "";
-#	else
+#		else
 	const char* g_uristr = "mongodb://127.0.0.1:10098/?ssl=false";
 	const char* g_pem_file = "";
 	const char* g_pem_pwd = "";
 	const char* g_ca_file = "";
 	const char* g_ca_dir = "";
-#	endif // MONGODB_USING_AUTH
-#endif // MONGODB_USING_CA
+#		endif // MONGODB_USING_AUTH
+#	endif // MONGODB_USING_CA
+
+#endif //#if defined(YGGR_AT_MOBILE)
 
 void init_ssl(void)
 {

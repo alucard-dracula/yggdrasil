@@ -492,6 +492,11 @@ public:
 		return mongoc_client_encryption_encrypt_opts_native_ex::s_encrypt_algorithm_range_preview();
 	}
 
+	inline static const inner_string_type& s_encrypt_algorithm_range(void)
+	{
+		return mongoc_client_encryption_encrypt_opts_native_ex::s_encrypt_algorithm_range();
+	}
+
 public:
 	inline static const inner_string_type& s_encrypt_query_mode_equality(void)
 	{
@@ -501,6 +506,11 @@ public:
 	inline static const inner_string_type& s_encrypt_query_mode_range_preview(void)
 	{
 		return mongoc_client_encryption_encrypt_opts_native_ex::s_encrypt_query_mode_range_preview();
+	}
+
+	inline static const inner_string_type& s_encrypt_query_mode_range(void)
+	{
+		return mongoc_client_encryption_encrypt_opts_native_ex::s_encrypt_query_mode_range();
 	}
 
 private:

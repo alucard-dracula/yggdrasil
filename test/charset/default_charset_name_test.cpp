@@ -72,7 +72,7 @@ int main(int argc, char* argv[])
 #	error "append other platfrom code"
 #endif // _MSC_VER
 
-	std::cout <<"--------------all_test end--------------" << std::endl;
+	std::cout << "--------------all_test end--------------" << std::endl;
 	wait_any_key(argc, argv);
 	return 0;
 }

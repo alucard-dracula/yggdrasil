@@ -9,21 +9,12 @@ set(var_proj_name yggr_log)
 set(var_root_proj_dir ${PROJECT_SOURCE_DIR}/../../..)
 set(var_proj_src_dir ${var_root_proj_dir}/yggr_log)
 
-if(${USRDEF_HAS_ARM64})
-	set(var_proj_src_list 
-			${var_proj_src_dir}/log_file_mgr_op_caller.cpp
-			${var_proj_src_dir}/log_file_op_caller.cpp
-			${var_proj_src_dir}/log_sql_db_op_caller.cpp
+set(var_proj_src_list 
+		${var_proj_src_dir}/log_file_mgr_op_caller.cpp
+		${var_proj_src_dir}/log_file_op_caller.cpp
+		${var_proj_src_dir}/log_mongodb_op_caller.cpp
+		${var_proj_src_dir}/log_sql_db_op_caller.cpp
 )
-else()
-	set(var_proj_src_list 
-			${var_proj_src_dir}/log_file_mgr_op_caller.cpp
-			${var_proj_src_dir}/log_file_op_caller.cpp
-			${var_proj_src_dir}/log_mongodb_op_caller.cpp
-			${var_proj_src_dir}/log_sql_db_op_caller.cpp
-)
-
-endif()
 
 set(var_proj_bin_outdir ${var_root_proj_dir}/${USRDEF_CMAKE_BIN_OUTDIR})
 set(var_proj_lib_outdir ${var_root_proj_dir}/${USRDEF_CMAKE_LIB_OUTDIR})
@@ -70,7 +61,7 @@ set(var_proj_link_libs
 )
 
 set(var_proj_link_libs_debug 
-		${USRDEF_CMAKE_LD_LIBRARY_DEBUG}
+		${USRDEF_CMAKE_LDFLAGS_DEBUG}
 )
 
 set(var_proj_link_libs_release 

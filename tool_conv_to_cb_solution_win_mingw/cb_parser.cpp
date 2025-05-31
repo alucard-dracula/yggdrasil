@@ -1849,12 +1849,14 @@ void split_lib_names(const ptree_type& vc_ptree,
 	lib_marks_d32.insert("mgw_gcc_sjlj");
 	lib_marks_r32.insert("mgw_gcc_sjlj");
 
-	//{
-	//	for(string_set_type::const_iterator i = lib_marks.begin(), isize = lib_marks.end(); i != isize; ++i)
-	//	{
-	//		std::cout << "last libmarks: " << *i << std::endl;
-	//	}
-	//}
+//#if defined(_DEBUG)
+//	{
+//		for(string_set_type::const_iterator i = lib_marks.begin(), isize = lib_marks.end(); i != isize; ++i)
+//		{
+//			std::cout << "last libmarks: " << *i << std::endl;
+//		}
+//	}
+//#endif // _DEBUG
 
 
 	if(lib_marks.size())
@@ -1884,6 +1886,16 @@ void split_lib_names(const ptree_type& vc_ptree,
 				tmp_libmarks.insert(lib_marks_d64.begin(), lib_marks_d64.end());
 			}
 			dep_info_cfg.gen_libnames(lib_names_d64, tmp_libmarks, vcproj::vcproj_cfg_marks::s_mark_debug_x64());
+
+//#if defined(_DEBUG)
+//	{
+//		for(lib::ordered_libname_map_type::const_iterator i = lib_names_d64.begin(), isize = lib_names_d64.end(); i != isize; ++i)
+//		{
+//			std::cout << "last libnames: " << i->first << ", " << i->second << std::endl;
+//		}
+//	}
+//#endif // _DEBUG
+
 		}
 
 		{

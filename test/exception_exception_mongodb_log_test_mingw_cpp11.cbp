@@ -22,36 +22,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-m32"/>
-					<Add option="-lyggr_nsql_database_system$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_log$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_system_controller$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_exception$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_ids$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_time$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_charset$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_base$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_compatibility$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lboost_regex$(#COMPILER_VERSION_TAG)-mt-d-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_filesystem$(#COMPILER_VERSION_TAG)-mt-d-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_serialization$(#COMPILER_VERSION_TAG)-mt-sd-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_date_time$(#COMPILER_VERSION_TAG)-mt-d-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_thread$(#COMPILER_VERSION_TAG)-mt-d-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lmongoc$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lmongocrypt$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lkms-message$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lutf8proc$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lbson$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lcommon$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-licuuc"/>
-					<Add option="-licuin"/>
-					<Add option="-lz$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lssl"/>
-					<Add option="-lsasl2.dll"/>
-					<Add option="-lmd5$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lintel_dfp_obj$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-liconv"/>
-					<Add option="-lcrypto"/>
-					<Add option="-lbase64$(#COMPILER_VERSION_TAG)-d"/>
 					<Add option="-lmgw_gcc_sjlj$(#COMPILER_VERSION_TAG)-d"/>
 					<Add directory="../lib"/>
 				</Linker>
@@ -71,36 +41,6 @@
 					<Add option="-m32"/>
 					<Add option="-s"/>
 					<Add option="-Wl,--gc-sections"/>
-					<Add option="-lyggr_nsql_database_system$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_log$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_system_controller$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_exception$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_ids$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_time$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_charset$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_base$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_compatibility$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lboost_regex$(#COMPILER_VERSION_TAG)-mt-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_filesystem$(#COMPILER_VERSION_TAG)-mt-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_serialization$(#COMPILER_VERSION_TAG)-mt-s-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_date_time$(#COMPILER_VERSION_TAG)-mt-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_thread$(#COMPILER_VERSION_TAG)-mt-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lmongoc$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lmongocrypt$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lkms-message$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lutf8proc$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lbson$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lcommon$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-licuuc"/>
-					<Add option="-licuin"/>
-					<Add option="-lz$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lssl"/>
-					<Add option="-lsasl2.dll"/>
-					<Add option="-lmd5$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lintel_dfp_obj$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-liconv"/>
-					<Add option="-lcrypto"/>
-					<Add option="-lbase64$(#COMPILER_VERSION_TAG)"/>
 					<Add option="-lmgw_gcc_sjlj$(#COMPILER_VERSION_TAG)"/>
 					<Add directory="../lib"/>
 				</Linker>
@@ -123,36 +63,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-m64"/>
-					<Add option="-lyggr_nsql_database_system$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_log$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_system_controller$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_exception$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_ids$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_time$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_charset$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_base$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lyggr_compatibility$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lboost_regex$(#COMPILER_VERSION_TAG)-mt-d-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_filesystem$(#COMPILER_VERSION_TAG)-mt-d-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_serialization$(#COMPILER_VERSION_TAG)-mt-sd-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_date_time$(#COMPILER_VERSION_TAG)-mt-d-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_thread$(#COMPILER_VERSION_TAG)-mt-d-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lmongoc$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lmongocrypt$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lkms-message$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lutf8proc$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lbson$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lcommon$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-licuuc"/>
-					<Add option="-licuin"/>
-					<Add option="-lz$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lssl"/>
-					<Add option="-lsasl2.dll"/>
-					<Add option="-lmd5$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lintel_dfp_obj$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-liconv"/>
-					<Add option="-lcrypto"/>
-					<Add option="-lbase64$(#COMPILER_VERSION_TAG)-d"/>
 					<Add directory="../lib64"/>
 				</Linker>
 			</Target>
@@ -173,36 +83,6 @@
 					<Add option="-m64"/>
 					<Add option="-s"/>
 					<Add option="-Wl,--gc-sections"/>
-					<Add option="-lyggr_nsql_database_system$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_log$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_system_controller$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_exception$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_ids$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_time$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_charset$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_base$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lyggr_compatibility$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lboost_regex$(#COMPILER_VERSION_TAG)-mt-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_filesystem$(#COMPILER_VERSION_TAG)-mt-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_serialization$(#COMPILER_VERSION_TAG)-mt-s-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_date_time$(#COMPILER_VERSION_TAG)-mt-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_thread$(#COMPILER_VERSION_TAG)-mt-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lmongoc$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lmongocrypt$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lkms-message$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lutf8proc$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lbson$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lcommon$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-licuuc"/>
-					<Add option="-licuin"/>
-					<Add option="-lz$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lssl"/>
-					<Add option="-lsasl2.dll"/>
-					<Add option="-lmd5$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lintel_dfp_obj$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-liconv"/>
-					<Add option="-lcrypto"/>
-					<Add option="-lbase64$(#COMPILER_VERSION_TAG)"/>
 					<Add directory="../lib64"/>
 				</Linker>
 			</Target>
@@ -236,9 +116,5 @@
 		<Extensions>
 			<lib_finder disable_auto="1"/>
 		</Extensions>
-		<Linker>
-			<Add option="-lws2_32"/>
-			<Add option="-ldnsapi"/>
-		</Linker>
 	</Project>
 </CodeBlocks_project_file>

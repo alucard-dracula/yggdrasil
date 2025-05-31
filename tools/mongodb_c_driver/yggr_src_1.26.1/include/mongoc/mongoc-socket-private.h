@@ -14,9 +14,31 @@
  * limitations under the License.
  */
 
-#ifndef __MONGOC_MONGOC_SOCKET_PRIVATE_H__
-#define __MONGOC_MONGOC_SOCKET_PRIVATE_H__
+#include "mongoc-prelude.h"
 
-#include "../mongoc-socket-private.h"
+#ifndef MONGOC_SOCKET_PRIVATE_H
+#define MONGOC_SOCKET_PRIVATE_H
 
-#endif // __MONGOC_MONGOC_SOCKET_PRIVATE_H__
+#include "mongoc-socket.h"
+
+BSON_BEGIN_DECLS
+
+struct _mongoc_socket_t {
+#ifdef _WIN32
+   SOCKET sd;
+#else
+   int sd;
+#endif
+   int errno_;
+   int domain;
+   int pid;
+};
+
+mongoc_socket_t *
+mongoc_socket_accept_ex (mongoc_socket_t *sock,
+                         int64_t expire_at,
+                         uint16_t *port);
+
+BSON_END_DECLS
+
+#endif /* MONGOC_SOCKET_PRIVATE_H */

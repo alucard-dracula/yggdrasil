@@ -240,6 +240,10 @@ int main(int argc, char* argv[])
 			{
 				break;
 			}
+			else if(chk_str == "no")
+			{
+				return 0;
+			}
 		}
 	}
 

@@ -29,7 +29,7 @@ echo "start mongos"
 mongos \
 	--configdb "rscfg0/127.0.0.1:12101,127.0.0.1:12102,127.0.0.1:12103" \
 	--logpath ${route_dir}/route_log.txt \
-	--bind_ip 127.0.0.1 \
+	--bind_ip_all \
 	--port 12098 \
 	--logappend &
 

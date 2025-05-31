@@ -62,8 +62,8 @@ void test_guild(void)
 
 	game::guild::guild::area_captures_init_type areas_init;
 	game::guild::guild::recipe_captures_init_type recipe_init;
-	game::guild::guild::description_init_type description_init(yggr::charset::utf8_string("ÌìÐãÍøÂç¿Æ¼¼"),
-																	yggr::charset::utf8_string("¸Ï¿ì°ÑÏîÄ¿×öÍê"));
+	game::guild::guild::description_init_type description_init(yggr::charset::utf8_string("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½"),
+																	yggr::charset::utf8_string("ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½"));
 
 	thy_level_type thy_lv(0, 5);
 
@@ -287,8 +287,8 @@ void test_guild_security(void)
 	game::guild::guild::devil_soul_init_type devil_soul_init(9999999, 9999999);
 	game::guild::guild::area_captures_init_type areas_init;
 	game::guild::guild::recipe_captures_init_type recipe_init;
-	game::guild::guild::description_init_type description_init(yggr::charset::utf8_string("ÌìÐãÍøÂç¿Æ¼¼"),
-																	yggr::charset::utf8_string("¸Ï¿ì°ÑÏîÄ¿×öÍê"));
+	game::guild::guild::description_init_type description_init(yggr::charset::utf8_string("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½"),
+																	yggr::charset::utf8_string("ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½"));
 
 	thy_level_type thy_lv(0, 5);
 
@@ -617,18 +617,18 @@ public:
 		_key = id;
 	}
 
-	//bool runnable(void) const //ÊÇ·ñ½øÐÐ´¦Àí
+	//bool runnable(void) const //ï¿½Ç·ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½
 	//{
 	//	return _brun;
 	//}
 
-	yggr::u32 operator()(void) // ¶¨Ê±´¦Àíº¯Êý ·µ»ØÖµ  true ¼ÌÐø false  É¾³ý¶¨Ê±¹¦ÄÜ
+	yggr::u32 operator()(void) // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Öµ  true ï¿½ï¿½ï¿½ï¿½ false  É¾ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
 	{
 		/*static size_type last_losser_size = 0;
 
 		if(last_losser_size != losser.size())
 		{
-			std::cout << "now losser size = " << losser.size() <<" -------!!!------- " << std::endl;
+			std::cout << "now losser size = " << losser.size() << " -------!!!------- " << std::endl;
 			last_losser_size = losser.size();
 		}*/
 
@@ -738,7 +738,7 @@ public:
 				int nnn = 0;
 			}
 			user_container container(i->first, i->second);
-			_container_list.push_back(container); //ËÍÕ½¶·Ä£Äâ
+			_container_list.push_back(container); //ï¿½ï¿½Õ½ï¿½ï¿½Ä£ï¿½ï¿½
 			std::cout << std::endl;
 			std::cout << "------------------------------" <<std::endl;
 
@@ -749,7 +749,7 @@ public:
 				losser.insert(*i);
 			}
 
-			std::cout << "now losser size = " << losser.size() <<" -------!!!------- " << std::endl;
+			std::cout << "now losser size = " << losser.size() << " -------!!!------- " << std::endl;
 		}
 	}
 
@@ -858,8 +858,8 @@ private:
 	timer_type _timer_check_lose;
 	timer_type _timer_check_win;
 
-	time_type _end_tm_step_eins; //µÚÒ»×´Ì¬½áÊø¶¨Ê±Æ÷
-	time_type _end_tm_step_zwei; // µÚ¶þ×´Ì¬¶¨Ê±Æ÷
+	time_type _end_tm_step_eins; //ï¿½ï¿½Ò»×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	time_type _end_tm_step_zwei; // ï¿½Ú¶ï¿½×´Ì¬ï¿½ï¿½Ê±ï¿½ï¿½
 	time_type _group_check_tm_step;
 	time_type _chk_tm_step;
 	guild_mgr_type& _guild_mgr;
@@ -1206,7 +1206,7 @@ void test_guild_mgr3(void)
 int main(int argc, char* argv[])
 {
 
-	//£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡ÐèÒªµ÷Õû³õÊ¼»¯µÄÄ£Ê½
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ä£Ê½
 	//test_guild();
 	//test_guild_security();
 

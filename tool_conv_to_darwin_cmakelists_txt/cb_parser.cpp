@@ -69,8 +69,14 @@ yggr::u32 flag_filter_link(const ptree_string_type& flag)
 		//exclude_ldflags.insert("-lbson$(#COMPILER_VERSION_TAG)-d");
 		//exclude_ldflags.insert("-lbson$(#COMPILER_VERSION_TAG)");
 
+		//exclude_ldflags.insert("-lbson$(#COMPILER_VERSION_TAG)-d$(#DUPLICATE_LINK_MARK)");
+		//exclude_ldflags.insert("-lbson$(#COMPILER_VERSION_TAG)$(#DUPLICATE_LINK_MARK)");
+
 		//exclude_ldflags.insert("-lcommon$(#COMPILER_VERSION_TAG)-d");
 		//exclude_ldflags.insert("-lcommon$(#COMPILER_VERSION_TAG)");
+
+		//exclude_ldflags.insert("-lcommon$(#COMPILER_VERSION_TAG)-d$(#DUPLICATE_LINK_MARK)");
+		//exclude_ldflags.insert("-lcommon$(#COMPILER_VERSION_TAG)$(#DUPLICATE_LINK_MARK)");
 
 		//exclude_ldflags.insert("-lintel_dfp_obj$(#COMPILER_VERSION_TAG)-d");
 		//exclude_ldflags.insert("-lintel_dfp_obj$(#COMPILER_VERSION_TAG)");

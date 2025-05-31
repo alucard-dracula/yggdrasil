@@ -63,7 +63,7 @@ set(var_proj_link_libs_debug
 		-lyggr_script_lua${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d
 		-lluabind09${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d
 		-llua503${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d
-		${USRDEF_CMAKE_LD_LIBRARY_DEBUG}
+		${USRDEF_CMAKE_LDFLAGS_DEBUG}
 )
 
 set(var_proj_link_libs_release 

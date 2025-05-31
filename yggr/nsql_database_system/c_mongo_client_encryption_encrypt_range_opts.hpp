@@ -50,6 +50,8 @@ namespace yggr
 namespace nsql_database_system
 {
 
+//#if YGGR_MONGOC_HEX() < 0x011C0000
+
 //struct _mongoc_client_encryption_encrypt_range_opts_t {
 //   struct {
 //      bson_value_t value;
@@ -65,6 +67,33 @@ namespace nsql_database_system
 //      bool set;
 //   } precision;
 //};
+
+//#else
+
+//struct _mongoc_client_encryption_encrypt_range_opts_t {
+//   struct {
+//      bson_value_t value;
+//      bool set;
+//   } min;
+//   struct {
+//      bson_value_t value;
+//      bool set;
+//   } max;
+//   struct {
+//      int32_t value;
+//      bool set;
+//   } trim_factor;
+//   struct {
+//      int64_t value;
+//      bool set;
+//   } sparsity;
+//   struct {
+//      int32_t value;
+//      bool set;
+//   } precision;
+//};
+
+//#endif // #if YGGR_MONGOC_HEX() < 0x011C0000
 
 namespace detail
 {
@@ -117,10 +146,24 @@ public:
 public:
 	typedef detail::setmark_value<org_bson_value_type, detail::bson_value_setter> min_max_setmark_value_type;
 	typedef detail::setmark_value<s32> precision_setmark_value_type;
+#if (YGGR_MONGOC_HEX() < 0x011C0000)
+	typedef s64 sparsity_setmark_value_type;
+	typedef precision_setmark_value_type trim_factor_setmark_value_type;
+#else
+	typedef detail::setmark_value<s64> sparsity_setmark_value_type;
+	typedef detail::setmark_value<s32> trim_factor_setmark_value_type;
+#endif // #if !(YGGR_MONGOC_HEX() < 0x011C0000)
 	
 private:
 	BOOST_MPL_ASSERT((boost::mpl::bool_<(sizeof(min_max_setmark_value_type) == sizeof(base_type::min_max_type))>));
 	BOOST_MPL_ASSERT((boost::mpl::bool_<(sizeof(precision_setmark_value_type) == sizeof(base_type::precision_type))>));
+
+#if !(YGGR_MONGOC_HEX() < 0x011C0000)
+	BOOST_MPL_ASSERT((boost::mpl::bool_<(sizeof(sparsity_setmark_value_type) == sizeof(base_type::sparsity_type))>));
+	BOOST_MPL_ASSERT((boost::mpl::bool_<(sizeof(trim_factor_setmark_value_type) == sizeof(base_type::trim_factor_type))>));
+
+	BOOST_MPL_ASSERT((boost::mpl::bool_<(sizeof(base_type::precision_type) == sizeof(base_type::trim_factor_type))>));
+#endif // #if !(YGGR_MONGOC_HEX() < 0x011C0000)
 
 protected:
 	typedef mongoc_client_encryption_encrypt_range_opts_native_ex native_ex_type;
@@ -136,13 +179,25 @@ public:
 
 	template<typename MinVal, typename MaxVal>
 	c_mongo_client_encryption_encrypt_range_opts(const MinVal& min_val, const MaxVal& max_val,
-													s64 arg_sparsity = 0, s32 arg_precision = 0)
+													s64 arg_sparsity = 0, s32 arg_precision = 0,
+													s32 arg_trim_factor = 0)
 	{
 		this_type::pro_init();
 
 		this_type::var_min() = min_val;
 		this_type::var_max() = max_val;
+
+#if (YGGR_MONGOC_HEX() < 0x011C0000)
 		base_type::sparsity = arg_sparsity;
+#else
+		this_type::var_sparsity() = arg_sparsity;
+
+		if(arg_trim_factor)
+		{
+			this_type::var_trim_factor() = arg_trim_factor;
+		}
+
+#endif // #if (YGGR_MONGOC_HEX() < 0x011C0000)
 
 		if(base_type::min.value.value_type != base_type::max.value.value_type)
 		{
@@ -159,6 +214,7 @@ public:
 			break;
 		}
 	}
+
 
 	c_mongo_client_encryption_encrypt_range_opts(const org_type* ptr);
 	c_mongo_client_encryption_encrypt_range_opts(const org_type& right);
@@ -307,6 +363,7 @@ public:
 	}
 
 	// sparsity
+#if (YGGR_MONGOC_HEX() < 0x011C0000)
 	inline s64& var_sparsity(void)
 	{
 		return base_type::sparsity;
@@ -316,6 +373,60 @@ public:
 	{
 		return base_type::sparsity;
 	}
+
+	inline s64 var_sparsity_value(void) const
+	{
+		return base_type::sparsity;
+	}
+
+	inline bool& var_sparsity_set(void)
+	{
+		static bool ignore = true;
+		return ignore;
+	}
+
+	inline bool var_sparsity_set(void) const
+	{
+		return true;
+	}
+
+	inline bool sparsity_is_seted(void) const
+	{
+		return true;
+	}
+
+#else
+
+	inline sparsity_setmark_value_type& var_sparsity(void)
+	{
+		return reinterpret_cast<sparsity_setmark_value_type&>(base_type::sparsity);
+	}
+
+	inline const sparsity_setmark_value_type& var_sparsity(void) const
+	{
+		return reinterpret_cast<const sparsity_setmark_value_type&>(base_type::sparsity);
+	}
+
+	inline s64 var_sparsity_value(void) const
+	{
+		return base_type::sparsity.value;
+	}
+
+	inline bool& var_sparsity_set(void)
+	{
+		return (base_type::sparsity).set;
+	}
+
+	inline bool var_sparsity_set(void) const
+	{
+		return (base_type::sparsity).set;
+	}
+
+	inline bool sparsity_is_seted(void) const
+	{
+		return (base_type::sparsity).set;
+	}
+#endif // #if (YGGR_MONGOC_HEX() < 0x011C0000)
 
 	// precision
 	inline precision_setmark_value_type& var_precision(void)
@@ -347,6 +458,80 @@ public:
 	{
 		return (base_type::precision).set;
 	}
+
+	// trim_factor
+#if (YGGR_MONGOC_HEX() < 0x011C0000)
+
+private:
+	inline static precision_type& prv_s_var_trim_factor_igonore(void)
+	{
+		static precision_type ignore = {0};
+		return !ignore.set? ignore : (memset(boost::addressof(ignore), 0, sizeof(precision_type)), ignore);
+	}
+public:
+
+	inline trim_factor_setmark_value_type& var_trim_factor(void)
+	{
+		return reinterpret_cast<trim_factor_setmark_value_type&>(this_type::prv_s_var_trim_factor_igonore());
+	}
+
+	inline const trim_factor_setmark_value_type& var_trim_factor(void) const
+	{
+		return reinterpret_cast<trim_factor_setmark_value_type&>(this_type::prv_s_var_trim_factor_igonore());
+	}
+
+	inline s32 var_trim_factor_value(void) const
+	{
+		return 0;
+	}
+
+	inline bool& var_trim_factor_set(void)
+	{
+		static bool ignore = false;
+		return ignore;
+	}
+
+	inline bool var_trim_factor_set(void) const
+	{
+		return false;
+	}
+
+	inline bool trim_factor_is_seted(void) const
+	{
+		return false;
+	}
+
+#else
+	inline trim_factor_setmark_value_type& var_trim_factor(void)
+	{
+		return reinterpret_cast<trim_factor_setmark_value_type&>(base_type::trim_factor);
+	}
+
+	inline const trim_factor_setmark_value_type& var_trim_factor(void) const
+	{
+		return reinterpret_cast<const trim_factor_setmark_value_type&>(base_type::trim_factor);
+	}
+
+	inline s32 var_trim_factor_value(void) const
+	{
+		return base_type::trim_factor.value;
+	}
+
+	inline bool& var_trim_factor_set(void)
+	{
+		return (base_type::trim_factor).set;
+	}
+
+	inline bool var_trim_factor_set(void) const
+	{
+		return (base_type::trim_factor).set;
+	}
+
+	inline bool trim_factor_is_seted(void) const
+	{
+		return (base_type::trim_factor).set;
+	}
+#endif // #if (YGGR_MONGOC_HEX() < 0x011C0000)
 
 public:
 	inline void clear(void)

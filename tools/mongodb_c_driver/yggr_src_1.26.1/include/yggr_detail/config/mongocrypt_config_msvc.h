@@ -19,6 +19,7 @@
 
 #include <yggr_detail/c_version_support.h>
 #include <yggr_detail/platform_config.h>
+#include <yggr_detail/inteldfp_config.h>
 
 /* clang-format off */
 
@@ -44,6 +45,16 @@
 #if MONGOCRYPT_HAVE_STDBOOL_H != 1
 #	undef MONGOCRYPT_HAVE_STDBOOL_H
 #endif // MONGOCRYPT_HAVE_STDBOOL_H
+
+/*
+ * MONGOC_HAVE_BCRYPT_PBKDF2 is set from configure to determine if 
+ * our Bcrypt Windows library supports PBKDF2 
+ */
+#define MONGOC_HAVE_BCRYPT_PBKDF2 1
+
+#if MONGOC_HAVE_BCRYPT_PBKDF2 != 1
+#  undef MONGOC_HAVE_BCRYPT_PBKDF2
+#endif
 
 /*
  * MONGOCRYPT_ENABLE_CRYPTO_CNG is set from configure to determine if we are

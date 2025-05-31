@@ -60,6 +60,7 @@ goto :lab_end
 		--dbpath %data_dir1% ^
 		--logpath %log_file1% ^
 		--replSet rs0 ^
+		--bind_ip_all ^
 		--port 11198 ^
 		--keyFile %keyfile% ^
 		--logappend ^
@@ -69,6 +70,7 @@ goto :lab_end
 		--dbpath %data_dir2% ^
 		--logpath %log_file2% ^
 		--replSet rs0 ^
+		--bind_ip_all ^
 		--port 11199 ^
 		--keyFile %keyfile% ^
 		--logappend ^
@@ -78,6 +80,7 @@ goto :lab_end
 		--dbpath %data_dir3% ^
 		--logpath %log_file3% ^
 		--replSet rs0 ^
+		--bind_ip_all ^
 		--port 11200 ^
 		--keyFile %keyfile% ^
 		--logappend ^

@@ -116,10 +116,5 @@
 		<Extensions>
 			<lib_finder disable_auto="1"/>
 		</Extensions>
-		<Linker>
-			<Add option="-ld3dx9"/>
-			<Add option="-ld3d9"/>
-			<Add option="-lwinmm"/>
-		</Linker>
 	</Project>
 </CodeBlocks_project_file>
