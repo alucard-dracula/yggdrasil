@@ -50,7 +50,6 @@ THE SOFTWARE.
 #define YGGR_PP_TEMPLATE_PARAMS_TYPES( __count__, __class_name__ ) \
 			BOOST_PP_ENUM_PARAMS( __count__, __class_name__ )
 
-
 // define YGGR_PP_TEMPLATE_CUSTOM_TYPE( __n__ ) now_real_make( __n__ )
 
 #define YGGR_PP_TEMPLATE_PARAMS_TYPES_MAKER( __z__, __n__, _ ) \

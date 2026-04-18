@@ -20,7 +20,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="utility\default_value_comparer_test.cpp">
+    <ClCompile Include="python\python_script_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

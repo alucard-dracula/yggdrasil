@@ -92,7 +92,8 @@
 # using python : 3.1 : /usr/bin/python3 : /usr/include/python3.1 : /usr/lib ;
 
 using gcc : : : <cxxflags>"-std=c++03 -fPIC" ;
-using python : 3.13 : /usr : /usr/include/python3.13 : /usr/lib ;
+#using python : 3.13 : /usr : /usr/include/python3.13 : /usr/lib ;
+using python : 3.14 : /usr : /usr/include/python3.14 : /usr/lib ;
 #using mpi ;
 using mpi 
     : /usr/lib64/openmpi/bin/mpicc

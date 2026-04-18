@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include <yggr_detail/c_version_support.h>
+#include <yggr_mongodbc_patch/c_version_support.h>
 
 #include "mc-fle2-payload-uev-common-private.h"
 #include "mc-fle2-payload-uev-v2-private.h"

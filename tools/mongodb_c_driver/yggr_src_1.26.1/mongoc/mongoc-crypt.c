@@ -20,7 +20,7 @@
 
 #ifdef MONGOC_ENABLE_CLIENT_SIDE_ENCRYPTION
 
-#include <yggr_detail/c_version_support.h>
+#include <yggr_mongodbc_patch/c_version_support.h>
 
 #include <mongocrypt/mongocrypt.h>
 

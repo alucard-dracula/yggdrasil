@@ -22,7 +22,7 @@
 #include "kms_crypto.h"
 
 //#include <stdbool.h>
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 
 struct _kms_request_opt_t {
    bool connection_close;

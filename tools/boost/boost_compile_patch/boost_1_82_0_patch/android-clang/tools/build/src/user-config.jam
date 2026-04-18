@@ -42,14 +42,22 @@ local AndroidNDKRoot = [ os.environ AndroidNDKRoot ] ;
 local AndroidBinariesPath = [ os.environ AndroidBinariesPath ] ;
 local AndroidTargetVersion32 = [ os.environ AndroidTargetVersion32 ] ;
 local AndroidTargetVersion64 = [ os.environ AndroidTargetVersion64 ] ;
+local AndroidTargetVersion64_riscv64 = $(AndroidTargetVersion64) ;
+
+if $(AndroidTargetVersion64_riscv64) < 35 
+{ 
+    AndroidTargetVersion64_riscv64 = 35 ;
+}
 
 local AndroidCompiler_arm64v8a = $(AndroidBinariesPath)/aarch64-linux-android$(AndroidTargetVersion64)-clang++ ;
 local AndroidCompiler_armeabiv7a = $(AndroidBinariesPath)/armv7a-linux-androideabi$(AndroidTargetVersion32)-clang++ ;
+local AndroidCompiler_riscv64 = $(AndroidBinariesPath)/riscv64-linux-android$(AndroidTargetVersion64_riscv64)-clang++ ;
 local AndroidCompiler_x86 = $(AndroidBinariesPath)/i686-linux-android$(AndroidTargetVersion32)-clang++ ;
 local AndroidCompiler_x86_64 = $(AndroidBinariesPath)/x86_64-linux-android$(AndroidTargetVersion64)-clang++ ;
 
 local AndroidBinaryPrefix_arm64v8a = $(AndroidBinariesPath)/aarch64-linux-android ;
 local AndroidBinaryPrefix_armeabiv7a = $(AndroidBinariesPath)/arm-linux-androideabi ;
+local AndroidBinaryPrefix_riscv64 = $(AndroidBinariesPath)/riscv64-linux-android ;
 local AndroidBinaryPrefix_x86 = $(AndroidBinariesPath)/i686-linux-android ;
 local AndroidBinaryPrefix_x86_64 = $(AndroidBinariesPath)/x86_64-linux-android ;
 
@@ -61,8 +69,9 @@ local android_python_root_dir = [ os.environ AndroidPythonRootDir ] ;
 local android_python_include_dir = $(android_python_root_dir)/include ;
 local android_python_lib_dir = $(android_python_root_dir)/lib/$(android_python_target)/$(android_api) ;
 
+local android_python_ver_float = [ os.environ PythonAndroidVersionFloat ] ;
 
-using python : 3.13
+using python : $(android_python_ver_float)
 : $(android_python_root_dir)
 : $(android_python_include_dir)
 : $(android_python_lib_dir)
@@ -116,6 +125,32 @@ $(AndroidCompiler_armeabiv7a)
 <compileflags>-g
 <compileflags>-Oz
 <compileflags>-mthumb
+
+;
+
+# --------------------------------------------------------------------
+
+using clang : riscv64
+:
+$(AndroidCompiler_riscv64)
+:
+<archiver>$(AndroidBinariesPath)/llvm-ar
+<ranlib>$(AndroidBinariesPath)/llvm-ranlib
+<compileflags>-fPIC
+<compilecxxflags>-std=c++11
+<compileflags>-ffunction-sections
+<compileflags>-fdata-sections
+<compileflags>-funwind-tables
+<compileflags>-fstack-protector-strong
+<compileflags>-no-canonical-prefixes
+<compileflags>-Wformat
+<compileflags>-Werror=format-security
+<compileflags>-frtti
+<compileflags>-fexceptions
+<compileflags>-DNDEBUG
+<compileflags>-g
+<compileflags>-Oz
+
 ;
 
 # --------------------------------------------------------------------
@@ -128,6 +163,7 @@ $(AndroidCompiler_x86)
 <ranlib>$(AndroidBinariesPath)/llvm-ranlib
 <compileflags>-fPIC
 <compilecxxflags>-std=c++11
+#<compileflags>-fno-integrated-as
 <compileflags>-ffunction-sections
 <compileflags>-fdata-sections
 <compileflags>-funwind-tables

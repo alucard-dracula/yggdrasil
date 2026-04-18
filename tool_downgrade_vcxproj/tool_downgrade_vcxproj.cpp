@@ -1,8 +1,9 @@
 // tool_downgrade_vcxproj.cpp
 
+#include <yggr/base/yggrdef.h>
+
 #include <iostream>
 #include <cassert>
-#include <yggr/base/yggrdef.h>
 
 #if BOOST_VERSION < 105600
 
@@ -678,8 +679,11 @@ int main(int argc, char* argv[])
 
 	std::cout << "end" << std::endl;
 
-	char cc = 0;
-	std::cin >> cc;
+	if(!(argc > 1))
+	{
+		char cc = 0;
+		std::cin >> cc;
+	}
 
 	return ret;
 }

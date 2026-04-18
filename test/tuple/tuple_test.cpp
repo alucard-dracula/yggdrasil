@@ -483,7 +483,7 @@ void test_io(int argc, char* argv[])
 
 int main(int argc, char* argv[])
 {
-#define TEST_TUPLE_IO
+#define TEST_TUPLE_IO 1
 
 	test_utility();
 
@@ -493,7 +493,7 @@ int main(int argc, char* argv[])
 
 	test_swap();
 
-#ifdef TEST_TUPLE_IO
+#if defined(TEST_TUPLE_IO) && TEST_TUPLE_IO
 	test_io(argc, argv);
 #endif // TEST_TUPLE_IO
 

@@ -1,4 +1,4 @@
-//pc_base.hpp
+// pc_legacy_stdio_definitions.hpp
 
 /****************************************************************************
 Copyright (c) 2010-2024 yggdrasil
@@ -24,16 +24,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __YGGR_COMPILE_LINK_PC_BASE_HPP__
-#define __YGGR_COMPILE_LINK_PC_BASE_HPP__
+#ifndef __YGGR_COMPILE_LINK_PC_LEGACY_STDIO_DEFINITIONS_HPP__
+#define __YGGR_COMPILE_LINK_PC_LEGACY_STDIO_DEFINITIONS_HPP__
 
 #include <yggr/compile_link/msvc_cfg.hpp>
 
 #if defined(_MSC_VER)
 #	if (1800 < _MSC_VER) && defined(YGGR_USING_LEGCACY_STDIO_DEFINITIONS)
-#		pragma comment YGGR_COMPILE_LINK_LIB(legacy_stdio_iob_func)
+#		pragma comment YGGR_COMPILE_LINK_STATIC_LIB(legacy_stdio_iob_func)
 #		pragma comment YGGR_COMPILE_LINK_NRULE_LIB(legacy_stdio_definitions)
 #	endif // (1800 < _MSC_VER) && defined(YGGR_USING_LEGCACY_STDIO_DEFINITIONS)
 #endif // _MSC_VER
 
-#endif // __YGGR_COMPILE_LINK_PC_BASE_HPP__
+#endif // __YGGR_COMPILE_LINK_PC_LEGACY_STDIO_DEFINITIONS_HPP__

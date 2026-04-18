@@ -23,12 +23,13 @@ endif
 USRDEF_APP_MIN_SDK_VERSION := 21
 USRDEF_APP_RISCV64_MIN_SDK_VERSION := 35
 USRDEF_APP_COMPILER_VERSION := clang
-USRDEF_APP_COMPILER_VERSION_TAG := -clang
+USRDEF_APP_COMPILER_VERSION_TAG := -$(USRDEF_APP_COMPILER_VERSION)
 
 USRDEF_APP_BOOST_VERSION := 1_82
-USRDEF_APP_BOOST_VERSION_TAG := -1_82
+USRDEF_APP_BOOST_VERSION_TAG := -$(USRDEF_APP_BOOST_VERSION)
 
-USRDEF_APP_PYTHON_VERSION := 312
+USRDEF_APP_PYTHON_VERSION := 313
+USRDEF_APP_PYTHON_VERSION_FLOAT := 3.13
 
 USRDEF_APP_C_INCLUDE := \
 	$(NDK_ROOT)/../../../../ndk_third_part_local/unixODBC/include \
@@ -44,6 +45,16 @@ USRDEF_APP_C_INCLUDE := \
 	$(NDK_ROOT)/../../../../ndk_third_part_local/openssl/include \
 	$(NDK_ROOT)/../../../../ndk_third_part_local/python/include \
 	$(NDK_ROOT)/../../../../ndk_third_part_local/dtl/include \
+	$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include \
+	$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/bson \
+	$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/common \
+	$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/jsonsl \
+	$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/kms_message \
+	$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/mongo_crypt \
+	$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/mongoc \
+	$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/mongocrypt \
+	$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/mongocrypt/unicode \
+	$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/include/utf8proc \
 	$(NDK_ROOT)/../../../../ndk_third_part_local/boost/include \
 	$(NDK_ROOT)/../../../../ndk_third_part_local/lua/include \
 	$(NDK_ROOT)/../../../../ndk_third_part_local/luabind/include 
@@ -74,6 +85,7 @@ USRDEF_APP_LD_LIBRARY_PATH := \
 	$(NDK_ROOT)/../../../../ndk_third_part_local/openssl/lib \
 	$(NDK_ROOT)/../../../../ndk_third_part_local/python/lib \
 	$(NDK_ROOT)/../../../../ndk_third_part_local/dtl/lib \
+	$(NDK_ROOT)/../../../../ndk_third_part_local/mongodb_c_dirver/lib \
 	$(NDK_ROOT)/../../../../ndk_third_part_local/boost/lib \
 	$(NDK_ROOT)/../../../../ndk_third_part_local/lua/lib \
 	$(NDK_ROOT)/../../../../ndk_third_part_local/luabind/lib 
@@ -82,7 +94,7 @@ USRDEF_APP_LDFLAGS_DEBUG :=
 USRDEF_APP_LDFLAGS_RELEASE := 
 USRDEF_APP_LDFLAGS := 
 
-NDK_APP_OUT := ./stage/objs
+NDK_APP_OUT := $(USRDEF_NDK_APP_OUT)
 
 APP_CPPFLAGS := -std=c++20
 APP_PLATFORM := android-$(USRDEF_APP_MIN_SDK_VERSION)

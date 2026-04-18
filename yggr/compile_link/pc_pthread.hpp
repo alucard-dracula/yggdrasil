@@ -1,4 +1,4 @@
-//pc_zlib.hpp
+//pc_pthread.hpp
 
 /****************************************************************************
 Copyright (c) 2010-2024 yggdrasil
@@ -30,7 +30,7 @@ THE SOFTWARE.
 #include <yggr/compile_link/msvc_cfg.hpp>
 
 #ifdef _MSC_VER
-#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(pthread)
+#	pragma comment YGGR_COMPILE_LINK_LIB(pthreadVC3)
 #endif // _MSC_VER
 
 #endif // __YGGR_COMPILE_LINK_PC_PTHREAD_HPP__

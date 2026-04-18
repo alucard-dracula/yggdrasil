@@ -2,6 +2,10 @@
 
 #include "tool_conv_to_jni_mk_config.hpp"
 
+#include <iostream>
+#include <sstream>
+#include <cassert>
+
 #if !(BOOST_VERSION < 105600)
 
 #include "tool_conv_to_jni_mk_cfg.hpp"
@@ -15,10 +19,6 @@
 
 #include <yggr/range_ex/range_iterator_ex.hpp>
 #include <yggr/iterator_ex/iterator.hpp>
-
-#include <iostream>
-#include <sstream>
-#include <cassert>
 
 #include <yggr/compile_link/linker.hpp>
 
@@ -586,6 +586,7 @@ ptree_string_type format_cb_infos_ldflags(const ptree_string_type& str)
 	static const ptree_string_type mark_boost_version_tag = "$(#BOOST_VERSION_TAG)";
 	static const ptree_string_type mark_boost_version = "$(#BOOST_VERSION)";
 	static const ptree_string_type mark_python_version = "$(#PYTHON_VERSION)";
+	static const ptree_string_type mark_python_version_float = "$(#PYTHON_VERSION_FLOAT)";
 	static const ptree_string_type mark_arch64_tag = "-x64";
 	static const ptree_string_type mark_arch32_tag = "-x32";
 	static const ptree_string_type mark_duplicate_link = "$(#DUPLICATE_LINK_MARK)";
@@ -597,6 +598,7 @@ ptree_string_type format_cb_infos_ldflags(const ptree_string_type& str)
 	static const ptree_string_type mark_boost_version_tag_r = "$(USRDEF_APP_BOOST_VERSION_TAG)";
 	static const ptree_string_type mark_boost_version_r = "$(USRDEF_APP_BOOST_VERSION)";
 	static const ptree_string_type mark_python_version_r = "$(USRDEF_APP_PYTHON_VERSION)";
+	static const ptree_string_type mark_python_version_float_r = "$(USRDEF_APP_PYTHON_VERSION_FLOAT)";
 	static const ptree_string_type mark_arch_tag_r = "$(tag_arch_bits)";
 	static const ptree_string_type mark_duplicate_link_r = "";
 
@@ -608,11 +610,28 @@ ptree_string_type format_cb_infos_ldflags(const ptree_string_type& str)
 	find_and_replace(str_out, mark_boost_version_tag, mark_boost_version_tag_r);
 	find_and_replace(str_out, mark_boost_version, mark_boost_version_r);
 	find_and_replace(str_out, mark_python_version, mark_python_version_r);
+	find_and_replace(str_out, mark_python_version_float, mark_python_version_float_r);
 	find_and_replace(str_out, mark_arch64_tag, mark_arch_tag_r);
 	find_and_replace(str_out, mark_arch32_tag, mark_arch_tag_r);
 	find_and_replace(str_out, mark_duplicate_link, mark_duplicate_link_r);
 
 	return str_out;
+}
+
+std::size_t remove_sp_item(cb::cb_infos::string_vt_type& vt, const ptree_string_type& item)
+{
+	typedef cb::cb_infos::string_vt_type string_vt_type;
+
+	std::size_t rmed_count = 0;
+
+	string_vt_type::iterator new_end = std::remove(vt.begin(), vt.end(), item);
+	if(new_end != vt.end())
+	{
+		std::distance(new_end, vt.end());
+		vt.erase(new_end, vt.end());
+	}
+
+	return rmed_count;
 }
 
 cb::cb_infos& format_cb_infos(cb::cb_infos& infos)
@@ -635,7 +654,10 @@ cb::cb_infos& format_cb_infos(cb::cb_infos& infos)
 		infos.proj_output_release_ = format_cb_infos_output_string(infos.proj_output_release_);
 	}
 
+	//static const ptree_string_type mark_python_sp = "-lpython$(#PYTHON_VERSION_FLOAT)";
+
 	{
+		//remove_sp_item(infos.ldflag_proj_, mark_python_sp);
 		for(string_vt_type::iterator i = infos.ldflag_proj_.begin(), isize = infos.ldflag_proj_.end();
 				i != isize; ++i)
 		{
@@ -644,6 +666,7 @@ cb::cb_infos& format_cb_infos(cb::cb_infos& infos)
 	}
 
 	{
+		//remove_sp_item(infos.ldflag_proj_debug_, mark_python_sp);
 		for(string_vt_type::iterator i = infos.ldflag_proj_debug_.begin(), isize = infos.ldflag_proj_debug_.end();
 				i != isize; ++i)
 		{
@@ -652,6 +675,7 @@ cb::cb_infos& format_cb_infos(cb::cb_infos& infos)
 	}
 
 	{
+		//remove_sp_item(infos.ldflag_proj_release_, mark_python_sp);
 		for(string_vt_type::iterator i = infos.ldflag_proj_release_.begin(), isize = infos.ldflag_proj_release_.end();
 				i != isize; ++i)
 		{
@@ -659,20 +683,28 @@ cb::cb_infos& format_cb_infos(cb::cb_infos& infos)
 		}
 	}
 
+	if((std::find(infos.ldflag_proj_.begin(), infos.ldflag_proj_.end(), "-lpython3") != infos.ldflag_proj_.end())
+	   || (std::find(infos.ldflag_proj_debug_.begin(), infos.ldflag_proj_debug_.end(), "-lpython3") != infos.ldflag_proj_debug_.end())
+	   || (std::find(infos.ldflag_proj_release_.begin(), infos.ldflag_proj_release_.end(), "-lpython3") != infos.ldflag_proj_release_.end()) )
 	{
-		string_vt_type::iterator new_end = std::remove(infos.ldflag_proj_debug_.begin(), infos.ldflag_proj_debug_.end(), "-L../lib64");
+		infos.ldflag_proj_.push_back("-llog");
+	}
+
+	{
+		static const ptree_string_type mark_llib64 = "-L../lib64";
+		string_vt_type::iterator new_end = std::remove(infos.ldflag_proj_debug_.begin(), infos.ldflag_proj_debug_.end(), mark_llib64);
 		bool need_fix_self_lib = (new_end != infos.ldflag_proj_debug_.end());
 
 		if(need_fix_self_lib)
 		{
 			infos.ldflag_proj_debug_.erase(new_end, infos.ldflag_proj_debug_.end());
-			new_end = std::remove(infos.ldflag_proj_release_.begin(), infos.ldflag_proj_release_.end(), "-L../lib64");
+			new_end = std::remove(infos.ldflag_proj_release_.begin(), infos.ldflag_proj_release_.end(), mark_llib64);
 			if(new_end != infos.ldflag_proj_release_.end())
 			{
 				infos.ldflag_proj_release_.erase(new_end, infos.ldflag_proj_release_.end());
 			}
 
-			new_end = std::remove(infos.ldflag_proj_.begin(), infos.ldflag_proj_.end(), "-L../lib64");
+			new_end = std::remove(infos.ldflag_proj_.begin(), infos.ldflag_proj_.end(), mark_llib64);
 
 			if(new_end != infos.ldflag_proj_.end())
 			{
@@ -808,6 +840,7 @@ bool fix_workspace_file_one_jni_android_mk(const cb::cbws_infos& cbws_infos,
 }
 
 ptree_string_type& conv_to_appliction_mk(ptree_string_type& out,
+											const tool_conv_to_jni_mk_cfg& cfg_root,
 											const cb::cbws_infos& cbws_infos,
 											const ptree_string_type& cpp_ver)
 {
@@ -830,15 +863,16 @@ ptree_string_type& conv_to_appliction_mk(ptree_string_type& out,
 		<< "\tAPP_OPTIM := release\n"
 		<< "endif\n\n"
 
-		<< "USRDEF_APP_MIN_SDK_VERSION := 21\n"
-		<< "USRDEF_APP_RISCV64_MIN_SDK_VERSION := 35\n"
-		<< "USRDEF_APP_COMPILER_VERSION := clang\n"
-		<< "USRDEF_APP_COMPILER_VERSION_TAG := -clang\n\n"
+		<< "USRDEF_APP_MIN_SDK_VERSION := " << cfg_root.min_sdk_ver_ << "\n"
+		<< "USRDEF_APP_RISCV64_MIN_SDK_VERSION := " << cfg_root.min_sdk_riscv64_ver_ << "\n"
+		<< "USRDEF_APP_COMPILER_VERSION := " << cfg_root.compiler_ver_ << "\n"
+		<< "USRDEF_APP_COMPILER_VERSION_TAG := -$(USRDEF_APP_COMPILER_VERSION)\n\n"
 
-		<< "USRDEF_APP_BOOST_VERSION := 1_82\n"
-		<< "USRDEF_APP_BOOST_VERSION_TAG := -1_82\n\n"
+		<< "USRDEF_APP_BOOST_VERSION := " << cfg_root.boost_ver_ << "\n"
+		<< "USRDEF_APP_BOOST_VERSION_TAG := -$(USRDEF_APP_BOOST_VERSION)\n\n"
 
-		<< "USRDEF_APP_PYTHON_VERSION := 312\n\n"
+		<< "USRDEF_APP_PYTHON_VERSION := " << cfg_root.python_ver_ << "\n"
+		<< "USRDEF_APP_PYTHON_VERSION_FLOAT := " << cfg_root.python_version_float() << "\n\n"
 
 		<< "USRDEF_APP_C_INCLUDE := \\\n"
 		<< "\t$(NDK_ROOT)/../../../../ndk_third_part_local/unixODBC/include \\\n"
@@ -925,7 +959,8 @@ ptree_string_type& conv_to_appliction_mk(ptree_string_type& out,
 	return out;
 }
 
-bool fix_workspace_file_one_jni_appliction_mk(const cb::cbws_infos& cbws_infos, 
+bool fix_workspace_file_one_jni_appliction_mk(const tool_conv_to_jni_mk_cfg& cfg_root,
+												const cb::cbws_infos& cbws_infos, 
 												const ptree_string_type& ws_dir,
 												const ptree_string_type& ws_ftitle)
 {
@@ -936,7 +971,7 @@ bool fix_workspace_file_one_jni_appliction_mk(const cb::cbws_infos& cbws_infos,
 
 		ptree_string_type app_mk_code;
 
-		if(!(conv_to_appliction_mk(app_mk_code, cbws_infos, "-std=c++11").size()))
+		if(!(conv_to_appliction_mk(app_mk_code, cfg_root, cbws_infos, "-std=c++11").size()))
 		{
 			return false;
 		}
@@ -954,7 +989,7 @@ bool fix_workspace_file_one_jni_appliction_mk(const cb::cbws_infos& cbws_infos,
 
 		ptree_string_type app_mk_code;
 
-		if(!(conv_to_appliction_mk(app_mk_code, cbws_infos, "-std=c++14").size()))
+		if(!(conv_to_appliction_mk(app_mk_code, cfg_root, cbws_infos, "-std=c++14").size()))
 		{
 			return false;
 		}
@@ -972,7 +1007,7 @@ bool fix_workspace_file_one_jni_appliction_mk(const cb::cbws_infos& cbws_infos,
 
 		ptree_string_type app_mk_code;
 
-		if(!(conv_to_appliction_mk(app_mk_code, cbws_infos, "-std=c++17").size()))
+		if(!(conv_to_appliction_mk(app_mk_code, cfg_root, cbws_infos, "-std=c++17").size()))
 		{
 			return false;
 		}
@@ -990,7 +1025,7 @@ bool fix_workspace_file_one_jni_appliction_mk(const cb::cbws_infos& cbws_infos,
 
 		ptree_string_type app_mk_code;
 
-		if(!(conv_to_appliction_mk(app_mk_code, cbws_infos, "-std=c++20").size()))
+		if(!(conv_to_appliction_mk(app_mk_code, cfg_root, cbws_infos, "-std=c++20").size()))
 		{
 			return false;
 		}
@@ -1007,6 +1042,7 @@ bool fix_workspace_file_one_jni_appliction_mk(const cb::cbws_infos& cbws_infos,
 }
 
 ptree_string_type& gen_format_jni(ptree_string_type& out, 
+									const tool_conv_to_jni_mk_cfg& cfg_root,
 									const cb::cbws_infos& cbws_infos, 
 									const ptree_string_type& ws_ftitle, 
 									const ptree_string_type& cpp_ver)
@@ -1018,7 +1054,7 @@ ptree_string_type& gen_format_jni(ptree_string_type& out,
 		<< "var_ndk_root=/d/android_devel/Android/Sdk/ndk/current\n"
 		<< "var_ndk_build_cmd=${var_ndk_root}/ndk-build.cmd\n\n"
 
-		<< "var_android_api=21\n"
+		<< "var_android_api=" << cfg_root.min_sdk_ver_ << "\n"
 		<< "var_outdir_root=./stage\n"
 		<< "var_middir_root=./stage/objs\n"
 		<< "var_middir_local=${var_middir_root}/local\n"
@@ -1120,14 +1156,14 @@ ptree_string_type& gen_format_jni(ptree_string_type& out,
 	return out;
 }
 
-bool fix_workspace_file_one_format_jni(const cb::cbws_infos& cbws_infos, const ptree_string_type& ws_dir, const ptree_string_type& ws_ftitle)
+bool fix_workspace_file_one_format_jni(const tool_conv_to_jni_mk_cfg& cfg_root, const cb::cbws_infos& cbws_infos, const ptree_string_type& ws_dir, const ptree_string_type& ws_ftitle)
 {
 	{
 		yggr::utf8_string file_path(ws_dir + "/build_and_format_jni_" + ws_ftitle + "_cpp11.sh", YGGR_STR_UTF8_STRING_CHARSET_NAME());
 
 		ptree_string_type format_jni_code;
 
-		if(!(gen_format_jni(format_jni_code, cbws_infos, ws_ftitle, "cpp11").size()))
+		if(!(gen_format_jni(format_jni_code, cfg_root, cbws_infos, ws_ftitle, "cpp11").size()))
 		{
 			return false;
 		}
@@ -1146,7 +1182,7 @@ bool fix_workspace_file_one_format_jni(const cb::cbws_infos& cbws_infos, const p
 
 		ptree_string_type format_jni_code;
 
-		if(!(gen_format_jni(format_jni_code, cbws_infos, ws_ftitle, "cpp14").size()))
+		if(!(gen_format_jni(format_jni_code, cfg_root, cbws_infos, ws_ftitle, "cpp14").size()))
 		{
 			return false;
 		}
@@ -1165,7 +1201,7 @@ bool fix_workspace_file_one_format_jni(const cb::cbws_infos& cbws_infos, const p
 
 		ptree_string_type format_jni_code;
 
-		if(!(gen_format_jni(format_jni_code, cbws_infos, ws_ftitle, "cpp17").size()))
+		if(!(gen_format_jni(format_jni_code, cfg_root, cbws_infos, ws_ftitle, "cpp17").size()))
 		{
 			return false;
 		}
@@ -1184,7 +1220,7 @@ bool fix_workspace_file_one_format_jni(const cb::cbws_infos& cbws_infos, const p
 
 		ptree_string_type format_jni_code;
 
-		if(!(gen_format_jni(format_jni_code, cbws_infos, ws_ftitle, "cpp20").size()))
+		if(!(gen_format_jni(format_jni_code, cfg_root, cbws_infos, ws_ftitle, "cpp20").size()))
 		{
 			return false;
 		}
@@ -1203,7 +1239,8 @@ bool fix_workspace_file_one_format_jni(const cb::cbws_infos& cbws_infos, const p
 
 void fix_workspace_file_one(const filter_list_type& cbs_filter_list,
 							const filter_list_type& cpp_filter_list,
-							const cb::cbws_infos& cbws_infos, const ptree_string_type& ws_dir, 	
+							const cb::cbws_infos& cbws_infos, 
+							const ptree_string_type& ws_dir, 	
 							file_list_type& fixed_cbs_flist_a, 
 							file_list_type& fixed_cbs_flist_a_now, 
 							file_list_type& fixed_cbs_flist_so,
@@ -1388,6 +1425,7 @@ yggr::utf8_string& make_yggr_run_test_sh(yggr::utf8_string& out_str, const file_
 }
 
 void fix_workspace_files(const file_list_type& cbws_flist, 
+							const tool_conv_to_jni_mk_cfg& cfg_root,
 							const filter_list_type& cbs_filter_list,
 							const filter_list_type& cpp_filter_list,
 							file_list_type& fixed_cbs_flist_a,
@@ -1452,13 +1490,13 @@ void fix_workspace_files(const file_list_type& cbws_flist,
 			continue;
 		}
 
-		if(!fix_workspace_file_one_jni_appliction_mk(cbws_infos, ws_dir, ws_ftitle))
+		if(!fix_workspace_file_one_jni_appliction_mk(cfg_root, cbws_infos, ws_dir, ws_ftitle))
 		{
 			cbws_failed.insert(fpath);
 			continue;
 		}
 
-		if(!fix_workspace_file_one_format_jni(cbws_infos, ws_dir, ws_ftitle))
+		if(!fix_workspace_file_one_format_jni(cfg_root, cbws_infos, ws_dir, ws_ftitle))
 		{
 			cbws_failed.insert(fpath);
 			continue;
@@ -1588,12 +1626,10 @@ int main_detail(int argc, char* argv[])
 	//	need_fix_ws_files.insert("../yggr_lib_only_linux.workspace");
 	//}
 
-	////return 0;
-
-	////need_fix_ws_files.insert("..\\yggr_lib_only_linux.workspace");
+	//return 0;
 
 	fix_workspace_files(
-		need_fix_ws_files, cfg_root.cbp_file_filter_, cfg_root.cpp_file_filter_,
+		need_fix_ws_files, cfg_root, cfg_root.cbp_file_filter_, cfg_root.cpp_file_filter_,
 		fixed_cbs_files_a, fixed_cbs_files_so, fixed_cbs_files_exe,
 		ignore_cbws_files, failed_cbws_files,
 		ignore_cb_files, failed_cb_files);

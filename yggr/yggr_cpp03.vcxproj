@@ -5,16 +5,32 @@
 			<Configuration>Debug</Configuration>
 			<Platform>Win32</Platform>
 		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug-MT|Win32">
+			<Configuration>Debug-MT</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
 		<ProjectConfiguration Include="Debug|x64">
 			<Configuration>Debug</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug-MT|x64">
+			<Configuration>Debug-MT</Configuration>
 			<Platform>x64</Platform>
 		</ProjectConfiguration>
 		<ProjectConfiguration Include="Release|Win32">
 			<Configuration>Release</Configuration>
 			<Platform>Win32</Platform>
 		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release-MT|Win32">
+			<Configuration>Release-MT</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
 		<ProjectConfiguration Include="Release|x64">
 			<Configuration>Release</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release-MT|x64">
+			<Configuration>Release-MT</Configuration>
 			<Platform>x64</Platform>
 		</ProjectConfiguration>
 	</ItemGroup>
@@ -29,7 +45,18 @@
 		<CharacterSet>MultiByte</CharacterSet>
 		<UseDebugLibraries>true</UseDebugLibraries>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'" Label="Configuration">
+		<ConfigurationType>Utility</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>true</UseDebugLibraries>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+		<ConfigurationType>Utility</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'" Label="Configuration">
 		<ConfigurationType>Utility</ConfigurationType>
 		<CharacterSet>MultiByte</CharacterSet>
 		<UseDebugLibraries>false</UseDebugLibraries>
@@ -40,7 +67,18 @@
 		<CharacterSet>MultiByte</CharacterSet>
 		<UseDebugLibraries>true</UseDebugLibraries>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'" Label="Configuration">
+		<ConfigurationType>Utility</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>true</UseDebugLibraries>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+		<ConfigurationType>Utility</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'" Label="Configuration">
 		<ConfigurationType>Utility</ConfigurationType>
 		<CharacterSet>MultiByte</CharacterSet>
 		<UseDebugLibraries>false</UseDebugLibraries>
@@ -53,7 +91,15 @@
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
 	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
+	</ImportGroup>
 	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'" Label="PropertySheets">
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
 	</ImportGroup>
@@ -61,7 +107,15 @@
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
 	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
+	</ImportGroup>
 	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'" Label="PropertySheets">
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
 	</ImportGroup>
@@ -71,7 +125,17 @@
 		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'">
 		<LinkIncremental>true</LinkIncremental>
 		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
@@ -81,18 +145,36 @@
 		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'">
 		<LinkIncremental>false</LinkIncremental>
 		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
 	</PropertyGroup>
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
 </ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'">
+</ItemDefinitionGroup>
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'">
 </ItemDefinitionGroup>
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
 </ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'">
+</ItemDefinitionGroup>
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'">
 </ItemDefinitionGroup>
 	<ItemGroup>
 		<ClInclude Include="adapter\adapter_default_tag_def.hpp"/>
@@ -192,6 +274,8 @@
 		<ClInclude Include="base\container_cfg.hpp"/>
 		<ClInclude Include="base\cpp17_features_cfg.hpp"/>
 		<ClInclude Include="base\cpp20_features_cfg.hpp"/>
+		<ClInclude Include="base\msvc_number_cfg.hpp"/>
+		<ClInclude Include="base\yggr_c_ver_config.hpp"/>
 		<ClInclude Include="base\endian.hpp"/>
 		<ClInclude Include="base\error.hpp"/>
 		<ClInclude Include="base\error_make.hpp"/>
@@ -238,6 +322,7 @@
 		<ClInclude Include="caller\tuple_to_params_caller.hpp"/>
 		<ClInclude Include="charset\charset_error_def.hpp"/>
 		<ClInclude Include="charset\charset_type_traits.hpp"/>
+		<ClInclude Include="charset\c_str.hpp"/>
 		<ClInclude Include="charset\detail\utf8_string_or_string_view_t_getter.hpp"/>
 		<ClInclude Include="charset\detail\utf8_string_t_getter.hpp"/>
 		<ClInclude Include="charset\escape_codes_basic_converter.hpp"/>
@@ -314,6 +399,7 @@
 		<ClInclude Include="compatibility\stl_switch.hpp"/>
 		<ClInclude Include="compile_link\linker.hpp"/>
 		<ClInclude Include="compile_link\link_config.hpp"/>
+		<ClInclude Include="compile_link\link_lua_name_cfg.hpp"/>
 		<ClInclude Include="compile_link\msvc_cfg.hpp"/>
 		<ClInclude Include="compile_link\pc_any_val.hpp"/>
 		<ClInclude Include="compile_link\pc_base.hpp"/>
@@ -322,6 +408,7 @@
 		<ClInclude Include="compile_link\pc_charset.hpp"/>
 		<ClInclude Include="compile_link\pc_compaction_tool.hpp"/>
 		<ClInclude Include="compile_link\pc_database_system.hpp"/>
+		<ClInclude Include="compile_link\pc_dtl.hpp"/>
 		<ClInclude Include="compile_link\pc_empty.hpp"/>
 		<ClInclude Include="compile_link\pc_encryption_tool.hpp"/>
 		<ClInclude Include="compile_link\pc_exception.hpp"/>
@@ -330,18 +417,31 @@
 		<ClInclude Include="compile_link\pc_iconv_static.hpp"/>
 		<ClInclude Include="compile_link\pc_ids.hpp"/>
 		<ClInclude Include="compile_link\pc_legacy_stdio_definitions.hpp"/>
+		<ClInclude Include="compile_link\pc_libiconv.hpp"/>
 		<ClInclude Include="compile_link\pc_log.hpp"/>
+		<ClInclude Include="compile_link\pc_lua.hpp"/>
+		<ClInclude Include="compile_link\pc_luabind.hpp"/>
+		<ClInclude Include="compile_link\pc_luabind_static.hpp"/>
+		<ClInclude Include="compile_link\pc_luabind_ts.hpp"/>
+		<ClInclude Include="compile_link\pc_luabind_ts_static.hpp"/>
+		<ClInclude Include="compile_link\pc_lua_static.hpp"/>
+		<ClInclude Include="compile_link\pc_lua_ts.hpp"/>
+		<ClInclude Include="compile_link\pc_lua_ts_static.hpp"/>
+		<ClInclude Include="compile_link\pc_lzma.hpp"/>
+		<ClInclude Include="compile_link\pc_lzma_static.hpp"/>
 		<ClInclude Include="compile_link\pc_md5.hpp"/>
 		<ClInclude Include="compile_link\pc_modules.hpp"/>
 		<ClInclude Include="compile_link\pc_network.hpp"/>
 		<ClInclude Include="compile_link\pc_nsql_database_system.hpp"/>
 		<ClInclude Include="compile_link\pc_openssl.hpp"/>
+		<ClInclude Include="compile_link\pc_openssl_static.hpp"/>
 		<ClInclude Include="compile_link\pc_pthread.hpp"/>
+		<ClInclude Include="compile_link\pc_pthread_static.hpp"/>
 		<ClInclude Include="compile_link\pc_regular_parse.hpp"/>
 		<ClInclude Include="compile_link\pc_script_lua.hpp"/>
-		<ClInclude Include="compile_link\pc_script_lua_s.hpp"/>
 		<ClInclude Include="compile_link\pc_script_lua_ss.hpp"/>
-		<ClInclude Include="compile_link\pc_script_lua_ss_ts.hpp"/>
+		<ClInclude Include="compile_link\pc_script_lua_ts_ss.hpp"/>
+		<ClInclude Include="compile_link\pc_script_lua_ts.hpp"/>
 		<ClInclude Include="compile_link\pc_script_python.hpp"/>
 		<ClInclude Include="compile_link\pc_segment.hpp"/>
 		<ClInclude Include="compile_link\pc_seh.hpp"/>
@@ -747,6 +847,7 @@
 		<ClInclude Include="container\is_isomeric_same_vector.hpp"/>
 		<ClInclude Include="container\iterator_cast.hpp"/>
 		<ClInclude Include="container\list.hpp"/>
+		<ClInclude Include="container\index_basic_tag.hpp"/>
 		<ClInclude Include="container\multi_index_config.hpp"/>
 		<ClInclude Include="container\multi_index_hashed_index.hpp"/>
 		<ClInclude Include="container\multi_index_ordered_index.hpp"/>
@@ -1037,6 +1138,7 @@
 		<ClInclude Include="move\detail\to_raw_pointer.hpp"/>
 		<ClInclude Include="move\has_move_emulation.hpp"/>
 		<ClInclude Include="move\move.hpp"/>
+		<ClInclude Include="mplex\identity.hpp"/>
 		<ClInclude Include="mplex\revert_to_vector.hpp"/>
 		<ClInclude Include="mplex\static_assert.hpp"/>
 		<ClInclude Include="mplex\basic_t_sizeof_log2.hpp"/>
@@ -2646,6 +2748,7 @@
 		<ClInclude Include="tuple_ex\tuple.hpp"/>
 		<ClInclude Include="typeof\deduce_result.hpp"/>
 		<ClInclude Include="typeof\default_value.hpp"/>
+		<ClInclude Include="typeof\failed_value.hpp"/>
 		<ClInclude Include="typeof\typeof.hpp"/>
 		<ClInclude Include="type_traits\aligned_storage.hpp"/>
 		<ClInclude Include="type_traits\aligned_storage_sizeof.hpp"/>
@@ -2695,6 +2798,7 @@
 		<ClInclude Include="utility\get_element.hpp"/>
 		<ClInclude Include="utility\get_element_default.hpp"/>
 		<ClInclude Include="utility\identity.hpp"/>
+		<ClInclude Include="utility\pass.hpp"/>
 		<ClInclude Include="utility\marked_ref.hpp"/>
 		<ClInclude Include="utility\bit_counter.hpp"/>
 		<ClInclude Include="utility\cast_pointer_to_int.hpp"/>

@@ -21,12 +21,12 @@
 #include "kms_request_str.h"
 #include "kms_port.h"
 
-#include <yggr_detail/c_version_support.h>
+#include <yggr_mongodbc_patch/c_version_support.h>
 
 #include <stdio.h>
 #include <ctype.h>
 //#include <stdbool.h>
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 #include <stdlib.h>
 #include <limits.h> /* CHAR_BIT */
 

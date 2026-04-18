@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -f ./pyst.so
+
 rm -f ./yggr_lua_base_type.so
 ln -s libyggr_lua_base_type.so yggr_lua_base_type.so
 
@@ -47,6 +49,7 @@ source begin_test_env_android_termux.sh
 ./caller_gen_callable_object_test --batch-test
 ./caller_to_params_call_test --batch-test
 ./charset_basic_string_adp_helper_test --batch-test
+./charset_c_str_test --batch-test
 ./charset_charset_base_foo_test --batch-test
 ./charset_charset_converter_test --batch-test
 ./charset_const_strings_test --batch-test
@@ -85,12 +88,14 @@ source begin_test_env_android_termux.sh
 ./charset_utf8_string_view_test --batch-test
 ./charset_utf8_string_xml_pak_serialize --batch-test
 ./compaction_tool_zip_lzma_test --batch-test
+./container_begin_end_rbegin_rend_test --batch-test
 ./container_cast_to_native_array_reference_test --batch-test
 ./container_deque_test --batch-test
 ./container_ex_array_ex_test --batch-test
 ./container_ex_array_t_maker_test --batch-test
 ./container_ex_is_allocator_test --batch-test
 ./container_ex_is_container_test --batch-test
+./container_ex_iterator_getter --batch-test
 ./container_ex_native_array_ref_test --batch-test
 ./container_isomeric_same_deque_test --batch-test
 ./container_isomeric_same_list_test --batch-test
@@ -313,6 +318,11 @@ source begin_test_env_android_termux.sh
 ./ppex_string_symbol_test --batch-test
 ./ppex_va_args_test --batch-test
 ./proxy_proxy_mode_test --batch-test
+./python_python_boost_python_test --batch-test
+./python_python_script_mgr_test2 --batch-test
+./python_python_script_mgr_test --batch-test
+./python_python_script_test --batch-test
+./python_python_struct_test --batch-test
 ./regex_get_string_vector --batch-test
 ./regex_regex_parse_test_part1 --batch-test
 ./regex_regex_parse_test_part2 --batch-test
@@ -459,8 +469,10 @@ source begin_test_env_android_termux.sh
 ./utility_array_get_test --batch-test
 ./utility_bit_counter_test --batch-test
 ./utility_copy_or_move_or_swap_test --batch-test
+./utility_default_value_comparer_test --batch-test
 ./utility_get_element_test --batch-test
 ./utility_get_test --batch-test
+./utility_identity_test --batch-test
 ./utility_member_var_modify_helper_test --batch-test
 ./utility_pair_compare_test --batch-test
 ./utility_pair_get_test --batch-test

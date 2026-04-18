@@ -57,6 +57,7 @@ collection_foo(){
 	if [ -d "${var_src_inc_dir}" ]; then
 		cp -fr "${var_src_inc_dir}" "${var_prefix_sln_dir}/"
 	elif [ -d "${var_src_darwin_cmake_install_inc_dir}" ]; then
+		rm -fr "${var_prefix_sln_dir}/include"
 		cp -fr "${var_src_darwin_cmake_install_inc_dir}" "${var_prefix_sln_dir}/include"
 	else
 		echo "warning: no include or install-include dir, need create it !!!!!"
@@ -77,6 +78,8 @@ fi
 var_sln_dir="${var_local_dir}/../.."
 var_prefix_stage_dir="${var_sln_dir}/stage_prefix"
 
+#<< 'SH_MACOSX_BUILD_MARK'
+
 var_sdk_name="macosx"
 collection_foo \
 	"${var_sln_name}" \
@@ -85,6 +88,10 @@ collection_foo \
 	"${var_cpp_ver}" \
 	"${var_sln_dir}" \
 	"${var_prefix_stage_dir}" 
+
+#SH_MACOSX_BUILD_MARK
+
+#<< 'SH_IPHONEOS_BUILD_MARK'
 
 var_sdk_name="iphoneos"
 
@@ -96,6 +103,10 @@ collection_foo \
 	"${var_sln_dir}" \
 	"${var_prefix_stage_dir}" 
 
+#SH_IPHONEOS_BUILD_MARK
+
+#<< 'SH_IPHONESIMULATOR_BUILD_MARK'
+
 var_sdk_name="iphonesimulator"
 
 collection_foo \
@@ -105,4 +116,6 @@ collection_foo \
 	"${var_cpp_ver}" \
 	"${var_sln_dir}" \
 	"${var_prefix_stage_dir}" 
+
+#SH_IPHONESIMULATOR_BUILD_MARK
 

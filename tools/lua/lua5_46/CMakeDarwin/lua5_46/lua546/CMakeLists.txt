@@ -62,9 +62,9 @@ else()
 	set(var_proj_c_defineds "-DLUA_USE_IOS ${var_proj_c_defineds_tmp}")
 endif()
 
-set(var_proj_c_defineds_debug "-DLUA546_EXPORT -D_DEBUG ${USRDEF_CMAKE_DEFINEDS_DEBUG}")
+set(var_proj_c_defineds_debug "-D_DEBUG ${USRDEF_CMAKE_DEFINEDS_DEBUG}")
 
-set(var_proj_c_defineds_release "-DLUA546_EXPORT -DNDEBUG ${USRDEF_CMAKE_DEFINEDS_RELEASE}")
+set(var_proj_c_defineds_release "-DNDEBUG ${USRDEF_CMAKE_DEFINEDS_RELEASE}")
 
 set(var_proj_c_flags "-Wall -Werror=endif-labels -Werror=return-type -Wno-comment -Wno-enum-compare -Wno-multichar -Wno-sign-compare -Wno-unused-local-typedefs -fPIC -fdata-sections -fexceptions -ffunction-sections -fno-strict-aliasing ${USRDEF_CMAKE_CFLAGS}")
 
@@ -95,7 +95,7 @@ set(var_proj_link_libs
 )
 
 set(var_proj_link_libs_debug 
-		${USRDEF_CMAKE_LDFLAGS_DEBUG}
+		${USRDEF_CMAKE_LD_LIBRARY_DEBUG}
 )
 
 set(var_proj_link_libs_release 

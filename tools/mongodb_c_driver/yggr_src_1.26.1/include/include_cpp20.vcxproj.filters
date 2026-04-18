@@ -9,7 +9,7 @@
       <UniqueIdentifier>{43fa73d9-32df-4b69-a805-d4388e641d93}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl</Extensions>
     </Filter>
-    <Filter Include="Header Files\yggr_detail">
+    <Filter Include="Header Files\yggr_mongodbc_patch">
       <UniqueIdentifier>{f9e6790d-48fe-456b-8ad0-8dbca2ef4e7e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\bson">
@@ -33,7 +33,7 @@
     <Filter Include="Header Files\mongo_crypt\v1\mongo_crypt">
       <UniqueIdentifier>{f554fa2b-9098-462a-980e-ca93be2328d6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\yggr_detail\config">
+    <Filter Include="Header Files\yggr_mongodbc_patch\config">
       <UniqueIdentifier>{4a34f45f-6fa9-4dfe-963b-f10fab57ea6c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\common">
@@ -944,101 +944,101 @@
     <ClInclude Include="bson\bson-writer.h">
       <Filter>Header Files\bson</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\bson_config_darwin.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\bson_config_darwin.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\bson_config_linux.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\bson_config_linux.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\bson_config_mingw.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\bson_config_mingw.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\bson_config_msvc.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\bson_config_msvc.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\common_config.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\common_config.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\mongoc_config_darwin.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\mongoc_config_darwin.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\mongoc_config_linux.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\mongoc_config_linux.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\mongoc_config_mingw.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\mongoc_config_mingw.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\mongoc_config_msvc.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\mongoc_config_msvc.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\mongocrypt_config_darwin.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\mongocrypt_config_darwin.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\mongocrypt_config_linux.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\mongocrypt_config_linux.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\mongocrypt_config_mingw.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\mongocrypt_config_mingw.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\mongocrypt_config_msvc.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\mongocrypt_config_msvc.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\c_version_support.h">
-      <Filter>Header Files\yggr_detail</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\c_version_support.h">
+      <Filter>Header Files\yggr_mongodbc_patch</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\double_limit.h">
-      <Filter>Header Files\yggr_detail</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\double_limit.h">
+      <Filter>Header Files\yggr_mongodbc_patch</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\inttypes.h">
-      <Filter>Header Files\yggr_detail</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\inttypes.h">
+      <Filter>Header Files\yggr_mongodbc_patch</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\mongo_c__func__.h">
-      <Filter>Header Files\yggr_detail</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\mongo_c__func__.h">
+      <Filter>Header Files\yggr_mongodbc_patch</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\mongo_c_inline.h">
-      <Filter>Header Files\yggr_detail</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\mongo_c_inline.h">
+      <Filter>Header Files\yggr_mongodbc_patch</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\original_error_t.h">
-      <Filter>Header Files\yggr_detail</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\original_error_t.h">
+      <Filter>Header Files\yggr_mongodbc_patch</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\platform_config.h">
-      <Filter>Header Files\yggr_detail</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\platform_config.h">
+      <Filter>Header Files\yggr_mongodbc_patch</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\stdbool.h">
-      <Filter>Header Files\yggr_detail</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\stdbool.h">
+      <Filter>Header Files\yggr_mongodbc_patch</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\warning_check.h">
-      <Filter>Header Files\yggr_detail</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\warning_check.h">
+      <Filter>Header Files\yggr_mongodbc_patch</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\yggr_bson_t.h">
-      <Filter>Header Files\yggr_detail</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\yggr_bson_t.h">
+      <Filter>Header Files\yggr_mongodbc_patch</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\yggr_mongoc_t.h">
-      <Filter>Header Files\yggr_detail</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\yggr_mongoc_t.h">
+      <Filter>Header Files\yggr_mongodbc_patch</Filter>
     </ClInclude>
     <ClInclude Include="common\bson-dsl.h">
       <Filter>Header Files\common</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\inteldfp_config.h">
-      <Filter>Header Files\yggr_detail</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\inteldfp_config.h">
+      <Filter>Header Files\yggr_mongodbc_patch</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\bson_config_android.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\bson_config_android.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\bson_config_ios.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\bson_config_ios.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\mongoc_config_android.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\mongoc_config_android.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\mongoc_config_ios.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\mongoc_config_ios.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\mongocrypt_config_android.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\mongocrypt_config_android.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
-    <ClInclude Include="yggr_detail\config\mongocrypt_config_ios.h">
-      <Filter>Header Files\yggr_detail\config</Filter>
+    <ClInclude Include="yggr_mongodbc_patch\config\mongocrypt_config_ios.h">
+      <Filter>Header Files\yggr_mongodbc_patch\config</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

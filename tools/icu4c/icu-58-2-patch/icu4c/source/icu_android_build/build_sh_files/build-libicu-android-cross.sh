@@ -25,7 +25,7 @@ mkdir -p "${var_local_dir}/data/out/tmp/rbnf"
 mkdir -p "${var_local_dir}/data/out/tmp/translit"
 mkdir -p "${var_local_dir}/data/out/tmp/brkitr"
 
-AndroidNDK=/d/android_devel/Android/Sdk/ndk/28.0.12674087
+AndroidNDK=/d/android_devel/Android/Sdk/ndk/current
 AndroidAPI=21
 AndroidToolChainPlatfrom=windows-x86_64
 

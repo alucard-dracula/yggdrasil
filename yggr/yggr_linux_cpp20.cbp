@@ -183,6 +183,7 @@
 		<Unit filename="base/error_make.hpp"/>
 		<Unit filename="base/if_constexpr_cfg.hpp"/>
 		<Unit filename="base/inc_ver.h"/>
+		<Unit filename="base/msvc_number_cfg.hpp"/>
 		<Unit filename="base/new.hpp"/>
 		<Unit filename="base/noexcept_cfg.hpp"/>
 		<Unit filename="base/obj_creator.hpp"/>
@@ -198,6 +199,7 @@
 		<Unit filename="base/third_party_issues_config.hpp"/>
 		<Unit filename="base/user_config.hpp"/>
 		<Unit filename="base/version.hpp"/>
+		<Unit filename="base/yggr_c_ver_config.hpp"/>
 		<Unit filename="base/yggr_config.h"/>
 		<Unit filename="base/yggr_cpp_ver_config.hpp"/>
 		<Unit filename="base/yggr_msg_macro.h"/>
@@ -226,6 +228,7 @@
 		<Unit filename="charset/basic_string_adp_helper.hpp"/>
 		<Unit filename="charset/boyer_moore.hpp"/>
 		<Unit filename="charset/boyer_moore_horspool.hpp"/>
+		<Unit filename="charset/c_str.hpp"/>
 		<Unit filename="charset/charset_base_foo.hpp"/>
 		<Unit filename="charset/charset_converter.hpp"/>
 		<Unit filename="charset/charset_error_def.hpp"/>
@@ -300,6 +303,7 @@
 		<Unit filename="compatibility/stl_exception.hpp"/>
 		<Unit filename="compatibility/stl_switch.hpp"/>
 		<Unit filename="compile_link/link_config.hpp"/>
+		<Unit filename="compile_link/link_lua_name_cfg.hpp"/>
 		<Unit filename="compile_link/linker.hpp"/>
 		<Unit filename="compile_link/msvc_cfg.hpp"/>
 		<Unit filename="compile_link/pc_any_val.hpp"/>
@@ -309,6 +313,7 @@
 		<Unit filename="compile_link/pc_charset.hpp"/>
 		<Unit filename="compile_link/pc_compaction_tool.hpp"/>
 		<Unit filename="compile_link/pc_database_system.hpp"/>
+		<Unit filename="compile_link/pc_dtl.hpp"/>
 		<Unit filename="compile_link/pc_empty.hpp"/>
 		<Unit filename="compile_link/pc_encryption_tool.hpp"/>
 		<Unit filename="compile_link/pc_exception.hpp"/>
@@ -317,18 +322,31 @@
 		<Unit filename="compile_link/pc_iconv_static.hpp"/>
 		<Unit filename="compile_link/pc_ids.hpp"/>
 		<Unit filename="compile_link/pc_legacy_stdio_definitions.hpp"/>
+		<Unit filename="compile_link/pc_libiconv.hpp"/>
 		<Unit filename="compile_link/pc_log.hpp"/>
+		<Unit filename="compile_link/pc_lua.hpp"/>
+		<Unit filename="compile_link/pc_lua_static.hpp"/>
+		<Unit filename="compile_link/pc_lua_ts.hpp"/>
+		<Unit filename="compile_link/pc_lua_ts_static.hpp"/>
+		<Unit filename="compile_link/pc_luabind.hpp"/>
+		<Unit filename="compile_link/pc_luabind_static.hpp"/>
+		<Unit filename="compile_link/pc_luabind_ts.hpp"/>
+		<Unit filename="compile_link/pc_luabind_ts_static.hpp"/>
+		<Unit filename="compile_link/pc_lzma.hpp"/>
+		<Unit filename="compile_link/pc_lzma_static.hpp"/>
 		<Unit filename="compile_link/pc_md5.hpp"/>
 		<Unit filename="compile_link/pc_modules.hpp"/>
 		<Unit filename="compile_link/pc_network.hpp"/>
 		<Unit filename="compile_link/pc_nsql_database_system.hpp"/>
 		<Unit filename="compile_link/pc_openssl.hpp"/>
+		<Unit filename="compile_link/pc_openssl_static.hpp"/>
 		<Unit filename="compile_link/pc_pthread.hpp"/>
+		<Unit filename="compile_link/pc_pthread_static.hpp"/>
 		<Unit filename="compile_link/pc_regular_parse.hpp"/>
 		<Unit filename="compile_link/pc_script_lua.hpp"/>
-		<Unit filename="compile_link/pc_script_lua_s.hpp"/>
 		<Unit filename="compile_link/pc_script_lua_ss.hpp"/>
-		<Unit filename="compile_link/pc_script_lua_ss_ts.hpp"/>
+		<Unit filename="compile_link/pc_script_lua_ts.hpp"/>
+		<Unit filename="compile_link/pc_script_lua_ts_ss.hpp"/>
 		<Unit filename="compile_link/pc_script_python.hpp"/>
 		<Unit filename="compile_link/pc_segment.hpp"/>
 		<Unit filename="compile_link/pc_seh.hpp"/>
@@ -722,6 +740,7 @@
 		<Unit filename="container/get_map_options.hpp"/>
 		<Unit filename="container/get_set_options.hpp"/>
 		<Unit filename="container/get_vector_options.hpp"/>
+		<Unit filename="container/index_basic_tag.hpp"/>
 		<Unit filename="container/index_generator.hpp"/>
 		<Unit filename="container/is_isomeric_same_deque.hpp"/>
 		<Unit filename="container/is_isomeric_same_list.hpp"/>
@@ -1062,6 +1081,7 @@
 		<Unit filename="mplex/detail/typename_replaceor_vtpl.hpp"/>
 		<Unit filename="mplex/get_reference_if_in.hpp"/>
 		<Unit filename="mplex/get_reference_if_same.hpp"/>
+		<Unit filename="mplex/identity.hpp"/>
 		<Unit filename="mplex/index_t_value.hpp"/>
 		<Unit filename="mplex/integer_log2.hpp"/>
 		<Unit filename="mplex/limits.hpp"/>
@@ -2692,6 +2712,7 @@
 		<Unit filename="type_traits/upper_types.hpp"/>
 		<Unit filename="typeof/deduce_result.hpp"/>
 		<Unit filename="typeof/default_value.hpp"/>
+		<Unit filename="typeof/failed_value.hpp"/>
 		<Unit filename="typeof/typeof.hpp"/>
 		<Unit filename="utility/args_anchor.hpp"/>
 		<Unit filename="utility/args_holder.hpp"/>
@@ -2709,6 +2730,7 @@
 		<Unit filename="utility/member_var_modify_helper.hpp"/>
 		<Unit filename="utility/pair.hpp"/>
 		<Unit filename="utility/pair_compare.hpp"/>
+		<Unit filename="utility/pass.hpp"/>
 		<Unit filename="utility/sao_buffer.hpp"/>
 		<Unit filename="utility/swap.hpp"/>
 		<Unit filename="utility/to_pointer.hpp"/>

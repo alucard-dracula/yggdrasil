@@ -17,7 +17,6 @@
 					<Add option="-m32"/>
 					<Add option="-O0"/>
 					<Add option="-g"/>
-					<Add option="-DLUA546_EXPORT"/>
 					<Add option="-D_DEBUG"/>
 				</Compiler>
 				<Linker>
@@ -52,7 +51,6 @@
 					<Add option="-m64"/>
 					<Add option="-O0"/>
 					<Add option="-g"/>
-					<Add option="-DLUA546_EXPORT"/>
 					<Add option="-D_DEBUG"/>
 				</Compiler>
 				<Linker>
@@ -69,7 +67,6 @@
 				<Compiler>
 					<Add option="-m64"/>
 					<Add option="-O3"/>
-					<Add option="-DLUA546_EXPORT"/>
 					<Add option="-DNDEBUG"/>
 				</Compiler>
 				<Linker>

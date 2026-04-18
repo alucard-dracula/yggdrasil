@@ -28,37 +28,20 @@ THE SOFTWARE.
 #define __YGGR_COMPILE_LINK_PC_SCRIPT_LUA_HPP__
 
 #include <yggr/compile_link/msvc_cfg.hpp>
-#include <yggr/script/lua_config.hpp>
 
 #ifdef _MSC_VER
-#	pragma comment YGGR_COMPILE_LINK_LIB(yggr_script_lua)
-#	pragma comment YGGR_COMPILE_LINK_LIB(luabind09)
+#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(yggr_script_lua)
 
-#	if !defined(LUAJIT_VERSION_NUM)
-#		if (501 <= LUA_VERSION_NUM && LUA_VERSION_NUM < 502)
-#			pragma comment YGGR_COMPILE_LINK_LIB(lua501)
-#		elif (502 <= LUA_VERSION_NUM && LUA_VERSION_NUM < 503)
-#			pragma comment YGGR_COMPILE_LINK_LIB(lua502)
-#		elif (503 <= LUA_VERSION_NUM && LUA_VERSION_NUM < 504)
-#			pragma comment YGGR_COMPILE_LINK_LIB(lua503)
-#		elif (504 <= LUA_VERSION_NUM && LUA_VERSION_NUM <= 504)
-#			pragma comment YGGR_COMPILE_LINK_LIB(lua504)
+#	if !defined(YGGR_LUA_LINK_MANUAL) // default not defined
+#		if defined(YGGR_LUA_THREAD_SAFE) // default not defined
+#			include <yggr/compile_link/pc_luabind_ts.hpp>
+#			include <yggr/compile_link/pc_lua_ts.hpp>
 #		else
-#			pragma comment YGGR_COMPILE_LINK_NRULE_LIB(lua)
-#		endif //LUA_VERSION_NUM
-#else
-#		if (501 <= LUA_VERSION_NUM && LUA_VERSION_NUM < 502)
-#			pragma comment YGGR_COMPILE_LINK_LIB(luajit501)
-#		elif (502 <= LUA_VERSION_NUM && LUA_VERSION_NUM < 503)
-#		pragma comment YGGR_COMPILE_LINK_LIB(luajit502)
-#		elif (503 <= LUA_VERSION_NUM && LUA_VERSION_NUM < 504)
-#			pragma comment YGGR_COMPILE_LINK_LIB(luajit503)
-#		elif (504 <= LUA_VERSION_NUM && LUA_VERSION_NUM <= 504)
-#			pragma comment YGGR_COMPILE_LINK_LIB(luajit503)
-#		else
-#			pragma comment YGGR_COMPILE_LINK_NRULE_LIB(luajit)
-#		endif //LUA_VERSION_NUM
-#endif  // LUAJIT_VERSION_NUM
+			// default used
+#			include <yggr/compile_link/pc_luabind.hpp>
+#			include <yggr/compile_link/pc_lua.hpp>
+#		endif // YGGR_LUA_THREAD_SAFE
+#	endif // YGGR_LUA_LINK_MANUAL
 
 #endif // _MSC_VER
 

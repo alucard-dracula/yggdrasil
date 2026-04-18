@@ -82,7 +82,7 @@
 
 BSON_BEGIN_DECLS
 
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 
 #if !defined(_MSC_VER) || (_MSC_VER >= 1800)
 #include <inttypes.h>
@@ -160,7 +160,7 @@ typedef SSIZE_T ssize_t;
 typedef RTL_RUN_ONCE INIT_ONCE;
 #endif
 
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 
 #ifdef BSON_HAVE_STDBOOL_H
 #include <stdbool.h>

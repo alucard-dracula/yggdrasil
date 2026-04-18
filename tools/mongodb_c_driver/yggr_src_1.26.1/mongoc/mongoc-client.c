@@ -2073,7 +2073,7 @@ retry:
 
 #else
 
-#include <yggr_detail/original_error_t.h>
+#include <yggr_mongodbc_patch/original_error_t.h>
 
 static bool
 _mongoc_client_retryable_write_command_with_stream (

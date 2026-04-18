@@ -6,8 +6,8 @@
 
 //#include <inttypes.h>
 //#include <stdbool.h>
-#include <yggr_detail/inttypes.h>
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/inttypes.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 

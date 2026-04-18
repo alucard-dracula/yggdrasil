@@ -1,6 +1,8 @@
 
 :rem x64
 
+setlocal
+
 call "D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\vcvarsall.bat" amd64
 
 cd /d %~dp0
@@ -27,8 +29,11 @@ call zlib_copy_files_tpl.bat zlib.dll zlib.lib zlibstatic.lib x64
 :rem cp -fr minigzip.exe win32\bin64\minigzip.exe
 nmake -f win32/Makefile.msc clean SHAREDLIB="zlib.dll" IMPLIB="zlib.lib" STATICLIB="zlibstatic.lib"
 
+endlocal
+
 :rem x86
 
+setlocal
 call "D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\vcvarsall.bat" x86
 :rem nmake /help
 
@@ -52,3 +57,5 @@ nmake -f win32/Makefile.msc all LOC="-DNDEBUG -O2" SHAREDLIB="zlib.dll" IMPLIB="
 call zlib_copy_files_tpl.bat zlib.dll zlib.lib zlibstatic.lib x86
 :rem cp -fr minigzip.exe win32\bin\minigzip.exe
 nmake -f win32/Makefile.msc clean SHAREDLIB="zlib.dll" IMPLIB="zlib.lib" STATICLIB="zlibstatic.lib"
+
+endlocal

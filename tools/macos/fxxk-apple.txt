@@ -1,0 +1,6 @@
+std::__1::__scope_guard ... 错误是 Xcode 16 特有的一个已知兼容性问题。这并不是因为 Xcode 不支持旧标准，而是因为：
+
+C++ 库 (libc++) 重构：Xcode 16 随附了新的 SDK (macOS 15 / iOS 18)，其标准库 libc++ 引入了 __scope_guard 用于内部安全检查。
+符号冲突：当 Unreal Engine 的构建工具（UBT）尝试使用旧的配置链接到新的 macOS SDK 时，由于符号可见性或混淆（Mangling）规则改变，导致链接器无法找到这些新增的内部符号。
+
+在苹果的官方发布序列中，Build version 17A400 对应的实际上是 Xcode 16.1 的开发者版本（内部工具链标记为 26.0.1）。

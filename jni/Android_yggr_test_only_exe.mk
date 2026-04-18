@@ -42,6 +42,7 @@ subdirs := \
 	$(LOCAL_PATH)/../test/Android_caller_gen_callable_object_test.mk \
 	$(LOCAL_PATH)/../test/Android_caller_to_params_call_test.mk \
 	$(LOCAL_PATH)/../test/Android_charset_basic_string_adp_helper_test.mk \
+	$(LOCAL_PATH)/../test/Android_charset_c_str_test.mk \
 	$(LOCAL_PATH)/../test/Android_charset_charset_base_foo_test.mk \
 	$(LOCAL_PATH)/../test/Android_charset_charset_converter_test.mk \
 	$(LOCAL_PATH)/../test/Android_charset_const_strings_test.mk \
@@ -80,12 +81,14 @@ subdirs := \
 	$(LOCAL_PATH)/../test/Android_charset_utf8_string_view_test.mk \
 	$(LOCAL_PATH)/../test/Android_charset_utf8_string_xml_pak_serialize.mk \
 	$(LOCAL_PATH)/../test/Android_compaction_tool_zip_lzma_test.mk \
+	$(LOCAL_PATH)/../test/Android_container_begin_end_rbegin_rend_test.mk \
 	$(LOCAL_PATH)/../test/Android_container_cast_to_native_array_reference_test.mk \
 	$(LOCAL_PATH)/../test/Android_container_deque_test.mk \
 	$(LOCAL_PATH)/../test/Android_container_ex_array_ex_test.mk \
 	$(LOCAL_PATH)/../test/Android_container_ex_array_t_maker_test.mk \
 	$(LOCAL_PATH)/../test/Android_container_ex_is_allocator_test.mk \
 	$(LOCAL_PATH)/../test/Android_container_ex_is_container_test.mk \
+	$(LOCAL_PATH)/../test/Android_container_ex_iterator_getter.mk \
 	$(LOCAL_PATH)/../test/Android_container_ex_native_array_ref_test.mk \
 	$(LOCAL_PATH)/../test/Android_container_isomeric_same_deque_test.mk \
 	$(LOCAL_PATH)/../test/Android_container_isomeric_same_list_test.mk \
@@ -384,6 +387,11 @@ subdirs := \
 	$(LOCAL_PATH)/../test/Android_ppex_string_symbol_test.mk \
 	$(LOCAL_PATH)/../test/Android_ppex_va_args_test.mk \
 	$(LOCAL_PATH)/../test/Android_proxy_proxy_mode_test.mk \
+	$(LOCAL_PATH)/../test/Android_python_python_boost_python_test.mk \
+	$(LOCAL_PATH)/../test/Android_python_python_script_mgr_test2.mk \
+	$(LOCAL_PATH)/../test/Android_python_python_script_mgr_test.mk \
+	$(LOCAL_PATH)/../test/Android_python_python_script_test.mk \
+	$(LOCAL_PATH)/../test/Android_python_python_struct_test.mk \
 	$(LOCAL_PATH)/../test/Android_regex_get_string_vector.mk \
 	$(LOCAL_PATH)/../test/Android_regex_regex_parse_test_part1.mk \
 	$(LOCAL_PATH)/../test/Android_regex_regex_parse_test_part2.mk \
@@ -577,8 +585,10 @@ subdirs := \
 	$(LOCAL_PATH)/../test/Android_utility_array_get_test.mk \
 	$(LOCAL_PATH)/../test/Android_utility_bit_counter_test.mk \
 	$(LOCAL_PATH)/../test/Android_utility_copy_or_move_or_swap_test.mk \
+	$(LOCAL_PATH)/../test/Android_utility_default_value_comparer_test.mk \
 	$(LOCAL_PATH)/../test/Android_utility_get_element_test.mk \
 	$(LOCAL_PATH)/../test/Android_utility_get_test.mk \
+	$(LOCAL_PATH)/../test/Android_utility_identity_test.mk \
 	$(LOCAL_PATH)/../test/Android_utility_member_var_modify_helper_test.mk \
 	$(LOCAL_PATH)/../test/Android_utility_pair_compare_test.mk \
 	$(LOCAL_PATH)/../test/Android_utility_pair_get_test.mk \

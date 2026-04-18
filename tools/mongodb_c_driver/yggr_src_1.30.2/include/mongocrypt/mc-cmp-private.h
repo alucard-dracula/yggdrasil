@@ -22,7 +22,7 @@
 
 #include <limits.h>
 //#include <stdbool.h>
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 #include <stdint.h>
 
 /* Sanity check: ensure ssize_t limits are as expected relative to size_t. */

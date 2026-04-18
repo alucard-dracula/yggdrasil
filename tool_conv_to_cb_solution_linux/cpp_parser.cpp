@@ -187,21 +187,69 @@ Iter pragma_comment_to_libmark(libmark_set_type& out, Iter s, Iter e)
 
 }
 
-libmark_set_type& get_libmarks_from_code_yggr_pp_link_lib(libmark_set_type& out, const ptree_string_type& code)
+// libmark_set_type& get_libmarks_from_code_yggr_pp_link_lib(libmark_set_type& out, const ptree_string_type& code)
+// {
+// 	typedef ptree_string_type::const_iterator str_citer_type;
+// 	typedef yggr::knuth_morris_pratt<str_citer_type> kmp_type;
+// 	typedef std::pair<str_citer_type, str_citer_type> kmp_return_type;
+
+// 	static const ptree_string_type s_str_mark = "YGGR_PP_LINK_LIB(";
+// 	static const kmp_type s_kmp_mark(s_str_mark.begin(), s_str_mark.end());
+	
+// 	if(code.empty())
+// 	{
+// 		return out;
+// 	}
+
+// 	kmp_return_type ipair = s_kmp_mark(code.begin(), code.end());
+
+// 	if(ipair.second == code.end())
+// 	{
+// 		return out;
+// 	}
+
+// 	str_citer_type isize = code.end();
+
+// 	libmark_set_type tmp_out;
+// 	for(;ipair.second != isize; ipair = s_kmp_mark(yggr::advance_copy(ipair.second, 1), isize))
+// 	{
+// 		if((ipair.second = parse_yggr_code_pair(tmp_out, /*out, */ipair.second, isize)) == isize)
+// 		{
+// 			return out;
+// 		}
+
+// 		assert(ipair.second < isize);
+// 	}
+
+// 	out.insert(tmp_out.begin(), tmp_out.end());
+
+// 	//{
+// 	//	for(libmark_set_type::const_iterator i = out.begin(), isize = out.end(); i != isize; ++i)
+// 	//	{
+// 	//		std::cout << "lib mark: " << *i << std::endl;
+// 	//	}
+// 	//}
+
+// 	return out;
+// }
+
+libmark_set_type& get_libmarks_from_code_macro_mark(libmark_set_type& out, const ptree_string_type& code, const ptree_string_type& str_mark)
 {
 	typedef ptree_string_type::const_iterator str_citer_type;
 	typedef yggr::knuth_morris_pratt<str_citer_type> kmp_type;
 	typedef std::pair<str_citer_type, str_citer_type> kmp_return_type;
 
-	static const ptree_string_type s_str_mark = "YGGR_PP_LINK_LIB(";
-	static const kmp_type s_kmp_mark(s_str_mark.begin(), s_str_mark.end());
+	//static const ptree_string_type s_str_mark = "YGGR_PP_LINK_LIB(";
+	//static const kmp_type s_kmp_mark(s_str_mark.begin(), s_str_mark.end());
 	
-	if(code.empty())
+	kmp_type kmp_mark(str_mark.begin(), str_mark.end());
+
+	if(code.empty() || str_mark.empty())
 	{
 		return out;
 	}
 
-	kmp_return_type ipair = s_kmp_mark(code.begin(), code.end());
+	kmp_return_type ipair = kmp_mark(code.begin(), code.end());
 
 	if(ipair.second == code.end())
 	{
@@ -211,7 +259,7 @@ libmark_set_type& get_libmarks_from_code_yggr_pp_link_lib(libmark_set_type& out,
 	str_citer_type isize = code.end();
 
 	libmark_set_type tmp_out;
-	for(;ipair.second != isize; ipair = s_kmp_mark(yggr::advance_copy(ipair.second, 1), isize))
+	for(;ipair.second != isize; ipair = kmp_mark(yggr::advance_copy(ipair.second, 1), isize))
 	{
 		if((ipair.second = parse_yggr_code_pair(tmp_out, /*out, */ipair.second, isize)) == isize)
 		{
@@ -395,11 +443,20 @@ libmark_set_type& get_libmarks_from_code_include(libmark_set_type& out, const pt
 
 libmark_set_type& get_libmarks_from_code(libmark_set_type& out, const ptree_string_type& code)
 {
+	static const ptree_string_type s_str_mark_yggr_pp_link_lib = "YGGR_PP_LINK_LIB(";
+	static const ptree_string_type s_str_mark_link_mongodb_test_static_lib = "LINK_MONGODB_TEST_STATIC_LIB(";
+	static const ptree_string_type s_str_mark_link_mongodb_test_impl_lib = "LINK_MONGODB_TEST_IMPL_LIB(";
+	static const ptree_string_type s_str_mark_link_mongodb_test_raw_lib = "LINK_MONGODB_TEST_RAW_LIB(";
+
 	get_libmarks_from_code_include(out, code);
 	get_libmarks_from_code_pragma_comment(out, code);
-	get_libmarks_from_code_yggr_pp_link_lib(out, code);
+	get_libmarks_from_code_macro_mark(out, code, s_str_mark_yggr_pp_link_lib);
+	get_libmarks_from_code_macro_mark(out, code, s_str_mark_link_mongodb_test_static_lib);
+	get_libmarks_from_code_macro_mark(out, code, s_str_mark_link_mongodb_test_impl_lib);
+	get_libmarks_from_code_macro_mark(out, code, s_str_mark_link_mongodb_test_raw_lib);
 
 	return out;
+
 }
 
 libmark_set_type& get_libmarks_from_code_file(libmark_set_type& out, const ptree_string_type& file_path)

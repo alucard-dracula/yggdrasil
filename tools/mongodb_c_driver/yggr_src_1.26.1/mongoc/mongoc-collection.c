@@ -3743,7 +3743,7 @@ done:
 
 #else
 
-#include <yggr_detail/original_error_t.h>
+#include <yggr_mongodbc_patch/original_error_t.h>
 
 bool
 mongoc_collection_find_and_modify_with_opts (

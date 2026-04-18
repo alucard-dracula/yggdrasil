@@ -20,7 +20,7 @@
 #include "kms_message/kms_response.h"
 
 //#include <stdbool.h>
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 #include <stdint.h>
 
 /* kms_kmip_response_parser_t is a private type used for parsing a KMIP

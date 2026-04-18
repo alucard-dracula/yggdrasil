@@ -21,7 +21,7 @@
 
 #include <stdint.h>
 //#include <stdbool.h>
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 
 typedef struct _mongoc_timeout_t mongoc_timeout_t;
 

@@ -21,6 +21,13 @@ cat ./luabind/luabind_mingw_cpp14.cbp | sed 's/-l%luaver_old%/-l%luaver_new%/g' 
 cat ./luabind/luabind_mingw_cpp17.cbp | sed 's/-l%luaver_old%/-l%luaver_new%/g' > ./luabind/luabind_mingw_%luaver_new%_cpp17.cbp
 cat ./luabind/luabind_mingw_cpp20.cbp | sed 's/-l%luaver_old%/-l%luaver_new%/g' > ./luabind/luabind_mingw_%luaver_new%_cpp20.cbp
 
+cat ./luabind_ts/luabind_ts_mingw.cbp | sed 's/-l%luaver_old%/-l%luaver_new%/g' > ./luabind_ts/luabind_ts_mingw_%luaver_new%.cbp
+cat ./luabind_ts/luabind_ts_mingw_cpp03.cbp | sed 's/-l%luaver_old%/-l%luaver_new%/g' > ./luabind_ts/luabind_ts_mingw_%luaver_new%_cpp03.cbp
+cat ./luabind_ts/luabind_ts_mingw_cpp11.cbp | sed 's/-l%luaver_old%/-l%luaver_new%/g' > ./luabind_ts/luabind_ts_mingw_%luaver_new%_cpp11.cbp
+cat ./luabind_ts/luabind_ts_mingw_cpp14.cbp | sed 's/-l%luaver_old%/-l%luaver_new%/g' > ./luabind_ts/luabind_ts_mingw_%luaver_new%_cpp14.cbp
+cat ./luabind_ts/luabind_ts_mingw_cpp17.cbp | sed 's/-l%luaver_old%/-l%luaver_new%/g' > ./luabind_ts/luabind_ts_mingw_%luaver_new%_cpp17.cbp
+cat ./luabind_ts/luabind_ts_mingw_cpp20.cbp | sed 's/-l%luaver_old%/-l%luaver_new%/g' > ./luabind_ts/luabind_ts_mingw_%luaver_new%_cpp20.cbp
+
 cp -f ./luabind_static/luabind_static_mingw.cbp ./luabind_static/luabind_static_mingw_%luaver_new%.cbp 
 cp -f ./luabind_static/luabind_static_mingw_cpp03.cbp ./luabind_static/luabind_static_mingw_%luaver_new%_cpp03.cbp 
 cp -f ./luabind_static/luabind_static_mingw_cpp11.cbp ./luabind_static/luabind_static_mingw_%luaver_new%_cpp11.cbp 
@@ -28,12 +35,12 @@ cp -f ./luabind_static/luabind_static_mingw_cpp14.cbp ./luabind_static/luabind_s
 cp -f ./luabind_static/luabind_static_mingw_cpp17.cbp ./luabind_static/luabind_static_mingw_%luaver_new%_cpp17.cbp 
 cp -f ./luabind_static/luabind_static_mingw_cpp20.cbp ./luabind_static/luabind_static_mingw_%luaver_new%_cpp20.cbp 
 
-cp -f ./luabind_static_ts/luabind_static_ts_mingw.cbp ./luabind_static_ts/luabind_static_ts_mingw_%luaver_new%.cbp 
-cp -f ./luabind_static_ts/luabind_static_ts_mingw_cpp03.cbp ./luabind_static_ts/luabind_static_ts_mingw_%luaver_new%_cpp03.cbp 
-cp -f ./luabind_static_ts/luabind_static_ts_mingw_cpp11.cbp ./luabind_static_ts/luabind_static_ts_mingw_%luaver_new%_cpp11.cbp 
-cp -f ./luabind_static_ts/luabind_static_ts_mingw_cpp14.cbp ./luabind_static_ts/luabind_static_ts_mingw_%luaver_new%_cpp14.cbp 
-cp -f ./luabind_static_ts/luabind_static_ts_mingw_cpp17.cbp ./luabind_static_ts/luabind_static_ts_mingw_%luaver_new%_cpp17.cbp 
-cp -f ./luabind_static_ts/luabind_static_ts_mingw_cpp20.cbp ./luabind_static_ts/luabind_static_ts_mingw_%luaver_new%_cpp20.cbp 
+cp -f ./luabind_ts_static/luabind_ts_static_mingw.cbp ./luabind_ts_static/luabind_ts_static_mingw_%luaver_new%.cbp 
+cp -f ./luabind_ts_static/luabind_ts_static_mingw_cpp03.cbp ./luabind_ts_static/luabind_ts_static_mingw_%luaver_new%_cpp03.cbp 
+cp -f ./luabind_ts_static/luabind_ts_static_mingw_cpp11.cbp ./luabind_ts_static/luabind_ts_static_mingw_%luaver_new%_cpp11.cbp 
+cp -f ./luabind_ts_static/luabind_ts_static_mingw_cpp14.cbp ./luabind_ts_static/luabind_ts_static_mingw_%luaver_new%_cpp14.cbp 
+cp -f ./luabind_ts_static/luabind_ts_static_mingw_cpp17.cbp ./luabind_ts_static/luabind_ts_static_mingw_%luaver_new%_cpp17.cbp 
+cp -f ./luabind_ts_static/luabind_ts_static_mingw_cpp20.cbp ./luabind_ts_static/luabind_ts_static_mingw_%luaver_new%_cpp20.cbp 
 
 cat ./luabind_test/luabind_test_mingw.cbp | sed 's/-l%luaver_old%/-l%luaver_new%/g' > ./luabind_test/luabind_test_mingw_%luaver_new%.cbp
 cat ./luabind_test/luabind_test_mingw_cpp03.cbp | sed 's/-l%luaver_old%/-l%luaver_new%/g' > ./luabind_test/luabind_test_mingw_%luaver_new%_cpp03.cbp

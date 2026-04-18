@@ -1,6 +1,7 @@
 // tool_format_vcxproj.cpp
 
 #include <yggr/base/yggrdef.h>
+#include <yggr/container/array.hpp>
 
 #include <iostream>
 #include <sstream>
@@ -14,6 +15,7 @@
 #	else
 
 #include <yggr/charset/utf8_string.hpp>
+#include <yggr/container/vector.hpp>
 #include <yggr/container/set.hpp>
 #include <yggr/container/unordered_set.hpp>
 
@@ -21,9 +23,11 @@
 #include <yggr/file_system/boost_filesystem_comp.hpp>
 #include "vcxproj_parser_patch.hpp"
 #include "tool_format_vcxproj_cfg.hpp"
+#include "vcsln_parser.hpp"
 
 #include <yggr/archive/xml_archive_partner.hpp>
 #include <yggr/packet/packet.hpp>
+
 
 #include <yggr/compile_link/linker.hpp>
 
@@ -69,16 +73,57 @@ struct fix_state
 	};
 };
 
-const ptree_type::key_type g_cfg_mark_debug_x32 = "'$(Configuration)|$(Platform)'=='Debug|Win32'";
-const ptree_type::key_type g_cfg_mark_release_x32 = "'$(Configuration)|$(Platform)'=='Release|Win32'";
-const ptree_type::key_type g_cfg_mark_debug_x64 = "'$(Configuration)|$(Platform)'=='Debug|x64'";
-const ptree_type::key_type g_cfg_mark_release_x64 = "'$(Configuration)|$(Platform)'=='Release|x64'";
+const ptree_type::key_type g_cfg_mark_debug_x32 = "\'$(Configuration)|$(Platform)\'==\'Debug|Win32\'";
+const ptree_type::key_type g_cfg_mark_release_x32 = "\'$(Configuration)|$(Platform)\'==\'Release|Win32\'";
+const ptree_type::key_type g_cfg_mark_debug_x64 = "\'$(Configuration)|$(Platform)\'==\'Debug|x64\'";
+const ptree_type::key_type g_cfg_mark_release_x64 = "\'$(Configuration)|$(Platform)\'==\'Release|x64\'";
+const ptree_type::key_type g_cfg_mark_debug_mt_x32 = "\'$(Configuration)|$(Platform)\'==\'Debug-MT|Win32\'";
+const ptree_type::key_type g_cfg_mark_release_mt_x32 = "\'$(Configuration)|$(Platform)\'==\'Release-MT|Win32\'";
+const ptree_type::key_type g_cfg_mark_debug_mt_x64 = "\'$(Configuration)|$(Platform)\'==\'Debug-MT|x64\'";
+const ptree_type::key_type g_cfg_mark_release_mt_x64 = "\'$(Configuration)|$(Platform)\'==\'Release-MT|x64\'";
 
 const ptree_type::key_type g_app_tag_exe = "Application";
 const ptree_type::key_type g_app_tag_dll = "DynamicLibrary";
 const ptree_type::key_type g_app_tag_static_lib = "StaticLibrary";
 const ptree_type::key_type g_app_tag_utility = "Utility";
 const ptree_type::key_type g_app_tag_makefile = "Makefile";
+
+template<typename Buffer>
+Buffer& read_from_file(Buffer& file_content, const yggr::utf8_string& fpath)
+{
+	try
+	{
+		local_fsys_operators_type::read_file_of_binary(local_fsys_operators_type::make_path_object(fpath), file_content);
+	}
+	catch(const local_fsys_operators_type::exception_type& e)
+	{
+		std::cerr << e.what() << std::endl;
+		assert(false);
+	}
+
+	return file_content;
+}
+
+template<typename Buffer>
+bool write_to_file(const yggr::utf8_string& fname, const Buffer& fbuf)
+{
+	std::size_t write_byte_size = 0;
+	try
+	{
+		write_byte_size =
+			local_fsys_operators_type::write_file_of_binary(
+				local_fsys_operators_type::make_path_object(fname), fbuf,
+				local_fsys_operators_type::options_type::dir_create_if_not_exists);
+	}
+	catch(const local_fsys_operators_type::exception_type& e)
+	{
+		std::cerr << e.what() << std::endl;
+		assert(false);
+		return false;
+	}
+
+	return !(write_byte_size == 0 || write_byte_size == local_fsys_operators_type::npos);
+}
 
 bool has_attribs(const ptree_type& ptree)
 {
@@ -340,20 +385,46 @@ inline bool is_debug_cfg_mark(const ptree_type::key_type& cfg_mark)
 {
 	return
 		(cfg_mark == g_cfg_mark_debug_x32)
-		|| (cfg_mark == g_cfg_mark_debug_x64);
+		|| (cfg_mark == g_cfg_mark_debug_mt_x32)
+		|| (cfg_mark == g_cfg_mark_debug_x64)
+		|| (cfg_mark == g_cfg_mark_debug_mt_x64);
 }
 
 inline bool is_release_cfg_mark(const ptree_type::key_type& cfg_mark)
 {
 	return
 		(cfg_mark == g_cfg_mark_release_x32)
-		|| (cfg_mark == g_cfg_mark_release_x64);
+		|| (cfg_mark == g_cfg_mark_release_mt_x32)
+		|| (cfg_mark == g_cfg_mark_release_x64)
+		|| (cfg_mark == g_cfg_mark_release_mt_x64);
+}
+
+
+inline bool is_cfg_mark(const ptree_type::key_type& cfg_mark)
+{
+	return
+		is_debug_cfg_mark(cfg_mark)
+		|| is_release_cfg_mark(cfg_mark);
+}
+
+inline bool is_mt_cfg_mark(const ptree_type::key_type& cfg_mark)
+{
+	return
+		(cfg_mark == g_cfg_mark_debug_mt_x32)
+		|| (cfg_mark == g_cfg_mark_release_mt_x32)
+		|| (cfg_mark == g_cfg_mark_debug_mt_x64)
+		|| (cfg_mark == g_cfg_mark_release_mt_x64);
 }
 
 //inline bool is_only_fix_root_namespace(const ptree_type::key_type& app_tag)
 //{
 //	return (app_tag == g_app_tag_utility);
 //}
+
+inline bool is_configuration_output(const ptree_type::key_type& out_dir)
+{
+	return out_dir.find("$(Configuration)") != ptree_type::key_type::npos;
+}
 
 inline const ptree_type::key_type& link_of_app_tag(const ptree_type::key_type& app_tag)
 {
@@ -382,11 +453,13 @@ inline const ptree_type::key_type& select_outdir_yggr(const ptree_type::key_type
 
 	if(app_tag == g_app_tag_static_lib)
 	{
-		if((cfg_mark == g_cfg_mark_debug_x32) || (cfg_mark == g_cfg_mark_release_x32))
+		if((cfg_mark == g_cfg_mark_debug_x32) || (cfg_mark == g_cfg_mark_release_x32)
+			|| (cfg_mark == g_cfg_mark_debug_mt_x32) || (cfg_mark == g_cfg_mark_release_mt_x32))
 		{
 			return s_str_lib32;
 		}
-		else if((cfg_mark == g_cfg_mark_debug_x64) || (cfg_mark == g_cfg_mark_release_x64))
+		else if((cfg_mark == g_cfg_mark_debug_x64) || (cfg_mark == g_cfg_mark_release_x64)
+				|| (cfg_mark == g_cfg_mark_debug_mt_x64) || (cfg_mark == g_cfg_mark_release_mt_x64))
 		{
 			return s_str_lib64;
 		}
@@ -422,11 +495,13 @@ inline const ptree_type::key_type& select_outdir(const ptree_type::key_type& roo
 
 	if(app_tag == g_app_tag_dll)
 	{
-		if((cfg_mark == g_cfg_mark_debug_x32) || (cfg_mark == g_cfg_mark_release_x32))
+		if((cfg_mark == g_cfg_mark_debug_x32) || (cfg_mark == g_cfg_mark_release_x32)
+			||(cfg_mark == g_cfg_mark_debug_mt_x32) || (cfg_mark == g_cfg_mark_release_mt_x32))
 		{
 			return s_str_bin32;
 		}
-		else if((cfg_mark == g_cfg_mark_debug_x64) || (cfg_mark == g_cfg_mark_release_x64))
+		else if((cfg_mark == g_cfg_mark_debug_x64) || (cfg_mark == g_cfg_mark_release_x64)
+				|| (cfg_mark == g_cfg_mark_debug_mt_x64) || (cfg_mark == g_cfg_mark_release_mt_x64))
 		{
 			return s_str_bin64;
 		}
@@ -437,11 +512,13 @@ inline const ptree_type::key_type& select_outdir(const ptree_type::key_type& roo
 	}
 	else if(app_tag == g_app_tag_static_lib)
 	{
-		if((cfg_mark == g_cfg_mark_debug_x32) || (cfg_mark == g_cfg_mark_release_x32))
+		if((cfg_mark == g_cfg_mark_debug_x32) || (cfg_mark == g_cfg_mark_release_x32)
+			|| (cfg_mark == g_cfg_mark_debug_mt_x32) || (cfg_mark == g_cfg_mark_release_mt_x32))
 		{
 			return s_str_lib32;
 		}
-		else if((cfg_mark == g_cfg_mark_debug_x64) || (cfg_mark == g_cfg_mark_release_x64))
+		else if((cfg_mark == g_cfg_mark_debug_x64) || (cfg_mark == g_cfg_mark_release_x64)
+				|| (cfg_mark == g_cfg_mark_debug_mt_x64) || (cfg_mark == g_cfg_mark_release_mt_x64))
 		{
 			return s_str_lib64;
 		}
@@ -484,16 +561,18 @@ inline const ptree_type::key_type& select_import_lib_path(const ptree_type::key_
 
 	static const string_type& s_str_default = "";
 
-	static const string_type& s_str_lib64 = "$(SolutionDir)lib64/lib$(TargetName).lib";
-	static const string_type& s_str_lib32 = "$(SolutionDir)lib/lib$(TargetName).lib";
+	static const string_type& s_str_lib64 = "$(SolutionDir)lib64/$(TargetName).lib";
+	static const string_type& s_str_lib32 = "$(SolutionDir)lib/$(TargetName).lib";
 
 	if(app_tag == g_app_tag_dll)
 	{
-		if((cfg_mark == g_cfg_mark_debug_x32) || (cfg_mark == g_cfg_mark_release_x32))
+		if((cfg_mark == g_cfg_mark_debug_x32) || (cfg_mark == g_cfg_mark_release_x32)
+			|| (cfg_mark == g_cfg_mark_debug_mt_x32) || (cfg_mark == g_cfg_mark_release_mt_x32))
 		{
 			return s_str_lib32;
 		}
-		else if((cfg_mark == g_cfg_mark_debug_x64) || (cfg_mark == g_cfg_mark_release_x64))
+		else if((cfg_mark == g_cfg_mark_debug_x64) || (cfg_mark == g_cfg_mark_release_x64)
+				|| (cfg_mark == g_cfg_mark_debug_mt_x64) || (cfg_mark == g_cfg_mark_release_mt_x64))
 		{
 			return s_str_lib64;
 		}
@@ -565,6 +644,17 @@ ptree_type& load_vcxproj(ptree_type& ptree, const yggr::utf8_string& str_file_pa
 	return ptree;
 }
 
+#if ONLY_MAKE_RUN_TEST()
+
+bool write_vcxproj(ptree_type& ptree, const yggr::utf8_string& str_file_path)
+{
+	print_ptree(ptree);
+
+	return true;
+}
+
+#else
+
 bool write_vcxproj(ptree_type& ptree, const yggr::utf8_string& str_file_path)
 {
 	typedef boost::property_tree::xml_writer_settings<ptree_type::key_type> xml_writer_settings_type;
@@ -582,7 +672,43 @@ bool write_vcxproj(ptree_type& ptree, const yggr::utf8_string& str_file_path)
 	return true;
 }
 
+#endif // ONLY_MAKE_RUN_TEST()
 
+
+yggr::string& load_sln(yggr::string& str_data, const yggr::utf8_string& str_file_path)
+{
+
+	yggr::string file_data;
+
+	read_from_file(file_data, str_file_path);
+	
+	if(file_data.size())
+	{
+		str_data = boost::move(file_data);
+	}
+
+	return str_data;
+}
+
+#if ONLY_MAKE_RUN_TEST()
+
+bool save_sln(const yggr::string& str_data, const yggr::utf8_string& str_file_path)
+{
+	std::cout << str_data << std::endl;
+	return true;
+}
+
+#else
+
+bool save_sln(const yggr::string& str_data, const yggr::utf8_string& str_file_path)
+{
+	return 
+		str_data.size() 
+		&& str_file_path.size()
+		&& write_to_file(str_file_path, str_data);
+}
+
+#endif // ONLY_MAKE_RUN_TEST()
 
 ptree_type::key_type get_configure_mark(const ptree_type& ptree)
 {
@@ -769,13 +895,6 @@ yggr::u32 format_keyword(ptree_type& ptree)
 	typedef ptree_type::const_assoc_iterator assoc_citer_type;
 	typedef ptree_type::iterator iterator;
 	typedef ptree_type::const_iterator const_iterator;
-
-	//iterator iter_cfg = ptree.to_iterator(ptree.find("Keyword"));
-
-	//if(iter_cfg != ptree.end())
-	//{
-	//	ptree.erase(iter_cfg);
-	//}
 
 	ptree.erase("Keyword");
 
@@ -1002,9 +1121,23 @@ inline ptree_type::key_type parse_target_ext(const ptree_type::key_type& arg_tar
 			: arg_target_name.substr(pos + 1, arg_target_name.size() - pos - 1);
 }
 
+inline yggr::string make_static_lib_target_name_title(const ptree_type::key_type& root_namespace, const yggr::string& title, const yggr::string& proj_name)
+{
+	if(title.size() < root_namespace.size() && root_namespace.substr(0, title.size()) == title)
+	{
+		return proj_name;
+	}
+	else
+	{
+		return title + proj_name;
+	}
+}
+
 inline ptree_type::key_type gen_target_name(const ptree_type::key_type& n_arg_target_name,
+											const ptree_type::key_type& root_namespace,
 											const ptree_type::key_type& app_tag,
-											const ptree_type::key_type& cfg_mark)
+											const ptree_type::key_type& cfg_mark,
+											const ptree_type::key_type& out_dir)
 {
 	typedef ptree_type::key_type string_type;
 
@@ -1020,18 +1153,40 @@ inline ptree_type::key_type gen_target_name(const ptree_type::key_type& n_arg_ta
 		}
 		else
 		{
-			if((cfg_mark == g_cfg_mark_debug_x32) || (cfg_mark == g_cfg_mark_debug_x64))
+			if(is_cfg_mark(cfg_mark))
 			{
-				return arg_target_name + "-d";
+				if(app_tag == g_app_tag_exe)
+				{
+					if(is_mt_cfg_mark(cfg_mark) && !is_configuration_output(out_dir))
+					{
+						return arg_target_name + "-s";
+					}
+					else
+					{
+						return arg_target_name;
+					}
+				}
+				else
+				{
+					if((cfg_mark == g_cfg_mark_debug_x32) || (cfg_mark == g_cfg_mark_debug_x64))
+					{
+						return arg_target_name + "-d";
+					}
+					else if((cfg_mark == g_cfg_mark_debug_mt_x32) || (cfg_mark == g_cfg_mark_debug_mt_x64))
+					{
+						return arg_target_name + "-s-d";
+					}
+					else if((cfg_mark == g_cfg_mark_release_x32) || (cfg_mark == g_cfg_mark_release_x64))
+					{
+						return arg_target_name;
+					}
+					else if((cfg_mark == g_cfg_mark_release_mt_x32) || (cfg_mark == g_cfg_mark_release_mt_x64))
+					{
+						return arg_target_name + "-s";
+					}
+				}
 			}
-			else if((cfg_mark == g_cfg_mark_release_x32) || (cfg_mark == g_cfg_mark_release_x64))
-			{
-				return arg_target_name;
-			}
-			else
-			{
-				return string_type();
-			}
+			return string_type();
 		}
 	}
 	else
@@ -1046,11 +1201,19 @@ inline ptree_type::key_type gen_target_name(const ptree_type::key_type& n_arg_ta
 		{
 			if((cfg_mark == g_cfg_mark_debug_x32) || (cfg_mark == g_cfg_mark_debug_x64))
 			{
-				target_name = "lib" + proj_name + "-vc$(PlatformToolsetVersion)-d";
+				target_name = make_static_lib_target_name_title(root_namespace, "lib", proj_name) + "-vc$(PlatformToolsetVersion)-d";
+			}
+			else if((cfg_mark == g_cfg_mark_debug_mt_x32) || (cfg_mark == g_cfg_mark_debug_mt_x64))
+			{
+				target_name = make_static_lib_target_name_title(root_namespace, "lib", proj_name) + "-vc$(PlatformToolsetVersion)-s-d";
 			}
 			else if((cfg_mark == g_cfg_mark_release_x32) || (cfg_mark == g_cfg_mark_release_x64))
 			{
-				target_name = "lib" + proj_name + "-vc$(PlatformToolsetVersion)";
+				target_name = make_static_lib_target_name_title(root_namespace, "lib", proj_name) + "-vc$(PlatformToolsetVersion)";
+			}
+			else if((cfg_mark == g_cfg_mark_release_mt_x32) || (cfg_mark == g_cfg_mark_release_mt_x64))
+			{
+				target_name = make_static_lib_target_name_title(root_namespace, "lib", proj_name) + "-vc$(PlatformToolsetVersion)-s";
 			}
 		}
 		else if(app_tag == g_app_tag_dll)
@@ -1059,20 +1222,31 @@ inline ptree_type::key_type gen_target_name(const ptree_type::key_type& n_arg_ta
 			{
 				target_name = proj_name + "-vc$(PlatformToolsetVersion)-d";
 			}
+			else if((cfg_mark == g_cfg_mark_debug_mt_x32) || (cfg_mark == g_cfg_mark_debug_mt_x64))
+			{
+				target_name = proj_name + "-vc$(PlatformToolsetVersion)-s-d";
+			}
 			else if((cfg_mark == g_cfg_mark_release_x32) || (cfg_mark == g_cfg_mark_release_x64))
 			{
 				target_name = proj_name + "-vc$(PlatformToolsetVersion)";
 			}
+			else if((cfg_mark == g_cfg_mark_release_mt_x32) || (cfg_mark == g_cfg_mark_release_mt_x64))
+			{
+				target_name = proj_name + "-vc$(PlatformToolsetVersion)-s";
+			}
 		}
 		else if(app_tag == g_app_tag_exe)
 		{
-			if((cfg_mark == g_cfg_mark_debug_x32) || (cfg_mark == g_cfg_mark_debug_x64))
+			if(is_cfg_mark(cfg_mark))
 			{
-				target_name = proj_name;
-			}
-			else if((cfg_mark == g_cfg_mark_release_x32) || (cfg_mark == g_cfg_mark_release_x64))
-			{
-				target_name = proj_name;
+				if(is_mt_cfg_mark(cfg_mark) && !is_configuration_output(out_dir))
+				{
+					target_name = proj_name + "-s";
+				}
+				else
+				{
+					target_name = proj_name;
+				}
 			}
 		}
 
@@ -1099,11 +1273,13 @@ inline yggr::u32 format_user_macro_data_target_name(ptree_type& ptree,
 		return static_cast<yggr::u32>(fix_state::E_SUCCEED);
 	}
 
+	string_type str_out_dir = ptree.get_child("OutDir").data();
+
 	map_citer_type map_iter = proj_name_map.find(yggr::utf8_string(root_namespace));
 	string_type arg_target_name = (map_iter == proj_name_map.end())? string_type() : map_iter->second.str<string_type>();
 
 	{
-		string_type cfg_val = gen_target_name(arg_target_name, app_tag, cfg_mark);
+		string_type cfg_val = gen_target_name(arg_target_name, root_namespace, app_tag, cfg_mark, str_out_dir);
 		if(cfg_val.empty())
 		{
 			return static_cast<yggr::u32>(fix_state::E_FAILED);
@@ -1233,8 +1409,9 @@ ptree_string_type& check_and_fix_pp(ptree_string_type& str_pp)
 	return str_pp;
 }
 
-string_set_type& parse_opt_items(string_set_type& out,
-									const ptree_type::key_type& str_opt_items)
+template<typename Container>
+Container& parse_opt_items(Container& out,
+							const ptree_type::key_type& str_opt_items)
 {
 	//typedef ptree_type::key_type ptree_string_type;
 	typedef ptree_string_type::const_iterator citer_type;
@@ -1249,8 +1426,9 @@ string_set_type& parse_opt_items(string_set_type& out,
 		check_and_fix_pp(tmp);
 		if(tmp.size())
 		{
-			out.insert(tmp);
+			std::inserter(out, boost::end(out)) = boost::move(tmp);
 		}
+
 		if(ipos != isize)
 		{
 			++ipos;
@@ -1262,7 +1440,7 @@ string_set_type& parse_opt_items(string_set_type& out,
 
 // ClCompile
 
-ptree_type::key_type make_dll_exprot(const ptree_type::key_type& root_namespace)
+ptree_type::key_type make_dll_export(const ptree_type::key_type& root_namespace)
 {
 	typedef ptree_type::key_type string_type;
 
@@ -1290,20 +1468,20 @@ ptree_type::key_type make_clcompile_pp_value(const string_set_type& pp_set,
 
 	string_type str = "WIN32";
 
-	if(cfg_mark == g_cfg_mark_debug_x32)
+	if(cfg_mark == g_cfg_mark_debug_x32 || cfg_mark == g_cfg_mark_debug_mt_x32)
 	{
 		str += ";_DEBUG";
 	}
-	else if(cfg_mark == g_cfg_mark_release_x32)
+	else if(cfg_mark == g_cfg_mark_release_x32 || cfg_mark == g_cfg_mark_release_mt_x32)
 	{
 		str += ";NDEBUG";
 	}
-	else if(cfg_mark == g_cfg_mark_debug_x64)
+	else if(cfg_mark == g_cfg_mark_debug_x64 || cfg_mark == g_cfg_mark_debug_mt_x64)
 	{
 		str += ";WIN64";
 		str += ";_DEBUG";
 	}
-	else if(cfg_mark == g_cfg_mark_release_x64)
+	else if(cfg_mark == g_cfg_mark_release_x64 || cfg_mark == g_cfg_mark_release_mt_x64)
 	{
 		str += ";WIN64";
 		str += ";NDEBUG";
@@ -1375,7 +1553,7 @@ yggr::u32 format_clcompile_pp(ptree_type& ptree,
 	string_type str_tmp = ptree.get_value<string_type>();
 	string_set_type pp_set;
 	parse_opt_items(pp_set, str_tmp);
-	string_type str_pp_export = make_dll_exprot(root_namespace);
+	string_type str_pp_export = make_dll_export(root_namespace);
 	remove_opt_items_pp(pp_set, str_pp_export, is_yggr_proj);
 
 	str_tmp = make_clcompile_pp_value(pp_set, str_pp_export, root_namespace, subsys, app_tag, cfg_mark);
@@ -1509,11 +1687,20 @@ yggr::u32 format_clcompile(ptree_type& ptree,
 			{
 				ptree.add_child("WholeProgramOptimization", ptree_type("false"));
 			}
+
+			if(is_cl_fix_object(app_tag) && is_mt_cfg_mark(cfg_mark))
+			{
+				ptree.add_child("RuntimeLibrary", ptree_type("MultiThreaded"));
+			}
 		}
 
 		if(is_debug_cfg_mark(cfg_mark))
 		{
 			ptree.add_child("DebugInformationFormat", ptree_type("ProgramDatabase"));
+			if(is_cl_fix_object(app_tag) && is_mt_cfg_mark(cfg_mark))
+			{
+				ptree.add_child("RuntimeLibrary", ptree_type("MultiThreadedDebug"));
+			}
 		}
 	}
 
@@ -1588,6 +1775,85 @@ yggr::u32 format_clcompile(ptree_type& ptree,
 	}
 
 	return static_cast<yggr::u32>(fix_state::E_SUCCEED);
+}
+
+
+bool is_vc_platform_toolset_version_item(const ptree_type::key_type& str)
+{
+	typedef ptree_type::key_type string_type;
+
+	static const string_type mark = "vc$(PlatformToolsetVersion)";
+
+	return str.find(mark) != string_type::npos;
+}
+
+ptree_type::key_type get_vc_platform_toolset_version_item_title(const ptree_type::key_type& str)
+{
+	typedef ptree_type::key_type string_type;
+
+	static const string_type mark = "vc$(PlatformToolsetVersion)";
+	
+	std::size_t idx = str.find(mark);
+
+	return idx == string_type::npos? str : str.substr(0, idx + mark.size());
+}
+
+ptree_type::key_type& format_mt_link_additional_dependencies(ptree_type::key_type& str,
+																 const ptree_type::key_type& app_tag, 
+																 const ptree_type::key_type& cfg_mark, 
+																 bool /*is_yggr_proj*/)
+{
+	typedef ptree_type::key_type string_type;
+	typedef yggr::vector<string_type> string_vt_type;
+	typedef string_vt_type::iterator string_vt_iter_type;
+	typedef string_vt_type::const_iterator string_vt_citer_type;
+
+	assert(is_link_fix_object(app_tag));
+	assert(is_mt_cfg_mark(cfg_mark));
+
+	format_string_file_path(str);
+
+	string_vt_type dep_vt;
+	parse_opt_items(dep_vt, str);
+
+	string_type str_tmp;
+	for(string_vt_citer_type i = dep_vt.begin(), isize = dep_vt.end(); i != isize;)
+	{
+		if(is_vc_platform_toolset_version_item(*i))
+		{
+			if(is_debug_cfg_mark(cfg_mark))
+			{
+				str_tmp += get_vc_platform_toolset_version_item_title(*i) + "-s-d.lib";
+			}
+			else if(is_release_cfg_mark(cfg_mark))
+			{
+				str_tmp += get_vc_platform_toolset_version_item_title(*i) + "-s.lib";
+			}
+			else
+			{
+				str_tmp.clear();
+				break;
+			}
+		}
+		else
+		{
+			str_tmp += *i;
+		}
+
+		++i;
+
+		if(i != isize)
+		{
+			str_tmp += ';';
+		}
+	}
+
+	if(str_tmp.size())
+	{
+		str.swap(str_tmp);
+	}
+
+	return str;
 }
 
 // Link
@@ -1717,16 +1983,30 @@ yggr::u32 format_link(ptree_type& ptree, const ptree_type::key_type& app_tag, co
 		if(iter_cfg != ptree.end())
 		{
 			string_type str = iter_cfg->second.get_value<string_type>();
-			if(format_string_file_path(str).empty()
-				|| str == "%(AdditionalDependencies)")
+			if(is_mt_cfg_mark(cfg_mark))
 			{
-				ptree.erase(iter_cfg);
+				if(format_mt_link_additional_dependencies(str, app_tag, cfg_mark, is_yggr_proj).empty()
+					|| str == "%(AdditionalDependencies)")
+				{
+					ptree.erase(iter_cfg);
+				}
+				else
+				{
+					iter_cfg->second.put_value(str);
+				}
 			}
 			else
 			{
-				iter_cfg->second.put_value(str);
+				if(format_string_file_path(str).empty()
+					|| str == "%(AdditionalDependencies)")
+				{
+					ptree.erase(iter_cfg);
+				}
+				else
+				{
+					iter_cfg->second.put_value(str);
+				}
 			}
-
 		}
 	}
 
@@ -1857,6 +2137,8 @@ yggr::u32 format_item_definition_group(ptree_type& ptree,
 
 	if(!is_cl_fix_object(app_tag))
 	{
+		ptree.erase("Link");
+		ptree.erase("Lib");
 		return static_cast<yggr::u32>(fix_state::E_SUCCEED);
 	}
 
@@ -1897,6 +2179,7 @@ yggr::u32 format_item_definition_group(ptree_type& ptree,
 	{
 		if(app_tag == g_app_tag_static_lib)
 		{
+			ptree.erase("Link");
 			iterator iter = ptree.to_iterator(ptree.find("Lib"));
 
 			chk_sat =
@@ -1998,7 +2281,19 @@ yggr::u32 format_no_cdt_property_items(ptree_type& ptree,
 
 	{
 		iterator iter_new_pg = ptree.insert(user_macro_end, ptree_val_type("PropertyGroup", ptree_type()));
+		iter_new_pg->second.add_child("<xmlattr>.Condition", ptree_type(g_cfg_mark_debug_mt_x32));
+		iter_new_pg->second.add_child("LinkIncremental", ptree_type("true"));
+	}
+
+	{
+		iterator iter_new_pg = ptree.insert(user_macro_end, ptree_val_type("PropertyGroup", ptree_type()));
 		iter_new_pg->second.add_child("<xmlattr>.Condition", ptree_type(g_cfg_mark_debug_x64));
+		iter_new_pg->second.add_child("LinkIncremental", ptree_type("true"));
+	}
+
+	{
+		iterator iter_new_pg = ptree.insert(user_macro_end, ptree_val_type("PropertyGroup", ptree_type()));
+		iter_new_pg->second.add_child("<xmlattr>.Condition", ptree_type(g_cfg_mark_debug_mt_x64));
 		iter_new_pg->second.add_child("LinkIncremental", ptree_type("true"));
 	}
 
@@ -2010,10 +2305,709 @@ yggr::u32 format_no_cdt_property_items(ptree_type& ptree,
 
 	{
 		iterator iter_new_pg = ptree.insert(user_macro_end, ptree_val_type("PropertyGroup", ptree_type()));
+		iter_new_pg->second.add_child("<xmlattr>.Condition", ptree_type(g_cfg_mark_release_mt_x32));
+		iter_new_pg->second.add_child("LinkIncremental", ptree_type("false"));
+	}
+
+	{
+		iterator iter_new_pg = ptree.insert(user_macro_end, ptree_val_type("PropertyGroup", ptree_type()));
 		iter_new_pg->second.add_child("<xmlattr>.Condition", ptree_type(g_cfg_mark_release_x64));
 		iter_new_pg->second.add_child("LinkIncremental", ptree_type("false"));
 	}
 
+	{
+		iterator iter_new_pg = ptree.insert(user_macro_end, ptree_val_type("PropertyGroup", ptree_type()));
+		iter_new_pg->second.add_child("<xmlattr>.Condition", ptree_type(g_cfg_mark_release_mt_x64));
+		iter_new_pg->second.add_child("LinkIncremental", ptree_type("false"));
+	}
+
+	return static_cast<yggr::u32>(fix_state::E_SUCCEED);
+}
+
+struct mt_check_idx
+{
+	YGGR_STATIC_CONSTANT(std::size_t, E_IDX_MTD_32 = 0);
+	YGGR_STATIC_CONSTANT(std::size_t, E_IDX_MT_32 = 1);
+	YGGR_STATIC_CONSTANT(std::size_t, E_IDX_MTD_64 = 2);
+	YGGR_STATIC_CONSTANT(std::size_t, E_IDX_MT_64 = 3);
+};
+
+std::size_t count_need_append_size(const boost::array<bool, 4>& append)
+{
+	return
+		static_cast<std::size_t>(!append[0]) 
+		+ static_cast<std::size_t>(!append[1]) 
+		+ static_cast<std::size_t>(!append[2]) 
+		+ static_cast<std::size_t>(!append[3]);
+}
+
+std::size_t has_full_mt_config(ptree_type& ptree, boost::array<bool, 4>& out_check)
+{
+	typedef ptree_type::key_type string_type;
+	typedef ptree_type::assoc_iterator assoc_iter_type;
+	typedef ptree_type::const_assoc_iterator assoc_citer_type;
+	typedef ptree_type::iterator iterator;
+	typedef ptree_type::const_iterator const_iterator;
+	//typedef boost::property_tree::xml_writer_settings<string_type> xml_writer_settings_type;
+	typedef boost::optional<ptree_type&> attribs_type;
+
+	assoc_iter_type assoc_iter = ptree.find("ItemGroup");
+
+	if(assoc_iter == ptree.not_found())
+	{
+		return false;
+	}
+
+	for(iterator i = assoc_iter->second.begin(), isize = assoc_iter->second.end();
+			(i != isize); ++i)
+	{
+		if(i->first == "ProjectConfiguration")
+		{
+			if(get_attribs(i->second, "Include") == "Debug-MT|Win32")
+			{
+				out_check[mt_check_idx::E_IDX_MTD_32] = true;
+			}
+			else if(get_attribs(i->second, "Include") == "Release-MT|Win32")
+			{
+				out_check[mt_check_idx::E_IDX_MT_32] = true;
+			}
+			else if(get_attribs(i->second, "Include") == "Debug-MT|x64")
+			{
+				out_check[mt_check_idx::E_IDX_MTD_64] = true;
+			}
+			else if(get_attribs(i->second, "Include") == "Release-MT|x64")
+			{
+				out_check[mt_check_idx::E_IDX_MT_64] = true;
+			}
+		}
+	}
+
+	return 4 - count_need_append_size(out_check);
+}
+
+std::size_t append_mt_project_configurations_detail(ptree_type& ptree, 
+													const boost::array<bool, 4>& append,
+													std::size_t need_fix_count,
+													const ptree_type::key_type& root_namespace,
+													const project_name_map_type& proj_name_map,
+													const ptree_type::key_type& app_tag,
+													bool is_yggr_proj)
+{
+	typedef ptree_type::key_type string_type;
+	typedef ptree_type::value_type ptree_value_type;
+	typedef ptree_type::assoc_iterator assoc_iter_type;
+	typedef ptree_type::const_assoc_iterator assoc_citer_type;
+	typedef ptree_type::iterator iterator;
+	typedef ptree_type::const_iterator const_iterator;
+	typedef boost::property_tree::xml_writer_settings<string_type> xml_writer_settings_type;
+	typedef boost::optional<ptree_type&> attribs_type;
+
+	std::pair<assoc_iter_type, assoc_iter_type> iter_pair = ptree.equal_range("ProjectConfiguration");
+	assert(iter_pair.first != iter_pair.second);
+
+	if(iter_pair.first == iter_pair.second)
+	{
+		return 0;
+	}
+
+	//std::size_t need_fix_count = count_need_append_size(append);
+	std::size_t fix_count = 0;
+
+	for(assoc_iter_type i = iter_pair.first, isize = iter_pair.second; i != isize && fix_count != need_fix_count; ++i)
+	{
+		if(!append[mt_check_idx::E_IDX_MTD_32])
+		{
+			if(i->second.get_child("Configuration").data() == "Debug"
+				&& i->second.get_child("Platform").data() == "Win32")
+			{
+				ptree_type sample_ptree = i->second;
+
+				set_attribs(sample_ptree, "Include", "Debug-MT|Win32");
+				sample_ptree.get_child("Configuration").data() = "Debug-MT";
+
+				iterator ins_iter = ptree.to_iterator(i);
+				++ins_iter;
+				ptree.insert(ins_iter, ptree_value_type("ProjectConfiguration", sample_ptree));
+				++fix_count;
+			}
+		}
+
+
+		if(!append[mt_check_idx::E_IDX_MT_32])
+		{
+			if(i->second.get_child("Configuration").data() == "Release"
+				&& i->second.get_child("Platform").data() == "Win32")
+			{
+				ptree_type sample_ptree = i->second;
+
+				set_attribs(sample_ptree, "Include", "Release-MT|Win32");
+				sample_ptree.get_child("Configuration").data() = "Release-MT";
+
+				iterator ins_iter = ptree.to_iterator(i);
+				++ins_iter;
+				ptree.insert(ins_iter, ptree_value_type("ProjectConfiguration", sample_ptree));
+				++fix_count;
+			}
+		}
+
+		if(!append[mt_check_idx::E_IDX_MTD_64])
+		{
+			if(i->second.get_child("Configuration").data() == "Debug"
+				&& i->second.get_child("Platform").data() == "x64")
+			{
+				ptree_type sample_ptree = i->second;
+
+				set_attribs(sample_ptree, "Include", "Debug-MT|x64");
+				sample_ptree.get_child("Configuration").data() = "Debug-MT";
+
+				iterator ins_iter = ptree.to_iterator(i);
+				++ins_iter;
+				ptree.insert(ins_iter, ptree_value_type("ProjectConfiguration", sample_ptree));
+				++fix_count;
+			}
+		}
+
+		if(!append[mt_check_idx::E_IDX_MT_64])
+		{
+			if(i->second.get_child("Configuration").data() == "Release"
+				&& i->second.get_child("Platform").data() == "x64")
+			{
+				ptree_type sample_ptree = i->second;
+				set_attribs(sample_ptree, "Include", "Release-MT|x64");
+				sample_ptree.get_child("Configuration").data() = "Release-MT";
+
+				iterator ins_iter = ptree.to_iterator(i);
+				++ins_iter;
+				ptree.insert(ins_iter, ptree_value_type("ProjectConfiguration", sample_ptree));
+				++fix_count;
+			}
+		}
+	}
+
+	//print_ptree(ptree);
+
+	return fix_count;
+}
+
+std::size_t append_mt_project_configurations(ptree_type& ptree, 
+												const boost::array<bool, 4>& append,
+												std::size_t need_fix_count,
+												const ptree_type::key_type& root_namespace,
+												const project_name_map_type& proj_name_map,
+												const ptree_type::key_type& app_tag,
+												bool is_yggr_proj)
+{
+	typedef ptree_type::key_type string_type;
+	typedef ptree_type::assoc_iterator assoc_iter_type;
+	typedef ptree_type::const_assoc_iterator assoc_citer_type;
+	typedef ptree_type::iterator iterator;
+	typedef ptree_type::const_iterator const_iterator;
+	typedef boost::property_tree::xml_writer_settings<string_type> xml_writer_settings_type;
+	typedef boost::optional<ptree_type&> attribs_type;
+
+
+	std::pair<assoc_iter_type, assoc_iter_type> iter_pair = ptree.equal_range("ItemGroup");
+
+	for(assoc_iter_type i = iter_pair.first, isize = iter_pair.second; i != isize; ++i)
+	{
+		if(get_attribs(i->second, "Label") == "ProjectConfigurations")
+		{
+			return 
+				append_mt_project_configurations_detail(
+					i->second, append, need_fix_count, root_namespace, proj_name_map, app_tag, is_yggr_proj);
+		}
+	}
+
+	return 0;
+}
+
+std::size_t append_mt_project_property_group_configuration(ptree_type& ptree, 
+															const boost::array<bool, 4>& append,
+															std::size_t need_fix_count,
+															const ptree_type::key_type& root_namespace,
+															const project_name_map_type& proj_name_map,
+															const ptree_type::key_type& app_tag,
+															bool is_yggr_proj)
+{
+	typedef ptree_type::key_type string_type;
+	typedef ptree_type::value_type ptree_value_type;
+	typedef ptree_type::assoc_iterator assoc_iter_type;
+	typedef ptree_type::const_assoc_iterator assoc_citer_type;
+	typedef ptree_type::iterator iterator;
+	typedef ptree_type::const_iterator const_iterator;
+	typedef boost::property_tree::xml_writer_settings<string_type> xml_writer_settings_type;
+	typedef boost::optional<ptree_type&> attribs_type;
+
+	std::pair<assoc_iter_type, assoc_iter_type> iter_pair = ptree.equal_range("PropertyGroup");
+
+	//std::size_t need_fix_count = count_need_append_size(append);
+	std::size_t fix_count = 0;
+
+	for(assoc_iter_type i = iter_pair.first, isize = iter_pair.second; i != isize && fix_count != need_fix_count; ++i)
+	{
+		if(get_attribs(i->second, "Label") == "Configuration")
+		{
+			if(!append[mt_check_idx::E_IDX_MTD_32])
+			{
+				if(get_attribs(i->second, "Condition") == g_cfg_mark_debug_x32)
+				{
+					ptree_type sample_ptree = i->second;
+
+					set_attribs(sample_ptree, "Condition", g_cfg_mark_debug_mt_x32);
+
+					iterator ins_iter = ptree.to_iterator(i);
+					++ins_iter;
+					ptree.insert(ins_iter, ptree_value_type("PropertyGroup", sample_ptree));
+					++fix_count;
+				}
+			}
+
+			if(!append[mt_check_idx::E_IDX_MT_32])
+			{
+				if(get_attribs(i->second, "Condition") == g_cfg_mark_release_x32)
+				{
+					ptree_type sample_ptree = i->second;
+
+					set_attribs(sample_ptree, "Condition", g_cfg_mark_release_mt_x32);
+
+					iterator ins_iter = ptree.to_iterator(i);
+					++ins_iter;
+					ptree.insert(ins_iter, ptree_value_type("PropertyGroup", sample_ptree));
+					++fix_count;
+				}
+			}
+
+			if(!append[mt_check_idx::E_IDX_MTD_64])
+			{
+				if(get_attribs(i->second, "Condition") == g_cfg_mark_debug_x64)
+				{
+					ptree_type sample_ptree = i->second;
+
+					set_attribs(sample_ptree, "Condition", g_cfg_mark_debug_mt_x64);
+					
+					iterator ins_iter = ptree.to_iterator(i);
+					++ins_iter;
+					ptree.insert(ins_iter, ptree_value_type("PropertyGroup", sample_ptree));
+					++fix_count;
+				}
+			}
+
+			if(!append[mt_check_idx::E_IDX_MT_64])
+			{
+				if(get_attribs(i->second, "Condition") == g_cfg_mark_release_x64)
+				{
+					ptree_type sample_ptree = i->second;
+
+					set_attribs(sample_ptree, "Condition", g_cfg_mark_release_mt_x64);
+
+					iterator ins_iter = ptree.to_iterator(i);
+					++ins_iter;
+					ptree.insert(ins_iter, ptree_value_type("PropertyGroup", sample_ptree));
+					++fix_count;
+				}
+			}
+		}
+	}
+
+	//print_ptree(ptree);
+	return fix_count;
+}
+
+std::size_t append_mt_project_property_group_nolable(ptree_type& ptree, 
+														const boost::array<bool, 4>& append,
+														std::size_t need_fix_count,
+														const ptree_type::key_type& root_namespace,
+														const project_name_map_type& proj_name_map,
+														const ptree_type::key_type& app_tag,
+														bool is_yggr_proj)
+{
+	typedef ptree_type::key_type string_type;
+	typedef ptree_type::value_type ptree_value_type;
+	typedef ptree_type::assoc_iterator assoc_iter_type;
+	typedef ptree_type::const_assoc_iterator assoc_citer_type;
+	typedef ptree_type::iterator iterator;
+	typedef ptree_type::const_iterator const_iterator;
+	typedef boost::property_tree::xml_writer_settings<string_type> xml_writer_settings_type;
+	typedef boost::optional<ptree_type&> attribs_type;
+
+	std::pair<assoc_iter_type, assoc_iter_type> iter_pair = ptree.equal_range("PropertyGroup");
+
+	//std::size_t need_fix_count = count_need_append_size(append);
+	std::size_t fix_count = 0;
+
+	string_type out_dir_base;
+	string_type target_name_base;
+
+	{
+		for(assoc_iter_type i = iter_pair.first, isize = iter_pair.second; i != isize; ++i)
+		{
+			if(!has_attribs(i->second, "Label") && get_attribs(i->second, "Condition") == g_cfg_mark_release_x32)
+			{
+				out_dir_base = i->second.get_child("OutDir").data();
+				if(is_cl_fix_object(app_tag))
+				{
+					target_name_base = i->second.get_child("TargetName").data();
+				}
+				break;
+			}
+		}
+	}
+
+	bool bchg_target_name = !is_configuration_output(out_dir_base);
+
+	for(assoc_iter_type i = iter_pair.first, isize = iter_pair.second; i != isize && fix_count != need_fix_count; ++i)
+	{
+		if(!append[mt_check_idx::E_IDX_MTD_32])
+		{
+			if(!has_attribs(i->second, "Label") && get_attribs(i->second, "Condition") == g_cfg_mark_debug_x32)
+			{	
+				ptree_type sample_ptree(i->second);
+
+				set_attribs(sample_ptree, "Condition", g_cfg_mark_debug_mt_x32);
+				if(bchg_target_name)
+				{
+					sample_ptree.get_child("TargetName").data() = target_name_base + "-s-d";
+				}
+
+				iterator ins_iter = ptree.to_iterator(i);
+				++ins_iter;
+				ptree.insert(ins_iter, ptree_value_type("PropertyGroup", sample_ptree));
+				++fix_count;
+			}
+		}
+
+		if(!append[mt_check_idx::E_IDX_MT_32])
+		{
+			if(!has_attribs(i->second, "Label") && get_attribs(i->second, "Condition") == g_cfg_mark_release_x32)
+			{
+				ptree_type sample_ptree(i->second);
+
+				set_attribs(sample_ptree, "Condition", g_cfg_mark_release_mt_x32);
+				if(bchg_target_name)
+				{
+					sample_ptree.get_child("TargetName").data() = target_name_base + "-s";
+				}
+				
+				iterator ins_iter = ptree.to_iterator(i);
+				++ins_iter;
+				ptree.insert(ins_iter, ptree_value_type("PropertyGroup", sample_ptree));
+				++fix_count;
+			}
+		}
+
+		if(!append[mt_check_idx::E_IDX_MTD_64])
+		{
+			if(!has_attribs(i->second, "Label") && get_attribs(i->second, "Condition") == g_cfg_mark_debug_x64)
+			{
+				ptree_type sample_ptree(i->second);
+
+				set_attribs(sample_ptree, "Condition", g_cfg_mark_debug_mt_x64);
+				if(bchg_target_name)
+				{
+					sample_ptree.get_child("TargetName").data() = target_name_base + "-s-d";
+				}
+				
+				iterator ins_iter = ptree.to_iterator(i);
+				++ins_iter;
+				ptree.insert(ins_iter, ptree_value_type("PropertyGroup", sample_ptree));
+				++fix_count;
+			}
+
+		}
+
+		if(!append[mt_check_idx::E_IDX_MT_64])
+		{
+			if(!has_attribs(i->second, "Label") && get_attribs(i->second, "Condition") == g_cfg_mark_release_x64)
+			{
+				ptree_type sample_ptree(i->second);
+
+				set_attribs(sample_ptree, "Condition", g_cfg_mark_release_mt_x64);
+				if(bchg_target_name)
+				{
+					sample_ptree.get_child("TargetName").data() = target_name_base + "-s";
+				}
+				
+				iterator ins_iter = ptree.to_iterator(i);
+				++ins_iter;
+				ptree.insert(ins_iter, ptree_value_type("PropertyGroup", sample_ptree));
+				++fix_count;
+			}
+		}
+	}
+
+	//print_ptree(ptree);
+
+	return fix_count;
+}
+
+std::size_t append_mt_project_import_group_property_sheets(ptree_type& ptree, 
+															const boost::array<bool, 4>& append,
+															std::size_t need_fix_count,
+															const ptree_type::key_type& root_namespace,
+															const project_name_map_type& proj_name_map,
+															const ptree_type::key_type& app_tag,
+															bool is_yggr_proj)
+{
+	typedef ptree_type::key_type string_type;
+	typedef ptree_type::value_type ptree_value_type;
+	typedef ptree_type::assoc_iterator assoc_iter_type;
+	typedef ptree_type::const_assoc_iterator assoc_citer_type;
+	typedef ptree_type::iterator iterator;
+	typedef ptree_type::const_iterator const_iterator;
+	typedef boost::property_tree::xml_writer_settings<string_type> xml_writer_settings_type;
+	typedef boost::optional<ptree_type&> attribs_type;
+
+	std::pair<assoc_iter_type, assoc_iter_type> iter_pair = ptree.equal_range("ImportGroup");
+
+	//std::size_t need_fix_count = count_need_append_size(append);
+	std::size_t fix_count = 0;
+
+	for(assoc_iter_type i = iter_pair.first, isize = iter_pair.second; i != isize && fix_count != need_fix_count; ++i)
+	{
+		if(get_attribs(i->second, "Label") == "PropertySheets")
+		{
+			if(!has_attribs(i->second, "Condition"))
+			{
+				return need_fix_count;
+			}
+
+			if(!append[mt_check_idx::E_IDX_MTD_32])
+			{
+				if(get_attribs(i->second, "Condition") == g_cfg_mark_debug_x32)
+				{
+					ptree_type sample_ptree(i->second);
+
+					set_attribs(sample_ptree, "Condition", g_cfg_mark_debug_mt_x32);
+
+					iterator ins_iter = ptree.to_iterator(i);
+					++ins_iter;
+					ptree.insert(ins_iter, ptree_value_type("ImportGroup", sample_ptree));
+					++fix_count;
+				}
+			}
+
+			if(!append[mt_check_idx::E_IDX_MT_32])
+			{
+				if(get_attribs(i->second, "Condition") == g_cfg_mark_release_x32)
+				{
+					ptree_type sample_ptree(i->second);
+
+					set_attribs(sample_ptree, "Condition", g_cfg_mark_release_mt_x32);
+
+					iterator ins_iter = ptree.to_iterator(i);
+					++ins_iter;
+					ptree.insert(ins_iter, ptree_value_type("ImportGroup", sample_ptree));
+					++fix_count;
+				}
+			}
+
+			if(!append[mt_check_idx::E_IDX_MTD_64])
+			{
+				if(get_attribs(i->second, "Condition") == g_cfg_mark_debug_x64)
+				{
+					ptree_type sample_ptree(i->second);
+
+					set_attribs(sample_ptree, "Condition", g_cfg_mark_debug_mt_x64);
+					
+					iterator ins_iter = ptree.to_iterator(i);
+					++ins_iter;
+					ptree.insert(ins_iter, ptree_value_type("ImportGroup", sample_ptree));
+					++fix_count;
+				}
+			}
+
+			if(!append[mt_check_idx::E_IDX_MT_64])
+			{
+				if(get_attribs(i->second, "Condition") == g_cfg_mark_release_x64)
+				{
+					ptree_type sample_ptree(i->second);
+
+					set_attribs(sample_ptree, "Condition", g_cfg_mark_release_mt_x64);
+					
+					iterator ins_iter = ptree.to_iterator(i);
+					++ins_iter;
+					ptree.insert(ins_iter, ptree_value_type("ImportGroup", sample_ptree));
+					++fix_count;
+				}
+			}
+		}
+	}
+
+	//print_ptree(ptree);
+	return fix_count;
+}
+
+std::size_t append_mt_project_item_definition_group(ptree_type& ptree, 
+														const boost::array<bool, 4>& append,
+														std::size_t need_fix_count,
+														const ptree_type::key_type& root_namespace,
+														const project_name_map_type& proj_name_map,
+														const ptree_type::key_type& app_tag,
+														bool is_yggr_proj)
+{
+	typedef ptree_type::key_type string_type;
+	typedef ptree_type::value_type ptree_value_type;
+	typedef ptree_type::assoc_iterator assoc_iter_type;
+	typedef ptree_type::const_assoc_iterator assoc_citer_type;
+	typedef ptree_type::iterator iterator;
+	typedef ptree_type::const_iterator const_iterator;
+	typedef boost::property_tree::xml_writer_settings<string_type> xml_writer_settings_type;
+	typedef boost::optional<ptree_type&> attribs_type;
+
+	std::pair<assoc_iter_type, assoc_iter_type> iter_pair = ptree.equal_range("ItemDefinitionGroup");
+
+	//std::size_t need_fix_count = count_need_append_size(append);
+	std::size_t fix_count = 0;
+
+	for(assoc_iter_type i = iter_pair.first, isize = iter_pair.second; i != isize && fix_count != need_fix_count; ++i)
+	{
+		if(!append[mt_check_idx::E_IDX_MTD_32])
+		{
+			if(get_attribs(i->second, "Condition") == g_cfg_mark_debug_x32)
+			{
+				ptree_type sample_ptree(i->second);
+
+				set_attribs(sample_ptree, "Condition", g_cfg_mark_debug_mt_x32);
+				if(app_tag != g_app_tag_utility)
+				{
+					sample_ptree.put_child("ClCompile.RuntimeLibrary", ptree_type("MultiThreadedDebug"));
+				}
+
+				iterator ins_iter = ptree.to_iterator(i);
+				++ins_iter;
+				ptree.insert(ins_iter, ptree_value_type("ItemDefinitionGroup", sample_ptree));
+				++fix_count;
+			}
+		}
+
+		if(!append[mt_check_idx::E_IDX_MT_32])
+		{
+			if(get_attribs(i->second, "Condition") == g_cfg_mark_release_x32)
+			{
+				ptree_type sample_ptree(i->second);
+
+				set_attribs(sample_ptree, "Condition", g_cfg_mark_release_mt_x32);
+				if(app_tag != g_app_tag_utility)
+				{
+					sample_ptree.put_child("ClCompile.RuntimeLibrary", ptree_type("MultiThreaded"));
+				}
+				
+				iterator ins_iter = ptree.to_iterator(i);
+				++ins_iter;
+				ptree.insert(ins_iter, ptree_value_type("ItemDefinitionGroup", sample_ptree));
+				++fix_count;
+			}
+		}
+
+		if(!append[mt_check_idx::E_IDX_MTD_64])
+		{
+			if(get_attribs(i->second, "Condition") == g_cfg_mark_debug_x64)
+			{
+				ptree_type sample_ptree(i->second);
+
+				set_attribs(sample_ptree, "Condition", g_cfg_mark_debug_mt_x64);
+				if(app_tag != g_app_tag_utility)
+				{
+					sample_ptree.put_child("ClCompile.RuntimeLibrary", ptree_type("MultiThreadedDebug"));
+				}
+				
+				iterator ins_iter = ptree.to_iterator(i);
+				++ins_iter;
+				ptree.insert(ins_iter, ptree_value_type("ItemDefinitionGroup", sample_ptree));
+				++fix_count;
+			}
+
+		}
+
+		if(!append[mt_check_idx::E_IDX_MT_64])
+		{
+
+			if(get_attribs(i->second, "Condition") == g_cfg_mark_release_x64)
+			{
+				ptree_type sample_ptree(i->second);
+
+				set_attribs(sample_ptree, "Condition", g_cfg_mark_release_mt_x64);
+				if(app_tag != g_app_tag_utility)
+				{
+					sample_ptree.put_child("ClCompile.RuntimeLibrary", ptree_type("MultiThreaded"));
+				}
+				
+				iterator ins_iter = ptree.to_iterator(i);
+				++ins_iter;
+				ptree.insert(ins_iter, ptree_value_type("ItemDefinitionGroup", sample_ptree));
+				++fix_count;
+			}
+		}
+	}
+
+	//print_ptree(ptree);
+
+	return fix_count;
+}
+
+yggr::u32 append_mt_configure(ptree_type& ptree,
+								const ptree_type::key_type& root_namespace,
+								const project_name_map_type& proj_name_map,
+								const ptree_type::key_type& app_tag,
+								bool is_yggr_proj)
+{
+	typedef ptree_type::key_type string_type;
+	typedef ptree_type::assoc_iterator assoc_iter_type;
+	typedef ptree_type::const_assoc_iterator assoc_citer_type;
+	typedef ptree_type::iterator iterator;
+	typedef ptree_type::const_iterator const_iterator;
+	typedef boost::property_tree::xml_writer_settings<string_type> xml_writer_settings_type;
+	typedef boost::optional<ptree_type&> attribs_type;
+
+	
+	assoc_iter_type assoc_iter = ptree.find("Project");
+	assert(assoc_iter != ptree.not_found());
+	if(assoc_iter == ptree.not_found())
+	{
+		return static_cast<yggr::u32>(fix_state::E_FAILED);
+	}
+
+
+	boost::array<bool, 4> need_add_mt_chk = {false};
+	std::size_t has_mt_size = has_full_mt_config(assoc_iter->second, need_add_mt_chk);
+	const std::size_t need_add_mt_size = need_add_mt_chk.size() - has_mt_size;
+	
+	if(!need_add_mt_size)
+	{
+		return static_cast<yggr::u32>(fix_state::E_SUCCEED);
+	}
+
+	if(append_mt_project_configurations(
+		assoc_iter->second, need_add_mt_chk, need_add_mt_size, root_namespace, proj_name_map, app_tag, is_yggr_proj) != need_add_mt_size)
+	{
+		return static_cast<yggr::u32>(fix_state::E_FAILED);
+	}
+
+	if(append_mt_project_property_group_configuration(
+		assoc_iter->second, need_add_mt_chk, need_add_mt_size, root_namespace, proj_name_map, app_tag, is_yggr_proj) != need_add_mt_size)
+	{
+		return static_cast<yggr::u32>(fix_state::E_FAILED);
+	}
+
+	if(append_mt_project_property_group_nolable(
+		assoc_iter->second, need_add_mt_chk, need_add_mt_size, root_namespace, proj_name_map, app_tag, is_yggr_proj) != need_add_mt_size)
+	{
+		return static_cast<yggr::u32>(fix_state::E_FAILED);
+	}
+
+	if(append_mt_project_import_group_property_sheets(
+		assoc_iter->second, need_add_mt_chk, need_add_mt_size, root_namespace, proj_name_map, app_tag, is_yggr_proj) != need_add_mt_size)
+	{
+		return static_cast<yggr::u32>(fix_state::E_FAILED);
+	}
+
+	if(append_mt_project_item_definition_group(
+		assoc_iter->second, need_add_mt_chk, need_add_mt_size, root_namespace, proj_name_map, app_tag, is_yggr_proj) != need_add_mt_size)
+	{
+		return static_cast<yggr::u32>(fix_state::E_FAILED);
+	}
+
+	//print_ptree(ptree);
 	return static_cast<yggr::u32>(fix_state::E_SUCCEED);
 }
 
@@ -2034,6 +3028,11 @@ yggr::u32 format_property_items_detail(ptree_type& ptree,
 	assert(is_need_fix_of_app_tag(app_tag));
 
 	if(!is_need_fix_of_app_tag(app_tag))
+	{
+		return static_cast<yggr::u32>(fix_state::E_FAILED);
+	}
+
+	if(append_mt_configure(ptree, root_namespace, proj_name_map, app_tag, is_yggr_proj) != fix_state::E_SUCCEED)
 	{
 		return static_cast<yggr::u32>(fix_state::E_FAILED);
 	}
@@ -2217,11 +3216,9 @@ void fix_vcxproj(const yggr::utf8_string& str_file_path,
 	switch(chk_sat)
 	{
 	case fix_state::E_SUCCEED:
-#if !ONLY_MAKE_RUN_TEST()
 		{
 			write_vcxproj(ptree, str_file_path);
 		}
-#endif // ONLY_MAKE_RUN_TEST()
 		break;
 	case fix_state::E_FAILED:
 		{
@@ -2251,6 +3248,255 @@ void fix_vcxproj_list(const file_list_type& file_list,
 	}
 }
 
+//sln
+
+yggr::string g_sln_cfg_mark_debug_32 = "Debug|Win32";
+yggr::string g_sln_cfg_mark_debug_mt_32 = "Debug-MT|Win32";
+yggr::string g_sln_cfg_mark_release_32 = "Release|Win32";
+yggr::string g_sln_cfg_mark_release_mt_32 = "Release-MT|Win32";
+
+yggr::string g_sln_cfg_mark_debug_64 = "Debug|x64";
+yggr::string g_sln_cfg_mark_debug_mt_64 = "Debug-MT|x64";
+yggr::string g_sln_cfg_mark_release_64 = "Release|x64";
+yggr::string g_sln_cfg_mark_release_mt_64 = "Release-MT|x64";
+
+
+std::size_t has_sln_full_mt_config (const vcsln::sln_kv_map_type& global_sln_cfg, boost::array<bool, 4>& out_check)
+{
+	typedef vcsln::sln_kv_map_type sln_kv_map_type;
+	typedef sln_kv_map_type::iterator sln_kv_map_iter_type;
+	typedef sln_kv_map_type::const_iterator sln_kv_map_citer_type;
+
+	for(sln_kv_map_citer_type i = global_sln_cfg.begin(), isize = global_sln_cfg.end(); i != isize; ++i)
+	{
+		if(i->first.find(g_sln_cfg_mark_debug_mt_32) != yggr::string::npos)
+		{
+			out_check[mt_check_idx::E_IDX_MTD_32] = true;
+		}
+		else if(i->first.find(g_sln_cfg_mark_release_mt_32) != yggr::string::npos)
+		{
+			out_check[mt_check_idx::E_IDX_MT_32] = true;
+		}
+		else if(i->first.find(g_sln_cfg_mark_debug_mt_64) != yggr::string::npos)
+		{
+			out_check[mt_check_idx::E_IDX_MTD_64] = true;
+		}
+		else if(i->first.find(g_sln_cfg_mark_release_mt_64) != yggr::string::npos)
+		{
+			out_check[mt_check_idx::E_IDX_MT_64] = true;
+		}
+	}
+
+	return 4 - count_need_append_size(out_check);
+}
+
+bool find_and_replace(yggr::string& src, const yggr::string& str_find, const yggr::string& str_repl)
+{
+	std::size_t find_pos = src.find(str_find);
+
+	if(find_pos == yggr::string::npos)
+	{
+		return false;
+	}
+
+	src.replace(find_pos, str_find.size(), str_repl);
+
+	return true;
+}
+
+bool append_mt_sln_item_cfg(vcsln::sln_kv_map_type& sln_cfg, 
+							const boost::array<bool, 4>& append, 
+							std::size_t need_fix_count)
+{
+	typedef vcsln::sln_kv_map_type sln_kv_map_type;
+	typedef sln_kv_map_type::value_type sln_kv_map_val_type;
+	typedef sln_kv_map_type::iterator sln_kv_map_iter_type;
+	typedef sln_kv_map_type::const_iterator sln_kv_map_citer_type;
+
+	vcsln::sln_kv_map_type tmp;
+
+	for(sln_kv_map_citer_type i = sln_cfg.begin(), isize = sln_cfg.end(); i != isize; ++i)
+	{
+		if(!append[mt_check_idx::E_IDX_MTD_32])
+		{
+			if(i->first.find(g_sln_cfg_mark_debug_32) != yggr::string::npos)
+			{
+				yggr::string key = i->first;
+				yggr::string val = i->second;
+
+				if(!(find_and_replace(key, g_sln_cfg_mark_debug_32, g_sln_cfg_mark_debug_mt_32)
+					&& find_and_replace(val, g_sln_cfg_mark_debug_32, g_sln_cfg_mark_debug_mt_32)))
+				{
+					return false;
+				}
+
+				//std::cout << key << std::endl;
+				//std::cout << val << std::endl;
+
+				tmp.insert(sln_kv_map_val_type(boost::move(key), boost::move(val)));
+			}
+		}
+
+		if(!append[mt_check_idx::E_IDX_MT_32])
+		{
+			if(i->first.find(g_sln_cfg_mark_release_32) != yggr::string::npos)
+			{
+				yggr::string key = i->first;
+				yggr::string val = i->second;
+
+				if(!(find_and_replace(key, g_sln_cfg_mark_release_32, g_sln_cfg_mark_release_mt_32)
+					&& find_and_replace(val, g_sln_cfg_mark_release_32, g_sln_cfg_mark_release_mt_32)))
+				{
+					return false;
+				}
+
+				//std::cout << key << std::endl;
+				//std::cout << val << std::endl;
+
+				tmp.insert(sln_kv_map_val_type(boost::move(key), boost::move(val)));
+			}
+		}
+
+		if(!append[mt_check_idx::E_IDX_MTD_64])
+		{
+			if(i->first.find(g_sln_cfg_mark_debug_64) != yggr::string::npos)
+			{
+				yggr::string key = i->first;
+				yggr::string val = i->second;
+
+				if(!(find_and_replace(key, g_sln_cfg_mark_debug_64, g_sln_cfg_mark_debug_mt_64)
+					&& find_and_replace(val, g_sln_cfg_mark_debug_64, g_sln_cfg_mark_debug_mt_64)))
+				{
+					return false;
+				}
+
+				//std::cout << key << std::endl;
+				//std::cout << val << std::endl;
+
+				tmp.insert(sln_kv_map_val_type(boost::move(key), boost::move(val)));
+			}
+		}
+
+		if(!append[mt_check_idx::E_IDX_MT_64])
+		{
+			if(i->first.find(g_sln_cfg_mark_release_64) != yggr::string::npos)
+			{
+				yggr::string key = i->first;
+				yggr::string val = i->second;
+
+				if(!(find_and_replace(key, g_sln_cfg_mark_release_64, g_sln_cfg_mark_release_mt_64)
+					&& find_and_replace(val, g_sln_cfg_mark_release_64, g_sln_cfg_mark_release_mt_64)))
+				{
+					return false;
+				}
+
+				//std::cout << key << std::endl;
+				//std::cout << val << std::endl;
+
+				tmp.insert(sln_kv_map_val_type(boost::move(key), boost::move(val)));
+			}
+		}
+	}
+
+	yggr::container::merge(sln_cfg, tmp);
+
+	return true;
+}
+
+yggr::u32 format_sln_items(yggr::string& new_file_data,
+							const yggr::string& file_data)
+{
+	yggr::string str_global_beg;
+	vcsln::sln_kv_map_type global_sln_cfg;
+	yggr::string str_global_mid;
+	vcsln::sln_kv_map_type global_proj_cfg;
+	yggr::string str_global_end;
+
+	if(!vcsln::split_sln(str_global_beg, global_sln_cfg, str_global_mid, global_proj_cfg, str_global_end, file_data))
+	{
+		return static_cast<yggr::u32>(fix_state::E_FAILED);
+	}
+
+	boost::array<bool, 4> append = {false};
+	std::size_t has_mt_cfg_size = has_sln_full_mt_config(global_sln_cfg, append);
+	std::size_t need_append_size = 4 - has_mt_cfg_size;
+
+	if(!need_append_size)
+	{
+		return static_cast<yggr::u32>(fix_state::E_SUCCEED);
+	}
+
+	if(!append_mt_sln_item_cfg(global_sln_cfg, append, need_append_size))
+	{
+		return static_cast<yggr::u32>(fix_state::E_FAILED);
+	}
+
+	if(!append_mt_sln_item_cfg(global_proj_cfg, append, need_append_size))
+	{
+		return static_cast<yggr::u32>(fix_state::E_FAILED);
+	}
+
+	if(!vcsln::merge_sln(new_file_data, str_global_beg, global_sln_cfg, str_global_mid, global_proj_cfg, str_global_end).size())
+	{
+		return static_cast<yggr::u32>(fix_state::E_FAILED);
+	}
+
+	return static_cast<yggr::u32>(fix_state::E_SUCCEED);
+}
+
+void fix_sln(const yggr::utf8_string& str_file_path,
+					file_list_type& failed_file_list,
+					file_list_type& ignore_file_list)
+{
+	typedef yggr::string string_type;
+
+	string_type file_data;
+	string_type new_file_data;
+
+	std::cout << "format_sln " << str_file_path << std::endl;
+
+	yggr::u32 chk_sat = 
+		load_sln(file_data, str_file_path).size()?
+			format_sln_items(new_file_data, file_data)
+			: static_cast<yggr::u32>(fix_state::E_FAILED);
+
+	switch(chk_sat)
+	{
+	case fix_state::E_SUCCEED:
+		{
+			if(new_file_data.size())
+			{
+				save_sln(new_file_data, str_file_path);
+			}
+		}
+		break;
+	case fix_state::E_FAILED:
+		{
+			std::cerr << "!!! failed fix sln " << str_file_path << " !!!" << std::endl;
+			failed_file_list.insert(str_file_path);
+		}
+		break;
+	case fix_state::E_IGNORE:
+		{
+			std::cout << "~~~ ignore fix sln " << str_file_path << " ~~~" << std::endl;
+			ignore_file_list.insert(str_file_path);
+		}
+		break;
+	default:
+		assert(false);
+	}
+}
+
+void fix_sln_list(const file_list_type& file_list,
+						file_list_type& failed_file_list,
+						file_list_type& ignore_file_list)
+{
+	for(file_list_type::const_iterator i = file_list.begin(), isize = file_list.end(); i != isize; ++i)
+	{
+		fix_sln(*i, failed_file_list, ignore_file_list);
+	}
+}
+
 
 bool handler_for_each_search_files_filter(local_fsys_operators_type::recursive_directory_iterator_type dir_iter,
 											const local_fsys_operators_type::directory_entry_type& entry,
@@ -2268,7 +3514,8 @@ void handler_for_each_search_files(const local_fsys_operators_type::directory_en
 										boost::uintmax_t current_count,
 										local_fsys_operators_type::error_code_type* current_ec,
 										const filter_list_type& file_filter,
-										file_list_type& vcxproj_files)
+										file_list_type& vcxproj_files,
+										file_list_type& sln_files)
 {
 	typedef local_fsys_operators_type::path_type path_type;
 
@@ -2291,6 +3538,11 @@ void handler_for_each_search_files(const local_fsys_operators_type::directory_en
 		std::cout << fpath << std::endl;
 		vcxproj_files.insert(yggr::utf8_string(fpath.native()));
 	}
+	else if(fpath.extension() == ".sln")
+	{
+		std::cout << fpath << std::endl;
+		sln_files.insert(yggr::utf8_string(fpath.native()));
+	}
 
 	return;
 }
@@ -2298,7 +3550,8 @@ void handler_for_each_search_files(const local_fsys_operators_type::directory_en
 void get_files(const yggr::utf8_string& str_root_path,
 				const filter_list_type& dir_filter,
 				const filter_list_type& file_filter,
-				file_list_type& vcxproj_files)
+				file_list_type& vcxproj_files,
+				file_list_type& sln_files)
 {
 	path_type root_dir_path = local_fsys_operators_type::make_path_object(str_root_path);
 
@@ -2309,7 +3562,8 @@ void get_files(const yggr::utf8_string& str_root_path,
 			boost::bind(
 				&handler_for_each_search_files, _1, _2, _3,
 				boost::cref(file_filter),
-				boost::ref(vcxproj_files)),
+				boost::ref(vcxproj_files),
+				boost::ref(sln_files)),
 			boost::bind(
 				&handler_for_each_search_files_filter, _1, _2, _3, _4, boost::cref(dir_filter)),
 			local_fsys_operators_type::file_types_options_type::general_file);
@@ -2322,43 +3576,6 @@ void get_files(const yggr::utf8_string& str_root_path,
 }
 
 // update
-
-template<typename Buffer>
-Buffer& read_from_file(Buffer& file_content, const yggr::utf8_string& fpath)
-{
-	try
-	{
-		local_fsys_operators_type::read_file_of_binary(local_fsys_operators_type::make_path_object(fpath), file_content);
-	}
-	catch(const local_fsys_operators_type::exception_type& e)
-	{
-		std::cerr << e.what() << std::endl;
-		assert(false);
-	}
-
-	return file_content;
-}
-
-template<typename Buffer>
-bool write_to_file(const yggr::utf8_string& fname, const Buffer& fbuf)
-{
-	std::size_t write_byte_size = 0;
-	try
-	{
-		write_byte_size =
-			local_fsys_operators_type::write_file_of_binary(
-				local_fsys_operators_type::make_path_object(fname), fbuf,
-				local_fsys_operators_type::options_type::dir_create_if_not_exists);
-	}
-	catch(const local_fsys_operators_type::exception_type& e)
-	{
-		std::cerr << e.what() << std::endl;
-		assert(false);
-		return false;
-	}
-
-	return !(write_byte_size == 0 || write_byte_size == local_fsys_operators_type::npos);
-}
 
 bool write_cfg_file(const yggr::utf8_string& fname, const tool_format_vcxproj_cfg_type& cfg)
 {
@@ -2462,13 +3679,22 @@ int main_detail(int argc, char* argv[])
 	file_list_type failed_vcxproj_files;
 	file_list_type ignore_vcxproj_files;
 
-	get_files(cfg.root_dir_, cfg.dir_filter_, cfg.file_filter_, vcxproj_files);
-	//get_files("./test_data", cfg.dir_filter_, cfg.file_filter_, vcxproj_files);
+	file_list_type sln_files;
+	file_list_type failed_sln_files;
+	file_list_type ignore_sln_files;
+
+	get_files(cfg.root_dir_, cfg.dir_filter_, cfg.file_filter_, vcxproj_files, sln_files);
+	//get_files("./test_data", cfg.dir_filter_, cfg.file_filter_, vcxproj_files, sln_files);
 
 	fix_vcxproj_list(vcxproj_files, cfg.proj_name_map_, failed_vcxproj_files, ignore_vcxproj_files);
 
 	write_log_file(yggr::utf8_string("tool_format_vcxproj_failed_log.txt"), fix_state::E_FAILED, failed_vcxproj_files);
 	write_log_file(yggr::utf8_string("tool_format_vcxproj_ignore_log.txt"), fix_state::E_IGNORE, ignore_vcxproj_files);
+
+	fix_sln_list(sln_files, failed_sln_files, ignore_sln_files);
+
+	write_log_file(yggr::utf8_string("tool_format_sln_failed_log.txt"), fix_state::E_FAILED, failed_sln_files);
+	write_log_file(yggr::utf8_string("tool_format_lsn_ignore_log.txt"), fix_state::E_IGNORE, ignore_sln_files);
 
 	return 0;
 }
@@ -2482,12 +3708,9 @@ int main(int argc, char* argv[])
 	assert(("Message: this tool not support boost 1.55 and older", false));
 	std::cout << "end" << std::endl;
 
-	if(!(argc > 1))
-	{
-		char cc = 0;
-		std::cin >> cc;
-	}
-
+	char cc = 0;
+	std::cin >> cc;
+	
 	return -1;
 }
 
@@ -2499,8 +3722,11 @@ int main(int argc, char* argv[])
 
 	std::cout << "end" << std::endl;
 
-	char cc = 0;
-	std::cin >> cc;
+	if(!(argc > 1))
+	{
+		char cc = 0;
+		std::cin >> cc;
+	}
 
 	return ret;
 }

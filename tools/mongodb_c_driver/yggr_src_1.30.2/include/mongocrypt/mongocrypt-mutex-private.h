@@ -17,7 +17,7 @@
 #ifndef MONGOCRYPT_MUTEX_PRIVATE_H
 #define MONGOCRYPT_MUTEX_PRIVATE_H
 
-#include <yggr_detail/c_version_support.h>
+#include <yggr_mongodbc_patch/c_version_support.h>
 
 #include <bson/bson.h>
 

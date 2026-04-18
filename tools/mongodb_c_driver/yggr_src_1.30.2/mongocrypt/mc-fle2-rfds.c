@@ -22,7 +22,7 @@
 
 #include "mlib/thread.h" // mlib_once_flag
 #include <math.h>        // INFINITY
-#include <yggr_detail/double_limit.h> // INFINITY+
+#include <yggr_mongodbc_patch/double_limit.h> // INFINITY+
 
 static mc_FLE2RangeOperator_t get_operator_type(const char *key) {
     BSON_ASSERT_PARAM(key);

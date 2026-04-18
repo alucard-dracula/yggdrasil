@@ -31,7 +31,7 @@ THE SOFTWARE.
 
 #if defined(_MSC_VER) && defined(YGGR_USE_SEH)
 
-#	pragma comment YGGR_COMPILE_LINK_LIB(yggr_seh)
+#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(yggr_seh)
 #	pragma comment YGGR_COMPILE_LINK_NRULE_LIB(dbghelp)
 
 #endif // defined(_MSC_VER) && defined(YGGR_USE_SEH)

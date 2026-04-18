@@ -71,7 +71,7 @@ public:
 
 template <typename T, typename U>
 struct is_convertible
-	: public is_convertible_impl<T, U>::type
+	: public detail::is_convertible_impl<T, U>::type
 {
 };
 

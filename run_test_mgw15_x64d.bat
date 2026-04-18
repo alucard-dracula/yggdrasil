@@ -35,6 +35,7 @@ cp -fr ../Debug-x64/mgw15/yggr_lua_base_type.dll ./
 "../Debug-x64/mgw15/caller_gen_callable_object_test.exe" --batch-test
 "../Debug-x64/mgw15/caller_to_params_call_test.exe" --batch-test
 "../Debug-x64/mgw15/charset_basic_string_adp_helper_test.exe" --batch-test
+"../Debug-x64/mgw15/charset_c_str_test.exe" --batch-test
 "../Debug-x64/mgw15/charset_charset_base_foo_test.exe" --batch-test
 "../Debug-x64/mgw15/charset_charset_converter_test.exe" --batch-test
 "../Debug-x64/mgw15/charset_const_strings_test.exe" --batch-test
@@ -73,7 +74,8 @@ cp -fr ../Debug-x64/mgw15/yggr_lua_base_type.dll ./
 "../Debug-x64/mgw15/charset_utf8_string_view_test.exe" --batch-test
 "../Debug-x64/mgw15/charset_utf8_string_xml_pak_serialize.exe" --batch-test
 "../Debug-x64/mgw15/compaction_tool_zip_lzma_test.exe" --batch-test
-"../Debug-x64/mgw15/compiler_link_test_msvc_maroc.exe" --batch-test
+"../Debug-x64/mgw15/compiler_link_test_msvc_macro.exe" --batch-test
+"../Debug-x64/mgw15/container_begin_end_rbegin_rend_test.exe" --batch-test
 "../Debug-x64/mgw15/container_cast_to_native_array_reference_test.exe" --batch-test
 "../Debug-x64/mgw15/container_deque_test.exe" --batch-test
 "../Debug-x64/mgw15/container_isomeric_same_deque_test.exe" --batch-test
@@ -114,6 +116,7 @@ cp -fr ../Debug-x64/mgw15/yggr_lua_base_type.dll ./
 "../Debug-x64/mgw15/container_ex_array_t_maker_test.exe" --batch-test
 "../Debug-x64/mgw15/container_ex_is_allocator_test.exe" --batch-test
 "../Debug-x64/mgw15/container_ex_is_container_test.exe" --batch-test
+"../Debug-x64/mgw15/container_ex_iterator_getter.exe" --batch-test
 "../Debug-x64/mgw15/container_ex_native_array_ref_test.exe" --batch-test
 "../Debug-x64/mgw15/database_system_database_accesser_test.exe" --batch-test
 "../Debug-x64/mgw15/database_system_database_accesser_test_of_pool.exe" --batch-test
@@ -378,6 +381,11 @@ cp -fr ../Debug-x64/mgw15/yggr_lua_base_type.dll ./
 "../Debug-x64/mgw15/ppex_string_symbol_test.exe" --batch-test
 "../Debug-x64/mgw15/ppex_va_args_test.exe" --batch-test
 "../Debug-x64/mgw15/proxy_proxy_mode_test.exe" --batch-test
+"../Debug-x64/mgw15/python_python_boost_python_test.exe" --batch-test
+"../Debug-x64/mgw15/python_python_script_mgr_test.exe" --batch-test
+"../Debug-x64/mgw15/python_python_script_mgr_test2.exe" --batch-test
+"../Debug-x64/mgw15/python_python_script_test.exe" --batch-test
+"../Debug-x64/mgw15/python_python_struct_test.exe" --batch-test
 "../Debug-x64/mgw15/regex_get_string_vector.exe" --batch-test
 "../Debug-x64/mgw15/regex_regex_parse_test_part1.exe" --batch-test
 "../Debug-x64/mgw15/regex_regex_parse_test_part2.exe" --batch-test
@@ -571,8 +579,10 @@ cp -fr ../Debug-x64/mgw15/yggr_lua_base_type.dll ./
 "../Debug-x64/mgw15/utility_array_get_test.exe" --batch-test
 "../Debug-x64/mgw15/utility_bit_counter_test.exe" --batch-test
 "../Debug-x64/mgw15/utility_copy_or_move_or_swap_test.exe" --batch-test
+"../Debug-x64/mgw15/utility_default_value_comparer_test.exe" --batch-test
 "../Debug-x64/mgw15/utility_get_element_test.exe" --batch-test
 "../Debug-x64/mgw15/utility_get_test.exe" --batch-test
+"../Debug-x64/mgw15/utility_identity_test.exe" --batch-test
 "../Debug-x64/mgw15/utility_member_var_modify_helper_test.exe" --batch-test
 "../Debug-x64/mgw15/utility_pair_compare_test.exe" --batch-test
 "../Debug-x64/mgw15/utility_pair_get_test.exe" --batch-test

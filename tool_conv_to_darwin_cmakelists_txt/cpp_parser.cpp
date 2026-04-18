@@ -187,51 +187,51 @@ Iter pragma_comment_to_libmark(libmark_set_type& out, Iter s, Iter e)
 
 }
 
-libmark_set_type& get_libmarks_from_code_yggr_pp_link_lib(libmark_set_type& out, const ptree_string_type& code)
-{
-	typedef ptree_string_type::const_iterator str_citer_type;
-	typedef yggr::knuth_morris_pratt<str_citer_type> kmp_type;
-	typedef std::pair<str_citer_type, str_citer_type> kmp_return_type;
+// libmark_set_type& get_libmarks_from_code_yggr_pp_link_lib(libmark_set_type& out, const ptree_string_type& code)
+// {
+// 	typedef ptree_string_type::const_iterator str_citer_type;
+// 	typedef yggr::knuth_morris_pratt<str_citer_type> kmp_type;
+// 	typedef std::pair<str_citer_type, str_citer_type> kmp_return_type;
 
-	static const ptree_string_type s_str_mark = "YGGR_PP_LINK_LIB(";
-	static const kmp_type s_kmp_mark(s_str_mark.begin(), s_str_mark.end());
+// 	static const ptree_string_type s_str_mark = "YGGR_PP_LINK_LIB(";
+// 	static const kmp_type s_kmp_mark(s_str_mark.begin(), s_str_mark.end());
 	
-	if(code.empty())
-	{
-		return out;
-	}
+// 	if(code.empty())
+// 	{
+// 		return out;
+// 	}
 
-	kmp_return_type ipair = s_kmp_mark(code.begin(), code.end());
+// 	kmp_return_type ipair = s_kmp_mark(code.begin(), code.end());
 
-	if(ipair.second == code.end())
-	{
-		return out;
-	}
+// 	if(ipair.second == code.end())
+// 	{
+// 		return out;
+// 	}
 
-	str_citer_type isize = code.end();
+// 	str_citer_type isize = code.end();
 
-	libmark_set_type tmp_out;
-	for(;ipair.second != isize; ipair = s_kmp_mark(yggr::advance_copy(ipair.second, 1), isize))
-	{
-		if((ipair.second = parse_yggr_code_pair(tmp_out, /*out, */ipair.second, isize)) == isize)
-		{
-			return out;
-		}
+// 	libmark_set_type tmp_out;
+// 	for(;ipair.second != isize; ipair = s_kmp_mark(yggr::advance_copy(ipair.second, 1), isize))
+// 	{
+// 		if((ipair.second = parse_yggr_code_pair(tmp_out, /*out, */ipair.second, isize)) == isize)
+// 		{
+// 			return out;
+// 		}
 
-		assert(ipair.second < isize);
-	}
+// 		assert(ipair.second < isize);
+// 	}
 
-	out.insert(tmp_out.begin(), tmp_out.end());
+// 	out.insert(tmp_out.begin(), tmp_out.end());
 
-	//{
-	//	for(libmark_set_type::const_iterator i = out.begin(), isize = out.end(); i != isize; ++i)
-	//	{
-	//		std::cout << "lib mark: " << *i << std::endl;
-	//	}
-	//}
+// 	//{
+// 	//	for(libmark_set_type::const_iterator i = out.begin(), isize = out.end(); i != isize; ++i)
+// 	//	{
+// 	//		std::cout << "lib mark: " << *i << std::endl;
+// 	//	}
+// 	//}
 
-	return out;
-}
+// 	return out;
+// }
 
 libmark_set_type& get_libmarks_from_code_pragma_comment(libmark_set_type& out, const ptree_string_type& code)
 {

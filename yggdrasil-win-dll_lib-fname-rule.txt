@@ -1,0 +1,3 @@
+shared lib: {name}{-compiler_version_tag}{-mt_tag}{-debug_tag}.dll
+symbol lib: {name}{-compiler_version_tag}{-mt_tag}{-debug_tag}.lib
+static lib: lib{name}{-compiler_version_tag}{-mt_tag}{-debug_tag}.lib

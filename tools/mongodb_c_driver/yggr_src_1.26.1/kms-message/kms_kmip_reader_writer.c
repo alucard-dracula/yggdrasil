@@ -19,7 +19,7 @@
 #include "kms_endian_private.h"
 #include "kms_request_str.h"
 
-#include <yggr_detail/c_version_support.h>
+#include <yggr_mongodbc_patch/c_version_support.h>
 #include <stdint.h>
 
 #define MAX_KMIP_WRITER_POSITIONS 10

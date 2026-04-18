@@ -16,6 +16,8 @@ endif()
 set(USRDEF_CMAKE_BOOST_VERSION "1_82")
 set(USRDEF_CMAKE_PYTHON_VERSION "313")
 
+set(USRDEF_CMAKE_PYTHON_VERSION_FLOAT "3.13")
+
 set(USRDEF_CMAKE_PYTHON_INCLUDE_DIR "python3.13")
 
 #set(USRDEF_CMAKE_OSX_SDK_NAME "macosx")
@@ -166,20 +168,24 @@ set(USRDEF_CMAKE_PROJ_ROOT_DIR ${PROJECT_SOURCE_DIR})
 
 set(var_proj_deps_a 
 		lua534_static
-		lua534_static_ts
+		lua534_ts_static
 )
 
 set(var_proj_deps_so 
 		lua534
+		lua534_ts
 )
 
 #add_subdirectory static libraries
 add_subdirectory(lua534_static)
-add_subdirectory(lua534_static_ts)
+add_subdirectory(lua534_ts_static)
 
 #add_subdirectory dynamic libraries
 add_subdirectory(lua534)
 add_dependencies(lua534 ${var_proj_deps_a})
+
+add_subdirectory(lua534_ts)
+add_dependencies(lua534_ts ${var_proj_deps_a})
 
 
 #add_subdirectory executable

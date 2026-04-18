@@ -31,9 +31,10 @@ THE SOFTWARE.
 
 #ifdef _MSC_VER
 
-#	pragma comment YGGR_COMPILE_LINK_LIB(yggr_compaction_tool)
-#	pragma comment YGGR_COMPILE_LINK_LIB(lzma)
+#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(yggr_compaction_tool)
 
 #endif // _MSC_VER
+
+#include <yggr/compile_link/pc_lzma.hpp>
 
 #endif // __YGGR_COMPILE_LINK_PC_COMPACTION_TOOL_HPP__

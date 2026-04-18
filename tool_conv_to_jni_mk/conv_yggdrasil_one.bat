@@ -14,7 +14,8 @@ set dir10=\.\.\/tools\/md5
 set dir11_1=\.\.\/tools\/mongodb_c_driver\/yggr_src_1.26.1
 set dir11_2=\.\.\/tools\/mongodb_c_driver\/yggr_src_1.30.2
 set dir12=\.\.\/tools\/sha
-set dir13=\.\.
+:rem set dir13=\.\.\/tools\/pthread_win\/pthread-win32-version-3.1.0_msvc_fix\/msvc
+set dir14=\.\.
 
 :rem sed -i "s/<root_dir_>.*<\/root_dir_>/<root_dir_>%dir1%<\/root_dir_>/g" tool_conv_to_jni_mk_cfg.xml
 :rem tool_conv_to_jni_mk.exe tool_conv_to_jni_mk_cfg.xml
@@ -58,7 +59,10 @@ set dir13=\.\.
 :rem sed -i "s/<root_dir_>.*<\/root_dir_>/<root_dir_>%dir12%<\/root_dir_>/g" tool_conv_to_jni_mk_cfg.xml
 :rem tool_conv_to_jni_mk.exe tool_conv_to_jni_mk_cfg.xml
 
-sed -i "s/<root_dir_>.*<\/root_dir_>/<root_dir_>%dir13%<\/root_dir_>/g" tool_conv_to_jni_mk_cfg.xml
+:rem sed -i "s/<root_dir_>.*<\/root_dir_>/<root_dir_>%dir13%<\/root_dir_>/g" tool_conv_to_jni_mk_cfg.xml
+:rem tool_conv_to_jni_mk.exe tool_conv_to_jni_mk_cfg.xml
+
+sed -i "s/<root_dir_>.*<\/root_dir_>/<root_dir_>%dir14%<\/root_dir_>/g" tool_conv_to_jni_mk_cfg.xml
 tool_conv_to_jni_mk.exe tool_conv_to_jni_mk_cfg.xml
 
 

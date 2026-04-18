@@ -14,232 +14,118 @@
 #	include <vld.h>
 #endif // _MSC_VER
 
-#ifdef _MSC_VER
-#	if defined(_DEBUG)
-#		if _MSC_VER == 1600
-#			pragma comment(lib, "libbson-vc100-d.lib")
-#			pragma comment(lib, "libcommon-vc100-d.lib")
-#			pragma comment(lib, "libmongoc-vc100-d.lib")
-#			pragma comment(lib, "libmongocrypt-vc100-d.lib")
-#			pragma comment(lib, "libkms-message-vc100-d.lib")
-#			pragma comment(lib, "libutf8proc-vc100-d.lib")
-#			pragma comment(lib, "libintel_dfp_obj-vc100-d.lib")
-#			pragma comment(lib, "libbase64-vc100-d.lib")
-#			pragma comment(lib, "libzlibstatic-vc100-d.lib")
-#			pragma comment(lib, "icuuc-vc100-d.lib")
-#		elif _MSC_VER == 1700
-#			pragma comment(lib, "libbson-vc110-d.lib")
-#			pragma comment(lib, "libcommon-vc110-d.lib")
-#			pragma comment(lib, "libmongoc-vc110-d.lib")
-#			pragma comment(lib, "libmongocrypt-vc110-d.lib")
-#			pragma comment(lib, "libkms-message-vc110-d.lib")
-#			pragma comment(lib, "libutf8proc-vc110-d.lib")
-#			pragma comment(lib, "libintel_dfp_obj-vc110-d.lib")
-#			pragma comment(lib, "libbase64-vc110-d.lib")
-#			pragma comment(lib, "libzlibstatic-vc110-d.lib")
-#			pragma comment(lib, "icuuc-vc110-d.lib")
-#		elif _MSC_VER == 1800
-#			pragma comment(lib, "libbson-vc120-d.lib")
-#			pragma comment(lib, "libcommon-vc120-d.lib")
-#			pragma comment(lib, "libmongoc-vc120-d.lib")
-#			pragma comment(lib, "libmongocrypt-vc120-d.lib")
-#			pragma comment(lib, "libkms-message-vc120-d.lib")
-#			pragma comment(lib, "libutf8proc-vc120-d.lib")
-#			pragma comment(lib, "libintel_dfp_obj-vc120-d.lib")
-#			pragma comment(lib, "libbase64-vc120-d.lib")
-#			pragma comment(lib, "libzlibstatic-vc120-d.lib")
-#			pragma comment(lib, "icuuc-vc120-d.lib")
-#		elif _MSC_VER == 1900
-#			pragma comment(lib, "libbson-vc140-d.lib")
-#			pragma comment(lib, "libcommon-vc140-d.lib")
-#			pragma comment(lib, "libmongoc-vc140-d.lib")
-#			pragma comment(lib, "libmongocrypt-vc140-d.lib")
-#			pragma comment(lib, "libkms-message-vc140-d.lib")
-#			pragma comment(lib, "libutf8proc-vc140-d.lib")
-#			pragma comment(lib, "libintel_dfp_obj-vc140-d.lib")
-#			pragma comment(lib, "libbase64-vc140-d.lib")
-#			pragma comment(lib, "libzlibstatic-vc140-d.lib")
-#			pragma comment(lib, "icuuc-vc140-d.lib")
-#		elif _MSC_VER == 1910
-#			pragma comment(lib, "libbson-vc141-d.lib")
-#			pragma comment(lib, "libcommon-vc141-d.lib")
-#			pragma comment(lib, "libmongoc-vc141-d.lib")
-#			pragma comment(lib, "libmongocrypt-vc141-d.lib")
-#			pragma comment(lib, "libkms-message-vc141-d.lib")
-#			pragma comment(lib, "libutf8proc-vc141-d.lib")
-#			pragma comment(lib, "libintel_dfp_obj-vc141-d.lib")
-#			pragma comment(lib, "libbase64-vc141-d.lib")
-#			pragma comment(lib, "libzlibstatic-vc141-d.lib")
-#			pragma comment(lib, "icuuc-vc141-d.lib")
-#		elif 1920 <= _MSC_VER && _MSC_VER <= 1929
-#			pragma comment(lib, "libbson-vc142-d.lib")
-#			pragma comment(lib, "libcommon-vc142-d.lib")
-#			pragma comment(lib, "libmongoc-vc142-d.lib")
-#			pragma comment(lib, "libmongocrypt-vc142-d.lib")
-#			pragma comment(lib, "libkms-message-vc142-d.lib")
-#			pragma comment(lib, "libutf8proc-vc142-d.lib")
-#			pragma comment(lib, "libintel_dfp_obj-vc142-d.lib")
-#			pragma comment(lib, "libbase64-vc142-d.lib")
-#			pragma comment(lib, "libzlibstatic-vc142-d.lib")
-#			pragma comment(lib, "icuuc-vc142-d.lib")
-#		elif 1930 <= _MSC_VER && _MSC_VER < 2000
-#			pragma comment(lib, "libbson-vc143-d.lib")
-#			pragma comment(lib, "libcommon-vc143-d.lib")
-#			pragma comment(lib, "libmongoc-vc143-d.lib")
-#			pragma comment(lib, "libmongocrypt-vc143-d.lib")
-#			pragma comment(lib, "libkms-message-vc143-d.lib")
-#			pragma comment(lib, "libutf8proc-vc143-d.lib")
-#			pragma comment(lib, "libintel_dfp_obj-vc143-d.lib")
-#			pragma comment(lib, "libbase64-vc143-d.lib")
-#			pragma comment(lib, "libzlibstatic-vc143-d.lib")
-#			pragma comment(lib, "icuuc-vc143-d.lib")
-#		else
-#			error "set libs"
-#		endif // ( _MSC_VER == 1600)
-#	else // _DEBUG
-#		if _MSC_VER == 1600
-#			pragma comment(lib, "libbson-vc100.lib")
-#			pragma comment(lib, "libcommon-vc100.lib")
-#			pragma comment(lib, "libmongoc-vc100.lib")
-#			pragma comment(lib, "libmongocrypt-vc100.lib")
-#			pragma comment(lib, "libkms-message-vc100.lib")
-#			pragma comment(lib, "libutf8proc-vc100.lib")
-#			pragma comment(lib, "libintel_dfp_obj-vc100.lib")
-#			pragma comment(lib, "libbase64-vc100.lib")
-#			pragma comment(lib, "libzlibstatic-vc100.lib")
-#			pragma comment(lib, "icuuc-vc100.lib")
-#		elif _MSC_VER == 1700
-#			pragma comment(lib, "libbson-vc110.lib")
-#			pragma comment(lib, "libcommon-vc110.lib")
-#			pragma comment(lib, "libmongoc-vc110.lib")
-#			pragma comment(lib, "libmongocrypt-vc110.lib")
-#			pragma comment(lib, "libkms-message-vc110.lib")
-#			pragma comment(lib, "libutf8proc-vc110.lib")
-#			pragma comment(lib, "libintel_dfp_obj-vc110.lib")
-#			pragma comment(lib, "libbase64-vc110.lib")
-#			pragma comment(lib, "libzlibstatic-vc110.lib")
-#			pragma comment(lib, "icuuc-vc110.lib")
-#		elif _MSC_VER == 1800
-#			pragma comment(lib, "libbson-vc120.lib")
-#			pragma comment(lib, "libcommon-vc120.lib")
-#			pragma comment(lib, "libmongoc-vc120.lib")
-#			pragma comment(lib, "libmongocrypt-vc120.lib")
-#			pragma comment(lib, "libkms-message-vc120.lib")
-#			pragma comment(lib, "libutf8proc-vc120.lib")
-#			pragma comment(lib, "libintel_dfp_obj-vc120.lib")
-#			pragma comment(lib, "libbase64-vc120.lib")
-#			pragma comment(lib, "libzlibstatic-vc120.lib")
-#			pragma comment(lib, "icuuc-vc120.lib")
-#		elif _MSC_VER == 1900
-#			pragma comment(lib, "libbson-vc140.lib")
-#			pragma comment(lib, "libcommon-vc140.lib")
-#			pragma comment(lib, "libmongoc-vc140.lib")
-#			pragma comment(lib, "libmongocrypt-vc140.lib")
-#			pragma comment(lib, "libkms-message-vc140.lib")
-#			pragma comment(lib, "libutf8proc-vc140.lib")
-#			pragma comment(lib, "libintel_dfp_obj-vc140.lib")
-#			pragma comment(lib, "libbase64-vc140.lib")
-#			pragma comment(lib, "libzlibstatic-vc140.lib")
-#			pragma comment(lib, "icuuc-vc140.lib")
-#		elif _MSC_VER == 1910
-#			pragma comment(lib, "libbson-vc141.lib")
-#			pragma comment(lib, "libcommon-vc141.lib")
-#			pragma comment(lib, "libmongoc-vc141.lib")
-#			pragma comment(lib, "libmongocrypt-vc141.lib")
-#			pragma comment(lib, "libkms-message-vc141.lib")
-#			pragma comment(lib, "libutf8proc-vc141.lib")
-#			pragma comment(lib, "libintel_dfp_obj-vc141.lib")
-#			pragma comment(lib, "libbase64-vc141.lib")
-#			pragma comment(lib, "libzlibstatic-vc141.lib")
-#			pragma comment(lib, "icuuc-vc141.lib")
-#		elif 1920 <= _MSC_VER && _MSC_VER <= 1929
-#			pragma comment(lib, "libbson-vc142.lib")
-#			pragma comment(lib, "libcommon-vc142.lib")
-#			pragma comment(lib, "libmongoc-vc142.lib")
-#			pragma comment(lib, "libmongocrypt-vc142.lib")
-#			pragma comment(lib, "libkms-message-vc142.lib")
-#			pragma comment(lib, "libutf8proc-vc142.lib")
-#			pragma comment(lib, "libintel_dfp_obj-vc142.lib")
-#			pragma comment(lib, "libbase64-vc142.lib")
-#			pragma comment(lib, "libzlibstatic-vc142.lib")
-#			pragma comment(lib, "icuuc-vc142.lib")
-#		elif 1930 <= _MSC_VER && _MSC_VER < 2000
-#			pragma comment(lib, "libbson-vc143.lib")
-#			pragma comment(lib, "libcommon-vc143.lib")
-#			pragma comment(lib, "libmongoc-vc143.lib")
-#			pragma comment(lib, "libmongocrypt-vc143.lib")
-#			pragma comment(lib, "libkms-message-vc143.lib")
-#			pragma comment(lib, "libutf8proc-vc143.lib")
-#			pragma comment(lib, "libintel_dfp_obj-vc143.lib")
-#			pragma comment(lib, "libbase64-vc143.lib")
-#			pragma comment(lib, "libzlibstatic-vc143.lib")
-#			pragma comment(lib, "icuuc-vc143.lib")
-#		else
-#			error "set libs"
-#		endif // ( _MSC_VER == 1600)
-#	endif // _DEBUG
-#endif // _MSC_VER
+#if defined(_MSC_VER)
 
-#ifdef _MSC_VER
-#	pragma comment(lib, "ws2_32.lib")
-#	pragma comment(lib, "Dnsapi.lib")
-#	pragma comment(lib, "Bcrypt.lib")
-#	pragma comment(lib, "Secur32.lib")
-#	pragma comment(lib, "Crypt32.lib")
-#endif // _MSC_VER
+#include <boost/preprocessor/cat.hpp>
 
-#ifdef _MSC_VER
-#	if 1
-#		if _MSC_VER == 1600
-#			pragma comment(lib, "libcrypto-vc100.lib")
-#			pragma comment(lib, "libssl-vc100.lib")
-#		elif _MSC_VER == 1700
-#			pragma comment(lib, "libcrypto-vc110.lib")
-#			pragma comment(lib, "libssl-vc110.lib")
-#		elif _MSC_VER == 1800
-#			pragma comment(lib, "libcrypto-vc120.lib")
-#			pragma comment(lib, "libssl-vc120.lib")
-#		elif _MSC_VER == 1900
-#			pragma comment(lib, "libcrypto-vc140.lib")
-#			pragma comment(lib, "libssl-vc140.lib")
-#		elif _MSC_VER == 1910
-#			pragma comment(lib, "libcrypto-vc141.lib")
-#			pragma comment(lib, "libssl-vc141.lib")
-#		elif 1920 <= _MSC_VER && _MSC_VER <= 1929
-#			pragma comment(lib, "libcrypto-vc142.lib")
-#			pragma comment(lib, "libssl-vc142.lib")
-#		elif 1930 <= _MSC_VER && _MSC_VER <= 1940
-#			pragma comment(lib, "libcrypto-vc143.lib")
-#			pragma comment(lib, "libssl-vc143.lib")
-#		else
-#		endif // ( _MSC_VER == 1600)
+#define MONGODB_TEST_CAST( __x__, __to__ ) __to__( __x__ )
+#define MONGODB_TEST_CAST_TO_STRING( __x__ ) #__x__
+#define MONGODB_TEST_CAST_TO_CODE( __x__ ) __x__
+
+#if _MSC_VER > 1200
+#	if _MSC_VER == 1300
+#		define MONGODB_TEST_MSVC_NUMBER() 70
+#	elif _MSC_VER == 1310
+#		define MONGODB_TEST_MSVC_NUMBER() 71
+#	elif _MSC_VER == 1400
+#		define MONGODB_TEST_MSVC_NUMBER() 80
+#	elif _MSC_VER == 1500
+#		define MONGODB_TEST_MSVC_NUMBER() 90
+#	elif _MSC_VER == 1600
+#		define MONGODB_TEST_MSVC_NUMBER() 100
+#	elif _MSC_VER == 1700
+#		define MONGODB_TEST_MSVC_NUMBER() 110
+#	elif _MSC_VER == 1800
+#		define MONGODB_TEST_MSVC_NUMBER() 120
+#	elif _MSC_VER == 1900
+#		define MONGODB_TEST_MSVC_NUMBER() 140
+#	elif _MSC_VER == 1924
+#		define MONGODB_TEST_MSVC_NUMBER() 142
+#	elif _MSC_VER > 1924 && _MSC_VER < 2000
+#		define MONGODB_TEST_MSVC_NUMBER() 143
 #	else
-#		if _MSC_VER == 1600
-#			pragma comment(lib, "libcrypto_static-vc100.lib")
-#			pragma comment(lib, "libssl_static-vc100.lib")
-#		elif _MSC_VER == 1700
-#			pragma comment(lib, "libcrypto_static-vc110.lib")
-#			pragma comment(lib, "libssl_static-vc110.lib")
-#		elif _MSC_VER == 1800
-#			pragma comment(lib, "libcrypto_static-vc120.lib")
-#			pragma comment(lib, "libssl_static-vc120.lib")
-#		elif _MSC_VER == 1900
-#			pragma comment(lib, "libcrypto_static-vc140.lib")
-#			pragma comment(lib, "libssl_static-vc140.lib")
-#		elif _MSC_VER == 1910
-#			pragma comment(lib, "libcrypto_static-vc141.lib")
-#			pragma comment(lib, "libssl_static-vc141.lib")
-#		elif 1920 <= _MSC_VER && _MSC_VER <= 1929
-#			pragma comment(lib, "libcrypto_static-vc142.lib")
-#			pragma comment(lib, "libssl_static-vc142.lib")
-#		elif 1930 <= _MSC_VER && _MSC_VER <= 1940
-#			pragma comment(lib, "libcrypto_static-vc143.lib")
-#			pragma comment(lib, "libssl_static-vc143.lib")
-#		else
-#		endif // ( _MSC_VER == 1600)
-#	endif // 0,1
+#		error "!!!!unknown _MSC_VER!!!!!"
+#	endif // _MSC_VER
+#else
+#	error "!!!!yggdrasil not support msvc6 and before!!!!!"
+#endif //_MSV_VER
+
+#define MONGODB_TEST_COMPILE_TAG() -vc
+
+#define MONGODB_TEST_COMPILE_VERSION_TAG() BOOST_PP_CAT(MONGODB_TEST_COMPILE_TAG(), MONGODB_TEST_MSVC_NUMBER())
+
+#ifdef _DEBUG
+#	define MONGODB_TEST_COMPILE_DEBUG_TAG() -d
+#else
+#	define MONGODB_TEST_COMPILE_DEBUG_TAG()
+#endif // _DEBUG
+
+#ifdef _DLL
+#	define MONGODB_TEST_LINK_TAG()
+#else
+#	define MONGODB_TEST_LINK_TAG() -s
+#endif // _DLL
+
+
+#define LINK_MONGODB_TEST_IMPL_LIB( __lib_name__ ) \
+			(lib, \
+				MONGODB_TEST_CAST( \
+					MONGODB_TEST_CAST(__lib_name__, MONGODB_TEST_CAST_TO_CODE)MONGODB_TEST_COMPILE_VERSION_TAG()MONGODB_TEST_LINK_TAG()MONGODB_TEST_COMPILE_DEBUG_TAG().lib, \
+					MONGODB_TEST_CAST_TO_STRING))
+
+#define LINK_MONGODB_TEST_STATIC_LIB( __lib_name__ ) \
+			(lib, \
+				MONGODB_TEST_CAST( \
+					MONGODB_TEST_CAST(BOOST_PP_CAT(lib, __lib_name__), MONGODB_TEST_CAST_TO_CODE)MONGODB_TEST_COMPILE_VERSION_TAG()MONGODB_TEST_LINK_TAG()MONGODB_TEST_COMPILE_DEBUG_TAG().lib, \
+				MONGODB_TEST_CAST_TO_STRING))
+
+#define LINK_MONGODB_TEST_RAW_LIB( __lib_name__ ) \
+			(lib, MONGODB_TEST_CAST(__lib_name__.lib, MONGODB_TEST_CAST_TO_STRING))
+
+#define LINK_MONGODB_TEST_OPENSSL_IMPL_LIB LINK_MONGODB_TEST_STATIC_LIB
+
+#define LINK_MONGODB_TEST_OPENSSL_STATIC_LIB( __lib_name__ ) \
+			(lib, \
+				MONGODB_TEST_CAST( \
+					MONGODB_TEST_CAST( \
+						BOOST_PP_CAT(BOOST_PP_CAT(lib, __lib_name__), _static), MONGODB_TEST_CAST_TO_CODE)MONGODB_TEST_COMPILE_VERSION_TAG()MONGODB_TEST_LINK_TAG()MONGODB_TEST_COMPILE_DEBUG_TAG().lib, \
+				MONGODB_TEST_CAST_TO_STRING))
+
+
 #endif // _MSC_VER
 
+#define USING_OPENSSL_DLL() 1
+
+#if defined(_MSC_VER)
+#	pragma comment LINK_MONGODB_TEST_STATIC_LIB(bson)
+#	pragma comment LINK_MONGODB_TEST_STATIC_LIB(common)
+#	pragma comment LINK_MONGODB_TEST_STATIC_LIB(mongoc)
+#	pragma comment LINK_MONGODB_TEST_STATIC_LIB(mongocrypt)
+#	pragma comment LINK_MONGODB_TEST_STATIC_LIB(kms-message)
+#	pragma comment LINK_MONGODB_TEST_STATIC_LIB(utf8proc)
+#	pragma comment LINK_MONGODB_TEST_STATIC_LIB(intel_dfp_obj)
+#	pragma comment LINK_MONGODB_TEST_STATIC_LIB(base64)
+#	pragma comment LINK_MONGODB_TEST_STATIC_LIB(zlibstatic)
+#	pragma comment LINK_MONGODB_TEST_IMPL_LIB(icuuc)
+#endif // _MSC_VER
+
+#if defined(_MSC_VER)
+#	if USING_OPENSSL_DLL()
+#		pragma comment LINK_MONGODB_TEST_OPENSSL_IMPL_LIB(crypto)
+#		pragma comment LINK_MONGODB_TEST_OPENSSL_IMPL_LIB(ssl)
+#	else
+#		pragma comment LINK_MONGODB_TEST_OPENSSL_STATIC_LIB(crypto)
+#		pragma comment LINK_MONGODB_TEST_OPENSSL_STATIC_LIB(ssl)
+#	endif // 0, 1
+#endif // _MSC_VER
+
+#if defined(_MSC_VER)
+#	pragma comment LINK_MONGODB_TEST_RAW_LIB(ws2_32)
+#	pragma comment LINK_MONGODB_TEST_RAW_LIB(Dnsapi)
+#	pragma comment LINK_MONGODB_TEST_RAW_LIB(Bcrypt)
+#	pragma comment LINK_MONGODB_TEST_RAW_LIB(Secur32)
+#	pragma comment LINK_MONGODB_TEST_RAW_LIB(Crypt32)
+#endif // _MSC_VER
 
 uint8_t *
 hex_to_bin (const char *hex, uint32_t *len)

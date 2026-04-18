@@ -29,13 +29,13 @@ THE SOFTWARE.
 
 #include <yggr/compile_link/msvc_cfg.hpp>
 
+#ifdef _MSC_VER
+#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(yggr_encryption_tool)
+#endif // _MSC_VER
+
 #include <yggr/compile_link/pc_base64.hpp>
 #include <yggr/compile_link/pc_blowfish.hpp>
 #include <yggr/compile_link/pc_md5.hpp>
 #include <yggr/compile_link/pc_sha.hpp>
-
-#ifdef _MSC_VER
-#	pragma comment YGGR_COMPILE_LINK_LIB(yggr_encryption_tool)
-#endif // _MSC_VER
 
 #endif // __YGGR_COMPILE_LINK_PC_ENCRYPTION_TOOL_HPP__

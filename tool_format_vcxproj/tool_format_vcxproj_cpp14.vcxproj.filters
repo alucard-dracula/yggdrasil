@@ -21,12 +21,18 @@
     <ClInclude Include="vcxproj_parser_patch.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="vcsln_parser.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tool_format_vcxproj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tool_format_vcxproj_cfg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsln_parser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

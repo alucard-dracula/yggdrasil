@@ -4,15 +4,21 @@
 		<Project filename="include/include_mingw_cpp11.cbp" active="1"/>
 		<Project filename="lua/lua_mingw_cpp11.cbp">
 			<Depends filename="lua546/lua546_mingw_cpp11.cbp"/>
+			<Depends filename="lua546_ts/lua546_ts_mingw_cpp11.cbp"/>
 		</Project>
 		<Project filename="lua546/lua546_mingw_cpp11.cbp">
 			<Depends filename="lua546_static/lua546_static_mingw_cpp11.cbp"/>
-			<Depends filename="lua546_static_ts/lua546_static_ts_mingw_cpp11.cbp"/>
+			<Depends filename="lua546_ts_static/lua546_ts_static_mingw_cpp11.cbp"/>
 		</Project>
 		<Project filename="lua546_static/lua546_static_mingw_cpp11.cbp"/>
-		<Project filename="lua546_static_ts/lua546_static_ts_mingw_cpp11.cbp"/>
+		<Project filename="lua546_ts/lua546_ts_mingw_cpp11.cbp">
+			<Depends filename="lua546_static/lua546_static_mingw_cpp11.cbp"/>
+			<Depends filename="lua546_ts_static/lua546_ts_static_mingw_cpp11.cbp"/>
+		</Project>
+		<Project filename="lua546_ts_static/lua546_ts_static_mingw_cpp11.cbp"/>
 		<Project filename="luac/luac_mingw_cpp11.cbp">
 			<Depends filename="lua546/lua546_mingw_cpp11.cbp"/>
+			<Depends filename="lua546_ts/lua546_ts_mingw_cpp11.cbp"/>
 		</Project>
 	</Workspace>
 </CodeBlocks_workspace_file>

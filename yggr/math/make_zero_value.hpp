@@ -28,6 +28,7 @@ THE SOFTWARE.
 #define __YGGR_MATH_MAKE_ZERO_VALUE_HPP__
 
 #include <yggr/base/yggrdef.h>
+#include <yggr/move/move.hpp>
 
 #ifdef YGGR_NO_CXX11_VARIADIC_TEMPLATES
 #	include <yggr/ppex/foo_params.hpp>

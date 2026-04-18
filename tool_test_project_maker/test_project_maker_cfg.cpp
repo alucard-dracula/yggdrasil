@@ -12,7 +12,7 @@ test_project_maker_cfg::test_project_maker_cfg(void)
 }
 
 test_project_maker_cfg::test_project_maker_cfg(test_project_maker_cfg_sample)
-	: root_dir_("."),
+	: root_dir_("../test"),
 		regular_sln_fname_("../yggr_test_only.sln"),
 		test_bat_fname_("../run_test"),
 		sample_sln_begin_("sample_begin.sln.smp"),
@@ -27,12 +27,50 @@ test_project_maker_cfg::test_project_maker_cfg(test_project_maker_cfg_sample)
 		sample_vcxproj_re_("sample"),
 		sample_vcxproj_fre_("smp_file.cpp")
 {
-	dir_filter_.insert(".");
-	dir_filter_.insert("dir_sample1");
-	dir_filter_.insert("dir_sample2");
+	//dir_filter_.insert("../test");
+	//dir_filter_.insert("dir_sample1");
+	//dir_filter_.insert("dir_sample2");
 
-	file_filter_.insert("file_sample1");
-	file_filter_.insert("file_sample2");
+	//file_filter_.insert("file_sample1");
+	//file_filter_.insert("file_sample2");
+
+	dir_filter_.insert("../test");
+	dir_filter_.insert("back");
+    dir_filter_.insert("test_data");
+	dir_filter_.insert("compiler_bugs");
+	dir_filter_.insert("discard");
+	dir_filter_.insert("dont_use");
+	dir_filter_.insert("other");
+	dir_filter_.insert("protobuf_test");
+	dir_filter_.insert("unknow_or_forgot");
+	dir_filter_.insert("wait_to_last");
+	//dir_filter_.insert("python");
+	dir_filter_.insert("charset_utf8_files");
+	dir_filter_.insert("tool_test");
+	dir_filter_.insert("libtorrent_test");
+	dir_filter_.insert("tmp_tools");
+	dir_filter_.insert("tmp_test");
+	dir_filter_.insert("vld");
+	dir_filter_.insert("vs2010");
+	dir_filter_.insert("tmp");
+	dir_filter_.insert("Debug64");
+	dir_filter_.insert("Release64");
+	dir_filter_.insert("Debug");
+	dir_filter_.insert("Release");
+	dir_filter_.insert("Debug-x64");
+	dir_filter_.insert("Release-x64");
+	dir_filter_.insert("Debug-Win32");
+	dir_filter_.insert("Release-Win32");
+	dir_filter_.insert("Debug-MT-Win32");
+	dir_filter_.insert("Debug-MT-x64");
+	dir_filter_.insert("Release-MT-Win32");
+	dir_filter_.insert("Release-MT-x64");
+
+	file_filter_.insert("make_ipp.cpp");
+	file_filter_.insert("raw_socket_test.cpp");
+	file_filter_.insert("lua_base_type_test_non_wrap.cpp");
+
+
 }
 
 test_project_maker_cfg::test_project_maker_cfg(const this_type& right)

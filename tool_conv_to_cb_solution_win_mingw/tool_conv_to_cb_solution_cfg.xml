@@ -3,7 +3,7 @@
 	<lib_depend_info_cfg_>lib_depend_info_cfg.xml</lib_depend_info_cfg_>
 	<root_dir_>..</root_dir_>
 	<dir_filter_>
-		<count>21</count>
+		<count>25</count>
 		<bucket_count>37</bucket_count>
 		<item_version>0</item_version>
 		<item>test_data</item>
@@ -16,9 +16,13 @@
 		<item>Release</item>
 		<item>Release64</item>
 		<item>Debug-Win32</item>
+		<item>Debug-MT-Win32</item>
 		<item>Debug-x64</item>
+		<item>Debug-MT-x64</item>
 		<item>Release-Win32</item>
+		<item>Release-MT-Win32</item>
 		<item>Release-x64</item>
+		<item>Release-MT-x64</item>
 		<item>jni</item>
 		<item>.git</item>
 		<item>.vs</item>

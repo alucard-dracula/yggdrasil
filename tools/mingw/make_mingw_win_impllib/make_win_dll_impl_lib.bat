@@ -1,4 +1,6 @@
 
+setlocal
+
 call "d:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
 
 cd /d %~dp0
@@ -33,4 +35,4 @@ lib /def:%src_dir32%kernel32.def /machine:x86 /out:%dst_dir32%libkernel32.a
 lib /def:%src_dir64%ws2_32.def /machine:x64 /out:%dst_dir64%libws2_32.a
 lib /def:%src_dir32%ws2_32.def /machine:x86 /out:%dst_dir32%libws2_32.a
 
-
+endlocal

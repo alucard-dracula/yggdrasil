@@ -22,12 +22,12 @@ rm -f ./luabind_static/luabind_static_mingw_cpp14.cbp
 rm -f ./luabind_static/luabind_static_mingw_cpp17.cbp 
 rm -f ./luabind_static/luabind_static_mingw_cpp20.cbp 
 
-rm -f ./luabind_static_ts/luabind_static_ts_mingw.cbp 
-rm -f ./luabind_static_ts/luabind_static_ts_mingw_cpp03.cbp 
-rm -f ./luabind_static_ts/luabind_static_ts_mingw_cpp11.cbp 
-rm -f ./luabind_static_ts/luabind_static_ts_mingw_cpp14.cbp 
-rm -f ./luabind_static_ts/luabind_static_ts_mingw_cpp17.cbp 
-rm -f ./luabind_static_ts/luabind_static_ts_mingw_cpp20.cbp 
+rm -f ./luabind_ts_static/luabind_ts_static_mingw.cbp 
+rm -f ./luabind_ts_static/luabind_ts_static_mingw_cpp03.cbp 
+rm -f ./luabind_ts_static/luabind_ts_static_mingw_cpp11.cbp 
+rm -f ./luabind_ts_static/luabind_ts_static_mingw_cpp14.cbp 
+rm -f ./luabind_ts_static/luabind_ts_static_mingw_cpp17.cbp 
+rm -f ./luabind_ts_static/luabind_ts_static_mingw_cpp20.cbp 
 
 rm -f ./luabind_test/luabind_test_mingw.cbp 
 rm -f ./luabind_test/luabind_test_mingw_cpp03.cbp 

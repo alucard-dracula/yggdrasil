@@ -94,7 +94,7 @@ set(var_proj_link_libs
 )
 
 set(var_proj_link_libs_debug 
-		${USRDEF_CMAKE_LDFLAGS_DEBUG}
+		${USRDEF_CMAKE_LD_LIBRARY_DEBUG}
 )
 
 set(var_proj_link_libs_release 
@@ -114,14 +114,14 @@ set(var_proj_ldflags_release
 )
 
 if(CMAKE_BUILD_TYPE AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
-	set(var_proj_out_name lua504${USRDEF_CMAKE_COMPILER_VERSION_TAG}-s-d)
+	set(var_proj_out_name lua504_static${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d)
 	set(var_proj_c_defineds "${var_proj_c_defineds_debug} ${var_proj_c_defineds}")
 	set(var_proj_c_flags "${var_proj_c_flags_debug} ${var_proj_c_flags}")
 	set(var_proj_cxx_flags "${var_proj_cxx_flags_debug} ${var_proj_cxx_flags} ${var_proj_c_defineds}")
 	set(var_proj_link_libs ${var_proj_link_libs_debug} ${var_proj_link_libs})
 	set(var_proj_ldflags "${var_proj_ldflags_debug} ${var_proj_ldflags}")
 else()
-	set(var_proj_out_name lua504${USRDEF_CMAKE_COMPILER_VERSION_TAG}-s)
+	set(var_proj_out_name lua504_static${USRDEF_CMAKE_COMPILER_VERSION_TAG})
 	set(var_proj_c_defineds "${var_proj_c_defineds_release} ${var_proj_c_defineds}")
 	set(var_proj_c_flags "${var_proj_c_flags_release} ${var_proj_c_flags}")
 	set(var_proj_cxx_flags "${var_proj_cxx_flags_release} ${var_proj_cxx_flags} ${var_proj_c_defineds}")

@@ -29,6 +29,7 @@ THE SOFTWARE.
 
 #include <yggr/base/yggrdef.h>
 #include <yggr/ppex/typedef.hpp>
+#include <yggr/mplex/identity.hpp>
 
 namespace yggr
 {
@@ -43,7 +44,8 @@ template<typename T>
 struct typename_caster
 {
 
-	template<template<typename ..._Args> class Dst>
+	template<template<typename ..._Args> class Dst, 
+				template<typename _T> class ArgChg = mplex::identity>
 	struct apply
 	{
 		typedef T type;
@@ -66,24 +68,37 @@ struct typename_caster;
 template<template<typename ..._Args> class Src, typename ...Args>
 struct typename_caster< Src<Args...> >
 {
-	template<template<typename ..._Args> class Dst>
+	template<template<typename ..._Args> class Dst,
+				template<typename _T> class ArgChg = mplex::identity>
 	struct apply
 	{
-		typedef Dst<Args...> type;
+		typedef Dst<typename ArgChg<Args>::type...> type;
 	};
 };
 
 #else
 
+//#define BOOST_PP_LOCAL_MACRO( __n__ ) \
+//	template<YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, typename T), \
+//			template<YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, typename _T)> class Src> \
+//	struct typename_caster< Src< YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, T) > > { \
+//		template< template< YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, typename _T) > class Dst, \
+//					 template<typename _T> class ArgChg = mplex::identity > \
+//		struct apply { typedef Dst<YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, T) > type; }; };
+
 #define BOOST_PP_LOCAL_MACRO( __n__ ) \
 	template<YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, typename T), \
 			template<YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, typename _T)> class Src> \
 	struct typename_caster< Src< YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, T) > > { \
-		template< template< YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, typename _T) > class Dst > \
-		struct apply { typedef Dst<YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, T) > type; }; };
+		template< template< YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, typename _T) > class Dst, \
+					 template<typename _T> class ArgChg = mplex::identity > \
+		struct apply { typedef Dst<YGGR_PP_TEMPLATE_PARAMS_CUSTOM_TYPES(__n__, YGGR_PP_TEMPLATE_PARAMS_TYPES_MAKER) > type; }; };
 
+#define YGGR_PP_TEMPLATE_CUSTOM_TYPE( __n__ ) typename ArgChg< BOOST_PP_CAT(T, __n__) >::type
 #define BOOST_PP_LOCAL_LIMITS ( 1, YGGR_PP_TEMPLATE_PARAMS_LEN() )
 #include BOOST_PP_LOCAL_ITERATE()
+
+#undef YGGR_PP_TEMPLATE_CUSTOM_TYPE
 
 #endif // YGGR_NO_CXX11_VARIADIC_TEMPLATES
 

@@ -106,7 +106,7 @@ fi
 
 #static lib
 if [ "${var_build_mode}" = "mixed" ] || [ "${var_build_mode}" = "static" ]; then
-    var_nodotabiver_title="jit501-${var_clang_tag}-s"
+    var_nodotabiver_title="jit501_static-${var_clang_tag}"
 
 #   static debug
     var_make_cmd="make -j12 -f Makefile_yggr \
@@ -159,5 +159,7 @@ fi
 
 if [ ! -d "${var_prefix_dir_inc}" ]; then
     mkdir -p "${var_prefix_dir_inc}"
-    cp -f *.h "${var_prefix_dir_inc}/"
 fi
+
+cp -f *.h "${var_prefix_dir_inc}/"
+cp -f *.hpp ${prefix_dir_include}/

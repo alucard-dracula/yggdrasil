@@ -24,12 +24,12 @@
 
 #include <float.h>
 //#include <inttypes.h>
-#include <yggr_detail/inttypes.h>
+#include <yggr_mongodbc_patch/inttypes.h>
 #include <stdlib.h>
 #include <string.h>
 
-//#include <yggr_detail/mongo_c_inline.h>
-//#include <yggr_detail/c_version_support.h>
+//#include <yggr_mongodbc_patch/mongo_c_inline.h>
+//#include <yggr_mongodbc_patch/c_version_support.h>
 
 MLIB_C_LINKAGE_BEGIN
 

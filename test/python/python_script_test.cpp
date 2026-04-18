@@ -1,17 +1,18 @@
 //python_script_test.cpp
 
-#include <iostream>
-#include <boost/python.hpp>
+#include <yggr/base/yggrdef.h>
+#include <test/wait_any_key/wait_any_key.hpp>
 
-#include <boost/detail/lightweight_test.hpp>
-#include <string>
+#if !((defined(YGGR_MSVC_USING_MTD_FLAG) && YGGR_MSVC_USING_MTD_FLAG) \
+		|| (defined(YGGR_MSVC_USING_MT_FLAG) && YGGR_MSVC_USING_MT_FLAG))
 
 #include <yggr/script/python_script.hpp>
+#include <yggr/charset/string.hpp>
 
-//----------------------------------------------------
-//#if defined(__MINGW32__) && (PY_VERSION_HEX >= 0x03000000)
-//#   error "mingw not support this file!!"
-//#endif // __MINGW32__
+#include <boost/python.hpp>
+#include <boost/detail/lightweight_test.hpp>
+
+#include <iostream>
 
 #include <yggr/compile_link/linker.hpp>
 
@@ -68,20 +69,23 @@ BOOST_PYTHON_MODULE(pyst)
 		.def_readwrite("i", &s_t::i);
 }
 
-
-void exec_test()
+void append_module(void)
 {
-
-	if(PyImport_AppendInittab("pyst", PyInit_pyst) == -1)
+	if(PyImport_AppendInittab("pyst", &PyInit_pyst) == -1)
 		 throw std::runtime_error("model init err");
+}
 
+struct failed_value_type {};
+
+void exec_test(void)
+{
 
 	boost::python::dict grobal(boost::python::import("__main__").attr("__dict__"));
 
-	std::string code(	"from pyst import *		\n"
-						"def enter(input):			\n"
-						"	output = s_t(1+1)		\n"
-						"	return output			\n");
+	std::string code(	"from pyst import *\n"
+						"def enter(input):\n"
+						"\toutput = s_t(1+1)\n"
+						"\treturn output\n");
 
 	s_t st(100);
 	yggr::script::python::python_script py_sp("enter", yggr::script::python::python_script::string_code_type(code), grobal);
@@ -89,7 +93,9 @@ void exec_test()
 	rst = py_sp.execute_rule<s_t>(st);
 	std::cout << rst.i << std::endl;
 	assert(rst.i == 2);
-	struct failed_value_type {};
+
+	struct failed_value_type {}; // Here GCC does not support type declarations inside functions; this declaration will cause SFINAE parsing errors.
+
 	failed_value_type val;
 	try
 	{
@@ -99,7 +105,11 @@ void exec_test()
 	{
 		std::cout << e.what() << std::endl;
 	}
-	
+	catch(...)
+	{
+		std::cout << "seh error" << std::endl;
+	}
+
 	try
 	{
 		val = py_sp.execute_rule<failed_value_type>(st);
@@ -108,7 +118,12 @@ void exec_test()
 	{
 		std::cout << e.what() << std::endl;
 	}
+	catch(...)
+	{
+		std::cout << "seh error" << std::endl;
+	}
 }
+
 
 int main(int argc, char *argv[])
 {
@@ -119,24 +134,42 @@ int main(int argc, char *argv[])
 	//	Py_SetPythonHome(pySearchPath);
 	//}
 
-	//2 set system environment var like 
+	//2 set system environment var like
 	//	PYTHONHOME = d:\Python32
 	//	PYTHONPATH = d:\Python32\DLLs;d:\Python32\Lib;d:\Python32\Lib\site-packages
 
+	try
+	{
+		append_module(); // PyImport_AppendInittab needs to be called before Py_IsInitialized
+	}
+	catch(const std::runtime_error& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
 	if(!Py_IsInitialized())
 	{
-		Py_Initialize();
+		Py_Initialize();// call only once
 	}
 
 	exec_test();
 
-
 	if(Py_IsInitialized())
 	{
-		Py_Finalize();
+		Py_Finalize(); // call only once
 	}
-	
-	char cc = 0;
-	std::cin >> cc;
+
+	wait_any_key(argc, argv);
 	return boost::report_errors();
 }
+
+#else
+
+int main(int argc, char **argv)
+{
+	std::cout << "!!!!script python not support msvc /mtd or /mt!!!!" << std::endl;
+	wait_any_key(argc, argv);
+	return 0;
+}
+
+#endif // YGGR_MSVC_USING_MTD_FLAG

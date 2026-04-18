@@ -39,25 +39,33 @@ THE SOFTWARE.
 #ifndef __YGGR_YGGR_DEF_H__
 #define __YGGR_YGGR_DEF_H__
 
+#if defined(_USRDLL) || defined(BUILD_DLL)
+#	if !defined(YGGR_DLL_DEF)
+#		define YGGR_DLL_DEF
+#	endif // YGGR_DLL_DEF
+#endif // #if defined(_USRDLL) || defined(BUILD_DLL)
+
 // disable auto create impl_lib
 #if defined(_MSC_VER)
+#	if defined(BOOST_SYMBOL_EXPORT)
+#		undef BOOST_SYMBOL_EXPORT
+#	endif // BOOST_SYMBOL_EXPORT
+
+#	if defined(BOOST_SYMBOL_IMPORT)
+#		undef BOOST_SYMBOL_IMPORT
+#	endif // BOOST_SYMBOL_IMPORT
+
 #	if !defined(YGGR_DLL_DEF)
-
-#		if defined(BOOST_SYMBOL_EXPORT)
-#			undef BOOST_SYMBOL_EXPORT
-#		endif // BOOST_SYMBOL_EXPORT
-
-#		if defined(BOOST_SYMBOL_IMPORT)
-#			undef BOOST_SYMBOL_IMPORT
-#		endif // BOOST_SYMBOL_IMPORT
-
-#	define BOOST_SYMBOL_EXPORT
-#	define BOOST_SYMBOL_IMPORT __declspec(dllimport)
-
+#		define BOOST_SYMBOL_EXPORT
+#	else
+#		define BOOST_SYMBOL_EXPORT __declspec(dllexport)
 #	endif // defined(YGGR_DLL_DEF)
+
+#	define BOOST_SYMBOL_IMPORT __declspec(dllimport)
 #endif //#if defined(_MSC_VER)
 
 #include <yggr/base/yggr_config.h>
+#include <yggr/base/msvc_number_cfg.hpp>
 #include <yggr/base/pragma_message.hpp>
 #include <yggr/base/third_party_issues_config.hpp>
 #include <yggr/base/new.hpp>

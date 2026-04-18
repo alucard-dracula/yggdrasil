@@ -65,8 +65,6 @@ using ::yggr::lua_wrap::detail::operator<<;
 
 #if !defined(YGGR_TMP_PP_LUA_EXPORT_TYPEINFO_USING_PATCH)
 
-// 处理到这里 等182测试完成 用DEV 测试其他版本的情况
-//#if (106500 < BOOST_VERSION) && (BOOST_VERSION < 106900) && (YGGR_CPP_VER_14 < YGGR_CPP_VERSION)
 #if (106500 < BOOST_VERSION) && (BOOST_VERSION < 106900) && (YGGR_CPP_VER_14 < YGGR_CPP_VERSION) \
 	|| (defined(_MSC_VER) && (_MSC_VER < 1700))
 

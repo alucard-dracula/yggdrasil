@@ -3,9 +3,9 @@
 
 #include "user-check.h"
 
-#include <yggr_detail/mongo_c_inline.h>
-#include <yggr_detail/c_version_support.h>
-#include <yggr_detail/warning_check.h>
+#include <yggr_mongodbc_patch/mongo_c_inline.h>
+#include <yggr_mongodbc_patch/c_version_support.h>
+#include <yggr_mongodbc_patch/warning_check.h>
 
 
 /**

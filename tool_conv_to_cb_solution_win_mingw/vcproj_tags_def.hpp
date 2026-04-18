@@ -15,25 +15,25 @@ struct vcproj_cfg_marks
 public:
 	inline static const ptree_string_type& s_mark_debug_x32(void)
 	{
-		static const ptree_string_type s_cfg_mark = "'$(Configuration)|$(Platform)'=='Debug|Win32'";
+		static const ptree_string_type s_cfg_mark = "\'$(Configuration)|$(Platform)\'==\'Debug|Win32\'";
 		return s_cfg_mark;
 	}
 
 	inline static const ptree_string_type& s_mark_release_x32(void)
 	{
-		static const ptree_string_type s_cfg_mark = "'$(Configuration)|$(Platform)'=='Release|Win32'";
+		static const ptree_string_type s_cfg_mark = "\'$(Configuration)|$(Platform)\'==\'Release|Win32\'";
 		return s_cfg_mark;
 	}
 
 	inline static const ptree_string_type& s_mark_debug_x64(void)
 	{
-		static const ptree_string_type s_cfg_mark = "'$(Configuration)|$(Platform)'=='Debug|x64'";
+		static const ptree_string_type s_cfg_mark = "\'$(Configuration)|$(Platform)\'==\'Debug|x64\'";
 		return s_cfg_mark;
 	}
 
 	inline static const ptree_string_type& s_mark_release_x64(void)
 	{
-		static const ptree_string_type s_cfg_mark = "'$(Configuration)|$(Platform)'=='Release|x64'";
+		static const ptree_string_type s_cfg_mark = "\'$(Configuration)|$(Platform)\'==\'Release|x64\'";
 		return s_cfg_mark;
 	}
 

@@ -32,28 +32,30 @@ THE SOFTWARE.
 
 #ifdef _MSC_VER
 
-#	pragma comment YGGR_COMPILE_LINK_LIB(yggr_nsql_database_system)
-#	pragma comment YGGR_COMPILE_LINK_LIB(mongoc)
-#	pragma comment YGGR_COMPILE_LINK_LIB(bson)
-#	pragma comment YGGR_COMPILE_LINK_LIB(common)
+#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(yggr_nsql_database_system)
+#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(mongoc)
+#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(bson)
+#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(common)
 
 #if defined(MONGOC_ENABLE_CLIENT_SIDE_ENCRYPTION) && MONGOC_ENABLE_CLIENT_SIDE_ENCRYPTION
 
-#	pragma comment YGGR_COMPILE_LINK_LIB(mongocrypt)
-#	pragma comment YGGR_COMPILE_LINK_LIB(kms-message)
-#	pragma comment YGGR_COMPILE_LINK_LIB(intel_dfp_obj)
+#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(mongocrypt)
+#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(kms-message)
+#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(intel_dfp_obj)
 
 #endif // MONGOC_ENABLE_CLIENT_SIDE_ENCRYPTION
 
 //#	if (BSON_VERSION_HEX < 0x01060000)
-//#		pragma comment YGGR_COMPILE_LINK_LIB(yajl)
+//#		pragma comment YGGR_COMPILE_LINK_STATIC_LIB(yajl)
 //#	endif // BSON_VERSION_HEX < 0x01060000
 
 #	if !(MONGOC_VERSION_HEX < 0x01190000)
-#		pragma comment YGGR_COMPILE_LINK_LIB(utf8proc)
+#		pragma comment YGGR_COMPILE_LINK_STATIC_LIB(utf8proc)
 #	endif // BSON_VERSION_HEX < 0x01060000
 
-#	pragma comment YGGR_COMPILE_LINK_LIB(base64)
+//#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(base64)
+#include <yggr/compile_link/pc_base.hpp>
+#include <yggr/compile_link/pc_base64.hpp>
 
 #	ifdef MONGOC_ENABLE_SSL
 #		include <yggr/compile_link/pc_openssl.hpp>

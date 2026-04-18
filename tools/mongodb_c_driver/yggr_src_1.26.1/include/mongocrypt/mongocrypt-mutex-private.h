@@ -26,7 +26,7 @@
 #define mongocrypt_mutex_t CRITICAL_SECTION
 #endif
 
-#include <yggr_detail/c_version_support.h>
+#include <yggr_mongodbc_patch/c_version_support.h>
 
 void _mongocrypt_mutex_init(mongocrypt_mutex_t *mutex);
 

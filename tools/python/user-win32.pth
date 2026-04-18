@@ -1,2 +1,4 @@
 # .pth file for the PyWin32 extensions
-D:\user_pyd
+D:\third_part\user_pyd\x64\
+#must append boost/bin dir support find boost_python-xxx.dll
+D:\third_part\boost_182\bin64

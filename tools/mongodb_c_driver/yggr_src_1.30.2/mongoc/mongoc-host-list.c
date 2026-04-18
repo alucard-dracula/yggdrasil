@@ -15,7 +15,7 @@
  */
 
 //#include <inttypes.h> // PRIu16
-#include <yggr_detail/inttypes.h>
+#include <yggr_mongodbc_patch/inttypes.h>
 
 #include <mongoc/mongoc-host-list-private.h>
 /* strcasecmp on windows */

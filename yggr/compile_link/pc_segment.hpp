@@ -30,7 +30,7 @@ THE SOFTWARE.
 #include <yggr/compile_link/msvc_cfg.hpp>
 
 #ifdef _MSC_VER
-#	pragma comment YGGR_COMPILE_LINK_LIB(yggr_segment)
+#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(yggr_segment)
 #endif // _MSC_VER
 
 #endif // __YGGR_COMPILE_LINK_PC_SEGMENT_HPP__

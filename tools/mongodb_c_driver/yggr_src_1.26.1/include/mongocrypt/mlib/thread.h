@@ -3,8 +3,8 @@
 
 #include "./user-check.h"
 
-#include <yggr_detail/mongo_c_inline.h>
-#include <yggr_detail/c_version_support.h>
+#include <yggr_mongodbc_patch/mongo_c_inline.h>
+#include <yggr_mongodbc_patch/c_version_support.h>
 
 //#ifdef _WIN32
 //#include "./windows-lean.h"
@@ -19,7 +19,7 @@
 #endif
 
 //#include <stdbool.h>
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 
 /**
  * @brief A status object for @ref mlib_call_once.

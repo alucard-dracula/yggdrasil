@@ -22,7 +22,7 @@
 				<Linker>
 					<Add option="-m32"/>
 					<Add option="-lluabind09$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-llua503$(#COMPILER_VERSION_TAG)-d"/>
+					<Add option="-llua504$(#COMPILER_VERSION_TAG)-d"/>
 					<Add directory="../lib"/>
 				</Linker>
 			</Target>
@@ -43,7 +43,7 @@
 					<Add option="-s"/>
 					<Add option="-Wl,--gc-sections"/>
 					<Add option="-lluabind09$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-llua503$(#COMPILER_VERSION_TAG)"/>
+					<Add option="-llua504$(#COMPILER_VERSION_TAG)"/>
 					<Add directory="../lib"/>
 				</Linker>
 			</Target>
@@ -62,7 +62,7 @@
 				<Linker>
 					<Add option="-m64"/>
 					<Add option="-lluabind09$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-llua503$(#COMPILER_VERSION_TAG)-d"/>
+					<Add option="-llua504$(#COMPILER_VERSION_TAG)-d"/>
 					<Add directory="../lib64"/>
 				</Linker>
 			</Target>
@@ -82,7 +82,7 @@
 					<Add option="-s"/>
 					<Add option="-Wl,--gc-sections"/>
 					<Add option="-lluabind09$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-llua503$(#COMPILER_VERSION_TAG)"/>
+					<Add option="-llua504$(#COMPILER_VERSION_TAG)"/>
 					<Add directory="../lib64"/>
 				</Linker>
 			</Target>

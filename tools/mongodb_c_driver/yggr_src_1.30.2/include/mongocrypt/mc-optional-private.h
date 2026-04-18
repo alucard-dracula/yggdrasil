@@ -18,7 +18,7 @@
 #define MC_OPTIONAL_PRIVATE_H
 
 //#include <stdbool.h>
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 #include <stdint.h>
 
 #include "mc-dec128.h"

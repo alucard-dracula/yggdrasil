@@ -161,6 +161,8 @@
 		<Unit filename="tool_format_vcxproj.cpp"/>
 		<Unit filename="tool_format_vcxproj_cfg.cpp"/>
 		<Unit filename="tool_format_vcxproj_cfg.hpp"/>
+		<Unit filename="vcsln_parser.cpp"/>
+		<Unit filename="vcsln_parser.hpp"/>
 		<Unit filename="vcxproj_parser_patch.hpp"/>
 		<Extensions>
 			<lib_finder disable_auto="1"/>

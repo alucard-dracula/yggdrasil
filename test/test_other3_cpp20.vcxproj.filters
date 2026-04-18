@@ -20,7 +20,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="utility\identity_test.cpp">
+    <ClCompile Include="python\python_script_mgr_test2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

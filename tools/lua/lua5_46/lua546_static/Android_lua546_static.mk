@@ -10,9 +10,9 @@ l_path := $(LOCAL_PATH)
 
 # output module name
 ifeq ($(NDK_DEBUG), 1)
-	l_module := liblua504$(USRDEF_APP_COMPILER_VERSION_TAG)-s-d
+	l_module := liblua504_static$(USRDEF_APP_COMPILER_VERSION_TAG)-d
 else
-	l_module := liblua504$(USRDEF_APP_COMPILER_VERSION_TAG)-s
+	l_module := liblua504_static$(USRDEF_APP_COMPILER_VERSION_TAG)
 endif
 
 # source files
@@ -61,6 +61,7 @@ l_cflags := \
 	-DANDROID \
 	-DLUA_COMPAT_5_1 \
 	-DLUA_COMPAT_5_2 \
+	-DLUA_USE_LINUX \
 	-D__ANDROID__ \
 	-Wall \
 	-Werror=endif-labels \

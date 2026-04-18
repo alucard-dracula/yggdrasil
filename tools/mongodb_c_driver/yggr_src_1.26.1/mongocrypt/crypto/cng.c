@@ -17,7 +17,7 @@
 //#include "../mongocrypt-crypto-private.h"
 //#include "../mongocrypt-private.h"
 
-#include <yggr_detail/c_version_support.h>
+#include <yggr_mongodbc_patch/c_version_support.h>
 
 #include "mongocrypt-crypto-private.h"
 #include "mongocrypt-private.h"

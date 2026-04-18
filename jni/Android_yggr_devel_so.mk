@@ -12,6 +12,7 @@ subdirs := \
 	$(LOCAL_PATH)/../lua_cal_svr_procotol/Android_lua_cal_svr_procotol.mk \
 	$(LOCAL_PATH)/../lua_calculator/Android_lua_calculator.mk \
 	$(LOCAL_PATH)/../lua_hello_dll/Android_lua_hello_dll.mk \
+	$(LOCAL_PATH)/../pyd_export/Android_pyd_export.mk \
 	$(LOCAL_PATH)/../yggr_lua_base_type/Android_yggr_lua_base_type.mk \
 
 

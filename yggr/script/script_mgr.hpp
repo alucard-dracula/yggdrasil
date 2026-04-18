@@ -68,6 +68,9 @@ class script_mgr
 		private nonable::nonmoveable
 {
 public:
+	typedef Environment base_type;
+
+public:
 	typedef Rule_ID rule_id_type;
 	typedef Script script_type;
 
@@ -82,7 +85,6 @@ public:
 	typedef typename script_type::file_code_type file_code_type;
 
 private:
-	typedef Environment base_type;
 	typedef typename safe_script_type::element_ptr_type script_ptr_type;
 	typedef safe_container::safe_unordered_map<rule_id_type, safe_script_ptr_type> script_map_type;
 
@@ -90,9 +92,30 @@ private:
 	typedef script_mgr this_type;
 
 public:
-	script_mgr(void)
+
+#ifndef YGGR_NO_CXX11_VARIADIC_TEMPLATES
+
+	template<typename ...Args>
+	script_mgr(BOOST_RV_REF(Args) ...args)
+		: base_type(boost::forward<Args>(args)...)
 	{
 	}
+
+#else
+
+#	define BOOST_PP_LOCAL_MACRO( __n__ ) \
+		BOOST_PP_EXPR_IF( __n__, template< ) \
+			YGGR_PP_FOO_TYPES_DEF( __n__ ) \
+		BOOST_PP_EXPR_IF( __n__, > ) \
+		script_mgr(YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_FWDREF_PARAMS ) ) \
+			: base_type(YGGR_PP_FOO_PARAMS_OP_BOOST_FORWARD( __n__, YGGR_PP_SYMBOL_COMMA )) {}
+
+#	define YGGR_PP_FOO_ARG_NAME(  ) arg
+#	define BOOST_PP_LOCAL_LIMITS ( 0, YGGR_PP_FOO_DEFAULT_PARAMS_LEN )
+#	include BOOST_PP_LOCAL_ITERATE(  )
+#	undef YGGR_PP_FOO_ARG_NAME
+
+#endif // YGGR_NO_CXX11_VARIADIC_TEMPLATES
 
 	~script_mgr(void)
 	{

@@ -52,7 +52,6 @@ ifeq ($(NDK_DEBUG), 1)
 	l_cflags += \
 		-D_DEBUG \
 		-O0 \
-		-fno-elide-constructors \
 		-g \
 		$(USRDEF_APP_CFLAGS_DEBUG) \
 
@@ -71,6 +70,7 @@ l_cppflags := \
 
 ifeq ($(NDK_DEBUG), 1)
 	l_cppflags += \
+		-fno-elide-constructors \
 		$(USRDEF_APP_CPPFLAGS_DEBUG) \
 
 else

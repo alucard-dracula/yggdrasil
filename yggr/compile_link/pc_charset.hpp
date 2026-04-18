@@ -30,7 +30,7 @@ THE SOFTWARE.
 #include <yggr/compile_link/msvc_cfg.hpp>
 
 #ifdef _MSC_VER
-#	pragma comment YGGR_COMPILE_LINK_LIB(yggr_charset)
+#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(yggr_charset)
 #endif // _MSC_VER
 
 #include <yggr/compile_link/pc_iconv.hpp>

@@ -22,6 +22,7 @@ collection_foo(){
 	var_src_bin_dir="${var_src_root_dir}/Release-x64/${var_clang_tag}"
 	var_src_lib_dir="${var_src_root_dir}/lib"
 	var_src_inc_dir="${var_src_root_dir}/include"
+	var_src_darwin_cmake_install_inc_dir="${var_src_root_dir}/darwin-cmake-install-include"
 
 	var_prefix_sln_dir="${var_prefix_stage_dir}/${var_sln_name}-${var_sdk_name}"
 	var_prefix_sln_bin_dir="${var_prefix_sln_dir}/bin"
@@ -34,7 +35,7 @@ collection_foo(){
 
 	if [ -d "${var_src_inc_dir}" ]; then
 		mkdir -p "${var_prefix_sln_dir}"
-	else		
+	else
 		mkdir -p "${var_prefix_sln_inc_dir}"
 	fi
 
@@ -52,12 +53,19 @@ collection_foo(){
 	if [ -d "${var_src_inc_dir}" ]; then
 		cp -fr "${var_src_inc_dir}" "${var_prefix_sln_dir}/"
 	fi
+
+	if [ -d "${var_src_inc_dir}" ]; then
+		cp -fr "${var_src_inc_dir}" "${var_prefix_sln_dir}/"
+	elif [ -d "${var_src_darwin_cmake_install_inc_dir}" ]; then
+		rm -fr "${var_prefix_sln_dir}/include"
+		cp -fr "${var_src_darwin_cmake_install_inc_dir}" "${var_prefix_sln_dir}/include"
+	else
+		echo "warning: no include or install-include dir, need create it !!!!!"
+	fi
+
 }
 
 var_sln_name=luabind_501
-#var_clang_tag="clang-darwin$(clang --version | awk '/version/ {print $4}' | cut -d. -f1)"
-#var_cpp_ver="cpp11"
-
 var_clang_main_ver=$(clang --version | awk '/version/ {print $4}' | cut -d. -f1)
 var_clang_tag="clang-darwin${var_clang_main_ver}"
 var_cpp_ver_num="11"
@@ -70,6 +78,8 @@ fi
 var_sln_dir="${var_local_dir}/../.."
 var_prefix_stage_dir="${var_sln_dir}/stage_prefix"
 
+#<< 'SH_MACOSX_BUILD_MARK'
+
 var_sdk_name="macosx"
 collection_foo \
 	"${var_sln_name}" \
@@ -78,6 +88,10 @@ collection_foo \
 	"${var_cpp_ver}" \
 	"${var_sln_dir}" \
 	"${var_prefix_stage_dir}" 
+
+#SH_MACOSX_BUILD_MARK
+
+#<< 'SH_IPHONEOS_BUILD_MARK'
 
 var_sdk_name="iphoneos"
 
@@ -89,6 +103,10 @@ collection_foo \
 	"${var_sln_dir}" \
 	"${var_prefix_stage_dir}" 
 
+#SH_IPHONEOS_BUILD_MARK
+
+#<< 'SH_IPHONESIMULATOR_BUILD_MARK'
+
 var_sdk_name="iphonesimulator"
 
 collection_foo \
@@ -98,4 +116,6 @@ collection_foo \
 	"${var_cpp_ver}" \
 	"${var_sln_dir}" \
 	"${var_prefix_stage_dir}" 
+
+#SH_IPHONESIMULATOR_BUILD_MARK
 

@@ -6,7 +6,7 @@
 
 #include <stdlib.h>
 
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 
 #if _WIN32
 #define MCR_DLL_SUFFIX ".dll"

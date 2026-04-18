@@ -4,15 +4,21 @@
 		<Project filename="include/include_linux_cpp17.cbp" active="1"/>
 		<Project filename="lua/lua_linux_cpp17.cbp">
 			<Depends filename="lua546/lua546_linux_cpp17.cbp"/>
+			<Depends filename="lua546_ts/lua546_ts_linux_cpp17.cbp"/>
 		</Project>
 		<Project filename="lua546/lua546_linux_cpp17.cbp">
 			<Depends filename="lua546_static/lua546_static_linux_cpp17.cbp"/>
-			<Depends filename="lua546_static_ts/lua546_static_ts_linux_cpp17.cbp"/>
+			<Depends filename="lua546_ts_static/lua546_ts_static_linux_cpp17.cbp"/>
 		</Project>
 		<Project filename="lua546_static/lua546_static_linux_cpp17.cbp"/>
-		<Project filename="lua546_static_ts/lua546_static_ts_linux_cpp17.cbp"/>
+		<Project filename="lua546_ts/lua546_ts_linux_cpp17.cbp">
+			<Depends filename="lua546_static/lua546_static_linux_cpp17.cbp"/>
+			<Depends filename="lua546_ts_static/lua546_ts_static_linux_cpp17.cbp"/>
+		</Project>
+		<Project filename="lua546_ts_static/lua546_ts_static_linux_cpp17.cbp"/>
 		<Project filename="luac/luac_linux_cpp17.cbp">
 			<Depends filename="lua546/lua546_linux_cpp17.cbp"/>
+			<Depends filename="lua546_ts/lua546_ts_linux_cpp17.cbp"/>
 		</Project>
 	</Workspace>
 </CodeBlocks_workspace_file>

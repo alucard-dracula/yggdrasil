@@ -32,6 +32,11 @@ THE SOFTWARE.
 #include <yggr/archive/bson_iarchive.hpp>
 #include <yggr/archive/bson_oarchive.hpp>
 
+#ifdef BOOST_MSVC
+#  pragma warning(push)
+#  pragma warning(disable : 4624)
+#endif // BOOST_MSVC
+
 namespace yggr
 {
 namespace archive
@@ -109,5 +114,9 @@ typedef bson_oarchive_partner bson_conv_oarchive_partner;
 } // namespace archive_partener
 } // namespace archive
 } // namespace yggr
+
+#ifdef BOOST_MSVC
+#  pragma warning(pop)
+#endif // BOOST_MSVC
 
 #endif //__YGGR_ARCHIVE_ARCHIVE_PARTNER_BSON_ARCHIVE_PARTNER_HPP__

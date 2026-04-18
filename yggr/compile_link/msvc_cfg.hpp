@@ -27,61 +27,19 @@ THE SOFTWARE.
 #ifndef __YGGR_COMPILE_LINK_MSVC_CFG_HPP__
 #define __YGGR_COMPILE_LINK_MSVC_CFG_HPP__
 
-#ifdef _MSC_VER
-
-//MSVC++ 14.0 _MSC_VER == 1924 (Visual Studio 2019)
-//MSVC++ 14.0 _MSC_VER == 1900 (Visual Studio 2015)
-//MSVC++ 12.0 _MSC_VER == 1800 (Visual Studio 2013)
-//MSVC++ 11.0 _MSC_VER == 1700 (Visual Studio 2012)
-//MSVC++ 10.0 _MSC_VER == 1600 (Visual Studio 2010)
-//MSVC++ 9.0  _MSC_VER == 1500 (Visual Studio 2008)
-//MSVC++ 8.0  _MSC_VER == 1400 (Visual Studio 2005)
-//MSVC++ 7.1  _MSC_VER == 1310 (Visual Studio .NET 2003)
-//MSVC++ 7.0  _MSC_VER == 1300
-//MSVC++ 6.0  _MSC_VER == 1200
-//MSVC++ 5.0  _MSC_VER == 1100
-//MSVC++ 4.0  _MSC_VER == 1000
-//MSVC++ 2.0  _MSC_VER ==  900
-//MSVC++ 1.0  _MSC_VER ==  800
-//C/C++  7.0  _MSC_VER ==  700
-//C      6.0  _MSC_VER ==  600
+#if defined(_MSC_VER)
 
 #include <yggr/base/yggrdef.h>
+
 #include <yggr/ppex/cast.hpp>
 #include <yggr/ppex/cast_to_string.hpp>
 #include <yggr/ppex/cast_to_identity.hpp>
 
 #include <boost/preprocessor/cat.hpp>
 
-#	if _MSC_VER > 1200
-#		if _MSC_VER == 1300
-#			define YGGR_MSVC_NUMBER() 70
-#		elif _MSC_VER == 1310
-#			define YGGR_MSVC_NUMBER() 71
-#		elif _MSC_VER == 1400
-#			define YGGR_MSVC_NUMBER() 80
-#		elif _MSC_VER == 1500
-#			define YGGR_MSVC_NUMBER() 90
-#		elif _MSC_VER == 1600
-#			define YGGR_MSVC_NUMBER() 100
-#		elif _MSC_VER == 1700
-#			define YGGR_MSVC_NUMBER() 110
-#		elif _MSC_VER == 1800
-#			define YGGR_MSVC_NUMBER() 120
-#		elif _MSC_VER == 1900
-#			define YGGR_MSVC_NUMBER() 140
-#		elif _MSC_VER == 1910
-#			define YGGR_MSVC_NUMBER() 141
-#		elif 1920 <= _MSC_VER && _MSC_VER <= 1929
-#			define YGGR_MSVC_NUMBER() 142
-#		elif 1930 <= _MSC_VER && _MSC_VER < 2000
-#			define YGGR_MSVC_NUMBER() 143
-#		else
-#			error "!!!!!unknown _MSC_VER!!!!!"
-#		endif // _MSC_VER
-#	else
-#		error "!!!!!yggdrasil not support msvc6 and before!!!!!"
-#	endif //_MSC_VER
+#if !defined(YGGR_COMPILE_LINK_LIB_ONLY_USING_STATIC)
+#	define YGGR_COMPILE_LINK_LIB_ONLY_USING_STATIC 0
+#endif //YGGR_COMPILE_LINK_LIB_ONLY_USING_STATIC
 
 #	define YGGR_COMPILE_TAG() -vc
 
@@ -93,63 +51,93 @@ THE SOFTWARE.
 #		define YGGR_COMPILE_DEBUG_TAG()
 #	endif // _DEBUG
 
-#	define YGGR_COMPILE_STATIC_TAG() -s
+// windows dll lib name rule
+// dll:				${dll_name}${compile_tag}${runtime_tag}${debug_tag}.dll
+// dll-symbol-lib:	${dll_name}${compile_tag}${runtime_tag}${debug_tag}.lib
+// static-lib:		lib${lib_name}${compile_tag}${runtime_tag}${debug_tag}.lib
 
-#	ifdef _LIB
+// some static lib exception:
+// lib${lib_name}_static${runtime_tag}${debug_tag}.lib
+// lib${lib_name}static${runtime_tag}${debug_tag}.lib
 
-#		define YGGR_COMPILE_LINK_LIB( __libname__ )
-#		define YGGR_COMPILE_LINK_LIB_NO_DEBUG_TAG( __libname__ ) 
-#		define YGGR_COMPILE_LINK_LIB_NO_FIRST_LIB_TAG( __libname__ )
-#		define YGGR_COMPILE_LINK_LIB_NO_FIRST_LIB_TAG_AND_DEBUG_TAG( __libname__ )
+// Other libs that do not have specific naming rules belong to raw naming
+
+#	if defined(YGGR_MSVC_USING_MT_FLAG) && YGGR_MSVC_USING_MT_FLAG
+#		define YGGR_COMPILE_RUNTIME_TAG() -s
+#	else
+#		define YGGR_COMPILE_RUNTIME_TAG()
+#	endif // YGGR_COMPILE_USING_MT
+
+#	if defined(_LIB)
+
+#		define YGGR_COMPILE_LINK_IMPL_LIB( __libname__ ) 
+#		define YGGR_COMPILE_LINK_IMPL_LIB_NO_DEBUG_TAG( __libname__ ) 
 
 #		define YGGR_COMPILE_LINK_STATIC_LIB( __libname__ ) 
 #		define YGGR_COMPILE_LINK_STATIC_LIB_NO_DEBUG_TAG( __libname__ ) 
 
-#		define YGGR_COMPILE_LINK_TP_LIB( __libname__ )
+#		define YGGR_COMPILE_LINK_LIB( __libname__ ) 
+#		define YGGR_COMPILE_LINK_LIB_NO_DEBUG_TAG( __libname__ )
+
 #		define YGGR_COMPILE_LINK_NRULE_LIB( __libname__ )
+#		define YGGR_COMPILE_LINK_RAW_FILE( __file_name__ )
 
 #	else
 
-#		define YGGR_COMPILE_LINK_LIB( __libname__ ) \
-			(lib, YGGR_PP_CAST(BOOST_PP_CAT(lib, __libname__)YGGR_COMPILER_VERSION_TAG()YGGR_COMPILE_DEBUG_TAG().lib, \
+#		define YGGR_COMPILE_LINK_IMPL_LIB(__libname__) \
+			(lib, YGGR_PP_CAST(YGGR_PP_IDENTITY(__libname__)YGGR_COMPILER_VERSION_TAG()YGGR_COMPILE_RUNTIME_TAG()YGGR_COMPILE_DEBUG_TAG().lib, \
 								YGGR_PP_CAST_TO_STRING))
 
-#		define YGGR_COMPILE_LINK_LIB_NO_FIRST_LIB_TAG( __libname__ ) \
-			(lib, YGGR_PP_CAST(YGGR_PP_IDENTITY(__libname__)YGGR_COMPILER_VERSION_TAG()YGGR_COMPILE_DEBUG_TAG().lib, \
-								YGGR_PP_CAST_TO_STRING))
-
-#		define YGGR_COMPILE_LINK_LIB_NO_FIRST_LIB_TAG_AND_DEBUG_TAG( __libname__ ) \
-			(lib, YGGR_PP_CAST(YGGR_PP_IDENTITY(__libname__)YGGR_COMPILER_VERSION_TAG().lib, \
-								YGGR_PP_CAST_TO_STRING))
-
-#		define YGGR_COMPILE_LINK_LIB_NO_DEBUG_TAG( __libname__ ) \
-			(lib, YGGR_PP_CAST(BOOST_PP_CAT(lib, __libname__)YGGR_COMPILER_VERSION_TAG().lib, \
+#		define YGGR_COMPILE_LINK_IMPL_LIB_NO_DEBUG_TAG(__libname__) \
+			(lib, YGGR_PP_CAST(YGGR_PP_IDENTITY(__libname__)YGGR_COMPILER_VERSION_TAG()YGGR_COMPILE_RUNTIME_TAG().lib, \
 								YGGR_PP_CAST_TO_STRING))
 
 #		define YGGR_COMPILE_LINK_STATIC_LIB( __libname__ ) \
-			(lib, YGGR_PP_CAST(BOOST_PP_CAT(lib, __libname__)YGGR_COMPILER_VERSION_TAG()YGGR_COMPILE_STATIC_TAG()YGGR_COMPILE_DEBUG_TAG().lib, \
+			(lib, YGGR_PP_CAST(BOOST_PP_CAT(lib, __libname__)YGGR_COMPILER_VERSION_TAG()YGGR_COMPILE_RUNTIME_TAG()YGGR_COMPILE_DEBUG_TAG().lib, \
 								YGGR_PP_CAST_TO_STRING))
 
 #		define YGGR_COMPILE_LINK_STATIC_LIB_NO_DEBUG_TAG( __libname__ ) \
-			(lib, YGGR_PP_CAST(BOOST_PP_CAT(lib, __libname__)YGGR_COMPILER_VERSION_TAG()YGGR_COMPILE_STATIC_TAG().lib, \
+			(lib, YGGR_PP_CAST(BOOST_PP_CAT(lib, __libname__)YGGR_COMPILER_VERSION_TAG()YGGR_COMPILE_RUNTIME_TAG().lib, \
 								YGGR_PP_CAST_TO_STRING))
 
-#		define YGGR_COMPILE_LINK_TP_LIB( __libname__ ) \
-			(lib, YGGR_PP_CAST(BOOST_PP_CAT(lib, __libname__).lib, YGGR_PP_CAST_TO_STRING))
+#		if defined(YGGR_COMPILE_LINK_LIB_ONLY_USING_STATIC)
+#			define YGGR_COMPILE_LINK_LIB YGGR_COMPILE_LINK_STATIC_LIB
+#			define YGGR_COMPILE_LINK_LIB_NO_DEBUG_TAG YGGR_COMPILE_LINK_STATIC_LIB_NO_DEBUG_TAG
+
+#			define YGGR_COMPILE_LINK_LIB_IF_ONLY_USING_STATIC( __impl_name__, __static_name__ ) YGGR_COMPILE_LINK_LIB( __static_name__ )
+#			define YGGR_COMPILE_LINK_LIB_NO_DEBUG_TAG_IF_ONLY_USING_STATIC( __impl_name__, __static_name__ ) YGGR_COMPILE_LINK_LIB_NO_DEBUG_TAG( __static_name__ )
+
+#		else
+#			define YGGR_COMPILE_LINK_LIB YGGR_COMPILE_LINK_IMPL_LIB
+#			define YGGR_COMPILE_LINK_LIB_NO_DEBUG_TAG YGGR_COMPILE_LINK_IMPL_LIB_NO_DEBUG_TAG
+
+#			define YGGR_COMPILE_LINK_LIB_IF_ONLY_USING_STATIC( __impl_name__, __static_name__ ) YGGR_COMPILE_LINK_IMPL_LIB( __impl_name__ )
+#			define YGGR_COMPILE_LINK_LIB_NO_DEBUG_TAG_IF_ONLY_USING_STATIC( __impl_name__, __static_name__ ) YGGR_COMPILE_LINK_LIB_NO_DEBUG_TAG_IF_ONLY_USING_STATIC( __impl_name__ )
+
+
+#		endif // YGGR_COMPILE_LINK_LIB_ONLY_USING_STATIC
 
 #		define YGGR_COMPILE_LINK_NRULE_LIB( __libname__ ) \
 			(lib, YGGR_PP_CAST(__libname__.lib, YGGR_PP_CAST_TO_STRING))
+
+#		define YGGR_COMPILE_LINK_RAW_FILE( __file_name__ ) \
+			(lib, YGGR_PP_CAST(__file_name__, YGGR_PP_CAST_TO_STRING))
 
 #		endif // _LIB
 
 #else
 
-#	define YGGR_COMPILE_LINK_LIB( __libname__ ) 
+#	define YGGR_COMPILE_LINK_IMPL_LIB( __libname__ ) 
+#	define YGGR_COMPILE_LINK_IMPL_LIB_NO_DEBUG_TAG( __libname__ ) 
+
 #	define YGGR_COMPILE_LINK_STATIC_LIB( __libname__ ) 
-#	define YGGR_COMPILE_LINK_LIB_NO_DEBUG_TAG( __libname__ ) 
 #	define YGGR_COMPILE_LINK_STATIC_LIB_NO_DEBUG_TAG( __libname__ ) 
-#	define YGGR_COMPILE_LINK_TP_LIB( __libname__ )
+
+#	define YGGR_COMPILE_LINK_LIB( __libname__ ) 
+#	define YGGR_COMPILE_LINK_LIB_NO_DEBUG_TAG( __libname__ )
+
 #	define YGGR_COMPILE_LINK_NRULE_LIB( __libname__ )
+#	define YGGR_COMPILE_LINK_RAW_FILE( __file_name__ )
 
 #endif // _MSC_VER
 

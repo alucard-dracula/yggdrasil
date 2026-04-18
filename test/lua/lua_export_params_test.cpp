@@ -37,9 +37,10 @@
 // Use _TOOL_IGNORE to make the conversion tool ignore
 
 #include YGGR_PP_LINK_LIB(script_lua)
-//#include YGGR_PP_LINK_LIB_TOOL_IGNORE(script_lua_s)
 //#include YGGR_PP_LINK_LIB_TOOL_IGNORE(script_lua_ss)
+//#include YGGR_PP_LINK_LIB_TOOL_IGNORE(script_lua_ts)
 //#include YGGR_PP_LINK_LIB_TOOL_IGNORE(script_lua_ss_ts)
+
 
 typedef yggr::script::script_mgr<yggr::string, yggr::script::lua::lua_script,
 									yggr::script::lua::lua_environment> script_mgr_type;

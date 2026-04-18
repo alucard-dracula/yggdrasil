@@ -1,7 +1,7 @@
 #ifndef MONGOCRYPT_DLL_PRIVATE_H
 #define MONGOCRYPT_DLL_PRIVATE_H
 
-#include <yggr_detail/c_version_support.h>
+#include <yggr_mongodbc_patch/c_version_support.h>
 
 #include <mlib/error.h>
 #include <mlib/str.h>

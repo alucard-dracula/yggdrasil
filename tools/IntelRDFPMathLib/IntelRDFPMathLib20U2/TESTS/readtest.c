@@ -65,6 +65,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #if defined(_MSC_VER)
 #if defined(BID_USING_IN_MONGODB)
+#if defined(_DLL)
 #	if defined(_DEBUG)
 #		if _MSC_VER > 1200
 #			if _MSC_VER == 1300
@@ -130,6 +131,70 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #	if defined(_DEBUG)
 #		if _MSC_VER > 1200
 #			if _MSC_VER == 1300
+#				pragma comment(lib, "libintel_dfp_obj-vc70-s-d.lib")
+#			elif _MSC_VER == 1310
+#				pragma comment(lib, "libintel_dfp_obj-vc71-s-d.lib")
+#			elif _MSC_VER == 1400
+#				pragma comment(lib, "libintel_dfp_obj-vc80-s-d.lib")
+#			elif _MSC_VER == 1500
+#				pragma comment(lib, "libintel_dfp_obj-vc90-s-d.lib")
+#			elif _MSC_VER == 1600
+#				pragma comment(lib, "libintel_dfp_obj-vc100-s-d.lib")
+#			elif _MSC_VER == 1700
+#				pragma comment(lib, "libintel_dfp_obj-vc110-s-d.lib")
+#			elif _MSC_VER == 1800
+#				pragma comment(lib, "libintel_dfp_obj-vc120-s-d.lib")
+#			elif _MSC_VER == 1900
+#				pragma comment(lib, "libintel_dfp_obj-vc140-s-d.lib")
+#			elif _MSC_VER == 1910
+#				pragma comment(lib, "libintel_dfp_obj-vc141-s-d.lib")
+#			elif 1920 <= _MSC_VER && _MSC_VER <= 1929
+#				pragma comment(lib, "libintel_dfp_obj-vc142-s-d.lib")
+#			elif 1930 <= _MSC_VER && _MSC_VER < 2000
+#				pragma comment(lib, "libintel_dfp_obj-vc143-s-d.lib")
+#			else
+#				error "!!!!!unknown _MSC_VER!!!!!"
+#			endif // _MSC_VER
+#		else
+#			error "!!!!!not support msvc6 and before!!!!!"
+#		endif //_MSV_VER
+#	else
+#		if _MSC_VER > 1200
+#			if _MSC_VER == 1300
+#				pragma comment(lib, "libintel_dfp_obj-vc70-s.lib")
+#			elif _MSC_VER == 1310
+#				pragma comment(lib, "libintel_dfp_obj-vc71-s.lib")
+#			elif _MSC_VER == 1400
+#				pragma comment(lib, "libintel_dfp_obj-vc80-s.lib")
+#			elif _MSC_VER == 1500
+#				pragma comment(lib, "libintel_dfp_obj-vc90-s.lib")
+#			elif _MSC_VER == 1600
+#				pragma comment(lib, "libintel_dfp_obj-vc100-s.lib")
+#			elif _MSC_VER == 1700
+#				pragma comment(lib, "libintel_dfp_obj-vc110-s.lib")
+#			elif _MSC_VER == 1800
+#				pragma comment(lib, "libintel_dfp_obj-vc120-s.lib")
+#			elif _MSC_VER == 1900
+#				pragma comment(lib, "libintel_dfp_obj-vc140-s.lib")
+#			elif _MSC_VER == 1910
+#				pragma comment(lib, "libintel_dfp_obj-vc141-s.lib")
+#			elif 1920 <= _MSC_VER && _MSC_VER <= 1929
+#				pragma comment(lib, "libintel_dfp_obj-vc142-s.lib")
+#			elif 1930 <= _MSC_VER && _MSC_VER < 2000
+#				pragma comment(lib, "libintel_dfp_obj-vc143-s.lib")
+#			else
+#				error "!!!!!unknown _MSC_VER!!!!!"
+#			endif // _MSC_VER
+#		else
+#			error "!!!!!not support msvc6 and before!!!!!"
+#		endif //_MSV_VER
+#	endif // _DEBUG
+#endif // _DLL
+#else
+#if defined(_DLL)
+#	if defined(_DEBUG)
+#		if _MSC_VER > 1200
+#			if _MSC_VER == 1300
 #				pragma comment(lib, "libbid-vc70-d.lib")
 #			elif _MSC_VER == 1310
 #				pragma comment(lib, "libbid-vc71-d.lib")
@@ -188,7 +253,70 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #			error "!!!!!not support msvc6 and before!!!!!"
 #		endif //_MSV_VER
 #	endif // _DEBUG
-#endif // _DEBUG
+#else
+#	if defined(_DEBUG)
+#		if _MSC_VER > 1200
+#			if _MSC_VER == 1300
+#				pragma comment(lib, "libbid-vc70-s-d.lib")
+#			elif _MSC_VER == 1310
+#				pragma comment(lib, "libbid-vc71-s-d.lib")
+#			elif _MSC_VER == 1400
+#				pragma comment(lib, "libbid-vc80-s-d.lib")
+#			elif _MSC_VER == 1500
+#				pragma comment(lib, "libbid-vc90-s-d.lib")
+#			elif _MSC_VER == 1600
+#				pragma comment(lib, "libbid-vc100-s-d.lib")
+#			elif _MSC_VER == 1700
+#				pragma comment(lib, "libbid-vc110-s-d.lib")
+#			elif _MSC_VER == 1800
+#				pragma comment(lib, "libbid-vc120-s-d.lib")
+#			elif _MSC_VER == 1900
+#				pragma comment(lib, "libbid-vc140-s-d.lib")
+#			elif _MSC_VER == 1910
+#				pragma comment(lib, "libbid-vc141-s-d.lib")
+#			elif 1920 <= _MSC_VER && _MSC_VER <= 1929
+#				pragma comment(lib, "libbid-vc142-s-d.lib")
+#			elif 1930 <= _MSC_VER && _MSC_VER < 2000
+#				pragma comment(lib, "libbid-vc143-s-d.lib")
+#			else
+#				error "!!!!!unknown _MSC_VER!!!!!"
+#			endif // _MSC_VER
+#		else
+#			error "!!!!!not support msvc6 and before!!!!!"
+#		endif //_MSV_VER
+#	else
+#		if _MSC_VER > 1200
+#			if _MSC_VER == 1300
+#				pragma comment(lib, "libbid-vc70-s.lib")
+#			elif _MSC_VER == 1310
+#				pragma comment(lib, "libbid-vc71-s.lib")
+#			elif _MSC_VER == 1400
+#				pragma comment(lib, "libbid-vc80-s.lib")
+#			elif _MSC_VER == 1500
+#				pragma comment(lib, "libbid-vc90-s.lib")
+#			elif _MSC_VER == 1600
+#				pragma comment(lib, "libbid-vc100-s.lib")
+#			elif _MSC_VER == 1700
+#				pragma comment(lib, "libbid-vc110-s.lib")
+#			elif _MSC_VER == 1800
+#				pragma comment(lib, "libbid-vc120-s.lib")
+#			elif _MSC_VER == 1900
+#				pragma comment(lib, "libbid-vc140-s.lib")
+#			elif _MSC_VER == 1910
+#				pragma comment(lib, "libbid-vc141-s.lib")
+#			elif 1920 <= _MSC_VER && _MSC_VER <= 1929
+#				pragma comment(lib, "libbid-vc142-s.lib")
+#			elif 1930 <= _MSC_VER && _MSC_VER < 2000
+#				pragma comment(lib, "libbid-vc143-s.lib")
+#			else
+#				error "!!!!!unknown _MSC_VER!!!!!"
+#			endif // _MSC_VER
+#		else
+#			error "!!!!!not support msvc6 and before!!!!!"
+#		endif //_MSV_VER
+#	endif // _DEBUG
+#endif // _DLL
+#endif // BID_USING_IN_MONGODB
 #endif // #if defined(_MSC_VER)
 
 int copy_str_to_wstr();

@@ -13,7 +13,12 @@ tool_conv_to_jni_mk_cfg::tool_conv_to_jni_mk_cfg(void)
 }
 
 tool_conv_to_jni_mk_cfg::tool_conv_to_jni_mk_cfg(tool_conv_to_jni_mk_cfg_sample)
-	: root_dir_("..")
+	: root_dir_(".."),
+		min_sdk_ver_("21"),
+		min_sdk_riscv64_ver_("35"),
+		compiler_ver_("clang"),
+		boost_ver_("1_82"),
+		python_ver_("313")
 {
 	dir_filter_.insert("test_data");
 	dir_filter_.insert("lib");
@@ -25,9 +30,13 @@ tool_conv_to_jni_mk_cfg::tool_conv_to_jni_mk_cfg(tool_conv_to_jni_mk_cfg_sample)
 	dir_filter_.insert("Release");
 	dir_filter_.insert("Release64");
 	dir_filter_.insert("Debug-Win32");
+	dir_filter_.insert("Debug-MT-Win32");
 	dir_filter_.insert("Debug-x64");
+	dir_filter_.insert("Debug-MT-x64");
 	dir_filter_.insert("Release-Win32");
+	dir_filter_.insert("Release-MT-Win32");
 	dir_filter_.insert("Release-x64");
+	dir_filter_.insert("Release-MT-x64");
 	dir_filter_.insert("jni");
 	dir_filter_.insert(".git");
 	dir_filter_.insert(".vs");
@@ -100,7 +109,7 @@ tool_conv_to_jni_mk_cfg::tool_conv_to_jni_mk_cfg(tool_conv_to_jni_mk_cfg_sample)
 	cbp_file_filter_.insert("yggr_linux.cbp");
 	cbp_file_filter_.insert("dll_param_test_linux.cbp");
 	//cbp_file_filter_.insert("yggr_nsql_database_system_linux.cbp");
-	cbp_file_filter_.insert("pyd_export_linux.cbp");
+	//cbp_file_filter_.insert("pyd_export_linux.cbp");
 	//cbp_file_filter_.insert("nsql_database_system_base_bson_test_linux.cbp");
 	//cbp_file_filter_.insert("nsql_database_system_bson_serialize_test_linux.cbp");
 	//cbp_file_filter_.insert("nsql_database_system_c_bson_basic_demo_linux.cbp");
@@ -189,7 +198,7 @@ tool_conv_to_jni_mk_cfg::tool_conv_to_jni_mk_cfg(tool_conv_to_jni_mk_cfg_sample)
 	//cbp_file_filter_.insert("packet_shared_ptr_bson_serialization_test_linux.cbp");
 	//cbp_file_filter_.insert("packet_test_bson_serialization_include_linux.cbp");
 
-	cbp_file_filter_.insert("compiler_link_test_msvc_maroc_linux.cbp");
+	cbp_file_filter_.insert("compiler_link_test_msvc_macro_linux.cbp");
 
 	//cbp_file_filter_.insert("exception_exception_mongodb_log_test_linux.cbp");
 	//cbp_file_filter_.insert("log_log_mongodb_accesser_test_linux.cbp");
@@ -201,6 +210,11 @@ tool_conv_to_jni_mk_cfg::tool_conv_to_jni_mk_cfg(tool_conv_to_jni_mk_cfg_sample)
 
 tool_conv_to_jni_mk_cfg::tool_conv_to_jni_mk_cfg(const this_type& right)
 	: root_dir_(right.root_dir_),
+		min_sdk_ver_(right.min_sdk_ver_),
+		min_sdk_riscv64_ver_(right.min_sdk_riscv64_ver_),
+		compiler_ver_(right.compiler_ver_),
+		boost_ver_(right.boost_ver_),
+		python_ver_(right.python_ver_),
 		dir_filter_(right.dir_filter_),
 		cbp_file_filter_(right.cbp_file_filter_),
 		cpp_file_filter_(right.cpp_file_filter_)
@@ -220,6 +234,13 @@ tool_conv_to_jni_mk_cfg::this_type&
 	}
 
 	root_dir_ = right.root_dir_;
+
+	min_sdk_ver_ = right.min_sdk_ver_;
+	min_sdk_riscv64_ver_ = right.min_sdk_riscv64_ver_;
+	compiler_ver_ = right.compiler_ver_;
+	boost_ver_ = right.boost_ver_;
+	python_ver_ = right.python_ver_;
+
 	dir_filter_ = right.dir_filter_;
 	cbp_file_filter_ = right.cbp_file_filter_;
 	cpp_file_filter_ = right.cpp_file_filter_;
@@ -235,6 +256,13 @@ void tool_conv_to_jni_mk_cfg::swap(this_type& right)
 	}
 
 	yggr::swap(root_dir_, right.root_dir_);
+
+	yggr::swap(min_sdk_ver_, right.min_sdk_ver_);
+	yggr::swap(min_sdk_riscv64_ver_, right.min_sdk_riscv64_ver_);
+	yggr::swap(compiler_ver_, right.compiler_ver_);
+	yggr::swap(boost_ver_, right.boost_ver_);
+	yggr::swap(python_ver_, right.python_ver_);
+
 	yggr::swap(dir_filter_, right.dir_filter_);
 	yggr::swap(cbp_file_filter_, right.cbp_file_filter_);
 	yggr::swap(cpp_file_filter_, right.cpp_file_filter_);

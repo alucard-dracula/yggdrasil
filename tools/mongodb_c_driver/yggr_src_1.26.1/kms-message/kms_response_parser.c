@@ -2,7 +2,7 @@
 #include "kms_message_private.h"
 #include "kms_kmip_response_parser_private.h"
 
-#include <yggr_detail/c_version_support.h>
+#include <yggr_mongodbc_patch/c_version_support.h>
 
 #include <errno.h>
 #include <limits.h>

@@ -20,7 +20,7 @@
 #include <mongoc/mongoc-util-private.h>
 
 //#include <inttypes.h>
-#include <yggr_detail/inttypes.h>
+#include <yggr_mongodbc_patch/inttypes.h>
 
 /*
  *--------------------------------------------------------------------------

@@ -1264,17 +1264,21 @@ void format_opt_items_pp_root_namespace(const ptree_type& vc_ptree,
 		str_set.insert("lua");
 		str_set.insert("luac");
 		str_set.insert("lua514");
+		str_set.insert("lua514_ts");
 		str_set.insert("lua514_static");
-		str_set.insert("lua514_static_ts");
+		str_set.insert("lua514_ts_static");
 		str_set.insert("lua521");
+		str_set.insert("lua521_ts");
 		str_set.insert("lua521_static");
-		str_set.insert("lua521_static_ts");
+		str_set.insert("lua521_ts_static");
 		str_set.insert("lua534");
+		str_set.insert("lua534_ts");
 		str_set.insert("lua534_static");
-		str_set.insert("lua534_static_ts");
+		str_set.insert("lua534_ts_static");
 		str_set.insert("lua546");
+		str_set.insert("lua546_ts");
 		str_set.insert("lua546_static");
-		str_set.insert("lua546_static_ts");
+		str_set.insert("lua546_ts_static");
 	}
 
 

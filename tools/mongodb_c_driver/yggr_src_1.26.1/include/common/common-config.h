@@ -3,7 +3,7 @@
 
 #if defined(BUILD_MONGODB_DRIVER_YGGR_VER)
 
-#	include <yggr_detail/config/common_config.h>
+#	include <yggr_mongodbc_patch/config/common_config.h>
 
 #else
 

@@ -27,10 +27,20 @@ cp -f libicu_vc100_ver/lib64/* %var_dir_lib64%/
 cp -f libicu_vc100_ver/bin/* %var_dir_bin%/
 cp -f libicu_vc100_ver/lib/* %var_dir_lib%/
 
+cp -f libicu_vc100_ver_mt/bin64/*.dll %var_dir_bin64%/
+cp -f libicu_vc100_ver_mt/lib64/* %var_dir_lib64%/
+cp -f libicu_vc100_ver_mt/bin/*.dll %var_dir_bin%/
+cp -f libicu_vc100_ver_mt/lib/* %var_dir_lib%/
+
 cp -f libicu_vc143_ver/bin64/* %var_dir_bin64%/
 cp -f libicu_vc143_ver/lib64/* %var_dir_lib64%/
 cp -f libicu_vc143_ver/bin/* %var_dir_bin%/
 cp -f libicu_vc143_ver/lib/* %var_dir_lib%/
+
+cp -f libicu_vc143_ver_mt/bin64/*.dll %var_dir_bin64%/
+cp -f libicu_vc143_ver_mt/lib64/* %var_dir_lib64%/
+cp -f libicu_vc143_ver_mt/bin/*.dll %var_dir_bin%/
+cp -f libicu_vc143_ver_mt/lib/* %var_dir_lib%/
 
 cp -f libicu_mgw15_x64/lib/*.dll %var_dir_bin64%/
 cp -f libicu_mgw15_x64/lib/*.a %var_dir_lib64%/

@@ -1,8 +1,9 @@
 // tool_upgrade_vcxproj.cpp
 
+#include <yggr/base/yggrdef.h>
+
 #include <iostream>
 #include <cassert>
-#include <yggr/base/yggrdef.h>
 
 #if BOOST_VERSION < 105600
 
@@ -60,10 +61,14 @@ yggr::u32 num_ver_cpp17 = 2017;
 yggr::u32 num_ver_cpp20 = 2020;
 yggr::u32 num_ver_cpp23 = 2023;
 
-const ptree_type::key_type g_cfg_mark_debug_x32 = "'$(Configuration)|$(Platform)'=='Debug|Win32'";
-const ptree_type::key_type g_cfg_mark_release_x32 = "'$(Configuration)|$(Platform)'=='Release|Win32'";
-const ptree_type::key_type g_cfg_mark_debug_x64 = "'$(Configuration)|$(Platform)'=='Debug|x64'";
-const ptree_type::key_type g_cfg_mark_release_x64 = "'$(Configuration)|$(Platform)'=='Release|x64'";
+const ptree_type::key_type g_cfg_mark_debug_x32 = "\'$(Configuration)|$(Platform)\'==\'Debug|Win32\'";
+const ptree_type::key_type g_cfg_mark_release_x32 = "\'$(Configuration)|$(Platform)\'==\'Release|Win32\'";
+const ptree_type::key_type g_cfg_mark_debug_x64 = "\'$(Configuration)|$(Platform)\'==\'Debug|x64\'";
+const ptree_type::key_type g_cfg_mark_release_x64 = "\'$(Configuration)|$(Platform)\'==\'Release|x64\'";
+const ptree_type::key_type g_cfg_mark_debug_mt_x32 = "\'$(Configuration)|$(Platform)\'==\'Debug-MT|Win32\'";
+const ptree_type::key_type g_cfg_mark_release_mt_x32 = "\'$(Configuration)|$(Platform)\'==\'Release-MT|Win32\'";
+const ptree_type::key_type g_cfg_mark_debug_mt_x64 = "\'$(Configuration)|$(Platform)\'==\'Debug-MT|x64\'";
+const ptree_type::key_type g_cfg_mark_release_mt_x64 = "\'$(Configuration)|$(Platform)\'==\'Release-MT|x64\'";
 
 const ptree_type::key_type g_app_tag_exe = "Application";
 const ptree_type::key_type g_app_tag_dll = "DynamicLibrary";
@@ -78,6 +83,25 @@ typedef local_fsys_operators_type::path_type path_type;
 typedef tool_upgrade_vcxproj_cfg tool_upgrade_vcxproj_cfg_type;
 
 static const char* tool_upgrade_vcxproj_cfg_mark = "tool_upgrade_vcxproj_cfg";
+
+inline bool is_debug_cfg_mark(const ptree_type::key_type& cfg_mark)
+{
+	return
+		(cfg_mark == g_cfg_mark_debug_x32)
+		|| (cfg_mark == g_cfg_mark_debug_mt_x32)
+		|| (cfg_mark == g_cfg_mark_debug_x64)
+		|| (cfg_mark == g_cfg_mark_debug_mt_x64);
+}
+
+inline bool is_release_cfg_mark(const ptree_type::key_type& cfg_mark)
+{
+	return
+		(cfg_mark == g_cfg_mark_release_x32)
+		|| (cfg_mark == g_cfg_mark_release_mt_x32)
+		|| (cfg_mark == g_cfg_mark_release_x64)
+		|| (cfg_mark == g_cfg_mark_release_mt_x64);
+}
+
 
 // vcxproj
 yggr::utf8_string get_project_name(const yggr::utf8_string& str_file_path)
@@ -294,8 +318,7 @@ ptree_type& append_property_items(ptree_type& ptree, const yggr::utf8_string& pr
 						}
 					}
 
-					if(cfg_mark == g_cfg_mark_release_x32
-						|| cfg_mark == g_cfg_mark_release_x64)
+					if(is_release_cfg_mark(cfg_mark))
 					{
 						assoc_iter_type iter_opt = i->second.find("WholeProgramOptimization");
 						if(iter_opt == i->second.not_found())

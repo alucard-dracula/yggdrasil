@@ -213,6 +213,7 @@ lib_depend_info::lib_depend_info(lib_depend_info_cfg_sample)
 		_marks_dep["pyd_export"].insert("python");
 
 		_marks_dep["luabind"].insert("lua");
+		_marks_dep["luabind_ts"].insert("lua_ts");
 
 		_marks_dep["luabind_test"].insert("lua");
 		_marks_dep["luabind_test"].insert("luabind09");
@@ -223,39 +224,47 @@ lib_depend_info::lib_depend_info(lib_depend_info_cfg_sample)
 		_marks_dep["lua501"].insert("lua501");
 		_marks_dep["luajit501"].insert("luajit501");
 
-		_marks_dep["lua504-s"].insert("lua504-s");
-		_marks_dep["lua503-s"].insert("lua503-s");
-		_marks_dep["lua502-s"].insert("lua502-s");
-		_marks_dep["lua501-s"].insert("lua501-s");
-		_marks_dep["luajit501-s"].insert("luajit501-s");
+		_marks_dep["lua504_static"].insert("lua504_static");
+		_marks_dep["lua503_static"].insert("lua503_static");
+		_marks_dep["lua502_static"].insert("lua502_static");
+		_marks_dep["lua501_static"].insert("lua501_static");
+		_marks_dep["luajit501_static"].insert("luajit501_static");
 
-		_marks_dep["lua504_ts-s"].insert("lua504_ts-s");
-		_marks_dep["lua503_ts-s"].insert("lua503_ts-s");
-		_marks_dep["lua502_ts-s"].insert("lua502_ts-s");
-		_marks_dep["lua501_ts-s"].insert("lua501_ts-s");
+		_marks_dep["lua504_ts"].insert("lua504_ts");
+		_marks_dep["lua503_ts"].insert("lua503_ts");
+		_marks_dep["lua502_ts"].insert("lua502_ts");
+		_marks_dep["lua501_ts"].insert("lua501_ts");
+
+		_marks_dep["lua504_ts_static"].insert("lua504_ts_static");
+		_marks_dep["lua503_ts_static"].insert("lua503_ts_static");
+		_marks_dep["lua502_ts_static"].insert("lua502_ts_static");
+		_marks_dep["lua501_ts_static"].insert("lua501_ts_static");
 
 		_marks_dep["script_lua"].insert("yggr_script_lua");
 		_marks_dep["script_lua"].insert("luabind09");
 		_marks_dep["script_lua"].insert("lua");
 		_marks_dep["script_lua"].insert("ws2_32");
 
-		_marks_dep["script_lua_s"].insert("yggr_script_lua");
-		_marks_dep["script_lua_s"].insert("luabind09_s");
-		_marks_dep["script_lua_s"].insert("lua");
-		_marks_dep["script_lua_s"].insert("ws2_32");
-
 		_marks_dep["script_lua_ss"].insert("yggr_script_lua");
-		_marks_dep["script_lua_ss"].insert("luabind09_s");
-		_marks_dep["script_lua_ss"].insert("lua_s");
+		_marks_dep["script_lua_ss"].insert("luabind09_static");
+		_marks_dep["script_lua_ss"].insert("lua_static");
 		_marks_dep["script_lua_ss"].insert("ws2_32");
 
-		_marks_dep["script_lua_ss_ts"].insert("yggr_script_lua");
-		_marks_dep["script_lua_ss_ts"].insert("luabind09_ts");
-		_marks_dep["script_lua_ss_ts"].insert("lua_ts");
-		_marks_dep["script_lua_ss_ts"].insert("ws2_32");
-		_marks_dep["script_lua_ss_ts"].insert("pthread");
+		_marks_dep["script_lua_ts"].insert("yggr_script_lua");
+		_marks_dep["script_lua_ts"].insert("luabind09_ts");
+		_marks_dep["script_lua_ts"].insert("lua_ts");
+		_marks_dep["script_lua_ts"].insert("ws2_32");
+
+		_marks_dep["script_lua_ts_ss"].insert("yggr_script_lua");
+		_marks_dep["script_lua_ts_ss"].insert("luabind09_ts_static");
+		_marks_dep["script_lua_ts_ss"].insert("lua_ts");
+		_marks_dep["script_lua_ts_ss"].insert("ws2_32");
+		_marks_dep["script_lua_ts_ss"].insert("pthread");
 
 		_marks_dep["script_python"].insert("yggr_script_python");
+		_marks_dep["script_python"].insert("boost_python");
+		_marks_dep["script_python"].insert("boost_filesystem");
+		_marks_dep["script_python"].insert("boost_regex");
 		_marks_dep["script_python"].insert("boost_thread");
 		_marks_dep["script_python"].insert("python");
 
@@ -349,7 +358,9 @@ lib_depend_info::lib_depend_info(lib_depend_info_cfg_sample)
 		_marks_lv["mswsock"] = 3;
 		_marks_lv["odbc32"] = 3;
 		_marks_lv["wsock32"] = 4;
+
 		_marks_lv["lzma"] = 5;
+		_marks_lv["lzma_static"] = 5;
 
 		_marks_lv["d3d9"] = 5;
 		_marks_lv["d3dx9"] = 5;
@@ -380,8 +391,9 @@ lib_depend_info::lib_depend_info(lib_depend_info_cfg_sample)
 		_marks_lv["python"] = 13;
 
 		_marks_lv["lua"] = 13;
-		_marks_lv["lua_s"] = 13;
+		_marks_lv["lua_static"] = 13;
 		_marks_lv["lua_ts"] = 13;
+		_marks_lv["lua_ts_staic"] = 13;
 
 		_marks_lv["lua504"] = 13;
 		_marks_lv["lua503"] = 13;
@@ -389,20 +401,26 @@ lib_depend_info::lib_depend_info(lib_depend_info_cfg_sample)
 		_marks_lv["lua501"] = 13;
 		_marks_lv["luajit501"] = 13;
 
-		_marks_lv["lua504-s"] = 13;
-		_marks_lv["lua503-s"] = 13;
-		_marks_lv["lua502-s"] = 13;
-		_marks_lv["lua501-s"] = 13;
-		_marks_lv["luajit501-s"] = 13;
+		_marks_lv["lua504_static"] = 13;
+		_marks_lv["lua503_static"] = 13;
+		_marks_lv["lua502_static"] = 13;
+		_marks_lv["lua501_static"] = 13;
+		_marks_lv["luajit501_static"] = 13;
 
-		_marks_lv["lua504_ts-s"] = 13;
-		_marks_lv["lua503_ts-s"] = 13;
-		_marks_lv["lua502_ts-s"] = 13;
-		_marks_lv["lua501_ts-s"] = 13;
+		_marks_lv["lua504_ts"] = 13;
+		_marks_lv["lua503_ts"] = 13;
+		_marks_lv["lua502_ts"] = 13;
+		_marks_lv["lua501_ts"] = 13;
+
+		_marks_lv["lua504_ts_static"] = 13;
+		_marks_lv["lua503_ts_static"] = 13;
+		_marks_lv["lua502_ts_static"] = 13;
+		_marks_lv["lua501_ts_static"] = 13;
 
 		_marks_lv["luabind09"] = 14;
-		_marks_lv["luabind09_s"] = 14;
+		_marks_lv["luabind09_static"] = 14;
 		_marks_lv["luabind09_ts"] = 14;
+		_marks_lv["luabind09_ts_static"] = 14;
 
 		_marks_lv["utf8proc"] = 50;
 		_marks_lv["common2"] = 51;
@@ -475,6 +493,8 @@ lib_depend_info::lib_depend_info(lib_depend_info_cfg_sample)
 		_marks_name["Crypt32"] = "-lcrypt32";
 
 		_marks_name["lzma"] = "-llzma$(#COMPILER_VERSION_TAG)%(debug).dll";
+		_marks_name["lzma_static"] = "-llzma_static$(#COMPILER_VERSION_TAG)%(debug)";
+
 		_marks_name["pthread"] = "-lpthread";
 
 		_marks_name["mgw_gcc_sjlj"] = "-lmgw_gcc_sjlj$(#COMPILER_VERSION_TAG)%(debug)";
@@ -498,8 +518,9 @@ lib_depend_info::lib_depend_info(lib_depend_info_cfg_sample)
 		_marks_name["python"] = "-lpython%(python_main_version)";
 
 		_marks_name["lua"] = "-llua%(lua_version)$(#COMPILER_VERSION_TAG)%(debug).dll";
-		_marks_name["lua_s"] = "-llua%(lua_version)$(#COMPILER_VERSION_TAG)-s%(debug)";
-		_marks_name["lua_ts"] = "-llua%(lua_version)_ts$(#COMPILER_VERSION_TAG)-s%(debug)";
+		_marks_name["lua_static"] = "-llua%(lua_version)_static$(#COMPILER_VERSION_TAG)%(debug)";
+		_marks_name["lua_ts"] = "-llua%(lua_version)_ts$(#COMPILER_VERSION_TAG)%(debug)";
+		_marks_name["lua_ts_static"] = "-llua%(lua_version)_ts_static$(#COMPILER_VERSION_TAG)%(debug)";
 
 		_marks_name["lua504"] = "-llua504$(#COMPILER_VERSION_TAG)%(debug).dll";
 		_marks_name["lua503"] = "-llua503$(#COMPILER_VERSION_TAG)%(debug).dll";
@@ -507,20 +528,26 @@ lib_depend_info::lib_depend_info(lib_depend_info_cfg_sample)
 		_marks_name["lua501"] = "-llua501$(#COMPILER_VERSION_TAG)%(debug).dll";
 		_marks_name["luajit501"] = "-lluajit501$(#COMPILER_VERSION_TAG)%(debug).dll";
 
-		_marks_name["lua504-s"] = "-llua504$(#COMPILER_VERSION_TAG)-s%(debug)";
-		_marks_name["lua503-s"] = "-llua503$(#COMPILER_VERSION_TAG)-s%(debug)";
-		_marks_name["lua502-s"] = "-llua502$(#COMPILER_VERSION_TAG)-s%(debug)";
-		_marks_name["lua501-s"] = "-llua501$(#COMPILER_VERSION_TAG)-s%(debug)";
-		_marks_name["luajit501-s"] = "-lluajit501$(#COMPILER_VERSION_TAG)-s%(debug)";
+		_marks_name["lua504_static"] = "-llua504_static$(#COMPILER_VERSION_TAG)%(debug)";
+		_marks_name["lua503_static"] = "-llua503_static$(#COMPILER_VERSION_TAG)%(debug)";
+		_marks_name["lua502_static"] = "-llua502_static$(#COMPILER_VERSION_TAG)%(debug)";
+		_marks_name["lua501_static"] = "-llua501_static$(#COMPILER_VERSION_TAG)%(debug)";
+		_marks_name["luajit501_static"] = "-lluajit501_static$(#COMPILER_VERSION_TAG)%(debug)";
 
-		_marks_name["lua504_ts-s"] = "-llua504_ts$(#COMPILER_VERSION_TAG)-s%(debug)";
-		_marks_name["lua503_ts-s"] = "-llua503_ts$(#COMPILER_VERSION_TAG)-s%(debug)";
-		_marks_name["lua502_ts-s"] = "-llua502_ts$(#COMPILER_VERSION_TAG)-s%(debug)";
-		_marks_name["lua501_ts-s"] = "-llua501_ts$(#COMPILER_VERSION_TAG)-s%(debug)";
+		_marks_name["lua504_ts"] = "-llua504_ts$(#COMPILER_VERSION_TAG)%(debug)";
+		_marks_name["lua503_ts"] = "-llua503_ts$(#COMPILER_VERSION_TAG)%(debug)";
+		_marks_name["lua502_ts"] = "-llua502_ts$(#COMPILER_VERSION_TAG)%(debug)";
+		_marks_name["lua501_ts"] = "-llua501_ts$(#COMPILER_VERSION_TAG)%(debug)";
+
+		_marks_name["lua504_ts_static"] = "-llua504_ts_static$(#COMPILER_VERSION_TAG)%(debug)";
+		_marks_name["lua503_ts_static"] = "-llua503_ts_static$(#COMPILER_VERSION_TAG)%(debug)";
+		_marks_name["lua502_ts_static"] = "-llua502_ts_static$(#COMPILER_VERSION_TAG)%(debug)";
+		_marks_name["lua501_ts_static"] = "-llua501_ts_static$(#COMPILER_VERSION_TAG)%(debug)";
 
 		_marks_name["luabind09"] = "-lluabind09$(#COMPILER_VERSION_TAG)%(debug)";
-		_marks_name["luabind09_s"] = "-lluabind09$(#COMPILER_VERSION_TAG)-s%(debug)";
-		_marks_name["luabind09_ts"] = "-lluabind09_ts$(#COMPILER_VERSION_TAG)-s%(debug)";
+		_marks_name["luabind09_static"] = "-lluabind09_static$(#COMPILER_VERSION_TAG)%(debug)";
+		_marks_name["luabind09_ts"] = "-lluabind09_ts$(#COMPILER_VERSION_TAG)%(debug)";
+		_marks_name["luabind09_ts_static"] = "-lluabind09_ts_static$(#COMPILER_VERSION_TAG)%(debug)";
 
 		// boost
 		_marks_name["boost_system"] = "-lboost_system$(#COMPILER_VERSION_TAG)-mt%(debug)%(addr_model)$(#BOOST_VERSION_TAG)";

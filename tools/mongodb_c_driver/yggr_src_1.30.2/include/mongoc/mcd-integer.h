@@ -23,7 +23,7 @@
 
 #include <stdint.h>
 //#include <stdbool.h>
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 
 /// Return 'true' iff (left * right) would overflow with int64
 static BSON_INLINE bool

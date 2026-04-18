@@ -22,7 +22,7 @@
 				<Linker>
 					<Add option="-m32"/>
 					<Add option="-lluabind09$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-llua503$(#COMPILER_VERSION_TAG)-d.dll"/>
+					<Add option="-llua504$(#COMPILER_VERSION_TAG)-d.dll"/>
 					<Add option="-lmgw_gcc_sjlj$(#COMPILER_VERSION_TAG)-d"/>
 					<Add directory="../lib"/>
 				</Linker>
@@ -44,7 +44,7 @@
 					<Add option="-s"/>
 					<Add option="-Wl,--gc-sections"/>
 					<Add option="-lluabind09$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-llua503$(#COMPILER_VERSION_TAG).dll"/>
+					<Add option="-llua504$(#COMPILER_VERSION_TAG).dll"/>
 					<Add option="-lmgw_gcc_sjlj$(#COMPILER_VERSION_TAG)"/>
 					<Add directory="../lib"/>
 				</Linker>
@@ -65,7 +65,7 @@
 				<Linker>
 					<Add option="-m64"/>
 					<Add option="-lluabind09$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-llua503$(#COMPILER_VERSION_TAG)-d.dll"/>
+					<Add option="-llua504$(#COMPILER_VERSION_TAG)-d.dll"/>
 					<Add directory="../lib64"/>
 				</Linker>
 			</Target>
@@ -86,7 +86,7 @@
 					<Add option="-s"/>
 					<Add option="-Wl,--gc-sections"/>
 					<Add option="-lluabind09$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-llua503$(#COMPILER_VERSION_TAG).dll"/>
+					<Add option="-llua504$(#COMPILER_VERSION_TAG).dll"/>
 					<Add directory="../lib64"/>
 				</Linker>
 			</Target>

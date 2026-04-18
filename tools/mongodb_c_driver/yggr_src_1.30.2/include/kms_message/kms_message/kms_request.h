@@ -21,7 +21,7 @@
 #include "kms_request_opt.h"
 
 //#include <stdbool.h>
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <time.h>

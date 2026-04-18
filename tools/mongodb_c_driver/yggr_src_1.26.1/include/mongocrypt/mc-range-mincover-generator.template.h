@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#include <yggr_detail/mongo_c_inline.h>
-#include <yggr_detail/c_version_support.h>
+#include <yggr_mongodbc_patch/mongo_c_inline.h>
+#include <yggr_mongodbc_patch/c_version_support.h>
 
 // mc-range-mincover-generator.template.h is meant to be included in another
 // source file.

@@ -117,8 +117,10 @@
 			<Add option="-DBUILD_DLL"/>
 			<Add option="-DPYD_EXPORT_EXPORT"/>
 			<Add option="-DWIN32"/>
+			<Add option="-DYGGR_DLL_DEF"/>
 			<Add option="-D_USRDLL"/>
 			<Add option="-D_WINDOWS"/>
+			<Add directory="../"/>
 		</Compiler>
 		<Unit filename="pyd_export.cpp"/>
 		<Unit filename="s_t.h"/>

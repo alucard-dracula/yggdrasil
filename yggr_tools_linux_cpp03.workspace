@@ -41,6 +41,26 @@
 			<Depends filename="yggr_system_controller/yggr_system_controller_linux_cpp03.cbp"/>
 			<Depends filename="yggr_time/yggr_time_linux_cpp03.cbp"/>
 		</Project>
+		<Project filename="tool_downgrade_vcxproj/tool_downgrade_vcxproj_linux_cpp03.cbp">
+			<Depends filename="yggr_base/yggr_base_linux_cpp03.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_linux_cpp03.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_linux_cpp03.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_linux_cpp03.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_linux_cpp03.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_linux_cpp03.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_linux_cpp03.cbp"/>
+			<Depends filename="yggr_time/yggr_time_linux_cpp03.cbp"/>
+		</Project>
+		<Project filename="tool_dumpbin_exports_to_def/tool_dumpbin_exports_to_def_linux_cpp03.cbp">
+			<Depends filename="yggr_base/yggr_base_linux_cpp03.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_linux_cpp03.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_linux_cpp03.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_linux_cpp03.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_linux_cpp03.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_linux_cpp03.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_linux_cpp03.cbp"/>
+			<Depends filename="yggr_time/yggr_time_linux_cpp03.cbp"/>
+		</Project>
 		<Project filename="tool_format_vcxproj/tool_format_vcxproj_linux_cpp03.cbp">
 			<Depends filename="yggr_base/yggr_base_linux_cpp03.cbp"/>
 			<Depends filename="yggr_charset/yggr_charset_linux_cpp03.cbp"/>

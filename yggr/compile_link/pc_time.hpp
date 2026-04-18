@@ -31,7 +31,7 @@ THE SOFTWARE.
 
 #ifdef _MSC_VER
 
-#	pragma comment YGGR_COMPILE_LINK_LIB(yggr_time)
+#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(yggr_time)
 
 #endif // _MSC_VER
 

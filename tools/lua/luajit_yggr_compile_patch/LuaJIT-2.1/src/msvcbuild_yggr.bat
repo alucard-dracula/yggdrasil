@@ -17,24 +17,39 @@
 @set cc_ver=%1
 @set cc_ver_tag=-%cc_ver%
 
+@set LJEXENAME_MD=luajit.exe
+@set LJEXENAME_MT=luajit-s.exe
+
 @set LJDLLNAME_debug=luajit501%cc_ver_tag%-d.dll
-@set LJLIBNAME_debug=libluajit501%cc_ver_tag%-d.lib
-@set LJSLIBNAME_debug=libluajit501%cc_ver_tag%-s-d.lib
+@set LJLIBNAME_debug=luajit501%cc_ver_tag%-d.lib
+@set LJDLLNAME_debug_mt=luajit501%cc_ver_tag%-s-d.dll
+@set LJLIBNAME_debug_mt=luajit501%cc_ver_tag%-s-d.lib
+@set LJSLIBNAME_debug=libluajit501_static%cc_ver_tag%-d.lib
+@set LJSLIBNAME_debug_mt=libluajit501_static%cc_ver_tag%-s-d.lib
 @set LJMode_debug=/MDd
+@set LJMode_debug_mt=/MTd
 
 @set LJDLLNAME_release=luajit501%cc_ver_tag%.dll
-@set LJLIBNAME_release=libluajit501%cc_ver_tag%.lib
-@set LJSLIBNAME_release=libluajit501%cc_ver_tag%-s.lib
+@set LJLIBNAME_release=luajit501%cc_ver_tag%.lib
+@set LJDLLNAME_release_mt=luajit501%cc_ver_tag%-s.dll
+@set LJLIBNAME_release_mt=luajit501%cc_ver_tag%-s.lib
+@set LJSLIBNAME_release=libluajit501_static%cc_ver_tag%.lib
+@set LJSLIBNAME_release_mt=libluajit501_static%cc_ver_tag%-s.lib
 @set LJMode_release=/MD
+@set LJMode_release_mt=/MT
 
 @rem Add more debug flags here, e.g. DEBUGCFLAGS=/DLUA_USE_ASSERT
 @set DEBUGCFLAGS=
 @set LJCOMPILE=cl /nologo /c /O2 /W3 /D_CRT_SECURE_NO_DEPRECATE /D_CRT_STDIO_INLINE=__declspec(dllexport)__inline
-@set LJDYNBUILD=/DLUA_BUILD_AS_DLL /MD
-@set LJDYNBUILD_DEBUG=/DLUA_BUILD_AS_DLL /MDd 
+@set LJDYNBUILD_DEBUG=/DLUA_BUILD_AS_DLL /MDd
+@set LJDYNBUILD_DEBUG_MT=/DLUA_BUILD_AS_DLL /MTd
+@set LJDYNBUILD_RELEASE=/DLUA_BUILD_AS_DLL /MD
+@set LJDYNBUILD_RELEASE_MT=/DLUA_BUILD_AS_DLL /MT
+@set LJDYNBUILD=%LJDYNBUILD_RELEASE%
 @set LJCOMPILETARGET=/Zi
-@set LJLINKTYPE=/DEBUG /RELEASE
 @set LJLINKTYPE_DEBUG=/DEBUG
+@set LJLINKTYPE_RELEASE=/DEBUG /RELEASE
+@set LJLINKTYPE=%LJLINKTYPE_RELEASE%
 @set LJLINKTARGET=/OPT:REF /OPT:ICF /INCREMENTAL:NO
 @set LJLINK=link /nologo
 @set LJMT=mt /nologo
@@ -48,6 +63,10 @@
 @set LJLIBNAME=%LJLIBNAME_release%
 @set LJSLIBNAME=%LJSLIBNAME_release%
 @set LJMode=%LJMode_release%
+@set LJDLLNAME_MT=%LJDLLNAME_release_mt%
+@set LJLIBNAME_MT=%LJLIBNAME_release_mt%
+@set LJSLIBNAME_MT=%LJSLIBNAME_release_mt%
+@set LJMode_MT=%LJMode_release_mt%
 @set ALL_LIB=lib_base.c lib_math.c lib_bit.c lib_string.c lib_table.c lib_io.c lib_os.c lib_package.c lib_debug.c lib_jit.c lib_ffi.c lib_buffer.c
 
 @setlocal
@@ -112,18 +131,91 @@ buildvm -m vmdef -o jit\vmdef.lua %ALL_LIB%
 buildvm -m folddef -o lj_folddef.h lj_opt_fold.c
 @if errorlevel 1 goto :BAD
 
-@if "%2" neq "debug" goto :NODEBUG
+@if "%2"=="debug" goto :DEBUG
+@if "%2"=="debug-mt" goto :DEBUG_MT
+@if "%2"=="release" goto :NODEBUG
+@if "%2"=="release-mt" goto :NODEBUG_MT
+
+:DEBUG
 @shift
+
+@set LJEXENAME=%LJEXENAME_MD%
 @set LJDLLNAME=%LJDLLNAME_debug%
 @set LJLIBNAME=%LJLIBNAME_debug%
 @set LJSLIBNAME=%LJSLIBNAME_debug%
 @set LJMode=%LJMode_debug%
-@set LJCOMPILE=%LJCOMPILE% %DEBUGCFLAGS%
 @set LJDYNBUILD=%LJDYNBUILD_DEBUG%
+
+@set LJEXELINKNAME=%LJLIBNAME%
+@set LJEXELINKNAME_STATIC=%LJSLIBNAME%
+
+@set LJCOMPILE=%LJCOMPILE% %DEBUGCFLAGS%
 @set LJLINKTYPE=%LJLINKTYPE_DEBUG%
-:NODEBUG
+
 @set LJCOMPILE=%LJCOMPILE% %LJCOMPILETARGET%
 @set LJLINK=%LJLINK% %LJLINKTYPE% %LJLINKTARGET%
+
+@goto :BUILD_START
+
+:DEBUG_MT
+@shift
+
+@set LJEXENAME=%LJEXENAME_MT%
+@set LJDLLNAME=%LJDLLNAME_debug_mt%
+@set LJLIBNAME=%LJLIBNAME_debug_mt%
+@set LJSLIBNAME=%LJSLIBNAME_debug_mt%
+@set LJMode=%LJMode_debug_mt%
+@set LJDYNBUILD=%LJDYNBUILD_DEBUG_MT%
+
+@set LJEXELINKNAME=%LJLIBNAME%
+@set LJEXELINKNAME_STATIC=%LJSLIBNAME%
+
+@set LJCOMPILE=%LJCOMPILE% %DEBUGCFLAGS%
+@set LJLINKTYPE=%LJLINKTYPE_DEBUG%
+
+@set LJCOMPILE=%LJCOMPILE% %LJCOMPILETARGET%
+@set LJLINK=%LJLINK% %LJLINKTYPE% %LJLINKTARGET%
+
+@goto :BUILD_START
+
+:NODEBUG
+@shift
+
+@set LJEXENAME=%LJEXENAME_MD%
+@set LJDLLNAME=%LJDLLNAME_release%
+@set LJLIBNAME=%LJLIBNAME_release%
+@set LJSLIBNAME=%LJSLIBNAME_release%
+@set LJMode=%LJMode_release%
+@set LJDYNBUILD=%LJDYNBUILD_RELEASE%
+
+@set LJEXELINKNAME=%LJLIBNAME%
+@set LJEXELINKNAME_STATIC=%LJSLIBNAME%
+
+@set LJCOMPILE=%LJCOMPILE% %LJCOMPILETARGET%
+@set LJLINK=%LJLINK% %LJLINKTYPE% %LJLINKTARGET%
+
+@goto :BUILD_START
+
+:NODEBUG_MT
+@shift
+
+@set LJEXENAME=%LJEXENAME_MT%
+@set LJDLLNAME=%LJDLLNAME_release_mt%
+@set LJLIBNAME=%LJLIBNAME_release_mt%
+@set LJSLIBNAME=%LJSLIBNAME_release_mt%
+@set LJMode=%LJMode_release_mt%
+@set LJDYNBUILD=%LJDYNBUILD_RELEASE_MT%
+
+@set LJEXELINKNAME=%LJLIBNAME%
+@set LJEXELINKNAME_STATIC=%LJSLIBNAME%
+
+@set LJCOMPILE=%LJCOMPILE% %LJCOMPILETARGET%
+@set LJLINK=%LJLINK% %LJLINKTYPE% %LJLINKTARGET%
+
+@goto :BUILD_START
+
+:BUILD_START
+
 @if "%2"=="amalg" goto :AMALGDLL
 @if "%2"=="static" goto :STATIC
 %LJCOMPILE% %LJDYNBUILD% %LJMode% lj_*.c lib_*.c
@@ -132,6 +224,7 @@ buildvm -m folddef -o lj_folddef.h lj_opt_fold.c
 @if errorlevel 1 goto :BAD
 @goto :MTDLL
 :STATIC
+@set LJEXELINKNAME=%LJEXELINKNAME_STATIC%
 %LJCOMPILE% %LJMode% lj_*.c lib_*.c
 @if errorlevel 1 goto :BAD
 @rem %LJLIB% /OUT:%LJLIBNAME% lj_*.obj lib_*.obj
@@ -156,7 +249,8 @@ if exist %LJDLLNAME%.manifest^
 
 %LJCOMPILE% %LJMode% luajit.c
 @if errorlevel 1 goto :BAD
-%LJLINK% /OUT:luajit.exe luajit.obj %LJLIBNAME%
+%LJLINK% /OUT:%LJEXENAME% luajit.obj %LJEXELINKNAME%
+
 @if errorlevel 1 goto :BAD
 if exist luajit.exe.manifest^
   %LJMT% -manifest luajit.exe.manifest -outputresource:luajit.exe

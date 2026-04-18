@@ -39,6 +39,11 @@ public:
 
 	tool_conv_to_jni_mk_cfg(BOOST_RV_REF(this_type) right)
 		: root_dir_(boost::move(right.root_dir_)),
+			min_sdk_ver_(boost::move(right.min_sdk_ver_)),
+			min_sdk_riscv64_ver_(boost::move(right.min_sdk_riscv64_ver_)),
+			compiler_ver_(boost::move(right.compiler_ver_)),
+			boost_ver_(boost::move(right.boost_ver_)),
+			python_ver_(boost::move(right.python_ver_)),
 			dir_filter_(boost::move(right.dir_filter_)),
 			cbp_file_filter_(boost::move(right.cbp_file_filter_)),
 			cpp_file_filter_(boost::move(right.cpp_file_filter_))
@@ -59,6 +64,13 @@ public:
 		}
 
 		yggr::copy_or_move_or_swap(root_dir_, boost::move(right_ref.root_dir_));
+
+		yggr::copy_or_move_or_swap(min_sdk_ver_, boost::move(right_ref.min_sdk_ver_));
+		yggr::copy_or_move_or_swap(min_sdk_riscv64_ver_, boost::move(right_ref.min_sdk_riscv64_ver_));
+		yggr::copy_or_move_or_swap(compiler_ver_, boost::move(right_ref.compiler_ver_));
+		yggr::copy_or_move_or_swap(boost_ver_, boost::move(right_ref.boost_ver_));
+		yggr::copy_or_move_or_swap(python_ver_, boost::move(right_ref.python_ver_));
+
 		yggr::copy_or_move_or_swap(dir_filter_, boost::move(right_ref.dir_filter_));
 		yggr::copy_or_move_or_swap(cbp_file_filter_, boost::move(right_ref.cbp_file_filter_));
 		yggr::copy_or_move_or_swap(cpp_file_filter_, boost::move(right_ref.cpp_file_filter_));
@@ -77,6 +89,15 @@ public:
 
 	void swap(this_type& right);
 
+public:
+	inline string_type python_version_float(void) const
+	{
+		return 
+			python_ver_.size() == 3?
+				python_ver_.substr(0, 1) + "." + python_ver_.substr(1, 2)
+				: string_type();
+	}
+
 private:
 	friend class yggr::serialization::access;
 
@@ -85,6 +106,12 @@ private:
 	{
 		ar & YGGR_SERIALIZATION_NVP(root_dir_);
 
+		ar & YGGR_SERIALIZATION_NVP(min_sdk_ver_);
+		ar & YGGR_SERIALIZATION_NVP(min_sdk_riscv64_ver_);
+		ar & YGGR_SERIALIZATION_NVP(compiler_ver_);
+		ar & YGGR_SERIALIZATION_NVP(boost_ver_);
+		ar & YGGR_SERIALIZATION_NVP(python_ver_);
+
 		ar & YGGR_SERIALIZATION_NVP(dir_filter_);
 		ar & YGGR_SERIALIZATION_NVP(cbp_file_filter_);
 		ar & YGGR_SERIALIZATION_NVP(cpp_file_filter_);
@@ -92,6 +119,12 @@ private:
 
 public:
 	string_type root_dir_;
+
+	string_type min_sdk_ver_;
+	string_type min_sdk_riscv64_ver_;
+	string_type compiler_ver_;
+	string_type boost_ver_;
+	string_type python_ver_;
 
 	filter_list_type dir_filter_;
 	filter_list_type cbp_file_filter_;

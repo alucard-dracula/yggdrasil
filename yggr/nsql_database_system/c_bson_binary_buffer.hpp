@@ -1039,16 +1039,6 @@ std::basic_ostream<Char, Traits>&
 	return outter(os, right, bson_json_mode_def::E_BSON_JSON_MODE_LEGACY);
 }
 
-// need test, if ok, remove it
-//template<typename Char, typename Traits, u32 BINARY_ID>
-//std::basic_ostream<Char, Traits>&
-//	operator<<(std::basic_ostream<Char, Traits>& os,
-//				BOOST_RV_REF_BEG c_bson_binary_buffer<BINARY_ID> BOOST_RV_REF_END right)
-//{
-//	const c_bson_binary_buffer<BINARY_ID>& right_cref = right;
-//	return yggr::nsql_database_system::operator<<(os, right_cref);
-//}
-
 typedef c_bson_binary_buffer<bson_binary_typeid_def::E_BSON_BIN_TYPE_BINARY> c_bson_any_binary_buffer;
 typedef c_bson_binary_buffer<bson_binary_typeid_def::E_BSON_BIN_TYPE_FUNCTION> c_bson_func_binary_buffer;
 typedef c_bson_binary_buffer<bson_binary_typeid_def::E_BSON_BIN_TYPE_BINARY_DEPRECATED> c_bson_old_binary_buffer;

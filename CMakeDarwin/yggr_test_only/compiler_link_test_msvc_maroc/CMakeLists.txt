@@ -1,16 +1,16 @@
-#compiler_link_test_msvc_maroc CMakeLists.txt
+#compiler_link_test_msvc_macro CMakeLists.txt
 
-project(compiler_link_test_msvc_maroc)
+project(compiler_link_test_msvc_macro)
 
-message(STATUS "build-sub-project [ compiler_link_test_msvc_maroc ]")
+message(STATUS "build-sub-project [ compiler_link_test_msvc_macro ]")
 
-set(var_proj_name compiler_link_test_msvc_maroc)
+set(var_proj_name compiler_link_test_msvc_macro)
 
 set(var_root_proj_dir ${PROJECT_SOURCE_DIR}/../../..)
 set(var_proj_src_dir ${var_root_proj_dir}/test)
 
 set(var_proj_src_list 
-		${var_proj_src_dir}/compiler_link/test_msvc_maroc.cpp
+		${var_proj_src_dir}/compiler_link/test_msvc_macro.cpp
 )
 
 set(var_proj_bin_outdir ${var_root_proj_dir}/${USRDEF_CMAKE_BIN_OUTDIR})

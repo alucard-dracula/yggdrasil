@@ -5,16 +5,32 @@
 			<Configuration>Debug</Configuration>
 			<Platform>Win32</Platform>
 		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug-MT|Win32">
+			<Configuration>Debug-MT</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
 		<ProjectConfiguration Include="Debug|x64">
 			<Configuration>Debug</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug-MT|x64">
+			<Configuration>Debug-MT</Configuration>
 			<Platform>x64</Platform>
 		</ProjectConfiguration>
 		<ProjectConfiguration Include="Release|Win32">
 			<Configuration>Release</Configuration>
 			<Platform>Win32</Platform>
 		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release-MT|Win32">
+			<Configuration>Release-MT</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
 		<ProjectConfiguration Include="Release|x64">
 			<Configuration>Release</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release-MT|x64">
+			<Configuration>Release-MT</Configuration>
 			<Platform>x64</Platform>
 		</ProjectConfiguration>
 	</ItemGroup>
@@ -22,7 +38,7 @@
 		<ClCompile Include="regex\get_string_vector.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{384E7159-AAEE-431A-89BA-53DDB98192F4}</ProjectGuid>
+		<ProjectGuid>{35D24A08-84B6-4BBC-AB51-3B19E36F598B}</ProjectGuid>
 		<RootNamespace>regex_get_string_vector</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>regex_get_string_vector</ProjectName>
@@ -33,7 +49,18 @@
 		<CharacterSet>MultiByte</CharacterSet>
 		<UseDebugLibraries>true</UseDebugLibraries>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>true</UseDebugLibraries>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'" Label="Configuration">
 		<ConfigurationType>Application</ConfigurationType>
 		<CharacterSet>MultiByte</CharacterSet>
 		<UseDebugLibraries>false</UseDebugLibraries>
@@ -44,7 +71,18 @@
 		<CharacterSet>MultiByte</CharacterSet>
 		<UseDebugLibraries>true</UseDebugLibraries>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>true</UseDebugLibraries>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'" Label="Configuration">
 		<ConfigurationType>Application</ConfigurationType>
 		<CharacterSet>MultiByte</CharacterSet>
 		<UseDebugLibraries>false</UseDebugLibraries>
@@ -57,7 +95,15 @@
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
 	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
+	</ImportGroup>
 	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'" Label="PropertySheets">
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
 	</ImportGroup>
@@ -65,12 +111,26 @@
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
 	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
+	</ImportGroup>
 	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'" Label="PropertySheets">
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props"/>
 	</ImportGroup>
 	<PropertyGroup Label="UserMacros"/>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>$(ProjectName)</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'">
 		<LinkIncremental>true</LinkIncremental>
 		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
@@ -82,13 +142,31 @@
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
 		<TargetName>$(ProjectName)</TargetName>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>$(ProjectName)</TargetName>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
 		<LinkIncremental>false</LinkIncremental>
 		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
 		<TargetName>$(ProjectName)</TargetName>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>$(ProjectName)</TargetName>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>$(ProjectName)</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'">
 		<LinkIncremental>false</LinkIncremental>
 		<OutDir>$(SolutionDir)$(Configuration)-$(Platform)/vc$(PlatformToolsetVersion)</OutDir>
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
@@ -106,6 +184,30 @@
 			<ExceptionHandling>Async</ExceptionHandling>
 			<FunctionLevelLinking>true</FunctionLevelLinking>
 			<IntrinsicFunctions>true</IntrinsicFunctions>
+		</ClCompile>
+		<Link>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<AdditionalLibraryDirectories>../lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+			<ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
+			<SubSystem>Console</SubSystem>
+			<GenerateDebugInformation>false</GenerateDebugInformation>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<OptimizeReferences>true</OptimizeReferences>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'">
+		<ClCompile>
+			<Optimization>MaxSpeed</Optimization>
+			<AdditionalIncludeDirectories>../;../yggr_lua_base_type</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<PrecompiledHeader>
+			</PrecompiledHeader>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<WarningLevel>Level3</WarningLevel>
+			<ExceptionHandling>Async</ExceptionHandling>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
 		</ClCompile>
 		<Link>
 			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
@@ -140,6 +242,30 @@
 			<OptimizeReferences>true</OptimizeReferences>
 		</Link>
 	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'">
+		<ClCompile>
+			<Optimization>MaxSpeed</Optimization>
+			<AdditionalIncludeDirectories>../;../yggr_lua_base_type</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_CONSOLE;YGGR_SYSTEM_64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<PrecompiledHeader>
+			</PrecompiledHeader>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<WarningLevel>Level3</WarningLevel>
+			<ExceptionHandling>Async</ExceptionHandling>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+		</ClCompile>
+		<Link>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<AdditionalLibraryDirectories>../lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+			<ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
+			<SubSystem>Console</SubSystem>
+			<GenerateDebugInformation>false</GenerateDebugInformation>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<OptimizeReferences>true</OptimizeReferences>
+		</Link>
+	</ItemDefinitionGroup>
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
 		<ClCompile>
 			<Optimization>Disabled</Optimization>
@@ -160,6 +286,27 @@
 			<GenerateDebugInformation>true</GenerateDebugInformation>
 		</Link>
 	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'">
+		<ClCompile>
+			<Optimization>Disabled</Optimization>
+			<AdditionalIncludeDirectories>../;../yggr_lua_base_type</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<PrecompiledHeader>
+			</PrecompiledHeader>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<WarningLevel>Level3</WarningLevel>
+			<ExceptionHandling>Async</ExceptionHandling>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+			<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+		</ClCompile>
+		<Link>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<AdditionalLibraryDirectories>../lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+			<ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
+			<SubSystem>Console</SubSystem>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+		</Link>
+	</ItemDefinitionGroup>
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
 		<ClCompile>
 			<Optimization>Disabled</Optimization>
@@ -171,6 +318,27 @@
 			<WarningLevel>Level3</WarningLevel>
 			<ExceptionHandling>Async</ExceptionHandling>
 			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+		</ClCompile>
+		<Link>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<AdditionalLibraryDirectories>../lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+			<ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
+			<SubSystem>Console</SubSystem>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'">
+		<ClCompile>
+			<Optimization>Disabled</Optimization>
+			<AdditionalIncludeDirectories>../;../yggr_lua_base_type</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_CONSOLE;YGGR_SYSTEM_64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<PrecompiledHeader>
+			</PrecompiledHeader>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<WarningLevel>Level3</WarningLevel>
+			<ExceptionHandling>Async</ExceptionHandling>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+			<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
 		</ClCompile>
 		<Link>
 			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>

@@ -35,6 +35,11 @@ THE SOFTWARE.
 #include <yggr/archive/binary_wiarchive.hpp>
 #include <yggr/archive/binary_woarchive.hpp>
 
+#ifdef BOOST_MSVC
+#  pragma warning(push)
+#  pragma warning(disable : 4624)
+#endif // BOOST_MSVC
+
 namespace yggr
 {
 namespace archive
@@ -107,5 +112,9 @@ typedef
 } // namespace archive_partner
 } // namespace archive
 } // namespace yggr
+
+#ifdef BOOST_MSVC
+#  pragma warning(pop)
+#endif // BOOST_MSVC
 
 #endif //__YGGR_ARCHIVE_ARCHIVE_PARTNER_BINARY_ARCHIVE_PARTNER_HPP__

@@ -29,7 +29,7 @@
 #include "mongocrypt-status-private.h"
 
 //#include <inttypes.h>
-#include <yggr_detail/inttypes.h>
+#include <yggr_mongodbc_patch/inttypes.h>
 
 /* This function uses ECB callback to simulate CTR encrypt and decrypt
  *

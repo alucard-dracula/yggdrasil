@@ -5,16 +5,32 @@
 			<Configuration>Debug</Configuration>
 			<Platform>Win32</Platform>
 		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug-MT|Win32">
+			<Configuration>Debug-MT</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
 		<ProjectConfiguration Include="Debug|x64">
 			<Configuration>Debug</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug-MT|x64">
+			<Configuration>Debug-MT</Configuration>
 			<Platform>x64</Platform>
 		</ProjectConfiguration>
 		<ProjectConfiguration Include="Release|Win32">
 			<Configuration>Release</Configuration>
 			<Platform>Win32</Platform>
 		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release-MT|Win32">
+			<Configuration>Release-MT</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
 		<ProjectConfiguration Include="Release|x64">
 			<Configuration>Release</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release-MT|x64">
+			<Configuration>Release-MT</Configuration>
 			<Platform>x64</Platform>
 		</ProjectConfiguration>
 	</ItemGroup>
@@ -60,12 +76,28 @@
 		<UseDebugLibraries>true</UseDebugLibraries>
 		<CharacterSet>MultiByte</CharacterSet>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<UseDebugLibraries>true</UseDebugLibraries>
+		<CharacterSet>MultiByte</CharacterSet>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
 		<ConfigurationType>StaticLibrary</ConfigurationType>
 		<UseDebugLibraries>true</UseDebugLibraries>
 		<CharacterSet>MultiByte</CharacterSet>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<UseDebugLibraries>true</UseDebugLibraries>
+		<CharacterSet>MultiByte</CharacterSet>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<CharacterSet>MultiByte</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'" Label="Configuration">
 		<ConfigurationType>StaticLibrary</ConfigurationType>
 		<UseDebugLibraries>false</UseDebugLibraries>
 		<CharacterSet>MultiByte</CharacterSet>
@@ -77,19 +109,37 @@
 		<CharacterSet>MultiByte</CharacterSet>
 		<WholeProgramOptimization>true</WholeProgramOptimization>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<CharacterSet>MultiByte</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+	</PropertyGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
 	<ImportGroup Label="ExtensionSettings">
 </ImportGroup>
 	<ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 	</ImportGroup>
+	<ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+	</ImportGroup>
 	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'" Label="PropertySheets">
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 	</ImportGroup>
 	<ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 	</ImportGroup>
+	<ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+	</ImportGroup>
 	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'" Label="PropertySheets">
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 	</ImportGroup>
 	<PropertyGroup Label="UserMacros"/>
@@ -97,25 +147,49 @@
 		<LinkIncremental>true</LinkIncremental>
 		<OutDir>$(SolutionDir)lib/</OutDir>
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
-		<TargetName>liblua501-vc$(PlatformToolsetVersion)-s-d</TargetName>
+		<TargetName>liblua501_static-vc$(PlatformToolsetVersion)-d</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)lib/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>liblua501_static-vc$(PlatformToolsetVersion)-s-d</TargetName>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
 		<LinkIncremental>true</LinkIncremental>
 		<OutDir>$(SolutionDir)lib64/</OutDir>
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
-		<TargetName>liblua501-vc$(PlatformToolsetVersion)-s-d</TargetName>
+		<TargetName>liblua501_static-vc$(PlatformToolsetVersion)-d</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)lib64/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>liblua501_static-vc$(PlatformToolsetVersion)-s-d</TargetName>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
 		<LinkIncremental>false</LinkIncremental>
 		<OutDir>$(SolutionDir)lib/</OutDir>
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
-		<TargetName>liblua501-vc$(PlatformToolsetVersion)-s</TargetName>
+		<TargetName>liblua501_static-vc$(PlatformToolsetVersion)</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)lib/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>liblua501_static-vc$(PlatformToolsetVersion)-s</TargetName>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
 		<LinkIncremental>false</LinkIncremental>
 		<OutDir>$(SolutionDir)lib64/</OutDir>
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
-		<TargetName>liblua501-vc$(PlatformToolsetVersion)-s</TargetName>
+		<TargetName>liblua501_static-vc$(PlatformToolsetVersion)</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)lib64/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>liblua501_static-vc$(PlatformToolsetVersion)-s</TargetName>
 	</PropertyGroup>
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
 		<ClCompile>
@@ -128,6 +202,23 @@
 			<OmitFramePointers>false</OmitFramePointers>
 			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
 			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+		</ClCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'">
+		<ClCompile>
+			<PrecompiledHeader>
+			</PrecompiledHeader>
+			<WarningLevel>Level3</WarningLevel>
+			<Optimization>Disabled</Optimization>
+			<PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_LIB;LUA_USELONGLONG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>../include</AdditionalIncludeDirectories>
+			<OmitFramePointers>false</OmitFramePointers>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+			<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
 		</ClCompile>
 		<Lib>
 			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
@@ -149,6 +240,23 @@
 			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
 		</Lib>
 	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'">
+		<ClCompile>
+			<PrecompiledHeader>
+			</PrecompiledHeader>
+			<WarningLevel>Level3</WarningLevel>
+			<Optimization>Disabled</Optimization>
+			<PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_WINDOWS;_LIB;LUA_USELONGLONG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>../include</AdditionalIncludeDirectories>
+			<OmitFramePointers>false</OmitFramePointers>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+			<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+		</ClCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+	</ItemDefinitionGroup>
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
 		<ClCompile>
 			<WarningLevel>Level3</WarningLevel>
@@ -163,15 +271,25 @@
 			<IntrinsicFunctions>true</IntrinsicFunctions>
 			<WholeProgramOptimization>false</WholeProgramOptimization>
 		</ClCompile>
-		<Link>
-			<SubSystem>Windows</SubSystem>
-			<GenerateDebugInformation>false</GenerateDebugInformation>
-			<EnableCOMDATFolding>true</EnableCOMDATFolding>
-			<OptimizeReferences>true</OptimizeReferences>
-			<AdditionalDependencies>kernel32.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-			<ImportLibrary>../lib/liblua501_static-vc$(PlatformToolsetVersion).lib</ImportLibrary>
-			<OutputFile>$(OutDir)lua514_static-vc$(PlatformToolsetVersion).dll</OutputFile>
-		</Link>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'">
+		<ClCompile>
+			<WarningLevel>Level3</WarningLevel>
+			<PrecompiledHeader>
+			</PrecompiledHeader>
+			<Optimization>MaxSpeed</Optimization>
+			<PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_LIB;LUA_USELONGLONG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>../include</AdditionalIncludeDirectories>
+			<OmitFramePointers>false</OmitFramePointers>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+		</ClCompile>
 		<Lib>
 			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
 		</Lib>
@@ -189,6 +307,25 @@
 			<FunctionLevelLinking>true</FunctionLevelLinking>
 			<IntrinsicFunctions>true</IntrinsicFunctions>
 			<WholeProgramOptimization>false</WholeProgramOptimization>
+		</ClCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'">
+		<ClCompile>
+			<WarningLevel>Level3</WarningLevel>
+			<PrecompiledHeader>
+			</PrecompiledHeader>
+			<Optimization>MaxSpeed</Optimization>
+			<PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_WINDOWS;_LIB;LUA_USELONGLONG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>../include</AdditionalIncludeDirectories>
+			<OmitFramePointers>false</OmitFramePointers>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
 		</ClCompile>
 		<Lib>
 			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>

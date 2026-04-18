@@ -50,5 +50,12 @@ THE SOFTWARE.
 #	define LUA_COMPAT_5_1
 #endif // LUA_COMPAT_5_1
 
+
+// YGGR_LUA_THREAD_SAFE (default not defined)
+//#if !defined(YGGR_LUA_THREAD_SAFE)
+//#	define YGGR_LUA_THREAD_SAFE
+//#endif // YGGR_LUA_THREAD_SAFE
+
+
 #endif // __YGGR_BASE_SCRIPT_LUA_CFG_HPP__
 

@@ -5,16 +5,32 @@
 			<Configuration>Debug</Configuration>
 			<Platform>Win32</Platform>
 		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug-MT|Win32">
+			<Configuration>Debug-MT</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
 		<ProjectConfiguration Include="Debug|x64">
 			<Configuration>Debug</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug-MT|x64">
+			<Configuration>Debug-MT</Configuration>
 			<Platform>x64</Platform>
 		</ProjectConfiguration>
 		<ProjectConfiguration Include="Release|Win32">
 			<Configuration>Release</Configuration>
 			<Platform>Win32</Platform>
 		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release-MT|Win32">
+			<Configuration>Release-MT</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
 		<ProjectConfiguration Include="Release|x64">
 			<Configuration>Release</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release-MT|x64">
+			<Configuration>Release-MT</Configuration>
 			<Platform>x64</Platform>
 		</ProjectConfiguration>
 	</ItemGroup>
@@ -35,7 +51,21 @@
 		<UseDebugLibraries>false</UseDebugLibraries>
 		<PlatformToolset>v143</PlatformToolset>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'" Label="Configuration">
+		<ConfigurationType>DynamicLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+		<ConfigurationType>DynamicLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'" Label="Configuration">
 		<ConfigurationType>DynamicLibrary</ConfigurationType>
 		<CharacterSet>MultiByte</CharacterSet>
 		<WholeProgramOptimization>true</WholeProgramOptimization>
@@ -48,7 +78,19 @@
 		<UseDebugLibraries>true</UseDebugLibraries>
 		<PlatformToolset>v143</PlatformToolset>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'" Label="Configuration">
+		<ConfigurationType>DynamicLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>true</UseDebugLibraries>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+		<ConfigurationType>DynamicLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>true</UseDebugLibraries>
+		<PlatformToolset>v143</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'" Label="Configuration">
 		<ConfigurationType>DynamicLibrary</ConfigurationType>
 		<CharacterSet>MultiByte</CharacterSet>
 		<UseDebugLibraries>true</UseDebugLibraries>
@@ -61,7 +103,15 @@
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 		<Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props"/>
 	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props"/>
+	</ImportGroup>
 	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'" Label="PropertySheets">
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 		<Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props"/>
 	</ImportGroup>
@@ -69,7 +119,15 @@
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 		<Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props"/>
 	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props"/>
+	</ImportGroup>
 	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'" Label="PropertySheets">
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 		<Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props"/>
 	</ImportGroup>
@@ -80,11 +138,23 @@
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
 		<TargetName>lzma-vc$(PlatformToolsetVersion)-d</TargetName>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)bin/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lzma-vc$(PlatformToolsetVersion)-s-d</TargetName>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
 		<LinkIncremental>true</LinkIncremental>
 		<OutDir>$(SolutionDir)bin64/</OutDir>
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
 		<TargetName>lzma-vc$(PlatformToolsetVersion)-d</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)bin64/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lzma-vc$(PlatformToolsetVersion)-s-d</TargetName>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
 		<LinkIncremental>false</LinkIncremental>
@@ -92,11 +162,23 @@
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
 		<TargetName>lzma-vc$(PlatformToolsetVersion)</TargetName>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)bin/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lzma-vc$(PlatformToolsetVersion)-s</TargetName>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
 		<LinkIncremental>false</LinkIncremental>
 		<OutDir>$(SolutionDir)bin64/</OutDir>
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
 		<TargetName>lzma-vc$(PlatformToolsetVersion)</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)bin64/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lzma-vc$(PlatformToolsetVersion)-s</TargetName>
 	</PropertyGroup>
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
 		<ClCompile>
@@ -114,8 +196,30 @@
 			<LinkDLL>true</LinkDLL>
 			<SubSystem>Windows</SubSystem>
 			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-			<ImportLibrary>$(SolutionDir)lib/lib$(TargetName).lib</ImportLibrary>
-			<AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+			<ImportLibrary>$(SolutionDir)lib/$(TargetName).lib</ImportLibrary>
+			<ModuleDefinitionFile>.\LzmaLib.def</ModuleDefinitionFile>
+			<ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'">
+		<ClCompile>
+			<Optimization>Disabled</Optimization>
+			<WarningLevel>Level3</WarningLevel>
+			<PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LZMALIB_EXPORT;COMPRESS_MF_MT;LZMALIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+			<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+		</ClCompile>
+		<Bscmake>
+			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+		</Bscmake>
+		<Link>
+			<LinkDLL>true</LinkDLL>
+			<SubSystem>Windows</SubSystem>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<ImportLibrary>$(SolutionDir)lib/$(TargetName).lib</ImportLibrary>
 			<ModuleDefinitionFile>.\LzmaLib.def</ModuleDefinitionFile>
 			<ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
 			<GenerateDebugInformation>true</GenerateDebugInformation>
@@ -137,8 +241,30 @@
 			<LinkDLL>true</LinkDLL>
 			<SubSystem>Windows</SubSystem>
 			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-			<ImportLibrary>$(SolutionDir)lib64/lib$(TargetName).lib</ImportLibrary>
-			<AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+			<ImportLibrary>$(SolutionDir)lib64/$(TargetName).lib</ImportLibrary>
+			<ModuleDefinitionFile>.\LzmaLib.def</ModuleDefinitionFile>
+			<ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'">
+		<ClCompile>
+			<Optimization>Disabled</Optimization>
+			<WarningLevel>Level3</WarningLevel>
+			<PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_WINDOWS;_USRDLL;LZMALIB_EXPORT;COMPRESS_MF_MT;LZMALIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+			<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+		</ClCompile>
+		<Bscmake>
+			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+		</Bscmake>
+		<Link>
+			<LinkDLL>true</LinkDLL>
+			<SubSystem>Windows</SubSystem>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<ImportLibrary>$(SolutionDir)lib64/$(TargetName).lib</ImportLibrary>
 			<ModuleDefinitionFile>.\LzmaLib.def</ModuleDefinitionFile>
 			<ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
 			<GenerateDebugInformation>true</GenerateDebugInformation>
@@ -162,8 +288,34 @@
 			<LinkDLL>true</LinkDLL>
 			<SubSystem>Windows</SubSystem>
 			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-			<ImportLibrary>$(SolutionDir)lib/lib$(TargetName).lib</ImportLibrary>
-			<AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+			<ImportLibrary>$(SolutionDir)lib/$(TargetName).lib</ImportLibrary>
+			<ModuleDefinitionFile>.\LzmaLib.def</ModuleDefinitionFile>
+			<ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
+			<GenerateDebugInformation>false</GenerateDebugInformation>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<OptimizeReferences>true</OptimizeReferences>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'">
+		<ClCompile>
+			<Optimization>MaxSpeed</Optimization>
+			<WarningLevel>Level3</WarningLevel>
+			<PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;LZMALIB_EXPORT;LZMALIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<CallingConvention>FastCall</CallingConvention>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+		</ClCompile>
+		<Bscmake>
+			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+		</Bscmake>
+		<Link>
+			<LinkDLL>true</LinkDLL>
+			<SubSystem>Windows</SubSystem>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<ImportLibrary>$(SolutionDir)lib/$(TargetName).lib</ImportLibrary>
 			<ModuleDefinitionFile>.\LzmaLib.def</ModuleDefinitionFile>
 			<ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
 			<GenerateDebugInformation>false</GenerateDebugInformation>
@@ -189,8 +341,34 @@
 			<LinkDLL>true</LinkDLL>
 			<SubSystem>Windows</SubSystem>
 			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-			<ImportLibrary>$(SolutionDir)lib64/lib$(TargetName).lib</ImportLibrary>
-			<AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+			<ImportLibrary>$(SolutionDir)lib64/$(TargetName).lib</ImportLibrary>
+			<ModuleDefinitionFile>.\LzmaLib.def</ModuleDefinitionFile>
+			<ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
+			<GenerateDebugInformation>false</GenerateDebugInformation>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<OptimizeReferences>true</OptimizeReferences>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'">
+		<ClCompile>
+			<Optimization>MaxSpeed</Optimization>
+			<WarningLevel>Level3</WarningLevel>
+			<PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_WINDOWS;_USRDLL;LZMALIB_EXPORT;LZMALIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<CallingConvention>FastCall</CallingConvention>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+		</ClCompile>
+		<Bscmake>
+			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+		</Bscmake>
+		<Link>
+			<LinkDLL>true</LinkDLL>
+			<SubSystem>Windows</SubSystem>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<ImportLibrary>$(SolutionDir)lib64/$(TargetName).lib</ImportLibrary>
 			<ModuleDefinitionFile>.\LzmaLib.def</ModuleDefinitionFile>
 			<ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
 			<GenerateDebugInformation>false</GenerateDebugInformation>

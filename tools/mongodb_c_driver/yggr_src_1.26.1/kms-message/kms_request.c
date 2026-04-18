@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-#include <yggr_detail/mongo_c__func__.h>
+#include <yggr_mongodbc_patch/mongo_c__func__.h>
 
 #include "kms_crypto.h"
 #include "kms_message/kms_message.h"

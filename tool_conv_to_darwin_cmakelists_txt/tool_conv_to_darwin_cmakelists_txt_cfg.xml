@@ -1,7 +1,10 @@
 <tool_conv_to_darwin_cmakelists_txt_cfg class_id="0" tracking_level="0" version="0">
-  <root_dir_>..</root_dir_>
+	<root_dir_>../tools/lua/luabind503p</root_dir_>
+	<cmake_ver_req_min_>3.12</cmake_ver_req_min_>
+	<boost_ver_>1_82</boost_ver_>
+	<python_ver_>313</python_ver_>
 	<dir_filter_>
-		<count>79</count>
+		<count>83</count>
 		<bucket_count>97</bucket_count>
 		<item_version>0</item_version>
 		<item>Release-x64</item>
@@ -17,6 +20,7 @@
 		<item>encryption_tool_svr_test</item>
 		<item>.git</item>
 		<item>tool_format_vcxproj</item>
+		<item>Release-MT-x64</item>
 		<item>tool_suo_batch_build_selector</item>
 		<item>tool_remove_duplicate_files</item>
 		<item>seh_svr_test</item>
@@ -35,6 +39,7 @@
 		<item>p2p_peer_test</item>
 		<item>yggr_compatibility</item>
 		<item>licenses</item>
+		<item>Debug-MT-x64</item>
 		<item>tool_conv_to_jni_mk</item>
 		<item>svr_test</item>
 		<item>yggr_encryption_tool</item>
@@ -75,19 +80,22 @@
 		<item>yggr_base</item>
 		<item>yggr_seh</item>
 		<item>yggr_lua_base_type</item>
+		<item>Debug-MT-Win32</item>
 		<item>tool_conv_to_cb_solution_win_mingw</item>
 		<item>yggr_script_lua</item>
 		<item>Debug-x64</item>
 		<item>yggr_exception</item>
 		<item>yggr_segment</item>
 		<item>lib64</item>
+		<item>Release-MT-Win32</item>
 		<item>encryption_tool_proxy_srv_test</item>
 		<item>tool_downgrade_vcxproj</item>
 	</dir_filter_>
 	<cbp_file_filter_>
-		<count>6</count>
+		<count>7</count>
 		<bucket_count>13</bucket_count>
 		<item_version>0</item_version>
+		<item>dll_param_test_linux.cbp</item>
 		<item>yggr_linux.cbp</item>
 		<item>include_linux.cbp</item>
 		<item>test_linux.cbp</item>

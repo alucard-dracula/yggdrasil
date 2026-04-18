@@ -41,6 +41,26 @@
 			<Depends filename="yggr_system_controller/yggr_system_controller_mingw_cpp11.cbp"/>
 			<Depends filename="yggr_time/yggr_time_mingw_cpp11.cbp"/>
 		</Project>
+		<Project filename="tool_downgrade_vcxproj/tool_downgrade_vcxproj_mingw_cpp11.cbp">
+			<Depends filename="yggr_base/yggr_base_mingw_cpp11.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_mingw_cpp11.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_mingw_cpp11.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_mingw_cpp11.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_mingw_cpp11.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_mingw_cpp11.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_mingw_cpp11.cbp"/>
+			<Depends filename="yggr_time/yggr_time_mingw_cpp11.cbp"/>
+		</Project>
+		<Project filename="tool_dumpbin_exports_to_def/tool_dumpbin_exports_to_def_mingw_cpp11.cbp">
+			<Depends filename="yggr_base/yggr_base_mingw_cpp11.cbp"/>
+			<Depends filename="yggr_charset/yggr_charset_mingw_cpp11.cbp"/>
+			<Depends filename="yggr_compatibility/yggr_compatibility_mingw_cpp11.cbp"/>
+			<Depends filename="yggr_encryption_tool/yggr_encryption_tool_mingw_cpp11.cbp"/>
+			<Depends filename="yggr_exception/yggr_exception_mingw_cpp11.cbp"/>
+			<Depends filename="yggr_ids/yggr_ids_mingw_cpp11.cbp"/>
+			<Depends filename="yggr_system_controller/yggr_system_controller_mingw_cpp11.cbp"/>
+			<Depends filename="yggr_time/yggr_time_mingw_cpp11.cbp"/>
+		</Project>
 		<Project filename="tool_format_vcxproj/tool_format_vcxproj_mingw_cpp11.cbp">
 			<Depends filename="yggr_base/yggr_base_mingw_cpp11.cbp"/>
 			<Depends filename="yggr_charset/yggr_charset_mingw_cpp11.cbp"/>

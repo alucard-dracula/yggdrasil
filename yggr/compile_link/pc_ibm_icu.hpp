@@ -35,9 +35,9 @@ THE SOFTWARE.
 
 #if !defined(YGGR_ICU_USING_NATIVE_NAME)
 
-#	pragma comment YGGR_COMPILE_LINK_LIB_NO_FIRST_LIB_TAG(icuuc)
-#	pragma comment YGGR_COMPILE_LINK_LIB_NO_FIRST_LIB_TAG(icuin)
-#	pragma comment YGGR_COMPILE_LINK_LIB_NO_FIRST_LIB_TAG_AND_DEBUG_TAG(icudt)
+#	pragma comment YGGR_COMPILE_LINK_IMPL_LIB(icuuc)
+#	pragma comment YGGR_COMPILE_LINK_IMPL_LIB(icuin)
+#	pragma comment YGGR_COMPILE_LINK_IMPL_LIB_NO_DEBUG_TAG(icudt)
 
 #else
 

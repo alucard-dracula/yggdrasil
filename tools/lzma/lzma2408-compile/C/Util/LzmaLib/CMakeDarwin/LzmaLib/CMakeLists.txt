@@ -16,6 +16,8 @@ endif()
 set(USRDEF_CMAKE_BOOST_VERSION "1_82")
 set(USRDEF_CMAKE_PYTHON_VERSION "313")
 
+set(USRDEF_CMAKE_PYTHON_VERSION_FLOAT "3.13")
+
 set(USRDEF_CMAKE_PYTHON_INCLUDE_DIR "python3.13")
 
 #set(USRDEF_CMAKE_OSX_SDK_NAME "macosx")
@@ -164,7 +166,16 @@ set(USRDEF_CMAKE_LDFLAGS_RELEASE "")
 
 set(USRDEF_CMAKE_PROJ_ROOT_DIR ${PROJECT_SOURCE_DIR})
 
+set(var_proj_deps_a 
+		LzmaLib_static
+)
+
+#add_subdirectory static libraries
+add_subdirectory(LzmaLib_static)
+
 #add_subdirectory dynamic libraries
 add_subdirectory(LzmaLib)
+add_dependencies(LzmaLib ${var_proj_deps_a})
+
 
 

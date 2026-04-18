@@ -4,12 +4,17 @@
 		<Project filename="include/include_linux.cbp" active="1"/>
 		<Project filename="luabind/luabind_linux.cbp">
 			<Depends filename="luabind_static/luabind_static_linux.cbp"/>
-			<Depends filename="luabind_static_ts/luabind_static_ts_linux.cbp"/>
+			<Depends filename="luabind_ts_static/luabind_ts_static_linux.cbp"/>
 		</Project>
 		<Project filename="luabind_static/luabind_static_linux.cbp"/>
-		<Project filename="luabind_static_ts/luabind_static_ts_linux.cbp"/>
 		<Project filename="luabind_test/luabind_test_linux.cbp">
 			<Depends filename="luabind/luabind_linux.cbp"/>
+			<Depends filename="luabind_ts/luabind_ts_linux.cbp"/>
 		</Project>
+		<Project filename="luabind_ts/luabind_ts_linux.cbp">
+			<Depends filename="luabind_static/luabind_static_linux.cbp"/>
+			<Depends filename="luabind_ts_static/luabind_ts_static_linux.cbp"/>
+		</Project>
+		<Project filename="luabind_ts_static/luabind_ts_static_linux.cbp"/>
 	</Workspace>
 </CodeBlocks_workspace_file>

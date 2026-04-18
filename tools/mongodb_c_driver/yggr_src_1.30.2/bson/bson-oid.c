@@ -19,7 +19,7 @@
 #include <limits.h>
 #include <stdarg.h>
 //#include <stdbool.h>
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>

@@ -18,7 +18,7 @@
 #define _CRT_RAND_S
 #endif
 
-#include <yggr_detail/c_version_support.h>
+#include <yggr_mongodbc_patch/c_version_support.h>
 
 #include <string.h>
 

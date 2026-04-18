@@ -24,6 +24,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
+#include <yggr/base/yggrdef.h>
+
+#if !((defined(YGGR_MSVC_USING_MTD_FLAG) && YGGR_MSVC_USING_MTD_FLAG) \
+		|| (defined(YGGR_MSVC_USING_MT_FLAG) && YGGR_MSVC_USING_MT_FLAG))
+
 #include <yggr/script/python_script.hpp>
 #include <yggr/file_system/local_fsys_operators.hpp>
 #include <yggr/exception/exception.hpp>
@@ -79,7 +84,9 @@ std::string python_script::get_exception_msg(void) const
 	boost::python::handle<> hexc(exc), hval(boost::python::allow_null(val)), htb(boost::python::allow_null(tb));
 	if(!hval)
 	{
-		return boost::python::extract<std::string>(boost::python::str(hexc));
+		//return boost::python::extract<std::string>(boost::python::str(hexc));
+		const char* pmsg = boost::python::extract<const char*>(boost::python::str(hexc));
+		return pmsg? std::string(pmsg) : std::string();
 	}
 	else
 	{
@@ -87,7 +94,8 @@ std::string python_script::get_exception_msg(void) const
 		py_object_type format_exception(traceback.attr("format_exception"));
 		py_object_type formatted_list(format_exception(hexc, hval, htb));
 		py_object_type formatted(boost::python::str("").join(formatted_list));
-		return boost::python::extract<std::string>(formatted);
+		const char* pmsg = boost::python::extract<const char*>(formatted);
+		return pmsg? std::string(pmsg) : std::string();
 	}
 }
 
@@ -143,4 +151,6 @@ void python_script::compile_from_file(const string_type& code)
 } // namespace python
 } // namespace script
 } // namespace yggr
+
+#endif // !YGGR_MSVC_USING_MTD_FLAG
 

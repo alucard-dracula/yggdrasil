@@ -57,7 +57,7 @@ inline bool wait_any_key_detail(int argc, char* argv[])
 
 #define wait_any_key(__argc__, __argv__) \
 	std::cout << ( __FILE__ ) << " test_end" << std::endl; \
-	detail::wait_any_key_detail(__argc__, __argv__)
+	::detail::wait_any_key_detail(__argc__, __argv__)
 
 #if defined(_MSC_VER)
 #	define TEST_PP_WCOUT_IMBUE( __val__ ) std::wcout.imbue(std::locale( __val__ ));

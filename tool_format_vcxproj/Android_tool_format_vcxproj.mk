@@ -15,6 +15,7 @@ l_module := $(USRDEF_LOCAL_PROJECT_NAME)
 l_src_file := \
 	tool_format_vcxproj.cpp \
 	tool_format_vcxproj_cfg.cpp \
+	vcsln_parser.cpp \
 
 # include path
 l_c_include := \

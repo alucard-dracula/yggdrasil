@@ -66,7 +66,7 @@ set(var_proj_link_libs
 
 set(var_proj_link_libs_debug 
 		-llua504${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d
-		${USRDEF_CMAKE_LDFLAGS_DEBUG}
+		${USRDEF_CMAKE_LD_LIBRARY_DEBUG}
 )
 
 set(var_proj_link_libs_release 

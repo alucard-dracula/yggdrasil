@@ -2,6 +2,10 @@
 
 #include "tool_conv_to_darwin_cmakelists_txt_config.hpp"
 
+#include <iostream>
+#include <sstream>
+#include <cassert>
+
 #if !(BOOST_VERSION < 105600)
 
 #include "tool_conv_to_darwin_cmakelists_txt_cfg.hpp"
@@ -15,10 +19,6 @@
 
 #include <yggr/range_ex/range_iterator_ex.hpp>
 #include <yggr/iterator_ex/iterator.hpp>
-
-#include <iostream>
-#include <sstream>
-#include <cassert>
 
 #include <yggr/compile_link/linker.hpp>
 
@@ -742,7 +742,7 @@ ptree_string_type& conv_to_proj_cmakelists_txt(ptree_string_type& out,
 		if(link_libs_proj_debug.size() == infos.link_libs_proj_debug_.size())
 		{
 			ss << "set(var_proj_link_libs_debug \n"
-				<< make_cmake_l_multi_item(infos.link_libs_proj_debug_, "\t\t", "", "${USRDEF_CMAKE_LDFLAGS_DEBUG}") 
+				<< make_cmake_l_multi_item(infos.link_libs_proj_debug_, "\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY_DEBUG}") 
 				<< ")\n\n"
 				;
 		}
@@ -750,11 +750,11 @@ ptree_string_type& conv_to_proj_cmakelists_txt(ptree_string_type& out,
 		{
 			ss << "if(${USRDEF_HAS_X86_64})\n"
 				<< "\tset(var_proj_link_libs_debug \n"
-				<< make_cmake_l_multi_item(infos.link_libs_proj_debug_, "\t\t\t", "", "${USRDEF_CMAKE_LDFLAGS_DEBUG}") 
+				<< make_cmake_l_multi_item(infos.link_libs_proj_debug_, "\t\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY_DEBUG}") 
 				<< "\t)\n"
 				<< "else()\n"
 				<< "\tset(var_proj_link_libs_debug \n"
-				<< make_cmake_l_multi_item(link_libs_proj_debug, "\t\t\t", "", "${USRDEF_CMAKE_LDFLAGS_DEBUG}") 
+				<< make_cmake_l_multi_item(link_libs_proj_debug, "\t\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY_DEBUG}") 
 				<< "\t)\n"
 				<< "endif()\n\n"
 				;
@@ -781,21 +781,6 @@ ptree_string_type& conv_to_proj_cmakelists_txt(ptree_string_type& out,
 				;
 		}
 	}
-	// else
-	// {
-	// 	ss << "set(var_proj_link_libs \n"
-	// 		<< make_cmake_l_multi_item(infos.link_libs_proj_, "\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY}") 
-	// 		<< ")\n\n"
-
-	// 		<< "set(var_proj_link_libs_debug \n"
-	// 		<< make_cmake_l_multi_item(infos.link_libs_proj_debug_, "\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY_DEBUG}") 
-	// 		<< ")\n\n"
-
-	// 		<< "set(var_proj_link_libs_release \n"
-	// 		<< make_cmake_l_multi_item(infos.link_libs_proj_release_, "\t\t", "", "${USRDEF_CMAKE_LD_LIBRARY_RELEASE}") 
-	// 		<< ")\n\n"
-	// 		;
-	// }
 
 	// ldflags
 	ss << "set(var_proj_ldflags \n"
@@ -927,35 +912,38 @@ ptree_string_type format_cb_infos_output_string(const ptree_string_type& str)
 	return str_fname;
 }
 
-ptree_string_type format_cb_infos_link_lib_path(const ptree_string_type& str)
-{
-	static const ptree_string_type mark_compiler_version_tag = "$(#COMPILER_VERSION_TAG)";
-	static const ptree_string_type mark_compiler_version = "$(#COMPILER_VERSION)";
-	static const ptree_string_type mark_boost_version_tag = "$(#BOOST_VERSION_TAG)";
-	static const ptree_string_type mark_boost_version = "$(#BOOST_VERSION)";
-	static const ptree_string_type mark_python_version = "$(#PYTHON_VERSION)";
-	static const ptree_string_type mark_arch64_tag = "-x64";
-
-
-	static const ptree_string_type mark_compiler_version_tag_r = "${USRDEF_CMAKE_COMPILER_VERSION_TAG}";
-	static const ptree_string_type mark_compiler_version_r = "${USRDEF_CMAKE_COMPILER_VERSION}";
-	static const ptree_string_type mark_boost_version_tag_r = "${USRDEF_CMAKE_BOOST_VERSION_TAG}";
-	static const ptree_string_type mark_boost_version_r = "${USRDEF_CMAKE_BOOST_VERSION}";
-	static const ptree_string_type mark_python_version_r = "${USRDEF_CMAKE_PYTHON_VERSION}";
-	static const ptree_string_type mark_arch_tag_r = "${USRDEF_CMAKE_BUILD_ARCH_BITS_TAG}";
-
-
-	ptree_string_type str_out = str;
-
-	find_and_replace(str_out, mark_compiler_version_tag, mark_compiler_version_tag_r);
-	find_and_replace(str_out, mark_compiler_version, mark_compiler_version_r);
-	find_and_replace(str_out, mark_boost_version_tag, mark_boost_version_tag_r);
-	find_and_replace(str_out, mark_boost_version, mark_boost_version_r);
-	find_and_replace(str_out, mark_python_version, mark_python_version_r);
-	find_and_replace(str_out, mark_arch64_tag, mark_arch_tag_r);
-
-	return str_out;
-}
+//ptree_string_type format_cb_infos_link_lib_path(const ptree_string_type& str)
+//{
+//	static const ptree_string_type mark_compiler_version_tag = "$(#COMPILER_VERSION_TAG)";
+//	static const ptree_string_type mark_compiler_version = "$(#COMPILER_VERSION)";
+//	static const ptree_string_type mark_boost_version_tag = "$(#BOOST_VERSION_TAG)";
+//	static const ptree_string_type mark_boost_version = "$(#BOOST_VERSION)";
+//	static const ptree_string_type mark_python_version = "$(#PYTHON_VERSION)";
+//	static const ptree_string_type mark_python_version_float = "$(#PYTHON_VERSION_FLOAT)";
+//	static const ptree_string_type mark_arch64_tag = "-x64";
+//
+//
+//	static const ptree_string_type mark_compiler_version_tag_r = "${USRDEF_CMAKE_COMPILER_VERSION_TAG}";
+//	static const ptree_string_type mark_compiler_version_r = "${USRDEF_CMAKE_COMPILER_VERSION}";
+//	static const ptree_string_type mark_boost_version_tag_r = "${USRDEF_CMAKE_BOOST_VERSION_TAG}";
+//	static const ptree_string_type mark_boost_version_r = "${USRDEF_CMAKE_BOOST_VERSION}";
+//	static const ptree_string_type mark_python_version_r = "${USRDEF_CMAKE_PYTHON_VERSION}";
+//	static const ptree_string_type mark_python_version_float_r = "${USRDEF_CMAKE_PYTHON_VERSION}";
+//	static const ptree_string_type mark_arch_tag_r = "${USRDEF_CMAKE_BUILD_ARCH_BITS_TAG}";
+//
+//
+//	ptree_string_type str_out = str;
+//
+//	find_and_replace(str_out, mark_compiler_version_tag, mark_compiler_version_tag_r);
+//	find_and_replace(str_out, mark_compiler_version, mark_compiler_version_r);
+//	find_and_replace(str_out, mark_boost_version_tag, mark_boost_version_tag_r);
+//	find_and_replace(str_out, mark_boost_version, mark_boost_version_r);
+//	find_and_replace(str_out, mark_python_version, mark_python_version_r);
+//	find_and_replace(str_out, mark_python_float_version, mark_python_version_float_r);
+//	find_and_replace(str_out, mark_arch64_tag, mark_arch_tag_r);
+//
+//	return str_out;
+//}
 
 ptree_string_type format_cb_infos_link_lib(const ptree_string_type& str)
 {
@@ -964,6 +952,7 @@ ptree_string_type format_cb_infos_link_lib(const ptree_string_type& str)
 	static const ptree_string_type mark_boost_version_tag = "$(#BOOST_VERSION_TAG)";
 	static const ptree_string_type mark_boost_version = "$(#BOOST_VERSION)";
 	static const ptree_string_type mark_python_version = "$(#PYTHON_VERSION)";
+	static const ptree_string_type mark_python_version_float = "$(#PYTHON_VERSION_FLOAT)";
 	static const ptree_string_type mark_arch64_tag = "-x64";
 
 	static const ptree_string_type mark_boost_mt_d = "-mt-d${USRDEF_CMAKE_BUILD_ARCH_BITS_TAG}";
@@ -976,6 +965,7 @@ ptree_string_type format_cb_infos_link_lib(const ptree_string_type& str)
 	static const ptree_string_type mark_boost_version_tag_r = "${USRDEF_CMAKE_BOOST_VERSION_TAG}";
 	static const ptree_string_type mark_boost_version_r = "${USRDEF_CMAKE_BOOST_VERSION}";
 	static const ptree_string_type mark_python_version_r = "${USRDEF_CMAKE_PYTHON_VERSION}";
+	static const ptree_string_type mark_python_version_float_r = "${USRDEF_CMAKE_PYTHON_VERSION_FLOAT}";
 	static const ptree_string_type mark_arch_tag_r = "${USRDEF_CMAKE_BUILD_ARCH_BITS_TAG}";
 
 	static const ptree_string_type mark_boost_mt_d_r = "-mt${USRDEF_CMAKE_BOOST_LINK_TAG_DEBUG}${USRDEF_CMAKE_BUILD_ARCH_BITS_TAG}";
@@ -990,6 +980,7 @@ ptree_string_type format_cb_infos_link_lib(const ptree_string_type& str)
 	find_and_replace(str_out, mark_boost_version_tag, mark_boost_version_tag_r);
 	find_and_replace(str_out, mark_boost_version, mark_boost_version_r);
 	find_and_replace(str_out, mark_python_version, mark_python_version_r);
+	find_and_replace(str_out, mark_python_version_float, mark_python_version_float_r);
 	find_and_replace(str_out, mark_arch64_tag, mark_arch_tag_r);
 	find_and_replace(str_out, mark_duplicate_link, mark_duplicate_link_r);
 
@@ -1004,7 +995,7 @@ ptree_string_type format_cb_infos_link_lib(const ptree_string_type& str)
 
 cb::cb_infos& fix_cb_infos_sp(cb::cb_infos& infos)
 {
-	if(infos.proj_name_ == "LzmaLib")
+	if((infos.proj_name_ == "LzmaLib") || (infos.proj_name_ == "LzmaLib_static"))
     {
 		infos.cdefined_proj_.erase("-DBUILD_DLL");
 		infos.cdefined_proj_.erase("-DLZMALIB_EXPORT");
@@ -1031,6 +1022,23 @@ cb::cb_infos& fix_cb_infos_sp(cb::cb_infos& infos)
 	return infos;
 }
 
+std::size_t remove_sp_item(cb::cb_infos::string_vt_type& vt, const ptree_string_type& item)
+{
+	typedef cb::cb_infos::string_vt_type string_vt_type;
+
+	std::size_t rmed_count = 0;
+
+	string_vt_type::iterator new_end = std::remove(vt.begin(), vt.end(), item);
+	if(new_end != vt.end())
+	{
+		std::distance(new_end, vt.end());
+		vt.erase(new_end, vt.end());
+	}
+
+	return rmed_count;
+}
+
+
 cb::cb_infos& format_cb_infos(cb::cb_infos& infos)
 {
 
@@ -1052,8 +1060,11 @@ cb::cb_infos& format_cb_infos(cb::cb_infos& infos)
 		infos.proj_output_release_ = format_cb_infos_output_string(infos.proj_output_release_);
 	}
 
+	//static const ptree_string_type mark_python_sp = "-lpython$(#PYTHON_VERSION_FLOAT)";
+
 	// link lib
 	{
+		//remove_sp_item(infos.link_libs_proj_, mark_python_sp);
 		for(string_vt_type::iterator i = infos.link_libs_proj_.begin(), isize = infos.link_libs_proj_.end();
 				i != isize; ++i)
 		{
@@ -1062,6 +1073,7 @@ cb::cb_infos& format_cb_infos(cb::cb_infos& infos)
 	}
 
 	{
+		//remove_sp_item(infos.link_libs_proj_debug_, mark_python_sp);
 		for(string_vt_type::iterator i = infos.link_libs_proj_debug_.begin(), isize = infos.link_libs_proj_debug_.end();
 				i != isize; ++i)
 		{
@@ -1070,6 +1082,7 @@ cb::cb_infos& format_cb_infos(cb::cb_infos& infos)
 	}
 
 	{
+		//remove_sp_item(infos.link_libs_proj_release_, mark_python_sp);
 		for(string_vt_type::iterator i = infos.link_libs_proj_release_.begin(), isize = infos.link_libs_proj_release_.end();
 				i != isize; ++i)
 		{
@@ -1198,7 +1211,7 @@ void arm64_fat_filter(ptree_string_set_type& fatable, ptree_string_set_type& fat
 		// exclude_arm64.insert("packet_shared_ptr_bson_serialization_test");
 		// exclude_arm64.insert("packet_test_bson_serialization_include");
 
-		exclude_arm64.insert("compiler_link_test_msvc_maroc");
+		exclude_arm64.insert("compiler_link_test_msvc_macro");
 
 		// exclude_arm64.insert("exception_exception_mongodb_log_test");
 		// exclude_arm64.insert("log_log_mongodb_accesser_test");
@@ -1220,6 +1233,7 @@ void arm64_fat_filter(ptree_string_set_type& fatable, ptree_string_set_type& fat
 }
 
 ptree_string_type& conv_to_cbws_cmakelists_txt(ptree_string_type& out,
+												const tool_conv_to_darwin_cmakelists_txt_cfg& cfg_root,
 												const cb::cbws_infos& cbws_infos,
 												const file_list_type& fixed_cbs_flist_a,
 												const file_list_type& fixed_cbs_flist_so,
@@ -1235,7 +1249,7 @@ ptree_string_type& conv_to_cbws_cmakelists_txt(ptree_string_type& out,
 
 	ss << "#" << cbws_infos.cbws_title_ << " CMakeLists.txt\n\n"
 
-		<< "cmake_minimum_required(VERSION 3.12)\n\n"
+		<< "cmake_minimum_required(VERSION " << cfg_root.cmake_ver_req_min_ << ")\n\n"
 		;
 
 	ss << "if(USRDEF_CMAKE_C_COMPILER)\n"
@@ -1251,10 +1265,12 @@ ptree_string_type& conv_to_cbws_cmakelists_txt(ptree_string_type& out,
 	ss << "#set(USRDEF_CMAKE_COMPILER_VERSION \"clang-darwin17\")\n"
 		<< "#set(USRDEF_CMAKE_BUILD_LD_ARCH_TAG \"a\")\n"
 		<< "#set(USRDEF_CMAKE_BUILD_ARCH_BITS \"64\")\n"
-		<< "set(USRDEF_CMAKE_BOOST_VERSION \"1_82\")\n"
-		<< "set(USRDEF_CMAKE_PYTHON_VERSION \"313\")\n\n"
 
-		<< "set(USRDEF_CMAKE_PYTHON_INCLUDE_DIR \"python3.13\")\n\n"
+		<< "set(USRDEF_CMAKE_BOOST_VERSION \"" << cfg_root.boost_ver_ << "\")\n"
+		<< "set(USRDEF_CMAKE_PYTHON_VERSION \"" << cfg_root.python_ver_ << "\")\n\n"
+		<< "set(USRDEF_CMAKE_PYTHON_VERSION_FLOAT \"" << cfg_root.python_version_float() << "\")\n\n"
+
+		<< "set(USRDEF_CMAKE_PYTHON_INCLUDE_DIR \"python" << cfg_root.python_version_float() << "\")\n\n"
 
 		<< "#set(USRDEF_CMAKE_OSX_SDK_NAME \"macosx\")\n\n"
 
@@ -1753,7 +1769,8 @@ ptree_string_type& conv_to_cbws_cmakelists_txt(ptree_string_type& out,
 	return out;
 }
 
-bool fix_workspace_file_one_cmakelists_txt(const cb::cbws_infos& cbws_infos, 
+bool fix_workspace_file_one_cmakelists_txt(const tool_conv_to_darwin_cmakelists_txt_cfg& cfg_root,
+											const cb::cbws_infos& cbws_infos, 
 											const ptree_string_type& ws_dir,
 											const ptree_string_type& ws_fname,
 											const file_list_type& fixed_cbs_flist_a,
@@ -1765,7 +1782,9 @@ bool fix_workspace_file_one_cmakelists_txt(const cb::cbws_infos& cbws_infos,
 	ptree_string_type cbws_cmakelists_code;
 
 	if(!(conv_to_cbws_cmakelists_txt(
-			cbws_cmakelists_code, cbws_infos, 
+			cbws_cmakelists_code, 
+			cfg_root,
+			cbws_infos, 
 			fixed_cbs_flist_a,
 			fixed_cbs_flist_so,
 			fixed_cbs_flist_exe).size()))
@@ -2187,6 +2206,8 @@ yggr::utf8_string& gen_cmake_darwin_build_and_collection_sh(yggr::utf8_string& o
 		<< "var_sln_dir=\"${var_local_dir}/../..\"\n"
 		<< "var_prefix_stage_dir=\"${var_sln_dir}/stage_prefix\"\n\n"
 
+		<< "#<< 'SH_MACOSX_BUILD_MARK'\n\n"
+
 		<< "var_sdk_name=\"macosx\"\n"
 
 		<< "collection_foo \\\n"
@@ -2196,6 +2217,10 @@ yggr::utf8_string& gen_cmake_darwin_build_and_collection_sh(yggr::utf8_string& o
 		<< "\t\"${var_cpp_ver}\" \\\n"
 		<< "\t\"${var_sln_dir}\" \\\n"
 		<< "\t\"${var_prefix_stage_dir}\" \n\n"
+
+		<< "#SH_MACOSX_BUILD_MARK\n\n"
+
+		<< "#<< 'SH_IPHONEOS_BUILD_MARK'\n\n"
 
 		<< "var_sdk_name=\"iphoneos\"\n\n"
 
@@ -2207,6 +2232,10 @@ yggr::utf8_string& gen_cmake_darwin_build_and_collection_sh(yggr::utf8_string& o
 		<< "\t\"${var_sln_dir}\" \\\n"
 		<< "\t\"${var_prefix_stage_dir}\" \n\n"
 
+		<< "#SH_IPHONEOS_BUILD_MARK\n\n"
+
+		<< "#<< 'SH_IPHONESIMULATOR_BUILD_MARK'\n\n"
+
 		<< "var_sdk_name=\"iphonesimulator\"\n\n"
 
 		<< "collection_foo \\\n"
@@ -2216,6 +2245,8 @@ yggr::utf8_string& gen_cmake_darwin_build_and_collection_sh(yggr::utf8_string& o
 		<< "\t\"${var_cpp_ver}\" \\\n"
 		<< "\t\"${var_sln_dir}\" \\\n"
 		<< "\t\"${var_prefix_stage_dir}\" \n\n"
+
+		<< "#SH_IPHONESIMULATOR_BUILD_MARK\n\n"
 		;
 
 	out_str = yggr::charset::make_string_charset_helper(ss.str(), YGGR_STR_UTF8_STRING_CHARSET_NAME());
@@ -2421,6 +2452,8 @@ yggr::utf8_string& gen_cmake_darwin_build_and_collection_lipo_sh(yggr::utf8_stri
 		<< "var_sln_dir=\"${var_local_dir}/../..\"\n"
 		<< "var_prefix_stage_dir=\"${var_sln_dir}/stage_prefix\"\n\n"
 
+		<< "#<< 'SH_MACOSX_BUILD_MARK'\n\n"
+
 		<< "var_sdk_name=\"macosx\"\n"
 
 		<< "collection_foo \\\n"
@@ -2430,6 +2463,10 @@ yggr::utf8_string& gen_cmake_darwin_build_and_collection_lipo_sh(yggr::utf8_stri
 		<< "\t\"${var_cpp_ver}\" \\\n"
 		<< "\t\"${var_sln_dir}\" \\\n"
 		<< "\t\"${var_prefix_stage_dir}\" \n\n"
+
+		<< "#SH_MACOSX_BUILD_MARK\n\n"
+
+		<< "#<< 'SH_IPHONEOS_BUILD_MARK'\n\n"
 
 		<< "var_sdk_name=\"iphoneos\"\n\n"
 
@@ -2441,6 +2478,10 @@ yggr::utf8_string& gen_cmake_darwin_build_and_collection_lipo_sh(yggr::utf8_stri
 		<< "\t\"${var_sln_dir}\" \\\n"
 		<< "\t\"${var_prefix_stage_dir}\" \n\n"
 
+		<< "#SH_IPHONEOS_BUILD_MARK\n\n"
+
+		<< "#<< 'SH_IPHONESIMULATOR_BUILD_MARK'\n\n"
+
 		<< "var_sdk_name=\"iphonesimulator\"\n\n"
 
 		<< "collection_foo \\\n"
@@ -2450,6 +2491,8 @@ yggr::utf8_string& gen_cmake_darwin_build_and_collection_lipo_sh(yggr::utf8_stri
 		<< "\t\"${var_cpp_ver}\" \\\n"
 		<< "\t\"${var_sln_dir}\" \\\n"
 		<< "\t\"${var_prefix_stage_dir}\" \n\n"
+
+		<< "#SH_IPHONESIMULATOR_BUILD_MARK\n\n"
 		;
 
 	out_str = yggr::charset::make_string_charset_helper(ss.str(), YGGR_STR_UTF8_STRING_CHARSET_NAME());
@@ -2981,7 +3024,8 @@ yggr::utf8_string& make_yggr_run_test_sh(yggr::utf8_string& out_str,
 	return out_str;
 }
 
-void fix_workspace_files(const file_list_type& cbws_flist, 
+void fix_workspace_files(const tool_conv_to_darwin_cmakelists_txt_cfg& cfg_root,
+							const file_list_type& cbws_flist, 
 							const filter_list_type& cbs_filter_list,
 							const filter_list_type& cpp_filter_list,
 							file_list_type& fixed_cbs_flist_a,
@@ -3039,7 +3083,7 @@ void fix_workspace_files(const file_list_type& cbws_flist,
 			cb_ignore, cb_failed);
 
 		if(!fix_workspace_file_one_cmakelists_txt(
-				cbws_infos, ws_dir, ws_ftitle, 
+				cfg_root, cbws_infos, ws_dir, ws_ftitle, 
 				fixed_cbs_flist_a_now, fixed_cbs_flist_so_now, fixed_cbs_flist_exe_now))
 		{
 			cbws_failed.insert(fpath);
@@ -3172,6 +3216,7 @@ int main_detail(int argc, char* argv[])
 	file_list_type failed_cb_files;
 
 	fix_workspace_files(
+		cfg_root, 
 		need_fix_ws_files, cfg_root.cbp_file_filter_, cfg_root.cpp_file_filter_,
 		fixed_cbs_files_a, fixed_cbs_files_so, fixed_cbs_files_exe,
 		ignore_cbws_files, failed_cbws_files,

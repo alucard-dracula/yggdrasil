@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 var_ndk_root=/d/android_devel/Android/Sdk/ndk/current
 var_ndk_build_cmd=${var_ndk_root}/ndk-build.cmd
@@ -16,19 +16,19 @@ rm -fr ${var_outdir_root}
 mkdir -p "${var_outdir_include}"
 mkdir -p "${var_outdir_lib}"
 
-#${var_ndk_build_cmd} -j12 NDK_DEBUG=1 NDK_PROJECT_PATH=. NDK_APPLICATION_MK=jni/Application_base64_cpp20.mk APP_BUILD_SCRIPT=jni/Android_base64_a.mk V=1 > yggr_jni.log 2>&1
-${var_ndk_build_cmd} -j12 NDK_DEBUG=1 NDK_PROJECT_PATH=. NDK_APPLICATION_MK=jni/Application_base64_cpp20.mk APP_BUILD_SCRIPT=jni/Android_base64_a.mk
-${var_ndk_build_cmd} -j12 NDK_DEBUG=0 NDK_PROJECT_PATH=. NDK_APPLICATION_MK=jni/Application_base64_cpp20.mk APP_BUILD_SCRIPT=jni/Android_base64_a.mk
+#${var_ndk_build_cmd} -j20 NDK_DEBUG=1 NDK_PROJECT_PATH=. NDK_APPLICATION_MK=jni/Application_base64_cpp20.mk APP_BUILD_SCRIPT=jni/Android_base64_a.mk V=1 > yggr_jni.log 2>&1
+${var_ndk_build_cmd} -j20 NDK_DEBUG=1 NDK_PROJECT_PATH=. NDK_APPLICATION_MK=jni/Application_base64_cpp20.mk APP_BUILD_SCRIPT=jni/Android_base64_a.mk
+${var_ndk_build_cmd} -j20 NDK_DEBUG=0 NDK_PROJECT_PATH=. NDK_APPLICATION_MK=jni/Application_base64_cpp20.mk APP_BUILD_SCRIPT=jni/Android_base64_a.mk
 
 find ${var_middir_local} -type d -name 'objs*' -exec rm -fr {} \;
 
 cp -fr ${var_middir_local}/* ${var_outdir_lib}/
 
-${var_ndk_build_cmd} -j12 NDK_DEBUG=1 NDK_PROJECT_PATH=. NDK_APPLICATION_MK=jni/Application_base64_cpp20.mk APP_BUILD_SCRIPT=jni/Android_base64_so.mk
-${var_ndk_build_cmd} -j12 NDK_DEBUG=0 NDK_PROJECT_PATH=. NDK_APPLICATION_MK=jni/Application_base64_cpp20.mk APP_BUILD_SCRIPT=jni/Android_base64_so.mk
+${var_ndk_build_cmd} -j20 NDK_DEBUG=1 NDK_PROJECT_PATH=. NDK_APPLICATION_MK=jni/Application_base64_cpp20.mk APP_BUILD_SCRIPT=jni/Android_base64_so.mk
+${var_ndk_build_cmd} -j20 NDK_DEBUG=0 NDK_PROJECT_PATH=. NDK_APPLICATION_MK=jni/Application_base64_cpp20.mk APP_BUILD_SCRIPT=jni/Android_base64_so.mk
 
-${var_ndk_build_cmd} -j12 NDK_DEBUG=1 NDK_PROJECT_PATH=. NDK_APPLICATION_MK=jni/Application_base64_cpp20.mk APP_BUILD_SCRIPT=jni/Android_base64_exe.mk
-${var_ndk_build_cmd} -j12 NDK_DEBUG=0 NDK_PROJECT_PATH=. NDK_APPLICATION_MK=jni/Application_base64_cpp20.mk APP_BUILD_SCRIPT=jni/Android_base64_exe.mk
+${var_ndk_build_cmd} -j20 NDK_DEBUG=1 NDK_PROJECT_PATH=. NDK_APPLICATION_MK=jni/Application_base64_cpp20.mk APP_BUILD_SCRIPT=jni/Android_base64_exe.mk
+${var_ndk_build_cmd} -j20 NDK_DEBUG=0 NDK_PROJECT_PATH=. NDK_APPLICATION_MK=jni/Application_base64_cpp20.mk APP_BUILD_SCRIPT=jni/Android_base64_exe.mk
 
 touch ${var_outdir_lib}/arm64-v8a/mark-arm64-v8a.txt
 touch ${var_outdir_lib}/armeabi-v7a/mark-armeabi-v7a.txt

@@ -5,16 +5,32 @@
 			<Configuration>Debug</Configuration>
 			<Platform>Win32</Platform>
 		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug-MT|Win32">
+			<Configuration>Debug-MT</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
 		<ProjectConfiguration Include="Debug|x64">
 			<Configuration>Debug</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug-MT|x64">
+			<Configuration>Debug-MT</Configuration>
 			<Platform>x64</Platform>
 		</ProjectConfiguration>
 		<ProjectConfiguration Include="Release|Win32">
 			<Configuration>Release</Configuration>
 			<Platform>Win32</Platform>
 		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release-MT|Win32">
+			<Configuration>Release-MT</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
 		<ProjectConfiguration Include="Release|x64">
 			<Configuration>Release</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release-MT|x64">
+			<Configuration>Release-MT</Configuration>
 			<Platform>x64</Platform>
 		</ProjectConfiguration>
 	</ItemGroup>
@@ -33,7 +49,18 @@
 		<CharacterSet>MultiByte</CharacterSet>
 		<UseDebugLibraries>true</UseDebugLibraries>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>true</UseDebugLibraries>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<UseDebugLibraries>false</UseDebugLibraries>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'" Label="Configuration">
 		<ConfigurationType>StaticLibrary</ConfigurationType>
 		<CharacterSet>MultiByte</CharacterSet>
 		<WholeProgramOptimization>true</WholeProgramOptimization>
@@ -44,7 +71,18 @@
 		<CharacterSet>MultiByte</CharacterSet>
 		<UseDebugLibraries>true</UseDebugLibraries>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<UseDebugLibraries>true</UseDebugLibraries>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<UseDebugLibraries>false</UseDebugLibraries>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'" Label="Configuration">
 		<ConfigurationType>StaticLibrary</ConfigurationType>
 		<CharacterSet>MultiByte</CharacterSet>
 		<WholeProgramOptimization>true</WholeProgramOptimization>
@@ -57,7 +95,15 @@
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
 	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
+	</ImportGroup>
 	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'" Label="PropertySheets">
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
 	</ImportGroup>
@@ -65,7 +111,15 @@
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
 	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
+	</ImportGroup>
 	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'" Label="PropertySheets">
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
 		<Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props"/>
 	</ImportGroup>
@@ -76,11 +130,23 @@
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
 		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-d</TargetName>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)lib/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-s-d</TargetName>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
 		<LinkIncremental>true</LinkIncremental>
 		<OutDir>$(SolutionDir)lib64/</OutDir>
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
 		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-d</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)lib64/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-s-d</TargetName>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
 		<LinkIncremental>false</LinkIncremental>
@@ -88,11 +154,23 @@
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
 		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)</TargetName>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)lib/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-s</TargetName>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
 		<LinkIncremental>false</LinkIncremental>
 		<OutDir>$(SolutionDir)lib64/</OutDir>
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
 		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)lib64/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-s</TargetName>
 	</PropertyGroup>
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
 		<ClCompile>
@@ -104,6 +182,25 @@
 			<FunctionLevelLinking>true</FunctionLevelLinking>
 			<IntrinsicFunctions>true</IntrinsicFunctions>
 			<WholeProgramOptimization>false</WholeProgramOptimization>
+		</ClCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+		<Bscmake>
+			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+		</Bscmake>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'">
+		<ClCompile>
+			<Optimization>MaxSpeed</Optimization>
+			<AdditionalIncludeDirectories>../include;../include/bson;../include/common;../include/jsonsl;../include/kms_message;../include/mongo_crypt;../include/mongoc;../include/mongocrypt;../include/mongocrypt/unicode;../include/utf8proc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_LIB;BSON_COMPILATION;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_STATIC;UTF8PROC_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<WarningLevel>Level3</WarningLevel>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
 		</ClCompile>
 		<Lib>
 			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
@@ -130,6 +227,25 @@
 			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
 		</Bscmake>
 	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'">
+		<ClCompile>
+			<Optimization>MaxSpeed</Optimization>
+			<AdditionalIncludeDirectories>../include;../include/bson;../include/common;../include/jsonsl;../include/kms_message;../include/mongo_crypt;../include/mongoc;../include/mongocrypt;../include/mongocrypt/unicode;../include/utf8proc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_WINDOWS;_LIB;BSON_COMPILATION;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_STATIC;UTF8PROC_STATIC;_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<WarningLevel>Level3</WarningLevel>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+		</ClCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+		<Bscmake>
+			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+		</Bscmake>
+	</ItemDefinitionGroup>
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
 		<ClCompile>
 			<Optimization>Disabled</Optimization>
@@ -146,6 +262,23 @@
 			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
 		</Bscmake>
 	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'">
+		<ClCompile>
+			<Optimization>Disabled</Optimization>
+			<AdditionalIncludeDirectories>../include;../include/bson;../include/common;../include/jsonsl;../include/kms_message;../include/mongo_crypt;../include/mongoc;../include/mongocrypt;../include/mongocrypt/unicode;../include/utf8proc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_LIB;BSON_COMPILATION;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;KMS_MSG_STATIC;MLIB_USER;MONGOCRYPT_LITTLE_ENDIAN;MONGOCRYPT_STATIC_DEFINE;MONGOC_STATIC;UTF8PROC_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<WarningLevel>Level3</WarningLevel>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+			<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+		</ClCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+		<Bscmake>
+			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+		</Bscmake>
+	</ItemDefinitionGroup>
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
 		<ClCompile>
 			<Optimization>Disabled</Optimization>
@@ -154,6 +287,23 @@
 			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
 			<WarningLevel>Level3</WarningLevel>
 			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+		</ClCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+		<Bscmake>
+			<OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+		</Bscmake>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'">
+		<ClCompile>
+			<Optimization>Disabled</Optimization>
+			<AdditionalIncludeDirectories>../include;../include/bson;../include/common;../include/jsonsl;../include/kms_message;../include/mongo_crypt;../include/mongoc;../include/mongocrypt;../include/mongocrypt/unicode;../include/utf8proc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_WINDOWS;_LIB;BSON_COMPILATION;BSON_STATIC;BUILD_MONGODB_DRIVER_YGGR_VER;UTF8PROC_STATIC;_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<WarningLevel>Level3</WarningLevel>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+			<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
 		</ClCompile>
 		<Lib>
 			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>

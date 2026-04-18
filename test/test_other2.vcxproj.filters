@@ -19,7 +19,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="safe_container\safe_multi_index_container_base_test_part1.cpp">
+    <ClCompile Include="python\python_script_mgr_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,5 +1,5 @@
 #
-#	luabind_linux_ definitions.
+#	luabind definitions.
 #
 
 LOCAL_PATH := $(call my-dir)

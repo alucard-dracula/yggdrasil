@@ -52,7 +52,7 @@ yggr::string encode_char_entities(const yggr::string &s)
             //    case Ch('<'): r += detail::widen<Str>("&lt;"); break;
             //    case Ch('>'): r += detail::widen<Str>("&gt;"); break;
             //    case Ch('&'): r += detail::widen<Str>("&amp;"); break;
-            //    case Ch('"'): r += detail::widen<Str>("&quot;"); break;
+            //    case Ch('\"'): r += detail::widen<Str>("&quot;"); break;
             //    case Ch('\''): r += detail::widen<Str>("&apos;"); break;
             //    default: r += *it; break;
             //}
@@ -131,10 +131,10 @@ void write_xml_element(std::basic_ostream<ptree_type::key_type::value_type> &str
                 for (It it = attribs.get().begin(); it != attribs.get().end(); ++it)
 				{
                     stream << Ch(' ') << it->first << Ch('=')
-                            << Ch('"')
+                            << Ch('\"')
                             << encode_char_entities(
 								it->second.template get_value<Str>())
-                            << Ch('"');
+                            << Ch('\"');
 				}
 			}
 

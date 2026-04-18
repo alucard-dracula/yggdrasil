@@ -1,0 +1,1 @@
+in android termux  exe->py->pyd->py->return to exe failed

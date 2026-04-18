@@ -17,7 +17,7 @@
 // mc-range-mincover-generator.template.h is meant to be included in another
 // source file.
 
-#include <yggr_detail/mongo_c_inline.h>
+#include <yggr_mongodbc_patch/mongo_c_inline.h>
 
 #if !(defined(UINT_T) && defined(UINT_C) && defined(UINT_FMT_S) && defined(DECORATE_NAME))
 #ifdef __INTELLISENSE__

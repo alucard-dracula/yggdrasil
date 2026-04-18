@@ -1,0 +1,10 @@
+windows:
+	module_name.pyd
+linux:
+	module_name.so // can using ln -s xxx.pyd module_name.so
+
+macos:
+	same to linux
+
+android:
+	same to linux

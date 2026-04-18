@@ -23,7 +23,7 @@
 #include "mongocrypt-status-private.h"
 #include "mongocrypt-traverse-util-private.h"
 
-#include <yggr_detail/c_version_support.h>
+#include <yggr_mongodbc_patch/c_version_support.h>
 
 typedef struct {
     void *ctx;

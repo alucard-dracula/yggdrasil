@@ -30,7 +30,7 @@
 #include <common-cmp-private.h>
 
 //#include <inttypes.h>
-#include <yggr_detail/inttypes.h>
+#include <yggr_mongodbc_patch/inttypes.h>
 
 /* indexed by MONGOC_WRITE_COMMAND_DELETE, INSERT, UPDATE */
 static const char *gCommandNames[] = {"delete", "insert", "update"};

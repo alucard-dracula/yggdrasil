@@ -34,6 +34,11 @@ THE SOFTWARE.
 #include <yggr/archive/net_iarchive.hpp>
 #include <yggr/archive/net_oarchive.hpp>
 
+#ifdef BOOST_MSVC
+#  pragma warning(push)
+#  pragma warning(disable : 4624)
+#endif // BOOST_MSVC
+
 namespace yggr
 {
 namespace archive
@@ -78,5 +83,9 @@ typedef
 } // namespace archive_partner
 } // namespace archive
 } // namespace yggr
+
+#ifdef BOOST_MSVC
+#  pragma warning(pop)
+#endif // BOOST_MSVC
 
 #endif //__YGGR_ARCHIVE_ARCHIVE_PARTNER_NETWORK_ARCHIVE_PARTNER_HPP__

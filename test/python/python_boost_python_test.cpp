@@ -3,6 +3,12 @@
 // accompanying file LICENSE_1_0.txt or copy at
 // http://www.boost.org/LICENSE_1_0.txt)
 
+#include <yggr/base/yggrdef.h>
+#include <test/wait_any_key/wait_any_key.hpp>
+
+#if !((defined(YGGR_MSVC_USING_MTD_FLAG) && YGGR_MSVC_USING_MTD_FLAG) \
+		|| (defined(YGGR_MSVC_USING_MT_FLAG) && YGGR_MSVC_USING_MT_FLAG))
+
 #include <boost/python.hpp>
 
 #include <boost/detail/lightweight_test.hpp>
@@ -11,6 +17,11 @@
 #ifdef _MSC_VER
 #   include <vld.h>
 #endif // _MSC_VER
+
+#if 0
+// only using to tool_conv_to_cb_solution_linux
+#include YGGR_PP_LINK_LIB(script_python)
+#endif // 0,1
 
 namespace python = boost::python;
 
@@ -63,6 +74,8 @@ void exec_test()
                  "builtin modules");
 
   std::cout << "defining Python class derived from Base..." << std::endl;
+
+  Py_Initialize();
 
   // Retrieve the main module
   python::object main = python::import("__main__");
@@ -127,7 +140,7 @@ int main(int argc, char **argv)
   //BOOST_TEST(argc == 2);
   //std::string script = argv[1];
   // Initialize the interpreter
-  Py_Initialize();
+  //Py_Initialize();
 
   bool error_expected = false;
 
@@ -154,8 +167,18 @@ int main(int argc, char **argv)
     }
   }
 
-  char cc = 0;
-  std::cin >> cc;
+  wait_any_key(argc, argv);
   // Boost.Python doesn't support Py_Finalize yet, so don't call it!
   return boost::report_errors();
 }
+
+#else
+
+int main(int argc, char **argv)
+{
+	std::cout << "!!!!script python not support msvc /mtd or /mt!!!!" << std::endl;
+	wait_any_key(argc, argv);
+	return 0;
+}
+
+#endif // YGGR_MSVC_USING_MTD_FLAG

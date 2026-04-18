@@ -11,7 +11,7 @@
 #include <errno.h>
 #endif
 
-//#include <yggr_detail/mongo_c_inline.h>
+//#include <yggr_mongodbc_patch/mongo_c_inline.h>
 
 /**
  * @brief Obtain a string containing an error message corresponding to an error

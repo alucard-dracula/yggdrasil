@@ -1,4 +1,4 @@
-//pc_iconv.hpp
+//pc_iconv_static.hpp
 
 /****************************************************************************
 Copyright (c) 2010-2024 yggdrasil
@@ -24,13 +24,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __YGGR_COMPILE_LINK_PC_ICONV_HPP__
-#define __YGGR_COMPILE_LINK_PC_ICONV_HPP__
+#ifndef __YGGR_COMPILE_LINK_PC_ICONV_STATIC_HPP__
+#define __YGGR_COMPILE_LINK_PC_ICONV_STATIC_HPP__
 
 #include <yggr/compile_link/msvc_cfg.hpp>
 
 #ifdef _MSC_VER
-#	pragma comment YGGR_COMPILE_LINK_NRULE_LIB(libiconv-static)
+#	if !defined(YGGR_ICON_USING_NATIVE_NAME)
+#		pragma comment YGGR_COMPILE_LINK_STATIC_LIB(iconv-static)
+#	else
+#		pragma comment YGGR_COMPILE_LINK_NRULE_LIB(libiconv-static)
+#	endif // YGGR_ICON_USING_NATIVE_NAME
 #endif // _MSC_VER
 
-#endif // __YGGR_COMPILE_LINK_PC_ICONV_HPP__
+
+#endif // __YGGR_COMPILE_LINK_PC_ICONV_STATIC_HPP__

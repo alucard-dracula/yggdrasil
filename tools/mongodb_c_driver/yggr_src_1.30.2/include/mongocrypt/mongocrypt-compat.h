@@ -20,7 +20,7 @@
 
 /* Copied from bson-compat.h from the C driver. */
 //#include <stdbool.h>
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 #include <stdint.h>
 #ifdef MONGOCRYPT_HAVE_STDBOOL_H
 /*

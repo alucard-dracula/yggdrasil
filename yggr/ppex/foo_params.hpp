@@ -79,6 +79,13 @@ THE SOFTWARE.
 
 #endif // YGGR_NO_CXX11_RVALUE_REFERENCES
 
+// fwd_ref
+#define YGGR_PP_FOO_FWDREF_PARAMS( __z__, __n__, _ ) \
+				BOOST_FWD_REF(BOOST_PP_CAT( T, __n__ )) BOOST_PP_CAT( YGGR_PP_FOO_GET_ARG_NAME( YGGR_PP_FOO_ARG_NAME ), __n__ )
+
+#define YGGR_PP_FOO_FWDREF_PARAMS_TYPES( __z__, __n__, _ ) \
+				BOOST_FWD_REF(BOOST_PP_CAT( T, __n__ ))
+
 // cref
 #define YGGR_PP_FOO_CREF_PARAMS( __z__, __n__, _ ) \
 				const BOOST_PP_CAT( T, __n__ )& BOOST_PP_CAT( YGGR_PP_FOO_GET_ARG_NAME( YGGR_PP_FOO_ARG_NAME ), __n__ )

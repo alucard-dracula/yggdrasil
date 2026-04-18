@@ -34,9 +34,11 @@ if [ "${var_sdk_name}" = "macosx" ]; then
  #--with-build-python="${PythonToolChain}" 
  # --host=${var_host} \
 
+# if you want to using exe->py->pyd->py->exe must need --enable-shared=yes
+
     ./configure \
         --enable-ipv6=no \
-        --enable-shared=no \
+        --enable-shared=yes \
         --disable-test-modules \
         --enable-optimizations \
         ac_cv_file__dev_ptmx=no \

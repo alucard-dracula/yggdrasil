@@ -24,8 +24,8 @@
 #include <stddef.h> // size_t
 #include <stdint.h>
 
-//#include <yggr_detail/mongo_c_inline.h>
-//#include <yggr_detail/c_version_support.h>
+//#include <yggr_mongodbc_patch/mongo_c_inline.h>
+//#include <yggr_mongodbc_patch/c_version_support.h>
 
 // mc_edges_t represents a list of edges.
 typedef struct _mc_edges_t mc_edges_t;

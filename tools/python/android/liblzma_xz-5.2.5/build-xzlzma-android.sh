@@ -2,7 +2,7 @@
 
 var_local_dir=$(cd `dirname $0`; pwd)
 
-AndroidNDK=/d/android_devel/Android/Sdk/ndk/28.0.12674087
+AndroidNDK=/d/android_devel/Android/Sdk/ndk/current
 AndroidAPI=21
 AndroidToolChainPlatfrom=windows-x86_64
 

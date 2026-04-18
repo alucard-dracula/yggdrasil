@@ -16,7 +16,7 @@
 
 #include "kms_message_private.h"
 
-#include <yggr_detail/c_version_support.h>
+#include <yggr_mongodbc_patch/c_version_support.h>
 
 #include <stdint.h>
 #include <stdio.h>

@@ -28,6 +28,7 @@ THE SOFTWARE.
 #define __YGGR_CONTAINER_DETAIL_NODE_HANDLE_FOO_HACKING_SET_HPP__
 
 #include <yggr/container/detail/boost_container_hacking_path.hpp>
+#include <yggr/iterator_ex/is_iterator.hpp>
 
 #include YGGR_PP_BOOST_CONTAINER_HACKING_LATEST_VERSION_PATH(node_handle_foo_hacking_set)
 

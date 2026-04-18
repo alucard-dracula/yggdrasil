@@ -1,6 +1,6 @@
 #!/bin/bash
 
-AndoridNDKRoot=/d/android_devel/Android/Sdk/ndk/28.0.12674087
+AndoridNDKRoot=/d/android_devel/Android/Sdk/ndk/current
 AndroidToolChain=${AndoridNDKRoot}/toolchains/llvm/prebuilt/windows-x86_64
 AndroidAPI=21
 

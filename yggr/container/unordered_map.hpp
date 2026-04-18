@@ -29,7 +29,6 @@ THE SOFTWARE.
 
 #include <yggr/container/container_selector.hpp>
 
-//#include <yggr/utility/pair_compare.hpp>
 #include <yggr/move/move.hpp>
 
 #include <yggr/mplex/typename_expand.hpp>
@@ -54,6 +53,8 @@ THE SOFTWARE.
 #include <yggr/container/detail/umap_merge_impl.hpp>
 #include <yggr/container/detail/erase_impl.hpp>
 #include <yggr/container/detail/umap_merger_sel.hpp>
+
+#include <yggr/utility/pass.hpp>
 
 #include <boost/unordered_map.hpp>
 
@@ -750,7 +751,8 @@ typename boost::disable_if<detail::has_any_contains< boost::unordered_map<K, T, 
 				if(ret.second)
 				{
 					K tmp = ::boost::move(key);
-					tmp = tmp; // disable gcc unused-variable
+					//tmp = tmp; // disable gcc unused-variable
+					utility::pass(tmp); // disable gcc unused-variable
 				}
 				return ret;
 			}

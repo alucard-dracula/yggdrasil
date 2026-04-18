@@ -1,0 +1,125 @@
+error: No best alternative for libs/context/build/asm_sources
+    next alternative: required properties: <abi>aapcs <address-model>32 <architecture>arm <binary-format>elf <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>aapcs <address-model>32 <architecture>arm <binary-format>elf <threading>multi <toolset>gcc
+        not matched
+    next alternative: required properties: <abi>aapcs <address-model>32 <architecture>arm <binary-format>elf <threading>multi <toolset>qcc
+        not matched
+    next alternative: required properties: <abi>aapcs <address-model>32 <architecture>arm <binary-format>mach-o <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>aapcs <address-model>32 <architecture>arm <binary-format>mach-o <threading>multi <toolset>darwin
+        not matched
+    next alternative: required properties: <abi>aapcs <address-model>32 <architecture>arm <binary-format>pe <threading>multi <toolset>msvc
+        not matched
+    next alternative: required properties: <abi>aapcs <address-model>64 <architecture>arm <binary-format>elf <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>aapcs <address-model>64 <architecture>arm <binary-format>elf <threading>multi <toolset>gcc
+        not matched
+    next alternative: required properties: <abi>aapcs <address-model>64 <architecture>arm <binary-format>mach-o <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>aapcs <address-model>64 <architecture>arm <binary-format>mach-o <threading>multi <toolset>darwin
+        not matched
+    next alternative: required properties: <abi>aapcs <address-model>64 <architecture>arm <binary-format>pe <threading>multi <toolset>msvc
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>loongarch <binary-format>elf <threading>multi <toolset>gcc
+        not matched
+    next alternative: required properties: <abi>o32 <address-model>32 <architecture>mips <binary-format>elf <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>o32 <address-model>32 <architecture>mips <binary-format>elf <threading>multi <toolset>gcc
+        not matched
+    next alternative: required properties: <abi>n64 <address-model>64 <architecture>mips <binary-format>elf <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>n64 <address-model>64 <architecture>mips <binary-format>elf <threading>multi <toolset>gcc
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>32 <architecture>power <binary-format>elf <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>32 <architecture>power <binary-format>elf <threading>multi <toolset>gcc
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>32 <architecture>power <binary-format>mach-o <threading>multi <toolset>darwin
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>32 <architecture>power <binary-format>xcoff <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>32 <architecture>power <binary-format>xcoff <threading>multi <toolset>gcc
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>power <binary-format>elf <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>power <binary-format>elf <threading>multi <toolset>gcc
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>power <binary-format>mach-o <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>power <binary-format>mach-o <threading>multi <toolset>darwin
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>power <binary-format>xcoff <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>power <binary-format>xcoff <threading>multi <toolset>gcc
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>32_64 <architecture>power <binary-format>mach-o <threading>multi
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>riscv <binary-format>elf <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>riscv <binary-format>elf <threading>multi <toolset>gcc
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>s390x <binary-format>elf <threading>multi <toolset>gcc
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>s390x <binary-format>elf <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>32 <architecture>x86 <binary-format>elf <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>32 <architecture>x86 <binary-format>elf <threading>multi <toolset>gcc
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>32 <architecture>x86 <binary-format>elf <threading>multi <toolset>intel
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>32 <architecture>x86 <binary-format>mach-o <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>32 <architecture>x86 <binary-format>mach-o <threading>multi <toolset>darwin
+        not matched
+    next alternative: required properties: <abi>ms <address-model>32 <architecture>x86 <binary-format>pe <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>ms <address-model>32 <architecture>x86 <binary-format>pe <threading>multi <toolset>clang-win
+        not matched
+    next alternative: required properties: <abi>ms <address-model>32 <architecture>x86 <binary-format>pe <threading>multi <toolset>gcc
+        not matched
+    next alternative: required properties: <abi>ms <address-model>32 <architecture>x86 <binary-format>pe <threading>multi <toolset>intel
+        not matched
+    next alternative: required properties: <abi>ms <address-model>32 <architecture>x86 <binary-format>pe <threading>multi <toolset>msvc
+        not matched
+    next alternative: required properties: <abi>ms <address-model>32 <architecture>x86 <binary-format>pe <threading>multi <toolset>embarcadero
+        not matched
+    next alternative: required properties: <abi>ms <address-model>32 <architecture>x86 <binary-format>pe <threading>multi <toolset>borland
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>x86 <binary-format>elf <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>x86 <binary-format>elf <threading>multi <toolset>gcc
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>x86 <binary-format>elf <threading>multi <toolset>intel
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>x86 <binary-format>mach-o <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>x86 <binary-format>mach-o <threading>multi <toolset>gcc
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>x86 <binary-format>mach-o <threading>multi <toolset>darwin
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>64 <architecture>x86 <binary-format>mach-o <threading>multi <toolset>intel
+        not matched
+    next alternative: required properties: <abi>ms <address-model>64 <architecture>x86 <binary-format>pe <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>ms <address-model>64 <architecture>x86 <binary-format>pe <threading>multi <toolset>clang-win
+        not matched
+    next alternative: required properties: <abi>ms <address-model>64 <architecture>x86 <binary-format>pe <threading>multi <toolset>gcc
+        not matched
+    next alternative: required properties: <abi>ms <address-model>64 <architecture>x86 <binary-format>pe <threading>multi <toolset>intel
+        not matched
+    next alternative: required properties: <abi>ms <address-model>64 <architecture>x86 <binary-format>pe <threading>multi <toolset>msvc
+        not matched
+    next alternative: required properties: <abi>ms <address-model>64 <architecture>x86 <binary-format>pe <threading>multi <toolset>embarcadero
+        not matched
+    next alternative: required properties: <abi>x32 <address-model>32 <architecture>x86 <binary-format>elf <threading>multi <toolset>clang
+        not matched
+    next alternative: required properties: <abi>x32 <address-model>32 <architecture>x86 <binary-format>elf <threading>multi <toolset>gcc
+        not matched
+    next alternative: required properties: <abi>x32 <address-model>32 <architecture>x86 <binary-format>elf <threading>multi <toolset>intel
+        not matched
+    next alternative: required properties: <abi>sysv <address-model>32_64 <architecture>x86 <binary-format>mach-o <threading>multi
+        not matched
+    next alternative: required properties: <abi>sysv <architecture>combined <binary-format>mach-o <threading>multi
+        not matched

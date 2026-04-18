@@ -21,7 +21,7 @@
 #include "kms_kmip_reader_writer_private.h"
 
 //#include <inttypes.h>
-#include <yggr_detail/inttypes.h>
+#include <yggr_mongodbc_patch/inttypes.h>
 #include <stdint.h>
 
 static void

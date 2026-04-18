@@ -222,15 +222,6 @@ std::basic_ostream<Char, Traits>&
 	return outter(os, right, 0);
 }
 
-// need test, if ok, remove it
-//template<typename Char, typename Traits>
-//std::basic_ostream<Char, Traits>&
-//	operator<<(std::basic_ostream<Char, Traits>& os, BOOST_RV_REF(c_bson_error) right)
-//{
-//	const c_bson_error& right_cref = right;
-//	return yggr::nsql_database_system::operator<<(os, right_cref);
-//}
-
 // now don't use this foo style, but don't delete it
 //template<typename Char, typename Traits,
 //			template<typename _Char, typename _Alloc> class Basic_OStream >

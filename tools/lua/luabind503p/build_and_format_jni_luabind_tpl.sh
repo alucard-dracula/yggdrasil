@@ -45,6 +45,7 @@ ${var_ndk_build_cmd} -j12 NDK_DEBUG=0 \
     NDK_PROJECT_PATH=. NDK_APPLICATION_MK=jni/Application_luabind.mk APP_BUILD_SCRIPT=jni/Android_luabind_a.mk \
     USRDEF_APP_LUA_VERSION=${var_lua_ver} USRDEF_APP_CPP_VER=${var_cpp_ver}
 
+
 find ${var_middir_local} -type d -name 'objs*' -exec rm -fr {} \;
 
 cp -fr ${var_middir_local}/* ${var_outdir_lib}/

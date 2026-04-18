@@ -20,7 +20,7 @@
 #include "kms_message_defines.h"
 
 //#include <stdbool.h>
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 #include <stdlib.h>
 
 #ifdef __cplusplus

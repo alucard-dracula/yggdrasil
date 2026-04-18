@@ -67,7 +67,7 @@
 #undef MONGOC_INSIDE
 
 #ifdef BUILD_MONGODB_DRIVER_YGGR_VER
-#	include <yggr_detail/yggr_mongoc_t.h>
+#	include <yggr_mongodbc_patch/yggr_mongoc_t.h>
 #endif //BUILD_MONGODB_DRIVER_YGGR_VER
 
 #endif /* MONGOC_H */

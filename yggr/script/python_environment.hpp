@@ -29,12 +29,22 @@ THE SOFTWARE.
 
 #include <yggr/base/yggrdef.h>
 
+#if (defined(YGGR_MSVC_USING_MTD_FLAG) && YGGR_MSVC_USING_MTD_FLAG) \
+	|| (defined(YGGR_MSVC_USING_MT_FLAG) && YGGR_MSVC_USING_MT_FLAG)
+
+#	error "!!! script python not support /MTd or /MT !!!"
+
+#else
+
 #include <yggr/script/python_base_environment.hpp>
 #include <yggr/exception/exception.hpp>
+#include <yggr/smart_ptr_ex/shared_ptr.hpp>
 #include <yggr/charset/string.hpp>
-#include <yggr/base/ptr_single.hpp>
 
 #include <boost/python.hpp>
+#include <boost/ref.hpp>
+
+#include <cassert>
 
 namespace yggr
 {
@@ -43,12 +53,33 @@ namespace script
 namespace python
 {
 
-class python_environment
-	: public python_base_environment
+namespace detail
+{
+
+struct failed_dict
 {
 public:
+	inline operator boost::python::dict&(void) const
+	{
+		return *reinterpret_cast<boost::python::dict*>(boost::addressof(dict_buff[0]));
+	}
+
+public:
+	static char dict_buff[sizeof(boost::python::dict)];
+};
+
+} // namespace detail
+
+class python_environment
+{
+private:
+	typedef yggr::shared_ptr<boost::python::dict> py_dict_ptr_type;
+
+private:
+	typedef python_environment this_type;
+
+public:
 	python_environment(void)
-		: _global(boost::python::import("__main__").attr("__dict__"))
 	{
 	}
 
@@ -56,58 +87,82 @@ public:
 	{
 	}
 
+	static inline boost::python::dict& s_get_global_environment(void)
+	{
+		assert(_s_pglobal);
+		return _s_pglobal? *_s_pglobal : detail::failed_dict();
+	}
+
 	inline boost::python::dict& get_global_environment(void)
 	{
-		return _global;
+		return this_type::s_get_global_environment();
 	}
 
 	inline const boost::python::dict& get_global_environment(void) const
 	{
-		return _global;
+		return this_type::s_get_global_environment();
 	}
 
-	inline bool append_module(const char* mod_name)
+	static inline bool append_module(const char* mod_name)
 	{
-		//if(!PyImport_ImportModule(mod_name))
-		//{
-		//	exception::exception::throw_error(
-		//		std::runtime_error(std::string("init python module \"")
-		//							+ std::string(mod_name)
-		//							+ std::string("\" faild")));
-		//	return false;
-		//}
-		//else
-		//{
-		//	return true;
-		//}
-
-		return PyImport_ImportModule(mod_name);
+		return 
+			!Py_IsInitialized()
+			&& PyImport_ImportModule(mod_name);
 	}
 
-	template<typename Module_Init_Foo>
-	bool append_module(char* mod_name, Module_Init_Foo foo)
+	template<typename Module_Init_Foo> static inline
+	bool append_module(const char* mod_name, Module_Init_Foo foo)
 	{
-		//if(PyImport_AppendInittab(mod_name, foo) == -1)
-		//{
-		//	exception::exception::throw_error(
-		//		std::runtime_error(std::string("init python module \"")
-		//							+ std::string(mod_name)
-		//							+ std::string("\" faild")));
-		//	return false;
-		//}
-		//else
-		//{
-		//	return true;
-		//}
-
-		return !(PyImport_AppendInittab(mod_name, foo) == -1);
+		return 
+			!Py_IsInitialized()
+			&& !(PyImport_AppendInittab(mod_name, foo) == -1);
 	}
-protected:
-	boost::python::dict _global;
+
+	static inline bool py_initialize(void)
+	{
+		if(Py_IsInitialized())
+		{
+			return true;
+		}
+		else
+		{
+			Py_Initialize();
+			if(!_s_pglobal)
+			{
+				_s_pglobal = py_dict_ptr_type(yggr_nothrow_new boost::python::dict(boost::python::import("__main__").attr("__dict__")));
+			}
+			return Py_IsInitialized();
+		}
+	}
+
+	static inline bool py_finalize(void)
+	{
+		if(!Py_IsInitialized())
+		{
+			return true;
+		}
+		else
+		{
+			if(_s_pglobal)
+			{
+				py_dict_ptr_type tmp;
+				tmp.swap(_s_pglobal);
+				tmp->clear();
+			}
+
+			Py_Finalize();
+			return !Py_IsInitialized();
+		}
+	}
+
+private:
+	static py_dict_ptr_type _s_pglobal;
 };
 
 } // nemspace python
 } // namespace script
 } // namespace yggr
+
+#endif // YGGR_MSVC_USING_MTD_FLAG
 
 #endif //__YGGR_SCRIPT_PYTHON_ENVIRONMENT_HPP__

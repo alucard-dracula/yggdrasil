@@ -2,6 +2,9 @@
 
 #include "tool_conv_to_cb_solution_config.hpp"
 
+#include <iostream>
+#include <cassert>
+
 #if !(BOOST_VERSION < 105600)
 
 #include "tool_conv_to_cbsln_cfg.hpp"
@@ -23,9 +26,6 @@
 #include <yggr/container/unordered_set.hpp>
 #include <yggr/container/unordered_map.hpp>
 #include <yggr/algorithm/knuth_morris_pratt.hpp>
-
-#include <iostream>
-#include <cassert>
 
 #include <yggr/compile_link/linker.hpp>
 

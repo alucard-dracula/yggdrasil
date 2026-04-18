@@ -90,7 +90,7 @@ if(${USRDEF_HAS_X86_64})
 			-licudata
 			-lintel_dfp_obj${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d
 			-lbase64${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d
-			${USRDEF_CMAKE_LDFLAGS_DEBUG}
+			${USRDEF_CMAKE_LD_LIBRARY_DEBUG}
 	)
 else()
 	set(var_proj_link_libs_debug 
@@ -115,7 +115,7 @@ else()
 			-licui18n
 			-licudata
 			-lbase64${USRDEF_CMAKE_COMPILER_VERSION_TAG}-d
-			${USRDEF_CMAKE_LDFLAGS_DEBUG}
+			${USRDEF_CMAKE_LD_LIBRARY_DEBUG}
 	)
 endif()
 

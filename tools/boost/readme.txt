@@ -21,4 +21,7 @@ Work on your own script notes:
 bjam toolset=msvc -sICU_PATH="The ICU directory you configured (mine is D:/icu_vc100)" --build-type=complete //32 bits
 bjam toolset=msvc address-model=64 -sICU_PATH="The ICU directory you configured (mine is D:/icu_vc100)" --build-type=complete //64bit
 
+ps:
+Due to limited personal capability, it is not possible to fully test all versions of Boost. If other bugs are found after applying Boost patches, you need to debug them yourself.
+
 

@@ -670,15 +670,6 @@ std::basic_ostream<Char, Traits>&
 	return outter(os, val, 0);
 }
 
-// need test, if ok, remove it
-//template<typename Char, typename Traits, typename Scope>
-//std::basic_ostream<Char, Traits>&
-//	operator<<(std::basic_ostream<Char, Traits>& os,
-//				BOOST_RV_REF_BEG c_bson_code_w_scope<Scope> BOOST_RV_REF_END val)
-//{
-//	os << "\"" << val.template code<yggr::utf8_string>() << "\"";
-//	return os;
-//}
 
 } // namespace nsql_database_system
 } // namespace yggr

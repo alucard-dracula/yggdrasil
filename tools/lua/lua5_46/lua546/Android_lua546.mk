@@ -63,6 +63,7 @@ l_cflags := \
 	-DLUA546_EXPORT \
 	-DLUA_COMPAT_5_1 \
 	-DLUA_COMPAT_5_2 \
+	-DLUA_USE_LINUX \
 	-D__ANDROID__ \
 	-Wall \
 	-Werror=endif-labels \
@@ -81,7 +82,6 @@ l_cflags := \
 
 ifeq ($(NDK_DEBUG), 1)
 	l_cflags += \
-		-DLUA546_EXPORT \
 		-D_DEBUG \
 		-O0 \
 		-g \
@@ -89,7 +89,6 @@ ifeq ($(NDK_DEBUG), 1)
 
 else
 	l_cflags += \
-		-DLUA546_EXPORT \
 		-DNDEBUG \
 		-O3 \
 		$(USRDEF_APP_CFLAGS_RELEASE) \

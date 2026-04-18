@@ -30,8 +30,12 @@ THE SOFTWARE.
 #include <yggr/compile_link/msvc_cfg.hpp>
 
 #ifdef _MSC_VER
-#	pragma comment YGGR_COMPILE_LINK_LIB(yggr_database_system)
-#	pragma comment YGGR_COMPILE_LINK_LIB(dtl)
+#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(yggr_database_system)
+#endif // _MSC_VER
+
+#include <yggr/compile_link/pc_dtl.hpp>
+
+#ifdef _MSC_VER
 #	pragma comment YGGR_COMPILE_LINK_NRULE_LIB(ws2_32)
 #endif // _MSC_VER
 

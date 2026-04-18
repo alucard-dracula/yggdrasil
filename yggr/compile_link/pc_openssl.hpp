@@ -36,13 +36,13 @@ THE SOFTWARE.
 #	pragma comment YGGR_COMPILE_LINK_NRULE_LIB(ssleay32)
 #	pragma comment YGGR_COMPILE_LINK_NRULE_LIB(libeay32)
 #else
-#	if defined(YGGR_OPENSSL_USING_STATIC_LIB)
-#		pragma comment YGGR_COMPILE_LINK_LIB_NO_DEBUG_TAG(crypto_static)
-#		pragma comment YGGR_COMPILE_LINK_LIB_NO_DEBUG_TAG(ssl_static)
+#	if !defined(YGGR_LINK_OPENSSL_USING_NATIVE_NAME)
+#		pragma comment YGGR_COMPILE_LINK_IMPL_LIB(libcrypto)
+#		pragma comment YGGR_COMPILE_LINK_IMPL_LIB(libssl)
 #	else
-#		pragma comment YGGR_COMPILE_LINK_LIB_NO_DEBUG_TAG(crypto)
-#		pragma comment YGGR_COMPILE_LINK_LIB_NO_DEBUG_TAG(ssl)
-#	endif // 0,1
+#		pragma comment YGGR_COMPILE_LINK_NRULE_LIB(libcrypto)
+#		pragma comment YGGR_COMPILE_LINK_NRULE_LIB(libssl)
+#	endif // YGGR_LINK_OPENSSL_USING_NATIVE_NAME
 #endif // OPENSSL_VERSION_NUMBER < 0x1010000L
 
 #endif // _MSC_VER

@@ -10,6 +10,7 @@ set(var_root_proj_dir ${PROJECT_SOURCE_DIR}/../../..)
 set(var_proj_src_dir ${var_root_proj_dir}/yggr_script_python)
 
 set(var_proj_src_list 
+		${var_proj_src_dir}/python_environment.cpp
 		${var_proj_src_dir}/python_script.cpp
 )
 
@@ -58,7 +59,7 @@ set(var_proj_link_libs
 )
 
 set(var_proj_link_libs_debug 
-		${USRDEF_CMAKE_LDFLAGS_DEBUG}
+		${USRDEF_CMAKE_LD_LIBRARY_DEBUG}
 )
 
 set(var_proj_link_libs_release 

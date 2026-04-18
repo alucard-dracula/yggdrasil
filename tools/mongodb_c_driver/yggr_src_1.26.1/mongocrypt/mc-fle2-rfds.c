@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#include <yggr_detail/c_version_support.h>
-#include <yggr_detail/double_limit.h>
+#include <yggr_mongodbc_patch/c_version_support.h>
+#include <yggr_mongodbc_patch/double_limit.h>
 
 #include "mc-fle2-rfds-private.h"
 

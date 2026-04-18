@@ -1,19 +1,23 @@
 //python_script_test.cpp
 
-#include <iostream>
-#include <boost/python.hpp>
+#include <yggr/base/yggrdef.h>
+#include <test/wait_any_key/wait_any_key.hpp>
 
-#include <boost/detail/lightweight_test.hpp>
-#include <string>
-#include <cassert>
+#if !((defined(YGGR_MSVC_USING_MTD_FLAG) && YGGR_MSVC_USING_MTD_FLAG) \
+		|| (defined(YGGR_MSVC_USING_MT_FLAG) && YGGR_MSVC_USING_MT_FLAG))
 
 #include <yggr/script/python_script.hpp>
 #include <yggr/script/python_environment.hpp>
 #include <yggr/script/script_mgr.hpp>
+#include <yggr/charset/string.hpp>
 
-#if defined(__MINGW32__) && (PY_VERSION_HEX >= 0x03000000)
-#   error "mingw not support this file!!"
-#endif // __MINGW32__
+#include <boost/python.hpp>
+
+#include <boost/detail/lightweight_test.hpp>
+
+#include <iostream>
+#include <cassert>
+
 
 #include <yggr/compile_link/linker.hpp>
 
@@ -75,21 +79,19 @@ BOOST_PYTHON_MODULE(pyst)
 typedef yggr::script::script_mgr<std::string, yggr::script::python::python_script,
 									yggr::script::python::python_environment> script_mgr_type;
 
+script_mgr_type mgr;
+
+void append_module(void)
+{
+	mgr.append_module(PYTHON_MODULE_NAME(pyst), PYTHON_MODULE_INIT_FOO(pyst));
+}
 
 void exec_test()
 {
-	script_mgr_type mgr;
-	mgr.append_module(PYTHON_MODULE_NAME(pyst), PYTHON_MODULE_INIT_FOO(pyst));
-
 	std::string code(	"from pyst import *		\n"
 						"def enter(input):			\n"
 						"	output = s_t(1+1)		\n"
 						"	return output			\n");
-
-	//std::string code(	"from pyst import *		\n"
-	//					"def enter(input):			\n"
-	//					"	output = 1+1			\n"
-	//					"	return output			\n");
 
 	bool bright = false;
 	bright = mgr.insert("test", "enter", script_mgr_type::string_code_type(code));
@@ -98,7 +100,7 @@ void exec_test()
 	s_t st(100);
 
 	s_t rst;
-	bright = mgr.execute_rule<s_t>(rst, "test", st);
+	bright = mgr.execute_rule<s_t>(rst, yggr::const_args_anchor("test"), st);
 	assert(bright);
 	std::cout << rst.i << std::endl;
 
@@ -106,16 +108,66 @@ void exec_test()
 
 }
 
+void exec_test2()
+{
+	script_mgr_type loacl_mgr;
+
+	std::string code(	"from pyst import *		\n"
+						"def enter(input):			\n"
+						"	output = s_t(1+1)		\n"
+						"	return output			\n");
+
+	bool bright = false;
+	bright = loacl_mgr.insert("test", "enter", script_mgr_type::string_code_type(code));
+	assert(bright);
+
+	s_t st(100);
+
+	s_t rst;
+	bright = loacl_mgr.execute_rule<s_t>(rst, yggr::const_args_anchor("test"), st);
+	assert(bright);
+	std::cout << rst.i << std::endl;
+
+	loacl_mgr.clear();
+
+}
+
 int main(int argc, char *argv[])
 {
-	Py_Initialize();
+	try
+	{
+		append_module();
+	}
+	catch(const std::runtime_error& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	catch(...)
+	{
+		std::cout << "other exception" << std::endl;
+	}
+
+	bool chk = mgr.py_initialize();
+	assert(chk);
 
 	exec_test();
+	exec_test2();
 
-	Py_Finalize();
+	chk = mgr.py_finalize();
+	assert(chk);
 
 	std::cout << "all_test_end" << std::endl;
-	char cc = 0;
-	std::cin >> cc;
+	wait_any_key(argc, argv);
 	return boost::report_errors();
 }
+
+#else
+
+int main(int argc, char **argv)
+{
+	std::cout << "!!!!script python not support msvc /mtd or /mt!!!!" << std::endl;
+	wait_any_key(argc, argv);
+	return 0;
+}
+
+#endif // YGGR_MSVC_USING_MTD_FLAG

@@ -12,6 +12,7 @@ set(var_proj_src_dir ${var_root_proj_dir}/tool_format_vcxproj)
 set(var_proj_src_list 
 		${var_proj_src_dir}/tool_format_vcxproj.cpp
 		${var_proj_src_dir}/tool_format_vcxproj_cfg.cpp
+		${var_proj_src_dir}/vcsln_parser.cpp
 )
 
 set(var_proj_bin_outdir ${var_root_proj_dir}/${USRDEF_CMAKE_BIN_OUTDIR})
@@ -75,7 +76,7 @@ set(var_proj_link_libs_debug
 		-lboost_date_time${USRDEF_CMAKE_COMPILER_VERSION_TAG}-mt${USRDEF_CMAKE_BOOST_LINK_TAG_DEBUG}${USRDEF_CMAKE_BUILD_ARCH_BITS_TAG}${USRDEF_CMAKE_BOOST_VERSION_TAG}
 		-lboost_thread${USRDEF_CMAKE_COMPILER_VERSION_TAG}-mt${USRDEF_CMAKE_BOOST_LINK_TAG_DEBUG}${USRDEF_CMAKE_BUILD_ARCH_BITS_TAG}${USRDEF_CMAKE_BOOST_VERSION_TAG}
 		-lboost_system${USRDEF_CMAKE_COMPILER_VERSION_TAG}-mt${USRDEF_CMAKE_BOOST_LINK_TAG_DEBUG}${USRDEF_CMAKE_BUILD_ARCH_BITS_TAG}${USRDEF_CMAKE_BOOST_VERSION_TAG}
-		${USRDEF_CMAKE_LDFLAGS_DEBUG}
+		${USRDEF_CMAKE_LD_LIBRARY_DEBUG}
 )
 
 set(var_proj_link_libs_release 

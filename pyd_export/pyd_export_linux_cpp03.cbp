@@ -106,6 +106,8 @@
 			<Add option="-fPIC"/>
 			<Add option="-DBUILD_DLL"/>
 			<Add option="-DPYD_EXPORT_EXPORT"/>
+			<Add option="-DYGGR_DLL_DEF"/>
+			<Add directory="../"/>
 		</Compiler>
 		<Unit filename="pyd_export.cpp"/>
 		<Unit filename="s_t.h"/>
@@ -114,6 +116,7 @@
 			<lib_finder disable_auto="1"/>
 		</Extensions>
 		<Linker>
+			<Add option="-lpython$(#PYTHON_VERSION_FLOAT)"/>
 			<Add option="-lpython3"/>
 		</Linker>
 	</Project>

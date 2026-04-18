@@ -1,0 +1,5 @@
+dumpbin /exports yourdll.dll > yourdll.def.dbe
+lib /def:yourdll.def /machine:x64 /out:yourdll.lib 
+
+dumpbin /exports yourdll.dll > yourdll.def.dbe
+lib /def:libcrypto-3-x64.dll.def.def /machine:x64 /out:libcrypto-3-x64.lib 

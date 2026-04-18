@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sh make_luabind_linux_tpl.sh 503 501
-sh make_luabind_linux_tpl.sh 503 502
-sh make_luabind_linux_tpl.sh 503 503
-sh make_luabind_linux_tpl.sh 503 504
-sh make_luabind_linux_tpl.sh 503 jit501
-sh rm_luabind_linux_sample.sh
+sh make_luabind_linux_tpl.sh 504 501
+sh make_luabind_linux_tpl.sh 504 502
+sh make_luabind_linux_tpl.sh 504 503
+sh make_luabind_linux_tpl.sh 504 504
+sh make_luabind_linux_tpl.sh 504 jit501
+#sh rm_luabind_linux_sample.sh

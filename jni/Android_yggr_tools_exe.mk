@@ -12,6 +12,8 @@ subdirs := \
 	$(LOCAL_PATH)/../tool_conv_to_cb_solution_win_mingw/Android_tool_conv_to_cb_solution_win_mingw.mk \
 	$(LOCAL_PATH)/../tool_conv_to_darwin_cmakelists_txt/Android_tool_conv_to_darwin_cmakelists_txt.mk \
 	$(LOCAL_PATH)/../tool_conv_to_jni_mk/Android_tool_conv_to_jni_mk.mk \
+	$(LOCAL_PATH)/../tool_downgrade_vcxproj/Android_tool_downgrade_vcxproj.mk \
+	$(LOCAL_PATH)/../tool_dumpbin_exports_to_def/Android_tool_dumpbin_exports_to_def.mk \
 	$(LOCAL_PATH)/../tool_format_vcxproj/Android_tool_format_vcxproj.mk \
 	$(LOCAL_PATH)/../tool_remove_duplicate_files/Android_tool_remove_duplicate_files.mk \
 	$(LOCAL_PATH)/../tool_splice_copilot_gendoc/Android_tool_splice_copilot_gendoc.mk \

@@ -3,6 +3,12 @@
 #ifndef __S_T_H__
 #define __S_T_H__
 
+#include <yggr/base/yggrdef.h>
+
+
+#if !((defined(YGGR_MSVC_USING_MTD_FLAG) && YGGR_MSVC_USING_MTD_FLAG) \
+		|| (defined(YGGR_MSVC_USING_MT_FLAG) && YGGR_MSVC_USING_MT_FLAG))
+
 class s_t
 {
 public:
@@ -34,6 +40,6 @@ public:
     int i;
 };
 
-
+#endif // YGGR_MSVC_USING_MTD_FLAG
 
 #endif //__S_T_H__

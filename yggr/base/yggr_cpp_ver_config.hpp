@@ -101,7 +101,7 @@ THE SOFTWARE.
 #		define YGGR_USING_CXX23
 #	else
 		// ......
-#	endif // YGGR_CPP_VERSION == YGGR_CPP_VER_11
+#	endif // YGGR_USING_CXX98 ||
 #else
 #	if defined(YGGR_USING_CXX98)
 #		undef YGGR_CPP_VERSION
@@ -127,6 +127,6 @@ THE SOFTWARE.
 #	else
 	// .....
 #	endif // YGGR_CPP_VER_98
-#endif // YGGR_USING_CXX11
+#endif // YGGR_USING_CXX98 ||
 
 #endif // __YGGR_BASE_YGGR_CPP_VER_CONFIG_HPP__

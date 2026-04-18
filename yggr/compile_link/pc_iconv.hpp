@@ -30,7 +30,11 @@ THE SOFTWARE.
 #include <yggr/compile_link/msvc_cfg.hpp>
 
 #ifdef _MSC_VER
-#	pragma comment YGGR_COMPILE_LINK_NRULE_LIB(libiconv)
+#	if !defined(YGGR_LINK_ICON_USING_NATIVE_NAME)
+#		pragma comment YGGR_COMPILE_LINK_IMPL_LIB(libiconv)
+#	else
+#		pragma comment YGGR_COMPILE_LINK_NRULE_LIB(libiconv)
+#	endif // YGGR_LINK_ICON_USING_NATIVE_NAME
 #endif // _MSC_VER
 
 #endif // __YGGR_COMPILE_LINK_PC_ICONV_HPP__

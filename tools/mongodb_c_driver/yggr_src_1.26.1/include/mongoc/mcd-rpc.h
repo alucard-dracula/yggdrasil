@@ -19,7 +19,7 @@
 #define MCD_RPC_H_INCLUDED
 
 //#include <stdbool.h>
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
 

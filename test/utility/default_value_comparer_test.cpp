@@ -1,6 +1,5 @@
 // default_value_comparer_test.cpp
 
-
 #include <yggr/base/yggrdef.h>
 #include <test/wait_any_key/wait_any_key.hpp>
 

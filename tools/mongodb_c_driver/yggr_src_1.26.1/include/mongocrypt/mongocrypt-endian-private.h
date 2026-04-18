@@ -19,7 +19,7 @@
 #ifndef MONGOCRYPT_ENDIAN_PRIVATE_H
 #define MONGOCRYPT_ENDIAN_PRIVATE_H
 
-#include <yggr_detail/mongo_c_inline.h>
+#include <yggr_mongodbc_patch/mongo_c_inline.h>
 
 #include <stdint.h>
 #include <string.h>

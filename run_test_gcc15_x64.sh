@@ -1,8 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 source ./begin_test_env_linux_x64.sh
 rm -f Release-x64/gcc15/yggr_lua_base_type.so
+rm -f Release-x64/gcc15/pyst.so
 rm -f Release-x64/gcc15/mongo_crypt_v1.so
 ln -s libyggr_lua_base_type.so Release-x64/gcc15/yggr_lua_base_type.so
+ln -s libpyst.pyd Release-x64/gcc15/pyst.so
 ln -s /usr/local/lib64/mongo_crypt/mongo_crypt_v1.so  Release-x64/gcc15/mongo_crypt_v1.so
 cd ./test
 rm -fr ../test_out
@@ -44,6 +46,7 @@ ln -s /usr/local/lib64/mongo_crypt/mongo_crypt_v1.so mongo_crypt_v1.so
 ../Release-x64/gcc15/caller_gen_callable_object_test --batch-test
 ../Release-x64/gcc15/caller_to_params_call_test --batch-test
 ../Release-x64/gcc15/charset_basic_string_adp_helper_test --batch-test
+../Release-x64/gcc15/charset_c_str_test --batch-test
 ../Release-x64/gcc15/charset_charset_base_foo_test --batch-test
 ../Release-x64/gcc15/charset_charset_converter_test --batch-test
 ../Release-x64/gcc15/charset_const_strings_test --batch-test
@@ -74,7 +77,19 @@ ln -s /usr/local/lib64/mongo_crypt/mongo_crypt_v1.so mongo_crypt_v1.so
 ../Release-x64/gcc15/charset_utf8_string_boyer_moore_test --batch-test
 ../Release-x64/gcc15/charset_utf8_string_bson_pak_test --batch-test
 ../Release-x64/gcc15/charset_utf8_string_getter --batch-test
-../Release-x64/gcc15/charset_utf8_ssource end_test_env.sheric_same_deque_test --batch-test
+../Release-x64/gcc15/charset_utf8_string_isomeric_same_test --batch-test
+../Release-x64/gcc15/charset_utf8_string_knuth_morris_pratt_test --batch-test
+../Release-x64/gcc15/charset_utf8_string_serialization_test --batch-test
+../Release-x64/gcc15/charset_utf8_string_test --batch-test
+../Release-x64/gcc15/charset_utf8_string_test2 --batch-test
+../Release-x64/gcc15/charset_utf8_string_view_test --batch-test
+../Release-x64/gcc15/charset_utf8_string_xml_pak_serialize --batch-test
+../Release-x64/gcc15/compaction_tool_zip_lzma_test --batch-test
+../Release-x64/gcc15/compiler_link_test_msvc_macro --batch-test
+../Release-x64/gcc15/container_begin_end_rbegin_rend_test --batch-test
+../Release-x64/gcc15/container_cast_to_native_array_reference_test --batch-test
+../Release-x64/gcc15/container_deque_test --batch-test
+../Release-x64/gcc15/container_isomeric_same_deque_test --batch-test
 ../Release-x64/gcc15/container_isomeric_same_list_test --batch-test
 ../Release-x64/gcc15/container_isomeric_same_map_test --batch-test
 ../Release-x64/gcc15/container_isomeric_same_multimap_test --batch-test
@@ -112,6 +127,7 @@ ln -s /usr/local/lib64/mongo_crypt/mongo_crypt_v1.so mongo_crypt_v1.so
 ../Release-x64/gcc15/container_ex_array_t_maker_test --batch-test
 ../Release-x64/gcc15/container_ex_is_allocator_test --batch-test
 ../Release-x64/gcc15/container_ex_is_container_test --batch-test
+../Release-x64/gcc15/container_ex_iterator_getter --batch-test
 ../Release-x64/gcc15/container_ex_native_array_ref_test --batch-test
 ../Release-x64/gcc15/database_system_database_accesser_test --batch-test
 ../Release-x64/gcc15/database_system_database_accesser_test_of_pool --batch-test
@@ -376,6 +392,11 @@ ln -s /usr/local/lib64/mongo_crypt/mongo_crypt_v1.so mongo_crypt_v1.so
 ../Release-x64/gcc15/ppex_string_symbol_test --batch-test
 ../Release-x64/gcc15/ppex_va_args_test --batch-test
 ../Release-x64/gcc15/proxy_proxy_mode_test --batch-test
+../Release-x64/gcc15/python_python_boost_python_test --batch-test
+../Release-x64/gcc15/python_python_script_mgr_test --batch-test
+../Release-x64/gcc15/python_python_script_mgr_test2 --batch-test
+../Release-x64/gcc15/python_python_script_test --batch-test
+../Release-x64/gcc15/python_python_struct_test --batch-test
 ../Release-x64/gcc15/regex_get_string_vector --batch-test
 ../Release-x64/gcc15/regex_regex_parse_test_part1 --batch-test
 ../Release-x64/gcc15/regex_regex_parse_test_part2 --batch-test
@@ -569,8 +590,10 @@ ln -s /usr/local/lib64/mongo_crypt/mongo_crypt_v1.so mongo_crypt_v1.so
 ../Release-x64/gcc15/utility_array_get_test --batch-test
 ../Release-x64/gcc15/utility_bit_counter_test --batch-test
 ../Release-x64/gcc15/utility_copy_or_move_or_swap_test --batch-test
+../Release-x64/gcc15/utility_default_value_comparer_test --batch-test
 ../Release-x64/gcc15/utility_get_element_test --batch-test
 ../Release-x64/gcc15/utility_get_test --batch-test
+../Release-x64/gcc15/utility_identity_test --batch-test
 ../Release-x64/gcc15/utility_member_var_modify_helper_test --batch-test
 ../Release-x64/gcc15/utility_pair_compare_test --batch-test
 ../Release-x64/gcc15/utility_pair_get_test --batch-test
@@ -578,4 +601,4 @@ ln -s /usr/local/lib64/mongo_crypt/mongo_crypt_v1.so mongo_crypt_v1.so
 ../Release-x64/gcc15/utility_typeinfo_hasher_test --batch-test
 echo "---------all test end-----------------"
 cd ..
-source ./end_test_env.sh
+source end_test_env.sh

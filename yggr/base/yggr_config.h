@@ -45,6 +45,7 @@ THE SOFTWARE.
 //C4067: unexpected tokens following preprocessor directive - expected a newline
 //C4068: unknown pragma
 //C4090: '=' : different 'const' qualifiers
+//C4091: '__declspec(dllexport || dllimport)' : ignored on left of 'int' when no variable is declared
 //C4099: 'identifier' : type name first seen using 'objecttype1' now seen using 'objecttype2'
 //C4101: 'identifier' : unreferenced local variable
 //C4114: same type qualifier used more than once
@@ -68,6 +69,7 @@ THE SOFTWARE.
 #pragma warning (error : 4067)
 #pragma warning (error : 4068)
 #pragma warning (error : 4090)
+#pragma warning (error : 4091)
 #pragma warning (error : 4099)
 #pragma warning (error : 4101)
 #pragma warning (error : 4114)
@@ -184,14 +186,18 @@ YGGR_DISABLE_PRAGMA_MESSAGE					disable pragma messgame
 
 YGGR_NO_CXX98_FUNCTION_BASE					not has std::binary_function std::unary_function
 
+
+
 YGGR_USING_LEGCACY_STDIO_DEFINITIONS		fix Visual Studio 2015 and later link old RTC error LNK2001: unresolved external symbol __iob_func
-  
-YGGR_OPENSSL_USING_STATIC_LIB				openssl using static lib, default using dynamic lib
 
 YGGR_HAS_ICU								boost::regex using icu check. default auto_check
-YGGR_ICU_USING_NATIVE_NAME					link icu using default icu name. default not defined
+YGGR_LINK_ICU_USING_NATIVE_NAME				link icu using native icu lib name. default not defined
+
+YGGR_LINK_ICON_USING_NATIVE_NAME			link icov lib using native icon lib name. default not defined
+YGGR_LINK_OPENSSL_USING_NATIVE_NAME			link openssl lib using native openssl lib name. default not defined
 
 YGGR_LUA_THREAD_SAFE						lua using thread safe version
+YGGR_LUA_LIB_NAME_USE_NATIVE				link lua lib using native openssl lib name. default not defined
 
 YGGR_ANY_VAL_OP_NOT_INIT_BASE_TYPE			yggr::any_val::any_operator_mgr_basic_t_reg not register all base_type
 YGGR_ANY_VAL_OP_INIT_NOT_SUPPORT_BASE_TYPE	yggr::any_val::any_operator_mgr_basic_t_reg not call 
@@ -202,6 +208,13 @@ YGGR_MONGODB_NO_DECIMAL128					yggr::nsql_database_system not support decimal128
 YGGR_FOO_T_INFO_SUPPORT_STD_BIND			enable yggr::func::foo_t_info support std::bind
 
 YGGR_MPLEX_TYPENAME_CASTER_DEPRECATED_CPP98 enable yggr::mplex::typename_caster full features. if seted, typename_caster not support cpp98, default: disable
+
+YGGR_MSVC_USING_MT_FLAG						in windows using cl.exe /MT /MTD
+YGGR_MSVC_USING_MD_FLAG						in windows using cl.exe /MD /MDD
+
+YGGR_COMPILE_LINK_LIB_ONLY_USING_STATIC     YGGR_COMPILE_LINK_LIB is equivalent to YGGR_COMPILE_LINK_STATIC_LIB
+
+YGGR_DEBUG									yggdrasil using debug mode
 
 */
 
@@ -314,20 +327,40 @@ YGGR_MPLEX_TYPENAME_CASTER_DEPRECATED_CPP98 enable yggr::mplex::typename_caster 
 #	endif //  _CRT_SECURE_NO_WARNINGS
 #endif // _MSC_VER
 
-//#if !defined(YGGR_DLL_DEF)
-//
-//#	if defined(BOOST_SYMBOL_EXPORT)
-//#		undef BOOST_SYMBOL_EXPORT
-//#	endif // BOOST_SYMBOL_EXPORT
-//
-//#	if defined(BOOST_SYMBOL_IMPORT)
-//#		undef BOOST_SYMBOL_IMPORT
-//#	endif // BOOST_SYMBOL_IMPORT
-//
-//#	define BOOST_SYMBOL_EXPORT
-//#	define BOOST_SYMBOL_IMPORT
-//
-//#endif // defined(YGGR_DLL_DEF)
+// mdd, md, mt, mtd
+#if defined(_MSC_VER)
+#	if !defined(YGGR_MSVC_USING_MD_FLAG)
+#		if (defined(_DLL) || defined(_RTLDLL)) && defined(_MT)
+#			define YGGR_MSVC_USING_MD_FLAG 1
+#		endif // _DLL
+#	endif // YGGR_MSVC_USING_MD_FLAG
+#else
+#	if defined(YGGR_MSVC_USING_MD_FLAG)
+#		undef YGGR_MSVC_USING_MD_FLAG
+#	endif // YGGR_MSVC_USING_MD_FLAG
+#endif // _MSC_VER
+
+#if defined(_MSC_VER)
+#	if !defined(YGGR_MSVC_USING_MT_FLAG)
+#		if defined(_MT) && !(defined(_DLL) || defined(_RTLDLL)) 
+#			define YGGR_MSVC_USING_MT_FLAG 1
+#		endif // _DLL
+#	endif // YGGR_MSVC_USING_MT_FLAG
+#else
+#	if defined(YGGR_MSVC_USING_MT_FLAG)
+#		undef YGGR_MSVC_USING_MT_FLAG
+#	endif // YGGR_MSVC_USING_MT_FLAG
+#endif // _MSC_VER
+
+
+#if (defined(YGGR_MSVC_USING_MTD_FLAG) \
+		&& defined(YGGR_MSVC_USING_MT_FLAG) \
+		&& YGGR_MSVC_USING_MTD_FLAG \
+		&& YGGR_MSVC_USING_MT_FLAG)
+
+#	error "!!!cl.exe must standardize the runtime library!!!"
+
+#endif // YGGR_MSVC_USING_MTD_FLAG
 
 #ifndef BOOST_CONFIG_HPP
 #  include <boost/config.hpp>
@@ -356,6 +389,8 @@ YGGR_MPLEX_TYPENAME_CASTER_DEPRECATED_CPP98 enable yggr::mplex::typename_caster 
 #include <yggr/base/yggr_cpp_ver_config.hpp>
 #include <yggr/base/boost_cpp_version_check.hpp>
 
+#include <yggr/base/yggr_c_ver_config.hpp>
+
 #include <yggr/base/script_lua_cfg.hpp>
 #include <yggr/base/script_python_cfg.hpp>
 
@@ -378,6 +413,12 @@ YGGR_MPLEX_TYPENAME_CASTER_DEPRECATED_CPP98 enable yggr::mplex::typename_caster 
 #		endif // YGGR_AT_LINUX
 #	endif // WIN32
 #endif // !(defined(YGGR_AT_WINDOWS) || defined(YGGR_AT_DARWIN) || defined(YGGR_AT_LINUX))
+
+#if defined(__MINGW32__)
+#	if !defined(YGGR_AT_MINGW)
+#		define YGGR_AT_MINGW
+#	endif // YGGR_AT_MINGW
+#endif // __MINGW32__
 
 #if defined(YGGR_AT_DARWIN) \
 	&& (defined(TARGET_OS_IPHONE) && TARGET_OS_IPHONE) \

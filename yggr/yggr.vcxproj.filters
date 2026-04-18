@@ -2094,71 +2094,8 @@
     <ClInclude Include="compatibility\stl_switch.hpp">
       <Filter>Header Files\compatibility</Filter>
     </ClInclude>
-    <ClInclude Include="compile_link\msvc_cfg.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_any_val.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_base.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_charset.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_compaction_tool.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_database_system.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_encryption_tool.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_exception.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_ids.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_log.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_network.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_nsql_database_system.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_script_lua.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_script_python.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_seh.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_time.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\linker.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\link_config.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_regular_parse.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_modules.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
     <ClInclude Include="segment\segment_config.hpp">
       <Filter>Header Files\segment</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_segment.hpp">
-      <Filter>Header Files\compile_link</Filter>
     </ClInclude>
     <ClInclude Include="segment\segment_error.hpp">
       <Filter>Header Files\segment</Filter>
@@ -2363,9 +2300,6 @@
     </ClInclude>
     <ClInclude Include="safe_container\detail\boost_midx_index_base_opt.hpp">
       <Filter>Header Files\safe_container\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_empty.hpp">
-      <Filter>Header Files\compile_link</Filter>
     </ClInclude>
     <ClInclude Include="thread\boost_thread.hpp">
       <Filter>Header Files\thread</Filter>
@@ -3693,9 +3627,6 @@
     <ClInclude Include="system_controller\ctrl_center.hpp">
       <Filter>Header Files\system_controller</Filter>
     </ClInclude>
-    <ClInclude Include="compile_link\pc_system_controller.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
     <ClInclude Include="system_controller\detail\ctrl_center_types.hpp">
       <Filter>Header Files\system_controller\detail</Filter>
     </ClInclude>
@@ -3761,9 +3692,6 @@
     </ClInclude>
     <ClInclude Include="any_val\params.hpp">
       <Filter>Header Files\any_val</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_yggr_all_libs.hpp">
-      <Filter>Header Files\compile_link</Filter>
     </ClInclude>
     <ClInclude Include="charset\string_charset_helper.hpp">
       <Filter>Header Files\charset</Filter>
@@ -4071,18 +3999,6 @@
     <ClInclude Include="proxy\proxy_mode\proxy_mode_owner_id_store.hpp">
       <Filter>Header Files\proxy\proxy_mode</Filter>
     </ClInclude>
-    <ClInclude Include="compile_link\pc_base64.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_blowfish.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_md5.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_sha.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
     <ClInclude Include="proxy\proxy_args\default_args_builder.hpp">
       <Filter>Header Files\proxy\proxy_args</Filter>
     </ClInclude>
@@ -4116,23 +4032,11 @@
     <ClInclude Include="lua_wrap\wrap_unordered_set.hpp">
       <Filter>Header Files\lua_wrap</Filter>
     </ClInclude>
-    <ClInclude Include="compile_link\pc_script_lua_s.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_script_lua_ss.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_script_lua_ss_ts.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
     <ClInclude Include="lua_wrap\wrap_deque.hpp">
       <Filter>Header Files\lua_wrap</Filter>
     </ClInclude>
     <ClInclude Include="lua_wrap\lua_export_wrap_deque.hpp">
       <Filter>Header Files\lua_wrap</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_ibm_icu.hpp">
-      <Filter>Header Files\compile_link</Filter>
     </ClInclude>
     <ClInclude Include="safe_container\multi_index\safe_hashed_index_gernel_impl.hpp">
       <Filter>Header Files\safe_container\multi_index</Filter>
@@ -7905,15 +7809,6 @@
     <ClInclude Include="base\cpp20_features_cfg.hpp">
       <Filter>Header Files\base</Filter>
     </ClInclude>
-    <ClInclude Include="compile_link\pc_legacy_stdio_definitions.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_openssl.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_zlib.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
     <ClInclude Include="charset\detail\utf8_string_t_getter.hpp">
       <Filter>Header Files\charset\detail</Filter>
     </ClInclude>
@@ -8205,9 +8100,6 @@
     <ClInclude Include="type_traits\detail\original_t_detail.hpp">
       <Filter>Header Files\type_traits\detail</Filter>
     </ClInclude>
-    <ClInclude Include="compile_link\pc_pthread.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
     <ClInclude Include="mplex\static_assert.hpp">
       <Filter>Header Files\mplex</Filter>
     </ClInclude>
@@ -8259,9 +8151,6 @@
     <ClInclude Include="support\return_arg.hpp">
       <Filter>Header Files\support</Filter>
     </ClInclude>
-    <ClInclude Include="compile_link\pc_iconv.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
     <ClInclude Include="archive\detail\is_sizeof_char_1_byte.hpp">
       <Filter>Header Files\archive\detail</Filter>
     </ClInclude>
@@ -8279,9 +8168,6 @@
     </ClInclude>
     <ClInclude Include="base\boost_cpp_version_check.hpp">
       <Filter>Header Files\base</Filter>
-    </ClInclude>
-    <ClInclude Include="compile_link\pc_zlib_static.hpp">
-      <Filter>Header Files\compile_link</Filter>
     </ClInclude>
     <ClInclude Include="ppex\cast_to_identity.hpp">
       <Filter>Header Files\ppex</Filter>
@@ -8418,9 +8304,6 @@
     <ClInclude Include="any_val\any_has_value_empty.hpp">
       <Filter>Header Files\any_val</Filter>
     </ClInclude>
-    <ClInclude Include="compile_link\pc_iconv_static.hpp">
-      <Filter>Header Files\compile_link</Filter>
-    </ClInclude>
     <ClInclude Include="proxy\proxy_mode\proxy_mode_forward.hpp">
       <Filter>Header Files\proxy\proxy_mode</Filter>
     </ClInclude>
@@ -8492,6 +8375,186 @@
     </ClInclude>
     <ClInclude Include="typeof\failed_value.hpp">
       <Filter>Header Files\typeof</Filter>
+    </ClInclude>
+    <ClInclude Include="mplex\identity.hpp">
+      <Filter>Header Files\mplex</Filter>
+    </ClInclude>
+    <ClInclude Include="charset\c_str.hpp">
+      <Filter>Header Files\charset</Filter>
+    </ClInclude>
+    <ClInclude Include="container\index_basic_tag.hpp">
+      <Filter>Header Files\container</Filter>
+    </ClInclude>
+    <ClInclude Include="base\yggr_c_ver_config.hpp">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\msvc_number_cfg.hpp">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\link_config.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\linker.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\msvc_cfg.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_any_val.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_base.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_base64.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_blowfish.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_charset.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_compaction_tool.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_database_system.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_dtl.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_empty.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_encryption_tool.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_exception.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_ibm_icu.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_iconv.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_iconv_static.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_ids.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_legacy_stdio_definitions.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_libiconv.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_log.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_lua.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_lua_static.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_lua_ts.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_lua_ts_static.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_luabind.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_lzma.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_md5.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_modules.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_network.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_nsql_database_system.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_openssl.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_openssl_static.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_pthread.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_regular_parse.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_script_lua.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_script_python.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_segment.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_seh.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_sha.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_system_controller.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_time.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_yggr_all_libs.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_zlib.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_zlib_static.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_luabind_static.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_luabind_ts.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_luabind_ts_static.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\link_lua_name_cfg.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_script_lua_ss.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_script_lua_ts.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_pthread_static.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_script_lua_ts_ss.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="compile_link\pc_lzma_static.hpp">
+      <Filter>Header Files\compile_link</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\pass.hpp">
+      <Filter>Header Files\utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

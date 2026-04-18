@@ -3,644 +3,9 @@
 	<_str_lua_ver>504</_str_lua_ver>
 	<_str_python_ver>313</_str_python_ver>
 	<_marks_dep>
-		<count>107</count>
+		<count>112</count>
 		<bucket_count>193</bucket_count>
 		<item_version>0</item_version>
-		<item>
-			<first>Crypt32</first>
-			<second>
-				<count>3</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>Crypt32</item>
-				<item>crypto</item>
-				<item>ssl</item>
-			</second>
-		</item>
-		<item>
-			<first>yggr_math</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>ws2_32</item>
-			</second>
-		</item>
-		<item>
-			<first>yggr_safe_container</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>ws2_32</item>
-			</second>
-		</item>
-		<item>
-			<first>protocol_reg</first>
-			<second>
-				<count>7</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>boost_system</item>
-				<item>mswsock</item>
-				<item>boost_serialization</item>
-				<item>ws2_32</item>
-				<item>boost_regex</item>
-				<item>boost_filesystem</item>
-				<item>Bcrypt</item>
-			</second>
-		</item>
-		<item>
-			<first>boost_wserialization</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>boost_wserialization</item>
-			</second>
-		</item>
-		<item>
-			<first>vcxproj_parser_patch</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>ws2_32</item>
-			</second>
-		</item>
-		<item>
-			<first>nsql_database_system</first>
-			<second>
-				<count>22</count>
-				<bucket_count>29</bucket_count>
-				<item_version>0</item_version>
-				<item>zlibstatic</item>
-				<item>Dnsapi</item>
-				<item>mongoc</item>
-				<item>yggr_nsql_database_system</item>
-				<item>boost_serialization</item>
-				<item>icuin</item>
-				<item>mongocrypt</item>
-				<item>kms-message</item>
-				<item>sasl</item>
-				<item>common</item>
-				<item>ws2_32</item>
-				<item>bson</item>
-				<item>intel_dfp_obj</item>
-				<item>base64</item>
-				<item>bson2</item>
-				<item>crypto</item>
-				<item>icuuc</item>
-				<item>common2</item>
-				<item>ssl</item>
-				<item>Crypt32</item>
-				<item>boost_thread</item>
-				<item>utf8proc</item>
-			</second>
-		</item>
-		<item>
-			<first>log</first>
-			<second>
-				<count>3</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>boost_regex</item>
-				<item>yggr_log</item>
-				<item>boost_filesystem</item>
-			</second>
-		</item>
-		<item>
-			<first>winmm</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>winmm</item>
-			</second>
-		</item>
-		<item>
-			<first>script_lua_ss_ts</first>
-			<second>
-				<count>5</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>luabind09_ts</item>
-				<item>ws2_32</item>
-				<item>yggr_script_lua</item>
-				<item>pthread</item>
-				<item>lua_ts</item>
-			</second>
-		</item>
-		<item>
-			<first>encryption_tool_svr_test</first>
-			<second>
-				<count>2</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>blowfish</item>
-				<item>md5</item>
-			</second>
-		</item>
-		<item>
-			<first>lua502</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>lua502</item>
-			</second>
-		</item>
-		<item>
-			<first>lua502_ts-s</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>lua502_ts-s</item>
-			</second>
-		</item>
-		<item>
-			<first>geometry_geo_bezier_curve_gui_test</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>gdi32</item>
-			</second>
-		</item>
-		<item>
-			<first>script_lua_ss</first>
-			<second>
-				<count>4</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>lua_s</item>
-				<item>ws2_32</item>
-				<item>yggr_script_lua</item>
-				<item>luabind09_s</item>
-			</second>
-		</item>
-		<item>
-			<first>time</first>
-			<second>
-				<count>2</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>yggr_time</item>
-				<item>boost_date_time</item>
-			</second>
-		</item>
-		<item>
-			<first>pyd_export</first>
-			<second>
-				<count>2</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>python</item>
-				<item>boost_python</item>
-			</second>
-		</item>
-		<item>
-			<first>exception</first>
-			<second>
-				<count>2</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>boost_thread</item>
-				<item>yggr_exception</item>
-			</second>
-		</item>
-		<item>
-			<first>yggr_lua_base_type</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>boost_thread</item>
-			</second>
-		</item>
-		<item>
-			<first>boost_asio.hpp</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>ws2_32</item>
-			</second>
-		</item>
-		<item>
-			<first>iconv</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>iconv</item>
-			</second>
-		</item>
-		<item>
-			<first>script_python</first>
-			<second>
-				<count>3</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>boost_thread</item>
-				<item>python</item>
-				<item>yggr_script_python</item>
-			</second>
-		</item>
-		<item>
-			<first>yggr_segment</first>
-			<second>
-				<count>3</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>ws2_32</item>
-				<item>boost_regex</item>
-				<item>boost_filesystem</item>
-			</second>
-		</item>
-		<item>
-			<first>boost_timer</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>boost_timer</item>
-			</second>
-		</item>
-		<item>
-			<first>luabind</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>lua</item>
-			</second>
-		</item>
-		<item>
-			<first>Secur32</first>
-			<second>
-				<count>2</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>crypto</item>
-				<item>ssl</item>
-			</second>
-		</item>
-		<item>
-			<first>lua503_ts-s</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>lua503_ts-s</item>
-			</second>
-		</item>
-		<item>
-			<first>zlib</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>zlib</item>
-			</second>
-		</item>
-		<item>
-			<first>bson</first>
-			<second>
-				<count>4</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>bson</item>
-				<item>bson2</item>
-				<item>common</item>
-				<item>common2</item>
-			</second>
-		</item>
-		<item>
-			<first>d3d9</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>d3d9</item>
-			</second>
-		</item>
-		<item>
-			<first>utf8proc</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>utf8proc</item>
-			</second>
-		</item>
-		<item>
-			<first>yggr_thread</first>
-			<second>
-				<count>2</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>boost_system</item>
-				<item>boost_thread</item>
-			</second>
-		</item>
-		<item>
-			<first>database_system</first>
-			<second>
-				<count>4</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>yggr_database_system</item>
-				<item>ws2_32</item>
-				<item>odbc32</item>
-				<item>dtl</item>
-			</second>
-		</item>
-		<item>
-			<first>yggr_file_system</first>
-			<second>
-				<count>4</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>ws2_32</item>
-				<item>boost_regex</item>
-				<item>boost_filesystem</item>
-				<item>Bcrypt</item>
-			</second>
-		</item>
-		<item>
-			<first>lua504-s</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>lua504-s</item>
-			</second>
-		</item>
-		<item>
-			<first>boost_date_time</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>boost_date_time</item>
-			</second>
-		</item>
-		<item>
-			<first>boost_regex</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>boost_regex</item>
-			</second>
-		</item>
-		<item>
-			<first>mongocrypt</first>
-			<second>
-				<count>3</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>sasl</item>
-				<item>intel_dfp_obj</item>
-				<item>mongocrypt</item>
-			</second>
-		</item>
-		<item>
-			<first>dll_cal_test</first>
-			<second>
-				<count>4</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>boost_system</item>
-				<item>boost_serialization</item>
-				<item>ws2_32</item>
-				<item>Bcrypt</item>
-			</second>
-		</item>
-		<item>
-			<first>compaction_tool</first>
-			<second>
-				<count>2</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>yggr_compaction_tool</item>
-				<item>lzma</item>
-			</second>
-		</item>
-		<item>
-			<first>lua504</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>lua504</item>
-			</second>
-		</item>
-		<item>
-			<first>lua501</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>lua501</item>
-			</second>
-		</item>
-		<item>
-			<first>pthread</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>pthread</item>
-			</second>
-		</item>
-		<item>
-			<first>proxy_trun_mixer_svr_test</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>md5</item>
-			</second>
-		</item>
-		<item>
-			<first>lua503</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>lua503</item>
-			</second>
-		</item>
-		<item>
-			<first>boost_serialization</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>boost_serialization</item>
-			</second>
-		</item>
-		<item>
-			<first>ids</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>yggr_ids</item>
-			</second>
-		</item>
-		<item>
-			<first>yggr_archive</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>ws2_32</item>
-			</second>
-		</item>
-		<item>
-			<first>segment</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>yggr_segment</item>
-			</second>
-		</item>
-		<item>
-			<first>mongoc</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>mongoc</item>
-			</second>
-		</item>
-		<item>
-			<first>md5</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>md5</item>
-			</second>
-		</item>
-		<item>
-			<first>lua501-s</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>lua501-s</item>
-			</second>
-		</item>
-		<item>
-			<first>charset</first>
-			<second>
-				<count>3</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>ws2_32</item>
-				<item>iconv</item>
-				<item>yggr_charset</item>
-			</second>
-		</item>
-		<item>
-			<first>p2p_peer_test</first>
-			<second>
-				<count>4</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>md5</item>
-				<item>boost_regex</item>
-				<item>boost_filesystem</item>
-				<item>Bcrypt</item>
-			</second>
-		</item>
-		<item>
-			<first>ibm_icu</first>
-			<second>
-				<count>2</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>icuin</item>
-				<item>icuuc</item>
-			</second>
-		</item>
-		<item>
-			<first>encryption_tool_clt_test</first>
-			<second>
-				<count>2</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>blowfish</item>
-				<item>md5</item>
-			</second>
-		</item>
-		<item>
-			<first>yggr_network</first>
-			<second>
-				<count>5</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>boost_thread</item>
-				<item>boost_system</item>
-				<item>boost_serialization</item>
-				<item>ws2_32</item>
-				<item>pthread</item>
-			</second>
-		</item>
-		<item>
-			<first>system_controller</first>
-			<second>
-				<count>2</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>boost_thread</item>
-				<item>yggr_system_controller</item>
-			</second>
-		</item>
-		<item>
-			<first>encryption_tool_proxy_srv_test</first>
-			<second>
-				<count>2</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>blowfish</item>
-				<item>md5</item>
-			</second>
-		</item>
-		<item>
-			<first>luajit501-s</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>luajit501-s</item>
-			</second>
-		</item>
-		<item>
-			<first>d3dx9</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>d3dx9</item>
-			</second>
-		</item>
-		<item>
-			<first>openssl</first>
-			<second>
-				<count>2</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>crypto</item>
-				<item>ssl</item>
-			</second>
-		</item>
 		<item>
 			<first>mgw_gcc_sjlj</first>
 			<second>
@@ -688,12 +53,12 @@
 			</second>
 		</item>
 		<item>
-			<first>lua503-s</first>
+			<first>lua502_ts</first>
 			<second>
 				<count>1</count>
 				<bucket_count>13</bucket_count>
 				<item_version>0</item_version>
-				<item>lua503-s</item>
+				<item>lua502_ts</item>
 			</second>
 		</item>
 		<item>
@@ -763,15 +128,6 @@
 				<bucket_count>13</bucket_count>
 				<item_version>0</item_version>
 				<item>blowfish</item>
-			</second>
-		</item>
-		<item>
-			<first>lua504_ts-s</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>lua504_ts-s</item>
 			</second>
 		</item>
 		<item>
@@ -872,6 +228,15 @@
 			</second>
 		</item>
 		<item>
+			<first>lua504_ts_static</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>lua504_ts_static</item>
+			</second>
+		</item>
+		<item>
 			<first>common</first>
 			<second>
 				<count>4</count>
@@ -920,18 +285,6 @@
 			</second>
 		</item>
 		<item>
-			<first>script_lua_s</first>
-			<second>
-				<count>4</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>ws2_32</item>
-				<item>lua</item>
-				<item>yggr_script_lua</item>
-				<item>luabind09_s</item>
-			</second>
-		</item>
-		<item>
 			<first>boost_python</first>
 			<second>
 				<count>2</count>
@@ -963,15 +316,6 @@
 			</second>
 		</item>
 		<item>
-			<first>lua501_ts-s</first>
-			<second>
-				<count>1</count>
-				<bucket_count>13</bucket_count>
-				<item_version>0</item_version>
-				<item>lua501_ts-s</item>
-			</second>
-		</item>
-		<item>
 			<first>Dnsapi</first>
 			<second>
 				<count>1</count>
@@ -990,12 +334,12 @@
 			</second>
 		</item>
 		<item>
-			<first>lua502-s</first>
+			<first>luajit501_static</first>
 			<second>
 				<count>1</count>
 				<bucket_count>13</bucket_count>
 				<item_version>0</item_version>
-				<item>lua502-s</item>
+				<item>luajit501_static</item>
 			</second>
 		</item>
 		<item>
@@ -1058,6 +402,710 @@
 			</second>
 		</item>
 		<item>
+			<first>Crypt32</first>
+			<second>
+				<count>3</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>Crypt32</item>
+				<item>crypto</item>
+				<item>ssl</item>
+			</second>
+		</item>
+		<item>
+			<first>lua504_ts</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>lua504_ts</item>
+			</second>
+		</item>
+		<item>
+			<first>yggr_math</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>ws2_32</item>
+			</second>
+		</item>
+		<item>
+			<first>lua501_static</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>lua501_static</item>
+			</second>
+		</item>
+		<item>
+			<first>yggr_safe_container</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>ws2_32</item>
+			</second>
+		</item>
+		<item>
+			<first>lua503_ts</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>lua503_ts</item>
+			</second>
+		</item>
+		<item>
+			<first>lua503_ts_static</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>lua503_ts_static</item>
+			</second>
+		</item>
+		<item>
+			<first>protocol_reg</first>
+			<second>
+				<count>7</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>boost_system</item>
+				<item>mswsock</item>
+				<item>boost_serialization</item>
+				<item>ws2_32</item>
+				<item>boost_regex</item>
+				<item>boost_filesystem</item>
+				<item>Bcrypt</item>
+			</second>
+		</item>
+		<item>
+			<first>boost_wserialization</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>boost_wserialization</item>
+			</second>
+		</item>
+		<item>
+			<first>lua501_ts_static</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>lua501_ts_static</item>
+			</second>
+		</item>
+		<item>
+			<first>vcxproj_parser_patch</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>ws2_32</item>
+			</second>
+		</item>
+		<item>
+			<first>nsql_database_system</first>
+			<second>
+				<count>22</count>
+				<bucket_count>29</bucket_count>
+				<item_version>0</item_version>
+				<item>zlibstatic</item>
+				<item>Dnsapi</item>
+				<item>mongoc</item>
+				<item>yggr_nsql_database_system</item>
+				<item>boost_serialization</item>
+				<item>icuin</item>
+				<item>mongocrypt</item>
+				<item>kms-message</item>
+				<item>sasl</item>
+				<item>common</item>
+				<item>ws2_32</item>
+				<item>bson</item>
+				<item>intel_dfp_obj</item>
+				<item>base64</item>
+				<item>bson2</item>
+				<item>crypto</item>
+				<item>icuuc</item>
+				<item>common2</item>
+				<item>ssl</item>
+				<item>Crypt32</item>
+				<item>boost_thread</item>
+				<item>utf8proc</item>
+			</second>
+		</item>
+		<item>
+			<first>log</first>
+			<second>
+				<count>3</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>boost_regex</item>
+				<item>yggr_log</item>
+				<item>boost_filesystem</item>
+			</second>
+		</item>
+		<item>
+			<first>winmm</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>winmm</item>
+			</second>
+		</item>
+		<item>
+			<first>encryption_tool_svr_test</first>
+			<second>
+				<count>2</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>blowfish</item>
+				<item>md5</item>
+			</second>
+		</item>
+		<item>
+			<first>lua504_static</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>lua504_static</item>
+			</second>
+		</item>
+		<item>
+			<first>lua502</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>lua502</item>
+			</second>
+		</item>
+		<item>
+			<first>geometry_geo_bezier_curve_gui_test</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>gdi32</item>
+			</second>
+		</item>
+		<item>
+			<first>script_lua_ss</first>
+			<second>
+				<count>4</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>luabind09_static</item>
+				<item>ws2_32</item>
+				<item>yggr_script_lua</item>
+				<item>lua_static</item>
+			</second>
+		</item>
+		<item>
+			<first>time</first>
+			<second>
+				<count>2</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>yggr_time</item>
+				<item>boost_date_time</item>
+			</second>
+		</item>
+		<item>
+			<first>pyd_export</first>
+			<second>
+				<count>2</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>python</item>
+				<item>boost_python</item>
+			</second>
+		</item>
+		<item>
+			<first>exception</first>
+			<second>
+				<count>2</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>boost_thread</item>
+				<item>yggr_exception</item>
+			</second>
+		</item>
+		<item>
+			<first>yggr_lua_base_type</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>boost_thread</item>
+			</second>
+		</item>
+		<item>
+			<first>boost_asio.hpp</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>ws2_32</item>
+			</second>
+		</item>
+		<item>
+			<first>iconv</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>iconv</item>
+			</second>
+		</item>
+		<item>
+			<first>lua503_static</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>lua503_static</item>
+			</second>
+		</item>
+		<item>
+			<first>script_python</first>
+			<second>
+				<count>6</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>boost_thread</item>
+				<item>python</item>
+				<item>boost_python</item>
+				<item>boost_regex</item>
+				<item>boost_filesystem</item>
+				<item>yggr_script_python</item>
+			</second>
+		</item>
+		<item>
+			<first>yggr_segment</first>
+			<second>
+				<count>3</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>ws2_32</item>
+				<item>boost_regex</item>
+				<item>boost_filesystem</item>
+			</second>
+		</item>
+		<item>
+			<first>boost_timer</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>boost_timer</item>
+			</second>
+		</item>
+		<item>
+			<first>luabind</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>lua</item>
+			</second>
+		</item>
+		<item>
+			<first>Secur32</first>
+			<second>
+				<count>2</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>crypto</item>
+				<item>ssl</item>
+			</second>
+		</item>
+		<item>
+			<first>script_lua_ts_ss</first>
+			<second>
+				<count>5</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>ws2_32</item>
+				<item>yggr_script_lua</item>
+				<item>pthread</item>
+				<item>lua_ts</item>
+				<item>luabind09_ts_static</item>
+			</second>
+		</item>
+		<item>
+			<first>zlib</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>zlib</item>
+			</second>
+		</item>
+		<item>
+			<first>bson</first>
+			<second>
+				<count>4</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>bson</item>
+				<item>bson2</item>
+				<item>common</item>
+				<item>common2</item>
+			</second>
+		</item>
+		<item>
+			<first>d3d9</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>d3d9</item>
+			</second>
+		</item>
+		<item>
+			<first>utf8proc</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>utf8proc</item>
+			</second>
+		</item>
+		<item>
+			<first>yggr_thread</first>
+			<second>
+				<count>2</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>boost_system</item>
+				<item>boost_thread</item>
+			</second>
+		</item>
+		<item>
+			<first>database_system</first>
+			<second>
+				<count>4</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>yggr_database_system</item>
+				<item>ws2_32</item>
+				<item>odbc32</item>
+				<item>dtl</item>
+			</second>
+		</item>
+		<item>
+			<first>yggr_file_system</first>
+			<second>
+				<count>4</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>ws2_32</item>
+				<item>boost_regex</item>
+				<item>boost_filesystem</item>
+				<item>Bcrypt</item>
+			</second>
+		</item>
+		<item>
+			<first>luabind_ts</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>lua_ts</item>
+			</second>
+		</item>
+		<item>
+			<first>boost_date_time</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>boost_date_time</item>
+			</second>
+		</item>
+		<item>
+			<first>boost_regex</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>boost_regex</item>
+			</second>
+		</item>
+		<item>
+			<first>mongocrypt</first>
+			<second>
+				<count>3</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>sasl</item>
+				<item>intel_dfp_obj</item>
+				<item>mongocrypt</item>
+			</second>
+		</item>
+		<item>
+			<first>dll_cal_test</first>
+			<second>
+				<count>4</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>boost_system</item>
+				<item>boost_serialization</item>
+				<item>ws2_32</item>
+				<item>Bcrypt</item>
+			</second>
+		</item>
+		<item>
+			<first>compaction_tool</first>
+			<second>
+				<count>2</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>yggr_compaction_tool</item>
+				<item>lzma</item>
+			</second>
+		</item>
+		<item>
+			<first>lua504</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>lua504</item>
+			</second>
+		</item>
+		<item>
+			<first>lua501</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>lua501</item>
+			</second>
+		</item>
+		<item>
+			<first>pthread</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>pthread</item>
+			</second>
+		</item>
+		<item>
+			<first>proxy_trun_mixer_svr_test</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>md5</item>
+			</second>
+		</item>
+		<item>
+			<first>lua503</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>lua503</item>
+			</second>
+		</item>
+		<item>
+			<first>script_lua_ts</first>
+			<second>
+				<count>4</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>luabind09_ts</item>
+				<item>ws2_32</item>
+				<item>yggr_script_lua</item>
+				<item>lua_ts</item>
+			</second>
+		</item>
+		<item>
+			<first>boost_serialization</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>boost_serialization</item>
+			</second>
+		</item>
+		<item>
+			<first>ids</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>yggr_ids</item>
+			</second>
+		</item>
+		<item>
+			<first>yggr_archive</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>ws2_32</item>
+			</second>
+		</item>
+		<item>
+			<first>lua502_static</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>lua502_static</item>
+			</second>
+		</item>
+		<item>
+			<first>segment</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>yggr_segment</item>
+			</second>
+		</item>
+		<item>
+			<first>lua501_ts</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>lua501_ts</item>
+			</second>
+		</item>
+		<item>
+			<first>mongoc</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>mongoc</item>
+			</second>
+		</item>
+		<item>
+			<first>md5</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>md5</item>
+			</second>
+		</item>
+		<item>
+			<first>charset</first>
+			<second>
+				<count>3</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>ws2_32</item>
+				<item>iconv</item>
+				<item>yggr_charset</item>
+			</second>
+		</item>
+		<item>
+			<first>p2p_peer_test</first>
+			<second>
+				<count>4</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>md5</item>
+				<item>boost_regex</item>
+				<item>boost_filesystem</item>
+				<item>Bcrypt</item>
+			</second>
+		</item>
+		<item>
+			<first>ibm_icu</first>
+			<second>
+				<count>2</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>icuin</item>
+				<item>icuuc</item>
+			</second>
+		</item>
+		<item>
+			<first>encryption_tool_clt_test</first>
+			<second>
+				<count>2</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>blowfish</item>
+				<item>md5</item>
+			</second>
+		</item>
+		<item>
+			<first>yggr_network</first>
+			<second>
+				<count>5</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>boost_thread</item>
+				<item>boost_system</item>
+				<item>boost_serialization</item>
+				<item>ws2_32</item>
+				<item>pthread</item>
+			</second>
+		</item>
+		<item>
+			<first>system_controller</first>
+			<second>
+				<count>2</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>boost_thread</item>
+				<item>yggr_system_controller</item>
+			</second>
+		</item>
+		<item>
+			<first>encryption_tool_proxy_srv_test</first>
+			<second>
+				<count>2</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>blowfish</item>
+				<item>md5</item>
+			</second>
+		</item>
+		<item>
+			<first>d3dx9</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>d3dx9</item>
+			</second>
+		</item>
+		<item>
+			<first>lua502_ts_static</first>
+			<second>
+				<count>1</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>lua502_ts_static</item>
+			</second>
+		</item>
+		<item>
+			<first>openssl</first>
+			<second>
+				<count>2</count>
+				<bucket_count>13</bucket_count>
+				<item_version>0</item_version>
+				<item>crypto</item>
+				<item>ssl</item>
+			</second>
+		</item>
+		<item>
 			<first>Bcrypt</first>
 			<second>
 				<count>2</count>
@@ -1087,13 +1135,9 @@
 		</item>
 	</_marks_dep>
 	<_marks_lv>
-		<count>89</count>
+		<count>96</count>
 		<bucket_count>97</bucket_count>
 		<item_version>0</item_version>
-		<item>
-			<first>lua501_ts-s</first>
-			<second>13</second>
-		</item>
 		<item>
 			<first>bid</first>
 			<second>10</second>
@@ -1139,6 +1183,10 @@
 			<second>1008</second>
 		</item>
 		<item>
+			<first>lzma_static</first>
+			<second>5</second>
+		</item>
+		<item>
 			<first>base64</first>
 			<second>10</second>
 		</item>
@@ -1167,24 +1215,16 @@
 			<second>502</second>
 		</item>
 		<item>
-			<first>lua502-s</first>
-			<second>13</second>
-		</item>
-		<item>
 			<first>utf8proc</first>
 			<second>50</second>
 		</item>
 		<item>
-			<first>lua503-s</first>
+			<first>lua504_static</first>
 			<second>13</second>
 		</item>
 		<item>
 			<first>yggr_script_python</first>
 			<second>1017</second>
-		</item>
-		<item>
-			<first>lua502_ts-s</first>
-			<second>13</second>
 		</item>
 		<item>
 			<first>common2</first>
@@ -1223,12 +1263,20 @@
 			<second>1006</second>
 		</item>
 		<item>
-			<first>luajit501-s</first>
+			<first>luabind09_ts_static</first>
+			<second>14</second>
+		</item>
+		<item>
+			<first>lua502_ts</first>
 			<second>13</second>
 		</item>
 		<item>
 			<first>Crypt32</first>
 			<second>1</second>
+		</item>
+		<item>
+			<first>luajit501_static</first>
+			<second>13</second>
 		</item>
 		<item>
 			<first>user32</first>
@@ -1251,6 +1299,14 @@
 			<second>1014</second>
 		</item>
 		<item>
+			<first>lua503_static</first>
+			<second>13</second>
+		</item>
+		<item>
+			<first>lua501_static</first>
+			<second>13</second>
+		</item>
+		<item>
 			<first>yggr_any_val</first>
 			<second>1015</second>
 		</item>
@@ -1271,16 +1327,24 @@
 			<second>1010</second>
 		</item>
 		<item>
-			<first>lua504-s</first>
+			<first>lua504_ts_static</first>
+			<second>13</second>
+		</item>
+		<item>
+			<first>lua501_ts_static</first>
+			<second>13</second>
+		</item>
+		<item>
+			<first>lua502_ts_static</first>
+			<second>13</second>
+		</item>
+		<item>
+			<first>lua503_ts_static</first>
 			<second>13</second>
 		</item>
 		<item>
 			<first>yggr_compaction_tool</first>
 			<second>1005</second>
-		</item>
-		<item>
-			<first>luabind09_s</first>
-			<second>14</second>
 		</item>
 		<item>
 			<first>d3d9</first>
@@ -1303,6 +1367,10 @@
 			<second>14</second>
 		</item>
 		<item>
+			<first>luabind09_static</first>
+			<second>14</second>
+		</item>
+		<item>
 			<first>winmm</first>
 			<second>1</second>
 		</item>
@@ -1319,6 +1387,10 @@
 			<second>13</second>
 		</item>
 		<item>
+			<first>lua_static</first>
+			<second>13</second>
+		</item>
+		<item>
 			<first>crypto</first>
 			<second>10</second>
 		</item>
@@ -1327,12 +1399,12 @@
 			<second>6</second>
 		</item>
 		<item>
-			<first>yggr_ids</first>
-			<second>1004</second>
+			<first>lua_ts_staic</first>
+			<second>13</second>
 		</item>
 		<item>
-			<first>lua_s</first>
-			<second>13</second>
+			<first>yggr_ids</first>
+			<second>1004</second>
 		</item>
 		<item>
 			<first>yggr_charset</first>
@@ -1341,10 +1413,6 @@
 		<item>
 			<first>Secur32</first>
 			<second>1</second>
-		</item>
-		<item>
-			<first>lua504_ts-s</first>
-			<second>13</second>
 		</item>
 		<item>
 			<first>bson</first>
@@ -1359,11 +1427,15 @@
 			<second>10</second>
 		</item>
 		<item>
+			<first>lua503_ts</first>
+			<second>13</second>
+		</item>
+		<item>
 			<first>boost_python</first>
 			<second>604</second>
 		</item>
 		<item>
-			<first>lua503_ts-s</first>
+			<first>lua501_ts</first>
 			<second>13</second>
 		</item>
 		<item>
@@ -1385,10 +1457,6 @@
 		<item>
 			<first>pthread</first>
 			<second>9</second>
-		</item>
-		<item>
-			<first>lua501-s</first>
-			<second>13</second>
 		</item>
 		<item>
 			<first>lua501</first>
@@ -1427,8 +1495,16 @@
 			<second>1016</second>
 		</item>
 		<item>
+			<first>lua504_ts</first>
+			<second>13</second>
+		</item>
+		<item>
 			<first>yggr_exception</first>
 			<second>1007</second>
+		</item>
+		<item>
+			<first>lua502_static</first>
+			<second>13</second>
 		</item>
 		<item>
 			<first>yggr_segment</first>
@@ -1448,13 +1524,9 @@
 		</item>
 	</_marks_lv>
 	<_marks_name>
-		<count>89</count>
+		<count>96</count>
 		<bucket_count>97</bucket_count>
 		<item_version>0</item_version>
-		<item>
-			<first>lua501_ts-s</first>
-			<second>-llua501_ts$(#COMPILER_VERSION_TAG)-s%(debug)</second>
-		</item>
 		<item>
 			<first>bid</first>
 			<second>-lbid$(#COMPILER_VERSION_TAG)%(debug)</second>
@@ -1500,6 +1572,14 @@
 			<second>-lyggr_system_controller$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
+			<first>lzma_static</first>
+			<second>-llzma_static$(#COMPILER_VERSION_TAG)%(debug)</second>
+		</item>
+		<item>
+			<first>lua_ts_static</first>
+			<second>-llua%(lua_version)_ts_static$(#COMPILER_VERSION_TAG)%(debug)</second>
+		</item>
+		<item>
 			<first>base64</first>
 			<second>-lbase64$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
@@ -1524,10 +1604,6 @@
 			<second>-lgdi32</second>
 		</item>
 		<item>
-			<first>lua502-s</first>
-			<second>-llua502$(#COMPILER_VERSION_TAG)-s%(debug)</second>
-		</item>
-		<item>
 			<first>boost_thread</first>
 			<second>-lboost_thread$(#COMPILER_VERSION_TAG)-mt%(debug)%(addr_model)$(#BOOST_VERSION_TAG)</second>
 		</item>
@@ -1536,16 +1612,12 @@
 			<second>-lutf8proc$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
-			<first>lua503-s</first>
-			<second>-llua503$(#COMPILER_VERSION_TAG)-s%(debug)</second>
+			<first>lua504_static</first>
+			<second>-llua504_static$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
 			<first>yggr_script_python</first>
 			<second>-lyggr_script_python$(#COMPILER_VERSION_TAG)%(debug)</second>
-		</item>
-		<item>
-			<first>lua502_ts-s</first>
-			<second>-llua502_ts$(#COMPILER_VERSION_TAG)-s%(debug)</second>
 		</item>
 		<item>
 			<first>intel_dfp_obj</first>
@@ -1584,12 +1656,20 @@
 			<second>-lyggr_encryption_tool$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
-			<first>luajit501-s</first>
-			<second>-lluajit501$(#COMPILER_VERSION_TAG)-s%(debug)</second>
+			<first>luabind09_ts_static</first>
+			<second>-lluabind09_ts_static$(#COMPILER_VERSION_TAG)%(debug)</second>
+		</item>
+		<item>
+			<first>lua502_ts</first>
+			<second>-llua502_ts$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
 			<first>Crypt32</first>
 			<second>-lcrypt32</second>
+		</item>
+		<item>
+			<first>luajit501_static</first>
+			<second>-lluajit501_static$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
 			<first>user32</first>
@@ -1612,6 +1692,14 @@
 			<second>-lyggr_nsql_database_system$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
+			<first>lua503_static</first>
+			<second>-llua503_static$(#COMPILER_VERSION_TAG)%(debug)</second>
+		</item>
+		<item>
+			<first>lua501_static</first>
+			<second>-llua501_static$(#COMPILER_VERSION_TAG)%(debug)</second>
+		</item>
+		<item>
 			<first>yggr_any_val</first>
 			<second>-lyggr_any_val$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
@@ -1632,16 +1720,24 @@
 			<second>-lyggr_modules$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
-			<first>lua504-s</first>
-			<second>-llua504$(#COMPILER_VERSION_TAG)-s%(debug)</second>
+			<first>lua504_ts_static</first>
+			<second>-llua504_ts_static$(#COMPILER_VERSION_TAG)%(debug)</second>
+		</item>
+		<item>
+			<first>lua501_ts_static</first>
+			<second>-llua501_ts_static$(#COMPILER_VERSION_TAG)%(debug)</second>
+		</item>
+		<item>
+			<first>lua502_ts_static</first>
+			<second>-llua502_ts_static$(#COMPILER_VERSION_TAG)%(debug)</second>
+		</item>
+		<item>
+			<first>lua503_ts_static</first>
+			<second>-llua503_ts_static$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
 			<first>yggr_compaction_tool</first>
 			<second>-lyggr_compaction_tool$(#COMPILER_VERSION_TAG)%(debug)</second>
-		</item>
-		<item>
-			<first>luabind09_s</first>
-			<second>-lluabind09$(#COMPILER_VERSION_TAG)-s%(debug)</second>
 		</item>
 		<item>
 			<first>d3d9</first>
@@ -1661,7 +1757,11 @@
 		</item>
 		<item>
 			<first>luabind09_ts</first>
-			<second>-lluabind09_ts$(#COMPILER_VERSION_TAG)-s%(debug)</second>
+			<second>-lluabind09_ts$(#COMPILER_VERSION_TAG)%(debug)</second>
+		</item>
+		<item>
+			<first>luabind09_static</first>
+			<second>-lluabind09_static$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
 			<first>winmm</first>
@@ -1680,6 +1780,10 @@
 			<second>-lluajit501$(#COMPILER_VERSION_TAG)%(debug).dll</second>
 		</item>
 		<item>
+			<first>lua_static</first>
+			<second>-llua%(lua_version)_static$(#COMPILER_VERSION_TAG)%(debug)</second>
+		</item>
+		<item>
 			<first>crypto</first>
 			<second>-lcrypto</second>
 		</item>
@@ -1692,20 +1796,12 @@
 			<second>-lyggr_ids$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
-			<first>lua_s</first>
-			<second>-llua%(lua_version)$(#COMPILER_VERSION_TAG)-s%(debug)</second>
-		</item>
-		<item>
 			<first>yggr_charset</first>
 			<second>-lyggr_charset$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
 			<first>Secur32</first>
 			<second>-lsecur32</second>
-		</item>
-		<item>
-			<first>lua504_ts-s</first>
-			<second>-llua504_ts$(#COMPILER_VERSION_TAG)-s%(debug)</second>
 		</item>
 		<item>
 			<first>bson</first>
@@ -1720,12 +1816,16 @@
 			<second>-lz$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
+			<first>lua503_ts</first>
+			<second>-llua503_ts$(#COMPILER_VERSION_TAG)%(debug)</second>
+		</item>
+		<item>
 			<first>boost_python</first>
 			<second>-lboost_python$(#PYTHON_VERSION)$(#COMPILER_VERSION_TAG)-mt%(debug)%(addr_model)$(#BOOST_VERSION_TAG)</second>
 		</item>
 		<item>
-			<first>lua503_ts-s</first>
-			<second>-llua503_ts$(#COMPILER_VERSION_TAG)-s%(debug)</second>
+			<first>lua501_ts</first>
+			<second>-llua501_ts$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
 			<first>Bcrypt</first>
@@ -1748,16 +1848,12 @@
 			<second>-lpthread</second>
 		</item>
 		<item>
-			<first>lua501-s</first>
-			<second>-llua501$(#COMPILER_VERSION_TAG)-s%(debug)</second>
-		</item>
-		<item>
 			<first>lua501</first>
 			<second>-llua501$(#COMPILER_VERSION_TAG)%(debug).dll</second>
 		</item>
 		<item>
 			<first>lua_ts</first>
-			<second>-llua%(lua_version)_ts$(#COMPILER_VERSION_TAG)-s%(debug)</second>
+			<second>-llua%(lua_version)_ts$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
 			<first>kernel32</first>
@@ -1788,8 +1884,16 @@
 			<second>-lyggr_script_lua$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
+			<first>lua504_ts</first>
+			<second>-llua504_ts$(#COMPILER_VERSION_TAG)%(debug)</second>
+		</item>
+		<item>
 			<first>yggr_exception</first>
 			<second>-lyggr_exception$(#COMPILER_VERSION_TAG)%(debug)</second>
+		</item>
+		<item>
+			<first>lua502_static</first>
+			<second>-llua502_static$(#COMPILER_VERSION_TAG)%(debug)</second>
 		</item>
 		<item>
 			<first>yggr_segment</first>

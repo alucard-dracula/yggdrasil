@@ -140,8 +140,8 @@ ifeq ($(NDK_DEBUG), 1)
 		-lyggr_compatibility$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		-lboost_date_time$(USRDEF_APP_COMPILER_VERSION_TAG)-mt-d$(tag_arch_bits)$(USRDEF_APP_BOOST_VERSION_TAG) \
 		-lboost_thread$(USRDEF_APP_COMPILER_VERSION_TAG)-mt-d$(tag_arch_bits)$(USRDEF_APP_BOOST_VERSION_TAG) \
-		-lluabind09$(USRDEF_APP_COMPILER_VERSION_TAG)-s-d \
-		-llua504$(USRDEF_APP_COMPILER_VERSION_TAG)-s-d \
+		-lluabind09_static$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
+		-llua504_static$(USRDEF_APP_COMPILER_VERSION_TAG)-d \
 		$(USRDEF_APP_LDFLAGS_DEBUG) \
 
 else
@@ -158,8 +158,8 @@ else
 		-lyggr_compatibility$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		-lboost_date_time$(USRDEF_APP_COMPILER_VERSION_TAG)-mt$(tag_arch_bits)$(USRDEF_APP_BOOST_VERSION_TAG) \
 		-lboost_thread$(USRDEF_APP_COMPILER_VERSION_TAG)-mt$(tag_arch_bits)$(USRDEF_APP_BOOST_VERSION_TAG) \
-		-lluabind09$(USRDEF_APP_COMPILER_VERSION_TAG)-s \
-		-llua504$(USRDEF_APP_COMPILER_VERSION_TAG)-s \
+		-lluabind09_static$(USRDEF_APP_COMPILER_VERSION_TAG) \
+		-llua504_static$(USRDEF_APP_COMPILER_VERSION_TAG) \
 		$(USRDEF_APP_LDFLAGS_RELEASE) \
 
 endif

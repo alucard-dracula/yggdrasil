@@ -16,6 +16,8 @@ endif()
 set(USRDEF_CMAKE_BOOST_VERSION "1_82")
 set(USRDEF_CMAKE_PYTHON_VERSION "313")
 
+set(USRDEF_CMAKE_PYTHON_VERSION_FLOAT "3.13")
+
 set(USRDEF_CMAKE_PYTHON_INCLUDE_DIR "python3.13")
 
 #set(USRDEF_CMAKE_OSX_SDK_NAME "macosx")
@@ -197,6 +199,12 @@ add_dependencies(tool_conv_to_darwin_cmakelists_txt ${var_proj_deps_a})
 
 add_subdirectory(tool_conv_to_jni_mk)
 add_dependencies(tool_conv_to_jni_mk ${var_proj_deps_a})
+
+add_subdirectory(tool_downgrade_vcxproj)
+add_dependencies(tool_downgrade_vcxproj ${var_proj_deps_a})
+
+add_subdirectory(tool_dumpbin_exports_to_def)
+add_dependencies(tool_dumpbin_exports_to_def ${var_proj_deps_a})
 
 add_subdirectory(tool_format_vcxproj)
 add_dependencies(tool_format_vcxproj ${var_proj_deps_a})

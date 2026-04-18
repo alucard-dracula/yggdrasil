@@ -25,7 +25,7 @@
 #include <common-cmp-private.h>
 
 //#include <inttypes.h>
-#include <yggr_detail/inttypes.h>
+#include <yggr_mongodbc_patch/inttypes.h>
 
 /* Returns the minimum of two numbers */
 static size_t

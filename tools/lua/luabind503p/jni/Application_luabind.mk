@@ -1,5 +1,5 @@
 #
-#	luabind_linux_ definitions.
+#	luabind definitions.
 #
 
 APP_ABI := all

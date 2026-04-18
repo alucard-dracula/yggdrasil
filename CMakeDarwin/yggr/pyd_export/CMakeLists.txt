@@ -25,10 +25,11 @@ set(var_proj_ach_outdir ${var_root_proj_dir}/${USRDEF_CMAKE_LIB_OUTDIR})
 
 set(var_proj_include_dirs 
 		${var_proj_src_dir}
+		${var_proj_src_dir}/../
 		${USRDEF_CMAKE_INCLUDE_DIRS}
 )
 
-set(var_proj_c_defineds "-DBUILD_DLL -DPYD_EXPORT_EXPORT ${USRDEF_CMAKE_DEFINEDS}")
+set(var_proj_c_defineds "-DBUILD_DLL -DPYD_EXPORT_EXPORT -DYGGR_DLL_DEF ${USRDEF_CMAKE_DEFINEDS}")
 
 set(var_proj_c_defineds_debug "-DYGGR_SYSTEM_64 -D_DEBUG ${USRDEF_CMAKE_DEFINEDS_DEBUG}")
 
@@ -60,13 +61,14 @@ set(var_proj_link_libs_dirs
 )
 
 set(var_proj_link_libs 
+		-lpython${USRDEF_CMAKE_PYTHON_VERSION_FLOAT}
 		-lpython3
 		${USRDEF_CMAKE_LD_LIBRARY}
 )
 
 set(var_proj_link_libs_debug 
 		-lboost_python${USRDEF_CMAKE_PYTHON_VERSION}${USRDEF_CMAKE_COMPILER_VERSION_TAG}-mt${USRDEF_CMAKE_BOOST_LINK_TAG_DEBUG}${USRDEF_CMAKE_BUILD_ARCH_BITS_TAG}${USRDEF_CMAKE_BOOST_VERSION_TAG}
-		${USRDEF_CMAKE_LDFLAGS_DEBUG}
+		${USRDEF_CMAKE_LD_LIBRARY_DEBUG}
 )
 
 set(var_proj_link_libs_release 

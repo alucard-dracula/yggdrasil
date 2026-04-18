@@ -1,8 +1,8 @@
 <tool_downgrade_vcxproj_cfg class_id="0" tracking_level="0" version="0">
-	<root_dir_>./test_data/md5</root_dir_>
-	<lang_tag_></lang_tag_>
+	<root_dir_>./test_data/base64</root_dir_>
+	<lang_tag_>_cpp14</lang_tag_>
 	<dir_filter_>
-		<count>19</count>
+		<count>23</count>
 		<bucket_count>37</bucket_count>
 		<item_version>0</item_version>
 		<item>lib</item>
@@ -17,6 +17,10 @@
 		<item>Debug-x64</item>
 		<item>Release-Win32</item>
 		<item>Release-x64</item>
+		<item>Debug-MT-Win32</item>
+		<item>Debug-MT-x64</item>
+		<item>Release-MT-Win32</item>
+		<item>Release-MT-x64</item>
 		<item>jni</item>
 		<item>.git</item>
 		<item>.vs</item>

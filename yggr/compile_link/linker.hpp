@@ -27,7 +27,7 @@ THE SOFTWARE.
 #ifndef __YGGR_COMPILE_LINK_LINKER_HPP__
 #define __YGGR_COMPILE_LINK_LINKER_HPP__
 
-#ifdef _MSC_VER
+#if defined(_MSC_VER)
 
 #include <yggr/compile_link/msvc_cfg.hpp>
 
@@ -37,11 +37,14 @@ THE SOFTWARE.
 #		define YGGR_PP_LINK_LIB( __name__ ) \
 			<yggr/compile_link/BOOST_PP_CAT(pc_, __name__).hpp>
 #	endif // _LIB
+
 #else
 
 #	define YGGR_PP_LINK_LIB( __name__ ) <yggr/compile_link/pc_empty.hpp>
 
 #endif // _MSC_VER
+
+#define YGGR_PP_LINK_LIB_TOOL_IGNORE( __name__ ) <yggr/compile_link/pc_empty.hpp>
 
 /* 
 example:

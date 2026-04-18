@@ -43,7 +43,7 @@ public:
 
 private:
 	typedef typename ::yggr::type_traits::detail::operator_result_t_getter<value_type>::type chk_type;
-	typedef boost::reference_wrapper<T const> val_cref_type;
+	typedef boost::reference_wrapper<value_type const> val_cref_type;
 
 private:
 	typedef doter this_type;

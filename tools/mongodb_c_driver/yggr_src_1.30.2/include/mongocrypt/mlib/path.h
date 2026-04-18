@@ -6,7 +6,7 @@
 #include "str.h"
 
 //#include <inttypes.h>
-#include <yggr_detail/inttypes.h>
+#include <yggr_mongodbc_patch/inttypes.h>
 
 #ifndef _WIN32
 #include <unistd.h>

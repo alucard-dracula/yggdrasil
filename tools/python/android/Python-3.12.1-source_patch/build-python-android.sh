@@ -2,7 +2,7 @@
 
 var_local_dir=$(cd `dirname $0`; pwd)
 
-AndroidNDK=/d/android_devel/Android/Sdk/ndk/28.0.12674087
+AndroidNDK=/d/android_devel/Android/Sdk/ndk/current
 AndroidThirdPartLocal=${AndroidNDK}/../../../../ndk_third_part_local
 
 AndroidAPI=21
@@ -12,15 +12,21 @@ NDK_CFLAGS="\
     -fPIC \
     -Dasm=__asm__ \
     -I${AndroidThirdPartLocal}/bzip2/include \
+    -I${AndroidThirdPartLocal}/libb2/include \
     -I${AndroidThirdPartLocal}/liblzma_xz/include \
     -I${AndroidThirdPartLocal}/readline/include \
     -I${AndroidThirdPartLocal}/libffi/include \
     -I${AndroidThirdPartLocal}/libunwind/include \
     "
 
-PythonToolChain=/d/Python313/python
+var_python_var_float_full=3.12.1
+var_python_ver=${var_python_var_float_full:0:1}${var_python_var_float_full:2:2}
+var_python_var_main=${var_python_var_float_full:0:1}
+var_python_var_float=${var_python_var_float_full:0:4}
 
- AndroidTarget_list="
+PythonToolChain=/d/Python${var_python_ver}/python
+
+AndroidTarget_list="
     aarch64-linux-android
     armv7a-linux-androideabi
     x86_64-linux-android
@@ -31,7 +37,7 @@ PythonToolChain=/d/Python313/python
 prefix_root_dir=${var_local_dir}/../python_stage
 
 prefix_tmp_dir=${prefix_root_dir}/build_tmp
-prefix_dir=${prefix_root_dir}/python3.12.1
+prefix_dir=${prefix_root_dir}/python${var_python_var_float_full}
 
 prefix_dir_include=${prefix_dir}/include
 
@@ -55,6 +61,7 @@ do
 
     NDK_LDFLAGS="\
         -L${AndroidThirdPartLocal}/bzip2/lib/${var_target}/${USED_AndroidAPI} \
+        -L${AndroidThirdPartLocal}/libb2/lib/${var_target}/${USED_AndroidAPI} \
         -L${AndroidThirdPartLocal}/liblzma_xz/lib/${var_target}/${USED_AndroidAPI} \
         -L${AndroidThirdPartLocal}/readline/lib/${var_target}/${USED_AndroidAPI} \
         -L${AndroidThirdPartLocal}/libffi/lib/${var_target}/${USED_AndroidAPI} \
@@ -65,20 +72,22 @@ do
     sh build-python-android-tpl.sh \
         "${prefix_tmp_dir}" "${AndroidNDK}" "${var_target}" "${USED_AndroidAPI}" \
         "${AndroidToolChainPlatfrom}" "${NDK_CFLAGS}" "${NDK_LDFLAGS}" "${PythonToolChain}"
-
-#    cp -fr ${prefix_tmp_dir} "${prefix_tmp_dir}-${var_target}"
-#    cp -f pyconfig.h "${prefix_tmp_dir}-${var_target}/"
     
     if [ ! -d ${prefix_dir_include} ]; then
-        cp -fr ${prefix_tmp_dir}/include/python3.12 ${prefix_dir}/include
+        cp -fr ${prefix_tmp_dir}/include/python${var_python_var_float} ${prefix_dir}/include
         cp -f pyconfig.h ${prefix_dir}/include/
     fi 
 
     prefix_dir_lib=${prefix_dir}/lib/${var_target}/${USED_AndroidAPI}
     mkdir -p ${prefix_dir_lib}
     cp -fr ${prefix_tmp_dir}/lib/* ${prefix_dir_lib}/
-    ln -s libpython3.12.a ${prefix_dir_lib}/libpython312.a
-    ln -s libpython3.12.a ${prefix_dir_lib}/libpython3.a
+
+    ln -s libpython${var_python_var_float}.so ${prefix_dir_lib}/libpython${var_python_ver}.so 
+
+    prefix_dir_bin=${prefix_dir}/bin/${var_target}/${USED_AndroidAPI}
+    mkdir -p ${prefix_dir_bin}
+    cp -fr ${prefix_tmp_dir}/bin/* ${prefix_dir_bin}/
+
     make clean
     rm -fr ${prefix_tmp_dir}
 done

@@ -9,7 +9,7 @@ include $(CLEAR_VARS)
 # subdirs
 subdirs := \
 	$(LOCAL_PATH)/../lua521_static/Android_lua521_static.mk \
-	$(LOCAL_PATH)/../lua521_static_ts/Android_lua521_static_ts.mk \
+	$(LOCAL_PATH)/../lua521_ts_static/Android_lua521_ts_static.mk \
 
 
 include $(subdirs)

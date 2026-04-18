@@ -44,8 +44,8 @@ THE SOFTWARE.
 #define __version_expand( __x__ ) __x__
 
 #define YGGR_MAJOR_VERSION 0
-#define YGGR_MINOR_VERSION 8
-#define YGGR_MICRO_VERSION 5
+#define YGGR_MINOR_VERSION 9
+#define YGGR_MICRO_VERSION 0
 
 #define YGGR_MAKE_VERSION_HEX( __major__, __minor__, __micro__ ) \
 	( (__major__ << 24) | (__minor__ << 16) | (__micro__ << 8) )

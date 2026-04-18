@@ -14,43 +14,46 @@
 	<sample_vcxproj_re_>sample</sample_vcxproj_re_>
 	<sample_vcxproj_fre_>smp_file.cpp</sample_vcxproj_fre_>
 	<dir_filter_>
-		<count>27</count>
-		<bucket_count>83</bucket_count>
+		<count>30</count>
+		<bucket_count>53</bucket_count>
 		<item_version>0</item_version>
-		<item>../test</item>
-		<item>back</item>
-    <item>test_data</item>
-		<item>compiler_bugs</item>
-		<item>discard</item>
-		<item>dont_use</item>
-		<item>other</item>
-		<item>protobuf_test</item>
-		<item>unknow_or_forgot</item>
-		<item>wait_to_last</item>
-		<item>python</item>
-		<item>charset_utf8_files</item>
-		<item>tool_test</item>
-		<item>libtorrent_test</item>
-		<item>tmp_tools</item>
-		<item>tmp_test</item>
 		<item>vld</item>
-		<item>vs2010</item>
-		<item>tmp</item>
-		<item>Debug64</item>
-		<item>Release64</item>
+		<item>wait_to_last</item>
+		<item>back</item>
 		<item>Debug</item>
 		<item>Release</item>
-		<item>Debug-x64</item>
-		<item>Release-x64</item>
+		<item>tool_test</item>
+		<item>discard</item>
 		<item>Debug-Win32</item>
+		<item>test_data</item>
+		<item>protobuf_test</item>
+		<item>Release64</item>
+		<item>../test</item>
+		<item>Debug-x64</item>
+		<item>other</item>
+		<item>dont_use</item>
+		<item>tmp_test</item>
+		<item>tmp</item>
+		<item>charset_utf8_files</item>
+		<item>Release-MT-Win32</item>
 		<item>Release-Win32</item>
+		<item>Debug64</item>
+		<item>compiler_bugs</item>
+		<item>unknow_or_forgot</item>
+		<item>Debug-MT-Win32</item>
+		<item>libtorrent_test</item>
+		<item>Release-x64</item>
+		<item>Debug-MT-x64</item>
+		<item>tmp_tools</item>
+		<item>Release-MT-x64</item>
+		<item>vs2010</item>
 	</dir_filter_>
 	<file_filter_>
 		<count>3</count>
-		<bucket_count>16</bucket_count>
+		<bucket_count>13</bucket_count>
 		<item_version>0</item_version>
-		<item>make_ipp.cpp</item>
-		<item>raw_socket_test.cpp</item>
 		<item>lua_base_type_test_non_wrap.cpp</item>
+		<item>raw_socket_test.cpp</item>
+		<item>make_ipp.cpp</item>
 	</file_filter_>
 </test_project_maker_cfg>

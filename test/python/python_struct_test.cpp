@@ -1,20 +1,28 @@
 //py_struct_test.cpp
 
-#include <iostream>
-#include <boost/python.hpp>
+#include <yggr/base/yggrdef.h>
+#include <test/wait_any_key/wait_any_key.hpp>
 
+#if !((defined(YGGR_MSVC_USING_MTD_FLAG) && YGGR_MSVC_USING_MTD_FLAG) \
+		|| (defined(YGGR_MSVC_USING_MT_FLAG) && YGGR_MSVC_USING_MT_FLAG))
+
+#include <yggr/charset/string.hpp>
+
+#include <boost/python.hpp>
 #include <boost/detail/lightweight_test.hpp>
-#include <string>
+
+#include <iostream>
 
 //----------------------------------------------------
-
-#if defined(__MINGW32__) && (PY_VERSION_HEX >= 0x03000000)
-#   error "mingw not support this file!!"
-#endif // __MINGW32__
 
 #ifdef _MSC_VER
 #   include <vld.h>
 #endif //_MSC_VER
+
+#if 0
+// only using to tool_conv_to_cb_solution_linux
+#include YGGR_PP_LINK_LIB(script_python)
+#endif // 0,1
 
 using namespace boost::python;
 
@@ -96,13 +104,9 @@ BOOST_PYTHON_MODULE(pytype_function_ext)
 
 }
 
-
 void exec_test6()
 {
 
-	if (PyImport_AppendInittab("pytype_function_ext", PyInit_pytype_function_ext) == -1)
-    throw std::runtime_error("Failed to add embedded_hello to the interpreter's "
-                 "builtin modules");
 	boost::python::dict local;
 
 	boost::python::dict param;
@@ -164,7 +168,6 @@ public:
 
 BOOST_PYTHON_MODULE(pyst)
 {
-	//boost::python::class_<s_t> s_t("s_t");
 
 	boost::python::class_<s_t>("s_t")
 		.def(init<>())
@@ -176,9 +179,6 @@ BOOST_PYTHON_MODULE(pyst)
 
 void exec_test5()
 {
-	if (PyImport_AppendInittab("pyst", PyInit_pyst) == -1)
-				throw std::runtime_error("Failed to add embedded_hello to the interpreter's "
-                 "builtin modules");
 	boost::python::dict local1;
 	boost::python::dict local2;
 	boost::python::dict local3;
@@ -332,9 +332,25 @@ void exec_test2()
 	std::cout << "success!" << std::endl;
 }
 
+void append_module(void)
+{
+	if (PyImport_AppendInittab("pytype_function_ext", PyInit_pytype_function_ext) == -1)
+		throw std::runtime_error("Failed to add pytype_function_ext to the interpreter's builtin modules");
+
+	if (PyImport_AppendInittab("pyst", PyInit_pyst) == -1)
+		throw std::runtime_error("Failed to add pyst to the interpreter's builtin modules");
+}
 
 int main(int argc, char *argv[])
 {
+	try
+	{
+		append_module();
+	}
+	catch(const std::runtime_error& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
 	Py_Initialize();
 
@@ -356,9 +372,20 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	char cc = 0;
-	std::cin >> cc;
+	wait_any_key(argc, argv);
+	//Py_Finalize();
 	// Boost.Python doesn't support Py_Finalize yet, so don't call it!
 	return boost::report_errors();
 	//return 0;
 }
+
+#else
+
+int main(int argc, char **argv)
+{
+	std::cout << "!!!!script python not support msvc /mtd or /mt!!!!" << std::endl;
+	wait_any_key(argc, argv);
+	return 0;
+}
+
+#endif // YGGR_MSVC_USING_MTD_FLAG

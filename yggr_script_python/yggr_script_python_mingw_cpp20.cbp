@@ -107,6 +107,7 @@
 			<Add option="-D_LIB"/>
 			<Add directory="../"/>
 		</Compiler>
+		<Unit filename="python_environment.cpp"/>
 		<Unit filename="python_script.cpp"/>
 		<Extensions>
 			<lib_finder disable_auto="1"/>

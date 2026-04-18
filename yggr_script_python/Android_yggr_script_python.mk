@@ -17,6 +17,7 @@ endif
 
 # source files
 l_src_file := \
+	python_environment.cpp \
 	python_script.cpp \
 
 # include path

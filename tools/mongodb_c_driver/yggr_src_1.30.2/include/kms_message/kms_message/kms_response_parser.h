@@ -22,7 +22,7 @@
 
 #include <sys/types.h>
 //#include <stdbool.h>
-#include <yggr_detail/stdbool.h>
+#include <yggr_mongodbc_patch/stdbool.h>
 #include <stdint.h>
 
 #ifdef __cplusplus

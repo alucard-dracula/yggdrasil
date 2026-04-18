@@ -4,12 +4,17 @@
 		<Project filename="include/include_linux_lua504_cpp11.cbp" active="1"/>
 		<Project filename="luabind/luabind_linux_lua504_cpp11.cbp">
 			<Depends filename="luabind_static/luabind_static_linux_lua504_cpp11.cbp"/>
-			<Depends filename="luabind_static_ts/luabind_static_ts_linux_lua504_cpp11.cbp"/>
+			<Depends filename="luabind_ts_static/luabind_ts_static_linux_lua504_cpp11.cbp"/>
 		</Project>
 		<Project filename="luabind_static/luabind_static_linux_lua504_cpp11.cbp"/>
-		<Project filename="luabind_static_ts/luabind_static_ts_linux_lua504_cpp11.cbp"/>
 		<Project filename="luabind_test/luabind_test_linux_lua504_cpp11.cbp">
 			<Depends filename="luabind/luabind_linux_lua504_cpp11.cbp"/>
+			<Depends filename="luabind_ts/luabind_ts_linux_lua504_cpp11.cbp"/>
 		</Project>
+		<Project filename="luabind_ts/luabind_ts_linux_lua504_cpp11.cbp">
+			<Depends filename="luabind_static/luabind_static_linux_lua504_cpp11.cbp"/>
+			<Depends filename="luabind_ts_static/luabind_ts_static_linux_lua504_cpp11.cbp"/>
+		</Project>
+		<Project filename="luabind_ts_static/luabind_ts_static_linux_lua504_cpp11.cbp"/>
 	</Workspace>
 </CodeBlocks_workspace_file>

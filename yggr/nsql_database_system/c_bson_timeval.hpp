@@ -961,15 +961,6 @@ std::basic_ostream<Char, Traits>&
 	return outter(os, val, bson_json_mode_def::E_BSON_JSON_MODE_LEGACY);
 }
 
-// need test, if ok, remove it
-//template<typename Char, typename Traits>
-//std::basic_ostream<Char, Traits>&
-//	operator<<(std::basic_ostream<Char, Traits>& os, BOOST_RV_REF(c_bson_timeval) right)
-//{
-//	const c_bson_timeval& right_cref = right;
-//	return yggr::nsql_database_system::operator<<(os, right_cref);
-//}
-
 } // namespace nsql_database_system
 } // namespace yggr
 

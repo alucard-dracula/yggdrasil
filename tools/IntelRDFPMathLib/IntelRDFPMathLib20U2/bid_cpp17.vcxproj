@@ -5,16 +5,32 @@
 			<Configuration>Debug</Configuration>
 			<Platform>Win32</Platform>
 		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug-MT|Win32">
+			<Configuration>Debug-MT</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
 		<ProjectConfiguration Include="Debug|x64">
 			<Configuration>Debug</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug-MT|x64">
+			<Configuration>Debug-MT</Configuration>
 			<Platform>x64</Platform>
 		</ProjectConfiguration>
 		<ProjectConfiguration Include="Release|Win32">
 			<Configuration>Release</Configuration>
 			<Platform>Win32</Platform>
 		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release-MT|Win32">
+			<Configuration>Release-MT</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
 		<ProjectConfiguration Include="Release|x64">
 			<Configuration>Release</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release-MT|x64">
+			<Configuration>Release-MT</Configuration>
 			<Platform>x64</Platform>
 		</ProjectConfiguration>
 	</ItemGroup>
@@ -32,7 +48,19 @@
 		<PlatformToolset>v143</PlatformToolset>
 		<UseDebugLibraries>true</UseDebugLibraries>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<PlatformToolset>v143</PlatformToolset>
+		<UseDebugLibraries>true</UseDebugLibraries>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<PlatformToolset>v143</PlatformToolset>
+		<UseDebugLibraries>true</UseDebugLibraries>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'" Label="Configuration">
 		<ConfigurationType>StaticLibrary</ConfigurationType>
 		<CharacterSet>MultiByte</CharacterSet>
 		<PlatformToolset>v143</PlatformToolset>
@@ -45,7 +73,21 @@
 		<UseDebugLibraries>false</UseDebugLibraries>
 		<WholeProgramOptimization>true</WholeProgramOptimization>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<PlatformToolset>v143</PlatformToolset>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<PlatformToolset>v143</PlatformToolset>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'" Label="Configuration">
 		<ConfigurationType>StaticLibrary</ConfigurationType>
 		<CharacterSet>MultiByte</CharacterSet>
 		<PlatformToolset>v143</PlatformToolset>
@@ -65,11 +107,23 @@
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
 		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-d</TargetName>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)lib/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-s-d</TargetName>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
 		<LinkIncremental>true</LinkIncremental>
 		<OutDir>$(SolutionDir)lib64/</OutDir>
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
 		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-d</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'">
+		<LinkIncremental>true</LinkIncremental>
+		<OutDir>$(SolutionDir)lib64/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-s-d</TargetName>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
 		<LinkIncremental>false</LinkIncremental>
@@ -77,11 +131,23 @@
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
 		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)</TargetName>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)lib/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-s</TargetName>
+	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
 		<LinkIncremental>false</LinkIncremental>
 		<OutDir>$(SolutionDir)lib64/</OutDir>
 		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
 		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)</TargetName>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)lib64/</OutDir>
+		<IntDir>$(Configuration)-$(Platform)/$(ProjectName)-vc$(PlatformToolsetVersion)/</IntDir>
+		<TargetName>lib$(ProjectName)-vc$(PlatformToolsetVersion)-s</TargetName>
 	</PropertyGroup>
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
 		<ClCompile>
@@ -105,6 +171,29 @@
 			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
 		</Lib>
 	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|x64'">
+		<ClCompile>
+			<AdditionalIncludeDirectories>./LIBRARY/src;./LIBRARY/float128</AdditionalIncludeDirectories>
+			<AdditionalOptions>-w</AdditionalOptions>
+			<ExceptionHandling>
+			</ExceptionHandling>
+			<Optimization>Disabled</Optimization>
+			<PrecompiledHeader>NotUsing</PrecompiledHeader>
+			<WarningLevel>Level3</WarningLevel>
+			<PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_WINDOWS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+			<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+		</ClCompile>
+		<ResourceCompile>
+			<PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;DECIMAL_CALL_BY_REFERENCE=0;DECIMAL_GLOBAL_ROUNDING=0;DECIMAL_GLOBAL_EXCEPTION_FLAGS=0;UNCHANGED_BINARY_STATUS_FLAGS=0;USE_COMPILER_F128_TYPE=0;USE_COMPILER_F80_TYPE=0;USE_NATIVE_QUAD_TYPE=0;WINDOWS=1;WNT=1;winnt=1;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>.\LIBRARY\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+		</ResourceCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+	</ItemDefinitionGroup>
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
 		<ClCompile>
 			<AdditionalIncludeDirectories>./LIBRARY/src;./LIBRARY/float128</AdditionalIncludeDirectories>
@@ -117,6 +206,29 @@
 			<PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
 			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
 			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+		</ClCompile>
+		<ResourceCompile>
+			<PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;DECIMAL_CALL_BY_REFERENCE=0;DECIMAL_GLOBAL_ROUNDING=0;DECIMAL_GLOBAL_EXCEPTION_FLAGS=0;UNCHANGED_BINARY_STATUS_FLAGS=0;USE_COMPILER_F128_TYPE=0;USE_COMPILER_F80_TYPE=0;USE_NATIVE_QUAD_TYPE=0;WINDOWS=1;WNT=1;winnt=1;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>.\LIBRARY\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+		</ResourceCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-MT|Win32'">
+		<ClCompile>
+			<AdditionalIncludeDirectories>./LIBRARY/src;./LIBRARY/float128</AdditionalIncludeDirectories>
+			<AdditionalOptions>-w</AdditionalOptions>
+			<ExceptionHandling>
+			</ExceptionHandling>
+			<Optimization>Disabled</Optimization>
+			<PrecompiledHeader>NotUsing</PrecompiledHeader>
+			<WarningLevel>Level3</WarningLevel>
+			<PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+			<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
 			<LanguageStandard>stdcpp17</LanguageStandard>
 		</ClCompile>
 		<ResourceCompile>
@@ -151,6 +263,31 @@
 			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
 		</Lib>
 	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|x64'">
+		<ClCompile>
+			<AdditionalIncludeDirectories>./LIBRARY/src;./LIBRARY/float128</AdditionalIncludeDirectories>
+			<AdditionalOptions>-w</AdditionalOptions>
+			<ExceptionHandling>
+			</ExceptionHandling>
+			<Optimization>MaxSpeed</Optimization>
+			<PrecompiledHeader>NotUsing</PrecompiledHeader>
+			<WarningLevel>Level3</WarningLevel>
+			<PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_WINDOWS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+		</ClCompile>
+		<ResourceCompile>
+			<PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;DECIMAL_CALL_BY_REFERENCE=0;DECIMAL_GLOBAL_ROUNDING=0;DECIMAL_GLOBAL_EXCEPTION_FLAGS=0;UNCHANGED_BINARY_STATUS_FLAGS=0;USE_COMPILER_F128_TYPE=0;USE_COMPILER_F80_TYPE=0;USE_NATIVE_QUAD_TYPE=0;WINDOWS=1;WNT=1;winnt=1;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>.\LIBRARY\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+		</ResourceCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+	</ItemDefinitionGroup>
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
 		<ClCompile>
 			<AdditionalIncludeDirectories>./LIBRARY/src;./LIBRARY/float128</AdditionalIncludeDirectories>
@@ -165,6 +302,31 @@
 			<FunctionLevelLinking>true</FunctionLevelLinking>
 			<IntrinsicFunctions>true</IntrinsicFunctions>
 			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+		</ClCompile>
+		<ResourceCompile>
+			<PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;DECIMAL_CALL_BY_REFERENCE=0;DECIMAL_GLOBAL_ROUNDING=0;DECIMAL_GLOBAL_EXCEPTION_FLAGS=0;UNCHANGED_BINARY_STATUS_FLAGS=0;USE_COMPILER_F128_TYPE=0;USE_COMPILER_F80_TYPE=0;USE_NATIVE_QUAD_TYPE=0;WINDOWS=1;WNT=1;winnt=1;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>.\LIBRARY\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+		</ResourceCompile>
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+		</Lib>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-MT|Win32'">
+		<ClCompile>
+			<AdditionalIncludeDirectories>./LIBRARY/src;./LIBRARY/float128</AdditionalIncludeDirectories>
+			<AdditionalOptions>-w</AdditionalOptions>
+			<ExceptionHandling>
+			</ExceptionHandling>
+			<Optimization>MaxSpeed</Optimization>
+			<PrecompiledHeader>NotUsing</PrecompiledHeader>
+			<WarningLevel>Level3</WarningLevel>
+			<PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
 			<LanguageStandard>stdcpp17</LanguageStandard>
 		</ClCompile>
 		<ResourceCompile>

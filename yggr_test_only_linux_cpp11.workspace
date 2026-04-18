@@ -35,6 +35,7 @@
 		<Project filename="test/caller_gen_callable_object_test_linux_cpp11.cbp"/>
 		<Project filename="test/caller_to_params_call_test_linux_cpp11.cbp"/>
 		<Project filename="test/charset_basic_string_adp_helper_test_linux_cpp11.cbp"/>
+		<Project filename="test/charset_c_str_test_linux_cpp11.cbp"/>
 		<Project filename="test/charset_charset_base_foo_test_linux_cpp11.cbp"/>
 		<Project filename="test/charset_charset_converter_test_linux_cpp11.cbp"/>
 		<Project filename="test/charset_const_strings_test_linux_cpp11.cbp"/>
@@ -73,13 +74,15 @@
 		<Project filename="test/charset_utf8_string_view_test_linux_cpp11.cbp"/>
 		<Project filename="test/charset_utf8_string_xml_pak_serialize_linux_cpp11.cbp"/>
 		<Project filename="test/compaction_tool_zip_lzma_test_linux_cpp11.cbp"/>
-		<Project filename="test/compiler_link_test_msvc_maroc_linux_cpp11.cbp"/>
+		<Project filename="test/compiler_link_test_msvc_macro_linux_cpp11.cbp"/>
+		<Project filename="test/container_begin_end_rbegin_rend_test_linux_cpp11.cbp"/>
 		<Project filename="test/container_cast_to_native_array_reference_test_linux_cpp11.cbp"/>
 		<Project filename="test/container_deque_test_linux_cpp11.cbp"/>
 		<Project filename="test/container_ex_array_ex_test_linux_cpp11.cbp"/>
 		<Project filename="test/container_ex_array_t_maker_test_linux_cpp11.cbp"/>
 		<Project filename="test/container_ex_is_allocator_test_linux_cpp11.cbp"/>
 		<Project filename="test/container_ex_is_container_test_linux_cpp11.cbp"/>
+		<Project filename="test/container_ex_iterator_getter_linux_cpp11.cbp"/>
 		<Project filename="test/container_ex_native_array_ref_test_linux_cpp11.cbp"/>
 		<Project filename="test/container_isomeric_same_deque_test_linux_cpp11.cbp"/>
 		<Project filename="test/container_isomeric_same_list_test_linux_cpp11.cbp"/>
@@ -378,6 +381,11 @@
 		<Project filename="test/ppex_string_symbol_test_linux_cpp11.cbp"/>
 		<Project filename="test/ppex_va_args_test_linux_cpp11.cbp"/>
 		<Project filename="test/proxy_proxy_mode_test_linux_cpp11.cbp"/>
+		<Project filename="test/python_python_boost_python_test_linux_cpp11.cbp"/>
+		<Project filename="test/python_python_script_mgr_test_linux_cpp11.cbp"/>
+		<Project filename="test/python_python_script_mgr_test2_linux_cpp11.cbp"/>
+		<Project filename="test/python_python_script_test_linux_cpp11.cbp"/>
+		<Project filename="test/python_python_struct_test_linux_cpp11.cbp"/>
 		<Project filename="test/regex_get_string_vector_linux_cpp11.cbp"/>
 		<Project filename="test/regex_regex_parse_test_part1_linux_cpp11.cbp"/>
 		<Project filename="test/regex_regex_parse_test_part2_linux_cpp11.cbp"/>
@@ -571,8 +579,10 @@
 		<Project filename="test/utility_array_get_test_linux_cpp11.cbp"/>
 		<Project filename="test/utility_bit_counter_test_linux_cpp11.cbp"/>
 		<Project filename="test/utility_copy_or_move_or_swap_test_linux_cpp11.cbp"/>
+		<Project filename="test/utility_default_value_comparer_test_linux_cpp11.cbp"/>
 		<Project filename="test/utility_get_element_test_linux_cpp11.cbp"/>
 		<Project filename="test/utility_get_test_linux_cpp11.cbp"/>
+		<Project filename="test/utility_identity_test_linux_cpp11.cbp"/>
 		<Project filename="test/utility_member_var_modify_helper_test_linux_cpp11.cbp"/>
 		<Project filename="test/utility_pair_compare_test_linux_cpp11.cbp"/>
 		<Project filename="test/utility_pair_get_test_linux_cpp11.cbp"/>

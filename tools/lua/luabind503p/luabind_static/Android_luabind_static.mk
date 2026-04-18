@@ -10,9 +10,9 @@ l_path := $(LOCAL_PATH)
 
 # output module name
 ifeq ($(NDK_DEBUG), 1)
-	l_module := libluabind09$(USRDEF_APP_COMPILER_VERSION_TAG)-s-d
+	l_module := libluabind09_static$(USRDEF_APP_COMPILER_VERSION_TAG)-d
 else
-	l_module := libluabind09$(USRDEF_APP_COMPILER_VERSION_TAG)-s
+	l_module := libluabind09_static$(USRDEF_APP_COMPILER_VERSION_TAG)
 endif
 
 # source files

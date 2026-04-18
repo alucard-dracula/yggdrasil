@@ -210,4 +210,16 @@ THE SOFTWARE.
 #	endif // (defined(BOOST_NO_CXX11_HDR_TUPLE)
 #endif // YGGR_NO_CXX11_HDR_TUPLE
 
+#if defined(_DEBUG) || defined(DEBUG)
+#	if !defined(YGGR_DEBUG)
+#		define YGGR_DEBUG
+#	endif // YGGR_DEBUG
+#endif // defined(_DEBUG) || defined(DEBUG)
+
+#if defined(YGGR_DEBUG)
+#	if !defined(_DEBUG)
+#		define _DEBUG
+#	endif //_DEBUG
+#endif // YGGR_DEBUG
+
 #endif // __YGGR_COMPILER_CONFIG_HPP__

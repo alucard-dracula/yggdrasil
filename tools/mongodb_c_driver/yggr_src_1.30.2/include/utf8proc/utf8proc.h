@@ -108,8 +108,8 @@ typedef bool utf8proc_bool;
 #  include <stddef.h>
 //#  include <stdbool.h>
 //#  include <inttypes.h>
-#	include <yggr_detail/stdbool.h>
-#	include <yggr_detail/inttypes.h>
+#	include <yggr_mongodbc_patch/stdbool.h>
+#	include <yggr_mongodbc_patch/inttypes.h>
 
 typedef int8_t utf8proc_int8_t;
 typedef uint8_t utf8proc_uint8_t;

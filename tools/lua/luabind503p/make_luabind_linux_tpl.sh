@@ -20,6 +20,13 @@ cat ./luabind/luabind_linux_cpp14.cbp | sed "s/-l${luaver_old}/-l${luaver_new}/g
 cat ./luabind/luabind_linux_cpp17.cbp | sed "s/-l${luaver_old}/-l${luaver_new}/g" > ./luabind/luabind_linux_${luaver_new}_cpp17.cbp
 cat ./luabind/luabind_linux_cpp20.cbp | sed "s/-l${luaver_old}/-l${luaver_new}/g" > ./luabind/luabind_linux_${luaver_new}_cpp20.cbp
 
+cat ./luabind_ts/luabind_ts_linux.cbp | sed "s/-l${luaver_old}/-l${luaver_new}/g" > ./luabind_ts/luabind_ts_linux_${luaver_new}.cbp
+cat ./luabind_ts/luabind_ts_linux_cpp03.cbp | sed "s/-l${luaver_old}/-l${luaver_new}/g" > ./luabind_ts/luabind_ts_linux_${luaver_new}_cpp03.cbp
+cat ./luabind_ts/luabind_ts_linux_cpp11.cbp | sed "s/-l${luaver_old}/-l${luaver_new}/g" > ./luabind_ts/luabind_ts_linux_${luaver_new}_cpp11.cbp
+cat ./luabind_ts/luabind_ts_linux_cpp14.cbp | sed "s/-l${luaver_old}/-l${luaver_new}/g" > ./luabind_ts/luabind_ts_linux_${luaver_new}_cpp14.cbp
+cat ./luabind_ts/luabind_ts_linux_cpp17.cbp | sed "s/-l${luaver_old}/-l${luaver_new}/g" > ./luabind_ts/luabind_ts_linux_${luaver_new}_cpp17.cbp
+cat ./luabind_ts/luabind_ts_linux_cpp20.cbp | sed "s/-l${luaver_old}/-l${luaver_new}/g" > ./luabind_ts/luabind_ts_linux_${luaver_new}_cpp20.cbp#pragma once
+
 cp -f ./luabind_static/luabind_static_linux.cbp ./luabind_static/luabind_static_linux_${luaver_new}.cbp 
 cp -f ./luabind_static/luabind_static_linux_cpp03.cbp ./luabind_static/luabind_static_linux_${luaver_new}_cpp03.cbp 
 cp -f ./luabind_static/luabind_static_linux_cpp11.cbp ./luabind_static/luabind_static_linux_${luaver_new}_cpp11.cbp 
@@ -27,12 +34,12 @@ cp -f ./luabind_static/luabind_static_linux_cpp14.cbp ./luabind_static/luabind_s
 cp -f ./luabind_static/luabind_static_linux_cpp17.cbp ./luabind_static/luabind_static_linux_${luaver_new}_cpp17.cbp 
 cp -f ./luabind_static/luabind_static_linux_cpp20.cbp ./luabind_static/luabind_static_linux_${luaver_new}_cpp20.cbp 
 
-cp -f ./luabind_static_ts/luabind_static_ts_linux.cbp ./luabind_static_ts/luabind_static_ts_linux_${luaver_new}.cbp 
-cp -f ./luabind_static_ts/luabind_static_ts_linux_cpp03.cbp ./luabind_static_ts/luabind_static_ts_linux_${luaver_new}_cpp03.cbp 
-cp -f ./luabind_static_ts/luabind_static_ts_linux_cpp11.cbp ./luabind_static_ts/luabind_static_ts_linux_${luaver_new}_cpp11.cbp 
-cp -f ./luabind_static_ts/luabind_static_ts_linux_cpp14.cbp ./luabind_static_ts/luabind_static_ts_linux_${luaver_new}_cpp14.cbp 
-cp -f ./luabind_static_ts/luabind_static_ts_linux_cpp17.cbp ./luabind_static_ts/luabind_static_ts_linux_${luaver_new}_cpp17.cbp 
-cp -f ./luabind_static_ts/luabind_static_ts_linux_cpp20.cbp ./luabind_static_ts/luabind_static_ts_linux_${luaver_new}_cpp20.cbp 
+cp -f ./luabind_ts_static/luabind_ts_static_linux.cbp ./luabind_ts_static/luabind_ts_static_linux_${luaver_new}.cbp 
+cp -f ./luabind_ts_static/luabind_ts_static_linux_cpp03.cbp ./luabind_ts_static/luabind_ts_static_linux_${luaver_new}_cpp03.cbp 
+cp -f ./luabind_ts_static/luabind_ts_static_linux_cpp11.cbp ./luabind_ts_static/luabind_ts_static_linux_${luaver_new}_cpp11.cbp 
+cp -f ./luabind_ts_static/luabind_ts_static_linux_cpp14.cbp ./luabind_ts_static/luabind_ts_static_linux_${luaver_new}_cpp14.cbp 
+cp -f ./luabind_ts_static/luabind_ts_static_linux_cpp17.cbp ./luabind_ts_static/luabind_ts_static_linux_${luaver_new}_cpp17.cbp 
+cp -f ./luabind_ts_static/luabind_ts_static_linux_cpp20.cbp ./luabind_ts_static/luabind_ts_static_linux_${luaver_new}_cpp20.cbp 
 
 cat ./luabind_test/luabind_test_linux.cbp | sed "s/-l${luaver_old}/-l${luaver_new}/g" > ./luabind_test/luabind_test_linux_${luaver_new}.cbp
 cat ./luabind_test/luabind_test_linux_cpp03.cbp | sed "s/-l${luaver_old}/-l${luaver_new}/g" > ./luabind_test/luabind_test_linux_${luaver_new}_cpp03.cbp

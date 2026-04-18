@@ -1,4 +1,4 @@
-//pc_zlib.hpp
+//pc_zlib_static.hpp
 
 /****************************************************************************
 Copyright (c) 2010-2024 yggdrasil
@@ -24,13 +24,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __YGGR_COMPILE_LINK_PC_ZLIB_HPP__
-#define __YGGR_COMPILE_LINK_PC_ZLIB_HPP__
+#ifndef __YGGR_COMPILE_LINK_PC_ZLIB_STATIC_HPP__
+#define __YGGR_COMPILE_LINK_PC_ZLIB_STATIC_HPP__
 
 #include <yggr/compile_link/msvc_cfg.hpp>
 
 #ifdef _MSC_VER
-#	pragma comment YGGR_COMPILE_LINK_LIB(zlibstatic)
+#	pragma comment YGGR_COMPILE_LINK_STATIC_LIB(zlibstatic)
 #endif // _MSC_VER
 
-#endif // __YGGR_COMPILE_LINK_PC_ZLIB_HPP__
+#endif // __YGGR_COMPILE_LINK_PC_ZLIB_STATIC_HPP__

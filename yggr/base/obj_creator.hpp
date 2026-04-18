@@ -58,21 +58,21 @@ public:
 
 #ifndef YGGR_NO_CXX11_VARIADIC_TEMPLATES
 	
-	template<typename ...Args> YGGR_STATIC_CONSTEXPR_OR_INLINE_STATIC
+	template<typename ...Args> YGGR_CXX14_STATIC_CONSTEXPR_OR_INLINE_STATIC
 	create_result_type create(BOOST_FWD_REF(Args)... args)
 	{
 		value_type val(boost::forward<Args>(args)...);
 		return val;
 	}
 
-	template<typename ...Args> YGGR_STATIC_CONSTEXPR_OR_INLINE_STATIC
+	template<typename ...Args> YGGR_CXX14_STATIC_CONSTEXPR_OR_INLINE_STATIC
 	static_create_result_type static_create(BOOST_FWD_REF(Args)... args)
 	{
 		static value_type val(boost::forward<Args>(args)...);
 		return val;
 	}
 
-	template<typename ...Args> YGGR_STATIC_CONSTEXPR_OR_INLINE_STATIC
+	template<typename ...Args> YGGR_CXX14_STATIC_CONSTEXPR_OR_INLINE_STATIC
 	static_const_create_result_type static_const_create(BOOST_FWD_REF(Args)... args)
 	{
 		static value_type val(boost::forward<Args>(args)...);
@@ -145,19 +145,19 @@ public:
 
 #ifndef YGGR_NO_CXX11_VARIADIC_TEMPLATES
 	
-	template<typename ...Args> YGGR_STATIC_CONSTEXPR_OR_INLINE_STATIC
+	template<typename ...Args> YGGR_CXX17_STATIC_CONSTEXPR_OR_INLINE_STATIC
 	create_result_type create(BOOST_FWD_REF(Args)... args)
 	{
 		return;
 	}
 
-	template<typename ...Args> YGGR_STATIC_CONSTEXPR_OR_INLINE_STATIC
+	template<typename ...Args> YGGR_CXX17_STATIC_CONSTEXPR_OR_INLINE_STATIC
 	static_create_result_type static_create(BOOST_FWD_REF(Args)... args)
 	{
 		return;
 	}
 
-	template<typename ...Args> YGGR_STATIC_CONSTEXPR_OR_INLINE_STATIC
+	template<typename ...Args> YGGR_CXX17_STATIC_CONSTEXPR_OR_INLINE_STATIC
 	static_const_create_result_type static_const_create(BOOST_FWD_REF(Args)... args)
 	{
 		return;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include <yggr_detail/double_limit.h>
+#include <yggr_mongodbc_patch/double_limit.h>
 
 #include <errno.h>
 #include <fcntl.h>

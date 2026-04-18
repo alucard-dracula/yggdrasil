@@ -29,39 +29,21 @@ THE SOFTWARE.
 
 #include <yggr/base/yggrdef.h>
 
+#if (defined(YGGR_MSVC_USING_MTD_FLAG) && YGGR_MSVC_USING_MTD_FLAG) \
+	|| (defined(YGGR_MSVC_USING_MT_FLAG) && YGGR_MSVC_USING_MT_FLAG)
+
+#	error "!!! script python not support /MTd or /MT !!!"
+
+#else
+
 #define PYTHON_MODULE_NAME(x) (#x)
 
 #if PY_VERSION_HEX >= 0x03000000
-#	define PYTHON_MODULE_INIT_FOO(__name__) (PyInit_##__name__)
+#	define PYTHON_MODULE_INIT_FOO(__name__) (&PyInit_##__name__)
 #else
-#	define PYTHON_MODULE_INIT_FOO(__name__) (init##__name__)
+#	define PYTHON_MODULE_INIT_FOO(__name__) (&init##__name__)
 #endif // PY_VERSION_HEX
 
-namespace yggr
-{
-namespace script
-{
-namespace python
-{
-
-class python_base_environment
-{
-public:
-	python_base_environment(void)
-	{
-		if(!Py_IsInitialized())
-		{
-			Py_Initialize();
-		}
-	}
-
-	~python_base_environment(void)
-	{
-	}
-};
-
-} // nemspace python
-} // namespace script
-} // namespace yggr
+#endif // YGGR_MSVC_USING_MTD_FLAG
 
 #endif //__YGGR_SCRIPT_PYTHON_BASE_ENVIRONMENT_HPP__
