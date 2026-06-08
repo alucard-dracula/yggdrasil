@@ -420,11 +420,12 @@ public:
 		yggr::tuples::element
 		<
 			static_cast<std::size_t>(E_idx_result_getter),
-			typename yggr::tuples::element
-						<
-							idx,
-							accumlator_group_type
-						>::type
+			typename 
+				yggr::tuples::element
+				<
+					idx,
+					accumlator_group_type
+				>::type
 		>::type::result_type
 		get_result(void) const
 	{
@@ -434,7 +435,7 @@ public:
 			<
 				static_cast<std::size_t>(E_idx_value),
 				now_acc_type
-			>::type value_type;
+			>::type elem_value_type;
 
 		typedef typename
 			yggr::tuples::element
@@ -444,7 +445,7 @@ public:
 			>::type result_getter_type;
 
 		const now_acc_type& acc = yggr::get<idx>(_acc_group);
-		const value_type& rst_val = yggr::get<static_cast<std::size_t>(E_idx_value)>(acc);
+		const elem_value_type& rst_val = yggr::get<static_cast<std::size_t>(E_idx_value)>(acc);
 		const result_getter_type& gettter = yggr::get<static_cast<std::size_t>(E_idx_result_getter)>(acc);
 
 		return (gettter(rst_val) + correct_type::s_round_value()) / correct_type::s_correct_value();

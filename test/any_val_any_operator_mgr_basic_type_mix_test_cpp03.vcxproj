@@ -38,7 +38,7 @@
 		<ClCompile Include="any_val\any_operator_mgr_basic_type_mix_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{A28AC66E-85FC-4595-BC79-B9A5426C8618}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>any_val_any_operator_mgr_basic_type_mix_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>any_val_any_operator_mgr_basic_type_mix_test</ProjectName>

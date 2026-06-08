@@ -38,7 +38,7 @@
 		<ClCompile Include="container_ex\native_array_ref_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{01152ED4-A8F0-464A-8121-0D02FDB6FEB4}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>container_ex_native_array_ref_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

@@ -38,7 +38,7 @@
 		<ClCompile Include="math\matrix_hash_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{B2369B27-B244-418C-945D-39F1757A61DF}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>math_matrix_hash_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>math_matrix_hash_test</ProjectName>

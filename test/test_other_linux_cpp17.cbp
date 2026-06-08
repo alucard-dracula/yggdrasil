@@ -21,10 +21,8 @@
 				</Compiler>
 				<Linker>
 					<Add option="-m32"/>
-					<Add option="-lyggr_script_python$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lboost_python$(#PYTHON_VERSION)$(#COMPILER_VERSION_TAG)-mt-d-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_regex$(#COMPILER_VERSION_TAG)-mt-d-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_filesystem$(#COMPILER_VERSION_TAG)-mt-d-x32$(#BOOST_VERSION_TAG)"/>
+					<Add option="-lyggr_base$(#COMPILER_VERSION_TAG)-d"/>
+					<Add option="-lyggr_compatibility$(#COMPILER_VERSION_TAG)-d"/>
 					<Add option="-lboost_thread$(#COMPILER_VERSION_TAG)-mt-d-x32$(#BOOST_VERSION_TAG)"/>
 					<Add directory="../lib"/>
 				</Linker>
@@ -44,10 +42,8 @@
 					<Add option="-m32"/>
 					<Add option="-s"/>
 					<Add option="-Wl,--gc-sections"/>
-					<Add option="-lyggr_script_python$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lboost_python$(#PYTHON_VERSION)$(#COMPILER_VERSION_TAG)-mt-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_regex$(#COMPILER_VERSION_TAG)-mt-x32$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_filesystem$(#COMPILER_VERSION_TAG)-mt-x32$(#BOOST_VERSION_TAG)"/>
+					<Add option="-lyggr_base$(#COMPILER_VERSION_TAG)"/>
+					<Add option="-lyggr_compatibility$(#COMPILER_VERSION_TAG)"/>
 					<Add option="-lboost_thread$(#COMPILER_VERSION_TAG)-mt-x32$(#BOOST_VERSION_TAG)"/>
 					<Add directory="../lib"/>
 				</Linker>
@@ -68,10 +64,8 @@
 				</Compiler>
 				<Linker>
 					<Add option="-m64"/>
-					<Add option="-lyggr_script_python$(#COMPILER_VERSION_TAG)-d"/>
-					<Add option="-lboost_python$(#PYTHON_VERSION)$(#COMPILER_VERSION_TAG)-mt-d-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_regex$(#COMPILER_VERSION_TAG)-mt-d-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_filesystem$(#COMPILER_VERSION_TAG)-mt-d-x64$(#BOOST_VERSION_TAG)"/>
+					<Add option="-lyggr_base$(#COMPILER_VERSION_TAG)-d"/>
+					<Add option="-lyggr_compatibility$(#COMPILER_VERSION_TAG)-d"/>
 					<Add option="-lboost_thread$(#COMPILER_VERSION_TAG)-mt-d-x64$(#BOOST_VERSION_TAG)"/>
 					<Add directory="../lib64"/>
 				</Linker>
@@ -92,10 +86,8 @@
 					<Add option="-m64"/>
 					<Add option="-s"/>
 					<Add option="-Wl,--gc-sections"/>
-					<Add option="-lyggr_script_python$(#COMPILER_VERSION_TAG)"/>
-					<Add option="-lboost_python$(#PYTHON_VERSION)$(#COMPILER_VERSION_TAG)-mt-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_regex$(#COMPILER_VERSION_TAG)-mt-x64$(#BOOST_VERSION_TAG)"/>
-					<Add option="-lboost_filesystem$(#COMPILER_VERSION_TAG)-mt-x64$(#BOOST_VERSION_TAG)"/>
+					<Add option="-lyggr_base$(#COMPILER_VERSION_TAG)"/>
+					<Add option="-lyggr_compatibility$(#COMPILER_VERSION_TAG)"/>
 					<Add option="-lboost_thread$(#COMPILER_VERSION_TAG)-mt-x64$(#BOOST_VERSION_TAG)"/>
 					<Add directory="../lib64"/>
 				</Linker>
@@ -124,14 +116,10 @@
 			<Add directory="../"/>
 			<Add directory="../yggr_lua_base_type"/>
 		</Compiler>
-		<Unit filename="python/python_struct_test.cpp"/>
+		<Unit filename="handler_center/handler_container_test.cpp"/>
 		<Unit filename="wait_any_key/wait_any_key.hpp"/>
 		<Extensions>
 			<lib_finder disable_auto="1"/>
 		</Extensions>
-		<Linker>
-			<Add option="-lpython$(#PYTHON_VERSION_FLOAT)"/>
-			<Add option="-lpython3"/>
-		</Linker>
 	</Project>
 </CodeBlocks_project_file>

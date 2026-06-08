@@ -38,7 +38,7 @@
 		<ClCompile Include="bind_ex\bind_comparer_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{040C7CF1-4EAB-483F-9307-3434B982EA72}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>bind_ex_bind_comparer_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>bind_ex_bind_comparer_test</ProjectName>

@@ -1,8 +1,11 @@
 // handler_center_test.cpp
 
 #include <test/wait_any_key/wait_any_key.hpp>
-#include <yggr/base/ptr_single.hpp>
+
+//#define YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST 1
+
 #include <yggr/handler_center/handler_center.hpp>
+#include <yggr/base/ptr_single.hpp>
 
 #include <yggr/compile_link/linker.hpp>
 
@@ -83,6 +86,7 @@ void test_call(void)
 		yggr_test_assert(!b);
 	}
 
+#if !YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST
 	{
 		int n = 100;
 		int m = 200;
@@ -93,6 +97,7 @@ void test_call(void)
 		b = ptr->call(yggr::const_args_anchor(YGGR_PP_HANDLER_NAME(get_zwei)), n, m);
 		yggr_test_assert(!b);
 	}
+#endif // YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST
 
 	{
 		int n = 100;

@@ -38,7 +38,7 @@
 		<ClCompile Include="network\io_service_pool_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{FEC6D0B9-B62A-4EDA-B57D-7EB7FA4FEA0C}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>network_io_service_pool_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

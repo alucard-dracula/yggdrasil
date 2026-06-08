@@ -38,7 +38,7 @@
 		<ClCompile Include="mplex\template_repaceor_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{D92C3F7C-BF5B-4404-ADDA-0BE3C2B0040E}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>mplex_template_repaceor_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>mplex_template_repaceor_test</ProjectName>

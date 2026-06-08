@@ -38,7 +38,7 @@
 		<ClCompile Include="iterator_ex\iterator_traits_ex_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{9B8E64D2-856C-4552-8939-F6A5A73E5CF4}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>iterator_ex_iterator_traits_ex_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

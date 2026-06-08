@@ -38,7 +38,7 @@
 		<ClCompile Include="safe_container\boost_size_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{F06AD72A-C7BD-412D-8536-FF60A31DF200}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>safe_container_boost_size_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>safe_container_boost_size_test</ProjectName>

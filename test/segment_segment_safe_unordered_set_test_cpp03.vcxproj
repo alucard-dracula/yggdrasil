@@ -38,7 +38,7 @@
 		<ClCompile Include="segment\segment_safe_unordered_set_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{E9A1B9D4-4A97-4F72-8141-B0D25D32875A}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>segment_segment_safe_unordered_set_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>segment_segment_safe_unordered_set_test</ProjectName>

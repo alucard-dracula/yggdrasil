@@ -38,7 +38,7 @@
 		<ClCompile Include="nsql_database_system\cert_file_win32_load_failed_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{019A9D1F-5372-4936-A7E4-CB21E3164571}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>nsql_database_system_cert_file_win32_load_failed_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>nsql_database_system_cert_file_win32_load_failed_test</ProjectName>

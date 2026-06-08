@@ -38,7 +38,7 @@
 		<ClCompile Include="proxy\proxy_mode_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{9FC11977-80BD-48B0-AEC3-3F5B54C0DBC9}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>proxy_proxy_mode_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

@@ -38,7 +38,7 @@
 		<ClInclude Include="wait_any_key\wait_any_key.hpp"/>
 	</ItemGroup>
 	<ItemGroup>
-		<ClCompile Include="python\python_struct_test.cpp"/>
+		<ClCompile Include="handler_center\handler_container_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
 		<ProjectGuid>{336DA8C4-0684-45CE-B09E-7E2705F88DCA}</ProjectGuid>

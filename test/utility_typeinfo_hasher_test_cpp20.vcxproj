@@ -38,7 +38,7 @@
 		<ClCompile Include="utility\typeinfo_hasher_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{519809CC-ED11-4F09-8D37-EED6B80A6554}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>utility_typeinfo_hasher_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>utility_typeinfo_hasher_test</ProjectName>

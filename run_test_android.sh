@@ -1,7 +1,5 @@
 #!/bin/bash
 
-rm -f ./pyst.so
-
 rm -f ./yggr_lua_base_type.so
 ln -s libyggr_lua_base_type.so yggr_lua_base_type.so
 
@@ -180,6 +178,7 @@ source begin_test_env_android_termux.sh
 ./handler_center_handler_center_test_performance --batch-test
 ./handler_center_handler_center_test_same_id_and_out --batch-test
 ./handler_center_handler_center_test_u32_id --batch-test
+./handler_center_handler_container_test --batch-test
 ./ids_id_generator_test --batch-test
 ./ids_idn_test --batch-test
 ./ids_uuid_bson_serialize_test --batch-test

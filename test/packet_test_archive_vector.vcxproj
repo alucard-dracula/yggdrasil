@@ -38,7 +38,7 @@
 		<ClCompile Include="packet\test_archive_vector.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{FC91BDD7-D5D5-40FB-AD8E-11530DFA7A26}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>packet_test_archive_vector</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

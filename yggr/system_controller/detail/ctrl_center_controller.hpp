@@ -48,6 +48,10 @@ THE SOFTWARE.
 #include <cassert>
 #include <typeinfo>
 
+#if !defined(YGGR_CTRL_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST)
+#	define YGGR_CTRL_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST 0
+#endif // YGGR_CTRL_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST
+
 namespace yggr
 {
 namespace system_controller
@@ -239,7 +243,11 @@ public:
 		typedef typename boost::range_iterator<const handler_container_type>::type iter_type;
 
 		const handler_type* phandler = 0;
+#if defined(YGGR_CTRL_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST) && YGGR_CTRL_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST
+		const handler_args_type* pargs = utility::args_holder_ref_wrap_static_cast<const handler_args_type>(param);
+#else
 		const handler_args_type* pargs = utility::args_holder_ref_wrap_dynamic_cast<const handler_args_type>(param);
+#endif // YGGR_CTRL_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST
 
 		if(!pargs)
 		{

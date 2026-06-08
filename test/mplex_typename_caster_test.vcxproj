@@ -38,7 +38,7 @@
 		<ClCompile Include="mplex\typename_caster_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{7E941E7A-344C-466A-8C6E-C971372E42CA}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>mplex_typename_caster_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

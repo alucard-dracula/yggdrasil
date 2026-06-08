@@ -38,7 +38,7 @@
 		<ClCompile Include="lua\lua_base_type_test_d32.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{BBB50B72-D4B3-4131-A262-D7A2A8034BDD}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>lua_lua_base_type_test_d32</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>lua_lua_base_type_test_d32</ProjectName>

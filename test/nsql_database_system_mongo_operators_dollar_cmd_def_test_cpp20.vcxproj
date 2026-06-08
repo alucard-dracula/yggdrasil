@@ -38,7 +38,7 @@
 		<ClCompile Include="nsql_database_system\mongo_operators_dollar_cmd_def_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{D008947B-EC7A-43F7-BE69-3DD37C182C17}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>nsql_database_system_mongo_operators_dollar_cmd_def_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>nsql_database_system_mongo_operators_dollar_cmd_def_test</ProjectName>

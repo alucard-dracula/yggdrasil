@@ -38,7 +38,7 @@
 		<ClCompile Include="nsql_database_system\c_mongo_gridfs_file_opt_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{71892D0F-781F-4101-A88E-A2552EC75219}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>nsql_database_system_c_mongo_gridfs_file_opt_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>nsql_database_system_c_mongo_gridfs_file_opt_test</ProjectName>

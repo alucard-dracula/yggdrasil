@@ -38,7 +38,7 @@
 		<ClCompile Include="database_system\database_async_mgr_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{67286F8B-939D-4080-B9CA-6CCAF53FFAED}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>database_system_database_async_mgr_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>database_system_database_async_mgr_test</ProjectName>

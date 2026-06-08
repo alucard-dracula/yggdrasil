@@ -187,6 +187,7 @@ ln -s ../Debug-x32/gcc15/libyggr_lua_base_type.so yggr_lua_base_type.so
 ../Debug-x32/gcc15/handler_center_handler_center_test_performance --batch-test
 ../Debug-x32/gcc15/handler_center_handler_center_test_same_id_and_out --batch-test
 ../Debug-x32/gcc15/handler_center_handler_center_test_u32_id --batch-test
+../Debug-x32/gcc15/handler_center_handler_container_test --batch-test
 ../Debug-x32/gcc15/ids_id_generator_test --batch-test
 ../Debug-x32/gcc15/ids_idn_test --batch-test
 ../Debug-x32/gcc15/ids_uuid_bson_serialize_test --batch-test

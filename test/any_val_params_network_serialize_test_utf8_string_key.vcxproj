@@ -38,7 +38,7 @@
 		<ClCompile Include="any_val\params_network_serialize_test_utf8_string_key.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{ECB05031-2C46-4148-9ED0-2393C29516A9}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>any_val_params_network_serialize_test_utf8_string_key</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

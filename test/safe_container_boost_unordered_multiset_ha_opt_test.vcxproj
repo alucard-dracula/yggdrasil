@@ -38,7 +38,7 @@
 		<ClCompile Include="safe_container\boost_unordered_multiset_ha_opt_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{63247758-A73A-494B-9596-09009A7D0AE4}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>safe_container_boost_unordered_multiset_ha_opt_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

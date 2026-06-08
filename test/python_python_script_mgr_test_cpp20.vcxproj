@@ -38,7 +38,7 @@
 		<ClCompile Include="python\python_script_mgr_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{975AA455-6E79-4572-9C05-A69F21DD0B58}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>python_python_script_mgr_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>python_python_script_mgr_test</ProjectName>

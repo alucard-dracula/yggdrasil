@@ -38,7 +38,7 @@
 		<ClCompile Include="struct_conv\params_and_packet_info_conv_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{07A5C7E8-4413-472A-B857-01B1A70A79D6}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>struct_conv_params_and_packet_info_conv_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

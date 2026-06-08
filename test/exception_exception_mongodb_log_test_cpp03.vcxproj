@@ -38,7 +38,7 @@
 		<ClCompile Include="exception\exception_mongodb_log_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{79B3664C-8128-454A-AD22-660E9BC84E6B}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>exception_exception_mongodb_log_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>exception_exception_mongodb_log_test</ProjectName>

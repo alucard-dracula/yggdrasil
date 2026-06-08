@@ -38,7 +38,7 @@
 		<ClCompile Include="segment\segment_safe_deque_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{7CCEE599-3740-4970-9006-06735DE98AF2}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>segment_segment_safe_deque_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

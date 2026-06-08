@@ -1,65 +1,74 @@
-# packet_info_vtpl.hpp
+**概述**
+- **描述：** `packet_info.hpp` 声明了 `yggr::packet::packet_info` 模板类，这是一个可变参数的包信息容器，用于存储和操作一组数据字段。它支持 tuple 转换、序列化、比较、交换、哈希以及对字段的按类型或按索引访问。
+- **头文件：** [yggr/packet/packet_info.hpp](yggr/packet/packet_info.hpp)
 
-概述
-- 定义并实现变参模板 `packet_info<...>`，作为一组参数的类型-安全容器与适配器，用于网络包的元信息描述与传递。
-- 依赖 C++11 可变参数模板（文件在无 variadic 支持时会报错），并与 `yggr::tuple` / `boost::tuple` 互操作。
+**文件结构**
+- `packet_info.hpp` 是主入口头文件，根据是否启用 C++11 可变参数模板选择包含不同实现：
+  - 启用可变参数模板时包含 `yggr/packet/detail/packet_info_vtpl.hpp`。
+  - 否则包含 `yggr/packet/detail/packet_info_vmacro.hpp`。
+- 这两个实现文件提供相同的公共接口，但分别使用 variadic template 或 preprocessor macro 方式实现。
 
-模板与类型
-- `template<typename ...Val> class packet_info`：
-  - 将 `Val...` 过滤掉尾部的 `yggr::tuples::null_type`，通过 Boost.MPL 计算有效参数列表 `vt_t_type`。
-  - `E_length`：参数个数（size_type）。
-  - `params_type` / `value_type` / `base_type`：内部使用的 MPL 列表、`yggr::tuple` 类型和基类类型（通过 conv_to_yggr_tuple）。
-  - 提供 `arg<N>`、`t_arg<T>`、`t_arg<T,idx>` 等元信息访问模板，用于索引/按类型查找参数索引。
+**主要类**
+- `template<typename ...Val> class packet_info`
+  - 继承自 `mplex::conv_to_yggr_tuple<...>::type`，用元编程方式将类型列表转换为 `yggr::tuple`。
+  - 允许不定数量字段，并自动忽略尾部的 `yggr::tuples::null_type`。
 
-构造/赋值/交换
-- 支持多种构造：直接传参数、从 `boost::tuple` / `yggr::tuple` / 其他 `packet_info` 迁移或拷贝构造。
-- 赋值运算符支持从上述类型进行移动或复制赋值，内部用 `copy_or_move_or_swap` 兼容移动语义。
-- `swap` 提供多种重载以与 `boost::tuple`、`yggr::tuple`、其它 `packet_info` 互换数据。
+**核心能力**
+- `E_length`：静态常量，表示有效字段数。
+- `params_type`：保存字段类型列表的 Boost MPL 类型。
+- `value_type`：实际底层 `yggr::tuple` 类型。
+- `arg<N>`：按索引访问字段类型。
+- `t_arg<T>`：按字段类型访问字段索引。
 
-元素访问
-- `get<N>()`：按索引获取元素。
-- `get<T>()`：按类型获取元素（需要能在参数列表中唯一定位类型，或提供 `t_arg` 模板明确索引）。
-- `arg_get<Arg>()` / `t_arg_get<T_Arg>()`：按元信息类型获取元素引用。
-- `element_size()` 返回参数个数。
-- `clear()` 将内部 tuple 重置为默认值。
+**构造**
+- 支持从可变参数列表初始化。
+- 支持从 `boost::tuple<T...>`、`yggr::tuple<T...>`、以及其它 `packet_info<T...>` 对象拷贝或移动构造。
+- 对构造参数个数进行静态检查，确保不超过 `E_length`。
 
-比较与转换
-- `compare` / `compare_eq`：与 `boost::tuple`、`yggr::tuple`、以及其他 `packet_info` 互相比较，使用基类 tuple 的比较运算。
-- 提供 `operator==` / `operator!=` 的非成员全套重载，支持跨类型比较（任意组合的 `boost::tuple` / `yggr::tuple` / `packet_info`）。
-- `operator<<` / `operator>>` 支持流式 IO（输出显示 `packet_info` 与内部 tuple）。
-- `make_packet_info(args...)`：静态工厂函数，构造并返回 `packet_info`。
+**赋值与交换**
+- 支持赋值自 `boost::tuple`、`yggr::tuple`、`packet_info` 以及自身类型。
+- 使用 `copy_or_move_or_swap` 实现可移动或可拷贝的赋值行为。
+- 提供多种 `swap` 重载，与 `boost::tuple`、`yggr::tuple` 和其它 `packet_info` 兼容。
 
-哈希与 STL 兼容
-- 提供 `hash_value` 与 `std::hash`（当支持时）特化，使用 `boost::hash` 对内部 `value_type` 进行哈希，便于放入 unordered 容器。
+**访问成员**
+- `clear()`：清除字段内容。
+- `static size_type element_size()`：返回字段数量 `E_length`。
+- `get<N>()`：按索引获取字段引用。
+- `get<T>()`：按字段类型获取字段引用。
+- `arg_get<Arg>()` / `t_arg_get<T_Arg>()`：按 arg 类型访问字段。
 
-辅助工具 `packet_info_op`
-- `packet_info_op`（不可创建的工具类）提供：
-  - `compare<Idx...>(pak_info, args...)`：按索引列表比较 `pak_info` 的对应元素与 `args...`。
-  - `compare<Idx...>(handler, pak_info, args...)`：接受 handler（可调用）进行自定义比较/处理，返回 handler 的返回值。
-  - `get_sub_infos<Idx...>(info)`：按索引返回 `yggr::tuple` 子集。
-  - `get_sub_packet_info<Idx...>(info)`：生成并返回一个新的 `packet_info`，包含所选索引的元素。
+**比较操作**
+- 支持 `compare_eq` / `compare` 与 `boost::tuple`、`yggr::tuple`、以及其它 `packet_info` 的比较。
+- 提供全局 `operator==` 和 `operator!=` 重载，支持不同 tuple 类型之间的比较。
 
-兼容性与实现细节
-- 使用 Boost.MPL 进行参数列表处理并删除尾部的 `null_type`。
-- 与 `yggr::tuple`/`boost::tuple` 无缝互操作（构造、赋值、比较、swap）。
-- 在泛型比较中支持将 handler 做为可调用对象，要求 `func::foo_t_info<Handler>::is_callable_type::value` 为真。
+**辅助工厂**
+- `static this_type make_packet_info(Args...)`：静态工厂函数，根据传入参数创建 `packet_info`。
+- 全局函数 `yggr::packet::make_packet_info(...)`：方便构造 `packet_info` 对象。
 
-示例（伪代码）
+**类型转换**
+- 支持隐式转换为 `boost::tuple<T...>`。
+- `cast_to_packet_info<Src<T...>>`：将 tuple 类型转换为对应的 `packet_info<T...>`。
 
-```cpp
-typedef packet_info<int, std::string, float> pkt_info_t;
-pkt_info_t info(1, "hello", 3.14f);
-int x = info.get<0>();
-std::string s = info.get<std::string>();
+**输入输出**
+- 提供 `operator<<` 和 `operator>>`，将 `packet_info` 与标准流进行序列化/反序列化。
 
-if(packet_info_op::compare<0,2>(info, 1, 3.14f)) { /* match */ }
+**哈希支持**
+- `hash_value(const packet_info<T...>&)`：基于底层 tuple 的 Boost Hash 计算哈希值。
+- 若启用了 `YGGR_HAS_CXX11_STD_HASH`，提供 `std::hash<packet_info<T...>>` 特化。
 
-auto sub = packet_info_op::get_sub_packet_info<1>(info); // packet_info<std::string>
-```
+**辅助类**
+- `packet_info_op`：提供静态工具函数，用于比较、获取子字段、以及从 `packet_info` 中提取子信息。例如 `compare(...)`、`get_sub_infos(...)` 和 `get_sub_packet_info(...)`。
 
-文件
-- 源文件：`packet_info_vtpl.hpp`（位于 `yggr/packet/detail`）。
-- 相关：`packet_info.hpp`（公共头），`reference_trans`，`mplex::conv_to_yggr_tuple` 等。
+**实现细节**
+- 可变参数版本（`packet_info_vtpl.hpp`）使用模板参数包与 Boost MPL 元编程构建类型列表。
+- 宏版本（`packet_info_vmacro.hpp`）在禁用 variadic templates 时使用预处理器生成代码，保持相同接口。
+- 两者均使用 `yggr::serialization` 的序列化支持，并通过 `serializion::access` 友元化。
+- `packet_info` 支持与 `boost::tuple` 和 `yggr::tuple` 的无缝互操作，包括赋值、交换和比较。
 
-----
-自动生成：基于 yggr/packet/detail/packet_info_vtpl.hpp 的概要文档。
+**相关文件**
+- `yggr/packet/packet_info.hpp`
+- `yggr/packet/detail/packet_info_vtpl.hpp`
+- `yggr/packet/detail/packet_info_vmacro.hpp`
+
+**作者 / 许可证**
+- 源文件头部声明了版权与 MIT 风格许可，详情请参见源文件顶部。

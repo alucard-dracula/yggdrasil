@@ -601,12 +601,12 @@ public:
 		typedef f64 ret_type;
 		typedef s64 cal_type;
 
-		cal_type sec = base_type::sec;
-		cal_type nsec = base_type::nsec;
+		cal_type arg_sec = base_type::sec;
+		cal_type arg_nsec = base_type::nsec;
 
 		return
-			static_cast<ret_type>(sec * this_type::E_S_AND_MS_RATIO)
-			+ static_cast<ret_type>(nsec + this_type::E_MS_AND_NS_HALF_RATIO)
+			static_cast<ret_type>(arg_sec * this_type::E_S_AND_MS_RATIO)
+			+ static_cast<ret_type>(arg_nsec + this_type::E_MS_AND_NS_HALF_RATIO)
 			/ static_cast<ret_type>(E_MS_AND_NS_RATIO);
 	}
 
@@ -616,12 +616,12 @@ public:
 		typedef T ret_type;
 		typedef s64 cal_type;
 
-		cal_type sec = base_type::sec;
-		cal_type nsec = base_type::nsec;
+		cal_type arg_sec = base_type::sec;
+		cal_type arg_nsec = base_type::nsec;
 
 		return
-			static_cast<ret_type>(sec * this_type::E_S_AND_MS_RATIO )
-			+ static_cast<ret_type>(nsec + this_type::E_MS_AND_NS_HALF_RATIO)
+			static_cast<ret_type>(arg_sec * this_type::E_S_AND_MS_RATIO )
+			+ static_cast<ret_type>(arg_nsec + this_type::E_MS_AND_NS_HALF_RATIO)
 			/ static_cast<ret_type>(this_type::E_MS_AND_NS_RATIO);
 	}
 

@@ -38,7 +38,7 @@
 		<ClCompile Include="lua\lua_export_inner_process_id.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{03FAB0EB-B102-4A15-BD81-1C57486AC2D4}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>lua_lua_export_inner_process_id</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>lua_lua_export_inner_process_id</ProjectName>

@@ -38,7 +38,7 @@
 		<ClCompile Include="container_ex\is_container_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{C1CF2A91-1A57-43C8-B2C6-E9BECA434420}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>container_ex_is_container_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>container_ex_is_container_test</ProjectName>

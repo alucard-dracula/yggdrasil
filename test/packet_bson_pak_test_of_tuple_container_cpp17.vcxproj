@@ -38,7 +38,7 @@
 		<ClCompile Include="packet\bson_pak_test_of_tuple_container.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{4EA56294-63AB-4DFE-9CA4-6D510B340B20}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>packet_bson_pak_test_of_tuple_container</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>packet_bson_pak_test_of_tuple_container</ProjectName>

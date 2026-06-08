@@ -38,7 +38,7 @@
 		<ClCompile Include="charset\utf8_string_knuth_morris_pratt_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{57DA032C-D53C-4A41-9FFF-D7B4F708A70B}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>charset_utf8_string_knuth_morris_pratt_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

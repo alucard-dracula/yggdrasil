@@ -190,6 +190,7 @@ ln -s /usr/local/lib64/mongo_crypt/mongo_crypt_v1.so mongo_crypt_v1.so
 ../Debug-x64/gcc15/handler_center_handler_center_test_performance --batch-test
 ../Debug-x64/gcc15/handler_center_handler_center_test_same_id_and_out --batch-test
 ../Debug-x64/gcc15/handler_center_handler_center_test_u32_id --batch-test
+../Debug-x64/gcc15/handler_center_handler_container_test --batch-test
 ../Debug-x64/gcc15/ids_id_generator_test --batch-test
 ../Debug-x64/gcc15/ids_idn_test --batch-test
 ../Debug-x64/gcc15/ids_uuid_bson_serialize_test --batch-test

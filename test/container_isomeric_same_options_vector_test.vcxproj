@@ -38,7 +38,7 @@
 		<ClCompile Include="container\isomeric_same_options_vector_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{CFC2DBEC-E0B0-49E4-8AB9-966EF72A6AF9}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>container_isomeric_same_options_vector_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

@@ -38,7 +38,7 @@
 		<ClCompile Include="container_ex\iterator_getter.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{0B3D07F6-6EC7-4131-8AD7-CA4541236B34}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>container_ex_iterator_getter</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

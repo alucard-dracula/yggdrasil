@@ -38,7 +38,7 @@
 		<ClCompile Include="safe_container\safe_map_test_part2.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{AE1F09DE-A6EA-450D-B4F3-C791D9C1B8D8}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>safe_container_safe_map_test_part2</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>safe_container_safe_map_test_part2</ProjectName>

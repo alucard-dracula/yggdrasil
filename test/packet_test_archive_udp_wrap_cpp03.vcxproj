@@ -38,7 +38,7 @@
 		<ClCompile Include="packet\test_archive_udp_wrap.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{8ABD3359-D238-4BA2-AAF7-B56252D920B7}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>packet_test_archive_udp_wrap</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>packet_test_archive_udp_wrap</ProjectName>

@@ -38,7 +38,7 @@
 		<ClCompile Include="seh\seh_stack_overflow_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{62DD4E60-6592-454F-A9B4-A9DC301BC670}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>seh_seh_stack_overflow_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>seh_seh_stack_overflow_test</ProjectName>

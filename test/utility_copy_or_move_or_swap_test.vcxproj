@@ -38,7 +38,7 @@
 		<ClCompile Include="utility\copy_or_move_or_swap_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{A161B41A-AEF9-48DC-84DF-75E7460F7347}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>utility_copy_or_move_or_swap_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

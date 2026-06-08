@@ -179,6 +179,7 @@ cp -fr ../Release-MT-Win32/vc100/yggr_lua_base_type.dll ./
 "../Release-MT-Win32/vc100/handler_center_handler_center_test_performance.exe" --batch-test
 "../Release-MT-Win32/vc100/handler_center_handler_center_test_same_id_and_out.exe" --batch-test
 "../Release-MT-Win32/vc100/handler_center_handler_center_test_u32_id.exe" --batch-test
+"../Release-MT-Win32/vc100/handler_center_handler_container_test.exe" --batch-test
 "../Release-MT-Win32/vc100/ids_id_generator_test.exe" --batch-test
 "../Release-MT-Win32/vc100/ids_idn_test.exe" --batch-test
 "../Release-MT-Win32/vc100/ids_uuid_bson_serialize_test.exe" --batch-test
@@ -565,4 +566,4 @@ cp -fr ../Release-MT-Win32/vc100/yggr_lua_base_type.dll ./
 "../Release-MT-Win32/vc100/type_traits_has_functional_member_t_test.exe" --batch-test
 "../Release-MT-Win32/vc100/type_traits_has_operator_function_test.exe" --batch-test
 "../Release-MT-Win32/vc100/type_traits_has_operator_index_member_access_test.exe" --batch-test
-"../R
+".

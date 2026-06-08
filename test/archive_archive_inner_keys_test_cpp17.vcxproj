@@ -38,7 +38,7 @@
 		<ClCompile Include="archive\archive_inner_keys_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{6789529E-AB95-4746-BAAB-76986B9E630B}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>archive_archive_inner_keys_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>archive_archive_inner_keys_test</ProjectName>

@@ -38,7 +38,7 @@
 		<ClCompile Include="any_val\any_bson_serialize_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{A04DE339-1AF3-4431-A8DE-7A653368227C}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>any_val_any_bson_serialize_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>any_val_any_bson_serialize_test</ProjectName>

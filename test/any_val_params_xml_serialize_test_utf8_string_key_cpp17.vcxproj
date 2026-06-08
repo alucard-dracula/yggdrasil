@@ -38,7 +38,7 @@
 		<ClCompile Include="any_val\params_xml_serialize_test_utf8_string_key.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{B99D8DA8-4302-4081-98C0-C3654C22E36E}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>any_val_params_xml_serialize_test_utf8_string_key</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>any_val_params_xml_serialize_test_utf8_string_key</ProjectName>

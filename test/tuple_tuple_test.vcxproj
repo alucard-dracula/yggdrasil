@@ -38,7 +38,7 @@
 		<ClCompile Include="tuple\tuple_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{AF528BD6-6AA4-4062-ABE4-01161D6D8E6C}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>tuple_tuple_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

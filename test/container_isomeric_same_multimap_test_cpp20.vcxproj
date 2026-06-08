@@ -38,7 +38,7 @@
 		<ClCompile Include="container\isomeric_same_multimap_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{C55A4279-23A0-4B50-A62E-F76BD575515C}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>container_isomeric_same_multimap_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>container_isomeric_same_multimap_test</ProjectName>

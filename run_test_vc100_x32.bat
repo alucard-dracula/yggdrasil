@@ -179,6 +179,7 @@ cp -fr ../Release-Win32/vc100/yggr_lua_base_type.dll ./
 "../Release-Win32/vc100/handler_center_handler_center_test_performance.exe" --batch-test
 "../Release-Win32/vc100/handler_center_handler_center_test_same_id_and_out.exe" --batch-test
 "../Release-Win32/vc100/handler_center_handler_center_test_u32_id.exe" --batch-test
+"../Release-Win32/vc100/handler_center_handler_container_test.exe" --batch-test
 "../Release-Win32/vc100/ids_id_generator_test.exe" --batch-test
 "../Release-Win32/vc100/ids_idn_test.exe" --batch-test
 "../Release-Win32/vc100/ids_uuid_bson_serialize_test.exe" --batch-test

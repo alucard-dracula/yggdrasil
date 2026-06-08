@@ -38,7 +38,7 @@
 		<ClCompile Include="math\math_some_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{B4671ED4-D7FF-45E2-86C0-CDC35804C85B}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>math_math_some_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>math_math_some_test</ProjectName>

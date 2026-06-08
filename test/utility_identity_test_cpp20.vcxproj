@@ -38,7 +38,7 @@
 		<ClCompile Include="utility\identity_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{161F195D-2261-4C0D-A07E-EF3FACCBA66F}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>utility_identity_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>utility_identity_test</ProjectName>

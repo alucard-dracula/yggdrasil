@@ -38,7 +38,7 @@
 		<ClCompile Include="lua\lua_wrap_boost_size_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{E9321B14-A2EA-4D4F-B3ED-F30AD6C56CB9}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>lua_lua_wrap_boost_size_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

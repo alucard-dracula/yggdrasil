@@ -38,7 +38,7 @@
 		<ClCompile Include="encryption_tool\sha256_tool_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{DF832395-57C3-48F6-B06D-3C102EB07D4F}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>encryption_tool_sha256_tool_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

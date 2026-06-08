@@ -38,7 +38,7 @@
 		<ClCompile Include="exception\exception_default_log_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{12161687-A7F9-4E5B-9D01-641F704756FF}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>exception_exception_default_log_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

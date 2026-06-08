@@ -38,7 +38,7 @@
 		<ClCompile Include="iterator_ex\is_reverse_iterator_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{0857DDEE-6618-47C0-A5F6-75FEFEFD0FE5}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>iterator_ex_is_reverse_iterator_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

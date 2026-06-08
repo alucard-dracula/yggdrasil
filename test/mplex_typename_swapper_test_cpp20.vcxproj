@@ -38,7 +38,7 @@
 		<ClCompile Include="mplex\typename_swapper_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{61D91C33-A55A-43F7-8E88-FE9D6990B285}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>mplex_typename_swapper_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>mplex_typename_swapper_test</ProjectName>

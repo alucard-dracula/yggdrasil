@@ -38,7 +38,7 @@
 		<ClCompile Include="container\isomeric_same_options_multiset_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{DC1BFFFF-A24D-4CD1-9911-28BBBB5BA4AF}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>container_isomeric_same_options_multiset_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

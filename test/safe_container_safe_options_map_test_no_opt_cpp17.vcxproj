@@ -38,7 +38,7 @@
 		<ClCompile Include="safe_container\safe_options_map_test_no_opt.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{84B4AB1E-C052-47F2-B61B-0D582FB5787F}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>safe_container_safe_options_map_test_no_opt</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>safe_container_safe_options_map_test_no_opt</ProjectName>

@@ -38,7 +38,7 @@
 		<ClCompile Include="mplex\conv_to_tuple_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{CCCEBEF7-C58A-46C2-B5DA-F4947342949A}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>mplex_conv_to_tuple_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>mplex_conv_to_tuple_test</ProjectName>

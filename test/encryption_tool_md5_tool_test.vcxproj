@@ -38,7 +38,7 @@
 		<ClCompile Include="encryption_tool\md5_tool_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{D7A5B305-781A-400C-8845-8793A5FA7E5A}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>encryption_tool_md5_tool_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

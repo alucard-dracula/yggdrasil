@@ -38,7 +38,7 @@
 		<ClCompile Include="container\multiset_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{EEE1A60C-C1A1-48E3-BC3F-DA942242258E}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>container_multiset_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>container_multiset_test</ProjectName>

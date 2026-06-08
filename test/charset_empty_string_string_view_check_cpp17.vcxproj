@@ -38,7 +38,7 @@
 		<ClCompile Include="charset\empty_string_string_view_check.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{0EAA1A61-93D2-4C23-924B-5C0091FBB68A}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>charset_empty_string_string_view_check</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>charset_empty_string_string_view_check</ProjectName>

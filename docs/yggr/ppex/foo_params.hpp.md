@@ -1,68 +1,79 @@
-# foo_params.hpp 文档
+**概述**
+- **描述：** `foo_params.hpp` 提供了一组预处理宏，用于生成函数模板参数、参数类型、参数名称和参数转发表达式。它广泛用于模板元编程中构造可变参数列表、参数包装和函数调用序列。
+- **头文件：** [yggr/ppex/foo_params.hpp](yggr/ppex/foo_params.hpp)
 
-## 1. 版权声明
-文件顶部为 MIT 许可证，允许自由使用、修改和分发。
+**核心目的**
+- 简化函数模板中参数列表的定义。
+- 支持不同参数传递方式：普通值、引用、常量引用、转发引用、右值引用、移动、boost::ref、boost::cref 等。
+- 兼容 C++11 可变参数宏及非可变参数宏环境。
 
-## 2. 文件作用
-本文件为 Yggdrasil 框架提供了一套基于 Boost.Preprocessor 的宏工具，用于自动生成各种形式的函数参数列表、参数类型、参数转发、默认参数等代码。它支持 C++11 右值引用和 Boost 移动语义，适用于模板函数、泛型工厂、回调包装等场景。
+**主要宏分类**
+- 参数类型和名称生成
+  - `YGGR_PP_FOO_TYPES_DEF(__count__)`：生成 `typename T0, typename T1, ..., typename T{n-1}`。
+  - `YGGR_PP_FOO_TYPES_GROUP(__count__)`：生成 `T0, T1, ..., T{n-1}`。
+  - `YGGR_PP_FOO_ARG(__n__)`：生成参数名，如 `arg0`, `arg1` 等。
 
-## 3. 主要宏定义
+- 参数声明宏
+  - `YGGR_PP_FOO_ANYREF_PARAMS`：将参数声明为 `BOOST_FWD_REF(Tn) argn`。
+  - `YGGR_PP_FOO_RVREF_PARAMS` / `YGGR_PP_FOO_RVREF_PARAMS_TYPES`：声明右值引用参数和类型。
+  - `YGGR_PP_FOO_FWDREF_PARAMS` / `YGGR_PP_FOO_FWDREF_PARAMS_TYPES`：声明转发引用参数。
+  - `YGGR_PP_FOO_CREF_PARAMS` / `YGGR_PP_FOO_CREF_PARAMS_TYPES`：声明常量引用参数。
+  - `YGGR_PP_FOO_REF_PARAMS` / `YGGR_PP_FOO_REF_PARAMS_TYPES`：声明非常量引用参数。
+  - `YGGR_PP_FOO_VAR_PARAMS` / `YGGR_PP_FOO_VAR_PARAMS_TYPES`：声明按值参数。
 
-### 3.1 参数类型与名称生成
-- `YGGR_PP_FOO_TYPES_DEF(__count__)`：生成 `typename T0, typename T1, ...` 类型列表。
-- `YGGR_PP_FOO_TYPES_GROUP(__count__)`：生成 `T0, T1, ...` 类型列表。
-- `YGGR_PP_FOO_ARG(__n__)`：生成参数名，如 `arg0`。
-- `YGGR_PP_FOO_PARAMS_DEF(__count__, __macro__)`：根据指定宏批量生成参数声明。
+- 自定义参数类型支持
+  - `YGGR_PP_FOO_CUSTOM_ANYREF_PARAMS`：使用 `YGGR_PP_FOO_ARG_TYPE(__n__)` 定义的自定义类型，同时支持右值引用与常规引用。
+  - `YGGR_PP_FOO_CUSTOM_RVREF_PARAMS`：自定义类型的右值引用声明。
+  - `YGGR_PP_FOO_CUSTOM_CREF_PARAMS`：自定义类型的常量引用声明。
+  - `YGGR_PP_FOO_CUSTOM_REF_PARAMS`：自定义类型的非常量引用声明。
+  - `YGGR_PP_FOO_CUSTOM_VAR_PARAMS`：自定义类型的按值声明。
 
-### 3.2 参数声明宏（支持多种引用/转发方式）
-- `YGGR_PP_FOO_ANYREF_PARAMS`：生成通用引用参数（支持右值引用或 Boost.FWD_REF）。
-- `YGGR_PP_FOO_RVREF_PARAMS`：生成右值引用参数（C++11）或 Boost.RV_REF。
-- `YGGR_PP_FOO_CREF_PARAMS`：生成 const 引用参数。
-- `YGGR_PP_FOO_REF_PARAMS`：生成左值引用参数。
-- `YGGR_PP_FOO_VAR_PARAMS`：生成值传递参数。
-- `YGGR_PP_FOO_CUSTOM_*`：支持自定义类型参数的生成。
+- 参数序列生成与操作
+  - `YGGR_PP_FOO_PARAMS_DEF(__count__, __macro__)`：按数量调用指定宏生成参数列表。
+  - `YGGR_PP_FOO_ARGS_OP(__z__, __n__, __op__)`：将参数名与操作符组合生成如 `arg0 __op__ arg1 ...`。
+  - `YGGR_PP_FOO_PARAMS_OP(__count__, __op__)`：按数量生成参数列表并插入操作符。
+  - `YGGR_PP_FOO_PARAMS_CUSTOM_OP_NOW(__count__, __foo_custom__, __op__)`：立即使用自定义宏生成参数与操作符。
+  - `YGGR_PP_FOO_PARAMS_CUSTOM_OP_LATER(__count__, __op__)`：延迟使用 `YGGR_PP_FOO_CUSTOM_OP()` 生成参数与操作符。
 
-### 3.3 参数操作宏
-- `YGGR_PP_FOO_PARAMS_OP(__count__, __op__)`：批量生成参数操作（如逗号分隔的参数名）。
-- `YGGR_PP_FOO_PARAMS_OP_STD_FORWARD`、`YGGR_PP_FOO_PARAMS_OP_BOOST_FORWARD`：批量生成 std::forward 或 boost::forward 代码。
-- `YGGR_PP_FOO_PARAMS_OP_STD_MOVE`、`YGGR_PP_FOO_PARAMS_OP_BOOST_MOVE`：批量生成 std::move 或 boost::move 代码。
-- `YGGR_PP_FOO_PARAMS_OP_BOOST_REF`、`YGGR_PP_FOO_PARAMS_OP_BOOST_CREF`：批量生成 boost::ref 或 boost::cref 代码。
+- 默认参数与转发支持
+  - `YGGR_PP_FOO_ARGS_FWD_REF(__class_name__)`：生成可转发参数类型 `__class_name__&&` 或 `const __class_name__&`，取决于是否支持右值引用。
+  - `YGGR_PP_FOO_ARGS_DEFAULT_VALUE_OP`：为参数生成默认值初始化表达式。
+  - `YGGR_PP_FOO_PARAM_AND_DEFAULT_VALUE(__count__, __class_name__)`：生成带默认值的参数声明序列。
 
-### 3.4 默认参数与转发
-- `YGGR_PP_FOO_PARAM_AND_DEFAULT_VALUE(__count__, __class_name__)`：生成带默认值的参数声明。
-- `YGGR_PP_FOO_ARGS_FWD_REF(__class_name__)`：根据是否支持右值引用，生成参数转发类型。
+- 标准转发 / 移动 / 引用包装
+  - `YGGR_PP_FOO_PARAMS_OP_STD_FORWARD`：生成 `std::forward<Tn>(argn)` 表达式序列。
+  - `YGGR_PP_FOO_PARAMS_OP_BOOST_FORWARD`：生成 `boost::forward<Tn>(argn)` 表达式序列。
+  - `YGGR_PP_FOO_PARAMS_OP_STD_MOVE`：生成 `std::move(argn)` 表达式序列。
+  - `YGGR_PP_FOO_PARAMS_OP_BOOST_MOVE`：生成 `boost::move(argn)` 表达式序列。
+  - `YGGR_PP_FOO_PARAMS_OP_BOOST_REF`：生成 `boost::ref(argn)` 表达式序列。
+  - `YGGR_PP_FOO_PARAMS_OP_BOOST_CREF`：生成 `boost::cref(argn)` 表达式序列。
+  - `YGGR_PP_FOO_PARAMS_OP_BOOST_ANYREF`：根据是否支持右值引用，选择 `boost::ref` 或 `boost::cref`。
 
-### 3.5 其他辅助宏
-- 支持参数名自定义、参数展开、参数分隔符等。
+**环境兼容性**
+- 支持 `YGGR_NO_CXX11_RVALUE_REFERENCES`：在不支持 C++11 右值引用时退回到 `BOOST_RV_REF`。
+- 支持 `YGGR_PP_DEFAULT_PARAM_INIT()` 和 `YGGR_PP_FOO_ARG_NAME()` 等外部配置宏，以控制默认初始化和参数名生成方式。
 
-## 4. 典型用法
+**使用场景**
+- 构建可扩展函数模板的参数列表，例如在 `BOOST_PP_LOCAL_ITERATE` 中自动生成多个重载版本。
+- 在库内部统一参数命名、类型声明和参数转发逻辑，避免重复手写参数模板定义。
 
+**示例**
 ```cpp
-// 生成一个带任意参数的模板函数
-#define BOOST_PP_LOCAL_MACRO(__n__) \
-template<YGGR_PP_FOO_TYPES_DEF(__n__)> \
-void foo(YGGR_PP_FOO_PARAMS_DEF(__n__, YGGR_PP_FOO_ANYREF_PARAMS)) { /* ... */ }
-
-#define BOOST_PP_LOCAL_LIMITS (1, 5)
+#define YGGR_PP_FOO_ARG_NAME() arg_
+#define BOOST_PP_LOCAL_MACRO(__n__)
+    template< YGGR_PP_FOO_TYPES_DEF(__n__) >
+    void foo(YGGR_PP_FOO_PARAMS_DEF(__n__, YGGR_PP_FOO_ANYREF_PARAMS));
+#define BOOST_PP_LOCAL_LIMITS (1, YGGR_PP_FOO_DEFAULT_PARAMS_LEN)
 #include BOOST_PP_LOCAL_ITERATE()
+#undef YGGR_PP_FOO_ARG_NAME
 ```
 
-## 5. 设计说明
+**相关文件**
+- `yggr/ppex/foo_params.hpp`
+- `yggr/ppex/typedef.hpp`
+- `yggr/ppex/params_expand.hpp`
+- `yggr/ppex/open.hpp`
+- `yggr/ppex/cast.hpp`
 
-- **兼容性强**：自动适配 C++11 右值引用或 Boost 移动语义。
-- **灵活扩展**：支持自定义参数类型、参数名、参数操作等。
-- **高效开发**：极大减少模板和泛型代码的重复劳动，提升代码可维护性。
-- **与 Boost.Preprocessor 深度集成**：利用其枚举、重复、条件等特性实现批量代码生成。
-
-## 6. 注意事项
-
-- 仅作为头文件宏工具使用，不包含实际实现代码。
-- 需要配合 Boost.Preprocessor 使用。
-- 具体参数名需通过 `YGGR_PP_FOO_ARG_NAME` 宏自定义。
-
----
-
-## 7. 总结
-
-本文件为 Yggdrasil 框架提供了强大的函数参数宏生成工具，适用于泛型工厂、回调包装、模板库等需要批量生成参数列表和参数操作的场景。通过这些宏，可以大幅提升 C++ 模板元编程的开发效率和代码可读性。
-
+**作者 / 许可证**
+- 源文件顶部包含 MIT 风格许可声明，具体条款请参见源文件顶部。

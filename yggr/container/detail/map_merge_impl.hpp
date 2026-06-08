@@ -28,6 +28,7 @@ THE SOFTWARE.
 #define __YGGR_CONTAINER_DETAIL_MAP_MERGE_IMPL_HPP__
 
 #include <yggr/base/yggrdef.h>
+#include <yggr/utility/swap.hpp>
 
 namespace yggr
 {

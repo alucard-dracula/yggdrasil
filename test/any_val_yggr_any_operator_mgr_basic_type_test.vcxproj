@@ -38,7 +38,7 @@
 		<ClCompile Include="any_val\yggr_any_operator_mgr_basic_type_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{86A3C93F-4BA9-43F5-8706-003E5A164F22}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>any_val_yggr_any_operator_mgr_basic_type_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

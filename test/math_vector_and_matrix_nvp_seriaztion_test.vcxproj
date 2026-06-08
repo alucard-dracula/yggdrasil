@@ -38,7 +38,7 @@
 		<ClCompile Include="math\vector_and_matrix_nvp_seriaztion_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{528F36F3-E59B-49E8-8154-E0C25CC728B2}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>math_vector_and_matrix_nvp_seriaztion_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

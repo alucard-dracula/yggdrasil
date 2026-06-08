@@ -38,7 +38,7 @@
 		<ClCompile Include="seh\seh_bad_alloc_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{86369753-5559-4B2F-8EB5-528FAFE77261}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>seh_seh_bad_alloc_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>seh_seh_bad_alloc_test</ProjectName>

@@ -377,15 +377,15 @@ public:
 				template<typename _Char, typename _Traits, typename _Alloc> class Basic_String>
 	static bool from_code(this_type& id, const Basic_String<char, Traits, Alloc>& code)
 	{
-		typedef Basic_String<char, Traits, Alloc> string_type;
-		typedef typename string_type::iterator str_iter_type;
+		typedef Basic_String<char, Traits, Alloc> now_string_type;
+		typedef typename now_string_type::iterator str_iter_type;
 
 		yggr::u64 pos = code.find_first_not_of("0123456789abcdefABCDEF-");
-		if(pos != string_type::npos)
+		if(pos != now_string_type::npos)
 		{
 			return false;
 		}
-		string_type right_code = code;
+		now_string_type right_code = code;
 		str_iter_type new_end = std::remove(right_code.begin(), right_code.end(), '-');
 		if(std::distance(right_code.begin(), new_end) != 32)
 		{

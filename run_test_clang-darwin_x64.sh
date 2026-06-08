@@ -195,6 +195,7 @@ cd ./test
 ../Release-x64/${var_clang_tag}/handler_center_handler_center_test_performance --batch-test
 ../Release-x64/${var_clang_tag}/handler_center_handler_center_test_same_id_and_out --batch-test
 ../Release-x64/${var_clang_tag}/handler_center_handler_center_test_u32_id --batch-test
+../Release-x64/${var_clang_tag}/handler_center_handler_container_test --batch-test
 ../Release-x64/${var_clang_tag}/ids_id_generator_test --batch-test
 ../Release-x64/${var_clang_tag}/ids_idn_test --batch-test
 ../Release-x64/${var_clang_tag}/ids_uuid_bson_serialize_test --batch-test

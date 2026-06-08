@@ -38,7 +38,7 @@
 		<ClCompile Include="type_traits\is_convertiable_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{67F8929F-B20E-4596-9E42-B91BA7BD8D6A}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>type_traits_is_convertiable_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

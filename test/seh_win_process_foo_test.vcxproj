@@ -38,7 +38,7 @@
 		<ClCompile Include="seh\win_process_foo_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{2A9162F6-EF3C-4CC5-90C4-D68903526D05}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>seh_win_process_foo_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

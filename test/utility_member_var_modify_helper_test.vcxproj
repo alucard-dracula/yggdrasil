@@ -38,7 +38,7 @@
 		<ClCompile Include="utility\member_var_modify_helper_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{A9D42AE8-DF3D-4F88-A626-A5F21DC9CBB4}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>utility_member_var_modify_helper_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

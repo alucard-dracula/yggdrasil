@@ -184,46 +184,46 @@ const char* c_bson_const_iterator::org_get_key(void) const
 	return bson_iter_key(this);
 }
 
-bool c_bson_const_iterator::org_key_cmp(const char* key, u32 key_len) const
+bool c_bson_const_iterator::org_key_cmp(const char* arg_key, u32 arg_key_len) const
 {
-	assert(key);
+	assert(arg_key);
 	assert(bson_iterator_native_ex::s_bson_iter_validate(this));
 
 	const char* this_key = bson_iter_key(this);
 	u32 this_key_len = bson_iterator_native_ex::s_bson_iter_key_size(this);
 
-	return (key) && (this_key) 
-			&& (key_len == this_key_len)
-			&& (0 == memcmp(key, this_key, key_len));
+	return (arg_key) && (this_key) 
+			&& (arg_key_len == this_key_len)
+			&& (0 == memcmp(arg_key, this_key, arg_key_len));
 }
 
-bool c_bson_const_iterator::org_key_cmp_case(const char* key, u32 key_len) const
+bool c_bson_const_iterator::org_key_cmp_case(const char* arg_key, u32 arg_key_len) const
 {
-	assert(key);
+	assert(arg_key);
 	assert(bson_iterator_native_ex::s_bson_iter_validate(this));
 
 	const char* this_key = bson_iter_key(this);
 	u32 this_key_len = bson_iterator_native_ex::s_bson_iter_key_size(this);
 
-	return (key) && (this_key) 
-			&& (key_len == this_key_len)
+	return (arg_key) && (this_key) 
+			&& (arg_key_len == this_key_len)
 #	ifdef BSON_OS_WIN32
-			&& (0 ==_stricmp(key, this_key))
+			&& (0 == _stricmp(arg_key, this_key))
 #	else
-			&& (0 == strcasecmp(key, this_key))
+			&& (0 == strcasecmp(arg_key, this_key))
 #	endif //BSON_OS_WIN32
 			;
 }
 
-void c_bson_const_iterator::init_find(const bson_t& right, const char* key, u32 key_len, const tag_noncase&)
+void c_bson_const_iterator::init_find(const bson_t& right, const char* arg_key, u32 arg_key_len, const tag_noncase&)
 {
-	assert(key);
+	assert(arg_key);
 	base_type& base = *this;
 	memset(&base, 0, sizeof(base_type));
 
 	for(this_type i(right); !i.empty(); ++i)
 	{
-		if(i.org_key_cmp(key, key_len))
+		if(i.org_key_cmp(arg_key, arg_key_len))
 		{
 			this_type::swap(i);
 			return;
@@ -233,15 +233,15 @@ void c_bson_const_iterator::init_find(const bson_t& right, const char* key, u32 
 	this_type::init_end(right);
 }
 
-void c_bson_const_iterator::init_find(const bson_t& right, const char* key, u32 key_len, const tag_case&)
+void c_bson_const_iterator::init_find(const bson_t& right, const char* arg_key, u32 arg_key_len, const tag_case&)
 {
-	assert(key);
+	assert(arg_key);
 	base_type& base = *this;
 	memset(&base, 0, sizeof(base_type));
 
 	for(this_type i(right); !i.empty(); ++i)
 	{
-		if(i.org_key_cmp_case(key, key_len))
+		if(i.org_key_cmp_case(arg_key, arg_key_len))
 		{
 			this_type::swap(i);
 			return;
@@ -252,23 +252,23 @@ void c_bson_const_iterator::init_find(const bson_t& right, const char* key, u32 
 }
 
 c_bson_const_iterator::this_type 
-	c_bson_const_iterator::org_find(const char* key, u32 key_len, const tag_noncase&) const
+	c_bson_const_iterator::org_find(const char* arg_key, u32 arg_key_len, const tag_noncase&) const
 {
-	assert(key);
+	assert(arg_key);
 
 	this_type i = *this;
-	for(; !(i.empty() || i.org_key_cmp(key, key_len)); ++i);
+	for(; !(i.empty() || i.org_key_cmp(arg_key, arg_key_len)); ++i);
 
 	return i;
 }
 
 c_bson_const_iterator::this_type 
-	c_bson_const_iterator::org_find(const char* key, u32 key_len, const tag_case&) const
+	c_bson_const_iterator::org_find(const char* arg_key, u32 arg_key_len, const tag_case&) const
 {
-	assert(key);
+	assert(arg_key);
 
 	this_type i = *this;
-	for(; !(i.empty() || i.org_key_cmp_case(key, key_len)); ++i);
+	for(; !(i.empty() || i.org_key_cmp_case(arg_key, arg_key_len)); ++i);
 
 	return i;
 }

@@ -13,7 +13,7 @@ tool_upgrade_vcxproj_cfg::tool_upgrade_vcxproj_cfg(void)
 }
 
 tool_upgrade_vcxproj_cfg::tool_upgrade_vcxproj_cfg(tool_upgrade_vcxproj_cfg_sample)
-	: root_dir_(".")
+	: root_dir_("..")
 {
 	//dir_filter_.insert(".");
 	//dir_filter_.insert("dir_sample1");

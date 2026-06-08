@@ -38,7 +38,7 @@
 		<ClCompile Include="nsql_database_system\c_bson_timestamp_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{3F57D6E0-9314-46AE-8FD3-C510785A2800}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>nsql_database_system_c_bson_timestamp_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>nsql_database_system_c_bson_timestamp_test</ProjectName>

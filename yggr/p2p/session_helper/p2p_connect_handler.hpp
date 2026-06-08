@@ -157,7 +157,6 @@ public:
 	template<typename Address, typename Port> inline
 	bool p2p_reset_remote_endpoint(const Address& addr, const Port& port)
 	{
-
 		address_type now_addr(address_helper_type::address_from_string(addr));
 		endpoint_type edpt;
 		edpt.address(now_addr);
@@ -183,9 +182,6 @@ protected:
 										const Address& addr,
 										const Port& port)
 	{
-		typedef Address address_type;
-		typedef Port port_type;
-
 		if(!pconn)
 		{
 			return;

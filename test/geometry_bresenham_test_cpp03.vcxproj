@@ -38,7 +38,7 @@
 		<ClCompile Include="geometry\bresenham_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{BDC19277-B187-488A-990B-D3F549A14D17}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>geometry_bresenham_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>geometry_bresenham_test</ProjectName>

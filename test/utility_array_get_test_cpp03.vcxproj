@@ -38,7 +38,7 @@
 		<ClCompile Include="utility\array_get_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{FA946F44-D881-4976-97C3-2FBB959270BD}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>utility_array_get_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>utility_array_get_test</ProjectName>

@@ -38,7 +38,7 @@
 		<ClCompile Include="time\runtime_performance_test_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{818D34CD-6B32-4FF8-9193-937494470D4E}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>time_runtime_performance_test_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

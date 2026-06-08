@@ -38,7 +38,7 @@
 		<ClCompile Include="safe_container\safe_multi_index_range_and_modify_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{095208C1-AA0E-4499-AEFA-90B2A19CD052}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>safe_container_safe_multi_index_range_and_modify_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

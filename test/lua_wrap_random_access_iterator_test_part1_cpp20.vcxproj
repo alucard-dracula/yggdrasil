@@ -38,7 +38,7 @@
 		<ClCompile Include="lua\wrap_random_access_iterator_test_part1.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{49202403-469D-40D2-9177-B2ECA9504CD9}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>lua_wrap_random_access_iterator_test_part1</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>lua_wrap_random_access_iterator_test_part1</ProjectName>

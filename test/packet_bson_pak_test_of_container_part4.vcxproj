@@ -38,7 +38,7 @@
 		<ClCompile Include="packet\bson_pak_test_of_container_part4.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{BA7B73A9-8FD9-4A3B-B3E2-245939607A3D}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>packet_bson_pak_test_of_container_part4</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

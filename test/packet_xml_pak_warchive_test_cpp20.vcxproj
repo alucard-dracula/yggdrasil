@@ -38,7 +38,7 @@
 		<ClCompile Include="packet\xml_pak_warchive_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{B0AF36D9-EEC8-4AF8-BED7-AD42B73499FD}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>packet_xml_pak_warchive_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>packet_xml_pak_warchive_test</ProjectName>

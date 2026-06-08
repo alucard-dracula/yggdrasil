@@ -38,7 +38,7 @@
 		<ClCompile Include="mplex\integer_log2_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{E68A1F8D-D9D3-4114-B009-D0B4F0E012CA}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>mplex_integer_log2_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>mplex_integer_log2_test</ProjectName>

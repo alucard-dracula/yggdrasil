@@ -1003,6 +1003,7 @@
 		<ClInclude Include="geometry\geo_polygon_t.hpp"/>
 		<ClInclude Include="geometry\geo_rectangle_t.hpp"/>
 		<ClInclude Include="handler_center\handler_center.hpp"/>
+		<ClInclude Include="handler_center\handler_container.hpp"/>
 		<ClInclude Include="ids\ids_parsers.hpp"/>
 		<ClInclude Include="ids\id_n.hpp"/>
 		<ClInclude Include="ids\id_generator.hpp"/>

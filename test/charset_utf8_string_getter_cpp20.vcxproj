@@ -38,7 +38,7 @@
 		<ClCompile Include="charset\utf8_string_getter.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{E06B61C2-F173-420D-AA3A-1333785E8C24}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>charset_utf8_string_getter</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>charset_utf8_string_getter</ProjectName>

@@ -38,7 +38,7 @@
 		<ClCompile Include="nsql_database_system\c_mongo_find_and_modify_opts_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{EA4D8BC4-953F-4702-99FE-9F4833B3A576}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>nsql_database_system_c_mongo_find_and_modify_opts_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

@@ -38,7 +38,7 @@
 		<ClCompile Include="mplex\get_reference_if_in_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{0889A7BA-D429-40FB-A046-073FCB80A441}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>mplex_get_reference_if_in_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>mplex_get_reference_if_in_test</ProjectName>

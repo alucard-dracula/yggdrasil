@@ -1169,22 +1169,16 @@ public:
 	{
 		typedef typename charset::string_charset_helper_first_t<String>::type ret_type;
 
-		u32 len = 0;
+		u32 arg_len = 0;
 		const char* pstr = 0;
-		pstr = bson_iter_utf8(this, &len);
+		pstr = bson_iter_utf8(this, &arg_len);
 
-		if(!(pstr && len))
+		if(!(pstr && arg_len))
 		{
 			return;
 		}
 
-		inner_string_view_type inner_str_view(pstr, pstr + len);
-
-//		charset::string_charset_helper_first(val) =
-//			boost::move(
-//				inner_str_view.str<ret_type>(
-//					::yggr::get_allocator(val),
-//					charset::string_charset_helper_second(val)));
+		inner_string_view_type inner_str_view(pstr, pstr + arg_len);
 
         charset::string_charset_helper_first(val) =
 				inner_str_view.str<ret_type>(
@@ -1198,18 +1192,18 @@ public:
 	{
 		typedef typename charset::string_charset_helper_first_t<StringView>::type ret_type;
 
-		u32 len = 0;
+		u32 arg_len = 0;
 		const char* pstr = 0;
-		pstr = bson_iter_utf8(this, &len);
+		pstr = bson_iter_utf8(this, &arg_len);
 
-		if(!(pstr && len))
+		if(!(pstr && arg_len))
 		{
 			return;
 		}
 
 		assert(charset::string_charset_helper_second(val) == YGGR_STR_UTF8_STRING_CHARSET_NAME());
 
-		ret_type inner_str_view(pstr, pstr + len);
+		ret_type inner_str_view(pstr, pstr + arg_len);
 		charset::string_charset_helper_first(val) = boost::move(inner_str_view);
 	}
 
@@ -1271,14 +1265,14 @@ private:
 
 	const char* org_get_key(void) const; // must write to cpp
 
-	bool org_key_cmp(const char* key, u32 key_len) const; // must write to cpp
-	bool org_key_cmp_case(const char* key, u32 key_len) const; // must write to cpp
+	bool org_key_cmp(const char* arg_key, u32 arg_key_len) const; // must write to cpp
+	bool org_key_cmp_case(const char* arg_key, u32 arg_key_len) const; // must write to cpp
 
-	void init_find(const bson_t& right, const char* key, u32 key_len, const tag_noncase&);
-	void init_find(const bson_t& right, const char* key, u32 key_len, const tag_case&);
+	void init_find(const bson_t& right, const char* arg_key, u32 arg_key_len, const tag_noncase&);
+	void init_find(const bson_t& right, const char* arg_key, u32 arg_key_len, const tag_case&);
 
-	this_type org_find(const char* key, u32 key_len, const tag_noncase&) const;
-	this_type org_find(const char* key, u32 key_len, const tag_case&) const;
+	this_type org_find(const char* arg_key, u32 arg_key_len, const tag_noncase&) const;
+	this_type org_find(const char* arg_key, u32 arg_key_len, const tag_case&) const;
 
 	std::pair<this_type, this_type> org_find_descendant(const char* dotkey, const tag_noncase&) const;
 	std::pair<this_type, this_type> org_find_descendant(const char* dotkey, const tag_case&) const;

@@ -38,7 +38,7 @@
 		<ClCompile Include="type_traits\has_operator_function_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{B20B9CC7-53D0-4255-BFE4-BE5323ACAB81}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>type_traits_has_operator_function_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

@@ -38,7 +38,7 @@
 		<ClCompile Include="regex\get_string_vector.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{35D24A08-84B6-4BBC-AB51-3B19E36F598B}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>regex_get_string_vector</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>regex_get_string_vector</ProjectName>

@@ -179,6 +179,7 @@
 		<Project filename="test/handler_center_handler_center_test_performance_linux_cpp20.cbp"/>
 		<Project filename="test/handler_center_handler_center_test_same_id_and_out_linux_cpp20.cbp"/>
 		<Project filename="test/handler_center_handler_center_test_u32_id_linux_cpp20.cbp"/>
+		<Project filename="test/handler_center_handler_container_test_linux_cpp20.cbp"/>
 		<Project filename="test/ids_id_generator_test_linux_cpp20.cbp"/>
 		<Project filename="test/ids_idn_test_linux_cpp20.cbp"/>
 		<Project filename="test/ids_uuid_bson_serialize_test_linux_cpp20.cbp"/>

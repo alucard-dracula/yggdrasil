@@ -38,7 +38,7 @@
 		<ClCompile Include="mplex\strict_sizeof_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{B2E4DF53-95A9-415B-A859-23FA30B60878}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>mplex_strict_sizeof_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>mplex_strict_sizeof_test</ProjectName>

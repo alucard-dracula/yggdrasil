@@ -38,7 +38,7 @@
 		<ClCompile Include="base\create_object_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{9E731CAA-FE92-41AB-8965-6772ED6B4583}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>base_create_object_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>base_create_object_test</ProjectName>

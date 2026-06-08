@@ -54,6 +54,7 @@ THE SOFTWARE.
 //C4172: returning address of local variable or temporary
 //C4293: '<< or >>' : shift count negative or too big, undefined behavior
 //C4390: ';' : empty controlled statement found; is this the intent?
+//C4458: declaration of ¡®type¡¯ hides class member.
 //C4552: 'op_symbol' operator has no effect; expected operator with side-effect
 //C4700: uninitialized local variable 'name' used
 //C4715: 'function' : not all control paths return a value
@@ -78,6 +79,7 @@ THE SOFTWARE.
 #pragma warning (error : 4172)
 #pragma warning (error : 4293)
 #pragma warning (error : 4390)
+#pragma warning (error : 4458)
 #pragma warning (error : 4552)
 #pragma warning (error : 4700)
 #pragma warning (error : 4715)
@@ -90,133 +92,144 @@ THE SOFTWARE.
 /*
 Compile Macro info
 
-*		Macro									*Info
+*		Macro												*Info
 
-BOOST_HAS_ICU								regex use ICU fix utf8 string if undef it, regular_parse can not fix utf8 string
+BOOST_HAS_ICU												regex use ICU fix utf8 string if undef it, regular_parse can not fix utf8 string
 
-YGGR_SYSTEM_64								compile to 64bit system
-YGGR_SYSTEM_128								compile to 128bit system
-YGGR_SYSTEM_256								compile to 256bit system
+YGGR_SYSTEM_64												compile to 64bit system
+YGGR_SYSTEM_128												compile to 128bit system
+YGGR_SYSTEM_256												compile to 256bit system
 
-YGGR_AT_WINDOWS								windows platform
-YGGR_AT_LINUX								linux platform
-YGGR_AT_ANDROID								android platform
-YGGR_AT_DARWIN								macos platform
-YGGR_AT_IOS									ios platform
+YGGR_AT_WINDOWS												windows platform
+YGGR_AT_LINUX												linux platform
+YGGR_AT_ANDROID												android platform
+YGGR_AT_DARWIN												macos platform
+YGGR_AT_IOS													ios platform
 
-YGGR_INCLUDE_SEH_DEBUG						include seh model debuging in windows
-YGGR_USE_SEH								use seh model
-YGGR_USE_UTF8_EX_MODE						use utf8 ex_mode compatible 6byte utf8 char, 
-												default non-defined (if you want to using it add to project or user_config.hpp)
+YGGR_INCLUDE_SEH_DEBUG										include seh model debuging in windows
+YGGR_USE_SEH												use seh model
+YGGR_USE_UTF8_EX_MODE										use utf8 ex_mode compatible 6byte utf8 char, 
+																default non-defined (if you want to using it add to project or user_config.hpp)
 
-YGGR_TUPLE_LIMIT_LENGTH_CFG					yggr::tuple::tuple's template params limit length, default is 10 same to boost::tuple::tuple
-YGGR_PP_TEMPLATE_PARAMS_LEN_CFG				yggr variable length function templates and class template limit length, default is 10
-YGGR_PP_PACKET_INFO_PARAMS_LEN				if comparer not support cxx11 variadic_templates,
-												using YGGR_PP_PACKET_INFO_PARAMS_LEN config packet_info's "typename T" count,
-												default same YGGR_PP_TEMPLATE_PARAMS_LEN_CFG
+YGGR_TUPLE_LIMIT_LENGTH_CFG									yggr::tuple::tuple's template params limit length, default is 10 same to boost::tuple::tuple
+YGGR_PP_TEMPLATE_PARAMS_LEN_CFG								yggr variable length function templates and class template limit length, default is 10
+YGGR_PP_PACKET_INFO_PARAMS_LEN								if comparer not support cxx11 variadic_templates,
+																using YGGR_PP_PACKET_INFO_PARAMS_LEN config packet_info's "typename T" count,
+																default same YGGR_PP_TEMPLATE_PARAMS_LEN_CFG
 
-YGGR_NO_CWCHAR								yggr not has wchar_t
-YGGR_NO_CHAR8_T								yggr not has char8_t
-YGGR_NO_CHAR16_T							yggr not has char16_t
-YGGR_NO_CHAR32_T							yggr not has char32_t
+YGGR_NO_CWCHAR												yggr not has wchar_t
+YGGR_NO_CHAR8_T												yggr not has char8_t
+YGGR_NO_CHAR16_T											yggr not has char16_t
+YGGR_NO_CHAR32_T											yggr not has char32_t
 
-YGGR_NO_WSTRING								yggr not has wstring
-YGGR_NO_U8STRING_T							yggr not has u8string
-YGGR_NO_U16STRING_T							yggr not has u16string
-YGGR_NO_U32STRING_T							yggr not has u32string
+YGGR_NO_WSTRING												yggr not has wstring
+YGGR_NO_U8STRING_T											yggr not has u8string
+YGGR_NO_U16STRING_T											yggr not has u16string
+YGGR_NO_U32STRING_T											yggr not has u32string
 
-YGGR_SYS_DEFAULT_STRING_CHARSET_NAME_CFG	now system string default charset, 
-												if undef it windows default using "gbk" other os default is "utf-8"
-YGGR_SYS_DEFAULT_WSTRING_2_CHARSET_NAME_CFG	now system wstring (sizeof(wchar_t) == 2) default charset.
-												if undef it default using see charset/default_charset_config.hpp
-YGGR_SYS_DEFAULT_WSTRING_4_CHARSET_NAME_CFG	now system wstring (sizeof(wchar_t) == 4) default charset, 
-												if undef it default using see charset/default_charset_config.hpp
-YGGR_HEX_CONV_DEFAULT_MODE					charset::hex_converter default mode (mode: "lowcase(0)", "upper case(1)") default mode is "lowcase"
+YGGR_SYS_DEFAULT_STRING_CHARSET_NAME_CFG					now system string default charset, 
+																if undef it windows default using "gbk" other os default is "utf-8"
+YGGR_SYS_DEFAULT_WSTRING_2_CHARSET_NAME_CFG					now system wstring (sizeof(wchar_t) == 2) default charset.
+																if undef it default using see charset/default_charset_config.hpp
+YGGR_SYS_DEFAULT_WSTRING_4_CHARSET_NAME_CFG	now				system wstring (sizeof(wchar_t) == 4) default charset, 
+																if undef it default using see charset/default_charset_config.hpp
+YGGR_HEX_CONV_DEFAULT_MODE									charset::hex_converter default mode (mode: "lowcase(0)", "upper case(1)") default mode is "lowcase"
 
-YGGR_USE_OLD_BOOST_FILESYSTEM				filesystem using older boost filesystem
-YGGR_FILE_PATH_USE_BACK_SLANT_ONLY			In the windows platform only use '\' that path segmentation
-YGGR_FILE_PATH_REGEX_STRING					filesystem file path regex string, default see file_system/name_check.hpp
-YGGR_FILE_NAME_REGEX_STRING					filesystem file name regex string, default see file_system/name_check.hpp
-YGGR_FSYS_DIR_HARD_LINK_SUPPORT_ENABLE		filesystem hard_link support directory
+YGGR_USE_OLD_BOOST_FILESYSTEM								filesystem using older boost filesystem
+YGGR_FILE_PATH_USE_BACK_SLANT_ONLY							In the windows platform only use '\' that path segmentation
+YGGR_FILE_PATH_REGEX_STRING									filesystem file path regex string, default see file_system/name_check.hpp
+YGGR_FILE_NAME_REGEX_STRING									filesystem file name regex string, default see file_system/name_check.hpp
+YGGR_FSYS_DIR_HARD_LINK_SUPPORT_ENABLE						filesystem hard_link support directory
 
-YGGR_NOT_USE_SAFE_CONTAINER_OPTIMIZATION	yggr::safe_container not use optimization, example safe_unordered put outside hash operation 
+YGGR_NOT_USE_SAFE_CONTAINER_OPTIMIZATION					yggr::safe_container not use optimization, example safe_unordered put outside hash operation 
 
-YGGR_USE_STL_STRING							yggr::string use std::string, warning: segment(boost::interporcess) must use boost::container::basic_string
-YGGR_USE_BOOST_STRING						yggr::string use boost::container::string (default)
-YGGR_USE_STL_CONTAINER						yggr::container use std::contaner, example(std::vector), 
-												warning: segment(boost::interporcess) must use boost::container
-YGGR_USE_BOOST_CONTAINER					yggr::container use boost::container example(boost::container::vector) (default)
-YGGR_USE_FAST_MATH							yggr use fast math foo, default is not use
-YGGR_FAST_MATH_ITERATE_TWICE				fast math foo using iterate twice
+YGGR_USE_STL_STRING											yggr::string use std::string, warning: segment(boost::interporcess) must use boost::container::basic_string
+YGGR_USE_BOOST_STRING										yggr::string use boost::container::string (default)
+YGGR_USE_STL_CONTAINER										yggr::container use std::contaner, example(std::vector), 
+																warning: segment(boost::interporcess) must use boost::container
+YGGR_USE_BOOST_CONTAINER									yggr::container use boost::container example(boost::container::vector) (default)
+YGGR_USE_FAST_MATH											yggr use fast math foo, default is not use
+YGGR_FAST_MATH_ITERATE_TWICE								fast math foo using iterate twice
 
-YGGR_NETWORK_FLOAT_POINT_HN_CONV_ENABLE		enable floating point var (float | double) ntoh foo, default is disable
+YGGR_NETWORK_FLOAT_POINT_HN_CONV_ENABLE						enable floating point var (float | double) ntoh foo, default is disable
 
-YGGR_SERIALIZE_SIZE32						serialize size_type use 32bit
-YGGR_STRING_SERIALIZATION_NOT_PRIMITIVE		serialize string is not primitive, default is not defined it
+YGGR_SERIALIZE_SIZE32										serialize size_type use 32bit
+YGGR_STRING_SERIALIZATION_NOT_PRIMITIVE						serialize string is not primitive, default is not defined it
 
-YGGR_EXCEPTION_DEBUG						if defined exception::throw_error must output exception msg to the console
-YGGR_ERROR_CODE_OUTPUT_USING_UTC_TIME		if defined exception::error_code output using utc_time, default using localtime
+YGGR_EXCEPTION_DEBUG										if defined exception::throw_error must output exception msg to the console
+YGGR_ERROR_CODE_OUTPUT_USING_UTC_TIME						if defined exception::error_code output using utc_time, default using localtime
 
-YGGR_USING_CXX_VERSION						defined yggr use c++ verion (98, 300, 1100, 1400, 1700, 2000, ...)
-YGGR_USING_CXX98							yggr use c++98 and newer
-YGGR_USING_CXX03							yggr use c++03 and newer
-YGGR_USING_CXX11							yggr use c++11 and newer
-YGGR_USING_CXX14							yggr use c++14 and newer
-YGGR_USING_CXX17							yggr use c++17 and newer
-YGGR_USING_CXX20							yggr use c++20 and newer
-YGGR_USING_CXX23							yggr use c++23 and newer
+YGGR_USING_CXX_VERSION										defined yggr use c++ verion (98, 300, 1100, 1400, 1700, 2000, ...)
+YGGR_USING_CXX98											yggr use c++98 and newer
+YGGR_USING_CXX03											yggr use c++03 and newer
+YGGR_USING_CXX11											yggr use c++11 and newer
+YGGR_USING_CXX14											yggr use c++14 and newer
+YGGR_USING_CXX17											yggr use c++17 and newer
+YGGR_USING_CXX20											yggr use c++20 and newer
+YGGR_USING_CXX23											yggr use c++23 and newer
 
-YGGR_MATH_F32_DEFAULT_PRECISION				change math::flaw_comparer using default float precision
-YGGR_MATH_F64_DEFAULT_PRECISION				change math::flaw_comparer using default double precision
+YGGR_MATH_F32_DEFAULT_PRECISION								change math::flaw_comparer using default float precision
+YGGR_MATH_F64_DEFAULT_PRECISION								change math::flaw_comparer using default double precision
 
-YGGR_SMART_PTR_USING_STL					yggr::make_shared yggr::construct_shared using std::shared_ptr, default is using boost::shared_ptr
+YGGR_SMART_PTR_USING_STL									yggr::make_shared yggr::construct_shared using std::shared_ptr, default is using boost::shared_ptr
 
-YGGR_TIMER_TASK_NOT_USE_SEH					yggr::timer::timer_mgr::run_tasks not using seh, default seh used
-YGGR_TIME_CONSTANT_RECALCULATE_EVERY_TIME	yggr::time constnt value(e.g: utc_local_time_diff) recalculate every time, default not recalculate
+YGGR_TIMER_TASK_NOT_USE_SEH									yggr::timer::timer_mgr::run_tasks not using seh, default seh used
+YGGR_TIME_CONSTANT_RECALCULATE_EVERY_TIME					yggr::time constnt value(e.g: utc_local_time_diff) recalculate every time, default not recalculate
 
-YGGR_ANY_OPERATOR_NOT_REG_UNSAFE			any op any not support unsafe op (e.g. bool & int), default defined
-YGGR_PARAMS_USE_SAFE_CAST					if defined yggr::any_val using yggr::any_cast it's slow but safed, else using yggr::unsafe_any_cast is fast but not safe 
+YGGR_ANY_OPERATOR_NOT_REG_UNSAFE							any op any not support unsafe op (e.g. bool & int), default defined
+YGGR_PARAMS_USE_SAFE_CAST									if defined yggr::any_val using yggr::any_cast it's slow but safed, else using yggr::unsafe_any_cast is fast but not safe 
 
-YGGR_TPL_CONFIG_USING_TPL					using typedef tpl<...> make config type(e.g. typedef network_config_template<...>), default not defined (fix error c1060)
+YGGR_TPL_CONFIG_USING_TPL									using typedef tpl<...> make config type(e.g. typedef network_config_template<...>), default not defined (fix error c1060)
 
-YGGR_NO_CXX11_HDR_UNORDERED_SET				not has cxx11 unordered_set
-YGGR_NO_CXX11_HDR_UNORDERED_MAP				not has cxx11 unordered_map
+YGGR_NO_CXX11_HDR_UNORDERED_SET								not has cxx11 unordered_set
+YGGR_NO_CXX11_HDR_UNORDERED_MAP								not has cxx11 unordered_map
 
-YGGR_DISABLE_PRAGMA_MESSAGE					disable pragma messgame
+YGGR_DISABLE_PRAGMA_MESSAGE									disable pragma messgame
 
-YGGR_NO_CXX98_FUNCTION_BASE					not has std::binary_function std::unary_function
+YGGR_NO_CXX98_FUNCTION_BASE									not has std::binary_function std::unary_function
 
 
 
-YGGR_USING_LEGCACY_STDIO_DEFINITIONS		fix Visual Studio 2015 and later link old RTC error LNK2001: unresolved external symbol __iob_func
+YGGR_USING_LEGCACY_STDIO_DEFINITIONS						fix Visual Studio 2015 and later link old RTC error LNK2001: unresolved external symbol __iob_func
 
-YGGR_HAS_ICU								boost::regex using icu check. default auto_check
-YGGR_LINK_ICU_USING_NATIVE_NAME				link icu using native icu lib name. default not defined
+YGGR_HAS_ICU												boost::regex using icu check. default auto_check
+YGGR_LINK_ICU_USING_NATIVE_NAME								link icu using native icu lib name. default not defined
 
-YGGR_LINK_ICON_USING_NATIVE_NAME			link icov lib using native icon lib name. default not defined
-YGGR_LINK_OPENSSL_USING_NATIVE_NAME			link openssl lib using native openssl lib name. default not defined
+YGGR_LINK_ICON_USING_NATIVE_NAME							link icov lib using native icon lib name. default not defined
+YGGR_LINK_OPENSSL_USING_NATIVE_NAME							link openssl lib using native openssl lib name. default not defined
 
-YGGR_LUA_THREAD_SAFE						lua using thread safe version
-YGGR_LUA_LIB_NAME_USE_NATIVE				link lua lib using native openssl lib name. default not defined
+YGGR_LUA_THREAD_SAFE										lua using thread safe version
+YGGR_LUA_LIB_NAME_USE_NATIVE								link lua lib using native openssl lib name. default not defined
 
-YGGR_ANY_VAL_OP_NOT_INIT_BASE_TYPE			yggr::any_val::any_operator_mgr_basic_t_reg not register all base_type
-YGGR_ANY_VAL_OP_INIT_NOT_SUPPORT_BASE_TYPE	yggr::any_val::any_operator_mgr_basic_t_reg not call 
-YGGR_ANY_VAL_OP_EXCLUDE_UNSAFE_TYPE			yggr::any_val::any_operator_mgr_basic_t_reg not register unsafe type operator
+YGGR_ANY_VAL_OP_NOT_INIT_BASE_TYPE							yggr::any_val::any_operator_mgr_basic_t_reg not register all base_type
+YGGR_ANY_VAL_OP_INIT_NOT_SUPPORT_BASE_TYPE					yggr::any_val::any_operator_mgr_basic_t_reg not call 
+YGGR_ANY_VAL_OP_EXCLUDE_UNSAFE_TYPE							yggr::any_val::any_operator_mgr_basic_t_reg not register unsafe type operator
 
-YGGR_MONGODB_NO_DECIMAL128					yggr::nsql_database_system not support decimal128
+YGGR_MONGODB_NO_DECIMAL128									yggr::nsql_database_system not support decimal128
 
-YGGR_FOO_T_INFO_SUPPORT_STD_BIND			enable yggr::func::foo_t_info support std::bind
+YGGR_FOO_T_INFO_SUPPORT_STD_BIND							enable yggr::func::foo_t_info support std::bind
 
-YGGR_MPLEX_TYPENAME_CASTER_DEPRECATED_CPP98 enable yggr::mplex::typename_caster full features. if seted, typename_caster not support cpp98, default: disable
+YGGR_MPLEX_TYPENAME_CASTER_DEPRECATED_CPP98					enable yggr::mplex::typename_caster full features. if seted, typename_caster not support cpp98, default: disable
 
-YGGR_MSVC_USING_MT_FLAG						in windows using cl.exe /MT /MTD
-YGGR_MSVC_USING_MD_FLAG						in windows using cl.exe /MD /MDD
+YGGR_MSVC_USING_MT_FLAG										in windows using cl.exe /MT /MTD
+YGGR_MSVC_USING_MD_FLAG										in windows using cl.exe /MD /MDD
 
-YGGR_COMPILE_LINK_LIB_ONLY_USING_STATIC     YGGR_COMPILE_LINK_LIB is equivalent to YGGR_COMPILE_LINK_STATIC_LIB
+YGGR_COMPILE_LINK_LIB_ONLY_USING_STATIC						YGGR_COMPILE_LINK_LIB is equivalent to YGGR_COMPILE_LINK_STATIC_LIB
 
-YGGR_DEBUG									yggdrasil using debug mode
+YGGR_DEBUG													yggdrasil using debug mode
+
+YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST		if defined "1", handler_center conv args holder using reinterpret_cast, default 0.
+YGGR_CTRL_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST			if defined "1", handler_center conv args holder using reinterpret_cast, default 0.
 
 */
+
+/*
+
+!!! about YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST and YGGR_CTRL_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST WARNINFG: !!!!
+!!! if reinterpret_cast is used, Yggdrasil will not guarantee returning a null pointer when a parameter conversion error occurs, and will only use assert to indicate the error in Debug mode. !!!
+
+*/
+
 
 //compiler
 #if defined(BOOST_MSVC) || defined(_MSC_VER)

@@ -185,6 +185,7 @@ subdirs := \
 	$(LOCAL_PATH)/../test/Android_handler_center_handler_center_test_performance.mk \
 	$(LOCAL_PATH)/../test/Android_handler_center_handler_center_test_same_id_and_out.mk \
 	$(LOCAL_PATH)/../test/Android_handler_center_handler_center_test_u32_id.mk \
+	$(LOCAL_PATH)/../test/Android_handler_center_handler_container_test.mk \
 	$(LOCAL_PATH)/../test/Android_ids_id_generator_test.mk \
 	$(LOCAL_PATH)/../test/Android_ids_idn_test.mk \
 	$(LOCAL_PATH)/../test/Android_ids_uuid_bson_serialize_test.mk \

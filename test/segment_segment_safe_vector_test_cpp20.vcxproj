@@ -38,7 +38,7 @@
 		<ClCompile Include="segment\segment_safe_vector_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{A9341FA9-00BF-4EFA-9983-96B369B1E171}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>segment_segment_safe_vector_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>segment_segment_safe_vector_test</ProjectName>

@@ -38,7 +38,7 @@
 		<ClCompile Include="packet\network_32_64_x_serialization_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{95CAE579-A06A-4CD6-9C90-718050303F65}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>packet_network_32_64_x_serialization_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

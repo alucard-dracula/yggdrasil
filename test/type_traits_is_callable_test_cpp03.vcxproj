@@ -38,7 +38,7 @@
 		<ClCompile Include="type_traits\is_callable_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{EE8B4A8E-632C-4870-8B81-F79D2F14B844}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>type_traits_is_callable_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>type_traits_is_callable_test</ProjectName>

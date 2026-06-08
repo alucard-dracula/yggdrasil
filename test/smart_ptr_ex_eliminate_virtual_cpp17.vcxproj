@@ -38,7 +38,7 @@
 		<ClCompile Include="smart_ptr_ex\eliminate_virtual.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{84C07094-04C4-4783-A45C-8A985A718926}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>smart_ptr_ex_eliminate_virtual</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>smart_ptr_ex_eliminate_virtual</ProjectName>

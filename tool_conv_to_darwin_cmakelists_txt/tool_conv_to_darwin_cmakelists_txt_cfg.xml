@@ -1,5 +1,5 @@
 <tool_conv_to_darwin_cmakelists_txt_cfg class_id="0" tracking_level="0" version="0">
-	<root_dir_>../tools/lua/luabind503p</root_dir_>
+	<root_dir_>..</root_dir_>
 	<cmake_ver_req_min_>3.12</cmake_ver_req_min_>
 	<boost_ver_>1_82</boost_ver_>
 	<python_ver_>313</python_ver_>

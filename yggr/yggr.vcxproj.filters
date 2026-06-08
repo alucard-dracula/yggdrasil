@@ -8556,6 +8556,12 @@
     <ClInclude Include="utility\pass.hpp">
       <Filter>Header Files\utility</Filter>
     </ClInclude>
+    <ClInclude Include="handler_center\handler_container.hpp">
+      <Filter>Header Files\handler_center</Filter>
+    </ClInclude>
+    <ClInclude Include="algorithm\transform.hpp">
+      <Filter>Header Files\algorithm</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="support\max_min_undef.ipp">

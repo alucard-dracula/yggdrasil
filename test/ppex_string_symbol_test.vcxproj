@@ -38,7 +38,7 @@
 		<ClCompile Include="ppex\string_symbol_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{FF2CFB33-9E20-409B-B689-4F4127CE5958}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>ppex_string_symbol_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

@@ -38,7 +38,7 @@
 		<ClCompile Include="lua\lua_export_uuid_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{921A45D0-AD2E-4A0D-BEA1-3D2AE185960C}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>lua_lua_export_uuid_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>lua_lua_export_uuid_test</ProjectName>

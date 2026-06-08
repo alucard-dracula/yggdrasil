@@ -922,6 +922,7 @@
 		<Unit filename="geometry/geo_rectangle.hpp"/>
 		<Unit filename="geometry/geo_rectangle_t.hpp"/>
 		<Unit filename="handler_center/handler_center.hpp"/>
+		<Unit filename="handler_center/handler_container.hpp"/>
 		<Unit filename="ids/base_ids_def.hpp"/>
 		<Unit filename="ids/id_generator.hpp"/>
 		<Unit filename="ids/id_n.hpp"/>

@@ -38,7 +38,7 @@
 		<ClCompile Include="math\gcd_lcm_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{6ABEE2CF-DF7F-46D5-A280-F4ADBA96BDC5}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>math_gcd_lcm_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

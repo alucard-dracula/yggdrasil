@@ -38,7 +38,7 @@
 		<ClCompile Include="container\begin_end_rbegin_rend_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{25B9AAF5-9169-4264-8257-C46C35294BF5}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>container_begin_end_rbegin_rend_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

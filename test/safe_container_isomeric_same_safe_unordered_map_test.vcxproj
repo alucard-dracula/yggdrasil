@@ -38,7 +38,7 @@
 		<ClCompile Include="safe_container\isomeric_same_safe_unordered_map_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{410CB5CD-2146-486C-833F-4DEAE8658CC3}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>safe_container_isomeric_same_safe_unordered_map_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

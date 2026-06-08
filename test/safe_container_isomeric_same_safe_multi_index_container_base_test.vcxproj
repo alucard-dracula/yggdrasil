@@ -38,7 +38,7 @@
 		<ClCompile Include="safe_container\isomeric_same_safe_multi_index_container_base_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{BE1E9437-7EA3-43BE-8A55-2799D0263146}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>safe_container_isomeric_same_safe_multi_index_container_base_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

@@ -38,7 +38,7 @@
 		<ClCompile Include="tuple\tuple_comparer_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{D9B3F5A3-94EC-470A-867D-2FC57EF8A929}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>tuple_tuple_comparer_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>tuple_tuple_comparer_test</ProjectName>

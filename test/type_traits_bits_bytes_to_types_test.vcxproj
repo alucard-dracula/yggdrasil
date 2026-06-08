@@ -38,7 +38,7 @@
 		<ClCompile Include="type_traits\bits_bytes_to_types_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{2DDFE7BA-FD6B-4358-971F-8A5D750AB04F}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>type_traits_bits_bytes_to_types_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

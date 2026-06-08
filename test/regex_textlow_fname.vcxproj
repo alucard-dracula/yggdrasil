@@ -38,7 +38,7 @@
 		<ClCompile Include="regex\textlow_fname.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{C3F5DA75-F0B1-4BC2-9CDA-CD6FA6999A3F}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>regex_textlow_fname</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 	</PropertyGroup>

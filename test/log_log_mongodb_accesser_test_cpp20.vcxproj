@@ -38,7 +38,7 @@
 		<ClCompile Include="log\log_mongodb_accesser_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{9532F24B-5F5C-48CD-9FFD-81BCAA8379BA}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>log_log_mongodb_accesser_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>log_log_mongodb_accesser_test</ProjectName>

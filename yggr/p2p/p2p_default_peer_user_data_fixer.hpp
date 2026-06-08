@@ -41,7 +41,7 @@ template<typename Owner,
 class p2p_default_peer_user_data_fixer
 {
 public:
-	typedef Owner Owner_type;
+	typedef Owner owner_type;
 	typedef P2P_Boot_Request_Back p2p_boot_request_back_type;
 	typedef P2P_Boot_Start p2p_boot_start_type;
 

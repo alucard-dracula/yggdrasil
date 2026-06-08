@@ -38,7 +38,7 @@
 		<ClCompile Include="algorithm\boyer_moore_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{C0861336-DDAF-4A3D-B39F-DF74930B3D67}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>algorithm_boyer_moore_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>algorithm_boyer_moore_test</ProjectName>

@@ -38,7 +38,7 @@
 		<ClCompile Include="ppex\params_expand_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{298EFC28-70B6-43EE-811C-15FB1E2BA8D9}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>ppex_params_expand_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>ppex_params_expand_test</ProjectName>

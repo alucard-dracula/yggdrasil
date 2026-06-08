@@ -38,7 +38,7 @@
 		<ClCompile Include="segment\segment_safe_multi_index_container_base_test_part5.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{22DE787F-F2EB-4917-8421-23DA9B535F54}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>segment_segment_safe_multi_index_container_base_test_part5</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>segment_segment_safe_multi_index_container_base_test_part5</ProjectName>

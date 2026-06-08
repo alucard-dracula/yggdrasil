@@ -38,7 +38,7 @@
 		<ClCompile Include="tuple\yggr_tuple_in_boost_fusion_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{CD7B2D1B-A3BD-4C97-8A33-0E274A6958F0}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>tuple_yggr_tuple_in_boost_fusion_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>tuple_yggr_tuple_in_boost_fusion_test</ProjectName>

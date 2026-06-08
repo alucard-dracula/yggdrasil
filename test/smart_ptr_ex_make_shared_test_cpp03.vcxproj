@@ -38,7 +38,7 @@
 		<ClCompile Include="smart_ptr_ex\make_shared_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{D9F205DE-A49E-4B31-A0B9-A4FAB5459A7F}</ProjectGuid>
+		<ProjectGuid>{76C91055-0343-4996-B243-741C1B817650}</ProjectGuid>
 		<RootNamespace>smart_ptr_ex_make_shared_test</RootNamespace>
 		<TrackFileAccess>false</TrackFileAccess>
 		<ProjectName>smart_ptr_ex_make_shared_test</ProjectName>
