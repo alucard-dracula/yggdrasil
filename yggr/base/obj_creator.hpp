@@ -58,22 +58,22 @@ public:
 
 #ifndef YGGR_NO_CXX11_VARIADIC_TEMPLATES
 	
-	template<typename ...Args> YGGR_CXX14_STATIC_CONSTEXPR_OR_INLINE_STATIC
-	create_result_type create(BOOST_FWD_REF(Args)... args)
+	template<typename ...Args> inline 
+	static create_result_type create(BOOST_FWD_REF(Args)... args)
 	{
 		value_type val(boost::forward<Args>(args)...);
 		return val;
 	}
 
-	template<typename ...Args> YGGR_CXX14_STATIC_CONSTEXPR_OR_INLINE_STATIC
-	static_create_result_type static_create(BOOST_FWD_REF(Args)... args)
+	template<typename ...Args> inline
+	static static_create_result_type static_create(BOOST_FWD_REF(Args)... args)
 	{
 		static value_type val(boost::forward<Args>(args)...);
 		return val;
 	}
 
-	template<typename ...Args> YGGR_CXX14_STATIC_CONSTEXPR_OR_INLINE_STATIC
-	static_const_create_result_type static_const_create(BOOST_FWD_REF(Args)... args)
+	template<typename ...Args> inline 
+	static static_const_create_result_type static_const_create(BOOST_FWD_REF(Args)... args)
 	{
 		static value_type val(boost::forward<Args>(args)...);
 		return val;
@@ -101,21 +101,21 @@ public:
 #	define BOOST_PP_LOCAL_MACRO( __n__ ) \
 		BOOST_PP_EXPR_IF( __n__, template< ) \
 			YGGR_PP_FOO_TYPES_DEF( __n__ ) \
-		BOOST_PP_EXPR_IF( __n__, > ) inline static \
-		create_result_type create( YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_ANYREF_PARAMS ) ) { \
+		BOOST_PP_EXPR_IF( __n__, > ) inline \
+		static create_result_type create( YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_ANYREF_PARAMS ) ) { \
 			return value_type( YGGR_PP_FOO_PARAMS_OP_BOOST_FORWARD( __n__, YGGR_PP_SYMBOL_COMMA ) ); } \
 		\
 		BOOST_PP_EXPR_IF( __n__, template< ) \
 			YGGR_PP_FOO_TYPES_DEF( __n__ ) \
-		BOOST_PP_EXPR_IF( __n__, > ) inline static \
-		static_create_result_type static_create( YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_ANYREF_PARAMS ) ) { \
+		BOOST_PP_EXPR_IF( __n__, > ) inline \
+		static static_create_result_type static_create( YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_ANYREF_PARAMS ) ) { \
 			static value_type val( YGGR_PP_FOO_PARAMS_OP_BOOST_FORWARD( __n__, YGGR_PP_SYMBOL_COMMA ) ); \
 			return val; } \
 		\
 		BOOST_PP_EXPR_IF( __n__, template< ) \
 			YGGR_PP_FOO_TYPES_DEF( __n__ ) \
-		BOOST_PP_EXPR_IF( __n__, > ) inline static \
-		static_const_create_result_type static_const_create( YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_ANYREF_PARAMS ) ) { \
+		BOOST_PP_EXPR_IF( __n__, > ) inline \
+		static static_const_create_result_type static_const_create( YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_ANYREF_PARAMS ) ) { \
 			static value_type val( YGGR_PP_FOO_PARAMS_OP_BOOST_FORWARD( __n__, YGGR_PP_SYMBOL_COMMA ) ); \
 			return val; }
 
@@ -145,20 +145,22 @@ public:
 
 #ifndef YGGR_NO_CXX11_VARIADIC_TEMPLATES
 	
-	template<typename ...Args> YGGR_CXX17_STATIC_CONSTEXPR_OR_INLINE_STATIC
-	create_result_type create(BOOST_FWD_REF(Args)... args)
+	// don't change inline static to constexpr
+
+	template<typename ...Args> inline
+	static create_result_type create(BOOST_FWD_REF(Args)... args)
 	{
 		return;
 	}
 
-	template<typename ...Args> YGGR_CXX17_STATIC_CONSTEXPR_OR_INLINE_STATIC
-	static_create_result_type static_create(BOOST_FWD_REF(Args)... args)
+	template<typename ...Args> inline 
+	static static_create_result_type static_create(BOOST_FWD_REF(Args)... args)
 	{
 		return;
 	}
 
-	template<typename ...Args> YGGR_CXX17_STATIC_CONSTEXPR_OR_INLINE_STATIC
-	static_const_create_result_type static_const_create(BOOST_FWD_REF(Args)... args)
+	template<typename ...Args> inline 
+	static static_const_create_result_type static_const_create(BOOST_FWD_REF(Args)... args)
 	{
 		return;
 	}
@@ -168,20 +170,20 @@ public:
 #	define BOOST_PP_LOCAL_MACRO( __n__ ) \
 		BOOST_PP_EXPR_IF( __n__, template< ) \
 			YGGR_PP_FOO_TYPES_DEF( __n__ ) \
-		BOOST_PP_EXPR_IF( __n__, > ) inline static \
-		create_result_type create( YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_ANYREF_PARAMS ) ) { \
+		BOOST_PP_EXPR_IF( __n__, > ) inline \
+		static create_result_type create( YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_ANYREF_PARAMS ) ) { \
 			return;} \
 		\
 		BOOST_PP_EXPR_IF( __n__, template< ) \
 			YGGR_PP_FOO_TYPES_DEF( __n__ ) \
-		BOOST_PP_EXPR_IF( __n__, > ) inline static \
-		static_create_result_type static_create( YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_ANYREF_PARAMS ) ) { \
+		BOOST_PP_EXPR_IF( __n__, > ) inline \
+		static static_create_result_type static_create( YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_ANYREF_PARAMS ) ) { \
 			return; } \
 		\
 		BOOST_PP_EXPR_IF( __n__, template< ) \
 			YGGR_PP_FOO_TYPES_DEF( __n__ ) \
-		BOOST_PP_EXPR_IF( __n__, > ) inline static \
-		static_const_create_result_type static_const_create( YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_ANYREF_PARAMS ) ) { \
+		BOOST_PP_EXPR_IF( __n__, > ) inline \
+		static static_const_create_result_type static_const_create( YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_ANYREF_PARAMS ) ) { \
 			return; }
 
 #	define YGGR_PP_FOO_ARG_NAME() init_arg
@@ -195,7 +197,7 @@ public:
 
 #ifndef YGGR_NO_CXX11_VARIADIC_TEMPLATES
 
-template<typename T, typename ...Args> YGGR_CXX17_CONSTEXPR_OR_INLINE
+template<typename T, typename ...Args> inline
 typename obj_creator<T>::create_result_type
 	create_object(BOOST_FWD_REF(Args)... args)
 {
@@ -203,7 +205,7 @@ typename obj_creator<T>::create_result_type
 	return creator_type::create(boost::forward<Args>(args)...);
 }
 
-template<typename T, typename ...Args> YGGR_CXX17_CONSTEXPR_OR_INLINE
+template<typename T, typename ...Args> inline
 typename obj_creator<T>::static_create_result_type
 	static_create_object(BOOST_FWD_REF(Args)... args)
 {
@@ -211,7 +213,7 @@ typename obj_creator<T>::static_create_result_type
 	return creator_type::static_create(boost::forward<Args>(args)...);
 }
 
-template<typename T, typename ...Args> YGGR_CXX17_CONSTEXPR_OR_INLINE
+template<typename T, typename ...Args> inline
 typename obj_creator<T>::static_const_create_result_type
 	static_const_create_object(BOOST_FWD_REF(Args)... args)
 {

@@ -426,7 +426,6 @@ private:
 	handler_type _handler;
 };
 
-
 template<typename Handler> inline
 handler_container<Handler> make_handler_container(const Handler& handler)
 {

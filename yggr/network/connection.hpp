@@ -115,7 +115,8 @@ public:
 	template<typename NetInfo, typename Data, typename Handler> inline
 	void send_packet(const NetInfo& netinfo, const Data& data, const Handler& handler)
 	{
-		if(!_gate.load())
+		//if(!_gate.load())
+		if(!_gate.load(boost::memory_order_acquire))
 		{
 			return;
 		}
@@ -125,7 +126,8 @@ public:
 
 	inline void next_send(void)
 	{
-		if(!_gate.load())
+		//if(!_gate.load())
+		if(!_gate.load(boost::memory_order_acquire))
 		{
 			return;
 		}
@@ -135,7 +137,8 @@ public:
 	template<typename Handler> inline
 	void send_packet(send_data_type& pak, const Handler& handler)
 	{
-		if(!_gate.load())
+		//if(!_gate.load())
+		if(!_gate.load(boost::memory_order_acquire))
 		{
 			return;
 		}
@@ -149,7 +152,8 @@ public:
 	template<typename Pak, typename Tuple_Handler> inline
 	void recv_packet(const Tuple_Handler& handler)
 	{
-		if(!_gate.load())
+		//if(!_gate.load())
+		if(!_gate.load(boost::memory_order_acquire))
 		{
 			return;
 		}

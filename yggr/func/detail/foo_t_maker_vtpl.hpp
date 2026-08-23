@@ -44,6 +44,8 @@ THE SOFTWARE.
 #include <boost/mpl/erase.hpp>
 #include <boost/mpl/vector.hpp>
 
+#include <boost/type_traits/add_pointer.hpp>
+
 namespace yggr
 {
 namespace func

@@ -87,7 +87,7 @@ public:
 	{
 	}
 
-	static inline boost::python::dict& s_get_global_environment(void)
+	inline static boost::python::dict& s_get_global_environment(void)
 	{
 		assert(_s_pglobal);
 		return _s_pglobal? *_s_pglobal : detail::failed_dict();
@@ -103,22 +103,22 @@ public:
 		return this_type::s_get_global_environment();
 	}
 
-	static inline bool append_module(const char* mod_name)
+	inline static bool append_module(const char* mod_name)
 	{
 		return 
 			!Py_IsInitialized()
 			&& PyImport_ImportModule(mod_name);
 	}
 
-	template<typename Module_Init_Foo> static inline
-	bool append_module(const char* mod_name, Module_Init_Foo foo)
+	template<typename Module_Init_Foo> inline
+	static bool append_module(const char* mod_name, Module_Init_Foo foo)
 	{
 		return 
 			!Py_IsInitialized()
 			&& !(PyImport_AppendInittab(mod_name, foo) == -1);
 	}
 
-	static inline bool py_initialize(void)
+	inline static bool py_initialize(void)
 	{
 		if(Py_IsInitialized())
 		{
@@ -135,7 +135,7 @@ public:
 		}
 	}
 
-	static inline bool py_finalize(void)
+	inline static bool py_finalize(void)
 	{
 		if(!Py_IsInitialized())
 		{

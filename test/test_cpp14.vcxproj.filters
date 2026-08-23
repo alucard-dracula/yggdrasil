@@ -20,7 +20,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="algorithm\transform_test.cpp">
+    <ClCompile Include="base\create_object_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -194,7 +194,8 @@ private:
 		bool bgate_now = true;
 		bool bgate_next = false;
 
-		if(_gate.compare_exchange_strong(bgate_now, bgate_next))
+		//if(_gate.compare_exchange_strong(bgate_now, bgate_next))
+		if(_gate.compare_exchange_strong(bgate_now, bgate_next, boost::memory_order_acq_rel, boost::memory_order_relaxed))
 		{
 			assert(base.empty());
 			return true;
@@ -222,7 +223,8 @@ private:
 		{
 			bool bgate_now = false;
 			bool bgate_next = true;
-			_gate.compare_exchange_strong(bgate_now, bgate_next); //gate state is close or open open_gate false->true;
+			//_gate.compare_exchange_strong(bgate_now, bgate_next); //gate state is close or open open_gate false->true;
+			_gate.compare_exchange_strong(bgate_now, bgate_next, boost::memory_order_acq_rel, boost::memory_order_relaxed); //gate state is close or open open_gate false->true;
 			return base_opacket_container_ptr_type();
 		}
 		else
@@ -237,7 +239,8 @@ private:
 									typename queue_type::base_type& out)
 	{
 		base.swap(out);
-		_gate.store(true);
+		//_gate.store(true);
+		_gate.store(true, boost::memory_order_seq_cst);
 	}
 
 private:
