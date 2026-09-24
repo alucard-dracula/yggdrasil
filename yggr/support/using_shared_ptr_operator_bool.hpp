@@ -1,4 +1,4 @@
-//using_operator_bool.hpp
+//using_shared_ptr_operator_bool.hpp
 
 /****************************************************************************
 Copyright (c) 2010-2024 yggdrasil

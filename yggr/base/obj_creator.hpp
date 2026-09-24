@@ -57,12 +57,40 @@ public:
 public:
 
 #ifndef YGGR_NO_CXX11_VARIADIC_TEMPLATES
+
+	template<typename ...Args> YGGR_CONSTEXPR 
+	static create_result_type constexpr_create(BOOST_FWD_REF(Args)... args)
+	{
+		return value_type(boost::forward<Args>(args)...);
+	}
+
+#else
+
+	inline static create_result_type constexpr_create(void)
+	{
+		return value_type(); // must using this style in msvc10
+	}
+
+#	define BOOST_PP_LOCAL_MACRO( __n__ ) \
+		BOOST_PP_EXPR_IF( __n__, template< ) \
+			YGGR_PP_FOO_TYPES_DEF( __n__ ) \
+		BOOST_PP_EXPR_IF( __n__, > ) inline \
+		static create_result_type constexpr_create( YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_ANYREF_PARAMS ) ) { \
+			return value_type( YGGR_PP_FOO_PARAMS_OP_BOOST_FORWARD( __n__, YGGR_PP_SYMBOL_COMMA ) ); } 
+
+#	define YGGR_PP_FOO_ARG_NAME() init_arg
+#	define BOOST_PP_LOCAL_LIMITS ( 1, YGGR_PP_FOO_DEFAULT_PARAMS_LEN )
+#	include BOOST_PP_LOCAL_ITERATE()
+#	undef YGGR_PP_FOO_ARG_NAME
+
+#endif // YGGR_NO_CXX11_VARIADIC_TEMPLATES
+
+#ifndef YGGR_NO_CXX11_VARIADIC_TEMPLATES
 	
 	template<typename ...Args> inline 
 	static create_result_type create(BOOST_FWD_REF(Args)... args)
 	{
-		value_type val(boost::forward<Args>(args)...);
-		return val;
+		return value_type(boost::forward<Args>(args)...);
 	}
 
 	template<typename ...Args> inline
