@@ -1,69 +1,53 @@
-# operator_result.hpp 文档
+# `operator_result.hpp` 中文说明
 
-## 1. 版权声明
-文件顶部为 MIT 许可证，允许自由使用、修改和分发。
+## 用途
 
-## 2. 文件作用
-本文件为 Yggdrasil 框架提供了一套类型萃取工具，用于推导一元和二元运算符（如 +、-、*、/、%、&、|、^、~、<<、>> 等）在不同类型上的结果类型。其实现方式兼容 C++98/03/11，通过宏和 `typeof` 技术实现类型自动推导，适用于泛型编程、模板元编程、类型安全运算等场景。
-
-## 3. 主要内容与实现
-
-### 3.1 operator_result_t_getter
-- 模板结构体，继承自 `traits<T>`，用于类型萃取和 declval 支持。
-- 提供隐式类型转换运算符，便于在 `typeof` 表达式中模拟类型实例。
-
-### 3.2 宏定义
-- `YGGR_PP_TYPE_TRAITS_BINARY_OPERATOR_RESULT`  
-  自动生成二元运算符结果类型萃取结构体，如 `plus_operator_result<L, R>::type` 表示 `L + R` 的结果类型。
-- `YGGR_PP_TYPE_TRAITS_BEFORE_UNARY_OPERATOR_RESULT`  
-  自动生成一元前置运算符结果类型萃取结构体，如 `negate_operator_result<T>::type` 表示 `-T` 的结果类型。
-- `YGGR_PP_TYPE_TRAITS_AFTER_UNARY_OPERATOR_RESULT`  
-  自动生成一元后置运算符结果类型萃取结构体（本文件未直接用到）。
-
-### 3.3 具体运算符支持
-- **数学运算符**  
-  - 正号：`positive_operator_result<T>::type`（+a）
-  - 负号：`negate_operator_result<T>::type`（-a）
-  - 加法：`plus_operator_result<L, R>::type`（a + b）
-  - 减法：`minus_operator_result<L, R>::type`（a - b）
-  - 乘法：`multiplies_operator_result<L, R>::type`（a * b）
-  - 除法：`divides_operator_result<L, R>::type`（a / b）
-  - 取模：`modulus_operator_result<L, R>::type`（a % b）
-
-- **位运算符**  
-  - 按位与：`bitwise_and_operator_result<L, R>::type`（a & b）
-  - 按位或：`bitwise_or_operator_result<L, R>::type`（a | b）
-  - 按位异或：`bitwise_xor_operator_result<L, R>::type`（a ^ b）
-  - 左移：`bitwise_left_shift_operator_result<L, R>::type`（a << b）
-  - 右移：`bitwise_right_shift_operator_result<L, R>::type`（a >> b）
-  - 按位取反：`bitwise_not_operator_result<T>::type`（~a）
-
-### 3.4 兼容性与警告处理
-- 针对 MSVC 编译器，关闭了部分无关警告（如 4804、4805）。
-- 采用 Boost.Preprocessor 进行宏拼接和参数展开，兼容多种 C++ 标准。
-
-## 4. 典型用法
+本头文件定义编译期类型特征，用于取得一元或二元运算表达式的结果类型。它通过 `YGGR_TYPEOF_TPL` 推导表达式类型，并以嵌套类型 `type` 暴露结果。
 
 ```cpp
 #include <yggr/type_traits/operator_result.hpp>
-#include <type_traits>
-
-typedef yggr::plus_operator_result<int, double>::type result_type; // result_type = double
-
-static_assert(std::is_same<result_type, double>::value, "Type deduction failed");
-
-typedef yggr::bitwise_and_operator_result<unsigned, char>::type bit_type; // bit_type = unsigned
 ```
 
-## 5. 注意事项
+## 提供的类型特征
 
-- 依赖 `typeof` 技术（如 Boost.Typeof 或 C++11 decltype），需确保相关宏和头文件已正确配置。
-- 仅用于类型推导，不会实际执行运算。
-- 对于自定义类型，需保证相关运算符已正确定义。
+| 特征 | 对应表达式 |
+| --- | --- |
+| `positive_operator_result<T>` | `+T` |
+| `negate_operator_result<T>` | `-T` |
+| `plus_operator_result<L, R>` | `L + R` |
+| `minus_operator_result<L, R>` | `L - R` |
+| `multiplies_operator_result<L, R>` | `L * R` |
+| `divides_operator_result<L, R>` | `L / R` |
+| `modulus_operator_result<L, R>` | 见下方源码注意事项 |
+| `bitwise_and_operator_result<L, R>` | `L & R` |
+| `bitwise_or_operator_result<L, R>` | `L \| R` |
+| `bitwise_xor_operator_result<L, R>` | `L ^ R` |
+| `bitwise_left_shift_operator_result<L, R>` | `L << R` |
+| `bitwise_right_shift_operator_result<L, R>` | `L >> R` |
+| `bitwise_not_operator_result<T>` | `~T` |
 
-## 6. 总结
+这些特征在 `yggr::type_traits` 命名空间定义，并通过 `yggr` 命名空间导出。
 
-本文件为 Yggdrasil 框架提供了强大的运算符结果类型推导工具，适用于泛型算法、模板元编程、类型安全运算等场景。通过宏和类型萃取机制，用户可方便地获取任意类型组合下各种运算符的结果类型，提升代码的通用性和安全性。
+## 示例
 
----
+```cpp
+#include <yggr/type_traits/operator_result.hpp>
 
+typedef yggr::plus_operator_result<int, double>::type sum_type;
+typedef yggr::bitwise_not_operator_result<unsigned int>::type inverted_type;
+```
+
+`sum_type` 与表达式 `int + double` 的类型相同，`inverted_type` 与 `~unsigned int` 的结果类型相同。
+
+## 实现说明
+
+- 内部 `operator_result_t_getter<T>` 提供到 `T` 的转换运算符，辅助编译器在运算表达式中推导结果类型。
+- 二元和一元特征通过预处理器宏生成，底层实际运算符由 `yggr/ppex/symbols.hpp` 等定义。
+- MSVC 下针对部分算术运算的警告在展开期间暂时关闭，结束后恢复。
+
+## 注意事项
+
+- 对应运算符必须能应用于给定类型；否则在实例化结果特征时会产生编译错误。
+- 返回的 `type` 是表达式类型，不保证一定是普通值类型；例如运算符重载可能返回引用或代理类型。
+- **取模特征存在实现与注释不一致：**源码中的 `modulus_operator_result` 虽以 `%` 为注释，但实际传入的是除法运算符宏 `/`。因此它目前推导的是除法表达式结果类型，不应依赖它获取取模表达式的类型。
+- 这些特征只推导类型，不会执行运算或检查运行时数值。

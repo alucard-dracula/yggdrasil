@@ -35,5 +35,4 @@ Supported platforms: Windows, Linux, macOS, Android, iOS
 Supported compilers: MSVC, GCC, Clang, AppleClang
 
 PS: 
-1. The documents are being improved with AI assistance...  
-2. The project provides abundant test cases, and the library's design follows the design principles of STL and BOOST. Please refer to the examples for the usage of specific modules.  
+1. The project provides abundant test cases, and the library's design follows the design principles of STL and BOOST. Please refer to the examples for the usage of specific modules.  

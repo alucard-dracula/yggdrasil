@@ -33,32 +33,6 @@ THE SOFTWARE.
 
 #include <boost/type_traits/is_same.hpp>
 
-//#define YGGR_PP_TASK_DATA_INFO_PARSER_DEF(__type__, __data_id__, __data_ver__) \
-//	namespace yggr { namespace task_center { namespace support { \
-//	template<typename Info_Def> \
-//	struct task_data_info_getter<Info_Def, __type__> { \
-//		typedef __type__ data_type; \
-//		typedef typename Info_Def::data_id_type data_id_type; \
-//		typedef typename Info_Def::data_ver_type data_ver_type; \
-//		typedef typename Info_Def::data_info_type data_info_type; \
-//		typedef typename Info_Def::class_info_type class_info_type; \
-//		typedef typename Info_Def::class_name_type class_name_type; \
-//		\
-//		inline static data_id_type data_id(void) { \
-//			return data_id_type(__data_id__); } \
-//		\
-//		inline static data_ver_type data_ver(void) { \
-//			return data_ver_type(__data_ver__); } \
-//		\
-//		inline static data_info_type data_info(void) { \
-//			return data_info_type(__data_id__, __data_ver__); } \
-//		\
-//		inline static const class_info_type& class_info(void) { \
-//			return typeid(__type__); } \
-//		\
-//		inline static class_name_type class_name(void) { \
-//			return class_name_type(typeid(__type__).name()); } }; } } }
-
 #define YGGR_PP_TASK_DATA_INFO_PARSER_DEF(__type__, __data_id__, __data_ver__) \
 	namespace yggr { namespace task_center { namespace support { \
 	template<typename Info_Def> \
@@ -123,11 +97,6 @@ struct task_data_info_getter
 		return data_type::data_info();
 	}
 
-	//inline static const class_info_type& class_info(void)
-	//{
-	//	return data_type::class_info();
-	//}
-
 	inline static class_info_type class_info(void)
 	{
 		return data_type::class_info();
@@ -166,12 +135,6 @@ struct task_data_info_parser
 	{
 		return task_data_info_getter<info_def_type, T>::data_info();
 	}
-
-	//template<typename T> inline
-	//static const class_info_type& class_info(void)
-	//{
-	//	return task_data_info_getter<info_def_type, T>::class_info();
-	//}
 
 	template<typename T> inline
 	static class_info_type class_info(void)
