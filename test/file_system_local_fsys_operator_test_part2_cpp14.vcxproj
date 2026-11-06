@@ -38,7 +38,7 @@
     <ClCompile Include="file_system\local_fsys_operator_test_part2.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{CF2A2C2D-87D5-449C-8B4D-5576B87C0E4F}</ProjectGuid>
+    <ProjectGuid>{35910F83-014B-46A8-B3FF-362A28AA2102}</ProjectGuid>
     <RootNamespace>file_system_local_fsys_operator_test_part2</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>file_system_local_fsys_operator_test_part2</ProjectName>

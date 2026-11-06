@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\safe_list_test_part1_1.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C5820EDB-6408-4984-8233-CA87308C0ECB}</ProjectGuid>
+    <ProjectGuid>{B211B2A6-480A-4427-B518-112D775B51B2}</ProjectGuid>
     <RootNamespace>safe_container_safe_list_test_part1_1</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_safe_list_test_part1_1</ProjectName>

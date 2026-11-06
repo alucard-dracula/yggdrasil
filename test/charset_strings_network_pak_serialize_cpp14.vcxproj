@@ -38,7 +38,7 @@
     <ClCompile Include="charset\strings_network_pak_serialize.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{945669A7-E0C3-45A0-B620-9B228A69C1F5}</ProjectGuid>
+    <ProjectGuid>{4EDCDBB6-CE6B-4F18-A292-F1C94E51AAAD}</ProjectGuid>
     <RootNamespace>charset_strings_network_pak_serialize</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_strings_network_pak_serialize</ProjectName>

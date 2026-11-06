@@ -38,7 +38,7 @@
     <ClCompile Include="segment\segment_safe_multimap_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D7689B61-6CC1-496B-9C04-B2A514648850}</ProjectGuid>
+    <ProjectGuid>{66987BA7-9A66-4BE0-80C8-D26C5041AA76}</ProjectGuid>
     <RootNamespace>segment_segment_safe_multimap_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>segment_segment_safe_multimap_test</ProjectName>

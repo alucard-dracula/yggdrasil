@@ -38,7 +38,7 @@
     <ClCompile Include="mplex\ptr_val_operator_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DAEBDE9E-7289-4D95-951D-1F537083AE23}</ProjectGuid>
+    <ProjectGuid>{D65F5303-402E-45AC-8257-5CD28698F63B}</ProjectGuid>
     <RootNamespace>mplex_ptr_val_operator_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>mplex_ptr_val_operator_test</ProjectName>

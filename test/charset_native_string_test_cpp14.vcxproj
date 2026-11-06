@@ -38,7 +38,7 @@
     <ClCompile Include="charset\native_string_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7254A5B1-C3D5-4F0C-BD8A-57B2037DD111}</ProjectGuid>
+    <ProjectGuid>{3497F005-0C00-475C-BB52-A29BB9CB90A3}</ProjectGuid>
     <RootNamespace>charset_native_string_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_native_string_test</ProjectName>

@@ -15,6 +15,7 @@ ln -s ../Release-x32/gcc15/libyggr_lua_base_type.so yggr_lua_base_type.so
 ../Release-x32/gcc15/algorithm_knuth_morris_pratt_test --batch-test
 ../Release-x32/gcc15/algorithm_lexicographical_c_compare_test --batch-test
 ../Release-x32/gcc15/algorithm_random_shuffle_test --batch-test
+../Release-x32/gcc15/algorithm_transform_test --batch-test
 ../Release-x32/gcc15/any_val_any_bson_serialize_test --batch-test
 ../Release-x32/gcc15/any_val_any_network_serialize_test --batch-test
 ../Release-x32/gcc15/any_val_any_operator_mgr_basic_type_mix_test --batch-test
@@ -266,7 +267,6 @@ ln -s ../Release-x32/gcc15/libyggr_lua_base_type.so yggr_lua_base_type.so
 ../Release-x32/gcc15/math_vector_hash_test --batch-test
 ../Release-x32/gcc15/memory_ex_allocator_traits_test --batch-test
 ../Release-x32/gcc15/mplex_cast_to_container_test --batch-test
-../Release-x32/gcc15/mplex_conv_to_tuple_test --batch-test
 ../Release-x32/gcc15/mplex_get_reference_if_in_test --batch-test
 ../Release-x32/gcc15/mplex_integer_log2_test --batch-test
 ../Release-x32/gcc15/mplex_limits_test --batch-test
@@ -277,8 +277,8 @@ ln -s ../Release-x32/gcc15/libyggr_lua_base_type.so yggr_lua_base_type.so
 ../Release-x32/gcc15/mplex_reference_to_pointer_t_test --batch-test
 ../Release-x32/gcc15/mplex_reference_to_value_t_test --batch-test
 ../Release-x32/gcc15/mplex_strict_sizeof_test --batch-test
-../Release-x32/gcc15/mplex_template_repaceor_test --batch-test
 ../Release-x32/gcc15/mplex_typename_caster_test --batch-test
+../Release-x32/gcc15/mplex_typename_repaceor_test --batch-test
 ../Release-x32/gcc15/mplex_typename_swapper_test --batch-test
 ../Release-x32/gcc15/network_asio_timer_test --batch-test
 ../Release-x32/gcc15/network_base_network_packet_test --batch-test
@@ -567,7 +567,12 @@ ln -s ../Release-x32/gcc15/libyggr_lua_base_type.so yggr_lua_base_type.so
 ../Release-x32/gcc15/time_timer_mgr_seh_test --batch-test
 ../Release-x32/gcc15/time_timer_mgr_test --batch-test
 ../Release-x32/gcc15/time_timer_test --batch-test
+../Release-x32/gcc15/tuple_conv_to_tuple_test --batch-test
 ../Release-x32/gcc15/tuple_tuple_comparer_test --batch-test
+../Release-x32/gcc15/tuple_tuple_in_unordered_container_test --batch-test
+../Release-x32/gcc15/tuple_tuple_maker_test --batch-test
+../Release-x32/gcc15/tuple_tuple_sub_tuple_test --batch-test
+../Release-x32/gcc15/tuple_tuple_swap_test --batch-test
 ../Release-x32/gcc15/tuple_tuple_test --batch-test
 ../Release-x32/gcc15/tuple_yggr_tuple_in_boost_fusion_test --batch-test
 ../Release-x32/gcc15/type_traits_bits_bytes_to_types_test --batch-test

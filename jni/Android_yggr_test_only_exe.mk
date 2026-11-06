@@ -14,6 +14,7 @@ subdirs := \
 	$(LOCAL_PATH)/../test/Android_algorithm_knuth_morris_pratt_test.mk \
 	$(LOCAL_PATH)/../test/Android_algorithm_lexicographical_c_compare_test.mk \
 	$(LOCAL_PATH)/../test/Android_algorithm_random_shuffle_test.mk \
+	$(LOCAL_PATH)/../test/Android_algorithm_transform_test.mk \
 	$(LOCAL_PATH)/../test/Android_any_val_any_bson_serialize_test.mk \
 	$(LOCAL_PATH)/../test/Android_any_val_any_network_serialize_test.mk \
 	$(LOCAL_PATH)/../test/Android_any_val_any_operator_mgr_basic_type_mix_test.mk \
@@ -264,7 +265,6 @@ subdirs := \
 	$(LOCAL_PATH)/../test/Android_math_vector_hash_test.mk \
 	$(LOCAL_PATH)/../test/Android_memory_ex_allocator_traits_test.mk \
 	$(LOCAL_PATH)/../test/Android_mplex_cast_to_container_test.mk \
-	$(LOCAL_PATH)/../test/Android_mplex_conv_to_tuple_test.mk \
 	$(LOCAL_PATH)/../test/Android_mplex_get_reference_if_in_test.mk \
 	$(LOCAL_PATH)/../test/Android_mplex_integer_log2_test.mk \
 	$(LOCAL_PATH)/../test/Android_mplex_limits_test.mk \
@@ -275,8 +275,8 @@ subdirs := \
 	$(LOCAL_PATH)/../test/Android_mplex_reference_to_pointer_t_test.mk \
 	$(LOCAL_PATH)/../test/Android_mplex_reference_to_value_t_test.mk \
 	$(LOCAL_PATH)/../test/Android_mplex_strict_sizeof_test.mk \
-	$(LOCAL_PATH)/../test/Android_mplex_template_repaceor_test.mk \
 	$(LOCAL_PATH)/../test/Android_mplex_typename_caster_test.mk \
+	$(LOCAL_PATH)/../test/Android_mplex_typename_repaceor_test.mk \
 	$(LOCAL_PATH)/../test/Android_mplex_typename_swapper_test.mk \
 	$(LOCAL_PATH)/../test/Android_network_asio_timer_test.mk \
 	$(LOCAL_PATH)/../test/Android_network_base_network_packet_test.mk \
@@ -565,7 +565,12 @@ subdirs := \
 	$(LOCAL_PATH)/../test/Android_time_timer_mgr_seh_test.mk \
 	$(LOCAL_PATH)/../test/Android_time_timer_mgr_test.mk \
 	$(LOCAL_PATH)/../test/Android_time_timer_test.mk \
+	$(LOCAL_PATH)/../test/Android_tuple_conv_to_tuple_test.mk \
 	$(LOCAL_PATH)/../test/Android_tuple_tuple_comparer_test.mk \
+	$(LOCAL_PATH)/../test/Android_tuple_tuple_in_unordered_container_test.mk \
+	$(LOCAL_PATH)/../test/Android_tuple_tuple_maker_test.mk \
+	$(LOCAL_PATH)/../test/Android_tuple_tuple_sub_tuple_test.mk \
+	$(LOCAL_PATH)/../test/Android_tuple_tuple_swap_test.mk \
 	$(LOCAL_PATH)/../test/Android_tuple_tuple_test.mk \
 	$(LOCAL_PATH)/../test/Android_tuple_yggr_tuple_in_boost_fusion_test.mk \
 	$(LOCAL_PATH)/../test/Android_type_traits_bits_bytes_to_types_test.mk \

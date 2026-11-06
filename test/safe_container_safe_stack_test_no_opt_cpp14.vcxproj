@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\safe_stack_test_no_opt.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3447F428-DF0A-4772-B150-E7A99FC45AED}</ProjectGuid>
+    <ProjectGuid>{DC035F25-B412-48B9-94A6-181AEFFA24A3}</ProjectGuid>
     <RootNamespace>safe_container_safe_stack_test_no_opt</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_safe_stack_test_no_opt</ProjectName>

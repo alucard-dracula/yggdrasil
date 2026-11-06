@@ -38,7 +38,7 @@
     <ClCompile Include="type_traits\is_same_tpl_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{82974860-0D54-4CEE-96A3-EF06497ADDBC}</ProjectGuid>
+    <ProjectGuid>{F1EF6D9F-4C86-4E45-9FE8-9C836DB6C3A5}</ProjectGuid>
     <RootNamespace>type_traits_is_same_tpl_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>type_traits_is_same_tpl_test</ProjectName>

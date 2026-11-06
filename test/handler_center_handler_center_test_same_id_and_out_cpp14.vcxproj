@@ -38,7 +38,7 @@
     <ClCompile Include="handler_center\handler_center_test_same_id_and_out.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1CBC741E-1D41-48DA-BAA5-B00AD8AB1E02}</ProjectGuid>
+    <ProjectGuid>{74FDDF69-636E-4883-B751-D563859A6097}</ProjectGuid>
     <RootNamespace>handler_center_handler_center_test_same_id_and_out</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>handler_center_handler_center_test_same_id_and_out</ProjectName>

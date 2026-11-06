@@ -231,12 +231,22 @@ foo_name_map_type& parse_def_file_data(foo_name_map_type& foo_name_map, const yg
 			--pos_mid;
 		}
 
+	
 		std::size_t pos_chk = dbe_file_buf.rfind(" = ", pos_mid);
 
 		if(pos_chk != yggr::string::npos)
 		{
 			pos_mid = pos_chk;
 			for(;pos_mid - 1 && dbe_file_buf[pos_mid - 1] == ' '; --pos_mid);
+		}
+		else
+		{
+			pos_chk = dbe_file_buf.rfind(")", pos_mid);
+			if(pos_chk != yggr::string::npos)
+			{
+				pos_mid = dbe_file_buf.rfind(" (", pos_chk - 1);
+				for(;pos_mid - 1 && dbe_file_buf[pos_mid - 1] == ' '; --pos_mid);
+			}
 		}
 		
 		pos_beg = dbe_file_buf.rfind(' ', pos_mid - 1);

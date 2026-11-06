@@ -38,7 +38,7 @@
     <ClCompile Include="algorithm\is_permutation_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{573FF3A7-AAAC-4466-AB3A-798E0A6209AE}</ProjectGuid>
+    <ProjectGuid>{AF615255-487B-4E01-B226-9B73B9AB3133}</ProjectGuid>
     <RootNamespace>algorithm_is_permutation_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>algorithm_is_permutation_test</ProjectName>

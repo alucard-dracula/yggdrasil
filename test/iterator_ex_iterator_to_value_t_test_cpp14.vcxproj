@@ -38,7 +38,7 @@
     <ClCompile Include="iterator_ex\iterator_to_value_t_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E9278ADE-6D07-4C8E-A27D-A004769BD4A5}</ProjectGuid>
+    <ProjectGuid>{A9024FFA-140B-4FC0-A5BD-B85F38F1799E}</ProjectGuid>
     <RootNamespace>iterator_ex_iterator_to_value_t_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>iterator_ex_iterator_to_value_t_test</ProjectName>

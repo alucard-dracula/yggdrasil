@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\boost_unordered_set_ha_opt_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BC5A385B-7B68-4E59-B292-5E8929C90B24}</ProjectGuid>
+    <ProjectGuid>{BF7C676C-559F-4A4C-B03C-1085AF4558F0}</ProjectGuid>
     <RootNamespace>safe_container_boost_unordered_set_ha_opt_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_boost_unordered_set_ha_opt_test</ProjectName>

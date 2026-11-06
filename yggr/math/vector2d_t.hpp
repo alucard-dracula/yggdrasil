@@ -141,7 +141,7 @@ public:
 
 	template<typename OVal1, typename OVal2>
 	vector2d(const OVal1& val1, const OVal2& val2)
-		:  x(base_type::operator[](0)), 
+		:  x(base_type::operator[](0)),
 			y(base_type::operator[](1)),
 			w(base_type::operator[](2))
 	{
@@ -152,7 +152,7 @@ public:
 
 	template<typename OVal1, typename OVal2, typename OVal3>
 	vector2d(const OVal1& val1, const OVal2& val2, const OVal3& val3)
-		:  x(base_type::operator[](0)), 
+		:  x(base_type::operator[](0)),
 			y(base_type::operator[](1)),
 			w(base_type::operator[](2))
 	{
@@ -171,7 +171,7 @@ public:
 
 	vector2d(const base_type& right)
 		: base_type(right),
-			x(base_type::operator[](0)), 
+			x(base_type::operator[](0)),
 			y(base_type::operator[](1)),
 			w(base_type::operator[](2))
 	{
@@ -179,7 +179,7 @@ public:
 
 	template<typename OVal, template<typename _Val, std::size_t> class OBase>
 	vector2d(const vector2d<OVal, OBase>& right)
-		: x(base_type::operator[](0)), 
+		: x(base_type::operator[](0)),
 			y(base_type::operator[](1)),
 			w(base_type::operator[](2))
 	{
@@ -191,7 +191,7 @@ public:
 	template<typename OVal, typename W,
 				template <typename _Val, std::size_t> class OBase>
 	vector2d(const vector2d<OVal, OBase>& right, const W& w)
-		: x(base_type::operator[](0)), 
+		: x(base_type::operator[](0)),
 			y(base_type::operator[](1)),
 			w(base_type::operator[](2))
 	{
@@ -202,7 +202,7 @@ public:
 
 	vector2d(BOOST_RV_REF(this_type) right)
 		: base_type(boost::move(static_cast<base_type&>(right))),
-			x(base_type::operator[](0)), 
+			x(base_type::operator[](0)),
 			y(base_type::operator[](1)),
 			w(base_type::operator[](2))
 	{
@@ -211,7 +211,7 @@ public:
 	template<typename W>
 	vector2d(BOOST_RV_REF(this_type) right, const W& w)
 		: base_type(boost::move(static_cast<base_type&>(right))),
-			x(base_type::operator[](0)), 
+			x(base_type::operator[](0)),
 			y(base_type::operator[](1)),
 			w(base_type::operator[](2))
 	{
@@ -228,7 +228,7 @@ public:
 	template<typename W>
 	vector2d(const this_type& right, const W& w)
 		: base_type(right),
-			x(base_type::operator[](0)), 
+			x(base_type::operator[](0)),
 			y(base_type::operator[](1)),
 			w(base_type::operator[](2))
 	{
@@ -244,7 +244,7 @@ public:
 	{
 		base_type& base = *this;
 		const base_type& right_cref = right;
-		if(&base == &right_cref) 
+		if(&base == &right_cref)
 		{
 			return *this;
 		}
@@ -264,7 +264,7 @@ public:
 	this_type& operator=(const base_type& right)
 	{
 		base_type& base = *this;
-		if(&base == &right) 
+		if(&base == &right)
 		{
 			return *this;
 		}
@@ -316,7 +316,7 @@ public:
 
 	this_type& operator=(const this_type& right)
 	{
-		if(this == &right) 
+		if(this == &right)
 		{
 			return *this;
 		}
@@ -423,7 +423,7 @@ public:
 	{
 		typedef flaw_comparer<val_type> cmper_type;
 
-		return 
+		return
 			static_cast<size_type>(cmper_type((*this)[0]) == 0)
 			+ static_cast<size_type>(cmper_type((*this)[1]) == 0);
 	}
@@ -432,7 +432,7 @@ public:
 	{
 		typedef flaw_comparer<val_type> cmper_type;
 
-		return 
+		return
 			static_cast<size_type>(cmper_type((*this)[0]) == 0)
 			+ static_cast<size_type>(cmper_type((*this)[1]) == 0)
 			+ static_cast<size_type>(cmper_type((*this)[2]) == 0);
@@ -444,11 +444,11 @@ public:
 		return *this;
 	}
 
-	inline vector2d<typename negate_operator_result<val_type>::type, Base> 
+	inline vector2d<typename negate_operator_result<val_type>::type, Base>
 		negate(void) const
 	{
 		typedef vector2d<typename negate_operator_result<val_type>::type, Base> ret_type;
-		
+
 		return ret_type(-(*this)[0], -(*this)[1], -(*this)[2]);
 	}
 
@@ -469,7 +469,7 @@ public:
 				vector2d<typename plus_operator_result<val_type, OVal>::type, Base>,
 				vector2d<typename plus_operator_result<val_type, OVal>::type, OBase>
 			>::type ret_type;
-		
+
 		return ret_type((*this)[0] + right[0], (*this)[1] + right[1], (*this)[2] + right[2]);
 	}
 
@@ -500,7 +500,7 @@ public:
 				vector2d<typename minus_operator_result<val_type, OVal>::type, Base>,
 				vector2d<typename minus_operator_result<val_type, OVal>::type, OBase>
 			>::type ret_type;
-		
+
 		return ret_type((*this)[0] - right[0], (*this)[1] - right[1], (*this)[2] - right[2]);
 	}
 
@@ -515,11 +515,11 @@ public:
 	}
 
 	template<typename OVal> inline
-	vector2d<typename multiplies_operator_result<val_type, OVal>::type, Base> 
+	vector2d<typename multiplies_operator_result<val_type, OVal>::type, Base>
 		multiplies(const OVal& right) const
 	{
 		typedef vector2d<typename multiplies_operator_result<val_type, OVal>::type, Base> ret_type;
-		
+
 		return ret_type((*this)[0] * right, (*this)[1] * right, (*this)[2] * right);
 	}
 
@@ -565,11 +565,11 @@ public:
 	}
 
 	template<typename OVal> inline
-	vector2d<typename divides_operator_result<val_type, OVal>::type, Base> 
+	vector2d<typename divides_operator_result<val_type, OVal>::type, Base>
 		divides(const OVal& right) const
 	{
 		typedef vector2d<typename divides_operator_result<val_type, OVal>::type, Base> ret_type;
-		
+
 		return ret_type((*this)[0] / right, (*this)[1] / right, (*this)[2] / right);
 	}
 
@@ -615,15 +615,15 @@ public:
 	}
 
 	template<typename OVal> inline
-	vector2d<typename modulus_operator_result<val_type, OVal>::type, Base> 
+	vector2d<typename modulus_operator_result<val_type, OVal>::type, Base>
 		modulus(const OVal& right) const
 	{
 		typedef vector2d<typename modulus_operator_result<val_type, OVal>::type, Base> ret_type;
 
-		return 
+		return
 			ret_type(
-				::yggr::math::modulus((*this)[0], right), 
-				::yggr::math::modulus((*this)[1], right), 
+				::yggr::math::modulus((*this)[0], right),
+				::yggr::math::modulus((*this)[1], right),
 				::yggr::math::modulus((*this)[2], right));
 	}
 
@@ -654,11 +654,11 @@ public:
 				vector2d<typename modulus_operator_result<val_type, OVal>::type, Base>,
 				vector2d<typename modulus_operator_result<val_type, OVal>::type, OBase>
 			>::type ret_type;
-		
-		return 
+
+		return
 			ret_type(
-				::yggr::math::modulus((*this)[0], right[0]), 
-				::yggr::math::modulus((*this)[1], right[1]), 
+				::yggr::math::modulus((*this)[0], right[0]),
+				::yggr::math::modulus((*this)[1], right[1]),
 				::yggr::math::modulus((*this)[2], right[2]) );
 	}
 
@@ -678,7 +678,7 @@ public:
 	{
 		typedef flaw_comparer<val_type> val_cmper_type;
 
-		return 
+		return
 			val_cmper_type((*this)[0]) == right[0]
 			&& val_cmper_type((*this)[1]) == right[1]
 			&& val_cmper_type((*this)[2]) == right[2];
@@ -688,7 +688,7 @@ public:
 	{
 		typedef flaw_comparer<val_type> val_cmper_type;
 
-		return 
+		return
 			(this == boost::addressof(right))
 			|| (val_cmper_type((*this)[0]) == right[0]
 				&& val_cmper_type((*this)[1]) == right[1]
@@ -762,7 +762,7 @@ public:
 
 		return ::yggr::math::sqrt(static_cast<rst_type>(this_type::length_sq()));
 	}
-	
+
 	inline val_type length_sq(void) const
 	{
 		typedef flaw_comparer<val_type> cmp_type;
@@ -770,9 +770,9 @@ public:
 
 		return (*this)[0] * (*this)[0] + (*this)[1] * (*this)[1];
 	}
-	
+
 	template<typename OVal, template<typename _Val, std::size_t> class OBase> inline
-	typename multiplies_operator_result<val_type, OVal>::type 
+	typename multiplies_operator_result<val_type, OVal>::type
 		dot(const vector2d<OVal, OBase>& right) const
 	{
 		typedef flaw_comparer<val_type> cmp_type;
@@ -785,7 +785,7 @@ public:
 	}
 
 	template<typename OVal, template<typename _Val, std::size_t> class OBase> inline
-	typename multiplies_operator_result<val_type, OVal>::type 
+	typename multiplies_operator_result<val_type, OVal>::type
 		cross(const vector2d<OVal, OBase>& right) const
 	{
 		typedef flaw_comparer<val_type> cmp_type;
@@ -866,7 +866,7 @@ public:
 // non-member foo
 template<typename Val,
 			template<typename _Val, std::size_t> class Base> inline
-vector2d<typename upper_float<Val>::value_type, Base> 
+vector2d<typename upper_float<Val>::value_type, Base>
 	sign(const vector2d<Val, Base>& x)
 {
 	//return x.get_normalized_vector();
@@ -876,7 +876,7 @@ vector2d<typename upper_float<Val>::value_type, Base>
 // positive
 template<typename Val,
 			template <typename _Val, std::size_t> class Base> inline
-const vector2d<Val, Base>& 
+const vector2d<Val, Base>&
 	operator+(const vector2d<Val, Base>& val)
 {
 	return val;
@@ -885,7 +885,7 @@ const vector2d<Val, Base>&
 //negate
 template<typename Val,
 			template <typename _Val, std::size_t> class Base> inline
-vector2d<typename negate_operator_result<Val>::type, Base> 
+vector2d<typename negate_operator_result<Val>::type, Base>
 	operator-(const vector2d<Val, Base>& val)
 {
 	return val.negate();
@@ -900,7 +900,7 @@ typename
 	<
 		boost::is_same<typename plus_operator_result<ValL, ValR>::type, ValL>,
 		vector2d<typename plus_operator_result<ValL, ValR>::type, BaseL>,
-		vector2d<typename plus_operator_result<ValL, ValR>::type, BaseR> 
+		vector2d<typename plus_operator_result<ValL, ValR>::type, BaseR>
 	>::type
 	operator+(const vector2d<ValL, BaseL>& l, const vector2d<ValR, BaseR>& r)
 {
@@ -925,7 +925,7 @@ typename
 	<
 		boost::is_same<typename minus_operator_result<ValL, ValR>::type, ValL>,
 		vector2d<typename minus_operator_result<ValL, ValR>::type, BaseL>,
-		vector2d<typename minus_operator_result<ValL, ValR>::type, BaseR> 
+		vector2d<typename minus_operator_result<ValL, ValR>::type, BaseR>
 	>::type
 	operator-(const vector2d<ValL, BaseL>& l, const vector2d<ValR, BaseR>& r)
 {
@@ -976,7 +976,7 @@ typename
 	<
 		boost::is_same<typename multiplies_operator_result<ValL, ValR>::type, ValL>,
 		vector2d<typename multiplies_operator_result<ValL, ValR>::type, BaseL>,
-		vector2d<typename multiplies_operator_result<ValL, ValR>::type, BaseR> 
+		vector2d<typename multiplies_operator_result<ValL, ValR>::type, BaseR>
 	>::type
 	operator*(const vector2d<ValL, BaseL>& l, const vector2d<ValR, BaseR>& r)
 {
@@ -1018,7 +1018,7 @@ typename
 	<
 		boost::is_same<typename divides_operator_result<ValL, ValR>::type, ValL>,
 		vector2d<typename divides_operator_result<ValL, ValR>::type, BaseL>,
-		vector2d<typename divides_operator_result<ValL, ValR>::type, BaseR> 
+		vector2d<typename divides_operator_result<ValL, ValR>::type, BaseR>
 	>::type
 	operator/(const vector2d<ValL, BaseL>& l, const vector2d<ValR, BaseR>& r)
 {
@@ -1037,7 +1037,7 @@ vector2d<ValL, BaseL>&
 // mod
 template<typename ValL, typename ValR,
 			template <typename _Val, std::size_t> class Base> inline
-vector2d<typename modulus_operator_result<ValL, ValR>::type, Base> 
+vector2d<typename modulus_operator_result<ValL, ValR>::type, Base>
 	operator%(const vector2d<ValL, Base>& l, const ValR& r)
 {
 	return l.modulus(r);
@@ -1059,7 +1059,7 @@ typename
 	<
 		boost::is_same<typename modulus_operator_result<ValL, ValR>::type, ValL>,
 		vector2d<typename modulus_operator_result<ValL, ValR>::type, BaseL>,
-		vector2d<typename modulus_operator_result<ValL, ValR>::type, BaseR> 
+		vector2d<typename modulus_operator_result<ValL, ValR>::type, BaseR>
 	>::type
 	operator%(const vector2d<ValL, BaseL>& l, const vector2d<ValR, BaseR>& r)
 {
@@ -1098,6 +1098,9 @@ bool operator!=(const vector2d<ValL, BaseL>& l, const vector2d<ValR, BaseR>& r)
 
 namespace yggr
 {
+namespace type_traits
+{
+
 template<typename Val,
 			template <typename _Val, std::size_t>
 				class Base >
@@ -1107,12 +1110,16 @@ struct upper_float< math::vector2d<Val, Base> >
 };
 
 template<typename Val,
-			template <typename _Val, std::size_t>
-				class Base >
+			template <typename _Val, std::size_t> class Base >
 struct upper_signed< math::vector2d<Val, Base> >
 {
 	typedef typename math::vector2d< typename upper_signed< Val >::type, Base > type;
 };
+
+} // namespace type_traits
+
+using type_traits::upper_float;
+using type_traits::upper_signed;
 
 } // namespace yggr
 
@@ -1124,25 +1131,25 @@ namespace swap_support
 {
 
 template<typename Val, template<typename _Val, std::size_t> class Base> inline
-void swap(vector2d<Val, Base>& l, vector2d<Val, Base>& r) 
+void swap(vector2d<Val, Base>& l, vector2d<Val, Base>& r)
 {
-	l.swap(r); 
+	l.swap(r);
 }
 
 template<typename Val,
-			template<typename _Val, std::size_t> class Base> inline 
-void swap(typename vector2d<Val, Base>::base_type& l, 
-			vector2d<Val, Base>& r) 
-{ 
-	r.swap(l); 
+			template<typename _Val, std::size_t> class Base> inline
+void swap(typename vector2d<Val, Base>::base_type& l,
+			vector2d<Val, Base>& r)
+{
+	r.swap(l);
 }
 
 template<typename Val,
 			template<typename _Val, std::size_t> class Base> inline
 void swap(vector2d<Val, Base>& l,
-			typename vector2d<Val, Base>::base_type& r) 
+			typename vector2d<Val, Base>::base_type& r)
 {
-	l.swap(r); 
+	l.swap(r);
 }
 
 } // namespace swap_support

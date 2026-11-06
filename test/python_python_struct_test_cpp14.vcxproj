@@ -38,7 +38,7 @@
     <ClCompile Include="python\python_struct_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5143A12E-71D6-46B2-BDFE-2291E4897305}</ProjectGuid>
+    <ProjectGuid>{1A6BFE25-7E87-44BE-A33D-FD18F9A82D10}</ProjectGuid>
     <RootNamespace>python_python_struct_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>python_python_struct_test</ProjectName>

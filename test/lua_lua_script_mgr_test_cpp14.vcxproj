@@ -38,7 +38,7 @@
     <ClCompile Include="lua\lua_script_mgr_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B6E06ED7-32A4-49D0-A7E8-57CA45B4AFC3}</ProjectGuid>
+    <ProjectGuid>{E6E29607-B0A0-41D9-B23C-D5863A1F28DC}</ProjectGuid>
     <RootNamespace>lua_lua_script_mgr_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>lua_lua_script_mgr_test</ProjectName>

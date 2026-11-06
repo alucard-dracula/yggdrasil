@@ -38,7 +38,7 @@
     <ClCompile Include="segment\segment_safe_unordered_map_test_part2.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{94D85085-5E71-4A7A-BCBD-D58862429A03}</ProjectGuid>
+    <ProjectGuid>{5378D6F5-08DD-4189-923B-EAB93ACA961D}</ProjectGuid>
     <RootNamespace>segment_segment_safe_unordered_map_test_part2</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>segment_segment_safe_unordered_map_test_part2</ProjectName>

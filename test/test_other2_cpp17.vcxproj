@@ -38,7 +38,7 @@
 		<ClInclude Include="wait_any_key\wait_any_key.hpp"/>
 	</ItemGroup>
 	<ItemGroup>
-		<ClCompile Include="python\python_script_mgr_test.cpp"/>
+		<ClCompile Include="packet\test_packet_info_caster.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
 		<ProjectGuid>{780C73CB-30A1-45B2-BC42-81FF843E4B06}</ProjectGuid>

@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_bson_binary_buffer_ref_operator_set_test_sizeof_less.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D8A26468-D410-45D1-A0EC-B23A62926FBA}</ProjectGuid>
+    <ProjectGuid>{C2CB903D-07F2-4333-8581-1832A717A2B6}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_sizeof_less</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_sizeof_less</ProjectName>

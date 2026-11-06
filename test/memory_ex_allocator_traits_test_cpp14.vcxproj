@@ -38,7 +38,7 @@
     <ClCompile Include="memory_ex\allocator_traits_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{CD078042-3122-4920-B137-EFDE7635B4F3}</ProjectGuid>
+    <ProjectGuid>{191DFB4A-6AC4-419B-90CA-60FE8D4A96EC}</ProjectGuid>
     <RootNamespace>memory_ex_allocator_traits_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>memory_ex_allocator_traits_test</ProjectName>

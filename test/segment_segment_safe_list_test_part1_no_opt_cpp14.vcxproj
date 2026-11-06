@@ -38,7 +38,7 @@
     <ClCompile Include="segment\segment_safe_list_test_part1_no_opt.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{568DE10C-23CA-4FB7-AF40-1FFD69577A33}</ProjectGuid>
+    <ProjectGuid>{7297E2FB-971F-47C5-A579-E6DBB542B500}</ProjectGuid>
     <RootNamespace>segment_segment_safe_list_test_part1_no_opt</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>segment_segment_safe_list_test_part1_no_opt</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\bson_serialize_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D7286FEA-6F84-4080-98E2-C772BB3D61BA}</ProjectGuid>
+    <ProjectGuid>{7EE4177C-609D-439D-8BFE-1E347D916C2E}</ProjectGuid>
     <RootNamespace>nsql_database_system_bson_serialize_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_bson_serialize_test</ProjectName>

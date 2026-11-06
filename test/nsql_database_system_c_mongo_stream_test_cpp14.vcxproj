@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_mongo_stream_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{35453D1D-9947-4DDF-9FB7-818ACB938235}</ProjectGuid>
+    <ProjectGuid>{D802F109-6A68-4B1B-97C1-3A40A2B07DE9}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_mongo_stream_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_mongo_stream_test</ProjectName>

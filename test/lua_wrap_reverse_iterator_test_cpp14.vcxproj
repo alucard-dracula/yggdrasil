@@ -38,7 +38,7 @@
     <ClCompile Include="lua\wrap_reverse_iterator_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B511A579-F9D8-49C7-BFC6-44025DFC02CB}</ProjectGuid>
+    <ProjectGuid>{AA3EB8AE-1B63-48E2-B592-5F02D1F2EBB1}</ProjectGuid>
     <RootNamespace>lua_wrap_reverse_iterator_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>lua_wrap_reverse_iterator_test</ProjectName>

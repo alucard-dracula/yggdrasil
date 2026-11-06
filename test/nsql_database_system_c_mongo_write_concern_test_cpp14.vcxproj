@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_mongo_write_concern_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{54CC58FB-18CC-4C11-B107-B81E0CAF1BE0}</ProjectGuid>
+    <ProjectGuid>{04880ED2-B0DE-4321-B56E-8078E542B85C}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_mongo_write_concern_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_mongo_write_concern_test</ProjectName>

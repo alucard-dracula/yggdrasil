@@ -38,7 +38,7 @@
     <ClCompile Include="lua\wrap_deque_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FD041853-FE14-4096-BEB8-0D0FB2638787}</ProjectGuid>
+    <ProjectGuid>{9BAB5571-64F2-45FF-9F83-6AF5F8AE979D}</ProjectGuid>
     <RootNamespace>lua_wrap_deque_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>lua_wrap_deque_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="packet\test_encrypt_archive.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{CF3A3926-D308-48C1-B078-670FCF8839D0}</ProjectGuid>
+    <ProjectGuid>{3B49694C-45C9-4901-9627-7B8E29938CCA}</ProjectGuid>
     <RootNamespace>packet_test_encrypt_archive</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>packet_test_encrypt_archive</ProjectName>

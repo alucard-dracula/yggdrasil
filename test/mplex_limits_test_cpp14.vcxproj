@@ -38,7 +38,7 @@
     <ClCompile Include="mplex\limits_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D04514AF-989F-4901-9D88-6AAA7F9F61AD}</ProjectGuid>
+    <ProjectGuid>{D97D88AB-3060-444C-A3FA-BE0902577A9F}</ProjectGuid>
     <RootNamespace>mplex_limits_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>mplex_limits_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="mplex\cast_to_container_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{465C98C8-747C-48E0-B62B-71A068A4CFB5}</ProjectGuid>
+    <ProjectGuid>{1A183491-E849-4276-A5B9-2BE867470646}</ProjectGuid>
     <RootNamespace>mplex_cast_to_container_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>mplex_cast_to_container_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="math\arrangement_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{726C65D9-1F27-48E6-8D20-2A39A1F20C19}</ProjectGuid>
+    <ProjectGuid>{F282CE69-0FF9-4CF3-A99E-1C6AE4DF1D54}</ProjectGuid>
     <RootNamespace>math_arrangement_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>math_arrangement_test</ProjectName>

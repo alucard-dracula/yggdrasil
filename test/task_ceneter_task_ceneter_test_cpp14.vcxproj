@@ -38,7 +38,7 @@
     <ClCompile Include="task_ceneter\task_ceneter_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{77F1DF41-FEF8-4977-A0FF-F4936E7C447A}</ProjectGuid>
+    <ProjectGuid>{36EB3FFF-9795-4272-B374-DD7E68625F91}</ProjectGuid>
     <RootNamespace>task_ceneter_task_ceneter_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>task_ceneter_task_ceneter_test</ProjectName>

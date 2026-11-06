@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\safe_queue_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D5F03124-858F-4FED-A485-3ECF65646C5C}</ProjectGuid>
+    <ProjectGuid>{0089647B-1D68-44F5-99A8-AB6325102A64}</ProjectGuid>
     <RootNamespace>safe_container_safe_queue_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_safe_queue_test</ProjectName>

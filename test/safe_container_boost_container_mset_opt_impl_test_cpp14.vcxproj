@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\boost_container_mset_opt_impl_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{17246126-1540-4F25-B4B5-71182E2D3965}</ProjectGuid>
+    <ProjectGuid>{54D986EC-0237-49E6-AB01-815BC8AFEEC4}</ProjectGuid>
     <RootNamespace>safe_container_boost_container_mset_opt_impl_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_boost_container_mset_opt_impl_test</ProjectName>

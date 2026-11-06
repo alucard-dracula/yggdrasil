@@ -38,7 +38,7 @@
     <ClCompile Include="handler_center\handler_center_test_u32_id.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{EACDEFBF-02C1-4B62-BDAD-2620EBFB09EC}</ProjectGuid>
+    <ProjectGuid>{AA1D0527-F581-4EBA-A178-57C663BABF9A}</ProjectGuid>
     <RootNamespace>handler_center_handler_center_test_u32_id</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>handler_center_handler_center_test_u32_id</ProjectName>

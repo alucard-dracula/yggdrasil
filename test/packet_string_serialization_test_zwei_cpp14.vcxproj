@@ -38,7 +38,7 @@
     <ClCompile Include="packet\string_serialization_test_zwei.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DC7FE24E-AE18-416F-8FA3-7732F4CBF047}</ProjectGuid>
+    <ProjectGuid>{681CE11B-12E5-4DCE-AA83-7184F022D2B6}</ProjectGuid>
     <RootNamespace>packet_string_serialization_test_zwei</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>packet_string_serialization_test_zwei</ProjectName>

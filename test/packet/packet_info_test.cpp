@@ -113,96 +113,17 @@ void test_packet_info3(void)
 	yggr_test_assert(yggr::packet::packet_info<>::E_length == 0);
 }
 
-void test_conv_to_tuple(void)
+void test_sub_packet_info(void)
 {
-	{
-		typedef yggr::tuple<int, int> tuple_t;
-		typedef boost::mpl::vector<int, int, int> vt_t;
-		typedef yggr::mplex::conv_to_yggr_tuple<vt_t>::type conv_t;
-		BOOST_MPL_ASSERT_NOT((boost::is_same<tuple_t, conv_t>));
-	}
+	typedef yggr::packet::packet_info<int, float, double> pak_info_type;
+ 	typedef yggr::packet::packet_info<float, double> chk_pak_info_type;
+	
+	typedef yggr::packet::sub_packet_info_t<pak_info_type, 1, 2>::type sub_pak_info_type;
 
-	{
-		typedef yggr::tuple<> tuple_t;
-		typedef boost::mpl::vector<> vt_t;
-		typedef yggr::mplex::conv_to_yggr_tuple<vt_t>::type conv_t;
-		BOOST_MPL_ASSERT((boost::is_same<tuple_t, conv_t>));
-		conv_t tuple = boost::make_tuple();
-	}
+	pak_info_type pak_info(1, 2.5f, 3.5);
 
-	{
-		typedef yggr::tuple<int> tuple_t;
-		typedef boost::mpl::vector<int> vt_t;
-		typedef yggr::mplex::conv_to_yggr_tuple<vt_t>::type conv_t;
-		conv_t tuple = boost::make_tuple(10);
-	}
-
-	{
-		typedef yggr::tuple<int, int> tuple_t;
-		typedef boost::mpl::vector<int, int> vt_t;
-		typedef yggr::mplex::conv_to_yggr_tuple<vt_t>::type conv_t;
-		conv_t tuple = boost::make_tuple(10, 20);
-	}
-
-	{
-		typedef yggr::tuple<int, int, int> tuple_t;
-		typedef boost::mpl::vector<int, int, int> vt_t;
-		typedef yggr::mplex::conv_to_yggr_tuple<vt_t>::type conv_t;
-
-		conv_t tuple = boost::make_tuple(10, 20, 30);
-	}
-
-	std::cout << "test_conv_to_tuple sucess" << std::endl;
-}
-
-void test_conv_to_boost_tuple(void)
-{
-	{
-		typedef boost::tuple<int, int> tuple_t;
-		typedef boost::mpl::vector<int, int, int> vt_t;
-		typedef yggr::mplex::conv_to_yggr_tuple<vt_t>::type conv_t;
-		BOOST_MPL_ASSERT_NOT((boost::is_same<tuple_t, conv_t>));
-	}
-
-	{
-		typedef boost::tuple<> tuple_t;
-		typedef boost::mpl::vector<> vt_t;
-		typedef yggr::mplex::conv_to_boost_tuple<vt_t>::type conv_t;
-		BOOST_MPL_ASSERT((boost::is_same<tuple_t, conv_t>));
-		conv_t tuple = boost::make_tuple();
-	}
-
-	{
-		typedef boost::tuple<int> tuple_t;
-		typedef boost::mpl::vector<int> vt_t;
-		typedef yggr::mplex::conv_to_boost_tuple<vt_t>::type conv_t;
-		conv_t tuple = boost::make_tuple(10);
-	}
-
-	{
-		typedef boost::tuple<int, int> tuple_t;
-		typedef boost::mpl::vector<int, int> vt_t;
-		typedef yggr::mplex::conv_to_boost_tuple<vt_t>::type conv_t;
-		conv_t tuple = boost::make_tuple(10, 20);
-	}
-
-	{
-		typedef boost::tuple<int, int, int> tuple_t;
-		typedef boost::mpl::vector<int, int, int> vt_t;
-		typedef yggr::mplex::conv_to_boost_tuple<vt_t>::type conv_t;
-
-		conv_t tuple = boost::make_tuple(10, 20, 30);
-	}
-
-	typedef boost::mpl::vector<int, int, int, boost::tuples::null_type> org_vt1_type;
-	typedef boost::mpl::vector<int, int, int> org_vt2_type;
-	typedef boost::mpl::find<org_vt1_type, boost::tuples::null_type>::type iter1_type;
-	typedef boost::mpl::find<org_vt2_type, boost::tuples::null_type>::type iter2_type;
-	typedef boost::mpl::erase<org_vt1_type, iter1_type, boost::mpl::end<org_vt1_type>::type >::type vt1_type;
-	typedef boost::mpl::erase<org_vt2_type, iter2_type, boost::mpl::end<org_vt2_type>::type >::type vt2_type;
-
-	BOOST_MPL_ASSERT((boost::is_same<vt1_type, vt1_type>));
-	std::cout << "test_conv_to_boost_tuple sucess" << std::endl;
+	yggr_test_assert((pak_info.sub_packet_info<1, 2>() == yggr::make_tuple(2.5f, 3.5)));
+	yggr_test_assert((yggr::packet::packet_info_op::sub_packet_info<1, 2>(pak_info) == yggr::make_tuple(2.5f, 3.5)));
 }
 
 //#include <yggr/ppex/pp_debug.hpp>
@@ -214,13 +135,11 @@ int main(int argc, char* argv[])
 	TEST_PP_WIO_IMBUE("chs");
 #endif // YGGR_NO_CWCHAR
 
-	test_conv_to_tuple();
-	test_conv_to_boost_tuple();
-
 	test_packet_info();
 	test_packet_info2();
 	test_packet_info3();
 	test_packet_info_op1();
+	test_sub_packet_info();
 
 	boost::tuple<int, int> t_type;
 
@@ -229,7 +148,7 @@ int main(int argc, char* argv[])
 	typedef boost::mpl::push_back<vt1_type, int>::type vt2_type;
 
 	typedef boost::mpl::find<vt2_type, float>::type i; 
-	typedef yggr::mplex::conv_to_yggr_tuple<vt2_type>::type vtt_type;
+	typedef yggr::tuple_ex::conv_to_yggr_tuple<vt2_type>::type vtt_type;
 
 	//typedef boost::mpl::erase<vt2_type, i, boost::mpl::end<vt2_type>::type>::type vt3_type;
 	//std::cout << (boost::mpl::size<vt3_type>::value) << std::endl;

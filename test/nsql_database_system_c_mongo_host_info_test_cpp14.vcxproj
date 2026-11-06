@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_mongo_host_info_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{181BC424-48EC-4878-A2BA-4B2C26213940}</ProjectGuid>
+    <ProjectGuid>{EE043FEB-8F20-4926-B3A4-6B5203506091}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_mongo_host_info_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_mongo_host_info_test</ProjectName>

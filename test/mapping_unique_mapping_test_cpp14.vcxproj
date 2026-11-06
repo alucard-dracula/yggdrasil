@@ -38,7 +38,7 @@
     <ClCompile Include="mapping\unique_mapping_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{800C0DC5-B276-453D-96F7-4A06DF401E93}</ProjectGuid>
+    <ProjectGuid>{26D442CA-E4CA-4CCE-85D6-45ACD6ED8CC1}</ProjectGuid>
     <RootNamespace>mapping_unique_mapping_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>mapping_unique_mapping_test</ProjectName>

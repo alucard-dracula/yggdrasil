@@ -38,7 +38,7 @@
     <ClCompile Include="math\factorial_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{908BB972-062D-4911-93E7-3E9248CD4BF8}</ProjectGuid>
+    <ProjectGuid>{CA3440EF-1EEC-40CE-9483-9DD71E2C3542}</ProjectGuid>
     <RootNamespace>math_factorial_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>math_factorial_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="charset\string_byte_size_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{57FB89AF-B69E-49D1-9600-4270AE9F5C83}</ProjectGuid>
+    <ProjectGuid>{495F3C75-8516-4FCF-9F96-F77B824AAFE5}</ProjectGuid>
     <RootNamespace>charset_string_byte_size_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_string_byte_size_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="exception\bson_pak_test_of_error_code.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D28E7B9B-5A29-4C73-8B87-4FE6F1D10B3A}</ProjectGuid>
+    <ProjectGuid>{77DE750E-A6A3-498A-8768-87A2803D8075}</ProjectGuid>
     <RootNamespace>exception_bson_pak_test_of_error_code</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>exception_bson_pak_test_of_error_code</ProjectName>

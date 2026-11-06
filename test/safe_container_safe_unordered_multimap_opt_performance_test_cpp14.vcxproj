@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\safe_unordered_multimap_opt_performance_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1759381F-00AC-4A8C-BB7F-3852FAA73982}</ProjectGuid>
+    <ProjectGuid>{6A1278A1-68CE-4F25-B2A3-3F7EBF0B5839}</ProjectGuid>
     <RootNamespace>safe_container_safe_unordered_multimap_opt_performance_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_safe_unordered_multimap_opt_performance_test</ProjectName>

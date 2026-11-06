@@ -38,7 +38,7 @@
     <ClCompile Include="segment\mem_mapped_string_serialization_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{42C40F5B-76B7-4429-AFF5-90F4456D7B96}</ProjectGuid>
+    <ProjectGuid>{0CF3BFF3-2E43-4A60-8357-D2C3632E8872}</ProjectGuid>
     <RootNamespace>segment_mem_mapped_string_serialization_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>segment_mem_mapped_string_serialization_test</ProjectName>

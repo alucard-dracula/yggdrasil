@@ -38,7 +38,7 @@
     <ClCompile Include="exception\link_string.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DC7056B4-FB95-485B-8521-4E63409CA862}</ProjectGuid>
+    <ProjectGuid>{1BA754B7-1B77-4951-AF4A-249DEE1E1999}</ProjectGuid>
     <RootNamespace>exception_link_string</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>exception_link_string</ProjectName>

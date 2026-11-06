@@ -38,7 +38,7 @@
     <ClCompile Include="container\map_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{69E5992D-84BF-4B83-B266-AB8FB9B7AC47}</ProjectGuid>
+    <ProjectGuid>{F8DE20C6-9688-4A37-9D4B-38BD76BCB286}</ProjectGuid>
     <RootNamespace>container_map_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>container_map_test</ProjectName>

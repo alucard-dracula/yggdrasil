@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\safe_unordered_multiset_opt_performance_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4ADB5565-4746-462B-8BBC-C3A275CA7555}</ProjectGuid>
+    <ProjectGuid>{50CB9774-B4DF-4057-9E13-F07729026747}</ProjectGuid>
     <RootNamespace>safe_container_safe_unordered_multiset_opt_performance_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_safe_unordered_multiset_opt_performance_test</ProjectName>

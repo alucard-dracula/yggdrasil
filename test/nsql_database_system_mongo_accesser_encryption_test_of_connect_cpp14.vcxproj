@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\mongo_accesser_encryption_test_of_connect.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{968A54B3-F6F2-42B8-B9A8-37A2D7B5F74A}</ProjectGuid>
+    <ProjectGuid>{6995F420-C924-495E-A101-88FF9C95A521}</ProjectGuid>
     <RootNamespace>nsql_database_system_mongo_accesser_encryption_test_of_connect</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_mongo_accesser_encryption_test_of_connect</ProjectName>

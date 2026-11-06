@@ -38,7 +38,7 @@
     <ClCompile Include="encryption_tool\packet_cypher_tool_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{68A4EEBA-9D1A-4A71-BB33-B13AA1124170}</ProjectGuid>
+    <ProjectGuid>{3CAA4F82-23E0-4E64-9903-F0F4F2B33228}</ProjectGuid>
     <RootNamespace>encryption_tool_packet_cypher_tool_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>encryption_tool_packet_cypher_tool_test</ProjectName>

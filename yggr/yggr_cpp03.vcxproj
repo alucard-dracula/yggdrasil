@@ -190,6 +190,7 @@
 		<ClInclude Include="algorithm\knuth_morris_pratt.hpp"/>
 		<ClInclude Include="algorithm\lexicographical_c_compare.hpp"/>
 		<ClInclude Include="algorithm\shuffle.hpp"/>
+		<ClInclude Include="algorithm\transform.hpp"/>
 		<ClInclude Include="any_val\any.hpp"/>
 		<ClInclude Include="any_val\any_check.hpp"/>
 		<ClInclude Include="any_val\any_has_value_empty.hpp"/>
@@ -315,6 +316,7 @@
 		<ClInclude Include="bytes\detail\byte_size_detail_tpl.hpp"/>
 		<ClInclude Include="bytes\detail\byte_size_detail_utility.hpp"/>
 		<ClInclude Include="caller\array_to_params_caller.hpp"/>
+		<ClInclude Include="caller\detail\caller_callable.hpp"/>
 		<ClInclude Include="caller\gen_callable_object.hpp"/>
 		<ClInclude Include="caller\packet_info_to_params_caller.hpp"/>
 		<ClInclude Include="caller\pair_to_params_caller.hpp"/>
@@ -1145,8 +1147,6 @@
 		<ClInclude Include="mplex\basic_t_sizeof_log2.hpp"/>
 		<ClInclude Include="mplex\cast_to_t_container.hpp"/>
 		<ClInclude Include="mplex\args.hpp"/>
-		<ClInclude Include="mplex\detail\conv_to_tuple_vmacro.hpp"/>
-		<ClInclude Include="mplex\detail\conv_to_tuple_vtpl.hpp"/>
 		<ClInclude Include="mplex\detail\pointer_to_value_t_of_wrapper.hpp"/>
 		<ClInclude Include="mplex\detail\typename_replaceor_vmacro.hpp"/>
 		<ClInclude Include="mplex\detail\typename_replaceor_vtpl.hpp"/>
@@ -1163,7 +1163,6 @@
 		<ClInclude Include="mplex\pointer_to_value_t.hpp"/>
 		<ClInclude Include="mplex\reference_to_pointer_t.hpp"/>
 		<ClInclude Include="mplex\reference_to_value_t.hpp"/>
-		<ClInclude Include="mplex\conv_to_tuple.hpp"/>
 		<ClInclude Include="mplex\pointer_int.hpp"/>
 		<ClInclude Include="mplex\strict_sizeof.hpp"/>
 		<ClInclude Include="mplex\sysbyte.hpp"/>
@@ -1436,7 +1435,11 @@
 		<ClInclude Include="p2p\protocol\p2p_peer_start.hpp"/>
 		<ClInclude Include="p2p\session_helper\p2p_connect_handler.hpp"/>
 		<ClInclude Include="p2p\session_helper\p2p_peer_start_mode.hpp"/>
-		<ClInclude Include="packet\detail\detail_packet_info_caster.hpp"/>
+		<ClInclude Include="packet\detail\compatibility_nmpl_seq_size.hpp"/>
+		<ClInclude Include="packet\detail\packet_info_caster_impl_vmacro.hpp"/>
+		<ClInclude Include="packet\detail\packet_info_caster_impl_vtpl.hpp"/>
+		<ClInclude Include="packet\detail\packet_info_decl_vmacro.hpp"/>
+		<ClInclude Include="packet\detail\packet_info_decl_vtpl.hpp"/>
 		<ClInclude Include="packet\detail\packet_info_vmacro.hpp"/>
 		<ClInclude Include="packet\detail\packet_info_vtpl.hpp"/>
 		<ClInclude Include="packet\packet.hpp"/>
@@ -2745,8 +2748,16 @@
 		<ClInclude Include="tuple\tuple_comparison.hpp"/>
 		<ClInclude Include="tuple\tuple_io.hpp"/>
 		<ClInclude Include="tuple\tuple_utility_decl.hpp"/>
+		<ClInclude Include="tuple_ex\conv_to_tuple.hpp"/>
+		<ClInclude Include="tuple_ex\detail\conv_to_tuple_vmacro.hpp"/>
+		<ClInclude Include="tuple_ex\detail\conv_to_tuple_vtpl.hpp"/>
+		<ClInclude Include="tuple_ex\detail\tuple_comparer.hpp"/>
+		<ClInclude Include="tuple_ex\detail\tuple_hasher.hpp"/>
+		<ClInclude Include="tuple_ex\detail\tuple_substructure.hpp"/>
+		<ClInclude Include="tuple_ex\detail\tuple_swaper.hpp"/>
 		<ClInclude Include="tuple_ex\get_element.hpp"/>
 		<ClInclude Include="tuple_ex\tuple.hpp"/>
+		<ClInclude Include="tuple_ex\tuple_maker.hpp"/>
 		<ClInclude Include="typeof\deduce_result.hpp"/>
 		<ClInclude Include="typeof\default_value.hpp"/>
 		<ClInclude Include="typeof\failed_value.hpp"/>
@@ -2758,7 +2769,7 @@
 		<ClInclude Include="type_traits\bytes_to_types.hpp"/>
 		<ClInclude Include="type_traits\const_arg_t.hpp"/>
 		<ClInclude Include="type_traits\detail\integer_sequence.hpp"/>
-		<ClInclude Include="type_traits\detail\native_t_detail.hpp"/>
+		<ClInclude Include="type_traits\detail\native_t_impl.hpp"/>
 		<ClInclude Include="type_traits\detail\operator_result_stream_patch.hpp"/>
 		<ClInclude Include="type_traits\detail\original_t_detail.hpp"/>
 		<ClInclude Include="type_traits\detail\pointer_checker_of_wrapper.hpp"/>

@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\mongodbc_basic_connect_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{306F1F22-4314-4052-B1DA-FB52F0F36EDD}</ProjectGuid>
+    <ProjectGuid>{6A1028AD-48FF-4956-ADAC-81E9DF23B86D}</ProjectGuid>
     <RootNamespace>nsql_database_system_mongodbc_basic_connect_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_mongodbc_basic_connect_test</ProjectName>

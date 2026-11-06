@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\safe_hashed_map_queue_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C1354A74-A871-424D-8595-774286C18971}</ProjectGuid>
+    <ProjectGuid>{BD622785-51B5-43B7-92E5-7C096355B0DB}</ProjectGuid>
     <RootNamespace>safe_container_safe_hashed_map_queue_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_safe_hashed_map_queue_test</ProjectName>

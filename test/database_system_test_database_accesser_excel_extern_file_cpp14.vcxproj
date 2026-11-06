@@ -38,7 +38,7 @@
     <ClCompile Include="database_system\test_database_accesser_excel_extern_file.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{2390DDC4-D77D-4DB1-8CDE-3C9892FA7DBA}</ProjectGuid>
+    <ProjectGuid>{D91462CA-2590-4681-8F57-E881C3ABF0D2}</ProjectGuid>
     <RootNamespace>database_system_test_database_accesser_excel_extern_file</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>database_system_test_database_accesser_excel_extern_file</ProjectName>

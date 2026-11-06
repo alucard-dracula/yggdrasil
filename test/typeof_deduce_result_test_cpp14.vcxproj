@@ -38,7 +38,7 @@
     <ClCompile Include="typeof\deduce_result_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4E5B3ED7-F968-41E6-9055-611CB90C6268}</ProjectGuid>
+    <ProjectGuid>{3081ED5F-D28C-4633-8FC6-66EDFC461BC9}</ProjectGuid>
     <RootNamespace>typeof_deduce_result_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>typeof_deduce_result_test</ProjectName>

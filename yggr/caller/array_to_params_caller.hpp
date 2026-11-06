@@ -27,7 +27,7 @@ THE SOFTWARE.
 #ifndef __YGGR_CALLER_ARRAY_TO_PARAMS_CALLER_HPP__
 #define __YGGR_CALLER_ARRAY_TO_PARAMS_CALLER_HPP__
 
-#include <yggr/base/yggrdef.h>
+#include <yggr/caller/detail/caller_callable.hpp>
 #include <yggr/container/array.hpp>
 
 #ifndef YGGR_NO_CXX11_VARIADIC_TEMPLATES
@@ -37,10 +37,13 @@ THE SOFTWARE.
 #	include <yggr/ppex/symbols.hpp>
 #endif // YGGR_NO_CXX11_VARIADIC_TEMPLATES
 
-#include <yggr/func/is_callable.hpp>
-#include <yggr/func/foo_t_info.hpp>
+#include <yggr/utility/to_pointer.hpp>
 
 #include <boost/utility/enable_if.hpp>
+#include <boost/mpl/and.hpp>
+#include <boost/mpl/not.hpp>
+#include <cassert>
+#include <stdexcept>
 
 namespace yggr
 {
@@ -49,7 +52,10 @@ namespace caller
 namespace detail
 {
 
-template<std::size_t>
+template<typename Handler, std::size_t N, 
+			bool is_callable = func::foo_t_info<Handler>::is_callable_type::value,
+			bool is_native_foo = func::foo_t_info<Handler>::is_native_foo_type::value,
+			bool is_mem_foo = func::foo_t_info<Handler>::is_member_foo_type::value >
 struct array_to_params_call_helper;
 
 } // namepsce detail
@@ -60,30 +66,128 @@ template<typename Handler, typename Val, std::size_t N> inline
 typename
 	boost::enable_if
 	<
-		is_callable<Handler>,
+		detail::is_caller_callable_foo<Handler>,
 		typename func::foo_t_info<Handler>::result_type
 	>::type
 	to_params_call(const Handler& handler, std::array<Val, N>& arr)
 {
-	typedef detail::array_to_params_call_helper<N> h_type;
+	typedef Handler handler_type;
+	typedef detail::array_to_params_call_helper<handler_type, N> h_type;
 
 	h_type h;
 	return h(handler, arr);
+}
+
+template<typename Handler, typename Obj, typename Val, std::size_t N> inline
+typename
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::mpl::not_<typename boost::is_pointer<Obj>::type>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj& obj, std::array<Val, N>& arr)
+{
+	typedef Handler handler_type;
+	typedef detail::array_to_params_call_helper<handler_type, N> h_type;
+
+	h_type h;
+	return h(handler, obj, arr);
+}
+
+template<typename Handler, typename Obj, typename Val, std::size_t N> inline
+typename
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::is_pointer<Obj>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj pobj, std::array<Val, N>& arr)
+{
+	typedef Handler handler_type;
+	typedef detail::array_to_params_call_helper<handler_type, N> h_type;
+
+	assert(pobj);
+	if(!pobj)
+	{
+		throw std::invalid_argument("Invalid argument encountered, object pointer is null!");
+	}
+
+	h_type h;
+	return h(handler, pobj, arr);
 }
 
 template<typename Handler, typename Val, std::size_t N> inline
 typename
 	boost::enable_if
 	<
-		is_callable<Handler>,
+		detail::is_caller_callable_foo<Handler>,
 		typename func::foo_t_info<Handler>::result_type
 	>::type
 	to_params_call(const Handler& handler, const std::array<Val, N>& arr)
 {
-	typedef detail::array_to_params_call_helper<N> h_type;
+	typedef Handler handler_type;
+	typedef detail::array_to_params_call_helper<handler_type, N> h_type;
 
 	h_type h;
 	return h(handler, arr);
+}
+
+template<typename Handler, typename Obj, typename Val, std::size_t N> inline
+typename
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::mpl::not_<typename boost::is_pointer<Obj>::type>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj& obj, const std::array<Val, N>& arr)
+{
+	typedef Handler handler_type;
+	typedef detail::array_to_params_call_helper<handler_type, N> h_type;
+
+	h_type h;
+	return h(handler, obj, arr);
+}
+
+template<typename Handler, typename Obj, typename Val, std::size_t N> inline
+typename
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::is_pointer<Obj>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj pobj, const std::array<Val, N>& arr)
+{
+	typedef Handler handler_type;
+	typedef detail::array_to_params_call_helper<handler_type, N> h_type;
+
+	assert(pobj);
+	if(!pobj)
+	{
+		throw std::invalid_argument("Invalid argument encountered, object pointer is null!");
+	}
+
+	h_type h;
+	return h(handler, pobj, arr);
 }
 
 #endif // YGGR_NO_CXX11_HDR_ARRAY
@@ -92,30 +196,128 @@ template<typename Handler, typename Val, std::size_t N> inline
 typename
 	boost::enable_if
 	<
-		is_callable<Handler>,
+		detail::is_caller_callable_foo<Handler>,
 		typename func::foo_t_info<Handler>::result_type
 	>::type
 	to_params_call(const Handler& handler, boost::array<Val, N>& arr)
 {
-	typedef detail::array_to_params_call_helper<N> h_type;
+	typedef Handler handler_type;
+	typedef detail::array_to_params_call_helper<handler_type, N> h_type;
 
 	h_type h;
 	return h(handler, arr);
+}
+
+template<typename Handler, typename Obj, typename Val, std::size_t N> inline
+typename
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::mpl::not_<typename boost::is_pointer<Obj>::type>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj& obj, boost::array<Val, N>& arr)
+{
+	typedef Handler handler_type;
+	typedef detail::array_to_params_call_helper<handler_type, N> h_type;
+
+	h_type h;
+	return h(handler, obj, arr);
+}
+
+template<typename Handler, typename Obj, typename Val, std::size_t N> inline
+typename
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::is_pointer<Obj>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj pobj, boost::array<Val, N>& arr)
+{
+	typedef Handler handler_type;
+	typedef detail::array_to_params_call_helper<handler_type, N> h_type;
+
+	assert(pobj);
+	if(!pobj)
+	{
+		throw std::invalid_argument("Invalid argument encountered, object pointer is null!");
+	}
+
+	h_type h;
+	return h(handler, pobj, arr);
 }
 
 template<typename Handler, typename Val, std::size_t N> inline
 typename
 	boost::enable_if
 	<
-		is_callable<Handler>,
+		detail::is_caller_callable_foo<Handler>,
 		typename func::foo_t_info<Handler>::result_type
 	>::type
 	to_params_call(const Handler& handler, const boost::array<Val, N>& arr)
 {
-	typedef detail::array_to_params_call_helper<N> h_type;
+	typedef Handler handler_type;
+	typedef detail::array_to_params_call_helper<handler_type, N> h_type;
 
 	h_type h;
 	return h(handler, arr);
+}
+
+template<typename Handler, typename Obj, typename Val, std::size_t N> inline
+typename
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::mpl::not_<typename boost::is_pointer<Obj>::type>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj& obj, const boost::array<Val, N>& arr)
+{
+	typedef Handler handler_type;
+	typedef detail::array_to_params_call_helper<handler_type, N> h_type;
+
+	h_type h;
+	return h(handler, obj, arr);
+}
+
+template<typename Handler, typename Obj, typename Val, std::size_t N> inline
+typename
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::is_pointer<Obj>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj pobj, const boost::array<Val, N>& arr)
+{
+	typedef Handler handler_type;
+	typedef detail::array_to_params_call_helper<handler_type, N> h_type;
+
+	assert(pobj);
+	if(!pobj)
+	{
+		throw std::invalid_argument("Invalid argument encountered, object pointer is null!");
+	}
+
+	h_type h;
+	return h(handler, pobj, arr);
 }
 
 } // namespace caller
@@ -130,36 +332,56 @@ namespace caller
 namespace detail
 {
 
-template<std::size_t N>
+template<typename Handler, std::size_t N, bool is_callable, bool is_native_foo, bool is_mem_foo>
 struct array_to_params_call_helper
 {
+public:
+	typedef Handler handler_type;
+
 private:
 	typedef array_to_params_call_helper this_type;
 
 private:
-	template<typename Handler, typename Array, std::size_t ...I> inline
-	typename
-		boost::enable_if
-		<
-			is_callable<Handler>,
-			typename func::foo_t_info<Handler>::result_type
-		>::type
-		operator_detail(const Handler& handler, Array& arr, ::yggr::index_sequence<I...>) const
+	template<typename Array, std::size_t ...I> inline
+	typename func::foo_t_info<handler_type>::result_type
+		operator_detail(const handler_type& handler, Array& arr, ::yggr::index_sequence<I...>) const
 	{
 		return (handler)(arr[I]...);
 	}
 
 public:
-	template<typename Handler, typename Array> inline
-	typename
-		boost::enable_if
-		<
-			is_callable<Handler>,
-			typename func::foo_t_info<Handler>::result_type
-		>::type
-		operator()(const Handler& handler, Array& arr) const
+	template<typename Array> inline
+	typename func::foo_t_info<handler_type>::result_type
+		operator()(const handler_type& handler, Array& arr) const
 	{
 		return this_type::operator_detail(handler, arr, yggr::make_index_sequence<N>{});
+	}
+
+};
+
+template<typename Handler, std::size_t N>
+struct array_to_params_call_helper<Handler, N, true, true, true>
+{
+public:
+	typedef Handler handler_type;
+
+private:
+	typedef array_to_params_call_helper this_type;
+
+private:
+	template<typename Obj, typename Array, std::size_t ...I> inline
+	typename func::foo_t_info<Handler>::result_type
+		operator_detail(handler_type handler, Obj& obj, Array& arr, ::yggr::index_sequence<I...>) const
+	{
+		return (utility::to_pointer(obj)->*handler)(arr[I]...);
+	}
+
+public:
+	template<typename Obj, typename Array> inline
+	typename func::foo_t_info<handler_type>::result_type
+		operator()(handler_type handler, Obj& obj, Array& arr) const
+	{
+		return this_type::operator_detail(handler, obj, arr, yggr::make_index_sequence<N>{});
 	}
 
 };
@@ -179,12 +401,25 @@ public:
 
 #	define YGGR_TMP_PP_ARRAY_TO_PARAMS_CALL_HELPER( __n__ ) \
 		namespace yggr{ namespace caller { namespace detail { \
-		template<> \
-		struct array_to_params_call_helper< __n__ > { \
-			template<typename Handler, typename Array> inline \
-			typename boost::enable_if<is_callable<Handler>, typename func::foo_t_info<Handler>::result_type >::type \
-				operator()(const Handler& handler, Array& _YGGR_TMP_PP_ARRAY_VAL()) const { \
-					return (handler)(YGGR_PP_FOO_PARAMS_CUSTOM_OP_LATER( __n__, YGGR_PP_SYMBOL_COMMA )); } }; }}}
+		template<typename Handler, bool is_callable, bool is_native_foo, bool is_mem_foo> \
+		struct array_to_params_call_helper< Handler, __n__, is_callable, is_native_foo, is_mem_foo > { \
+		public: \
+			typedef Handler handler_type; \
+		public: \
+			template<typename Array> inline \
+			typename func::foo_t_info<handler_type>::result_type \
+				operator()(const handler_type& handler, Array& _YGGR_TMP_PP_ARRAY_VAL()) const { \
+					return (handler)(YGGR_PP_FOO_PARAMS_CUSTOM_OP_LATER( __n__, YGGR_PP_SYMBOL_COMMA )); } }; \
+		\
+		template<typename Handler> \
+		struct array_to_params_call_helper< Handler, __n__, true, true, true > { \
+		public: \
+			typedef Handler handler_type; \
+		public: \
+			template<typename Obj, typename Array> inline \
+			typename func::foo_t_info<handler_type>::result_type \
+				operator()(const handler_type& handler, Obj& obj, Array& _YGGR_TMP_PP_ARRAY_VAL()) const { \
+					return (utility::to_pointer(obj)->*handler)(YGGR_PP_FOO_PARAMS_CUSTOM_OP_LATER( __n__, YGGR_PP_SYMBOL_COMMA )); } };}}}
 
 #	define BOOST_PP_LOCAL_MACRO( __n__ ) \
 		YGGR_TMP_PP_ARRAY_TO_PARAMS_CALL_HELPER( __n__ )

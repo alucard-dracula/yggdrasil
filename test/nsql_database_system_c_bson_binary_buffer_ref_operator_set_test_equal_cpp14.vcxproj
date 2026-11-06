@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_bson_binary_buffer_ref_operator_set_test_equal.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0DC8061A-C299-4F76-A122-DC476D69C668}</ProjectGuid>
+    <ProjectGuid>{33638904-6088-41D7-A09C-0D09D160509C}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_equal</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_equal</ProjectName>

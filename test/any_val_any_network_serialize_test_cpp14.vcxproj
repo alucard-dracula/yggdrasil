@@ -38,7 +38,7 @@
     <ClCompile Include="any_val\any_network_serialize_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DC078634-EA44-460C-A1F9-A1C7C09A0B59}</ProjectGuid>
+    <ProjectGuid>{36D67C8E-970E-46E1-B72F-5302CBC463C3}</ProjectGuid>
     <RootNamespace>any_val_any_network_serialize_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>any_val_any_network_serialize_test</ProjectName>

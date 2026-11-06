@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\safe_unordered_map_opt_performance_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{2C4DAA06-5EBF-42FF-AB98-D043D8D2DC58}</ProjectGuid>
+    <ProjectGuid>{1CFBFF41-B160-42EF-BD56-18D35710CDC6}</ProjectGuid>
     <RootNamespace>safe_container_safe_unordered_map_opt_performance_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_safe_unordered_map_opt_performance_test</ProjectName>

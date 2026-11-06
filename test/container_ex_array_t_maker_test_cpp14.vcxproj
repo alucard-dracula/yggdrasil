@@ -38,7 +38,7 @@
     <ClCompile Include="container_ex\array_t_maker_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B6EB50E8-CECE-4135-853B-D9B6C9245D3A}</ProjectGuid>
+    <ProjectGuid>{09DA993A-4AC5-43B1-964C-01697CDDA916}</ProjectGuid>
     <RootNamespace>container_ex_array_t_maker_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>container_ex_array_t_maker_test</ProjectName>

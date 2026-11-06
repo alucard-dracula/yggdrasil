@@ -38,7 +38,7 @@
     <ClCompile Include="type_traits\has_operator_index_member_access_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A5F0B174-3B0D-4357-99DC-51499B6BAAFF}</ProjectGuid>
+    <ProjectGuid>{E6ED2F36-F2C4-4684-B683-30D0F26C2FCA}</ProjectGuid>
     <RootNamespace>type_traits_has_operator_index_member_access_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>type_traits_has_operator_index_member_access_test</ProjectName>

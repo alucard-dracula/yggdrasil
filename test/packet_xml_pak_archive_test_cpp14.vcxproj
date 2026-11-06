@@ -38,7 +38,7 @@
     <ClCompile Include="packet\xml_pak_archive_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FF028B38-4F3B-41D8-9E84-26F322A8C4C7}</ProjectGuid>
+    <ProjectGuid>{EAD905F1-7BA3-4A91-ADD5-1799D15B1F6B}</ProjectGuid>
     <RootNamespace>packet_xml_pak_archive_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>packet_xml_pak_archive_test</ProjectName>

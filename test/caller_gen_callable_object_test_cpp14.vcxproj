@@ -38,7 +38,7 @@
     <ClCompile Include="caller\gen_callable_object_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{84918BDE-693B-421C-BF9F-0A6ED246C3ED}</ProjectGuid>
+    <ProjectGuid>{E5FCCE2C-EC66-4C87-8457-176CB585421B}</ProjectGuid>
     <RootNamespace>caller_gen_callable_object_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>caller_gen_callable_object_test</ProjectName>

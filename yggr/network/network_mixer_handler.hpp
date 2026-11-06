@@ -42,12 +42,12 @@ THE SOFTWARE.
 #include <yggr/func/foo_t_maker.hpp>
 
 #include <yggr/mplex/static_assert.hpp>
-#include <yggr/mplex/conv_to_tuple.hpp>
 #include <yggr/mplex/pointer_to_value_t.hpp>
 #include <yggr/mplex/revert_to_vector.hpp>
 
 #include <yggr/tuple/tuple.hpp>
 #include <yggr/tuple_ex/tuple.hpp>
+#include <yggr/tuple_ex/conv_to_tuple.hpp>
 
 #include <yggr/safe_container/safe_wrap.hpp>
 #include <yggr/safe_container/safe_list.hpp>
@@ -1378,7 +1378,7 @@ private:
 	typedef typename container_maker_type::containers_type containers_type;
 
 	typedef containers_type params_type;
-	typedef typename mplex::conv_to_yggr_tuple<params_type, null_type>::type value_type;
+	typedef typename tuple_ex::conv_to_yggr_tuple<params_type, null_type>::type value_type;
 	typedef yggr::safe_container::safe_wrap<value_type> value_wrap_type;
 	typedef typename value_wrap_type::value_ptr_type value_ptr_type;
 	typedef typename value_wrap_type::error_type value_wrap_error_type;

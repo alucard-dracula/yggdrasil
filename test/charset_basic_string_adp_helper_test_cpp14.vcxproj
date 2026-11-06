@@ -38,7 +38,7 @@
     <ClCompile Include="charset\basic_string_adp_helper_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0881DE7C-E8FB-4298-B433-BC00FBBF2322}</ProjectGuid>
+    <ProjectGuid>{1A6A1B26-1B24-4967-8A55-77D21C392F36}</ProjectGuid>
     <RootNamespace>charset_basic_string_adp_helper_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_basic_string_adp_helper_test</ProjectName>

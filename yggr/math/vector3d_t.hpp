@@ -1135,6 +1135,9 @@ bool operator!=(const vector3d<ValL, BaseL>& l, const vector3d<ValR, BaseR>& r)
 
 namespace yggr
 {
+namespace type_traits
+{
+
 template<typename Val,
 			template <typename _Val, std::size_t>
 				class Base >
@@ -1150,6 +1153,11 @@ struct upper_signed< math::vector3d<Val, Base> >
 {
 	typedef typename math::vector3d< typename upper_signed< Val >::type, Base > type;
 };
+
+} // namespace type_traits
+
+using type_traits::upper_float;
+using type_traits::upper_signed;
 
 } // namespace yggr
 

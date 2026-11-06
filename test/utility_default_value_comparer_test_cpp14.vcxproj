@@ -38,7 +38,7 @@
     <ClCompile Include="utility\default_value_comparer_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{475E0C6F-197C-4BCD-AE94-47BC0FCC1550}</ProjectGuid>
+    <ProjectGuid>{E001F9BA-7F17-4BDA-81EC-37F3F904E286}</ProjectGuid>
     <RootNamespace>utility_default_value_comparer_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>utility_default_value_comparer_test</ProjectName>

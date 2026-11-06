@@ -38,7 +38,7 @@
     <ClCompile Include="any_val\boost_any_operator_mgr_basic_type_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F9079607-22CF-4CAA-B825-1E41815F386F}</ProjectGuid>
+    <ProjectGuid>{DAC2E131-BB14-4352-A043-753278E79C95}</ProjectGuid>
     <RootNamespace>any_val_boost_any_operator_mgr_basic_type_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>any_val_boost_any_operator_mgr_basic_type_test</ProjectName>

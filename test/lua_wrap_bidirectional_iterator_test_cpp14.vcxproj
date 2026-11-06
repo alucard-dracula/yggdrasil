@@ -38,7 +38,7 @@
     <ClCompile Include="lua\wrap_bidirectional_iterator_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{6EDD9E40-0D06-4D53-9240-6F27C67899AA}</ProjectGuid>
+    <ProjectGuid>{E09297DD-2C1E-44D5-8B51-D1C7C174AAA6}</ProjectGuid>
     <RootNamespace>lua_wrap_bidirectional_iterator_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>lua_wrap_bidirectional_iterator_test</ProjectName>

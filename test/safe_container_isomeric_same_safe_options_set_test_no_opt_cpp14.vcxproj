@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\isomeric_same_safe_options_set_test_no_opt.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{54A23314-3891-40C0-B171-0C8840F42C42}</ProjectGuid>
+    <ProjectGuid>{59955686-ED4D-418F-A625-A830036161E5}</ProjectGuid>
     <RootNamespace>safe_container_isomeric_same_safe_options_set_test_no_opt</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_isomeric_same_safe_options_set_test_no_opt</ProjectName>

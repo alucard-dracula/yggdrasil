@@ -38,7 +38,7 @@
     <ClCompile Include="utility\bit_counter_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{986938D2-DF21-4527-B79B-589988E32AFC}</ProjectGuid>
+    <ProjectGuid>{DAE96D42-72AD-4F2D-8970-F4777FC6E781}</ProjectGuid>
     <RootNamespace>utility_bit_counter_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>utility_bit_counter_test</ProjectName>

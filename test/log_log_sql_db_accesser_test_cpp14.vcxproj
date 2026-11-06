@@ -38,7 +38,7 @@
     <ClCompile Include="log\log_sql_db_accesser_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3A939E32-B41E-425B-9416-60F6223279EA}</ProjectGuid>
+    <ProjectGuid>{B6D78879-E99B-48E0-A733-6326D3320910}</ProjectGuid>
     <RootNamespace>log_log_sql_db_accesser_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>log_log_sql_db_accesser_test</ProjectName>

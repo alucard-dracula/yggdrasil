@@ -38,7 +38,7 @@
     <ClCompile Include="geometry\geo_rectangle_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E99733BA-912C-4D49-9ADF-F8D42ACBF23D}</ProjectGuid>
+    <ProjectGuid>{8602BD21-2038-4DC3-BC42-B7AE84F381BB}</ProjectGuid>
     <RootNamespace>geometry_geo_rectangle_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>geometry_geo_rectangle_test</ProjectName>

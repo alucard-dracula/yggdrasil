@@ -38,7 +38,7 @@
     <ClCompile Include="math\moving_average_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FF4EF6DF-A3A5-42BD-969B-2C2ECEA77C17}</ProjectGuid>
+    <ProjectGuid>{58AE962E-86F9-4D52-892C-8C81F7354433}</ProjectGuid>
     <RootNamespace>math_moving_average_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>math_moving_average_test</ProjectName>

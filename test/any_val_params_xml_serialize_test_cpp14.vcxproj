@@ -38,7 +38,7 @@
     <ClCompile Include="any_val\params_xml_serialize_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5AED783A-0F66-4D45-B92A-795C22841FEE}</ProjectGuid>
+    <ProjectGuid>{9C3F6DAF-9DE8-4303-842D-8A69840AE191}</ProjectGuid>
     <RootNamespace>any_val_params_xml_serialize_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>any_val_params_xml_serialize_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="algorithm\lexicographical_c_compare_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{37BD1992-7366-4B8B-B182-A4C81AA2DF2F}</ProjectGuid>
+    <ProjectGuid>{AC4D9B41-E0F1-491D-B339-01D501773BAF}</ProjectGuid>
     <RootNamespace>algorithm_lexicographical_c_compare_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>algorithm_lexicographical_c_compare_test</ProjectName>

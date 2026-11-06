@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\boost_container_mmap_opt_impl_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C4EE43AD-B11A-4A89-B078-84CF10716764}</ProjectGuid>
+    <ProjectGuid>{C2406D28-09B3-4B61-849D-CB3534256CEB}</ProjectGuid>
     <RootNamespace>safe_container_boost_container_mmap_opt_impl_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_boost_container_mmap_opt_impl_test</ProjectName>

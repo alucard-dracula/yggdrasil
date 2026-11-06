@@ -38,7 +38,7 @@
     <ClCompile Include="time\time_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{90CBE3CC-67A1-4EFE-80DC-2046C8D6B3FA}</ProjectGuid>
+    <ProjectGuid>{AA1B7200-896F-471C-8959-AC3855CD2AD1}</ProjectGuid>
     <RootNamespace>time_time_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>time_time_test</ProjectName>

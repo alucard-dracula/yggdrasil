@@ -38,7 +38,7 @@
     <ClCompile Include="container_ex\is_allocator_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1922B074-0340-4EC9-8897-27C7B475724D}</ProjectGuid>
+    <ProjectGuid>{9C51B54A-E012-4E15-9723-3DA9590A09AD}</ProjectGuid>
     <RootNamespace>container_ex_is_allocator_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>container_ex_is_allocator_test</ProjectName>

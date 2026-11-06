@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\isomeric_same_safe_multiset_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B71AA1F1-7BBB-4DF5-B1E4-922E2B658902}</ProjectGuid>
+    <ProjectGuid>{BC714BA2-113C-48B6-B107-3E5997BC062F}</ProjectGuid>
     <RootNamespace>safe_container_isomeric_same_safe_multiset_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_isomeric_same_safe_multiset_test</ProjectName>

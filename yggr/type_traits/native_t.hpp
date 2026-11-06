@@ -27,7 +27,7 @@ THE SOFTWARE.
 #ifndef __YGGR_TYPE_TRAITS_NATIVE_T_HPP__
 #define __YGGR_TYPE_TRAITS_NATIVE_T_HPP__
 
-#include <yggr/type_traits/detail/native_t_detail.hpp>
+#include <yggr/type_traits/detail/native_t_impl.hpp>
 #include <boost/move/core.hpp> // BOOST_RV_REF
 
 
@@ -42,7 +42,7 @@ template<typename T>
 struct native_pointer_t_detail
 {
 private:
-	typedef typename native_t_detail<T>::type t1_type;
+	typedef typename native_t_impl<T>::type t1_type;
 
 public:
 	typedef t1_type* type;
@@ -52,7 +52,7 @@ template<typename T>
 struct native_const_pointer_t_detail
 {
 private:
-	typedef typename native_t_detail<T>::type t1_type;
+	typedef typename native_t_impl<T>::type t1_type;
 
 public:
 	typedef const t1_type* type;
@@ -62,7 +62,7 @@ template<typename T>
 struct native_ref_t_detail
 {
 private:
-	typedef typename native_t_detail<T>::type t1_type;
+	typedef typename native_t_impl<T>::type t1_type;
 
 public:
 	typedef t1_type& type;
@@ -72,7 +72,7 @@ template<typename T>
 struct native_cref_t_detail
 {
 private:
-	typedef typename native_t_detail<T>::type t1_type;
+	typedef typename native_t_impl<T>::type t1_type;
 
 public:
 	typedef const t1_type& type;
@@ -82,7 +82,7 @@ template<typename T>
 struct native_rvref_t_detail
 {
 private:
-	typedef typename native_t_detail<T>::type t1_type;
+	typedef typename native_t_impl<T>::type t1_type;
 
 public:
 	typedef BOOST_RV_REF(t1_type) type;
@@ -92,7 +92,7 @@ public:
 
 template<typename T>
 struct native_t
-	: public detail::native_t_detail<T>
+	: public detail::native_t_impl<T>
 {
 };
 

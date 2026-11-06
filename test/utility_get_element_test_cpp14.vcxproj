@@ -38,7 +38,7 @@
     <ClCompile Include="utility\get_element_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7D6792A9-48FE-4C6D-9E50-A6178343A179}</ProjectGuid>
+    <ProjectGuid>{91FEC53E-29F7-4BFB-8F7D-1D46C8B43CA3}</ProjectGuid>
     <RootNamespace>utility_get_element_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>utility_get_element_test</ProjectName>

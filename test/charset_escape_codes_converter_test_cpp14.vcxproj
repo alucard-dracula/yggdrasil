@@ -38,7 +38,7 @@
     <ClCompile Include="charset\escape_codes_converter_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C0587BE2-C9B2-496F-93BA-375D43B4123E}</ProjectGuid>
+    <ProjectGuid>{D5D22BB0-7E21-4941-9321-EB57FBD1FEE0}</ProjectGuid>
     <RootNamespace>charset_escape_codes_converter_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_escape_codes_converter_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="geometry\geo_bezier_curve_gui_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7DD028D5-B6F5-4A75-B845-145C6F0F8653}</ProjectGuid>
+    <ProjectGuid>{6DFCACC7-8A0F-49F6-8FD5-6925D2ACA73D}</ProjectGuid>
     <RootNamespace>geometry_geo_bezier_curve_gui_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>geometry_geo_bezier_curve_gui_test</ProjectName>

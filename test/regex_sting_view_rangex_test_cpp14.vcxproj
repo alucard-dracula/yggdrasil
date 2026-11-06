@@ -38,7 +38,7 @@
     <ClCompile Include="regex\sting_view_rangex_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{66143FFF-AF23-44C1-A752-0F7CC95D47D3}</ProjectGuid>
+    <ProjectGuid>{23E75D25-164C-4463-A671-1C4C416E779D}</ProjectGuid>
     <RootNamespace>regex_sting_view_rangex_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>regex_sting_view_rangex_test</ProjectName>

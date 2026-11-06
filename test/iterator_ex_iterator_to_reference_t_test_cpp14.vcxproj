@@ -38,7 +38,7 @@
     <ClCompile Include="iterator_ex\iterator_to_reference_t_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0CF9A4A1-50E6-4CCE-B213-4B1B24EB0372}</ProjectGuid>
+    <ProjectGuid>{FFD44256-0617-4DF1-95D1-82C620679BFB}</ProjectGuid>
     <RootNamespace>iterator_ex_iterator_to_reference_t_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>iterator_ex_iterator_to_reference_t_test</ProjectName>

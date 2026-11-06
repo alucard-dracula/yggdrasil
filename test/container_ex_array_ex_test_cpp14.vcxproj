@@ -38,7 +38,7 @@
     <ClCompile Include="container_ex\array_ex_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DB72AD7F-4CDB-4351-AF2F-C10974AFD709}</ProjectGuid>
+    <ProjectGuid>{61F56845-A979-4BE5-B99B-5E0C1489967D}</ProjectGuid>
     <RootNamespace>container_ex_array_ex_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>container_ex_array_ex_test</ProjectName>

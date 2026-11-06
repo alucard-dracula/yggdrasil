@@ -38,7 +38,7 @@
     <ClCompile Include="iterator_ex\is_const_iterator_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7646B6A7-BB0A-45C9-B4D7-BB84A793D625}</ProjectGuid>
+    <ProjectGuid>{834B64B7-3AE4-442E-880B-6BD3DB216BF6}</ProjectGuid>
     <RootNamespace>iterator_ex_is_const_iterator_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>iterator_ex_is_const_iterator_test</ProjectName>

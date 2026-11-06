@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\isomeric_same_safe_options_map_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B567F5E0-7B98-4890-98DC-8D590DE16F4C}</ProjectGuid>
+    <ProjectGuid>{0BE3508A-E60C-4CE8-B78F-C1DE26296D96}</ProjectGuid>
     <RootNamespace>safe_container_isomeric_same_safe_options_map_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_isomeric_same_safe_options_map_test</ProjectName>

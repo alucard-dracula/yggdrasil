@@ -142,7 +142,7 @@ struct is_tag_object_reference< tag_object_reference<T> >
 namespace detail
 {
 
-template<typename T, bool is_tag_object_ref_chk>
+template<typename T, bool is_tag_object_ref_chk = is_tag_object_reference<T>::value>
 struct tag_object_reference_to_pointer_if
 	: public ::yggr::mplex::null_type
 {
@@ -159,7 +159,7 @@ struct tag_object_reference_to_pointer_if<T, true>
 
 template<typename T>
 struct tag_object_reference_to_pointer
-	: public detail::tag_object_reference_to_pointer_if<T, is_tag_object_reference<T>::value>
+	: public detail::tag_object_reference_to_pointer_if<T>
 {
 };
 

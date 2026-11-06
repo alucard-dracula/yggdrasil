@@ -38,7 +38,7 @@
     <ClCompile Include="math\elo_rating_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{CE88A4D7-A293-4DDF-BD25-9BB0980106A0}</ProjectGuid>
+    <ProjectGuid>{0B042FC1-A2B2-455B-978C-A6DBEF60EB18}</ProjectGuid>
     <RootNamespace>math_elo_rating_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>math_elo_rating_test</ProjectName>

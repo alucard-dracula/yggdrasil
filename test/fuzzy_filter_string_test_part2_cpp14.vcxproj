@@ -38,7 +38,7 @@
     <ClCompile Include="fuzzy\filter_string_test_part2.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E1443FA4-C54A-4AD8-88FF-C1282C1F3F3A}</ProjectGuid>
+    <ProjectGuid>{ECE9A788-D2AD-4C3B-AFB8-820B55F28889}</ProjectGuid>
     <RootNamespace>fuzzy_filter_string_test_part2</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>fuzzy_filter_string_test_part2</ProjectName>

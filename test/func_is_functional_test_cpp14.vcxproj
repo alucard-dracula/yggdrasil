@@ -38,7 +38,7 @@
     <ClCompile Include="func\is_functional_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{184FD778-546D-43AB-B965-AFD1BCC0B50F}</ProjectGuid>
+    <ProjectGuid>{51CD7EC7-0E50-406E-AA0B-1E88CA658537}</ProjectGuid>
     <RootNamespace>func_is_functional_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>func_is_functional_test</ProjectName>

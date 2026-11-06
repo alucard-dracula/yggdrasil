@@ -38,7 +38,7 @@
     <ClCompile Include="time\timer_mgr_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{206F825B-735E-413B-8E06-CE9EF3607B84}</ProjectGuid>
+    <ProjectGuid>{65D0CCCC-4626-4AB1-B035-F0CACA03E56A}</ProjectGuid>
     <RootNamespace>time_timer_mgr_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>time_timer_mgr_test</ProjectName>

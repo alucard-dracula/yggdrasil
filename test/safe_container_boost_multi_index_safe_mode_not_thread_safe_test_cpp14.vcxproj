@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\boost_multi_index_safe_mode_not_thread_safe_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{33EFA794-4BF9-45FE-A89D-B122FF837DC9}</ProjectGuid>
+    <ProjectGuid>{9EA6C7B3-0679-4F5E-8553-65CC2BAB3046}</ProjectGuid>
     <RootNamespace>safe_container_boost_multi_index_safe_mode_not_thread_safe_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_boost_multi_index_safe_mode_not_thread_safe_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="container\queue_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{6C4BF7BE-1FF3-4753-A69B-67F5CD2C304C}</ProjectGuid>
+    <ProjectGuid>{0704E4F4-7953-4C1A-8D15-FF75577FB9AA}</ProjectGuid>
     <RootNamespace>container_queue_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>container_queue_test</ProjectName>

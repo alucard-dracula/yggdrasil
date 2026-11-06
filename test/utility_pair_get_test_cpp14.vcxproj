@@ -38,7 +38,7 @@
     <ClCompile Include="utility\pair_get_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1476B882-9D19-4794-AD84-4FAEA5640814}</ProjectGuid>
+    <ProjectGuid>{12F6A718-04FC-4BE5-AABD-BD33910865E3}</ProjectGuid>
     <RootNamespace>utility_pair_get_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>utility_pair_get_test</ProjectName>

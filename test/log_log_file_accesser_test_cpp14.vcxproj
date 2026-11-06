@@ -38,7 +38,7 @@
     <ClCompile Include="log\log_file_accesser_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{06107554-1B57-43C8-9298-C2211C724FE3}</ProjectGuid>
+    <ProjectGuid>{A9B9D55C-72F2-4205-9C22-E84171C12470}</ProjectGuid>
     <RootNamespace>log_log_file_accesser_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>log_log_file_accesser_test</ProjectName>

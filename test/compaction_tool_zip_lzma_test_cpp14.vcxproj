@@ -38,7 +38,7 @@
     <ClCompile Include="compaction_tool\zip_lzma_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F6AE68A0-74AB-42B7-969C-5BF4140802D7}</ProjectGuid>
+    <ProjectGuid>{F1411581-712F-41DF-9B64-4A8B05DD6191}</ProjectGuid>
     <RootNamespace>compaction_tool_zip_lzma_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>compaction_tool_zip_lzma_test</ProjectName>

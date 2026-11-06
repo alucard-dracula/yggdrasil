@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\safe_buffered_object_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E26C7653-2601-4164-A7CD-9E1D842AD89C}</ProjectGuid>
+    <ProjectGuid>{13CA8AF8-D2AD-43EA-BCB1-9F13F2F28F78}</ProjectGuid>
     <RootNamespace>safe_container_safe_buffered_object_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_safe_buffered_object_test</ProjectName>

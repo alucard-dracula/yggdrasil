@@ -38,7 +38,7 @@
     <ClCompile Include="lua\lua_export_params_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4FAF7F89-987C-4F17-84F8-EB58CE931ECA}</ProjectGuid>
+    <ProjectGuid>{4FD4AE88-277E-4821-BA97-EAB4AF99072F}</ProjectGuid>
     <RootNamespace>lua_lua_export_params_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>lua_lua_export_params_test</ProjectName>

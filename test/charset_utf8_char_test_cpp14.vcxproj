@@ -38,7 +38,7 @@
     <ClCompile Include="charset\utf8_char_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C19E03C4-EBAA-4491-AC94-13A9BA27743E}</ProjectGuid>
+    <ProjectGuid>{4B68385E-C769-4ED7-960D-1B72DC898D5C}</ProjectGuid>
     <RootNamespace>charset_utf8_char_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_utf8_char_test</ProjectName>

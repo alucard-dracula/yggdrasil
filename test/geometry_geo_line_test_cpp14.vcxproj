@@ -38,7 +38,7 @@
     <ClCompile Include="geometry\geo_line_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A94B65B8-EF7B-463F-8BED-6DA029FDA8D3}</ProjectGuid>
+    <ProjectGuid>{42254F85-98CD-4BED-9ABC-9CC107AB7518}</ProjectGuid>
     <RootNamespace>geometry_geo_line_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>geometry_geo_line_test</ProjectName>

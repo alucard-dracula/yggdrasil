@@ -38,7 +38,7 @@
     <ClCompile Include="charset\string_view_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5D874F2A-777F-47E3-8EDF-23F569D1ABFE}</ProjectGuid>
+    <ProjectGuid>{666C5B08-D97F-4655-9A3C-A459656B2D26}</ProjectGuid>
     <RootNamespace>charset_string_view_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_string_view_test</ProjectName>

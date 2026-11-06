@@ -38,7 +38,7 @@
     <ClCompile Include="ppex\foo_params_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7CEB10CA-623E-4A4A-A6AB-C3982A90509B}</ProjectGuid>
+    <ProjectGuid>{0B4A6B5D-9212-4361-BF23-363843E188EE}</ProjectGuid>
     <RootNamespace>ppex_foo_params_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>ppex_foo_params_test</ProjectName>

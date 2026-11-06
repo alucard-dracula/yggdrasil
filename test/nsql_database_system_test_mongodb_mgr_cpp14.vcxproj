@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\test_mongodb_mgr.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{230F5B56-A2C3-459F-BA1A-D86DD14A4046}</ProjectGuid>
+    <ProjectGuid>{199A7C71-AF6C-459E-9AAF-0AF07C3A508B}</ProjectGuid>
     <RootNamespace>nsql_database_system_test_mongodb_mgr</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_test_mongodb_mgr</ProjectName>

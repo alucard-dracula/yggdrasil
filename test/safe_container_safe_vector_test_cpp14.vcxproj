@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\safe_vector_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{6489BB53-800B-44C1-9E54-6BE539B79951}</ProjectGuid>
+    <ProjectGuid>{D194C028-E301-4640-9B6B-4BC1F3DB34C6}</ProjectGuid>
     <RootNamespace>safe_container_safe_vector_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_safe_vector_test</ProjectName>

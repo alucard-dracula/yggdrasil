@@ -38,7 +38,7 @@
     <ClCompile Include="packet\packet_info_key_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0164C221-F4AC-4A41-9187-F10B3C634276}</ProjectGuid>
+    <ProjectGuid>{08EA7E8A-9473-4879-B289-01C97B758BE6}</ProjectGuid>
     <RootNamespace>packet_packet_info_key_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>packet_packet_info_key_test</ProjectName>

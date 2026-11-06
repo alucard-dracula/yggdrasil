@@ -29,6 +29,8 @@ THE SOFTWARE.
 
 #include <yggr/base/yggrdef.h>
 
+#include <yggr/type_traits/traits.hpp>
+#include <yggr/type_traits/reference_trans.hpp>
 #include <yggr/utility/args_holder.hpp>
 
 #include <yggr/packet/packet_info.hpp>
@@ -40,12 +42,60 @@ THE SOFTWARE.
 #include <yggr/support/operator_t.hpp>
 
 #include <yggr/func/foo_t_info.hpp>
+#include <boost/type_traits/add_const.hpp>
 
+#include <boost/mpl/push_front.hpp>
+#include <boost/ref.hpp>
 #include <cassert>
 
 #if !defined(YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST)
 #	define YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST 0
 #endif // YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST
+
+namespace yggr
+{
+namespace type_traits
+{
+namespace detail
+{
+
+template<typename T>
+struct reference_trans_impl< func::tag_object_reference<T> >
+	: public traits< boost::reference_wrapper<T> >
+{
+};
+
+} // namespace detail
+} // namespace type_traits
+} // namespace yggr
+
+namespace yggr
+{
+namespace handler_center
+{
+namespace detail
+{
+
+// packet_info_caster_args_fmt
+struct packet_info_caster_args_fmt
+{
+	template<typename T, typename Nil = mplex::null_type>
+	struct apply
+	{
+		typedef T type;
+	};
+
+	template<typename Nil>
+	struct apply<boost::mpl::na, Nil>
+	{
+		typedef boost::tuples::null_type type;
+	};
+};
+
+
+} // namespace detail
+} // namespace handler_center
+} // namespace yggr
 
 namespace yggr
 {
@@ -67,8 +117,56 @@ struct invoke_result_t
 
 // ret_type foo(...) version
 // handler_container_detail_invoke_helper_call_t
-template<typename R, typename Handler, typename Params, std::size_t N>
+template<typename R, typename Handler, typename Params, std::size_t N,
+			bool is_callable = func::foo_t_info<Handler>::is_callable_type::value,
+			bool is_native_foo = func::foo_t_info<Handler>::is_native_foo_type::value,
+			bool is_mem_foo = func::foo_t_info<Handler>::is_member_foo_type::value >
 struct handler_container_detail_invoke_helper_call_t
+{
+public:
+	typedef utility::basic_args_holder base_args_holder_type;
+
+public:
+	typedef R result_type;
+	typedef Handler handler_type;
+	typedef Params params_type;
+
+private:
+	typedef handler_container_detail_invoke_helper_call_t this_type;
+
+public:
+	/*
+	!!!
+	Although using if-else when a 'pret' cast fails can mask the return value to make it seem discardable,
+	in practice this can easily lead to hidden bugs (for example, passing the wrong return value parameter).
+	So for handler_container, it's better to stick to a scheme where the function's return value and parameters fully match before calling.
+	!!!
+	*/
+	inline bool operator()(const base_args_holder_type& ret,
+							const handler_type& handler,
+							const base_args_holder_type& params) const
+	{
+#if defined(YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST) && YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST
+		result_type* pret = utility::args_holder_ref_wrap_static_cast<result_type>(ret);
+		params_type* pparams = utility::args_holder_ref_wrap_static_cast<params_type>(params);
+#else
+		result_type* pret = utility::args_holder_ref_wrap_dynamic_cast<result_type>(ret);
+		params_type* pparams = utility::args_holder_ref_wrap_dynamic_cast<params_type>(params);
+#endif // YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST
+
+		if(!(pret && pparams)) // don't support return value discardable
+		{
+			return false;
+		}
+
+		params_type& ref_params = *pparams;
+		*pret = caller::to_params_call(handler, ref_params);
+		return true;
+	}
+};
+
+template<typename R, typename Handler, typename Params, std::size_t N >
+struct handler_container_detail_invoke_helper_call_t<R, Handler, Params, N, true, true, true>
 {
 public:
 	typedef utility::basic_args_holder base_args_holder_type;
@@ -93,19 +191,25 @@ public:
 		result_type* pret = utility::args_holder_ref_wrap_dynamic_cast<result_type>(ret);
 		params_type* pparams = utility::args_holder_ref_wrap_dynamic_cast<params_type>(params);
 #endif // YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST
-		
+
 		if(!(pret && pparams))
 		{
 			return false;
 		}
+
 		params_type& ref_params = *pparams;
-		*pret = caller::to_params_call(handler, ref_params);
+		*pret =
+            caller::to_params_call(
+                handler,
+                ref_params.template get<0>(),
+                ref_params.template sub_packet_info<1, params_type::E_length - 1>());
 		return true;
 	}
 };
 
-template<typename R, typename Handler, typename Params>
-struct handler_container_detail_invoke_helper_call_t<R, Handler, Params, 0>
+template<typename R, typename Handler, typename Params,
+			bool is_callable, bool is_native_foo, bool is_mem_foo >
+struct handler_container_detail_invoke_helper_call_t<R, Handler, Params, 0, is_callable, is_native_foo, is_mem_foo>
 {
 public:
 	typedef utility::basic_args_holder base_args_holder_type;
@@ -129,6 +233,106 @@ public:
 		result_type* pret = utility::args_holder_ref_wrap_dynamic_cast<result_type>(ret);
 #endif // YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST
 		return pret && (*pret = handler(), true);
+	}
+};
+
+// void foo(...) version
+//handler_container_detail_invoke_helper_void_call_t
+template<typename Handler, typename Params, std::size_t N, bool is_callable, bool is_native_foo, bool is_mem_foo>
+struct handler_container_detail_invoke_helper_call_t<void, Handler, Params, N, is_callable, is_native_foo, is_mem_foo>
+{
+public:
+	typedef utility::basic_args_holder base_args_holder_type;
+
+public:
+	typedef void result_type;
+	typedef Handler handler_type;
+	typedef Params params_type;
+
+private:
+	typedef handler_container_detail_invoke_helper_call_t this_type;
+
+public:
+	inline bool operator()(const base_args_holder_type& ret,
+							const handler_type& handler,
+							const base_args_holder_type& params) const
+	{
+		assert((utility::args_holder_ref_wrap_check<void>(ret)));
+#if defined(YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST) && YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST
+		params_type* pparams = utility::args_holder_ref_wrap_static_cast<params_type>(params);
+#else
+		params_type* pparams = utility::args_holder_ref_wrap_dynamic_cast<params_type>(params);
+#endif // YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST
+		if(!pparams)
+		{
+			return false;
+		}
+		params_type& ref_params = *pparams;
+		caller::to_params_call(handler, ref_params);
+		return true;
+	}
+};
+
+template<typename Handler, typename Params, std::size_t N>
+struct handler_container_detail_invoke_helper_call_t<void, Handler, Params, N, true, true, true>
+{
+public:
+	typedef utility::basic_args_holder base_args_holder_type;
+
+public:
+	typedef void result_type;
+	typedef Handler handler_type;
+	typedef Params params_type;
+
+private:
+	typedef handler_container_detail_invoke_helper_call_t this_type;
+
+public:
+	inline bool operator()(const base_args_holder_type& ret,
+							const handler_type& handler,
+							const base_args_holder_type& params) const
+	{
+		assert((utility::args_holder_ref_wrap_check<void>(ret)));
+#if defined(YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST) && YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST
+		params_type* pparams = utility::args_holder_ref_wrap_static_cast<params_type>(params);
+#else
+		params_type* pparams = utility::args_holder_ref_wrap_dynamic_cast<params_type>(params);
+#endif // YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST
+		if(!pparams)
+		{
+			return false;
+		}
+		params_type& ref_params = *pparams;
+		caller::to_params_call(
+            handler,
+            ref_params.template get<0>(),
+            ref_params.template sub_packet_info<1, params_type::E_length - 1>());
+		return true;
+	}
+};
+
+template<typename Handler, typename Params, bool is_callable, bool is_native_foo, bool is_mem_foo>
+struct handler_container_detail_invoke_helper_call_t<void, Handler, Params, 0, is_callable, is_native_foo, is_mem_foo>
+{
+public:
+	typedef utility::basic_args_holder base_args_holder_type;
+
+public:
+	typedef void result_type;
+	typedef Handler handler_type;
+	typedef Params params_type;
+
+private:
+	typedef handler_container_detail_invoke_helper_call_t this_type;
+
+public:
+	inline bool operator()(const base_args_holder_type& ret,
+							const handler_type& handler,
+							const base_args_holder_type params) const
+	{
+		assert((utility::args_holder_ref_wrap_check<void>(ret)));
+		handler();
+		return true;
 	}
 };
 
@@ -163,69 +367,6 @@ public:
 			> caller_type;
 		caller_type caller;
 		return caller(ret, handler, params);
-	}
-};
-
-// void foo(...) version
-
-//handler_container_detail_invoke_helper_void_call_t
-template<typename Handler, typename Params, std::size_t N>
-struct handler_container_detail_invoke_helper_call_t<void, Handler, Params, N>
-{
-public:
-	typedef utility::basic_args_holder base_args_holder_type;
-
-public:
-	typedef void result_type;
-	typedef Handler handler_type;
-	typedef Params params_type;
-
-private:
-	typedef handler_container_detail_invoke_helper_call_t this_type;
-
-public:
-	inline bool operator()(const base_args_holder_type& ret,
-							const handler_type& handler,
-							const base_args_holder_type& params) const
-	{
-		assert((utility::args_holder_ref_wrap_check<void>(ret)));
-#if defined(YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST) && YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST
-		params_type* pparams = utility::args_holder_ref_wrap_static_cast<params_type>(params);
-#else
-		params_type* pparams = utility::args_holder_ref_wrap_dynamic_cast<params_type>(params);
-#endif // YGGR_HANDLER_CENTER_ARGS_HOLDER_CONV_USING_STATIC_CAST
-		if(!pparams)
-		{
-			return false;
-		}
-		params_type& ref_params = *pparams;
-		caller::to_params_call(handler, ref_params);
-		return true;
-	}
-};
-
-template<typename Handler, typename Params>
-struct handler_container_detail_invoke_helper_call_t<void, Handler, Params, 0>
-{
-public:
-	typedef utility::basic_args_holder base_args_holder_type;
-
-public:
-	typedef void result_type;
-	typedef Handler handler_type;
-	typedef Params params_type;
-
-private:
-	typedef handler_container_detail_invoke_helper_call_t this_type;
-
-public:
-	inline bool operator()(const base_args_holder_type& ret,
-							const handler_type& handler,
-							const base_args_holder_type params) const
-	{
-		assert((utility::args_holder_ref_wrap_check<void>(ret)));
-		handler();
-		return true;
 	}
 };
 
@@ -283,7 +424,7 @@ public:
 public:
 #if !defined(YGGR_NO_CXX11_VARIADIC_TEMPLATES)
 	template<typename ...Args> inline
-	void invoke(invoke_result_type& out, Args... args) const
+	const invoke_result_type& invoke(invoke_result_type& out, Args... args) const
 	{
 		typedef packet::packet_info< Args... > packet_info_type;
 		typedef utility::args_holder_ref_wrap<packet_info_type> params_holder_type;
@@ -294,10 +435,11 @@ public:
 		params_holder_type params_holder(pak_info);
 		ret_holder_type ret_holder;
 		out.bret = this->pro_invoke(ret_holder, params_holder);
+		return out;
 	}
 
 	template<typename Ret, typename ...Args> inline
-	void invoke(Ret& ret, invoke_result_type& out, Args... args) const
+	const invoke_result_type& invoke(Ret& ret, invoke_result_type& out, Args... args) const
 	{
 		typedef Ret ret_type;
 		typedef packet::packet_info< Args... > packet_info_type;
@@ -308,6 +450,7 @@ public:
 		params_holder_type params_holder(pak_info);
 		ret_holder_type ret_holder(ret);
 		out.bret = this->pro_invoke(ret_holder, params_holder);
+		return out;
 	}
 
 #else
@@ -316,9 +459,9 @@ public:
 	BOOST_PP_EXPR_IF( __n__, template< ) \
 		YGGR_PP_FOO_TYPES_DEF( __n__ ) \
 	BOOST_PP_EXPR_IF( __n__, > ) inline \
-	void invoke(invoke_result_type& out \
-				YGGR_PP_SYMBOL_IF( __n__, YGGR_PP_SYMBOL_COMMA ) \
-				YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_VAR_PARAMS ) ) const { \
+	const invoke_result_type& invoke(invoke_result_type& out \
+										YGGR_PP_SYMBOL_IF( __n__, YGGR_PP_SYMBOL_COMMA ) \
+										YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_VAR_PARAMS ) ) const { \
 		typedef packet::packet_info< YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, T) > packet_info_type; \
 		typedef utility::args_holder_ref_wrap<packet_info_type> params_holder_type; \
 		typedef utility::args_holder_ref_wrap<void> ret_holder_type; \
@@ -329,14 +472,15 @@ public:
 							YGGR_PP_SYMBOL_IF( __n__, YGGR_PP_SYMBOL_PARENTHESES_R ) ; \
 		params_holder_type params_holder(pak_info); \
 		ret_holder_type ret_holder; \
-		out.bret = this->pro_invoke(ret_holder, params_holder); } \
+		out.bret = this->pro_invoke(ret_holder, params_holder); \
+		return out; } \
 	\
 	template< typename Ret \
 				YGGR_PP_SYMBOL_IF( __n__, YGGR_PP_SYMBOL_COMMA ) \
 				YGGR_PP_FOO_TYPES_DEF( __n__ ) > inline \
-	void invoke(Ret& ret, invoke_result_type& out \
-				YGGR_PP_SYMBOL_IF( __n__, YGGR_PP_SYMBOL_COMMA ) \
-				YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_VAR_PARAMS ) ) const { \
+	const invoke_result_type& invoke(Ret& ret, invoke_result_type& out \
+								YGGR_PP_SYMBOL_IF( __n__, YGGR_PP_SYMBOL_COMMA ) \
+								YGGR_PP_FOO_PARAMS_DEF( __n__, YGGR_PP_FOO_VAR_PARAMS ) ) const { \
 		typedef Ret ret_type; \
 		typedef packet::packet_info< YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, T) > packet_info_type; \
 		typedef utility::args_holder_ref_wrap<packet_info_type> params_holder_type; \
@@ -347,7 +491,8 @@ public:
 							YGGR_PP_SYMBOL_IF( __n__, YGGR_PP_SYMBOL_PARENTHESES_R ) ; \
 		params_holder_type params_holder(pak_info); \
 		ret_holder_type ret_holder(ret); \
-		out.bret = this->pro_invoke(ret_holder, params_holder); }
+		out.bret = this->pro_invoke(ret_holder, params_holder); \
+		return out; }
 
 #	define YGGR_PP_FOO_ARG_NAME(  ) arg_name
 #	define BOOST_PP_LOCAL_LIMITS ( 0, YGGR_PP_FOO_DEFAULT_PARAMS_LEN )
@@ -363,6 +508,13 @@ protected:
 
 typedef yggr::shared_ptr<basic_handler_container> basic_handler_container_sptr_type;
 
+/*!!!
+	Since a pointer to a class member function can be called through an object pointer or reference,
+	and args_holder_xxx_cast needs to get the unique parameter type through the class member function information,
+	we always use an object reference as the parameter when using class member functions and when the class object needs to be passed as an argument
+	(calling via object pointer is not supported).
+!!!*/
+
 // handler_container class
 template< typename Handler>
 class handler_container
@@ -377,17 +529,41 @@ private:
 	typedef func::foo_t_info<handler_type> foo_t_info_type;
 	typedef typename foo_t_info_type::result_type result_type;
 
-public:
+protected:
 	typedef typename
-		boost::mpl::if_
+		packet::packet_info_caster
 		<
-			typename foo_t_info_type::arg_holder_list_size_type,
 			typename
-				packet::packet_info_caster
+				boost::mpl::if_
 				<
+					boost::mpl::bool_
+					<
+						(foo_t_info_type::is_callable_type::value
+							&& foo_t_info_type::is_native_foo_type::value
+							&& foo_t_info_type::is_member_foo_type::value)
+					>,
+					typename
+						boost::mpl::push_front
+						<
+							typename foo_t_info_type::arg_holder_list_type,
+							typename
+								boost::mpl::if_
+								<
+									// obj_ref.mfoo(), obj_ref.cmfoo(), obj_cref.cmfoo() are all correct,
+									// but because dynamic polymorphism hides type information,
+									// params_type is inferred from foo_t_info, so obj_ref.cmfoo() and obj_cref.cmfoo() are ambiguous.
+									// Therefore, we can only specify obj_ref.mfoo() and obj_cref.cmfoo()
+									typename foo_t_info_type::is_const_type,
+									func::tag_object_reference
+									<
+										typename boost::add_const<typename foo_t_info_type::class_type>::type
+									>,
+									func::tag_object_reference<typename foo_t_info_type::class_type>
+								>::type
+						>::type,
 					typename foo_t_info_type::arg_holder_list_type
 				>::type,
-			packet::packet_info<>
+			detail::packet_info_caster_args_fmt
 		>::type params_type;
 
 	typedef typename params_type::params_type check_data_type;

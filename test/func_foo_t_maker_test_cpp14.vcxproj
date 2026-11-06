@@ -38,7 +38,7 @@
     <ClCompile Include="func\foo_t_maker_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{824A4528-6538-4956-AFA9-4BE99A36ADD2}</ProjectGuid>
+    <ProjectGuid>{DD40FB3B-98B3-4A4E-A045-A0654029973D}</ProjectGuid>
     <RootNamespace>func_foo_t_maker_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>func_foo_t_maker_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="network\asio_timer_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1A0C44B9-DBA9-41C4-9E0B-52FE82ED6D19}</ProjectGuid>
+    <ProjectGuid>{E1F16052-9563-4011-8E92-26EED7F425EC}</ProjectGuid>
     <RootNamespace>network_asio_timer_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>network_asio_timer_test</ProjectName>

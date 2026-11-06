@@ -38,7 +38,7 @@
     <ClCompile Include="iterator_ex\iterator_category_check_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D3E6E244-0C2A-44A6-B959-4966B4623F12}</ProjectGuid>
+    <ProjectGuid>{345559FE-73DC-43E2-B5D5-E02BC83944A6}</ProjectGuid>
     <RootNamespace>iterator_ex_iterator_category_check_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>iterator_ex_iterator_category_check_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="any_val\params_test_of_boost_any.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{79512100-D667-4541-BC58-EFFA1F5CB49F}</ProjectGuid>
+    <ProjectGuid>{491CF972-F9A9-482F-84AB-F1E80B8FBCAE}</ProjectGuid>
     <RootNamespace>any_val_params_test_of_boost_any</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>any_val_params_test_of_boost_any</ProjectName>

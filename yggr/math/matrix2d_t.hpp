@@ -1147,6 +1147,8 @@ bool operator!=(const matrix2d<ValL, ArrayL, BaseL>& l, const matrix2d<ValR, Arr
 
 namespace yggr
 {
+namespace type_traits
+{
 
 template<typename Val,
 			template<typename _Val, std::size_t>
@@ -1180,6 +1182,10 @@ struct upper_signed< math::matrix2d< Val, Array, Base > >
 		> type;
 };
 
+} // namespace type_traits
+
+using type_traits::upper_float;
+using type_traits::upper_signed;
 
 } // namespace yggr
 

@@ -38,7 +38,7 @@
     <ClCompile Include="mplex\pointer_to_value_t_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7D446604-A42B-4727-8EF0-0377E1A263A9}</ProjectGuid>
+    <ProjectGuid>{0060A05E-A7D1-42CB-A62F-791C4F2D863F}</ProjectGuid>
     <RootNamespace>mplex_pointer_to_value_t_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>mplex_pointer_to_value_t_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="base\test_compare_using_less.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E7CBE89A-0836-4DC0-8B7E-EEB173152EAE}</ProjectGuid>
+    <ProjectGuid>{91F311D1-15D7-4D43-B25B-9BCA630C7519}</ProjectGuid>
     <RootNamespace>base_test_compare_using_less</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>base_test_compare_using_less</ProjectName>

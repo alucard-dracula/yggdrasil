@@ -38,7 +38,7 @@
 		<ClInclude Include="wait_any_key\wait_any_key.hpp"/>
 	</ItemGroup>
 	<ItemGroup>
-		<ClCompile Include="python\python_script_mgr_test2.cpp"/>
+		<ClCompile Include="tuple\tuple_sub_tuple_test.cpp"/>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
 		<ProjectGuid>{249678C4-7A0E-43DF-8B86-9E3A2EEE8230}</ProjectGuid>

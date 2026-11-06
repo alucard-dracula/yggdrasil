@@ -116,7 +116,7 @@
 			<Add directory="../"/>
 			<Add directory="../yggr_lua_base_type"/>
 		</Compiler>
-		<Unit filename="handler_center/handler_container_test.cpp"/>
+		<Unit filename="handler_center/handler_center_test.cpp"/>
 		<Unit filename="wait_any_key/wait_any_key.hpp"/>
 		<Extensions>
 			<lib_finder disable_auto="1"/>

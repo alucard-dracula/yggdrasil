@@ -38,7 +38,7 @@
     <ClCompile Include="file_system\make_path_object_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5F9F481C-6DB9-4798-ADA7-170674F37B05}</ProjectGuid>
+    <ProjectGuid>{4F71663E-C566-4993-8A4F-33A7BAF4C661}</ProjectGuid>
     <RootNamespace>file_system_make_path_object_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>file_system_make_path_object_test</ProjectName>

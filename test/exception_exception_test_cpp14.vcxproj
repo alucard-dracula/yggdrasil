@@ -38,7 +38,7 @@
     <ClCompile Include="exception\exception_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FCFD079C-73D6-4195-B48F-70AEB167EB95}</ProjectGuid>
+    <ProjectGuid>{A9730F4A-B0CC-4F8F-9413-312D8C66130D}</ProjectGuid>
     <RootNamespace>exception_exception_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>exception_exception_test</ProjectName>

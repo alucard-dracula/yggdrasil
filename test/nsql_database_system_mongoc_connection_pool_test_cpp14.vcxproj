@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\mongoc_connection_pool_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3B1DBB93-D78B-4F1C-928C-296475B99168}</ProjectGuid>
+    <ProjectGuid>{87F418D2-75AE-4E0A-AC0C-5AADB1524CD3}</ProjectGuid>
     <RootNamespace>nsql_database_system_mongoc_connection_pool_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_mongoc_connection_pool_test</ProjectName>

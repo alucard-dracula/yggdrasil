@@ -38,7 +38,7 @@
     <ClCompile Include="handler_center\handler_center_test_performance.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{362D2910-5557-498D-8367-0D7D5A30587A}</ProjectGuid>
+    <ProjectGuid>{A7E7D113-561A-4A02-AC6B-B2C066C16F2B}</ProjectGuid>
     <RootNamespace>handler_center_handler_center_test_performance</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>handler_center_handler_center_test_performance</ProjectName>

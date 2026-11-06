@@ -38,7 +38,7 @@
     <ClCompile Include="container\set_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5177747D-D451-4D30-9775-6A5395C11E7B}</ProjectGuid>
+    <ProjectGuid>{467EAA4B-4F24-4063-9B1A-DA1C1C2E5FE9}</ProjectGuid>
     <RootNamespace>container_set_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>container_set_test</ProjectName>

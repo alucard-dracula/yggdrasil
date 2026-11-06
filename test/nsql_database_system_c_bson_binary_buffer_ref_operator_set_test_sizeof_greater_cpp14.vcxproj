@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_bson_binary_buffer_ref_operator_set_test_sizeof_greater.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{82037348-ACB5-4189-B02C-0BED4EF2B21D}</ProjectGuid>
+    <ProjectGuid>{A23684F4-4824-4F2E-865E-C9B09436B3EA}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_sizeof_greater</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_sizeof_greater</ProjectName>

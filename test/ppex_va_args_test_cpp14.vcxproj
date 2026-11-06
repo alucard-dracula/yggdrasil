@@ -38,7 +38,7 @@
     <ClCompile Include="ppex\va_args_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{16615A2A-D4F3-4FA1-B30B-DD2AD5B109CB}</ProjectGuid>
+    <ProjectGuid>{7B6B4AEE-A4D4-4F8E-8177-33B77CDD53D2}</ProjectGuid>
     <RootNamespace>ppex_va_args_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>ppex_va_args_test</ProjectName>

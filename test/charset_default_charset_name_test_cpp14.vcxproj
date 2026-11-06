@@ -38,7 +38,7 @@
     <ClCompile Include="charset\default_charset_name_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DAC64C62-D64D-47A5-8EB9-C2A76D4106AF}</ProjectGuid>
+    <ProjectGuid>{2B34F399-4731-42A0-B799-25F80047457E}</ProjectGuid>
     <RootNamespace>charset_default_charset_name_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_default_charset_name_test</ProjectName>

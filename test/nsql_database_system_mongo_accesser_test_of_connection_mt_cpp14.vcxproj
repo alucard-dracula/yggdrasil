@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\mongo_accesser_test_of_connection_mt.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F0E8585C-F5B1-4EC7-8EF9-97F38083B33D}</ProjectGuid>
+    <ProjectGuid>{811CE393-B066-48EE-A065-AFD35CF489CF}</ProjectGuid>
     <RootNamespace>nsql_database_system_mongo_accesser_test_of_connection_mt</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_mongo_accesser_test_of_connection_mt</ProjectName>

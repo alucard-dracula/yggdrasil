@@ -38,7 +38,7 @@
     <ClCompile Include="lua\lua_debug_helper_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F07211A3-D403-48C0-95DF-54B16C960031}</ProjectGuid>
+    <ProjectGuid>{71D5B361-6888-4CA5-A07C-E1758F6139E2}</ProjectGuid>
     <RootNamespace>lua_lua_debug_helper_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>lua_lua_debug_helper_test</ProjectName>

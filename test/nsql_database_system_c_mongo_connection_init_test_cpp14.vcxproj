@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_mongo_connection_init_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{68D86D28-B605-4B9A-A80D-7D20C943C043}</ProjectGuid>
+    <ProjectGuid>{C8CFEC03-FF30-42F2-8183-B4F602313FD6}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_mongo_connection_init_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_mongo_connection_init_test</ProjectName>

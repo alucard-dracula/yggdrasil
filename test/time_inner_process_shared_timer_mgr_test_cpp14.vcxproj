@@ -38,7 +38,7 @@
     <ClCompile Include="time\inner_process_shared_timer_mgr_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{449F52F8-7721-4552-B804-EBB4F40C0347}</ProjectGuid>
+    <ProjectGuid>{FEDAA84F-D72B-4A0B-97D8-F1F9CDC9261C}</ProjectGuid>
     <RootNamespace>time_inner_process_shared_timer_mgr_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>time_inner_process_shared_timer_mgr_test</ProjectName>

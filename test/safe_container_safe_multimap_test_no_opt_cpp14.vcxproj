@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\safe_multimap_test_no_opt.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{8F7FA5A4-14EF-497A-903E-C7897E28AB10}</ProjectGuid>
+    <ProjectGuid>{8A609CA6-97D6-43BC-9160-E6164A3174ED}</ProjectGuid>
     <RootNamespace>safe_container_safe_multimap_test_no_opt</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_safe_multimap_test_no_opt</ProjectName>

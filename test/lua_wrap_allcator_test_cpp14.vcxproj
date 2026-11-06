@@ -38,7 +38,7 @@
     <ClCompile Include="lua\wrap_allcator_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{387B8EA0-3D61-402C-820F-A6CCDCCC2CD6}</ProjectGuid>
+    <ProjectGuid>{2E9F0265-54BD-4B9D-9B0B-FC63638620B2}</ProjectGuid>
     <RootNamespace>lua_wrap_allcator_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>lua_wrap_allcator_test</ProjectName>

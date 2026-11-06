@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_bson_symbol_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{38336DEC-5E6C-432F-8DE8-748EF4DE8619}</ProjectGuid>
+    <ProjectGuid>{6FB3492D-D9C8-4F40-8527-B5209B60631C}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_bson_symbol_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_bson_symbol_test</ProjectName>

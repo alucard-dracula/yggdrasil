@@ -38,7 +38,7 @@
     <ClCompile Include="container\cast_to_native_array_reference_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B56520C6-B07D-4E21-BABF-286F76114AE4}</ProjectGuid>
+    <ProjectGuid>{5EE2DC00-C456-435A-AAE5-3024D882FE26}</ProjectGuid>
     <RootNamespace>container_cast_to_native_array_reference_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>container_cast_to_native_array_reference_test</ProjectName>

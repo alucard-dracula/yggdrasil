@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_mongo_read_prefs_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A3E5FEF3-9739-41B3-AD0F-443F1C981608}</ProjectGuid>
+    <ProjectGuid>{1629812F-CA94-44C5-A091-0C7D324D638D}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_mongo_read_prefs_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_mongo_read_prefs_test</ProjectName>

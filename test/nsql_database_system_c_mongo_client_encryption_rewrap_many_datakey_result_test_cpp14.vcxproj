@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_mongo_client_encryption_rewrap_many_datakey_result_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E2ECC847-CC56-41B6-A2AC-A8BDB21FD13D}</ProjectGuid>
+    <ProjectGuid>{1449231F-607A-4D17-8701-778A2180B443}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_mongo_client_encryption_rewrap_many_datakey_result_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_mongo_client_encryption_rewrap_many_datakey_result_test</ProjectName>

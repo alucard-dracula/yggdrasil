@@ -96,6 +96,7 @@
 		<Unit filename="algorithm/knuth_morris_pratt.hpp"/>
 		<Unit filename="algorithm/lexicographical_c_compare.hpp"/>
 		<Unit filename="algorithm/shuffle.hpp"/>
+		<Unit filename="algorithm/transform.hpp"/>
 		<Unit filename="any_val/any.hpp"/>
 		<Unit filename="any_val/any_check.hpp"/>
 		<Unit filename="any_val/any_has_value_empty.hpp"/>
@@ -221,6 +222,7 @@
 		<Unit filename="bytes/detail/byte_size_detail_tpl.hpp"/>
 		<Unit filename="bytes/detail/byte_size_detail_utility.hpp"/>
 		<Unit filename="caller/array_to_params_caller.hpp"/>
+		<Unit filename="caller/detail/caller_callable.hpp"/>
 		<Unit filename="caller/gen_callable_object.hpp"/>
 		<Unit filename="caller/packet_info_to_params_caller.hpp"/>
 		<Unit filename="caller/pair_to_params_caller.hpp"/>
@@ -1075,10 +1077,7 @@
 		<Unit filename="mplex/args.hpp"/>
 		<Unit filename="mplex/basic_t_sizeof_log2.hpp"/>
 		<Unit filename="mplex/cast_to_t_container.hpp"/>
-		<Unit filename="mplex/conv_to_tuple.hpp"/>
 		<Unit filename="mplex/cv_mark.hpp"/>
-		<Unit filename="mplex/detail/conv_to_tuple_vmacro.hpp"/>
-		<Unit filename="mplex/detail/conv_to_tuple_vtpl.hpp"/>
 		<Unit filename="mplex/detail/pointer_to_value_t_of_wrapper.hpp"/>
 		<Unit filename="mplex/detail/typename_replaceor_vmacro.hpp"/>
 		<Unit filename="mplex/detail/typename_replaceor_vtpl.hpp"/>
@@ -1369,7 +1368,11 @@
 		<Unit filename="p2p/protocol/p2p_peer_start.hpp"/>
 		<Unit filename="p2p/session_helper/p2p_connect_handler.hpp"/>
 		<Unit filename="p2p/session_helper/p2p_peer_start_mode.hpp"/>
-		<Unit filename="packet/detail/detail_packet_info_caster.hpp"/>
+		<Unit filename="packet/detail/compatibility_nmpl_seq_size.hpp"/>
+		<Unit filename="packet/detail/packet_info_caster_impl_vmacro.hpp"/>
+		<Unit filename="packet/detail/packet_info_caster_impl_vtpl.hpp"/>
+		<Unit filename="packet/detail/packet_info_decl_vmacro.hpp"/>
+		<Unit filename="packet/detail/packet_info_decl_vtpl.hpp"/>
 		<Unit filename="packet/detail/packet_info_vmacro.hpp"/>
 		<Unit filename="packet/detail/packet_info_vtpl.hpp"/>
 		<Unit filename="packet/packet.hpp"/>
@@ -2669,8 +2672,16 @@
 		<Unit filename="tuple/tuple_comparison.hpp"/>
 		<Unit filename="tuple/tuple_io.hpp"/>
 		<Unit filename="tuple/tuple_utility_decl.hpp"/>
+		<Unit filename="tuple_ex/conv_to_tuple.hpp"/>
+		<Unit filename="tuple_ex/detail/conv_to_tuple_vmacro.hpp"/>
+		<Unit filename="tuple_ex/detail/conv_to_tuple_vtpl.hpp"/>
+		<Unit filename="tuple_ex/detail/tuple_comparer.hpp"/>
+		<Unit filename="tuple_ex/detail/tuple_hasher.hpp"/>
+		<Unit filename="tuple_ex/detail/tuple_substructure.hpp"/>
+		<Unit filename="tuple_ex/detail/tuple_swaper.hpp"/>
 		<Unit filename="tuple_ex/get_element.hpp"/>
 		<Unit filename="tuple_ex/tuple.hpp"/>
+		<Unit filename="tuple_ex/tuple_maker.hpp"/>
 		<Unit filename="type_traits/aligned_storage.hpp"/>
 		<Unit filename="type_traits/aligned_storage_sizeof.hpp"/>
 		<Unit filename="type_traits/alignment_of.hpp"/>
@@ -2678,7 +2689,7 @@
 		<Unit filename="type_traits/bytes_to_types.hpp"/>
 		<Unit filename="type_traits/const_arg_t.hpp"/>
 		<Unit filename="type_traits/detail/integer_sequence.hpp"/>
-		<Unit filename="type_traits/detail/native_t_detail.hpp"/>
+		<Unit filename="type_traits/detail/native_t_impl.hpp"/>
 		<Unit filename="type_traits/detail/operator_result_stream_patch.hpp"/>
 		<Unit filename="type_traits/detail/original_t_detail.hpp"/>
 		<Unit filename="type_traits/detail/pointer_checker_of_wrapper.hpp"/>

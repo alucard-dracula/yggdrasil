@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\safe_multiset_test_no_opt.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D6999679-BD33-4461-A1C2-29798FC9EEC6}</ProjectGuid>
+    <ProjectGuid>{CF17F6A7-E2A6-4A61-BECB-04F0B204F804}</ProjectGuid>
     <RootNamespace>safe_container_safe_multiset_test_no_opt</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_safe_multiset_test_no_opt</ProjectName>

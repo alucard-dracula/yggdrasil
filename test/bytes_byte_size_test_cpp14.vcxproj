@@ -38,7 +38,7 @@
     <ClCompile Include="bytes\byte_size_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F4CD9B7F-C5AA-478B-B195-821A2D338734}</ProjectGuid>
+    <ProjectGuid>{A0B566DA-CB66-4120-922B-8D565935A201}</ProjectGuid>
     <RootNamespace>bytes_byte_size_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>bytes_byte_size_test</ProjectName>

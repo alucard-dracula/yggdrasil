@@ -38,7 +38,7 @@
     <ClCompile Include="lua\wrap_base_t_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{997980EB-077D-4974-8BE5-3D769DE25893}</ProjectGuid>
+    <ProjectGuid>{24AD0D46-A32B-4139-9AE1-A02825C9D9E5}</ProjectGuid>
     <RootNamespace>lua_wrap_base_t_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>lua_wrap_base_t_test</ProjectName>

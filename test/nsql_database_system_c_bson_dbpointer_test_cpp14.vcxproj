@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_bson_dbpointer_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FA63C827-24EF-4976-9FA3-FE9BDD1885BE}</ProjectGuid>
+    <ProjectGuid>{76718D0B-1395-4FFC-9132-D4400E7175AF}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_bson_dbpointer_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_bson_dbpointer_test</ProjectName>

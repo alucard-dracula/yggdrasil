@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\mongo_gridfs_org_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0A6F890D-45BE-4120-A852-F62BD9F83370}</ProjectGuid>
+    <ProjectGuid>{A266AC05-4707-416E-970A-4D09BE6CA2E0}</ProjectGuid>
     <RootNamespace>nsql_database_system_mongo_gridfs_org_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_mongo_gridfs_org_test</ProjectName>

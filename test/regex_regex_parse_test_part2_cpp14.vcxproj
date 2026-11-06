@@ -38,7 +38,7 @@
     <ClCompile Include="regex\regex_parse_test_part2.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4D0E0F9C-091F-4369-A43B-37342D5FB1A1}</ProjectGuid>
+    <ProjectGuid>{2DD886F2-17F0-4037-AB58-B26F8EF7F8E4}</ProjectGuid>
     <RootNamespace>regex_regex_parse_test_part2</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>regex_regex_parse_test_part2</ProjectName>

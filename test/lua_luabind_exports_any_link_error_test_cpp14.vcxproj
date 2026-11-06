@@ -38,7 +38,7 @@
     <ClCompile Include="lua\luabind_exports_any_link_error_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5155A3F1-CD4D-4AA3-9709-312AFC1F7F2B}</ProjectGuid>
+    <ProjectGuid>{36B2DC63-2C85-4F60-8FB8-BDA88248C92E}</ProjectGuid>
     <RootNamespace>lua_luabind_exports_any_link_error_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>lua_luabind_exports_any_link_error_test</ProjectName>

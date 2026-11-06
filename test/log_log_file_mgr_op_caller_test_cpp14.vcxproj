@@ -38,7 +38,7 @@
     <ClCompile Include="log\log_file_mgr_op_caller_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{AB01C7E5-0AFC-443F-800C-049796CAFEF8}</ProjectGuid>
+    <ProjectGuid>{7904977D-B9D0-47C1-88CC-699108496F2E}</ProjectGuid>
     <RootNamespace>log_log_file_mgr_op_caller_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>log_log_file_mgr_op_caller_test</ProjectName>

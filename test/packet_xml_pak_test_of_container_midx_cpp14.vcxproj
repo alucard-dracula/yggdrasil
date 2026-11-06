@@ -38,7 +38,7 @@
     <ClCompile Include="packet\xml_pak_test_of_container_midx.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0CA38AFC-D8A4-4C3B-B6DE-E791A03823DC}</ProjectGuid>
+    <ProjectGuid>{D8314242-20A8-412B-9FDB-862BF41539E9}</ProjectGuid>
     <RootNamespace>packet_xml_pak_test_of_container_midx</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>packet_xml_pak_test_of_container_midx</ProjectName>

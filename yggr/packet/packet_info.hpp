@@ -24,8 +24,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __YGGR_NETWORK_PACKET_INFO_HPP__
-#define __YGGR_NETWORK_PACKET_INFO_HPP__
+#ifndef __YGGR_PACKET_PACKET_INFO_HPP__
+#define __YGGR_PACKET_PACKET_INFO_HPP__
 
 #include <yggr/base/yggrdef.h>
 
@@ -35,4 +35,4 @@ THE SOFTWARE.
 #	include <yggr/packet/detail/packet_info_vmacro.hpp>
 #endif // YGGR_NO_CXX11_VARIADIC_TEMPLATES
 
-#endif // __YGGR_NETWORK_PACKET_INFO_HPP__
+#endif // __YGGR_PACKET_PACKET_INFO_HPP__

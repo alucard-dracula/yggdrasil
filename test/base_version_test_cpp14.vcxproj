@@ -38,7 +38,7 @@
     <ClCompile Include="base\version_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{95A0EB46-65A0-4571-9579-856B4B29E6BE}</ProjectGuid>
+    <ProjectGuid>{A776DA20-B2F4-4780-9C04-60D20420F57B}</ProjectGuid>
     <RootNamespace>base_version_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>base_version_test</ProjectName>

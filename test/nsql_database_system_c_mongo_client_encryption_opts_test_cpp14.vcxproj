@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_mongo_client_encryption_opts_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{2DDABAFE-F952-4E7D-81E1-1EDE15F0A3FF}</ProjectGuid>
+    <ProjectGuid>{5BA06DC9-5C78-45EF-AE33-B9871ED85EDF}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_mongo_client_encryption_opts_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_mongo_client_encryption_opts_test</ProjectName>

@@ -27,11 +27,16 @@ THE SOFTWARE.
 #ifndef __YGGR_CALLER_PAIR_TO_PARAMS_CALLER_HPP__
 #define __YGGR_CALLER_PAIR_TO_PARAMS_CALLER_HPP__
 
-#include <yggr/func/is_callable.hpp>
-#include <yggr/func/foo_t_info.hpp>
+#include <yggr/caller/detail/caller_callable.hpp>
+
+#include <yggr/utility/to_pointer.hpp>
 
 #include <boost/utility/enable_if.hpp>
+#include <boost/mpl/and.hpp>
+#include <boost/mpl/not.hpp>
+
 #include <utility>
+#include <cassert>
 
 namespace yggr
 {
@@ -42,7 +47,7 @@ template<typename Handler, typename T1, typename T2> inline
 typename 
 	boost::enable_if
 	<
-		is_callable<Handler>,
+		detail::is_caller_callable_foo<Handler>,
 		typename func::foo_t_info<Handler>::result_type
 	>::type
 	to_params_call(const Handler& handler, std::pair<T1, T2>& params)
@@ -50,17 +55,98 @@ typename
 	return (handler)(params.first, params.second);
 }
 
+template<typename Handler, typename Obj, typename T1, typename T2> inline
+typename 
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::mpl::not_<typename boost::is_pointer<Obj>::type>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj& obj, std::pair<T1, T2>& params)
+{
+	return (utility::to_pointer(obj)->*handler)(params.first, params.second);
+}
+
+template<typename Handler, typename Obj, typename T1, typename T2> inline
+typename 
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::is_pointer<Obj>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj pobj, std::pair<T1, T2>& params)
+{
+	assert(pobj);
+	if(!pobj)
+	{
+		throw std::invalid_argument("Invalid argument encountered, object pointer is null!");
+	}
+
+	return (pobj->*handler)(params.first, params.second);
+}
+
 template<typename Handler, typename T1, typename T2> inline
 typename 
 	boost::enable_if
 	<
-		is_callable<Handler>,
+		detail::is_caller_callable_foo<Handler>,
 		typename func::foo_t_info<Handler>::result_type
 	>::type
 	to_params_call(const Handler& handler, const std::pair<T1, T2>& params)
 {
 	return (handler)(params.first, params.second);
 }
+
+template<typename Handler, typename Obj, typename T1, typename T2> inline
+typename 
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::mpl::not_<typename boost::is_pointer<Obj>::type>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj& obj, const std::pair<T1, T2>& params)
+{
+	return (utility::to_pointer(obj)->*handler)(params.first, params.second);
+}
+
+template<typename Handler, typename Obj, typename T1, typename T2> inline
+typename 
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::is_pointer<Obj>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj pobj, const std::pair<T1, T2>& params)
+{
+	assert(pobj);
+	if(!pobj)
+	{
+		throw std::invalid_argument("Invalid argument encountered, object pointer is null!");
+	}
+
+	return (pobj->*handler)(params.first, params.second);
+}
+
 
 } // namespace caller
 } // namespace yggr

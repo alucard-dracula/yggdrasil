@@ -34,6 +34,8 @@ THE SOFTWARE.
 
 #include <boost/ref.hpp>
 #include <boost/type_traits/is_pointer.hpp>
+#include <boost/type_traits/add_pointer.hpp>
+#include <boost/type_traits/add_const.hpp>
 
 namespace yggr
 {
@@ -43,6 +45,67 @@ namespace utility
 namespace detail
 {
 
+// to_pointer_helper_obj_impl
+template<typename T>
+struct to_pointer_helper_obj_impl
+{
+public:
+	typedef T type;
+	typedef typename boost::add_pointer<type>::type pointer_type;
+
+public:
+	inline pointer_type conv(type& t) const
+	{
+		return boost::addressof(t);
+	}
+
+	template<typename R> inline
+	typename boost::enable_if<boost::is_same<type, R>, pointer_type>::type
+		conv(type& t) const
+	{
+		return boost::addressof(t);
+	}
+
+	template<typename R> inline
+	typename boost::disable_if<boost::is_same<type, R>, R*>::type
+		conv(type& t) const
+	{
+		return reinterpret_cast<R*>(boost::addressof(t));
+	}
+};
+
+template<typename T>
+struct to_pointer_helper_obj_impl< boost::reference_wrapper<T> >
+{
+public:
+	typedef T type;
+	typedef typename boost::add_pointer<type>::type pointer_type;
+
+protected:
+	typedef boost::reference_wrapper<T> arg_type;
+
+public:
+	inline pointer_type conv(arg_type t) const
+	{
+		return t.get_pointer();
+	}
+
+	template<typename R> inline
+	typename boost::enable_if<boost::is_same<type, R>, pointer_type>::type
+		conv(arg_type t) const
+	{
+		return t.get_pointer();
+	}
+
+	template<typename R> inline
+	typename boost::disable_if<boost::is_same<type, R>, R*>::type
+		conv(arg_type t) const
+	{
+		return reinterpret_cast<R*>(t.get_pointer());
+	}
+};
+
+//to_pointer_helper
 template<typename T, bool is_ptr = boost::is_pointer<T>::value >
 struct to_pointer_helper;
 
@@ -51,14 +114,16 @@ struct to_pointer_helper<T, true>
 {
 public:
 	typedef T type;
+	typedef type pointer_type;
+
 public:
-	inline type conv(type t) const
+	inline pointer_type conv(type t) const
 	{
 		return t;
 	}
 
 	template<typename R> inline
-	typename boost::enable_if<boost::is_same<type, R>, type>::type
+	typename boost::enable_if<boost::is_same<type, R>, pointer_type>::type
 		conv(type t) const
 	{
 		return t;
@@ -74,31 +139,79 @@ public:
 
 template<typename T>
 struct to_pointer_helper<T, false>
+	: public to_pointer_helper_obj_impl<T>
+{
+};
+
+// to_const_pointer_helper_obj_impl
+template<typename T>
+struct to_const_pointer_helper_obj_impl
 {
 public:
 	typedef T type;
+	typedef typename
+		boost::add_pointer
+		<
+			typename boost::add_const<type>::type
+		>::type pointer_type;
 
 public:
-	inline type* conv(type& t) const
+	inline pointer_type conv(const type& t) const
 	{
 		return boost::addressof(t);
 	}
 
 	template<typename R> inline
-	typename boost::enable_if<boost::is_same<type, R>, type*>::type
-		conv(type& t) const
+	typename boost::enable_if<boost::is_same<type, R>, pointer_type>::type
+		conv(const type& t) const
 	{
 		return boost::addressof(t);
 	}
 
 	template<typename R> inline
-	typename boost::disable_if<boost::is_same<type, R>, R*>::type
-		conv(type& t) const
+	typename boost::disable_if<boost::is_same<type, R>, const R*>::type
+		conv(const type& t) const
 	{
-		return reinterpret_cast<R*>(boost::addressof(t));
+		return reinterpret_cast<const R*>(boost::addressof(t));
 	}
 };
 
+template<typename T>
+struct to_const_pointer_helper_obj_impl< boost::reference_wrapper<T> >
+{
+public:
+	typedef T type;
+	typedef typename
+		boost::add_pointer
+		<
+			typename boost::add_const<type>::type
+		>::type pointer_type;
+
+protected:
+	typedef boost::reference_wrapper<T> arg_type;
+
+public:
+	inline pointer_type conv(arg_type t) const
+	{
+		return t.get_pointer();
+	}
+
+	template<typename R> inline
+	typename boost::enable_if<boost::is_same<type, R>, pointer_type>::type
+		conv(arg_type t) const
+	{
+		return t.get_pointer();
+	}
+
+	template<typename R> inline
+	typename boost::disable_if<boost::is_same<type, R>, const R*>::type
+		conv(arg_type t) const
+	{
+		return reinterpret_cast<const R*>(t.get_pointer());
+	}
+};
+
+// to_const_pointer_helper
 template<typename T, bool is_ptr = boost::is_pointer<T>::value>
 struct to_const_pointer_helper;
 
@@ -107,15 +220,16 @@ struct to_const_pointer_helper<T, true>
 {
 public:
 	typedef T type;
+	typedef typename boost::add_pointer<type>::type pointer_type;
 
 public:
-	inline const type conv(const type t) const
+	inline const pointer_type conv(const type t) const
 	{
 		return t;
 	}
 
 	template<typename R> inline
-	typename boost::enable_if<boost::is_same<type, R>, const type>::type
+	typename boost::enable_if<boost::is_same<type, R>, const pointer_type>::type
 		conv(const type t) const
 	{
 		return t;
@@ -131,29 +245,8 @@ public:
 
 template<typename T>
 struct to_const_pointer_helper<T, false>
+	: public to_const_pointer_helper_obj_impl<T>
 {
-public:
-	typedef T type;
-
-public:
-	inline const type* conv(const type& t) const
-	{
-		return boost::addressof(t);
-	}
-
-	template<typename R> inline
-	typename boost::enable_if<boost::is_same<type, R>, const type*>::type
-		conv(const type& t) const
-	{
-		return boost::addressof(t);
-	}
-
-	template<typename R> inline
-	typename boost::disable_if<boost::is_same<type, R>, const R*>::type
-		conv(const type& t) const
-	{
-		return reinterpret_cast<const R*>(boost::addressof(t));
-	}
 };
 
 } // namespace detail
@@ -173,7 +266,8 @@ typename boost::disable_if<boost::is_same<T1, T2>, T1*>::type
 }
 
 template<typename T> inline
-T* to_pointer(T& t)
+typename detail::to_pointer_helper<T>::pointer_type
+	to_pointer(T& t)
 {
 	typedef detail::to_pointer_helper<T> h_type;
 	h_type h;
@@ -204,7 +298,8 @@ typename boost::disable_if<boost::is_same<T1, T2>, const T1*>::type
 }
 
 template<typename T> inline
-const T* to_const_pointer(const T& t)
+const typename detail::to_const_pointer_helper<T>::pointer_type
+	to_const_pointer(const T& t)
 {
 	typedef detail::to_const_pointer_helper<T> h_type;
 	h_type h;
@@ -219,7 +314,6 @@ typename boost::disable_if<boost::is_same<T1, T2>, const T1*>::type
 	h_type h;
 	return h.template conv<T1>(t);
 }
-
 
 } // namespace utility
 } // namespace yggr

@@ -38,7 +38,7 @@
     <ClCompile Include="func\cast_to_functional_base_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{39878CBE-8987-46DE-9115-8297D26FD496}</ProjectGuid>
+    <ProjectGuid>{5AC8B5B7-17D6-4864-A728-09D5C2D31EB4}</ProjectGuid>
     <RootNamespace>func_cast_to_functional_base_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>func_cast_to_functional_base_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_mongo_index_model_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{6014FF02-3885-400A-A71D-57ED0116F4A3}</ProjectGuid>
+    <ProjectGuid>{F2DAABED-B853-480B-9FF6-CEB9B8CA1ED7}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_mongo_index_model_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_mongo_index_model_test</ProjectName>

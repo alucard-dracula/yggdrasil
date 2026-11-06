@@ -38,7 +38,7 @@
     <ClCompile Include="charset\utf8_char_cast_conflict_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{94916CDD-2F92-4D03-9DFA-6A36783C71E6}</ProjectGuid>
+    <ProjectGuid>{A578FF60-A18B-43E7-8A07-85B959EA661A}</ProjectGuid>
     <RootNamespace>charset_utf8_char_cast_conflict_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_utf8_char_cast_conflict_test</ProjectName>

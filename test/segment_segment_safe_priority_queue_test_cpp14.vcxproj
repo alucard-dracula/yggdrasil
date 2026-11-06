@@ -38,7 +38,7 @@
     <ClCompile Include="segment\segment_safe_priority_queue_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F81B4023-5D7F-4436-9251-3EB79B73E65B}</ProjectGuid>
+    <ProjectGuid>{B82CFC31-1695-41A3-B446-F8B97BF6DED4}</ProjectGuid>
     <RootNamespace>segment_segment_safe_priority_queue_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>segment_segment_safe_priority_queue_test</ProjectName>

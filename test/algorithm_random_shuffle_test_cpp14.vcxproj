@@ -38,7 +38,7 @@
     <ClCompile Include="algorithm\random_shuffle_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4A173EB8-4663-4CE2-99B4-885CE7C1813D}</ProjectGuid>
+    <ProjectGuid>{2003D951-13AE-410E-9FC2-116A3F695471}</ProjectGuid>
     <RootNamespace>algorithm_random_shuffle_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>algorithm_random_shuffle_test</ProjectName>

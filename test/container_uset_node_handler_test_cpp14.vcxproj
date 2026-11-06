@@ -38,7 +38,7 @@
     <ClCompile Include="container\uset_node_handler_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{9C650601-1405-4EDE-A20F-8DAA43A5C17A}</ProjectGuid>
+    <ProjectGuid>{2AD4A5F0-3BF2-4264-8E81-9A72830FCC68}</ProjectGuid>
     <RootNamespace>container_uset_node_handler_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>container_uset_node_handler_test</ProjectName>

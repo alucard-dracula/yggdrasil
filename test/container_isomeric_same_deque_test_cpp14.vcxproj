@@ -38,7 +38,7 @@
     <ClCompile Include="container\isomeric_same_deque_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1191707B-965B-4940-90A0-4CE50291FE35}</ProjectGuid>
+    <ProjectGuid>{B9842C08-F2A3-4591-BA5E-D0D4E8BBE1AE}</ProjectGuid>
     <RootNamespace>container_isomeric_same_deque_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>container_isomeric_same_deque_test</ProjectName>

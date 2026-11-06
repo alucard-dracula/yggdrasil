@@ -38,7 +38,7 @@
     <ClCompile Include="database_system\database_accesser_test_of_pool.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C69BDD04-8761-4816-A24B-54A3D575D4E0}</ProjectGuid>
+    <ProjectGuid>{539CBB48-23D6-44B6-8F4F-82942A8A940F}</ProjectGuid>
     <RootNamespace>database_system_database_accesser_test_of_pool</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>database_system_database_accesser_test_of_pool</ProjectName>

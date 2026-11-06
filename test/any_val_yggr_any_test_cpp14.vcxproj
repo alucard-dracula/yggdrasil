@@ -38,7 +38,7 @@
     <ClCompile Include="any_val\yggr_any_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BB6F5A43-B235-4CF0-BA9D-C54DB26E12BD}</ProjectGuid>
+    <ProjectGuid>{C8A81B86-BC25-4B54-9B57-C9606636DF8D}</ProjectGuid>
     <RootNamespace>any_val_yggr_any_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>any_val_yggr_any_test</ProjectName>

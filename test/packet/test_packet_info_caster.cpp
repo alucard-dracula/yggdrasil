@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
 
 		typedef yggr::packet::packet_info_caster<vt_type> caster_type;
 		typedef caster_type::type packet_info_type;
-		
+
 		std::cout << typeid(vt_type).name() << std::endl;
 		std::cout << typeid(packet_info_type).name() << std::endl;
 		std::cout << typeid(chk_type).name() << std::endl;
@@ -42,6 +42,19 @@ int main(int argc, char* argv[])
 		 typedef boost::mpl::vector<>::type::type vt_type;
 		 std::cout << typeid(vt_type).name() << std::endl;
 	}
+
+	{
+        typedef yggr::packet::packet_info<> chk_type;
+
+		typedef yggr::packet::packet_info_caster<int> caster_type;
+		typedef caster_type::type packet_info_type;
+
+		//std::cout << typeid(vt_type).name() << std::endl;
+		std::cout << typeid(packet_info_type).name() << std::endl;
+		std::cout << typeid(chk_type).name() << std::endl;
+
+        BOOST_MPL_ASSERT((boost::is_same<chk_type, packet_info_type>));
+    }
 
 
     std::cout << "test end" << std::endl;

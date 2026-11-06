@@ -38,7 +38,7 @@
     <ClCompile Include="charset\utf8_string_boyer_moore_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DC4862B2-32A2-4286-BA32-FD7310082861}</ProjectGuid>
+    <ProjectGuid>{2CCA2CB7-A568-4BF2-BCA4-B26955362DCB}</ProjectGuid>
     <RootNamespace>charset_utf8_string_boyer_moore_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_utf8_string_boyer_moore_test</ProjectName>

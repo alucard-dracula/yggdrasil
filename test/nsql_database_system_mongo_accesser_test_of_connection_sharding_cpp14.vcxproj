@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\mongo_accesser_test_of_connection_sharding.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{45817303-0206-49E0-8EFC-91D93F67F0E9}</ProjectGuid>
+    <ProjectGuid>{7793E812-F79B-481C-AC8D-363945F1AF29}</ProjectGuid>
     <RootNamespace>nsql_database_system_mongo_accesser_test_of_connection_sharding</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_mongo_accesser_test_of_connection_sharding</ProjectName>

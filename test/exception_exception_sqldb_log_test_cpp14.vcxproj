@@ -38,7 +38,7 @@
     <ClCompile Include="exception\exception_sqldb_log_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3D9E5249-42E9-4E46-828D-B1E90DE9A34C}</ProjectGuid>
+    <ProjectGuid>{675294D8-64F5-415C-870E-031AE492B19E}</ProjectGuid>
     <RootNamespace>exception_exception_sqldb_log_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>exception_exception_sqldb_log_test</ProjectName>

@@ -38,10 +38,10 @@ namespace caller
 #ifndef YGGR_NO_CXX11_VARIADIC_TEMPLATES
 
 template<typename Handler, typename ...T> inline
-typename 
+typename
 	boost::enable_if
 	<
-		is_callable<Handler>,
+		detail::is_caller_callable_foo<Handler>,
 		typename func::foo_t_info<Handler>::result_type
 	>::type
 	to_params_call(const Handler& handler, packet::packet_info<T...>& t)
@@ -53,11 +53,59 @@ typename
 	return to_params_call(handler, tuple);
 }
 
-template<typename Handler, typename ...T> inline
-typename 
+template<typename Handler, typename Obj, typename ...T> inline
+typename
 	boost::enable_if
 	<
-		is_callable<Handler>,
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::mpl::not_<typename boost::is_pointer<Obj>::type>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj& obj, packet::packet_info<T...>& t)
+{
+	typedef packet::packet_info<T...> packet_info_type;
+	typedef typename packet_info_type::value_type tuple_type;
+
+	tuple_type& tuple = static_cast<tuple_type&>(t);
+	return to_params_call(handler, obj, tuple);
+}
+
+template<typename Handler, typename Obj, typename ...T> inline
+typename
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::is_pointer<Obj>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj pobj, packet::packet_info<T...>& t)
+{
+	typedef packet::packet_info<T...> packet_info_type;
+	typedef typename packet_info_type::value_type tuple_type;
+
+	assert(pobj);
+	if(!pobj)
+	{
+		throw std::invalid_argument("Invalid argument encountered, object pointer is null!");
+	}
+
+	tuple_type& tuple = static_cast<tuple_type&>(t);
+	return to_params_call(handler, pobj, tuple);
+}
+
+template<typename Handler, typename ...T> inline
+typename
+	boost::enable_if
+	<
+		detail::is_caller_callable_foo<Handler>,
 		typename func::foo_t_info<Handler>::result_type
 	>::type
 	to_params_call(const Handler& handler, const packet::packet_info<T...>& t)
@@ -69,40 +117,188 @@ typename
 	return to_params_call(handler, tuple);
 }
 
+template<typename Handler, typename Obj, typename ...T> inline
+typename
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::mpl::not_<typename boost::is_pointer<Obj>::type>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj& obj, const packet::packet_info<T...>& t)
+{
+	typedef packet::packet_info<T...> packet_info_type;
+	typedef typename packet_info_type::value_type tuple_type;
+
+	const tuple_type& tuple = static_cast<const tuple_type&>(t);
+	return to_params_call(handler, obj, tuple);
+}
+
+template<typename Handler, typename Obj, typename ...T> inline
+typename
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::is_pointer<Obj>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj pobj, const packet::packet_info<T...>& t)
+{
+	typedef packet::packet_info<T...> packet_info_type;
+	typedef typename packet_info_type::value_type tuple_type;
+
+	assert(pobj);
+	if(!pobj)
+	{
+		throw std::invalid_argument("Invalid argument encountered, object pointer is null!");
+	}
+
+	const tuple_type& tuple = static_cast<const tuple_type&>(t);
+	return to_params_call(handler, pobj, tuple);
+}
+
 #else
 
 template<typename Handler, YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), typename T)> inline
-typename 
+typename
 	boost::enable_if
 	<
-		is_callable<Handler>,
+		detail::is_caller_callable_foo<Handler>,
 		typename func::foo_t_info<Handler>::result_type
 	>::type
-	to_params_call(const Handler& handler, 
+	to_params_call(const Handler& handler,
 					packet::packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), T)>& t)
 {
 	typedef packet::packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), T)> packet_info_type;
 	typedef typename packet_info_type::value_type tuple_type;
-	
+
 	tuple_type& tuple = static_cast<tuple_type&>(t);
 	return to_params_call(handler, tuple);
 }
 
-template<typename Handler, YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), typename T)> inline
-typename 
+template<typename Handler, typename Obj, YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), typename T)> inline
+typename
 	boost::enable_if
 	<
-		is_callable<Handler>,
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::mpl::not_<typename boost::is_pointer<Obj>::type>
+			>::type,
 		typename func::foo_t_info<Handler>::result_type
 	>::type
-	to_params_call(const Handler& handler, 
+	to_params_call(const Handler& handler, Obj& obj,
+					packet::packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), T)>& t)
+{
+	typedef packet::packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), T)> packet_info_type;
+	typedef typename packet_info_type::value_type tuple_type;
+
+	tuple_type& tuple = static_cast<tuple_type&>(t);
+	return to_params_call(handler, obj, tuple);
+}
+
+template<typename Handler, typename Obj, YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), typename T)> inline
+typename
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::is_pointer<Obj>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj pobj,
+					packet::packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), T)>& t)
+{
+	typedef packet::packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), T)> packet_info_type;
+	typedef typename packet_info_type::value_type tuple_type;
+
+	assert(pobj);
+	if(!pobj)
+	{
+		throw std::invalid_argument("Invalid argument encountered, object pointer is null!");
+	}
+
+	tuple_type& tuple = static_cast<tuple_type&>(t);
+	return to_params_call(handler, pobj, tuple);
+}
+
+template<typename Handler, YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), typename T)> inline
+typename
+	boost::enable_if
+	<
+		detail::is_caller_callable_foo<Handler>,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler,
 					const packet::packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), T)>& t)
 {
 	typedef packet::packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), T)> packet_info_type;
 	typedef typename packet_info_type::value_type tuple_type;
-	
+
 	const tuple_type& tuple = static_cast<const tuple_type&>(t);
 	return to_params_call(handler, tuple);
+}
+
+template<typename Handler, typename Obj, YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), typename T)> inline
+typename
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::mpl::not_<typename boost::is_pointer<Obj>::type>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj& obj,
+					const packet::packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), T)>& t)
+{
+	typedef packet::packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), T)> packet_info_type;
+	typedef typename packet_info_type::value_type tuple_type;
+
+	const tuple_type& tuple = static_cast<const tuple_type&>(t);
+	return to_params_call(handler, obj, tuple);
+}
+
+template<typename Handler, typename Obj, YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), typename T)> inline
+typename
+	boost::enable_if
+	<
+		typename
+			boost::mpl::and_
+			<
+				detail::is_caller_callable_native_mem_foo<Handler>,
+				boost::is_pointer<Obj>
+			>::type,
+		typename func::foo_t_info<Handler>::result_type
+	>::type
+	to_params_call(const Handler& handler, Obj pobj,
+					const packet::packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), T)>& t)
+{
+	typedef packet::packet_info<YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), T)> packet_info_type;
+	typedef typename packet_info_type::value_type tuple_type;
+
+	assert(pobj);
+	if(!pobj)
+	{
+		throw std::invalid_argument("Invalid argument encountered, object pointer is null!");
+	}
+
+	const tuple_type& tuple = static_cast<const tuple_type&>(t);
+	return to_params_call(handler, pobj, tuple);
 }
 
 #endif // YGGR_NO_CXX11_VARIADIC_TEMPLATES

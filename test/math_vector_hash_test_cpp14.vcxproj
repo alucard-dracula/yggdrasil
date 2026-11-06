@@ -38,7 +38,7 @@
     <ClCompile Include="math\vector_hash_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B008F3D3-8F2F-4F41-8E05-CC01ED5D37BC}</ProjectGuid>
+    <ProjectGuid>{DC0F7CAF-757A-4828-9092-6E4EC7D2E9D9}</ProjectGuid>
     <RootNamespace>math_vector_hash_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>math_vector_hash_test</ProjectName>

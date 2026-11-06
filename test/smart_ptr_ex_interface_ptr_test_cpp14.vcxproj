@@ -38,7 +38,7 @@
     <ClCompile Include="smart_ptr_ex\interface_ptr_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4A6DC1E1-FDA9-4E20-AAD7-FCB25283CDE3}</ProjectGuid>
+    <ProjectGuid>{514739A1-E6C8-4D74-9225-0CCE644A3CC2}</ProjectGuid>
     <RootNamespace>smart_ptr_ex_interface_ptr_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>smart_ptr_ex_interface_ptr_test</ProjectName>

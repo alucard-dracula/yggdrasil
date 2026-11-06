@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\safe_options_deque_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1A41F37E-656D-471E-8B68-5B9A5D89176D}</ProjectGuid>
+    <ProjectGuid>{221371B9-C2DE-404A-BB67-CE2640ADDE71}</ProjectGuid>
     <RootNamespace>safe_container_safe_options_deque_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_safe_options_deque_test</ProjectName>

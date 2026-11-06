@@ -38,7 +38,7 @@
     <ClCompile Include="segment\segment_utf8_string_test_part3.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3F72F308-F5A1-4F06-B65E-4A434239CCAA}</ProjectGuid>
+    <ProjectGuid>{58831FD9-725E-4FA3-8123-296056E3A808}</ProjectGuid>
     <RootNamespace>segment_segment_utf8_string_test_part3</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>segment_segment_utf8_string_test_part3</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="regex\utf8_regex_parse_test_part2.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3DE52FDE-1937-421C-9E86-005AD8474659}</ProjectGuid>
+    <ProjectGuid>{8081F27C-EA04-4B05-B001-877704ACCB6A}</ProjectGuid>
     <RootNamespace>regex_utf8_regex_parse_test_part2</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>regex_utf8_regex_parse_test_part2</ProjectName>

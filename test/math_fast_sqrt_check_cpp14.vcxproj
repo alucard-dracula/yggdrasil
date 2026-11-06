@@ -38,7 +38,7 @@
     <ClCompile Include="math\fast_sqrt_check.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5D250E8A-30E6-4702-81FF-CAF24A4284A3}</ProjectGuid>
+    <ProjectGuid>{7CE70567-F5B7-4D95-9F5B-BB297DCC8662}</ProjectGuid>
     <RootNamespace>math_fast_sqrt_check</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>math_fast_sqrt_check</ProjectName>

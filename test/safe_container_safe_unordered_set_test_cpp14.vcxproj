@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\safe_unordered_set_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FA76873B-1D6D-48E4-B207-05239F1EAFBA}</ProjectGuid>
+    <ProjectGuid>{0F290722-A27C-47AB-8836-C6805B57CB4E}</ProjectGuid>
     <RootNamespace>safe_container_safe_unordered_set_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_safe_unordered_set_test</ProjectName>

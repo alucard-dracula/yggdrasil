@@ -38,7 +38,7 @@
     <ClCompile Include="mapping\static_index_mapping_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BF3055A1-2CD7-4285-9F71-96980C5509B7}</ProjectGuid>
+    <ProjectGuid>{C78AF5CC-FA32-4591-9531-A04DB38CD616}</ProjectGuid>
     <RootNamespace>mapping_static_index_mapping_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>mapping_static_index_mapping_test</ProjectName>

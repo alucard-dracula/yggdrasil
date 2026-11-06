@@ -38,7 +38,7 @@
     <ClCompile Include="charset\hex_converter_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E6C22C19-397E-4482-BF24-E2C893D36CE7}</ProjectGuid>
+    <ProjectGuid>{7CA31989-1A0D-4240-8DB7-171868F135AA}</ProjectGuid>
     <RootNamespace>charset_hex_converter_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_hex_converter_test</ProjectName>

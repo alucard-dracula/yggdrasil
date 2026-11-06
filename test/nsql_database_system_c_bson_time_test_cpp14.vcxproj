@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_bson_time_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0BD1FBF8-ACE2-4F19-A799-CF488798F63C}</ProjectGuid>
+    <ProjectGuid>{AE6D24CD-6CE0-4287-B166-C1796B8F7C49}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_bson_time_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_bson_time_test</ProjectName>

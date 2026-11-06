@@ -38,7 +38,7 @@
     <ClCompile Include="seh\seh_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DD6FD5E2-CE9C-4E06-8AB0-116DDC206354}</ProjectGuid>
+    <ProjectGuid>{7AAC5BDE-44B4-4B9E-A152-2C8DF117361F}</ProjectGuid>
     <RootNamespace>seh_seh_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>seh_seh_test</ProjectName>

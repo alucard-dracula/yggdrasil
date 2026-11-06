@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_bson_regex_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{9BBF9ABF-8BBA-4890-BC83-08F162CE01F8}</ProjectGuid>
+    <ProjectGuid>{6520A76E-0D70-4BE5-AA34-7230815799C8}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_bson_regex_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_bson_regex_test</ProjectName>

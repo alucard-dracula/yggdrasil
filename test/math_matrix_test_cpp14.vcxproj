@@ -38,7 +38,7 @@
     <ClCompile Include="math\matrix_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5F335E34-69B5-4C79-B701-7A983BFA7DA6}</ProjectGuid>
+    <ProjectGuid>{5F438150-A512-41B9-BB74-472AAF3AD9EA}</ProjectGuid>
     <RootNamespace>math_matrix_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>math_matrix_test</ProjectName>

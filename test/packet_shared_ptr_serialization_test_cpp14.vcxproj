@@ -38,7 +38,7 @@
     <ClCompile Include="packet\shared_ptr_serialization_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BA5DF2D5-164B-467C-ACDB-F3537A63E6A9}</ProjectGuid>
+    <ProjectGuid>{F0987C7E-CE83-4758-A524-53FA74572AC9}</ProjectGuid>
     <RootNamespace>packet_shared_ptr_serialization_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>packet_shared_ptr_serialization_test</ProjectName>

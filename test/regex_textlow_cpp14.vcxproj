@@ -38,7 +38,7 @@
     <ClCompile Include="regex\textlow.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1D76ABD7-2FD4-480F-AB58-1857F6B90006}</ProjectGuid>
+    <ProjectGuid>{4C3C4DB1-B560-4C65-A3B2-709D90E23EA6}</ProjectGuid>
     <RootNamespace>regex_textlow</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>regex_textlow</ProjectName>

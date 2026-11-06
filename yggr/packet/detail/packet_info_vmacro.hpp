@@ -24,18 +24,19 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __YGGR_NETWORK_PACKET_INFO_VMACRO_HPP__
-#define __YGGR_NETWORK_PACKET_INFO_VMACRO_HPP__
+#ifndef __YGGR_PACKET_PACKET_INFO_VMACRO_HPP__
+#define __YGGR_PACKET_PACKET_INFO_VMACRO_HPP__
 
-#ifndef __YGGR_NETWORK_PACKET_INFO_HPP__
+#ifndef __YGGR_PACKET_PACKET_INFO_HPP__
 #	error "please include packet_info.hpp"
-#endif // __YGGR_NETWORK_PACKET_INFO_HPP__
+#endif // __YGGR_PACKET_PACKET_INFO_HPP__
 
 #ifndef YGGR_NO_CXX11_VARIADIC_TEMPLATES
 #	error "this file is using for no cxx11 variadic temples, please check environment."
 #endif // YGGR_NO_CXX11_VARIADIC_TEMPLATES
 
-#include <yggr/base/yggrdef.h>
+#include <yggr/packet/detail/packet_info_decl_vmacro.hpp>
+
 #include <yggr/base/static_constant.hpp>
 
 #include <yggr/utility/copy_or_move_or_swap.hpp>
@@ -47,10 +48,10 @@ THE SOFTWARE.
 #include <yggr/func/foo_t_info.hpp>
 
 #include <yggr/mplex/static_assert.hpp>
-#include <yggr/mplex/conv_to_tuple.hpp>
 
 #include <yggr/tuple/tuple.hpp>
 #include <yggr/tuple_ex/tuple.hpp>
+#include <yggr/tuple_ex/conv_to_tuple.hpp>
 
 #include <yggr/serialization/access.hpp>
 #include <yggr/serialization/nvp.hpp>
@@ -74,9 +75,9 @@ THE SOFTWARE.
 #include <sstream>
 #include <utility>
 
-#ifndef YGGR_PP_PACKET_INFO_PARAMS_LEN
-#	define YGGR_PP_PACKET_INFO_PARAMS_LEN YGGR_TUPLE_LIMIT_LENGTH
-#endif // YGGR_PP_PACKET_INFO_PARAMS_LEN
+//#ifndef YGGR_PP_PACKET_INFO_PARAMS_LEN
+//#	define YGGR_PP_PACKET_INFO_PARAMS_LEN YGGR_TUPLE_LIMIT_LENGTH
+//#endif // YGGR_PP_PACKET_INFO_PARAMS_LEN
 
 namespace yggr
 {
@@ -85,8 +86,55 @@ namespace packet
 
 class packet_info_op;
 
+//template< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), typename Val ) >
+//class packet_info;
+
 } // namespace packet
 } // namespace yggr
+
+namespace yggr
+{
+namespace packet
+{
+namespace detail
+{
+
+template<typename Tuple>
+struct tuple_to_packet_info_t_impl;
+
+#define YGGR_PP_TEMPLATE_DEFAULT_TYPE() ::yggr::tuples::null_type
+template<
+	template<YGGR_PP_TEMPLATE_PARAMS_TYPES( YGGR_PP_PACKET_INFO_PARAMS_LEN(), typename _Val )> class TupleTpl,
+	YGGR_PP_TEMPLATE_PARAMS_TYPES( YGGR_PP_PACKET_INFO_PARAMS_LEN(), typename Val )>
+#undef YGGR_PP_TEMPLATE_DEFAULT_TYPE
+struct tuple_to_packet_info_t_impl< TupleTpl< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), Val) > >
+{
+public:
+	typedef packet_info< YGGR_PP_TEMPLATE_PARAMS_TYPES(YGGR_PP_PACKET_INFO_PARAMS_LEN(), Val) > type;
+};
+
+} // namespace detail
+
+template<typename Tuple>
+struct tuple_to_packet_info_t
+	: public detail::tuple_to_packet_info_t_impl<Tuple>
+{
+};
+
+template<typename Packet, std::size_t Pos, std::size_t Len>
+struct sub_packet_info_t
+	: public
+		tuple_to_packet_info_t
+		<
+			typename tuple_ex::sub_tuple_t<typename Packet::base_type, Pos, Len>::type
+		>
+{
+};
+
+
+} // namespace packet
+} // namespace yggr
+
 
 namespace yggr
 {
@@ -98,7 +146,7 @@ namespace packet
 #undef YGGR_PP_TEMPLATE_DEFAULT_TYPE
 class packet_info
 	: public
-		mplex::conv_to_yggr_tuple
+		tuple_ex::conv_to_yggr_tuple
 		<
 			typename
 				boost::mpl::erase
@@ -147,7 +195,7 @@ public:
 
 public:
 	typedef vt_t_type params_type;
-	typedef typename mplex::conv_to_yggr_tuple<params_type, null_type>::type value_type;
+	typedef typename tuple_ex::conv_to_yggr_tuple<params_type, null_type>::type value_type;
 	typedef value_type base_type;
 
 	template<size_type N>
@@ -480,22 +528,31 @@ public:
 		return yggr::get<arg_type::index>(base);
 	}
 
-	template<typename T_Arg> inline
-	typename T_Arg::type& t_arg_get(void)
+	//template<typename T_Arg> inline
+	//typename T_Arg::type& t_arg_get(void)
+	//{
+	//	typedef T_Arg t_arg_type;
+
+	//	base_type& base = *this;
+	//	return yggr::get<t_arg_type::index>(base);
+	//}
+
+	//template<typename T_Arg> inline
+	//const typename T_Arg::type& t_arg_get(void) const
+	//{
+	//	typedef T_Arg t_arg_type;
+
+	//	const base_type& base = *this;
+	//	return yggr::get<t_arg_type::index>(base);
+	//}
+
+	// sub_packet_info
+	template<std::size_t Pos, std::size_t Len> inline
+	typename sub_packet_info_t<this_type, Pos, Len>::type
+		sub_packet_info(void) const
 	{
-		typedef T_Arg t_arg_type;
-
-		base_type& base = *this;
-		return yggr::get<t_arg_type::index>(base);
-	}
-
-	template<typename T_Arg> inline
-	const typename T_Arg::type& t_arg_get(void) const
-	{
-		typedef T_Arg t_arg_type;
-
-		const base_type& base = *this;
-		return yggr::get<t_arg_type::index>(base);
+		typedef typename sub_packet_info_t<this_type, Pos, Len>::type ret_type;
+		return ret_type(tuple_ex::sub_tuple<Pos, Len>(static_cast<const base_type&>(*this)));
 	}
 
 public:
@@ -1148,6 +1205,13 @@ public:
 #	undef YGGR_PP_PACKET_INFO_NAME
 #	undef YGGR_PP_PACKET_INFO_TYPE_NAME
 
+	//sub_packet_info
+	template<size_type Pos, size_type Len, typename PakInfo> inline
+	static typename ::yggr::packet::sub_packet_info_t<PakInfo, Pos, Len>::type
+		sub_packet_info(const PakInfo& info)
+	{
+		return info.template sub_packet_info<Pos, Len>();
+	}
 };
 
 } // namespace packet
@@ -1187,4 +1251,4 @@ public:
 
 #define YGGR_PP_TYPENAME_PACKET_INFO_TO_PARAMS() YGGR_PP_TYPENAME_PACKET_INFO_TO_FOO_PARAMS_OP
 
-#endif // __YGGR_NETWORK_PACKET_INFO_VMACRO_HPP__
+#endif // __YGGR_PACKET_PACKET_INFO_VMACRO_HPP__

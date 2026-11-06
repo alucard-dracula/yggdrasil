@@ -15,7 +15,6 @@
 
 #include YGGR_PP_LINK_LIB(base)
 
-
 int get_eins(int n)
 {
 	return n + 1;
@@ -35,6 +34,21 @@ void out(void)
 {
 	std::cout << "abc" << std::endl;
 }
+
+struct mem_foo_t
+{
+public:
+	int nc_mfoo(int n, int m)
+	{
+		return n + m;
+	}
+
+	int mfoo(int n, int m) const
+	{
+		return n + m;
+	}
+
+};
 
 typedef yggr::handler_center::handler_center<std::string> handler_center_type;
 typedef yggr::ptr_single<handler_center_type> handler_center_ptr_signal_type;
@@ -56,9 +70,14 @@ void test_reg(void)
 	yggr_test_assert(!ptr->empty());
 
 
+	ptr->register_handler(YGGR_PP_HANDLER_NAME(mem_foo_t::nc_mfoo), boost::bind(&mem_foo_t::nc_mfoo, _1, _2, _3));
+	yggr_test_assert(5 == ptr->size());
+
+	ptr->register_handler(YGGR_PP_HANDLER_NAME(mem_foo_t::mfoo), &mem_foo_t::mfoo);
+	yggr_test_assert(6 == ptr->size());
+
 	std::cout << "test_reg end" << std::endl;
 }
-
 
 void test_call(void)
 {
@@ -106,6 +125,39 @@ void test_call(void)
 		bool b = ptr->call(yggr::const_args_anchor(YGGR_PP_HANDLER_NAME(get_drei)), boost::cref(n), boost::ref(m));
 		yggr_test_assert(b);
 		yggr_test_assert(m == 300);
+	}
+
+	// mfoo
+	{
+		mem_foo_t mem_foo_obj;
+		int arg1 = 10;
+		int arg2 = 30;
+		int result = 0;
+
+		bool b = ptr->call(
+			result,
+			yggr::const_args_anchor(YGGR_PP_HANDLER_NAME(mem_foo_t::nc_mfoo)), 
+			boost::ref(mem_foo_obj), arg1, arg2);
+
+		yggr_test_assert(b);
+		yggr_test_assert(result == 40);
+
+	}
+
+	{
+		mem_foo_t mem_foo_obj;
+		int arg1 = 10;
+		int arg2 = 30;
+		int result = 0;
+
+		bool b = ptr->call(
+			result,
+			yggr::const_args_anchor(YGGR_PP_HANDLER_NAME(mem_foo_t::mfoo)), 
+			boost::cref(mem_foo_obj), arg1, arg2);
+
+		yggr_test_assert(b);
+		yggr_test_assert(result == 40);
+
 	}
 
 	{
@@ -176,6 +228,8 @@ void test_A(void)
 	ptr->clear();
 	std::cout << "test_A end" << std::endl;
 }
+
+
 
 int main(int argc, char* argv[])
 {

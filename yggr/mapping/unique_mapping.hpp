@@ -430,7 +430,7 @@ public:
 
 #	define _YGGR_TMP_PP_TEP_SUB_OP( __n__, __val__) ( boost::cref( BOOST_PP_CAT(__val__, __n__) ) )
 
-#	define YGGR_PP_FOO_ARG_TYPE(__n__) BOOST_PP_CAT(typename TagMods, __n__ )::type
+#	define YGGR_PP_FOO_ARG_TYPE( __n__ ) BOOST_PP_CAT(typename TagMods, __n__ )::type
 
 #	define _YGGR_TMP_PP_TEP_VALUE() mod_key
 #	define YGGR_PP_FOO_ARG_NAME() mod_key

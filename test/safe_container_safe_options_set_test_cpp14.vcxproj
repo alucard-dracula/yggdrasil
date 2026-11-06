@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\safe_options_set_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{6EF9C933-9078-406F-8111-3DBC3EE2E370}</ProjectGuid>
+    <ProjectGuid>{B07042E9-0202-4947-84D2-1C9EDE236713}</ProjectGuid>
     <RootNamespace>safe_container_safe_options_set_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_safe_options_set_test</ProjectName>

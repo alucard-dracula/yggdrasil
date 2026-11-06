@@ -38,7 +38,7 @@
     <ClCompile Include="ids\id_generator_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{37CBF4E6-8368-4EA9-96C3-D3E153110263}</ProjectGuid>
+    <ProjectGuid>{D877FECA-8242-4751-92AC-6F117D43D571}</ProjectGuid>
     <RootNamespace>ids_id_generator_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>ids_id_generator_test</ProjectName>

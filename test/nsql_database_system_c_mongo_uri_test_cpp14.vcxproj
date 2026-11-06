@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_mongo_uri_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{07208E98-D3F6-478E-8E59-85C4585681CB}</ProjectGuid>
+    <ProjectGuid>{51FC6856-AED5-4551-A50F-AA6DB2185BE1}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_mongo_uri_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_mongo_uri_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\boost_multi_index_hashed_index_ha_opt_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{06B180BE-E0FD-4E07-8C12-09FF3B23753B}</ProjectGuid>
+    <ProjectGuid>{CE2AE4A4-E761-4641-8FCD-378A9913C78A}</ProjectGuid>
     <RootNamespace>safe_container_boost_multi_index_hashed_index_ha_opt_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_boost_multi_index_hashed_index_ha_opt_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\safe_unordered_map_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{799CFF7B-82A0-4E07-B5FE-FEDCE2AA508C}</ProjectGuid>
+    <ProjectGuid>{26DDF2C7-BB92-4B07-AAE5-8ED987922E8C}</ProjectGuid>
     <RootNamespace>safe_container_safe_unordered_map_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_safe_unordered_map_test</ProjectName>

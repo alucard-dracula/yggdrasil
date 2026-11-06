@@ -38,7 +38,7 @@
     <ClCompile Include="func\foo_t_info_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D6134862-F97C-4910-AC82-2250ECA30FE9}</ProjectGuid>
+    <ProjectGuid>{D85DE489-8949-41C0-80A6-2F74E17B5BE5}</ProjectGuid>
     <RootNamespace>func_foo_t_info_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>func_foo_t_info_test</ProjectName>

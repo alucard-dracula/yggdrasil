@@ -38,7 +38,7 @@
     <ClCompile Include="time\time_serialization_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E96230DD-086A-4A4B-B4C1-029871EEBDE8}</ProjectGuid>
+    <ProjectGuid>{92E1DF4C-BBAD-45CA-9BC5-1FC0CB89B619}</ProjectGuid>
     <RootNamespace>time_time_serialization_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>time_time_serialization_test</ProjectName>

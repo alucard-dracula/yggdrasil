@@ -38,7 +38,7 @@
     <ClCompile Include="charset\utf8_string_bson_pak_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{AC59945C-643C-4FF9-B751-BCC4D605A6D9}</ProjectGuid>
+    <ProjectGuid>{51E1AEA1-04B1-4623-9B88-8481BADD484A}</ProjectGuid>
     <RootNamespace>charset_utf8_string_bson_pak_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_utf8_string_bson_pak_test</ProjectName>

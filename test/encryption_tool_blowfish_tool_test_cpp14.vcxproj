@@ -38,7 +38,7 @@
     <ClCompile Include="encryption_tool\blowfish_tool_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{60C72C99-267A-4122-84E0-36D16D8A3DEB}</ProjectGuid>
+    <ProjectGuid>{647CA89F-7996-44F6-8577-A24F24928C0B}</ProjectGuid>
     <RootNamespace>encryption_tool_blowfish_tool_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>encryption_tool_blowfish_tool_test</ProjectName>

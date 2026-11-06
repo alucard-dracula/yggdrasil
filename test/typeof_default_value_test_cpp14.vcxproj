@@ -38,7 +38,7 @@
     <ClCompile Include="typeof\default_value_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{26894DCB-A569-4E79-88E3-81FE1021870D}</ProjectGuid>
+    <ProjectGuid>{A42C0283-E3AE-4CD9-9E3A-B6001BBE7162}</ProjectGuid>
     <RootNamespace>typeof_default_value_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>typeof_default_value_test</ProjectName>

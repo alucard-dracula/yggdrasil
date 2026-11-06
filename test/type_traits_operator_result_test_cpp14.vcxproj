@@ -38,7 +38,7 @@
     <ClCompile Include="type_traits\operator_result_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C94D1167-0256-46ED-9ADD-3E9FF16E8BF1}</ProjectGuid>
+    <ProjectGuid>{17077FDB-8BE7-4E6A-934A-F57783E1D4AC}</ProjectGuid>
     <RootNamespace>type_traits_operator_result_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>type_traits_operator_result_test</ProjectName>

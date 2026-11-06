@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\safe_multi_index_container_thread_safe_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0EAA8E94-105D-42E7-A2F5-E051FAF94720}</ProjectGuid>
+    <ProjectGuid>{F5AD5E31-A291-4F8D-B2DA-7B208274F3B4}</ProjectGuid>
     <RootNamespace>safe_container_safe_multi_index_container_thread_safe_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_safe_multi_index_container_thread_safe_test</ProjectName>

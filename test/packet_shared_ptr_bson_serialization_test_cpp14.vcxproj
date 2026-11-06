@@ -38,7 +38,7 @@
     <ClCompile Include="packet\shared_ptr_bson_serialization_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4E868DE9-453F-4A65-AA5B-8AA79D9E258D}</ProjectGuid>
+    <ProjectGuid>{65DC407F-9AF3-482C-849F-50A4269DFC2B}</ProjectGuid>
     <RootNamespace>packet_shared_ptr_bson_serialization_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>packet_shared_ptr_bson_serialization_test</ProjectName>

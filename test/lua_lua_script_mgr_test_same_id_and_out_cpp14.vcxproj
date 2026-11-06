@@ -38,7 +38,7 @@
     <ClCompile Include="lua\lua_script_mgr_test_same_id_and_out.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{6AC3F0CE-77C1-4978-A6C7-B3A40AC7EBDD}</ProjectGuid>
+    <ProjectGuid>{F5228417-CDC7-4D47-84CB-A168CD4BE606}</ProjectGuid>
     <RootNamespace>lua_lua_script_mgr_test_same_id_and_out</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>lua_lua_script_mgr_test_same_id_and_out</ProjectName>

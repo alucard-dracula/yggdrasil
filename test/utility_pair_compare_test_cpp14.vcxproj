@@ -38,7 +38,7 @@
     <ClCompile Include="utility\pair_compare_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FDA74AE3-7300-4932-B851-C652EEC80E30}</ProjectGuid>
+    <ProjectGuid>{4E72B5AC-A49C-4345-98C9-04A737C93D51}</ProjectGuid>
     <RootNamespace>utility_pair_compare_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>utility_pair_compare_test</ProjectName>

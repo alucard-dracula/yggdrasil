@@ -38,7 +38,7 @@
     <ClCompile Include="packet\serialize_file_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B9079D84-0015-45E2-A9BF-63009BB8B012}</ProjectGuid>
+    <ProjectGuid>{981D3D7C-E2CE-476F-99FD-552464099F8B}</ProjectGuid>
     <RootNamespace>packet_serialize_file_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>packet_serialize_file_test</ProjectName>

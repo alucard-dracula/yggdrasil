@@ -38,7 +38,7 @@
     <ClCompile Include="charset\charset_base_foo_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{CB3C1695-D482-48ED-B823-094AEB15579D}</ProjectGuid>
+    <ProjectGuid>{14902713-75C9-4B4F-B996-3842FD48BBA5}</ProjectGuid>
     <RootNamespace>charset_charset_base_foo_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_charset_base_foo_test</ProjectName>

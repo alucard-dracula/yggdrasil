@@ -38,7 +38,7 @@
     <ClCompile Include="charset\c_str_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{75CFDA68-EA0F-4ACE-8405-CA541D0943B5}</ProjectGuid>
+    <ProjectGuid>{11DE4ACE-EC6D-4094-A77B-9D7A2D68A1A2}</ProjectGuid>
     <RootNamespace>charset_c_str_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_c_str_test</ProjectName>

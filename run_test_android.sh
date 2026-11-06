@@ -19,6 +19,7 @@ source begin_test_env_android_termux.sh
 ./algorithm_knuth_morris_pratt_test --batch-test
 ./algorithm_lexicographical_c_compare_test --batch-test
 ./algorithm_random_shuffle_test --batch-test
+./algorithm_transform_test --batch-test
 ./any_val_any_bson_serialize_test --batch-test
 ./any_val_any_network_serialize_test --batch-test
 ./any_val_any_operator_mgr_basic_type_mix_test --batch-test
@@ -254,7 +255,6 @@ source begin_test_env_android_termux.sh
 ./math_vector_hash_test --batch-test
 ./memory_ex_allocator_traits_test --batch-test
 ./mplex_cast_to_container_test --batch-test
-./mplex_conv_to_tuple_test --batch-test
 ./mplex_get_reference_if_in_test --batch-test
 ./mplex_integer_log2_test --batch-test
 ./mplex_limits_test --batch-test
@@ -265,8 +265,8 @@ source begin_test_env_android_termux.sh
 ./mplex_reference_to_pointer_t_test --batch-test
 ./mplex_reference_to_value_t_test --batch-test
 ./mplex_strict_sizeof_test --batch-test
-./mplex_template_repaceor_test --batch-test
 ./mplex_typename_caster_test --batch-test
+./mplex_typename_repaceor_test --batch-test
 ./mplex_typename_swapper_test --batch-test
 ./network_asio_timer_test --batch-test
 ./network_base_network_packet_test --batch-test
@@ -447,7 +447,12 @@ source begin_test_env_android_termux.sh
 ./time_timer_mgr_seh_test --batch-test
 ./time_timer_mgr_test --batch-test
 ./time_timer_test --batch-test
+./tuple_conv_to_tuple_test --batch-test
 ./tuple_tuple_comparer_test --batch-test
+./tuple_tuple_in_unordered_container_test --batch-test
+./tuple_tuple_maker_test --batch-test
+./tuple_tuple_sub_tuple_test --batch-test
+./tuple_tuple_swap_test --batch-test
 ./tuple_tuple_test --batch-test
 ./tuple_yggr_tuple_in_boost_fusion_test --batch-test
 ./type_traits_bits_bytes_to_types_test --batch-test

@@ -38,7 +38,7 @@
     <ClCompile Include="packet\test_packet_info_caster.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{89EC6A0B-333A-4845-AB01-6D60A3B753CE}</ProjectGuid>
+    <ProjectGuid>{47CA1D5C-A8FD-408E-B9C8-B64A8209C353}</ProjectGuid>
     <RootNamespace>packet_test_packet_info_caster</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>packet_test_packet_info_caster</ProjectName>

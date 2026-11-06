@@ -38,7 +38,7 @@
     <ClCompile Include="mplex\reference_to_value_t_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{514AAB9E-C8B4-4CCE-8444-2B2F273CCDB7}</ProjectGuid>
+    <ProjectGuid>{47F9829E-7072-49CD-B5C7-8ACDA8265C6A}</ProjectGuid>
     <RootNamespace>mplex_reference_to_value_t_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>mplex_reference_to_value_t_test</ProjectName>

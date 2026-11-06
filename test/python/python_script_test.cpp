@@ -94,7 +94,7 @@ void exec_test(void)
 	std::cout << rst.i << std::endl;
 	assert(rst.i == 2);
 
-	struct failed_value_type {}; // Here GCC does not support type declarations inside functions; this declaration will cause SFINAE parsing errors.
+	//struct failed_value_type {}; // Here GCC does not support type declarations inside functions; this declaration will cause SFINAE parsing errors.
 
 	failed_value_type val;
 	try

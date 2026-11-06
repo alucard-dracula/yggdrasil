@@ -38,7 +38,7 @@
     <ClCompile Include="segment\segment_safe_stack_test_part1.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1EC3F245-F8F3-4370-80F1-F6DC2D8ADD92}</ProjectGuid>
+    <ProjectGuid>{65969DB4-9353-4E0E-991D-A1DD1AC7D7E2}</ProjectGuid>
     <RootNamespace>segment_segment_safe_stack_test_part1</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>segment_segment_safe_stack_test_part1</ProjectName>

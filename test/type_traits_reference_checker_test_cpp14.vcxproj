@@ -38,7 +38,7 @@
     <ClCompile Include="type_traits\reference_checker_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F94D9787-6E8A-4FC6-86BF-EC428F88DB16}</ProjectGuid>
+    <ProjectGuid>{48A4D54D-BD33-4FA9-98DA-2F43E5FD61AC}</ProjectGuid>
     <RootNamespace>type_traits_reference_checker_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>type_traits_reference_checker_test</ProjectName>

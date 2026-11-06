@@ -24,8 +24,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __YGGR_NETWORK_PACKET_HPP__
-#define __YGGR_NETWORK_PACKET_HPP__
+#ifndef __YGGR_PACKET_PACKET_HPP__
+#define __YGGR_PACKET_PACKET_HPP__
 
 #include <yggr/base/yggrdef.h>
 #include <yggr/move/move.hpp>
@@ -1168,4 +1168,4 @@ namespace boost
 	using ::yggr::packet::swap_support::swap;
 } // namespace boost
 
-#endif //__YGGR_NETWORK_PACKET_HPP__
+#endif //__YGGR_PACKET_PACKET_HPP__

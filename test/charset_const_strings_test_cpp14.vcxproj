@@ -38,7 +38,7 @@
     <ClCompile Include="charset\const_strings_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{57AA42E8-38CA-4C45-8567-3512E84AF214}</ProjectGuid>
+    <ProjectGuid>{D3EEDC52-AE8D-41EE-BED8-8266B60EBB80}</ProjectGuid>
     <RootNamespace>charset_const_strings_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_const_strings_test</ProjectName>

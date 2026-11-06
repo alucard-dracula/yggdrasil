@@ -28,6 +28,7 @@ THE SOFTWARE.
 #define __YGGR_MPLEX_IDENTITY_HPP__
 
 #include <yggr/type_traits/traits.hpp>
+#include <yggr/mplex/null_t.hpp>
 
 namespace yggr
 {
@@ -38,6 +39,15 @@ template<typename T>
 struct identity
 	: public type_traits::traits<T>
 {
+};
+
+struct identity_meta_foo
+{
+	template<typename T, typename Nil = null_type>
+	struct apply
+	{
+		typedef T type;
+	};
 };
 
 } // namespace mplex

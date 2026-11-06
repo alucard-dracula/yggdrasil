@@ -38,7 +38,7 @@
     <ClCompile Include="file_system\cross_test_boost_filesystem.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{48B3BF3D-A038-4483-BB41-0E4A75939E15}</ProjectGuid>
+    <ProjectGuid>{6CD04FC7-B0C5-4C49-BC93-00109704A9B8}</ProjectGuid>
     <RootNamespace>file_system_cross_test_boost_filesystem</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>file_system_cross_test_boost_filesystem</ProjectName>

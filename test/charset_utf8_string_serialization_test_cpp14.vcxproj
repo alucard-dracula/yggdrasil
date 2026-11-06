@@ -38,7 +38,7 @@
     <ClCompile Include="charset\utf8_string_serialization_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F9D665F5-EBA8-42EC-A093-EC16ED754A64}</ProjectGuid>
+    <ProjectGuid>{041669D9-B98D-4218-9B25-2ACB9FC3DB98}</ProjectGuid>
     <RootNamespace>charset_utf8_string_serialization_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_utf8_string_serialization_test</ProjectName>

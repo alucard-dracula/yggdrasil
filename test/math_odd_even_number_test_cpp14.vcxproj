@@ -38,7 +38,7 @@
     <ClCompile Include="math\odd_even_number_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A8EE026B-A52C-4FDD-B2D1-15869CFB4CEC}</ProjectGuid>
+    <ProjectGuid>{B1A2574D-6FE8-4EEA-93D5-90F894596828}</ProjectGuid>
     <RootNamespace>math_odd_even_number_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>math_odd_even_number_test</ProjectName>

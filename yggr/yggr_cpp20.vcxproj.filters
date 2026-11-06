@@ -640,6 +640,12 @@
     <Filter Include="Header Files\network\sender_checker">
       <UniqueIdentifier>{81f31270-8e73-4cb2-a8ae-9585c25c75d0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\caller\detail">
+      <UniqueIdentifier>{deb67de5-5488-43fe-b854-4a2a4d166f8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\tuple_ex\detail">
+      <UniqueIdentifier>{1b637bd3-30e6-468b-8cbd-a553b2319ec7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="network\balance_io_service.hpp">
@@ -1496,9 +1502,6 @@
     </ClInclude>
     <ClInclude Include="network\session_helper\tcp_connect_handler.hpp">
       <Filter>Header Files\network\session_helper</Filter>
-    </ClInclude>
-    <ClInclude Include="mplex\conv_to_tuple.hpp">
-      <Filter>Header Files\mplex</Filter>
     </ClInclude>
     <ClInclude Include="task_center\task_creator.hpp">
       <Filter>Header Files\task_center</Filter>
@@ -4449,12 +4452,6 @@
     <ClInclude Include="mplex\detail\typename_replaceor_vtpl.hpp">
       <Filter>Header Files\mplex\detail</Filter>
     </ClInclude>
-    <ClInclude Include="mplex\detail\conv_to_tuple_vmacro.hpp">
-      <Filter>Header Files\mplex\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="mplex\detail\conv_to_tuple_vtpl.hpp">
-      <Filter>Header Files\mplex\detail</Filter>
-    </ClInclude>
     <ClInclude Include="typeof\deduce_result.hpp">
       <Filter>Header Files\typeof</Filter>
     </ClInclude>
@@ -4568,15 +4565,6 @@
     </ClInclude>
     <ClInclude Include="packet\packet_info_caster.hpp">
       <Filter>Header Files\packet</Filter>
-    </ClInclude>
-    <ClInclude Include="packet\detail\detail_packet_info_caster.hpp">
-      <Filter>Header Files\packet\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="packet\detail\packet_info_vmacro.hpp">
-      <Filter>Header Files\packet\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="packet\detail\packet_info_vtpl.hpp">
-      <Filter>Header Files\packet\detail</Filter>
     </ClInclude>
     <ClInclude Include="type_traits\detail\integer_sequence.hpp">
       <Filter>Header Files\type_traits\detail</Filter>
@@ -8094,9 +8082,6 @@
     <ClInclude Include="type_traits\original_t.hpp">
       <Filter>Header Files\type_traits</Filter>
     </ClInclude>
-    <ClInclude Include="type_traits\detail\native_t_detail.hpp">
-      <Filter>Header Files\type_traits\detail</Filter>
-    </ClInclude>
     <ClInclude Include="type_traits\detail\original_t_detail.hpp">
       <Filter>Header Files\type_traits\detail</Filter>
     </ClInclude>
@@ -8558,6 +8543,60 @@
     </ClInclude>
     <ClInclude Include="handler_center\handler_container.hpp">
       <Filter>Header Files\handler_center</Filter>
+    </ClInclude>
+    <ClInclude Include="algorithm\transform.hpp">
+      <Filter>Header Files\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="caller\detail\caller_callable.hpp">
+      <Filter>Header Files\caller\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="tuple_ex\detail\tuple_comparer.hpp">
+      <Filter>Header Files\tuple_ex\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="tuple_ex\detail\tuple_hasher.hpp">
+      <Filter>Header Files\tuple_ex\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="tuple_ex\detail\tuple_substructure.hpp">
+      <Filter>Header Files\tuple_ex\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="tuple_ex\detail\tuple_swaper.hpp">
+      <Filter>Header Files\tuple_ex\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="tuple_ex\conv_to_tuple.hpp">
+      <Filter>Header Files\tuple_ex</Filter>
+    </ClInclude>
+    <ClInclude Include="tuple_ex\detail\conv_to_tuple_vmacro.hpp">
+      <Filter>Header Files\tuple_ex\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="tuple_ex\detail\conv_to_tuple_vtpl.hpp">
+      <Filter>Header Files\tuple_ex\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="tuple_ex\tuple_maker.hpp">
+      <Filter>Header Files\tuple_ex</Filter>
+    </ClInclude>
+    <ClInclude Include="type_traits\detail\native_t_impl.hpp">
+      <Filter>Header Files\type_traits\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="packet\detail\compatibility_nmpl_seq_size.hpp">
+      <Filter>Header Files\packet\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="packet\detail\packet_info_caster_impl_vmacro.hpp">
+      <Filter>Header Files\packet\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="packet\detail\packet_info_caster_impl_vtpl.hpp">
+      <Filter>Header Files\packet\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="packet\detail\packet_info_decl_vmacro.hpp">
+      <Filter>Header Files\packet\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="packet\detail\packet_info_decl_vtpl.hpp">
+      <Filter>Header Files\packet\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="packet\detail\packet_info_vmacro.hpp">
+      <Filter>Header Files\packet\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="packet\detail\packet_info_vtpl.hpp">
+      <Filter>Header Files\packet\detail</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

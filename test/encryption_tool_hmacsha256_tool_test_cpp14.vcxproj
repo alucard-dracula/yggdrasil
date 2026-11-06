@@ -38,7 +38,7 @@
     <ClCompile Include="encryption_tool\hmacsha256_tool_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1BB804AA-B9F5-4A29-A71F-15AFBBAF9B22}</ProjectGuid>
+    <ProjectGuid>{8C433083-BB9E-4C4F-9F2C-B285796D826A}</ProjectGuid>
     <RootNamespace>encryption_tool_hmacsha256_tool_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>encryption_tool_hmacsha256_tool_test</ProjectName>

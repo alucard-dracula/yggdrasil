@@ -39,9 +39,11 @@ namespace yggr
 {
 namespace type_traits
 {
+namespace detail
+{
 
 template<typename T>
-struct reference_trans
+struct reference_trans_impl
 	: public 
 		boost::mpl::if_
 		<
@@ -49,6 +51,14 @@ struct reference_trans
 			boost::reference_wrapper<typename boost::remove_reference<T>::type>,
 			T
 		>
+{
+};
+
+} // namespace detail
+
+template<typename T>
+struct reference_trans
+	: public detail::reference_trans_impl<T>
 {
 };
 

@@ -38,7 +38,7 @@
     <ClCompile Include="lua\wrap_pair_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5C3223D6-38E2-48C8-BCB9-0C32776B3478}</ProjectGuid>
+    <ProjectGuid>{0C5EF113-C729-4021-BD18-F2C155824394}</ProjectGuid>
     <RootNamespace>lua_wrap_pair_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>lua_wrap_pair_test</ProjectName>

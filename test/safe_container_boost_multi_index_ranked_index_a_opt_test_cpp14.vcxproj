@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\boost_multi_index_ranked_index_a_opt_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{250E4870-4D93-4540-AD18-2989F7DAD090}</ProjectGuid>
+    <ProjectGuid>{1579B9F2-7436-4C51-AFEC-EFEF01637801}</ProjectGuid>
     <RootNamespace>safe_container_boost_multi_index_ranked_index_a_opt_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_boost_multi_index_ranked_index_a_opt_test</ProjectName>

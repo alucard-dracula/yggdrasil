@@ -38,7 +38,7 @@
     <ClCompile Include="math\vector3d_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{23E80A82-F1F3-4F14-A12C-C1400E1E8AA9}</ProjectGuid>
+    <ProjectGuid>{8F298FDB-5A3F-4829-8285-5FF5F35DCDC7}</ProjectGuid>
     <RootNamespace>math_vector3d_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>math_vector3d_test</ProjectName>

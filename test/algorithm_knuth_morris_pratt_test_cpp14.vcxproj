@@ -38,7 +38,7 @@
     <ClCompile Include="algorithm\knuth_morris_pratt_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{AF3285E3-9D96-4F4F-B842-9719B84DDECF}</ProjectGuid>
+    <ProjectGuid>{303C1ED3-8C75-4167-90A7-A1F2E000B3A7}</ProjectGuid>
     <RootNamespace>algorithm_knuth_morris_pratt_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>algorithm_knuth_morris_pratt_test</ProjectName>

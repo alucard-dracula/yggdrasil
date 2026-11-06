@@ -38,7 +38,7 @@
     <ClCompile Include="ppex\has_member_check_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4F4A41C9-6FE4-411F-949E-81CBEF18B30E}</ProjectGuid>
+    <ProjectGuid>{1B7A0DAB-4901-4F9D-8BF1-F44F01AF3D6C}</ProjectGuid>
     <RootNamespace>ppex_has_member_check_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>ppex_has_member_check_test</ProjectName>

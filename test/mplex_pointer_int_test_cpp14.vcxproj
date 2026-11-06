@@ -38,7 +38,7 @@
     <ClCompile Include="mplex\pointer_int_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0A48FE58-5D23-4956-9E79-990A0CDAE500}</ProjectGuid>
+    <ProjectGuid>{F2724908-048D-4D58-9E3F-D17E6661F553}</ProjectGuid>
     <RootNamespace>mplex_pointer_int_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>mplex_pointer_int_test</ProjectName>

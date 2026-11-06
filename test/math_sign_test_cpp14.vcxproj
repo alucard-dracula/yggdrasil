@@ -38,7 +38,7 @@
     <ClCompile Include="math\sign_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{18BA6B6E-03D9-4159-8A2A-88377596BBD6}</ProjectGuid>
+    <ProjectGuid>{633DF672-3D07-42B2-9B22-A3A547562CC1}</ProjectGuid>
     <RootNamespace>math_sign_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>math_sign_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="type_traits\pointer_checker_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{12A7BFBA-8194-476A-A52F-B0EC2338A24F}</ProjectGuid>
+    <ProjectGuid>{DC19DB7C-C114-45FB-B299-EA4D9EE90BC5}</ProjectGuid>
     <RootNamespace>type_traits_pointer_checker_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>type_traits_pointer_checker_test</ProjectName>

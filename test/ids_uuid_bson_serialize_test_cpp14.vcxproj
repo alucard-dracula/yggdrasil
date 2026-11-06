@@ -38,7 +38,7 @@
     <ClCompile Include="ids\uuid_bson_serialize_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A54EEDAE-AB0F-4B38-9DFF-03AE92270C07}</ProjectGuid>
+    <ProjectGuid>{FC41C241-92DC-4B0B-A672-90F56D52ED9A}</ProjectGuid>
     <RootNamespace>ids_uuid_bson_serialize_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>ids_uuid_bson_serialize_test</ProjectName>

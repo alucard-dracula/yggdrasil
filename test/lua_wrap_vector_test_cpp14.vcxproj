@@ -38,7 +38,7 @@
     <ClCompile Include="lua\wrap_vector_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D5415064-13AA-4213-8287-FFB9785DC7D8}</ProjectGuid>
+    <ProjectGuid>{84C5BBB2-273C-41DF-A406-AF856E6B2473}</ProjectGuid>
     <RootNamespace>lua_wrap_vector_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>lua_wrap_vector_test</ProjectName>

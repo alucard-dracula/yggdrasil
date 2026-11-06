@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\boost_multi_index_random_access_index_a_opt_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{485B75E2-A280-49F1-9D80-229EAC271D6F}</ProjectGuid>
+    <ProjectGuid>{48FF6C18-DB81-49ED-8A31-62757E52B78A}</ProjectGuid>
     <RootNamespace>safe_container_boost_multi_index_random_access_index_a_opt_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_boost_multi_index_random_access_index_a_opt_test</ProjectName>

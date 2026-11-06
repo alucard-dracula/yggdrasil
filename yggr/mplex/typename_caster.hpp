@@ -78,14 +78,6 @@ struct typename_caster< Src<Args...> >
 
 #else
 
-//#define BOOST_PP_LOCAL_MACRO( __n__ ) \
-//	template<YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, typename T), \
-//			template<YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, typename _T)> class Src> \
-//	struct typename_caster< Src< YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, T) > > { \
-//		template< template< YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, typename _T) > class Dst, \
-//					 template<typename _T> class ArgChg = mplex::identity > \
-//		struct apply { typedef Dst<YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, T) > type; }; };
-
 #define BOOST_PP_LOCAL_MACRO( __n__ ) \
 	template<YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, typename T), \
 			template<YGGR_PP_TEMPLATE_PARAMS_TYPES(__n__, typename _T)> class Src> \

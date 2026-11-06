@@ -38,7 +38,7 @@
     <ClCompile Include="bytes\tuple_byte_size_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1597EE25-22D9-4E4F-91BA-E9F0725DC823}</ProjectGuid>
+    <ProjectGuid>{3FE42671-757C-4E0B-B547-BE70CC515389}</ProjectGuid>
     <RootNamespace>bytes_tuple_byte_size_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>bytes_tuple_byte_size_test</ProjectName>

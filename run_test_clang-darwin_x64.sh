@@ -23,6 +23,7 @@ cd ./test
 ../Release-x64/${var_clang_tag}/algorithm_knuth_morris_pratt_test --batch-test
 ../Release-x64/${var_clang_tag}/algorithm_lexicographical_c_compare_test --batch-test
 ../Release-x64/${var_clang_tag}/algorithm_random_shuffle_test --batch-test
+../Release-x64/${var_clang_tag}/algorithm_transform_test --batch-test
 ../Release-x64/${var_clang_tag}/any_val_any_bson_serialize_test --batch-test
 ../Release-x64/${var_clang_tag}/any_val_any_network_serialize_test --batch-test
 ../Release-x64/${var_clang_tag}/any_val_any_operator_mgr_basic_type_mix_test --batch-test
@@ -274,7 +275,6 @@ cd ./test
 ../Release-x64/${var_clang_tag}/math_vector_hash_test --batch-test
 ../Release-x64/${var_clang_tag}/memory_ex_allocator_traits_test --batch-test
 ../Release-x64/${var_clang_tag}/mplex_cast_to_container_test --batch-test
-../Release-x64/${var_clang_tag}/mplex_conv_to_tuple_test --batch-test
 ../Release-x64/${var_clang_tag}/mplex_get_reference_if_in_test --batch-test
 ../Release-x64/${var_clang_tag}/mplex_integer_log2_test --batch-test
 ../Release-x64/${var_clang_tag}/mplex_limits_test --batch-test
@@ -285,8 +285,8 @@ cd ./test
 ../Release-x64/${var_clang_tag}/mplex_reference_to_pointer_t_test --batch-test
 ../Release-x64/${var_clang_tag}/mplex_reference_to_value_t_test --batch-test
 ../Release-x64/${var_clang_tag}/mplex_strict_sizeof_test --batch-test
-../Release-x64/${var_clang_tag}/mplex_template_repaceor_test --batch-test
 ../Release-x64/${var_clang_tag}/mplex_typename_caster_test --batch-test
+../Release-x64/${var_clang_tag}/mplex_typename_repaceor_test --batch-test
 ../Release-x64/${var_clang_tag}/mplex_typename_swapper_test --batch-test
 ../Release-x64/${var_clang_tag}/network_asio_timer_test --batch-test
 ../Release-x64/${var_clang_tag}/network_base_network_packet_test --batch-test
@@ -575,7 +575,12 @@ cd ./test
 ../Release-x64/${var_clang_tag}/time_timer_mgr_seh_test --batch-test
 ../Release-x64/${var_clang_tag}/time_timer_mgr_test --batch-test
 ../Release-x64/${var_clang_tag}/time_timer_test --batch-test
+../Release-x64/${var_clang_tag}/tuple_conv_to_tuple_test --batch-test
 ../Release-x64/${var_clang_tag}/tuple_tuple_comparer_test --batch-test
+../Release-x64/${var_clang_tag}/tuple_tuple_in_unordered_container_test --batch-test
+../Release-x64/${var_clang_tag}/tuple_tuple_maker_test --batch-test
+../Release-x64/${var_clang_tag}/tuple_tuple_sub_tuple_test --batch-test
+../Release-x64/${var_clang_tag}/tuple_tuple_swap_test --batch-test
 ../Release-x64/${var_clang_tag}/tuple_tuple_test --batch-test
 ../Release-x64/${var_clang_tag}/tuple_yggr_tuple_in_boost_fusion_test --batch-test
 ../Release-x64/${var_clang_tag}/type_traits_bits_bytes_to_types_test --batch-test

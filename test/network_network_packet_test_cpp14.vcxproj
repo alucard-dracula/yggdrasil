@@ -38,7 +38,7 @@
     <ClCompile Include="network\network_packet_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3401AFFB-82EE-4DF2-B988-706866956C32}</ProjectGuid>
+    <ProjectGuid>{4637E04E-65FA-4671-B360-D6CA1F7488FD}</ProjectGuid>
     <RootNamespace>network_network_packet_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>network_network_packet_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="type_traits\has_functional_member_t_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{05E386DE-4CAD-47A4-84B8-ADB109017A46}</ProjectGuid>
+    <ProjectGuid>{B5F69B69-A307-4DED-8754-7647A2240E06}</ProjectGuid>
     <RootNamespace>type_traits_has_functional_member_t_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>type_traits_has_functional_member_t_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_mongo_server_api_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C08E71E8-3F60-419E-B12D-E9511E1B048D}</ProjectGuid>
+    <ProjectGuid>{3C0D8498-104B-4E15-BF33-9DCEBAA07F22}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_mongo_server_api_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_mongo_server_api_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="iterator_ex\advance_copy_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F64C2400-CFED-4176-AA32-C519B898EAF0}</ProjectGuid>
+    <ProjectGuid>{75732770-8E26-49B4-B79E-4DA541496591}</ProjectGuid>
     <RootNamespace>iterator_ex_advance_copy_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>iterator_ex_advance_copy_test</ProjectName>

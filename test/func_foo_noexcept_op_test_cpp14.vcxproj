@@ -38,7 +38,7 @@
     <ClCompile Include="func\foo_noexcept_op_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{27874C04-6B18-496B-AD48-1C15C9224B34}</ProjectGuid>
+    <ProjectGuid>{CEA97145-4D42-4424-BE60-734AF537D711}</ProjectGuid>
     <RootNamespace>func_foo_noexcept_op_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>func_foo_noexcept_op_test</ProjectName>

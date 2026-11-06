@@ -215,7 +215,7 @@ public:
 
 	this_type& operator=(const this_type& right)
 	{
-		if(this == &right) 
+		if(this == &right)
 		{
 			return *this;
 		}
@@ -233,7 +233,7 @@ public:
 
 	void swap(this_type& right)
 	{
-		if(this == &right) 
+		if(this == &right)
 		{
 			return;
 		}
@@ -542,7 +542,7 @@ class determinant< Val, 2, 2, Base >
 public:
 	YGGR_STATIC_CONSTANT(std::size_t, E_ROW_LENGTH = 2);
 	YGGR_STATIC_CONSTANT(std::size_t, E_COL_LENGTH = 2);
-	
+
 public:
 	typedef typename upper_signed<Val>::type val_type;
 	typedef Base<val_type, E_COL_LENGTH> row_type;
@@ -654,7 +654,7 @@ public:
 
 	this_type& operator=(const this_type& right)
 	{
-		if(this == &right) 
+		if(this == &right)
 		{
 			return *this;
 		}
@@ -672,7 +672,7 @@ public:
 
 	void swap(this_type& right)
 	{
-		if(this == &right) 
+		if(this == &right)
 		{
 			return;
 		}
@@ -686,11 +686,11 @@ public:
 	{
 		typedef flaw_comparer<val_type> cmper_type;
 
-		return 
-			cmper_type((*this)[0][0]) == right[0][0] 
-			&& cmper_type((*this)[0][1]) == (*this)[0][1] 
+		return
+			cmper_type((*this)[0][0]) == right[0][0]
+			&& cmper_type((*this)[0][1]) == (*this)[0][1]
 
-			&& cmper_type((*this)[1][0]) == (*this)[1][0] 
+			&& cmper_type((*this)[1][0]) == (*this)[1][0]
 			&& cmper_type((*this)[1][1]) == (*this)[1][1];
 	}
 
@@ -907,7 +907,7 @@ public:
 
 	this_type& operator=(const this_type& right)
 	{
-		if(this == &right) 
+		if(this == &right)
 		{
 			return *this;
 		}
@@ -925,7 +925,7 @@ public:
 
 	void swap(this_type& right)
 	{
-		if(this == &right) 
+		if(this == &right)
 		{
 			return;
 		}
@@ -939,16 +939,16 @@ public:
 	{
 		typedef flaw_comparer<val_type> cmper_type;
 
-		return 
-			cmper_type((*this)[0][0]) == right[0][0] 
-			&& cmper_type((*this)[0][1]) == (*this)[0][1] 
-			&& cmper_type((*this)[0][2]) == (*this)[0][2] 
+		return
+			cmper_type((*this)[0][0]) == right[0][0]
+			&& cmper_type((*this)[0][1]) == (*this)[0][1]
+			&& cmper_type((*this)[0][2]) == (*this)[0][2]
 
-			&& cmper_type((*this)[1][0]) == (*this)[1][0] 
+			&& cmper_type((*this)[1][0]) == (*this)[1][0]
 			&& cmper_type((*this)[1][1]) == (*this)[1][1]
 			&& cmper_type((*this)[1][2]) == (*this)[1][2]
-			
-			&& cmper_type((*this)[2][0]) == (*this)[2][0] 
+
+			&& cmper_type((*this)[2][0]) == (*this)[2][0]
 			&& cmper_type((*this)[2][1]) == (*this)[2][1]
 			&& cmper_type((*this)[2][2]) == (*this)[2][2];
 	}
@@ -985,7 +985,7 @@ public:
 
 		cmper_type cmper((*this)[0][0]);
 
-		return 
+		return
 			(cmper == val_type() && cmper == (*this)[0][1] && cmper == (*this)[0][2]
 				&& cmper == (*this)[1][0] && cmper == (*this)[1][1] && cmper == (*this)[1][2]
 				&& cmper == (*this)[2][0] && cmper == (*this)[2][1] && cmper == (*this)[2][2]);
@@ -1042,7 +1042,7 @@ public:
 public:
 	inline val_type det(void) const
 	{
-		return 
+		return
 			(*this)[0][0] * (*this)[1][1] * (*this)[2][2]
 			+ (*this)[0][1] * (*this)[1][2] * (*this)[2][0]
 			+ (*this)[0][2] * (*this)[1][0] * (*this)[2][1]
@@ -1194,7 +1194,7 @@ public:
 
 	this_type& operator=(const this_type& right)
 	{
-		if(this == &right) 
+		if(this == &right)
 		{
 			return *this;
 		}
@@ -1211,7 +1211,7 @@ public:
 
 	void swap(this_type& right)
 	{
-		if(this == &right) 
+		if(this == &right)
 		{
 			return;
 		}
@@ -1225,23 +1225,23 @@ public:
 	{
 		typedef flaw_comparer<val_type> cmper_type;
 
-		return 
-			cmper_type((*this)[0][0]) == right[0][0] 
-			&& cmper_type((*this)[0][1]) == (*this)[0][1] 
-			&& cmper_type((*this)[0][2]) == (*this)[0][2] 
-			&& cmper_type((*this)[0][3]) == (*this)[0][3] 
+		return
+			cmper_type((*this)[0][0]) == right[0][0]
+			&& cmper_type((*this)[0][1]) == (*this)[0][1]
+			&& cmper_type((*this)[0][2]) == (*this)[0][2]
+			&& cmper_type((*this)[0][3]) == (*this)[0][3]
 
-			&& cmper_type((*this)[1][0]) == (*this)[1][0] 
+			&& cmper_type((*this)[1][0]) == (*this)[1][0]
 			&& cmper_type((*this)[1][1]) == (*this)[1][1]
 			&& cmper_type((*this)[1][2]) == (*this)[1][2]
 			&& cmper_type((*this)[1][3]) == (*this)[1][3]
-			
-			&& cmper_type((*this)[2][0]) == (*this)[2][0] 
+
+			&& cmper_type((*this)[2][0]) == (*this)[2][0]
 			&& cmper_type((*this)[2][1]) == (*this)[2][1]
 			&& cmper_type((*this)[2][2]) == (*this)[2][2]
 			&& cmper_type((*this)[2][3]) == (*this)[2][3]
 
-			&& cmper_type((*this)[3][0]) == (*this)[3][0] 
+			&& cmper_type((*this)[3][0]) == (*this)[3][0]
 			&& cmper_type((*this)[3][1]) == (*this)[3][1]
 			&& cmper_type((*this)[3][2]) == (*this)[3][2]
 			&& cmper_type((*this)[3][3]) == (*this)[3][3];
@@ -1282,7 +1282,7 @@ public:
 
 		cmper_type cmper((*this)[0][0]);
 
-		return 
+		return
 			(cmper == val_type() && cmper == (*this)[0][1] && cmper == (*this)[0][2] && cmper == (*this)[0][3]
 				&& cmper == (*this)[1][0] && cmper == (*this)[1][1] && cmper == (*this)[1][2] && cmper == (*this)[1][3]
 				&& cmper == (*this)[2][0] && cmper == (*this)[2][1] && cmper == (*this)[2][2] && cmper == (*this)[2][3]
@@ -1356,7 +1356,7 @@ public:
 public:
 	inline val_type det(void) const
 	{
-		return	
+		return
 			(*this)[0][0] * (*this)[1][1] * (*this)[2][2] * (*this)[3][3] * sign_array_indexes<0, 4>::value
 			+ (*this)[0][1] * (*this)[1][2] * (*this)[2][3] * (*this)[3][0] * sign_array_indexes<1, 4>::value
 			+ (*this)[0][2] * (*this)[1][3] * (*this)[2][0] * (*this)[3][1] * sign_array_indexes<2, 4>::value
@@ -1399,7 +1399,7 @@ namespace yggr
 namespace math
 {
 
-template<typename ValL, typename ValR, 
+template<typename ValL, typename ValR,
 			std::size_t ROW, std::size_t COL,
 			template<typename _Val, std::size_t> class BaseL,
 			template<typename _Val, std::size_t> class BaseR> inline
@@ -1408,7 +1408,7 @@ bool operator==(const determinant<ValL, ROW, COL, BaseL>& l, const determinant<V
 	return l.equal_to(r);
 }
 
-template<typename ValL, typename ValR, 
+template<typename ValL, typename ValR,
 			std::size_t ROW, std::size_t COL,
 			template<typename _Val, std::size_t> class BaseL,
 			template<typename _Val, std::size_t> class BaseR> inline
@@ -1422,15 +1422,18 @@ bool operator!=(const determinant<ValL, ROW, COL, BaseL>& l, const determinant<V
 
 namespace yggr
 {
+namespace type_traits
+{
+
 template<typename Val, std::size_t ROW, std::size_t COL,
 			template <typename _Val, std::size_t>
 			class Base >
 struct upper_float< math::determinant<Val, ROW, COL, Base> >
 {
-	typedef typename 
+	typedef typename
 		math::determinant
 		<
-			typename upper_float< Val >::type, ROW, COL, Base 
+			typename upper_float< Val >::type, ROW, COL, Base
 		> type;
 };
 
@@ -1439,12 +1442,17 @@ template<typename Val, std::size_t ROW, std::size_t COL,
 			class Base >
 struct upper_signed< math::determinant<Val, ROW, COL, Base> >
 {
-	typedef typename 
+	typedef typename
 		math::determinant
 		<
-			typename upper_signed< Val >::type, ROW, COL, Base 
+			typename upper_signed< Val >::type, ROW, COL, Base
 		> type;
 };
+
+} // namespace type_traits
+
+using type_traits::upper_float;
+using type_traits::upper_signed;
 
 } // namespace yggr
 

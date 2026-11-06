@@ -38,7 +38,7 @@
     <ClCompile Include="utility\sao_buffer_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{67956F24-9650-4DC4-8F72-18BDA2C9E1A4}</ProjectGuid>
+    <ProjectGuid>{6BDD3728-3DE8-4716-BAA7-8AEA64F4C977}</ProjectGuid>
     <RootNamespace>utility_sao_buffer_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>utility_sao_buffer_test</ProjectName>

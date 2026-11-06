@@ -38,7 +38,7 @@
     <ClCompile Include="container\options_vector_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0F10CB1A-9119-44FB-8D18-79495DE1DF37}</ProjectGuid>
+    <ProjectGuid>{279114BA-A186-42AA-85B1-16C83204D165}</ProjectGuid>
     <RootNamespace>container_options_vector_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>container_options_vector_test</ProjectName>

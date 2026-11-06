@@ -38,7 +38,7 @@
     <ClCompile Include="container\vector_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F659768A-41F2-4A6F-9A06-AE9D9073498B}</ProjectGuid>
+    <ProjectGuid>{DD8A3A7E-3DE5-4348-9FAB-6A4B074D91FD}</ProjectGuid>
     <RootNamespace>container_vector_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>container_vector_test</ProjectName>

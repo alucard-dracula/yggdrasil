@@ -38,7 +38,7 @@
     <ClCompile Include="any_val\any_operator_mgr_performance_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{74C20F9B-9ABA-47F7-8459-35E4FD9E17E4}</ProjectGuid>
+    <ProjectGuid>{F3E7B5B3-7452-49F9-AE72-FEDD6AF9F645}</ProjectGuid>
     <RootNamespace>any_val_any_operator_mgr_performance_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>any_val_any_operator_mgr_performance_test</ProjectName>

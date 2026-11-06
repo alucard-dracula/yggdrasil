@@ -38,7 +38,7 @@
     <ClCompile Include="python\python_boost_python_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{116F76EE-243E-45B2-AFC0-AC1971DA6DD8}</ProjectGuid>
+    <ProjectGuid>{6DD75170-D783-45C7-870B-C1C75F73A68B}</ProjectGuid>
     <RootNamespace>python_python_boost_python_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>python_python_boost_python_test</ProjectName>

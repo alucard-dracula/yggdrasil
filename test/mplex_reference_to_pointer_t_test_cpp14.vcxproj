@@ -38,7 +38,7 @@
     <ClCompile Include="mplex\reference_to_pointer_t_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C2E76CAE-3F20-485E-83B7-1A5E914E189C}</ProjectGuid>
+    <ProjectGuid>{28B0CC1F-62C0-4F75-AEFD-BABCB7389F23}</ProjectGuid>
     <RootNamespace>mplex_reference_to_pointer_t_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>mplex_reference_to_pointer_t_test</ProjectName>

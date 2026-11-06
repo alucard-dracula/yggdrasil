@@ -38,7 +38,7 @@
     <ClCompile Include="compiler_link\test_msvc_macro.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E30292C5-7462-4794-90D4-2981B5268A8A}</ProjectGuid>
+    <ProjectGuid>{6F4D3DFA-BA7F-4D4C-AF3C-3D30167C9694}</ProjectGuid>
     <RootNamespace>compiler_link_test_msvc_macro</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>compiler_link_test_msvc_macro</ProjectName>

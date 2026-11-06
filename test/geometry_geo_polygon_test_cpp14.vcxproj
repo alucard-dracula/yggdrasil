@@ -38,7 +38,7 @@
     <ClCompile Include="geometry\geo_polygon_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{AE4D9E1A-14F4-4B8F-B2FF-CB820B2CCA61}</ProjectGuid>
+    <ProjectGuid>{56880F7C-889C-4555-803C-6F7619BC9312}</ProjectGuid>
     <RootNamespace>geometry_geo_polygon_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>geometry_geo_polygon_test</ProjectName>

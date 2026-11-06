@@ -38,7 +38,7 @@
     <ClCompile Include="caller\to_params_call_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{6E93394F-7AF5-4617-B2C7-14E65303DC0B}</ProjectGuid>
+    <ProjectGuid>{48AC92E6-D6EB-40C3-A102-373D49C9F9D7}</ProjectGuid>
     <RootNamespace>caller_to_params_call_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>caller_to_params_call_test</ProjectName>

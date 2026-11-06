@@ -38,7 +38,7 @@
     <ClCompile Include="func\functional_args_size_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{42DCE666-78DC-4FF1-BBD2-68A876FDB18D}</ProjectGuid>
+    <ProjectGuid>{B10BFB22-9D82-495D-831C-7EDD4C7649C9}</ProjectGuid>
     <RootNamespace>func_functional_args_size_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>func_functional_args_size_test</ProjectName>

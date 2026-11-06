@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_bson_basic_demo.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{6BEE001A-3299-4206-B9DF-FF7FEC90CCF2}</ProjectGuid>
+    <ProjectGuid>{BBC7FBC2-B4F9-49ED-AEE3-9215FC5DBA62}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_bson_basic_demo</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_bson_basic_demo</ProjectName>

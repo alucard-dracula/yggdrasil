@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_mongo_apm_callbacks_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{144DF3A6-8090-4458-9F56-E1794287979D}</ProjectGuid>
+    <ProjectGuid>{ECC5C082-BDED-4BC3-81B4-A290BCF2A35A}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_mongo_apm_callbacks_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_mongo_apm_callbacks_test</ProjectName>

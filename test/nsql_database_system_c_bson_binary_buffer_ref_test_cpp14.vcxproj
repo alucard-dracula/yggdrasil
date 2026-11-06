@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_bson_binary_buffer_ref_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3BEBAAE2-0503-4092-AD02-A2721AE162DF}</ProjectGuid>
+    <ProjectGuid>{45A90F4E-173B-4578-B051-9323DDD2A468}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_bson_binary_buffer_ref_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_bson_binary_buffer_ref_test</ProjectName>

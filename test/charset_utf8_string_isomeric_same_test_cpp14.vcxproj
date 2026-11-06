@@ -38,7 +38,7 @@
     <ClCompile Include="charset\utf8_string_isomeric_same_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{402C79C6-0D18-49AC-A33C-9379692D87AA}</ProjectGuid>
+    <ProjectGuid>{A2873FD1-C942-4FE6-A787-3DA0F24270BE}</ProjectGuid>
     <RootNamespace>charset_utf8_string_isomeric_same_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_utf8_string_isomeric_same_test</ProjectName>

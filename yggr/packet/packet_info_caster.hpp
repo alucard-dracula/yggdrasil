@@ -27,16 +27,20 @@ THE SOFTWARE.
 #ifndef __YGGR_PACKET_PACKET_INFO_CASTER_HPP__
 #define __YGGR_PACKET_PACKET_INFO_CASTER_HPP__
 
-#include <yggr/packet/detail/detail_packet_info_caster.hpp>
+#if !defined(YGGR_NO_CXX11_VARIADIC_TEMPLATES)
+#	include <yggr/packet/detail/packet_info_caster_impl_vtpl.hpp>
+#else
+#	include <yggr/packet/detail/packet_info_caster_impl_vmacro.hpp>
+#endif // YGGR_NO_CXX11_VARIADIC_TEMPLATES
 
 namespace yggr
 {
 namespace packet
 {
 
-template<typename T>
+template<typename T, typename Trans = mplex::identity_meta_foo >
 struct packet_info_caster
-	: public detail::detail_packet_info_caster<T>
+	: public detail::packet_info_caster_impl<T, Trans>
 {
 };
 

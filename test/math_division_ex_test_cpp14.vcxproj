@@ -38,7 +38,7 @@
     <ClCompile Include="math\division_ex_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{138703E5-BAC0-4E1E-8654-90AFE9C5F0F6}</ProjectGuid>
+    <ProjectGuid>{7F4DF775-9DC0-4141-A389-074FCFDA1785}</ProjectGuid>
     <RootNamespace>math_division_ex_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>math_division_ex_test</ProjectName>

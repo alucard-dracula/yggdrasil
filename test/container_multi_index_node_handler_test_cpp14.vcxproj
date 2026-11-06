@@ -38,7 +38,7 @@
     <ClCompile Include="container\multi_index_node_handler_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{51B8E9ED-25D7-4954-98B7-9829272453C9}</ProjectGuid>
+    <ProjectGuid>{76717610-82DE-4152-8EA9-90CE15BCD2DE}</ProjectGuid>
     <RootNamespace>container_multi_index_node_handler_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>container_multi_index_node_handler_test</ProjectName>

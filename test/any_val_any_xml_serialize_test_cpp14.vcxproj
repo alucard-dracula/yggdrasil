@@ -38,7 +38,7 @@
     <ClCompile Include="any_val\any_xml_serialize_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{CBBAE24C-A7E2-4B77-BC73-CA96AE59C56C}</ProjectGuid>
+    <ProjectGuid>{F82FB5C7-1F5E-40DA-8FF3-4A9F023384E8}</ProjectGuid>
     <RootNamespace>any_val_any_xml_serialize_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>any_val_any_xml_serialize_test</ProjectName>

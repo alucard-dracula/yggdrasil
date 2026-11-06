@@ -38,7 +38,7 @@
     <ClCompile Include="utility\args_holder_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E3396293-9271-4381-B93F-42DEA7408A90}</ProjectGuid>
+    <ProjectGuid>{15EAC30F-C47F-4F68-BB32-0211ED85A6CE}</ProjectGuid>
     <RootNamespace>utility_args_holder_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>utility_args_holder_test</ProjectName>

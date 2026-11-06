@@ -38,7 +38,7 @@
     <ClCompile Include="base\char16_32_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0EDA93A7-EACF-452D-B3FF-59809144AF08}</ProjectGuid>
+    <ProjectGuid>{CAFE3FF0-3FFB-4A89-91CA-CF5EAB27838D}</ProjectGuid>
     <RootNamespace>base_char16_32_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>base_char16_32_test</ProjectName>

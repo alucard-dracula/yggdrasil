@@ -38,7 +38,7 @@
     <ClCompile Include="packet\binary_file_archive_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C88E58E7-E2A3-46C5-88EF-BAECED222FCD}</ProjectGuid>
+    <ProjectGuid>{2A42299E-1FEC-4B1E-B136-45AAED197E67}</ProjectGuid>
     <RootNamespace>packet_binary_file_archive_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>packet_binary_file_archive_test</ProjectName>

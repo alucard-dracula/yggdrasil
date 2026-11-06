@@ -38,7 +38,7 @@
     <ClCompile Include="charset\utf8_string_boyer_moore_horspool_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C4557C48-7F55-4549-B7FB-8C96F0560C55}</ProjectGuid>
+    <ProjectGuid>{ECE55080-C3D0-4832-99B1-FC62B13C150B}</ProjectGuid>
     <RootNamespace>charset_utf8_string_boyer_moore_horspool_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_utf8_string_boyer_moore_horspool_test</ProjectName>

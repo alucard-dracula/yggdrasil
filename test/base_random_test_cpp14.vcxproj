@@ -38,7 +38,7 @@
     <ClCompile Include="base\random_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5B671E79-9551-47BE-8CF5-D7D5F5BADE7B}</ProjectGuid>
+    <ProjectGuid>{664FBBEC-4EBB-40BB-B4EF-7EAE7974300A}</ProjectGuid>
     <RootNamespace>base_random_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>base_random_test</ProjectName>

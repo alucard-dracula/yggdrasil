@@ -38,7 +38,7 @@
     <ClCompile Include="safe_container\safe_options_multimap_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F75AC4DD-4580-4BB8-B7FD-8859B31F3598}</ProjectGuid>
+    <ProjectGuid>{44472935-8A73-4849-8EF4-8DB2C5D90AD7}</ProjectGuid>
     <RootNamespace>safe_container_safe_options_multimap_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>safe_container_safe_options_multimap_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="container\umap_node_handler_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BF77459E-2694-42BA-8E89-EBD720B5D79C}</ProjectGuid>
+    <ProjectGuid>{ADA834EA-E0A8-41DB-918B-6C823B65FA74}</ProjectGuid>
     <RootNamespace>container_umap_node_handler_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>container_umap_node_handler_test</ProjectName>

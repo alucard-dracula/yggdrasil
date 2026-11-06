@@ -38,7 +38,7 @@
     <ClCompile Include="type_traits\has_operator_pointer_member_access_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DD508F1B-3CD4-49CC-B142-1A0239FFA8DB}</ProjectGuid>
+    <ProjectGuid>{ADC7859B-DB50-44BA-94E6-949E6BC74194}</ProjectGuid>
     <RootNamespace>type_traits_has_operator_pointer_member_access_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>type_traits_has_operator_pointer_member_access_test</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="packet\polymiorphism_serialization.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E2F6C019-E559-405B-B93B-330AAF57287D}</ProjectGuid>
+    <ProjectGuid>{F3CA2A3E-3AAF-4F6B-AD04-9D2BF81488F3}</ProjectGuid>
     <RootNamespace>packet_polymiorphism_serialization</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>packet_polymiorphism_serialization</ProjectName>

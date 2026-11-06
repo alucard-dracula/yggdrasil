@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_bson_value_test2.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{AB8A2102-3CE7-4596-A123-51B3A067B36D}</ProjectGuid>
+    <ProjectGuid>{CBE38AAE-EF1F-4703-8E02-AD1FE3F7482D}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_bson_value_test2</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_bson_value_test2</ProjectName>

@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_bson_decimal128_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E05AA4D1-B3BB-4891-9568-C5C2B811BC98}</ProjectGuid>
+    <ProjectGuid>{645D1BBA-7800-47E5-9DAF-3C4F3D15CAB6}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_bson_decimal128_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_bson_decimal128_test</ProjectName>

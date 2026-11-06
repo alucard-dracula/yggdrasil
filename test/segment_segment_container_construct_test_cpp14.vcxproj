@@ -38,7 +38,7 @@
     <ClCompile Include="segment\segment_container_construct_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1EE995B5-AE42-49A6-8BE8-292B75946FAA}</ProjectGuid>
+    <ProjectGuid>{BFED2455-7707-4DBC-9D0F-7F08A7FB49B9}</ProjectGuid>
     <RootNamespace>segment_segment_container_construct_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>segment_segment_container_construct_test</ProjectName>

@@ -19,7 +19,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="python\python_script_mgr_test.cpp">
+    <ClCompile Include="packet\test_packet_info_caster.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

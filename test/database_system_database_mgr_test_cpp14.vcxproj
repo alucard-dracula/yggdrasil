@@ -38,7 +38,7 @@
     <ClCompile Include="database_system\database_mgr_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{27841B88-04E9-4C29-9D69-0A06A9A36C4B}</ProjectGuid>
+    <ProjectGuid>{EFD12EDE-3A38-4E01-AB21-8AA130F0DAAF}</ProjectGuid>
     <RootNamespace>database_system_database_mgr_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>database_system_database_mgr_test</ProjectName>

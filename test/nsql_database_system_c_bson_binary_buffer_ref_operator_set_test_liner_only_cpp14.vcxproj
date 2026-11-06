@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_bson_binary_buffer_ref_operator_set_test_liner_only.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{921F02C0-A395-4855-AB49-34C0F7016CC3}</ProjectGuid>
+    <ProjectGuid>{458C201D-4FDA-4A85-BA5E-4773066B0E4F}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_liner_only</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_bson_binary_buffer_ref_operator_set_test_liner_only</ProjectName>

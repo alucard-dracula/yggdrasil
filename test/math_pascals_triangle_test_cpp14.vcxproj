@@ -38,7 +38,7 @@
     <ClCompile Include="math\pascals_triangle_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{21DF0157-F814-4A16-BD39-BC4B7231EF73}</ProjectGuid>
+    <ProjectGuid>{13839F5A-A956-422D-BF47-CB37BE558BE9}</ProjectGuid>
     <RootNamespace>math_pascals_triangle_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>math_pascals_triangle_test</ProjectName>

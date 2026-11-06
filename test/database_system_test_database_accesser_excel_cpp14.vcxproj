@@ -38,7 +38,7 @@
     <ClCompile Include="database_system\test_database_accesser_excel.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{ED00E002-BC9D-4EB3-A5E3-60A4F2895360}</ProjectGuid>
+    <ProjectGuid>{DEE71765-AE0E-4F41-AA4D-46E69645EF72}</ProjectGuid>
     <RootNamespace>database_system_test_database_accesser_excel</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>database_system_test_database_accesser_excel</ProjectName>

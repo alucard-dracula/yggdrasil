@@ -38,7 +38,7 @@
     <ClCompile Include="file_system\path_check_test_part2.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5FF367B6-9A20-4E6A-89E5-AFA8065BD122}</ProjectGuid>
+    <ProjectGuid>{5E6F9135-7011-4EB1-AA60-FB17CA3CA859}</ProjectGuid>
     <RootNamespace>file_system_path_check_test_part2</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>file_system_path_check_test_part2</ProjectName>

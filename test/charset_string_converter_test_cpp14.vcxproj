@@ -38,7 +38,7 @@
     <ClCompile Include="charset\string_converter_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{8617CB38-E822-4DC5-B1EA-1FAC6E59361F}</ProjectGuid>
+    <ProjectGuid>{1261BC98-1966-42FB-86E8-C44867360F40}</ProjectGuid>
     <RootNamespace>charset_string_converter_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>charset_string_converter_test</ProjectName>

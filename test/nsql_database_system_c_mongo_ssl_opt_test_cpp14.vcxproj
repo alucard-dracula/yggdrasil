@@ -38,7 +38,7 @@
     <ClCompile Include="nsql_database_system\c_mongo_ssl_opt_test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{AC23CBB1-FE3D-41EB-9DE7-8C8EDB3FF207}</ProjectGuid>
+    <ProjectGuid>{4522E968-C934-4326-9233-44438634A9B3}</ProjectGuid>
     <RootNamespace>nsql_database_system_c_mongo_ssl_opt_test</RootNamespace>
     <TrackFileAccess>false</TrackFileAccess>
     <ProjectName>nsql_database_system_c_mongo_ssl_opt_test</ProjectName>
